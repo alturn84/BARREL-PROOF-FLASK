@@ -243,14 +243,7 @@ nav.main-nav{animation:fadeUp .5s .08s ease both;}
         </div>
 
         <p class="gc-body">
-          {% if game.winner == "away" %}
-            {{ game.away_city }} came away with a {{ game.away_runs }}-{{ game.home_runs }} win over {{ game.home_city }}.
-          {% elif game.winner == "home" %}
-            {{ game.home_city }} came away with a {{ game.home_runs }}-{{ game.away_runs }} win over {{ game.away_city }}.
-          {% else %}
-            {{ game.away_city }} and {{ game.home_city }} finished with {{ game.away_runs }} and {{ game.home_runs }} runs.
-          {% endif %}
-          The game is loaded into Barrel Proof's daily newspaper-style box score feed.
+          {{ game.summary }}
         </p>
 
         <a class="gc-readmore">Full Box Score →</a>
