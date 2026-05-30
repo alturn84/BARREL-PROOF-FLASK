@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Barrel Proof Baseball — Raw. Unfiltered. Baseball. Enjoy Responsibly.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Playfair+Display+SC:wght@400;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ink:#1A1108;--ink-soft:#221808;--parchment:#F0E6CC;--parchment2:#D8C9A8;
+  --cream:#EDE5D0;--cream-dim:#887C60;--cream-mid:#C8BC98;--smoke:#7A6A52;
+  --smoke-light:#A89070;--leather:#4E3A20;--rule:rgba(136,124,96,.25);
+  --rule-heavy:rgba(136,124,96,.65);--serif-display:'Playfair Display',Georgia,serif;
+  --serif-sc:'Playfair Display SC',Georgia,serif;--serif-body:'Source Serif 4',Georgia,serif;
+  --mono:'IBM Plex Mono','Courier New',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:16px;}
+body{background:var(--ink);color:var(--parchment);font-family:var(--serif-body);line-height:1.6;min-height:100vh;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");opacity:0.55;}
+.page{position:relative;z-index:1;max-width:1280px;margin:0 auto;padding:0 48px 60px;}
+.content-layout{display:grid;grid-template-columns:160px 1fr 210px;gap:0 36px;align-items:start;}
+.rail-left{padding-top:18px;position:sticky;top:20px;}
+.rail-section{margin-bottom:28px;}
+.rail-hdr{font-family:var(--serif-sc);font-size:9px;letter-spacing:.22em;color:var(--cream);padding-bottom:5px;border-bottom:1px solid var(--cream-dim);margin-bottom:0;text-transform:uppercase;}
+.rail-division{margin-top:10px;margin-bottom:14px;}
+.rail-div-name{font-family:var(--mono);font-size:8px;letter-spacing:.14em;color:var(--smoke);text-transform:uppercase;padding:4px 0 3px;border-bottom:.5px solid var(--rule);margin-bottom:0;}
+.standing-row{display:flex;justify-content:space-between;align-items:baseline;padding:2px 0;border-bottom:.5px solid var(--rule);}
+.standing-row:last-child{border-bottom:none;}
+.st-team{font-family:var(--mono);font-size:9.5px;color:var(--parchment2);letter-spacing:.02em;}
+.st-team.lead{color:var(--cream);font-weight:500;}
+.st-record{font-family:var(--mono);font-size:9px;color:var(--smoke);letter-spacing:.02em;}
+.rail-right{padding-top:18px;position:sticky;top:20px;}
+.slate-game{padding:10px 0;border-bottom:.5px solid var(--rule);}
+.slate-game:last-child{border-bottom:none;}
+.slate-matchup{font-family:var(--serif-sc);font-size:10.5px;letter-spacing:.07em;color:var(--parchment);margin-bottom:3px;}
+.slate-matchup .away{color:var(--parchment2);}
+.slate-matchup .vs{color:var(--smoke);font-size:9px;margin:0 3px;}
+.slate-time{font-family:var(--mono);font-size:9px;color:var(--smoke);letter-spacing:.05em;margin-bottom:5px;}
+.slate-pitchers{font-family:var(--mono);font-size:9px;color:var(--smoke);line-height:1.6;letter-spacing:.02em;}
+.slate-pitchers span{color:var(--parchment2);}
+@media(max-width:1100px){.content-layout{grid-template-columns:1fr;}.rail-left,.rail-right{display:none;}}
+.ticker-bar{background:var(--leather);border-bottom:1px solid var(--cream-dim);padding:6px 0;overflow:hidden;}
+.ticker-inner{display:flex;align-items:center;white-space:nowrap;animation:ticker 60s linear infinite;}
+.ticker-inner:hover{animation-play-state:paused;}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.ticker-item{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--parchment2);padding:0 28px;display:inline-flex;align-items:center;gap:10px;}
+.ticker-item .winner{color:var(--cream);font-weight:500;}
+.ticker-item .div{color:var(--cream-dim);opacity:.6;}
+.masthead{padding:32px 0 0;border-bottom:2px solid var(--cream-dim);}
+.masthead-top{display:flex;justify-content:center;padding-bottom:8px;}
+.site-name{font-family:'Perpetua Titling MT','Perpetua','Book Antiqua','Palatino Linotype',Palatino,Georgia,serif;font-size:clamp(34px,5vw,64px);font-weight:400;letter-spacing:.18em;color:var(--parchment);line-height:1;text-align:center;text-transform:uppercase;white-space:nowrap;}
+.site-name span{color:var(--cream);}
+.tagline-bar{text-align:center;padding:8px 0 14px;border-top:.5px solid var(--rule);margin-top:6px;}
+.tagline-line{font-family:var(--serif-sc);font-size:18px;letter-spacing:.2em;color:var(--smoke-light);line-height:1.8;}
+.tagline-sub{font-size:15px;letter-spacing:.24em;color:var(--cream-dim);}
+nav.main-nav{display:flex;align-items:center;border-bottom:1px solid var(--rule-heavy);}
+.nav-barrel-btn{flex-shrink:0;width:52px;height:48px;cursor:pointer;border-right:.5px solid var(--rule-heavy);background:var(--ink) url('https://i.postimg.cc/pTNWxjb5/barrel-tab-logo-removebg-preview.png') center/40px auto no-repeat;transition:opacity .2s;}
+.nav-barrel-btn:hover{opacity:.75;}
+.nav-items-wrap{display:flex;align-items:center;overflow:hidden;max-width:0;transition:max-width .45s cubic-bezier(.4,0,.2,1);white-space:nowrap;}
+.nav-items-wrap.open{max-width:1400px;}
+.nav-item{font-family:var(--serif-sc);font-size:15px;letter-spacing:.14em;color:var(--smoke-light);padding:12px 18px;position:relative;cursor:pointer;transition:color .2s;white-space:nowrap;display:inline-block;}
+.nav-item:hover,.nav-item.active{color:var(--parchment);}
+.nav-item.active::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:2px;background:var(--cream);}
+.nav-item:not(:last-child)::before{content:'·';position:absolute;right:-2px;color:var(--rule-heavy);}
+.date-banner{display:flex;align-items:center;gap:16px;padding:13px 0 11px;border-bottom:2px solid var(--cream-dim);}
+.date-banner-line{flex:1;height:.5px;background:var(--rule);}
+.date-banner-text{font-family:var(--serif-sc);font-size:14px;letter-spacing:.16em;color:var(--smoke);white-space:nowrap;}
+.section-hdr{display:flex;align-items:baseline;gap:14px;padding:13px 0 9px;border-bottom:.5px solid var(--rule);}
+.section-title{font-family:var(--serif-sc);font-size:10px;letter-spacing:.22em;color:var(--cream);white-space:nowrap;}
+.section-rule{flex:1;height:.5px;background:var(--rule);}
+.games-list{display:flex;flex-direction:column;}
+.game-card{display:grid;grid-template-columns:1fr 1fr;gap:0;border-bottom:1px solid var(--rule-heavy);align-items:start;}
+.gc-left{padding:18px 28px 18px 0;border-right:1px solid var(--rule-heavy);display:flex;flex-direction:column;}
+.gc-kicker{font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--cream-dim);text-transform:uppercase;margin-bottom:5px;}
+.gc-headline{font-family:var(--serif-display);font-size:clamp(16px,1.6vw,20px);font-weight:700;line-height:1.18;color:var(--parchment);margin-bottom:6px;}
+.gc-score{font-family:var(--serif-sc);font-size:11px;letter-spacing:.08em;color:var(--cream-mid);margin-bottom:9px;}
+.gc-body{font-family:var(--serif-body);font-size:13px;line-height:1.72;color:var(--parchment2);font-weight:300;}
+.gc-readmore{display:inline-block;margin-top:9px;font-family:var(--mono);font-size:9.5px;color:var(--cream-dim);letter-spacing:.08em;cursor:pointer;}
+.gc-readmore:hover{color:var(--cream);}
+.gc-right{padding:18px 0 18px 28px;}
+.bx-meta{font-family:var(--mono);font-size:9px;color:var(--smoke);letter-spacing:.04em;margin-bottom:6px;line-height:1.5;}
+.bx-meta b{color:var(--parchment2);font-weight:500;}
+.bx-line-wrap{overflow-x:auto;margin-bottom:8px;}
+.bx-line{border-collapse:collapse;font-family:var(--mono);font-size:10.5px;white-space:nowrap;width:100%;}
+.bx-line thead th{font-weight:400;font-size:8.5px;letter-spacing:.09em;color:var(--smoke);text-align:center;padding:0 3px 3px;border-bottom:1px solid var(--rule-heavy);}
+.bx-line thead th.tn{text-align:left;padding-left:0;min-width:52px;}
+.bx-line thead th.sep{border-left:1px solid var(--rule-heavy);}
+.bx-line tbody td{text-align:center;padding:3px;color:var(--smoke);font-size:10px;}
+.bx-line tbody td.tn{text-align:left;padding-left:0;font-family:var(--serif-sc);font-size:10.5px;letter-spacing:.07em;color:var(--parchment2);}
+.bx-line tbody td.sep{border-left:1px solid var(--rule-heavy);}
+.bx-line tbody tr.w td{color:var(--parchment);}
+.bx-line tbody tr.w td.tn{color:var(--cream);}
+.bx-line tbody tr.w td.sep{font-weight:700;}
+.bx-dual{display:grid;grid-template-columns:1fr 1fr;gap:0 10px;}
+.bx-team-name{font-family:var(--serif-sc);font-size:9.5px;letter-spacing:.14em;color:var(--cream);padding:5px 0 3px;border-bottom:1px solid var(--cream-dim);}
+.bx-player-table{border-collapse:collapse;width:100%;font-family:var(--mono);font-size:9.5px;white-space:nowrap;}
+.bx-player-table thead th{font-weight:400;font-size:8px;letter-spacing:.07em;color:var(--smoke);text-align:right;padding:2px 3px 3px;border-bottom:1px solid var(--rule-heavy);}
+.bx-player-table thead th.pn{text-align:left;padding-left:0;}
+.bx-player-table tbody td{text-align:right;padding:2px 3px;color:var(--smoke);line-height:1.35;}
+.bx-player-table tbody td.pn{text-align:left;padding-left:0;color:var(--parchment2);}
+.bx-player-table tbody tr.totals-row td{color:var(--parchment);font-weight:500;padding-top:4px;padding-bottom:4px;border-top:1px solid var(--cream-dim);border-bottom:1px solid var(--cream-dim);}
+.bx-player-table tbody tr.totals-row td.pn{color:var(--cream);overflow:visible;white-space:nowrap;}
+.bx-player-table tbody tr.totals-row td.tot{color:var(--parchment);}
+.bx-player-table tbody tr.pitch-hdr td{font-weight:400;font-size:8px;letter-spacing:.07em;color:var(--smoke);text-align:right;padding:6px 3px 3px;border-bottom:1px solid var(--rule-heavy);}
+.bx-player-table tbody tr.pitch-hdr td.pn{text-align:left;padding-left:0;font-family:var(--serif-sc);font-size:8.5px;letter-spacing:.12em;color:var(--cream-dim);}
+.bx-player-table tbody tr.pitcher-row td{color:var(--smoke-light);padding:2px 3px;text-align:right;}
+.bx-player-table tbody tr.pitcher-row td.pn{text-align:left;padding-left:0;color:var(--cream-mid);}
+.bx-player-table tbody tr.wp td.pn{color:var(--cream);font-weight:500;}
+.bx-divider{height:.5px;background:var(--rule);margin:6px 0;}
+footer{border-top:.5px solid var(--rule-heavy);margin-top:48px;padding:24px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer-name{font-family:var(--serif-sc);font-size:18px;color:var(--cream-dim);letter-spacing:.1em;}
+.footer-tag{font-family:var(--mono);font-size:10px;color:var(--smoke);letter-spacing:.12em;text-align:center;}
+.footer-legal{font-family:var(--mono);font-size:9.5px;color:var(--smoke);opacity:.7;text-align:right;line-height:1.7;}
+@media(max-width:900px){.game-card{grid-template-columns:1fr;}.gc-left{padding-right:0;border-right:none;border-bottom:1px solid var(--rule-heavy);padding-bottom:16px;}.gc-right{padding-left:0;padding-top:16px;}}
+@media(max-width:540px){.page{padding:0 14px 40px;}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.masthead{animation:fadeUp .5s ease both;}
+nav.main-nav{animation:fadeUp .5s .08s ease both;}
+.games-list{animation:fadeUp .5s .16s ease both;}
+</style>
+</head>
+<body>
+
+<div class="ticker-bar"><div class="ticker-inner">
+  <span class="ticker-item"><span class="winner">TOR 8</span> MIA 1 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">TEX 10</span> HOU 7 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">AZ 7</span> SF 5 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">PHI 4</span> SD 3 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">PIT 12</span> CHC 1 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">CIN 7</span> NYM 2 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">MIL 6</span> STL 0 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">LAD 15</span> COL 6 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">NYY 15</span> KC 1 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">LAA 10</span> DET 6 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">WSH 6</span> CLE 3 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">MIN 5</span> CWS 3 (F/11) <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">ATL 7</span> BOS 6 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">BAL 6</span> TB 1 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">SEA 4</span> ATH 1 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">TOR 8</span> MIA 1 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">TEX 10</span> HOU 7 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">AZ 7</span> SF 5 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">PHI 4</span> SD 3 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">PIT 12</span> CHC 1 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">CIN 7</span> NYM 2 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">MIL 6</span> STL 0 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">LAD 15</span> COL 6 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">NYY 15</span> KC 1 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">LAA 10</span> DET 6 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">WSH 6</span> CLE 3 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">MIN 5</span> CWS 3 (F/11) <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">ATL 7</span> BOS 6 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">BAL 6</span> TB 1 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">SEA 4</span> ATH 1 <span class="div">|</span></span>
+</div></div>
+
+<div class="page">
+<header class="masthead">
+  <div class="masthead-top"><h1 class="site-name">BARREL <span>PROOF</span></h1></div>
+  <div class="tagline-bar">
+    <div class="tagline-line">Raw. &nbsp; Unfiltered. &nbsp; Baseball.</div>
+    <div class="tagline-line tagline-sub">Enjoy Responsibly.</div>
+  </div>
+</header>
+
+<nav class="main-nav">
+  <div class="nav-barrel-btn" id="navToggle" onclick="toggleNav()" title="Menu"></div>
+  <div class="nav-items-wrap" id="navItems">
+    <a class="nav-item active" href="/">Page 1</a>
+    <div class="nav-item">Box Scores</div>
+    <div class="nav-item">Dope Sheet</div>
+    <div class="nav-item">Advance Scout</div>
+    <a class="nav-item" href="/barrel-proof-american-league.html">American League</a>
+    <a class="nav-item" href="/barrel-proof-national-league.html">National League</a>
+  </div>
+</nav>
+
+<div class="date-banner">
+  <div class="date-banner-line"></div>
+  <div class="date-banner-text">{{ games_date if games_date else "Game Summaries" }}</div>
+  <div class="date-banner-line"></div>
+</div>
+
+<div class="content-layout">
+
+{# LEFT RAIL: live standings from standings.json #}
+<aside class="rail-left">
+  {% if standings %}
+    {% for league in standings %}
+    <div class="rail-section">
+      <div class="rail-hdr">{{ league.league }} Standings</div>
+      {% for div in league.divisions %}
+      <div class="rail-division">
+        <div class="rail-div-name">{{ div.name }}</div>
+        {% for team in div.teams %}
+        <div class="standing-row">
+          <span class="st-team{% if loop.first %} lead{% endif %}">{{ team.city }}</span>
+          <span class="st-record">{{ team.w }}-{{ team.l }}</span>
+        </div>
+        {% endfor %}
+      </div>
+      {% endfor %}
+    </div>
+    {% endfor %}
+    {% if standings_updated %}
+    <div style="font-family:var(--mono);font-size:7.5px;color:var(--smoke);opacity:.6;margin-top:8px;">Updated {{ standings_updated }}</div>
+    {% endif %}
+  {% else %}
+    <div style="font-family:var(--mono);font-size:9px;color:var(--smoke);padding-top:18px;">Standings loading...</div>
+  {% endif %}
+</aside>
+
+<div class="content-centre">
+<div class="section-hdr">
+  <div class="section-title">Game Summaries</div>
+  <div class="section-rule"></div>
+</div>
+<div class="games-list">
+  {% if games %}
+    {% for game in games %}
+    <div class="game-card">
+      <div class="gc-left">
+        <div class="gc-kicker">
+          {{ game.away_city }} @ {{ game.home_city }}{% if game.venue %} · {{ game.venue }}{% endif %}
+        </div>
+
+        <h2 class="gc-headline">
+          {% if game.winner == "away" %}
+            {{ game.away_city }} beats {{ game.home_city }}, {{ game.away_runs }}-{{ game.home_runs }}
+          {% elif game.winner == "home" %}
+            {{ game.home_city }} beats {{ game.away_city }}, {{ game.home_runs }}-{{ game.away_runs }}
+          {% else %}
+            {{ game.away_city }} and {{ game.home_city }} go final
+          {% endif %}
+        </h2>
+
+        <div class="gc-score">
+          {{ game.away_abbr }} {{ game.away_runs }} &nbsp;·&nbsp; {{ game.home_abbr }} {{ game.home_runs }}
+        </div>
+
+        <p class="gc-body">
+          {% if game.winner == "away" %}
+            {{ game.away_city }} came away with a {{ game.away_runs }}-{{ game.home_runs }} win over {{ game.home_city }}.
+          {% elif game.winner == "home" %}
+            {{ game.home_city }} came away with a {{ game.home_runs }}-{{ game.away_runs }} win over {{ game.away_city }}.
+          {% else %}
+            {{ game.away_city }} and {{ game.home_city }} finished with {{ game.away_runs }} and {{ game.home_runs }} runs.
+          {% endif %}
+          The game is loaded into Barrel Proof's daily newspaper-style box score feed.
+        </p>
+
+        <a class="gc-readmore">Full Box Score →</a>
+      </div>
+
+      <div class="gc-right">
+        <div class="bx-meta">
+          {% if game.decisions %}
+            {% if game.decisions.W %}<b>W:</b> {{ game.decisions.W }}{% endif %}
+            {% if game.decisions.L %} &nbsp;<b>L:</b> {{ game.decisions.L }}{% endif %}
+            {% if game.decisions.SV %} &nbsp;<b>SV:</b> {{ game.decisions.SV }}{% endif %}
+            &nbsp;·&nbsp;
+          {% endif %}
+          {% if game.venue %}<b>{{ game.venue }}</b>{% endif %}
+          {% if game.duration %} · {{ game.duration }}{% endif %}
+          {% if game.attendance %} · {{ game.attendance }}{% endif %}
+        </div>
+
+        <div class="bx-line-wrap">
+          <table class="bx-line">
+            <thead>
+              <tr>
+                <th class="tn"></th>
+                {% for inn in game.innings %}
+                <th>{{ inn }}</th>
+                {% endfor %}
+                <th class="sep">R</th>
+                <th>H</th>
+                <th>E</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="{% if game.winner == 'away' %}w{% endif %}">
+                <td class="tn">{{ game.away_abbr }}</td>
+                {% for run in game.away_line %}
+                <td>{{ run }}</td>
+                {% endfor %}
+                {% for val in game.away_rhe %}
+                <td class="{% if loop.first %}sep{% endif %}">{{ val }}</td>
+                {% endfor %}
+              </tr>
+
+              <tr class="{% if game.winner == 'home' %}w{% endif %}">
+                <td class="tn">{{ game.home_abbr }}</td>
+                {% for run in game.home_line %}
+                <td>{{ run }}</td>
+                {% endfor %}
+                {% for val in game.home_rhe %}
+                <td class="{% if loop.first %}sep{% endif %}">{{ val }}</td>
+                {% endfor %}
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="bx-divider"></div>
+
+        <div class="bx-dual">
+          <div class="bx-team-block">
+            <div class="bx-team-name">{{ game.away_abbr }}</div>
+            <table class="bx-player-table">
+              <thead>
+                <tr>
+                  <th class="pn"></th>
+                  <th>AB</th>
+                  <th>R</th>
+                  <th>H</th>
+                  <th>RBI</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for batter in game.away_batting[:9] %}
+                <tr>
+                  <td class="pn">{{ batter.name }}{% if batter.pos %}, {{ batter.pos }}{% endif %}</td>
+                  <td>{{ batter.ab }}</td>
+                  <td>{{ batter.r }}</td>
+                  <td>{{ batter.h }}</td>
+                  <td>{{ batter.rbi }}</td>
+                </tr>
+                {% endfor %}
+
+                <tr class="pitch-hdr">
+                  <td class="pn">Pitching</td>
+                  <td>IP</td>
+                  <td>ER</td>
+                  <td>K</td>
+                </tr>
+
+                {% for pitcher in game.away_pitching[:4] %}
+                <tr class="pitcher-row">
+                  <td class="pn">{{ pitcher.name }}</td>
+                  <td>{{ pitcher.ip }}</td>
+                  <td>{{ pitcher.er }}</td>
+                  <td>{{ pitcher.k }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+
+          <div class="bx-team-block">
+            <div class="bx-team-name">{{ game.home_abbr }}</div>
+            <table class="bx-player-table">
+              <thead>
+                <tr>
+                  <th class="pn"></th>
+                  <th>AB</th>
+                  <th>R</th>
+                  <th>H</th>
+                  <th>RBI</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for batter in game.home_batting[:9] %}
+                <tr>
+                  <td class="pn">{{ batter.name }}{% if batter.pos %}, {{ batter.pos }}{% endif %}</td>
+                  <td>{{ batter.ab }}</td>
+                  <td>{{ batter.r }}</td>
+                  <td>{{ batter.h }}</td>
+                  <td>{{ batter.rbi }}</td>
+                </tr>
+                {% endfor %}
+
+                <tr class="pitch-hdr">
+                  <td class="pn">Pitching</td>
+                  <td>IP</td>
+                  <td>ER</td>
+                  <td>K</td>
+                </tr>
+
+                {% for pitcher in game.home_pitching[:4] %}
+                <tr class="pitcher-row">
+                  <td class="pn">{{ pitcher.name }}</td>
+                  <td>{{ pitcher.ip }}</td>
+                  <td>{{ pitcher.er }}</td>
+                  <td>{{ pitcher.k }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  {% else %}
+    <div class="game-card">
+      <div class="gc-left">
+        <h2 class="gc-headline">Game summaries loading</h2>
+        <p class="gc-body">No game cards were found.</p>
+      </div>
+    </div>
+  {% endif %}
+</div><!-- /games-list -->
+</div><!-- /content-centre -->
+
+{# RIGHT RAIL: today's games from schedule.json #}
+<aside class="rail-right">
+  <div class="rail-hdr">{{ rail_date if rail_date else "Today" }}</div>
+  {% if today_slate and today_slate.get('games') %}
+    {% for game in today_slate.get('games', []) %}
+    <div class="slate-game">
+      <div class="slate-matchup">
+        <span class="away">{{ game.away }}</span><span class="vs">@</span>{{ game.home }}
+      </div>
+      <div class="slate-time">{{ game.time }}</div>
+      <div class="slate-pitchers">
+        <span>{{ game.away_abbr }}:</span> {{ game.away_prob }}<br>
+        <span>{{ game.home_abbr }}:</span> {{ game.home_prob }}
+      </div>
+    </div>
+    {% endfor %}
+  {% else %}
+    <div style="font-family:var(--mono);font-size:9px;color:var(--smoke);padding-top:12px;">No games scheduled.</div>
+  {% endif %}
+</aside>
+
+</div><!-- /content-layout -->
+
+<footer>
+  <div class="footer-name">Barrel Proof Baseball</div>
+  <div class="footer-tag">RAW &nbsp;·&nbsp; UNFILTERED &nbsp;·&nbsp; BASEBALL &nbsp;·&nbsp; ENJOY RESPONSIBLY<br/><span style="opacity:.5">Data: MLB Stats API · Statcast · Baseball Savant</span></div>
+  <div class="footer-legal">© 2026 Barrel Proof<br/>Please gamble responsibly. 21+</div>
+</footer>
+</div>
+
+<script>
+function toggleNav(){
+  document.getElementById('navItems').classList.toggle('open');
+}
+</script>
+</body>
+</html>

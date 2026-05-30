@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: barrel-proof
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: DATA_DIR
+        value: ./Site Data
+    plan: free
+
+  - type: cron
+    name: update-standings
+    runtime: python
+    schedule: "5 12 * * *"
+    buildCommand: pip install -r requirements.txt
+    startCommand: python update_standings.py
+
+  - type: cron
+    name: update-schedule
+    runtime: python
+    schedule: "0 12 * * *"
+    buildCommand: pip install -r requirements.txt
+    startCommand: python update_schedule.py

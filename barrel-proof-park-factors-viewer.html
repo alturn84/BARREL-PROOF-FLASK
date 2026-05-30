@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Park Factor Reference · Barrel Proof</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@400;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ink:#1A1108;--ink-soft:#2C1F0E;--ink-card:#1E1208;
+  --parchment:#F0E6CC;--parchment2:#D8C9A8;
+  --gold:#EDE5D0;--gold-dim:#887C60;
+  --smoke:#7A6A52;--smoke-light:#A89070;--leather:#4E3A20;
+  --rule:rgba(136,124,96,.28);--rule-heavy:rgba(136,124,96,.55);
+  --green:#4A8A4A;--red:#A83030;
+  --serif-sc:"Playfair Display SC",Georgia,serif;
+  --serif-body:"Source Serif 4",Georgia,serif;
+  --mono:"IBM Plex Mono","Courier New",monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:15px;}
+body{background:var(--ink);color:var(--parchment);font-family:var(--serif-body);-webkit-font-smoothing:antialiased;min-height:100vh;padding:0 0 60px;}
+a{color:inherit;text-decoration:none;}
+
+.page{max-width:1100px;margin:0 auto;padding:0 24px;}
+
+/* MASTHEAD */
+.masthead{padding:28px 0 0;border-bottom:2px solid var(--gold-dim);margin-bottom:28px;}
+.site-name{font-family:"Perpetua Titling MT","Perpetua","Book Antiqua",Georgia,serif;font-size:clamp(28px,4vw,52px);font-weight:400;letter-spacing:.18em;color:var(--parchment);text-align:center;text-transform:uppercase;}
+.site-name span{color:var(--gold);}
+.doc-title{font-family:var(--serif-sc);font-size:13px;letter-spacing:.22em;color:var(--smoke-light);text-align:center;padding:10px 0 16px;}
+
+/* SECTION HEADERS */
+.section-head{font-family:var(--serif-sc);font-size:11px;letter-spacing:.22em;color:var(--gold);border-bottom:.5px solid var(--rule-heavy);padding-bottom:8px;margin:32px 0 14px;}
+
+/* EXPLAINER */
+.explainer{font-family:var(--mono);font-size:11px;color:var(--smoke-light);line-height:1.8;background:var(--ink-soft);border:.5px solid var(--rule-heavy);border-radius:3px;padding:16px 18px;margin-bottom:24px;}
+.explainer strong{color:var(--parchment2);}
+.explainer .formula{display:inline-block;margin-top:10px;padding:6px 12px;background:rgba(0,0,0,.3);border-radius:2px;color:var(--gold);font-size:12px;letter-spacing:.04em;}
+
+/* PARK TABLE */
+.park-table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:11px;}
+.park-table thead tr{border-bottom:.5px solid var(--rule-heavy);}
+.park-table th{font-family:var(--serif-sc);font-size:9px;letter-spacing:.16em;color:var(--gold-dim);padding:6px 10px;text-align:right;white-space:nowrap;}
+.park-table th:first-child,.park-table th:nth-child(2){text-align:left;}
+.park-table tbody tr{border-bottom:.5px solid var(--rule);}
+.park-table tbody tr:hover{background:rgba(136,124,96,.06);}
+.park-table td{padding:7px 10px;color:var(--parchment2);text-align:right;vertical-align:top;}
+.park-table td:first-child{text-align:left;color:var(--parchment);font-size:12px;}
+.park-table td:nth-child(2){text-align:left;color:var(--smoke-light);font-size:10px;max-width:240px;}
+.val-high{color:#6BBF6B;font-weight:500;}
+.val-low{color:#D05050;font-weight:500;}
+.val-avg{color:var(--parchment2);}
+.alt-tag{font-size:9px;color:var(--smoke);margin-left:3px;}
+
+/* WEATHER RULES TABLE */
+.rules-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px;}
+.rule-card{background:var(--ink-soft);border:.5px solid var(--rule-heavy);border-radius:3px;padding:14px;}
+.rule-card-title{font-family:var(--serif-sc);font-size:10px;letter-spacing:.18em;color:var(--gold);margin-bottom:10px;padding-bottom:6px;border-bottom:.5px solid var(--rule);}
+.rule-row{display:flex;justify-content:space-between;align-items:baseline;padding:4px 0;border-bottom:.5px solid var(--rule);font-family:var(--mono);font-size:10px;}
+.rule-row:last-child{border-bottom:none;}
+.rule-cond{color:var(--smoke-light);}
+.rule-effect{text-align:right;}
+.rule-effect.pos{color:#6BBF6B;}
+.rule-effect.neg{color:#D05050;}
+.rule-effect.neu{color:var(--smoke-light);}
+
+/* WEIGHT TABLE */
+.weight-row{display:flex;align-items:center;gap:12px;padding:7px 0;border-bottom:.5px solid var(--rule);font-family:var(--mono);font-size:11px;}
+.weight-row:last-child{border-bottom:none;}
+.weight-name{color:var(--parchment2);width:120px;flex-shrink:0;}
+.weight-bar-track{flex:1;height:6px;background:rgba(136,124,96,.15);border-radius:2px;}
+.weight-bar-fill{height:100%;border-radius:2px;background:var(--gold-dim);}
+.weight-pct{color:var(--gold);font-size:12px;width:36px;text-align:right;flex-shrink:0;}
+
+/* FOOTER */
+footer{border-top:.5px solid var(--rule-heavy);margin-top:40px;padding:16px 0;display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;color:var(--smoke);flex-wrap:wrap;gap:8px;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.page{animation:fadeUp .4s ease both;}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="masthead">
+  <div class="site-name">BARREL <span>PROOF</span></div>
+  <div class="doc-title">Park Factor Reference &nbsp;·&nbsp; Engine Documentation &nbsp;·&nbsp; barrel-proof-park-factors.js</div>
+</header>
+
+<div class="section-head">How The Index Works</div>
+<div class="explainer">
+  <strong>The Barrel Proof Park Factor (BP Index)</strong> combines two layers: static park DNA and dynamic weather conditions.<br><br>
+  <strong>Park DNA</strong> is sourced from Baseball Savant Statcast Park Factors (3-year rolling 2022–2024) and cross-referenced with FanGraphs Park Factors. All indices are on a <strong>100 = MLB average</strong> scale. A park with a Runs index of 108 produces 8% more runs than average. A park with an HR index of 90 produces 10% fewer home runs.<br><br>
+  <strong>Weather Modifiers</strong> are additive adjustments applied on top of park DNA each day. Wind direction and speed is the dominant variable. Temperature, humidity, and roof status are secondary factors.<br><br>
+  <strong>Composite Score</strong> is a weighted blend of the three adjusted indices, shifted so that 0 = neutral. Positive = hitter-friendly, negative = pitcher-friendly.
+  <div class="formula">BP Index = (adjRuns × 0.40) + (adjHR × 0.35) + (adjXBH × 0.25) − 100</div>
+</div>
+
+<div class="section-head">Composite Weight Distribution</div>
+<div style="background:var(--ink-soft);border:.5px solid var(--rule-heavy);border-radius:3px;padding:14px;margin-bottom:24px;">
+  <div class="weight-row"><span class="weight-name">Runs Index</span><div class="weight-bar-track"><div class="weight-bar-fill" style="width:40%"></div></div><span class="weight-pct">40%</span></div>
+  <div class="weight-row"><span class="weight-name">HR Index</span><div class="weight-bar-track"><div class="weight-bar-fill" style="width:35%"></div></div><span class="weight-pct">35%</span></div>
+  <div class="weight-row"><span class="weight-name">XBH Index</span><div class="weight-bar-track"><div class="weight-bar-fill" style="width:25%"></div></div><span class="weight-pct">25%</span></div>
+</div>
+
+<div class="section-head">Weather Modifier Rules</div>
+<div class="rules-grid">
+  <div class="rule-card">
+    <div class="rule-card-title">Wind — Outblowing</div>
+    <div class="rule-row"><span class="rule-cond">15+ mph out</span><span class="rule-effect pos">HR +6 · XBH +4 · Runs +3</span></div>
+    <div class="rule-row"><span class="rule-cond">10–14 mph out</span><span class="rule-effect pos">HR +4 · XBH +3 · Runs +2</span></div>
+    <div class="rule-row"><span class="rule-cond">6–9 mph out</span><span class="rule-effect pos">HR +2 · XBH +1.5 · Runs +1</span></div>
+    <div class="rule-row"><span class="rule-cond">&lt;6 mph out</span><span class="rule-effect neu">No adjustment</span></div>
+  </div>
+  <div class="rule-card">
+    <div class="rule-card-title">Wind — Inblowing</div>
+    <div class="rule-row"><span class="rule-cond">15+ mph in</span><span class="rule-effect neg">HR −6 · XBH −4 · Runs −3</span></div>
+    <div class="rule-row"><span class="rule-cond">10–14 mph in</span><span class="rule-effect neg">HR −4 · XBH −3 · Runs −2</span></div>
+    <div class="rule-row"><span class="rule-cond">6–9 mph in</span><span class="rule-effect neg">HR −2 · XBH −1.5 · Runs −1</span></div>
+    <div class="rule-row"><span class="rule-cond">Crosswind any</span><span class="rule-effect neu">XBH +1</span></div>
+  </div>
+  <div class="rule-card">
+    <div class="rule-card-title">Temperature</div>
+    <div class="rule-row"><span class="rule-cond">90°F+</span><span class="rule-effect pos">HR +4 · Runs +2</span></div>
+    <div class="rule-row"><span class="rule-cond">80–89°F</span><span class="rule-effect pos">HR +2 · Runs +1.5</span></div>
+    <div class="rule-row"><span class="rule-cond">72–79°F</span><span class="rule-effect pos">HR +1 · Runs +0.5</span></div>
+    <div class="rule-row"><span class="rule-cond">66–71°F</span><span class="rule-effect neu">No adjustment</span></div>
+    <div class="rule-row"><span class="rule-cond">56–65°F</span><span class="rule-effect neg">HR −1 · Runs −0.5</span></div>
+    <div class="rule-row"><span class="rule-cond">55°F and below</span><span class="rule-effect neg">HR −3 · Runs −2</span></div>
+  </div>
+  <div class="rule-card">
+    <div class="rule-card-title">Humidity &amp; Roof</div>
+    <div class="rule-row"><span class="rule-cond">≤30% humidity</span><span class="rule-effect pos">HR +2</span></div>
+    <div class="rule-row"><span class="rule-cond">31–74% humidity</span><span class="rule-effect neu">No adjustment</span></div>
+    <div class="rule-row"><span class="rule-cond">80%+ humidity</span><span class="rule-effect neg">HR −1</span></div>
+    <div class="rule-row"><span class="rule-cond">Roof closed</span><span class="rule-effect neu">All weather mods zeroed</span></div>
+    <div class="rule-row"><span class="rule-cond">Altitude 1000+ ft</span><span class="rule-effect pos">Narrative note added</span></div>
+  </div>
+</div>
+
+<div class="section-head">Park DNA Table &nbsp;·&nbsp; All 30 Parks</div>
+<table class="park-table" id="parkTable">
+  <thead>
+    <tr>
+      <th>Venue</th>
+      <th>Notes</th>
+      <th>Runs</th>
+      <th>HR</th>
+      <th>XBH</th>
+      <th>Alt (ft)</th>
+    </tr>
+  </thead>
+  <tbody id="parkTableBody"></tbody>
+</table>
+
+<footer>
+  <span>Barrel Proof · Park Factor Reference</span>
+  <span>Sources: Baseball Savant Statcast Park Factors (3-yr 2022–2024) · FanGraphs Park Factors</span>
+  <span>barrel-proof-park-factors.js · Last updated May 2026</span>
+</footer>
+
+</div>
+
+<script>
+// ── Park DNA inlined for standalone use (keep in sync with barrel-proof-park-factors.js) ──
+const PARK_DNA = {
+  // ── HITTER-FRIENDLY ──────────────────────────────────────────────────────
+  "Coors Field":              { runs:120, hr:116, xbh:124, alt:5200, dims:"Short alleys, thin air, extreme altitude" },
+  "Great American":           { runs:112, hr:118, xbh:110, alt:490,  dims:"Tight RF porch, very hitter-friendly" },
+  "Citizens Bank":            { runs:108, hr:112, xbh:107, alt:40,   dims:"Short RF porch, high HR rate" },
+  "Sutter Health":            { runs:107, hr:109, xbh:106, alt:25,   dims:"Minor league park, strong out-blowing wind patterns" },
+  "Fenway":                   { runs:106, hr:97,  xbh:115, alt:19,   dims:"Green Monster inflates XBH, suppresses HR" },
+  "Camden Yards":             { runs:105, hr:103, xbh:107, alt:39,   dims:"LF wall favorable, classic dimensions" },
+  "Globe Life":               { runs:104, hr:108, xbh:106, alt:551,  dims:"Retractable roof, HR-friendly, hot Texas summers" },
+  "Truist":                   { runs:103, hr:107, xbh:104, alt:1050, dims:"Elevated park, warm climate, HR-friendly" },
+  "Yankee Stadium":           { runs:103, hr:110, xbh:101, alt:55,   dims:"Short RF porch, clear HR booster" },
+  "Chase Field":              { runs:103, hr:105, xbh:102, alt:1082, dims:"Retractable roof, warm altitude, offense-friendly" },
+  "Minute Maid":              { runs:102, hr:104, xbh:101, alt:43,   dims:"Crawford Boxes in LF boost HR count" },
+  // ── NEAR NEUTRAL ─────────────────────────────────────────────────────────
+  "Wrigley":                  { runs:101, hr:101, xbh:102, alt:597,  dims:"Wind-dependent, avg base — can swing either way" },
+  "Dodger Stadium":           { runs:99,  hr:99,  xbh:99,  alt:340,  dims:"Neutral park, slight pitcher lean at night" },
+  "Guaranteed Rate":          { runs:99,  hr:98,  xbh:99,  alt:594,  dims:"Slight pitcher lean, wind often blows in" },
+  "Angel Stadium":            { runs:98,  hr:97,  xbh:98,  alt:160,  dims:"Neutral park, average dimensions" },
+  "American Family":          { runs:98,  hr:95,  xbh:97,  alt:646,  dims:"Retractable dome, controlled environment, neutral-to-pitcher" },
+  // ── PITCHER-FRIENDLY ─────────────────────────────────────────────────────
+  "Rogers":                   { runs:97,  hr:98,  xbh:96,  alt:249,  dims:"Turf dome, suppressed scoring" },
+  "Busch Stadium":            { runs:97,  hr:96,  xbh:98,  alt:466,  dims:"Spacious outfield, neutral-to-pitcher" },
+  "PNC Park":                 { runs:97,  hr:95,  xbh:98,  alt:730,  dims:"Deep CF, pitcher-friendly, picturesque" },
+  "Kauffman":                 { runs:97,  hr:94,  xbh:97,  alt:750,  dims:"Large outfield, pitcher-friendly" },
+  "Target Field":             { runs:97,  hr:96,  xbh:97,  alt:830,  dims:"Cold early season suppresses scoring" },
+  "Progressive":              { runs:97,  hr:97,  xbh:97,  alt:650,  dims:"Neutral-to-mild pitcher lean, average dimensions" },
+  "T-Mobile":                 { runs:96,  hr:94,  xbh:97,  alt:17,   dims:"Marine air suppresses carry, pitcher-friendly" },
+  "Steinbrenner":             { runs:96,  hr:94,  xbh:95,  alt:10,   dims:"Minor league park (Rays 2025), pitcher-lean" },
+  "Citi Field":               { runs:96,  hr:95,  xbh:97,  alt:20,   dims:"Marine air, typically blows in, pitcher-friendly" },
+  "Comerica":                 { runs:95,  hr:90,  xbh:97,  alt:600,  dims:"Deep CF and alleys, strong pitcher park" },
+  "Tropicana":                { runs:94,  hr:92,  xbh:93,  alt:15,   dims:"Dome, suppressed scoring, pitcher-friendly" },
+  "loanDepot":                { runs:94,  hr:92,  xbh:94,  alt:10,   dims:"Retractable dome, marine air, pitcher-friendly" },
+  "Oracle Park":              { runs:93,  hr:87,  xbh:95,  alt:10,   dims:"Marine layer, cold SF air, one of the best pitcher parks" },
+  "Petco":                    { runs:93,  hr:90,  xbh:93,  alt:62,   dims:"Marine layer, ocean air, strong pitcher park" },
+};
+
+function valClass(v) {
+  return v >= 105 ? 'val-high' : v <= 95 ? 'val-low' : 'val-avg';
+}
+
+const tbody = document.getElementById('parkTableBody');
+
+const sorted = Object.entries(PARK_DNA)
+  .sort(([,a],[,b]) => b.runs - a.runs);
+
+sorted.forEach(([name, p]) => {
+  const altNote = p.alt >= 1000 ? `<span class="alt-tag">★ HIGH ALT</span>` : '';
+  tbody.innerHTML += `
+    <tr>
+      <td>${name}${altNote}</td>
+      <td>${p.dims}</td>
+      <td class="${valClass(p.runs)}">${p.runs}</td>
+      <td class="${valClass(p.hr)}">${p.hr}</td>
+      <td class="${valClass(p.xbh)}">${p.xbh}</td>
+      <td style="color:var(--smoke)">${p.alt.toLocaleString()}</td>
+    </tr>`;
+});
+</script>
+</body>
+</html>

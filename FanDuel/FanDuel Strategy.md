@@ -1,0 +1,6 @@
+- To win and be profitable on FanDuel 
+- Build lineups that will score the maximum amount of points in a contest.  
+- Analyze and identify pitchers who have the best chance to pitch well against their given opponent 
+- Analyze and identify batters who have the best chance to get hits, runs, rbi's, home runs and stolen bases against their given opponent.  
+- All data compiled in the Fanduel, Daily, 2026 Batting Stats and 2026 Pitching Stats inside the Barrel Proof vault will be used to optimize the best lineup.
+- Find players whose stats are trending up, use box scores in Daily folder to find batter who are hitting well in their last 5, 10, 15 and 20 games.

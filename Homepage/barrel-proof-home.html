@@ -1,0 +1,1687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Barrel Proof Baseball — Raw. Unfiltered. Baseball. Enjoy Responsibly.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Playfair+Display+SC:wght@400;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ink:#1A1108;
+  --ink-soft:#221808;
+  --parchment:#F0E6CC;
+  --parchment2:#D8C9A8;
+  --cream:#EDE5D0;
+  --cream-dim:#887C60;
+  --cream-mid:#C8BC98;
+  --smoke:#7A6A52;
+  --smoke-light:#A89070;
+  --leather:#4E3A20;
+  --rule:rgba(136,124,96,.25);
+  --rule-heavy:rgba(136,124,96,.65);
+  --serif-display:'Playfair Display',Georgia,serif;
+  --serif-sc:'Playfair Display SC',Georgia,serif;
+  --serif-body:'Source Serif 4',Georgia,serif;
+  --mono:'IBM Plex Mono','Courier New',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:16px;}
+body{background:var(--ink);color:var(--parchment);font-family:var(--serif-body);line-height:1.6;min-height:100vh;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");opacity:0.55;}
+.page{position:relative;z-index:1;max-width:1280px;margin:0 auto;padding:0 48px 60px;}
+
+/* THREE-COLUMN OUTER LAYOUT */
+.content-layout{
+  display:grid;
+  grid-template-columns:160px 1fr 210px;
+  gap:0 36px;
+  align-items:start;
+}
+
+/* LEFT RAIL — standings */
+.rail-left{
+  padding-top:18px;
+  position:sticky;
+  top:20px;
+}
+.rail-section{
+  margin-bottom:28px;
+}
+.rail-hdr{
+  font-family:var(--serif-sc);
+  font-size:9px;
+  letter-spacing:.22em;
+  color:var(--cream);
+  padding-bottom:5px;
+  border-bottom:1px solid var(--cream-dim);
+  margin-bottom:0;
+  text-transform:uppercase;
+}
+.rail-division{
+  margin-top:10px;
+  margin-bottom:14px;
+}
+.rail-div-name{
+  font-family:var(--mono);
+  font-size:8px;
+  letter-spacing:.14em;
+  color:var(--smoke);
+  text-transform:uppercase;
+  padding:4px 0 3px;
+  border-bottom:.5px solid var(--rule);
+  margin-bottom:0;
+}
+.standing-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  padding:2px 0;
+  border-bottom:.5px solid var(--rule);
+}
+.standing-row:last-child{border-bottom:none;}
+.st-team{
+  font-family:var(--mono);
+  font-size:9.5px;
+  color:var(--parchment2);
+  letter-spacing:.02em;
+}
+.st-team.lead{color:var(--cream);font-weight:500;}
+.st-record{
+  font-family:var(--mono);
+  font-size:9px;
+  color:var(--smoke);
+  letter-spacing:.02em;
+}
+
+/* RIGHT RAIL — tonight's slate */
+.rail-right{
+  padding-top:18px;
+  position:sticky;
+  top:20px;
+}
+.slate-game{
+  padding:10px 0 10px;
+  border-bottom:.5px solid var(--rule);
+}
+.slate-game:last-child{border-bottom:none;}
+.slate-matchup{
+  font-family:var(--serif-sc);
+  font-size:10.5px;
+  letter-spacing:.07em;
+  color:var(--parchment);
+  margin-bottom:3px;
+}
+.slate-matchup .away{color:var(--parchment2);}
+.slate-matchup .vs{color:var(--smoke);font-size:9px;margin:0 3px;}
+.slate-time{
+  font-family:var(--mono);
+  font-size:9px;
+  color:var(--smoke);
+  letter-spacing:.05em;
+  margin-bottom:5px;
+}
+.slate-pitchers{
+  font-family:var(--mono);
+  font-size:9px;
+  color:var(--smoke);
+  line-height:1.6;
+  letter-spacing:.02em;
+}
+.slate-pitchers span{color:var(--parchment2);}
+
+/* RESPONSIVE — collapse rails below 1100px */
+@media(max-width:1100px){
+  .content-layout{grid-template-columns:1fr;}
+  .rail-left,.rail-right{display:none;}
+}
+
+/* TICKER */
+.ticker-bar{background:var(--leather);border-bottom:1px solid var(--cream-dim);padding:6px 0;overflow:hidden;}
+.ticker-inner{display:flex;align-items:center;white-space:nowrap;animation:ticker 60s linear infinite;}
+.ticker-inner:hover{animation-play-state:paused;}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.ticker-item{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--parchment2);padding:0 28px;display:inline-flex;align-items:center;gap:10px;}
+.ticker-item .winner{color:var(--cream);font-weight:500;}
+.ticker-item .div{color:var(--cream-dim);opacity:.6;}
+
+/* MASTHEAD */
+.masthead{padding:32px 0 0;border-bottom:2px solid var(--cream-dim);}
+.masthead-top{display:flex;justify-content:center;padding-bottom:8px;}
+.site-name{font-family:'Perpetua Titling MT','Perpetua','Book Antiqua','Palatino Linotype',Palatino,Georgia,serif;font-size:clamp(34px,5vw,64px);font-weight:400;letter-spacing:.18em;color:var(--parchment);line-height:1;text-align:center;text-transform:uppercase;white-space:nowrap;}
+.site-name span{color:var(--cream);}
+.tagline-bar{text-align:center;padding:8px 0 14px;border-top:.5px solid var(--rule);margin-top:6px;}
+.tagline-line{font-family:var(--serif-sc);font-size:18px;letter-spacing:.2em;color:var(--smoke-light);line-height:1.8;}
+.tagline-sub{font-size:15px;letter-spacing:.24em;color:var(--cream-dim);}
+
+/* NAV */
+nav.main-nav{display:flex;align-items:center;border-bottom:1px solid var(--rule-heavy);}
+.nav-barrel-btn{flex-shrink:0;width:52px;height:48px;cursor:pointer;border-right:.5px solid var(--rule-heavy);background:var(--ink) url('https://i.postimg.cc/pTNWxjb5/barrel-tab-logo-removebg-preview.png') center/40px auto no-repeat;transition:opacity .2s;}
+.nav-barrel-btn:hover{opacity:.75;}
+.nav-items-wrap{display:flex;align-items:center;overflow:hidden;max-width:0;transition:max-width .45s cubic-bezier(.4,0,.2,1);white-space:nowrap;}
+.nav-items-wrap.open{max-width:1400px;}
+.nav-item{font-family:var(--serif-sc);font-size:15px;letter-spacing:.14em;color:var(--smoke-light);padding:12px 18px;position:relative;cursor:pointer;transition:color .2s;white-space:nowrap;display:inline-block;}
+.nav-item:hover,.nav-item.active{color:var(--parchment);}
+.nav-item.active::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:2px;background:var(--cream);}
+.nav-item:not(:last-child)::before{content:'·';position:absolute;right:-2px;color:var(--rule-heavy);}
+
+/* DATE BANNER */
+.date-banner{display:flex;align-items:center;gap:16px;padding:13px 0 11px;border-bottom:2px solid var(--cream-dim);}
+.date-banner-line{flex:1;height:.5px;background:var(--rule);}
+.date-banner-text{font-family:var(--serif-sc);font-size:14px;letter-spacing:.16em;color:var(--smoke);white-space:nowrap;}
+
+/* SECTION HDR */
+.section-hdr{display:flex;align-items:baseline;gap:14px;padding:13px 0 9px;border-bottom:.5px solid var(--rule);}
+.section-title{font-family:var(--serif-sc);font-size:10px;letter-spacing:.22em;color:var(--cream);white-space:nowrap;}
+.section-rule{flex:1;height:.5px;background:var(--rule);}
+
+/* ════════════════════════════════
+   GAME CARD
+   ════════════════════════════════ */
+.games-list{display:flex;flex-direction:column;}
+
+.game-card{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0;
+  border-bottom:1px solid var(--rule-heavy);
+  align-items:start;
+}
+.game-card:first-child{margin-top:0;}
+
+/* LEFT pane */
+.gc-left{
+  padding:18px 28px 18px 0;
+  border-right:1px solid var(--rule-heavy);
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+}
+.gc-kicker{font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--cream-dim);text-transform:uppercase;margin-bottom:5px;}
+.gc-headline{font-family:var(--serif-display);font-size:clamp(16px,1.6vw,20px);font-weight:700;line-height:1.18;color:var(--parchment);margin-bottom:6px;}
+.gc-score{font-family:var(--serif-sc);font-size:11px;letter-spacing:.08em;color:var(--cream-mid);margin-bottom:9px;}
+.gc-body{font-family:var(--serif-body);font-size:13px;line-height:1.72;color:var(--parchment2);font-weight:300;}
+.gc-readmore{display:inline-block;margin-top:9px;font-family:var(--mono);font-size:9.5px;color:var(--cream-dim);letter-spacing:.08em;cursor:pointer;transition:color .15s;}
+.gc-readmore:hover{color:var(--cream);}
+
+/* RIGHT pane — the newspaper box score */
+.gc-right{
+  padding:18px 0 18px 28px;
+}
+
+/* ── BOX SCORE COMPONENTS ── */
+
+/* venue / decisions meta line */
+.bx-meta{
+  font-family:var(--mono);
+  font-size:9px;
+  color:var(--smoke);
+  letter-spacing:.04em;
+  margin-bottom:6px;
+  line-height:1.5;
+}
+.bx-meta b{color:var(--parchment2);font-weight:500;}
+
+/* LINE SCORE */
+.bx-line-wrap{overflow-x:auto;margin-bottom:8px;}
+.bx-line{
+  border-collapse:collapse;
+  font-family:var(--mono);
+  font-size:10.5px;
+  white-space:nowrap;
+  width:100%;
+}
+.bx-line thead th{
+  font-weight:400;
+  font-size:8.5px;
+  letter-spacing:.09em;
+  color:var(--smoke);
+  text-align:center;
+  padding:0 3px 3px;
+  border-bottom:1px solid var(--rule-heavy);
+}
+.bx-line thead th.tn{text-align:left;padding-left:0;min-width:52px;letter-spacing:.06em;}
+.bx-line thead th.sep{border-left:1px solid var(--rule-heavy);}
+.bx-line tbody td{
+  text-align:center;
+  padding:3px 3px;
+  color:var(--smoke);
+  font-size:10px;
+}
+.bx-line tbody td.tn{
+  text-align:left;padding-left:0;
+  font-family:var(--serif-sc);font-size:10.5px;letter-spacing:.07em;
+  color:var(--parchment2);
+}
+.bx-line tbody td.sep{border-left:1px solid var(--rule-heavy);}
+.bx-line tbody tr.w td{color:var(--parchment);}
+.bx-line tbody tr.w td.tn{color:var(--cream);}
+.bx-line tbody tr.w td.sep{font-weight:700;}
+
+/* PLAYER TABLE — two teams side by side (1876 style) */
+.bx-dual{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0 10px;
+  margin-bottom:0;
+}
+/* each team block */
+.bx-team-block{}
+.bx-team-name{
+  font-family:var(--serif-sc);
+  font-size:9.5px;
+  letter-spacing:.14em;
+  color:var(--cream);
+  padding:5px 0 3px;
+  border-bottom:1px solid var(--cream-dim);
+  margin-bottom:0;
+}
+.bx-player-table{
+  border-collapse:collapse;
+  width:100%;
+  font-family:var(--mono);
+  font-size:9.5px;
+  white-space:nowrap;
+}
+.bx-player-table thead th{
+  font-weight:400;
+  font-size:8px;
+  letter-spacing:.07em;
+  color:var(--smoke);
+  text-align:right;
+  padding:2px 3px 3px;
+  border-bottom:1px solid var(--rule-heavy);
+}
+.bx-player-table thead th.pn{text-align:left;padding-left:0;}
+
+/* batting body rows */
+.bx-player-table tbody td{
+  text-align:right;
+  padding:2px 3px;
+  color:var(--smoke);
+  line-height:1.35;
+}
+.bx-player-table tbody td.pn{
+  text-align:left;
+  padding-left:0;
+  color:var(--parchment2);
+}
+
+/* totals row — full-width border via box-shadow trick so pn overflow doesn't clip it */
+.bx-player-table tbody tr.totals-row td{
+  color:var(--parchment);
+  font-weight:500;
+  padding-top:4px;
+  padding-bottom:4px;
+  border-top:1px solid var(--cream-dim);
+  border-bottom:1px solid var(--cream-dim);
+}
+.bx-player-table tbody tr.totals-row td.pn{
+  color:var(--cream);
+  overflow:visible;
+  white-space:nowrap;
+}
+.bx-player-table tbody tr.totals-row td.tot{color:var(--parchment);}
+
+/* pitching section header row */
+.bx-player-table tbody tr.pitch-hdr td{
+  font-weight:400;
+  font-size:8px;
+  letter-spacing:.07em;
+  color:var(--smoke);
+  text-align:right;
+  padding:6px 3px 3px;
+  border-bottom:1px solid var(--rule-heavy);
+}
+.bx-player-table tbody tr.pitch-hdr td.pn{
+  text-align:left;
+  padding-left:0;
+  font-family:var(--serif-sc);
+  font-size:8.5px;
+  letter-spacing:.12em;
+  color:var(--cream-dim);
+}
+
+/* pitcher stat rows */
+.bx-player-table tbody tr.pitcher-row td{
+  color:var(--smoke-light);
+  padding:2px 3px;
+  text-align:right;
+}
+.bx-player-table tbody tr.pitcher-row td.pn{
+  text-align:left;
+  padding-left:0;
+  color:var(--cream-mid);
+}
+/* winning/saving pitcher name highlight */
+.bx-player-table tbody tr.wp td.pn{color:var(--cream);font-weight:500;}
+
+/* divider between linescore and player tables */
+.bx-divider{height:.5px;background:var(--rule);margin:6px 0;}
+
+/* FOOTER */
+footer{border-top:.5px solid var(--rule-heavy);margin-top:48px;padding:24px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer-name{font-family:var(--serif-sc);font-size:18px;color:var(--cream-dim);letter-spacing:.1em;}
+.footer-tag{font-family:var(--mono);font-size:10px;color:var(--smoke);letter-spacing:.12em;text-align:center;}
+.footer-legal{font-family:var(--mono);font-size:9.5px;color:var(--smoke);opacity:.7;text-align:right;line-height:1.7;}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .game-card{grid-template-columns:1fr;}
+  .gc-left{padding-right:0;border-right:none;border-bottom:1px solid var(--rule-heavy);padding-bottom:16px;}
+  .gc-right{padding-left:0;padding-top:16px;}
+  .bx-dual{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:540px){
+  .page{padding:0 14px 40px;}
+  .bx-dual{grid-template-columns:1fr;}
+}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.masthead{animation:fadeUp .5s ease both;}
+nav.main-nav{animation:fadeUp .5s .08s ease both;}
+.games-list{animation:fadeUp .5s .16s ease both;}
+</style>
+</head>
+<body>
+
+<div class="ticker-bar"><div class="ticker-inner">
+  <span class="ticker-item"><span class="winner">TOR 8</span> MIA 1 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">TEX 10</span> HOU 7 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">AZ 7</span> SF 5 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">PHI 4</span> SD 3 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">PIT 12</span> CHC 1 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">CIN 7</span> NYM 2 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">MIL 6</span> STL 0 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">LAD 15</span> COL 6 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">NYY 15</span> KC 1 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">LAA 10</span> DET 6 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">WSH 6</span> CLE 3 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">MIN 5</span> CWS 3 (F/11) <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">ATL 7</span> BOS 6 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">BAL 6</span> TB 1 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">SEA 4</span> ATH 1 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">TOR 8</span> MIA 1 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">TEX 10</span> HOU 7 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">AZ 7</span> SF 5 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">PHI 4</span> SD 3 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">PIT 12</span> CHC 1 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">CIN 7</span> NYM 2 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">MIL 6</span> STL 0 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">LAD 15</span> COL 6 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">NYY 15</span> KC 1 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">LAA 10</span> DET 6 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">WSH 6</span> CLE 3 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">MIN 5</span> CWS 3 (F/11) <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">ATL 7</span> BOS 6 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">BAL 6</span> TB 1 <span class="div">|</span></span>
+  <span class="ticker-item"><span class="winner">SEA 4</span> ATH 1 <span class="div">|</span></span>
+</div></div>
+
+<div class="page">
+<header class="masthead">
+  <div class="masthead-top"><h1 class="site-name">BARREL <span>PROOF</span></h1></div>
+  <div class="tagline-bar">
+    <div class="tagline-line">Raw. &nbsp; Unfiltered. &nbsp; Baseball.</div>
+    <div class="tagline-line tagline-sub">Enjoy Responsibly.</div>
+  </div>
+</header>
+
+<nav class="main-nav">
+  <div class="nav-barrel-btn" id="navToggle" onclick="toggleNav()" title="Menu"></div>
+    <div class="nav-items-wrap" id="navItems">
+    <a class="nav-item active" href="barrel-proof-home.html">Page 1</a>
+    <div class="nav-item">Box Scores</div>
+    <div class="nav-item">Dope Sheet</div>
+    <div class="nav-item">Advance Scout</div>
+    <a class="nav-item" href="barrel-proof-american-league.html">American League</a>
+    <a class="nav-item" href="barrel-proof-national-league.html">National League</a>
+  </div>
+  </div>
+  </div>
+</nav>
+
+<div class="date-banner">
+  <div class="date-banner-line"></div>
+  <div class="date-banner-text">Tuesday, May 26, 2026 &nbsp;·&nbsp; 15 Games</div>
+  <div class="date-banner-line"></div>
+</div>
+
+<div class="content-layout">
+<aside class="rail-left">
+<!-- STANDINGS START -->
+  <!-- Updated: 2026-05-30 08:35 -->
+  <div class="rail-section">
+    <div class="rail-hdr">AL Standings</div>
+    <div class="rail-division">
+      <div class="rail-div-name">East</div>
+      <div class="standing-row"><span class="st-team lead">Tampa Bay</span><span class="st-record">35-19</span></div>
+      <div class="standing-row"><span class="st-team">New York</span><span class="st-record">35-22</span></div>
+      <div class="standing-row"><span class="st-team">Toronto</span><span class="st-record">29-29</span></div>
+      <div class="standing-row"><span class="st-team">Baltimore</span><span class="st-record">26-32</span></div>
+      <div class="standing-row"><span class="st-team">Boston</span><span class="st-record">23-33</span></div>
+    </div>
+    <div class="rail-division">
+      <div class="rail-div-name">Central</div>
+      <div class="standing-row"><span class="st-team lead">Cleveland</span><span class="st-record">34-25</span></div>
+      <div class="standing-row"><span class="st-team">Chicago</span><span class="st-record">30-27</span></div>
+      <div class="standing-row"><span class="st-team">Minnesota</span><span class="st-record">27-31</span></div>
+      <div class="standing-row"><span class="st-team">Kansas City</span><span class="st-record">22-35</span></div>
+      <div class="standing-row"><span class="st-team">Detroit</span><span class="st-record">22-36</span></div>
+    </div>
+    <div class="rail-division">
+      <div class="rail-div-name">West</div>
+      <div class="standing-row"><span class="st-team lead">Seattle</span><span class="st-record">29-29</span></div>
+      <div class="standing-row"><span class="st-team">Athletics</span><span class="st-record">27-30</span></div>
+      <div class="standing-row"><span class="st-team">Texas</span><span class="st-record">26-31</span></div>
+      <div class="standing-row"><span class="st-team">Houston</span><span class="st-record">26-33</span></div>
+      <div class="standing-row"><span class="st-team">Los Angeles</span><span class="st-record">22-36</span></div>
+    </div>
+  </div>
+  <div class="rail-section">
+    <div class="rail-hdr">NL Standings</div>
+    <div class="rail-division">
+      <div class="rail-div-name">East</div>
+      <div class="standing-row"><span class="st-team lead">Atlanta</span><span class="st-record">39-19</span></div>
+      <div class="standing-row"><span class="st-team">Philadelphia</span><span class="st-record">29-28</span></div>
+      <div class="standing-row"><span class="st-team">Washington</span><span class="st-record">29-29</span></div>
+      <div class="standing-row"><span class="st-team">Miami</span><span class="st-record">26-32</span></div>
+      <div class="standing-row"><span class="st-team">New York</span><span class="st-record">24-33</span></div>
+    </div>
+    <div class="rail-division">
+      <div class="rail-div-name">Central</div>
+      <div class="standing-row"><span class="st-team lead">Milwaukee</span><span class="st-record">34-20</span></div>
+      <div class="standing-row"><span class="st-team">St. Louis</span><span class="st-record">30-25</span></div>
+      <div class="standing-row"><span class="st-team">Chicago</span><span class="st-record">31-27</span></div>
+      <div class="standing-row"><span class="st-team">Cincinnati</span><span class="st-record">29-27</span></div>
+      <div class="standing-row"><span class="st-team">Pittsburgh</span><span class="st-record">30-28</span></div>
+    </div>
+    <div class="rail-division">
+      <div class="rail-div-name">West</div>
+      <div class="standing-row"><span class="st-team lead">Los Angeles</span><span class="st-record">37-20</span></div>
+      <div class="standing-row"><span class="st-team">San Diego</span><span class="st-record">32-24</span></div>
+      <div class="standing-row"><span class="st-team">Arizona</span><span class="st-record">31-25</span></div>
+      <div class="standing-row"><span class="st-team">San Francisco</span><span class="st-record">22-35</span></div>
+      <div class="standing-row"><span class="st-team">Colorado</span><span class="st-record">21-37</span></div>
+    </div>
+  </div>
+  <!-- STANDINGS END -->
+</aside>
+<div class="content-centre">
+<div class="section-hdr">
+  <div class="section-title">Game Summaries</div>
+  <div class="section-rule"></div>
+</div>
+
+<div class="games-list">
+
+<!-- ═══ G1: TOR 8, MIA 1 ═══ -->
+<div class="game-card">
+  <div class="gc-left">
+    <div class="gc-kicker">Toronto · Rogers Centre</div>
+    <h2 class="gc-headline">Blue Jays Erupt for Six in the Sixth as Miles Outduels Alcantara</h2>
+    <div class="gc-score">Toronto 8 &nbsp;·&nbsp; Miami 1</div>
+    <p class="gc-body">Spencer Miles held Miami to one run over 4.1 innings, but the real story was Toronto's sixth-inning eruption — the Blue Jays sent eleven men to the plate and scored six times to blow it open. Jesús Sánchez drove in four, going 2-for-5 with a homer and a double that keyed the big frame. Sandy Alcantara absorbed the loss after surrendering three home runs over 5.2 innings, his ERA climbing to 4.66 on the season. Ernie Clement, Yohendrick Piñango, and Sánchez all went deep for Toronto. George Springer went 3-for-4 and scored a run, while Daulton Varsho added two hits and scored twice in the comfortable victory.</p>
+    <a class="gc-readmore">Full Box Score →</a>
+  </div>
+  <div class="gc-right">
+    <div class="bx-meta"><b>W:</b> S.Miles &nbsp;<b>L:</b> S.Alcantara &nbsp;·&nbsp; Rogers Centre · 2:35</div>
+    <div class="bx-line-wrap"><table class="bx-line">
+      <thead><tr><th class="tn"></th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th class="sep">R</th><th>H</th><th>E</th></tr></thead>
+      <tbody>
+        <tr><td class="tn">Miami</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="sep">1</td><td>5</td><td>0</td></tr>
+        <tr class="w"><td class="tn">Toronto</td><td>0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>6</td><td>0</td><td>0</td><td>—</td><td class="sep">8</td><td>12</td><td>2</td></tr>
+      </tbody>
+    </table></div>
+    <div class="bx-divider"></div>
+    <div class="bx-dual">
+      <div class="bx-team-block">
+        <div class="bx-team-name">Miami</div>
+        <table class="bx-player-table">
+          <thead><tr><th class="pn"></th><th>AB</th><th>R</th><th>H</th><th>RBI</th></tr></thead>
+          <tbody>
+            <tr><td class="pn">X.Edwards, 2b</td><td>3</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">L.Hicks, dh</td><td>4</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">O.Lopez, ss</td><td>4</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">K.Stowers, rf</td><td>3</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">C.Norby, 1b</td><td>3</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">J.Marsee, cf</td><td>3</td><td>1</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">H.Hernández, lf</td><td>4</td><td>0</td><td>1</td><td>1</td></tr>
+            <tr><td class="pn">J.Mack, c</td><td>3</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">J.Sanoja, 3b</td><td>3</td><td>0</td><td>2</td><td>0</td></tr>
+            <tr><td class="pn">G.Pauley, 3b</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr class="totals-row"><td class="pn">Totals</td><td class="tot">31</td><td class="tot">1</td><td class="tot">5</td><td class="tot">1</td></tr>
+            
+            <tr class="pitch-hdr"><td class="pn">Pitching</td><td>IP</td><td>ER</td><td>K</td></tr>
+            <tr class="pitcher-row"><td class="pn">S.Alcantara (L)</td><td>5.2</td><td>8</td><td>4</td></tr>
+            <tr class="pitcher-row"><td class="pn">C.Gibson</td><td>2.1</td><td>0</td><td>2</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="bx-team-block">
+        <div class="bx-team-name">Toronto</div>
+        <table class="bx-player-table">
+          <thead><tr><th class="pn"></th><th>AB</th><th>R</th><th>H</th><th>RBI</th></tr></thead>
+          <tbody>
+            <tr><td class="pn">G.Springer, dh</td><td>4</td><td>1</td><td>3</td><td>1</td></tr>
+            <tr><td class="pn">D.Varsho, cf</td><td>4</td><td>2</td><td>2</td><td>0</td></tr>
+            <tr><td class="pn">J.Sánchez, rf</td><td>4</td><td>1</td><td>2</td><td>4</td></tr>
+            <tr><td class="pn">K.Okamoto, 3b</td><td>4</td><td>0</td><td>1</td><td>1</td></tr>
+            <tr><td class="pn">Y.Piñango, lf</td><td>4</td><td>1</td><td>1</td><td>1</td></tr>
+            <tr><td class="pn">E.Clement, 2b</td><td>4</td><td>1</td><td>1</td><td>1</td></tr>
+            <tr><td class="pn">A.Giménez, ss</td><td>4</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">B.Valenzuela, c</td><td>4</td><td>1</td><td>2</td><td>0</td></tr>
+            <tr><td class="pn">L.Sosa, 1b</td><td>3</td><td>1</td><td>0</td><td>0</td></tr>
+            <tr class="totals-row"><td class="pn">Totals</td><td class="tot">35</td><td class="tot">8</td><td class="tot">12</td><td class="tot">8</td></tr>
+            
+            <tr class="pitch-hdr"><td class="pn">Pitching</td><td>IP</td><td>ER</td><td>K</td></tr>
+            <tr class="pitcher-row wp"><td class="pn">S.Miles (W)</td><td>4.1</td><td>1</td><td>3</td></tr>
+            <tr class="pitcher-row"><td class="pn">T.Andrews</td><td>2.0</td><td>0</td><td>1</td></tr>
+            <tr class="pitcher-row"><td class="pn">Y.Rodríguez</td><td>1.0</td><td>0</td><td>0</td></tr>
+            <tr class="pitcher-row"><td class="pn">B.Fisher</td><td>1.0</td><td>0</td><td>1</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ G2: TEX 10, HOU 7 ═══ -->
+<div class="game-card">
+  <div class="gc-left">
+    <div class="gc-kicker">Arlington · Globe Life Field</div>
+    <h2 class="gc-headline">Rangers Score Eight in First Three Innings, Hold Off Late Houston Charge</h2>
+    <div class="gc-score">Texas 10 &nbsp;·&nbsp; Houston 7</div>
+    <p class="gc-body">Texas pounced early, plating eight runs through three innings to bury the Astros before any response was possible. Jack Leiter earned the win despite allowing four earned runs over six innings, getting enough cushion to survive. Evan Carter went 3-for-4 with a homer, a triple, and three RBI, giving the Rangers a spark they rode all game. Yordan Alvarez hit two home runs and drove in four for Houston — a monster night wasted — but Jason Alexander imploded early, surrendering nine earned runs across six innings before Texas had even broken a sweat. The Astros rallied to make it interesting with seven total runs, but the deficit was simply too deep to climb.</p>
+    <a class="gc-readmore">Full Box Score →</a>
+  </div>
+  <div class="gc-right">
+    <div class="bx-meta"><b>W:</b> J.Leiter &nbsp;<b>L:</b> J.Alexander &nbsp;<b>SV:</b> J.Latz &nbsp;·&nbsp; Globe Life Field · 2:25</div>
+    <div class="bx-line-wrap"><table class="bx-line">
+      <thead><tr><th class="tn"></th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th class="sep">R</th><th>H</th><th>E</th></tr></thead>
+      <tbody>
+        <tr><td class="tn">Houston</td><td>0</td><td>0</td><td>3</td><td>1</td><td>0</td><td>0</td><td>0</td><td>2</td><td>1</td><td class="sep">7</td><td>8</td><td>0</td></tr>
+        <tr class="w"><td class="tn">Texas</td><td>8</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>—</td><td class="sep">10</td><td>9</td><td>0</td></tr>
+      </tbody>
+    </table></div>
+    <div class="bx-divider"></div>
+    <div class="bx-dual">
+      <div class="bx-team-block">
+        <div class="bx-team-name">Houston</div>
+        <table class="bx-player-table">
+          <thead><tr><th class="pn"></th><th>AB</th><th>R</th><th>H</th><th>RBI</th></tr></thead>
+          <tbody>
+            <tr><td class="pn">J.Peña, ss</td><td>4</td><td>2</td><td>1</td><td>1</td></tr>
+            <tr><td class="pn">I.Paredes, 3b</td><td>4</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">Y.Alvarez, dh</td><td>5</td><td>2</td><td>2</td><td>4</td></tr>
+            <tr><td class="pn">C.Walker, 1b</td><td>4</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">T.Trammell, lf</td><td>3</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">C.Smith, rf</td><td>3</td><td>2</td><td>1</td><td>1</td></tr>
+            <tr><td class="pn">B.Shewmake, 2b</td><td>3</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">B.Matthews, cf</td><td>3</td><td>1</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">C.Salazar, c</td><td>2</td><td>0</td><td>0</td><td>1</td></tr>
+            <tr class="totals-row"><td class="pn">Totals</td><td class="tot">31</td><td class="tot">7</td><td class="tot">8</td><td class="tot">7</td></tr>
+            
+            <tr class="pitch-hdr"><td class="pn">Pitching</td><td>IP</td><td>ER</td><td>K</td></tr>
+            <tr class="pitcher-row"><td class="pn">J.Alexander (L)</td><td>6.0</td><td>9</td><td>4</td></tr>
+            <tr class="pitcher-row"><td class="pn">AJ Blubaugh</td><td>2.0</td><td>1</td><td>0</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="bx-team-block">
+        <div class="bx-team-name">Texas</div>
+        <table class="bx-player-table">
+          <thead><tr><th class="pn"></th><th>AB</th><th>R</th><th>H</th><th>RBI</th></tr></thead>
+          <tbody>
+            <tr><td class="pn">J.Pederson, dh</td><td>4</td><td>1</td><td>1</td><td>3</td></tr>
+            <tr><td class="pn">A.Osuna, lf</td><td>3</td><td>1</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">B.Nimmo, rf</td><td>4</td><td>1</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">J.Jung, 3b</td><td>3</td><td>1</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">J.Burger, 1b</td><td>4</td><td>2</td><td>1</td><td>2</td></tr>
+            <tr><td class="pn">E.Carter, cf</td><td>4</td><td>2</td><td>3</td><td>3</td></tr>
+            <tr><td class="pn">E.Duran, ss</td><td>4</td><td>1</td><td>2</td><td>2</td></tr>
+            <tr><td class="pn">J.Foscue, 2b</td><td>4</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">K.Higashioka, c</td><td>2</td><td>1</td><td>0</td><td>0</td></tr>
+            <tr class="totals-row"><td class="pn">Totals</td><td class="tot">32</td><td class="tot">10</td><td class="tot">9</td><td class="tot">10</td></tr>
+            
+            <tr class="pitch-hdr"><td class="pn">Pitching</td><td>IP</td><td>ER</td><td>K</td></tr>
+            <tr class="pitcher-row wp"><td class="pn">J.Leiter (W)</td><td>6.0</td><td>4</td><td>4</td></tr>
+            <tr class="pitcher-row"><td class="pn">J.Latz (SV)</td><td>1.1</td><td>1</td><td>2</td></tr>
+            <tr class="pitcher-row"><td class="pn">J.Junis</td><td>1.0</td><td>0</td><td>0</td></tr>
+            <tr class="pitcher-row"><td class="pn">J.Beeks</td><td>0.2</td><td>2</td><td>1</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ G3: AZ 7, SF 5 ═══ -->
+<div class="game-card">
+  <div class="gc-left">
+    <div class="gc-kicker">San Francisco · Oracle Park</div>
+    <h2 class="gc-headline">Diamondbacks Survive Late Giants Rally as Sewald Closes It Out</h2>
+    <div class="gc-score">Arizona 7 &nbsp;·&nbsp; San Francisco 5</div>
+    <p class="gc-body">Arizona led wire-to-wire but had to survive a genuine San Francisco comeback attempt before Paul Sewald recorded the final out for the save. Eduardo Rodriguez turned in a quality start — six innings, two earned runs, six strikeouts — to earn the victory. Ketel Marte and Adrian Del Castillo homered for Arizona, while Ildemaro Vargas drove in two with a clutch double. On the other side, Willy Adames, Casey Schmitt, and Eric Haase each went deep for San Francisco, keeping the Giants threatening deep into the game. The margin was two runs entering the ninth, tighter than the Diamondbacks would have liked, but Sewald was sharp enough to close the door.</p>
+    <a class="gc-readmore">Full Box Score →</a>
+  </div>
+  <div class="gc-right">
+    <div class="bx-meta"><b>W:</b> E.Rodriguez &nbsp;<b>L:</b> T.Mahle &nbsp;<b>SV:</b> P.Sewald &nbsp;·&nbsp; Oracle Park · 2:38</div>
+    <div class="bx-line-wrap"><table class="bx-line">
+      <thead><tr><th class="tn"></th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th class="sep">R</th><th>H</th><th>E</th></tr></thead>
+      <tbody>
+        <tr class="w"><td class="tn">Arizona</td><td>0</td><td>3</td><td>0</td><td>0</td><td>0</td><td>1</td><td>2</td><td>1</td><td>0</td><td class="sep">7</td><td>8</td><td>0</td></tr>
+        <tr><td class="tn">San Francisco</td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td><td>1</td><td class="sep">5</td><td>9</td><td>1</td></tr>
+      </tbody>
+    </table></div>
+    <div class="bx-divider"></div>
+    <div class="bx-dual">
+      <div class="bx-team-block">
+        <div class="bx-team-name">Arizona</div>
+        <table class="bx-player-table">
+          <thead><tr><th class="pn"></th><th>AB</th><th>R</th><th>H</th><th>RBI</th></tr></thead>
+          <tbody>
+            <tr><td class="pn">K.Marte, 2b</td><td>5</td><td>1</td><td>1</td><td>2</td></tr>
+            <tr><td class="pn">C.Carroll, rf</td><td>3</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">G.Perdomo, ss</td><td>5</td><td>1</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">N.Arenado, 3b</td><td>2</td><td>1</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">R.Waldschmidt, cf</td><td>4</td><td>1</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">I.Vargas, 1b</td><td>4</td><td>1</td><td>1</td><td>2</td></tr>
+            <tr><td class="pn">G.Moreno, c</td><td>2</td><td>0</td><td>1</td><td>2</td></tr>
+            <tr><td class="pn">A.Del Castillo, dh</td><td>3</td><td>1</td><td>1</td><td>1</td></tr>
+            <tr><td class="pn">T.Troy, lf</td><td>2</td><td>1</td><td>1</td><td>0</td></tr>
+            <tr class="totals-row"><td class="pn">Totals</td><td class="tot">30</td><td class="tot">7</td><td class="tot">8</td><td class="tot">7</td></tr>
+            
+            <tr class="pitch-hdr"><td class="pn">Pitching</td><td>IP</td><td>ER</td><td>K</td></tr>
+            <tr class="pitcher-row wp"><td class="pn">E.Rodriguez (W)</td><td>6.0</td><td>2</td><td>6</td></tr>
+            <tr class="pitcher-row"><td class="pn">J.Morillo</td><td>1.0</td><td>1</td><td>1</td></tr>
+            <tr class="pitcher-row"><td class="pn">K.Ginkel</td><td>1.0</td><td>1</td><td>2</td></tr>
+            <tr class="pitcher-row"><td class="pn">P.Sewald (SV)</td><td>1.0</td><td>1</td><td>1</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="bx-team-block">
+        <div class="bx-team-name">San Francisco</div>
+        <table class="bx-player-table">
+          <thead><tr><th class="pn"></th><th>AB</th><th>R</th><th>H</th><th>RBI</th></tr></thead>
+          <tbody>
+            <tr><td class="pn">W.Adames, ss</td><td>5</td><td>2</td><td>2</td><td>1</td></tr>
+            <tr><td class="pn">C.Schmitt, 2b</td><td>5</td><td>1</td><td>2</td><td>2</td></tr>
+            <tr><td class="pn">M.Chapman, 3b</td><td>1</td><td>1</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">R.Devers, 1b</td><td>4</td><td>0</td><td>1</td><td>1</td></tr>
+            <tr><td class="pn">H.Bader, cf</td><td>4</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">B.Eldridge, dh</td><td>4</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">E.Haase, c</td><td>3</td><td>1</td><td>2</td><td>1</td></tr>
+            <tr><td class="pn">V.Bericoto, rf</td><td>2</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">J.Rodriguez, lf</td><td>3</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr class="totals-row"><td class="pn">Totals</td><td class="tot">31</td><td class="tot">5</td><td class="tot">9</td><td class="tot">5</td></tr>
+            
+            <tr class="pitch-hdr"><td class="pn">Pitching</td><td>IP</td><td>ER</td><td>K</td></tr>
+            <tr class="pitcher-row"><td class="pn">T.Mahle (L)</td><td>5.0</td><td>3</td><td>3</td></tr>
+            <tr class="pitcher-row"><td class="pn">R.Borucki</td><td>2.0</td><td>1</td><td>1</td></tr>
+            <tr class="pitcher-row"><td class="pn">K.Winn</td><td>1.0</td><td>1</td><td>1</td></tr>
+            <tr class="pitcher-row"><td class="pn">E.Miller</td><td>1.0</td><td>2</td><td>2</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ G4: PHI 4, SD 3 ═══ -->
+<div class="game-card">
+  <div class="gc-left">
+    <div class="gc-kicker">San Diego · Petco Park</div>
+    <h2 class="gc-headline">Nola Goes Six Strong as Phillies Jump Early and Hold Off the Padres</h2>
+    <div class="gc-score">Philadelphia 4 &nbsp;·&nbsp; San Diego 3</div>
+    <p class="gc-body">Aaron Nola pitched six solid innings, limiting San Diego to two earned runs with five strikeouts as Philadelphia built a four-run lead in the first three frames and made it stand. Bryce Harper, J.T. Realmuto, and Trea Turner each homered for the Phillies, providing more than enough offense. Brandon Marsh went 2-for-2 with no plate appearances wasted before coming out of the game. Manny Machado and Ramón Laureano went deep for San Diego, keeping the Padres from falling too far behind, but Randy Vásquez allowed all four Philadelphia runs over 5.2 innings and could not hold the early deficit. Jhoan Duran struck out two in a clean ninth to seal it.</p>
+    <a class="gc-readmore">Full Box Score →</a>
+  </div>
+  <div class="gc-right">
+    <div class="bx-meta"><b>W:</b> A.Nola &nbsp;<b>L:</b> R.Vásquez &nbsp;<b>SV:</b> J.Duran &nbsp;·&nbsp; Petco Park · 2:38</div>
+    <div class="bx-line-wrap"><table class="bx-line">
+      <thead><tr><th class="tn"></th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th class="sep">R</th><th>H</th><th>E</th></tr></thead>
+      <tbody>
+        <tr class="w"><td class="tn">Philadelphia</td><td>1</td><td>1</td><td>2</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="sep">4</td><td>9</td><td>0</td></tr>
+        <tr><td class="tn">San Diego</td><td>0</td><td>0</td><td>0</td><td>2</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td class="sep">3</td><td>5</td><td>0</td></tr>
+      </tbody>
+    </table></div>
+    <div class="bx-divider"></div>
+    <div class="bx-dual">
+      <div class="bx-team-block">
+        <div class="bx-team-name">Philadelphia</div>
+        <table class="bx-player-table">
+          <thead><tr><th class="pn"></th><th>AB</th><th>R</th><th>H</th><th>RBI</th></tr></thead>
+          <tbody>
+            <tr><td class="pn">K.Schwarber, dh</td><td>5</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">T.Turner, ss</td><td>5</td><td>1</td><td>2</td><td>1</td></tr>
+            <tr><td class="pn">B.Harper, 1b</td><td>2</td><td>2</td><td>1</td><td>1</td></tr>
+            <tr><td class="pn">B.Marsh, rf</td><td>2</td><td>0</td><td>2</td><td>0</td></tr>
+            <tr><td class="pn">A.Bohm, 3b</td><td>4</td><td>0</td><td>1</td><td>1</td></tr>
+            <tr><td class="pn">B.Stott, 2b</td><td>4</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">J.T.Realmuto, c</td><td>3</td><td>1</td><td>2</td><td>1</td></tr>
+            <tr><td class="pn">J.Crawford, cf</td><td>4</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">E.Sosa, lf</td><td>4</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr class="totals-row"><td class="pn">Totals</td><td class="tot">33</td><td class="tot">4</td><td class="tot">9</td><td class="tot">4</td></tr>
+            
+            <tr class="pitch-hdr"><td class="pn">Pitching</td><td>IP</td><td>ER</td><td>K</td></tr>
+            <tr class="pitcher-row wp"><td class="pn">A.Nola (W)</td><td>6.0</td><td>2</td><td>5</td></tr>
+            <tr class="pitcher-row"><td class="pn">J.Duran (SV)</td><td>1.0</td><td>0</td><td>2</td></tr>
+            <tr class="pitcher-row"><td class="pn">O.Kerkering</td><td>1.0</td><td>0</td><td>3</td></tr>
+            <tr class="pitcher-row"><td class="pn">B.Keller</td><td>1.0</td><td>1</td><td>1</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="bx-team-block">
+        <div class="bx-team-name">San Diego</div>
+        <table class="bx-player-table">
+          <thead><tr><th class="pn"></th><th>AB</th><th>R</th><th>H</th><th>RBI</th></tr></thead>
+          <tbody>
+            <tr><td class="pn">F.Tatis Jr., 2b</td><td>4</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">X.Bogaerts, ss</td><td>4</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">G.Sheets, lf</td><td>3</td><td>1</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">M.Machado, 3b</td><td>3</td><td>1</td><td>1</td><td>2</td></tr>
+            <tr><td class="pn">M.Andujar, dh</td><td>4</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">J.Merrill, cf</td><td>4</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">T.France, 1b</td><td>4</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">R.Laureano, rf</td><td>3</td><td>1</td><td>1</td><td>1</td></tr>
+            <tr><td class="pn">F.Fermin, c</td><td>2</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr class="totals-row"><td class="pn">Totals</td><td class="tot">31</td><td class="tot">3</td><td class="tot">5</td><td class="tot">3</td></tr>
+            
+            <tr class="pitch-hdr"><td class="pn">Pitching</td><td>IP</td><td>ER</td><td>K</td></tr>
+            <tr class="pitcher-row"><td class="pn">R.Vásquez (L)</td><td>5.2</td><td>4</td><td>2</td></tr>
+            <tr class="pitcher-row"><td class="pn">B.Rodriguez</td><td>1.1</td><td>0</td><td>1</td></tr>
+            <tr class="pitcher-row"><td class="pn">W.Peralta</td><td>1.0</td><td>0</td><td>0</td></tr>
+            <tr class="pitcher-row"><td class="pn">A.Morejon</td><td>1.0</td><td>0</td><td>1</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ G5: PIT 12, CHC 1 ═══ -->
+<div class="game-card">
+  <div class="gc-left">
+    <div class="gc-kicker">Pittsburgh · PNC Park</div>
+    <h2 class="gc-headline">Ashcraft Dominates, Pirates Maul Cubs 12–1 Behind Five-Run First</h2>
+    <div class="gc-score">Pittsburgh 12 &nbsp;·&nbsp; Chicago 1</div>
+    <p class="gc-body">Braxton Ashcraft was masterful — 6.1 innings, one earned run, five strikeouts — as Pittsburgh pummeled Chicago from the opening frame with a five-run first inning that set the tone immediately. The Pirates kept adding throughout, eventually reaching twelve runs on fifteen hits in a complete team effort. Esmerlyn Valdez hit a three-run home run and Spencer Horwitz added a two-run shot as Pittsburgh's bottom of the order did serious damage. Jordan Wicks was roughed up for eight earned runs in 4.1 innings to take the loss, and Chicago's bullpen fared no better in the late innings. Oneil Cruz went 3-for-3 with a stolen base, continuing his strong stretch at the plate for Pittsburgh.</p>
+    <a class="gc-readmore">Full Box Score →</a>
+  </div>
+  <div class="gc-right">
+    <div class="bx-meta"><b>W:</b> B.Ashcraft &nbsp;<b>L:</b> J.Wicks &nbsp;·&nbsp; PNC Park · 2:31</div>
+    <div class="bx-line-wrap"><table class="bx-line">
+      <thead><tr><th class="tn"></th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th class="sep">R</th><th>H</th><th>E</th></tr></thead>
+      <tbody>
+        <tr><td class="tn">Chicago</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="sep">1</td><td>8</td><td>1</td></tr>
+        <tr class="w"><td class="tn">Pittsburgh</td><td>5</td><td>0</td><td>0</td><td>0</td><td>3</td><td>1</td><td>1</td><td>2</td><td>—</td><td class="sep">12</td><td>15</td><td>3</td></tr>
+      </tbody>
+    </table></div>
+    <div class="bx-divider"></div>
+    <div class="bx-dual">
+      <div class="bx-team-block">
+        <div class="bx-team-name">Chicago</div>
+        <table class="bx-player-table">
+          <thead><tr><th class="pn"></th><th>AB</th><th>R</th><th>H</th><th>RBI</th></tr></thead>
+          <tbody>
+            <tr><td class="pn">P.Crow-Armstrong, cf</td><td>3</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">N.Hoerner, 2b</td><td>5</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">M.Busch, 1b</td><td>4</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">A.Bregman, 3b</td><td>4</td><td>1</td><td>2</td><td>0</td></tr>
+            <tr><td class="pn">I.Happ, lf</td><td>4</td><td>0</td><td>1</td><td>1</td></tr>
+            <tr><td class="pn">S.Suzuki, rf</td><td>3</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">M.Ballesteros, dh</td><td>4</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">C.Kelly, c</td><td>4</td><td>0</td><td>2</td><td>0</td></tr>
+            <tr><td class="pn">D.Swanson, ss</td><td>3</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr class="totals-row"><td class="pn">Totals</td><td class="tot">34</td><td class="tot">1</td><td class="tot">8</td><td class="tot">1</td></tr>
+            
+            <tr class="pitch-hdr"><td class="pn">Pitching</td><td>IP</td><td>ER</td><td>K</td></tr>
+            <tr class="pitcher-row"><td class="pn">J.Wicks (L)</td><td>4.1</td><td>8</td><td>5</td></tr>
+            <tr class="pitcher-row"><td class="pn">R.Rolison</td><td>1.2</td><td>1</td><td>1</td></tr>
+            <tr class="pitcher-row"><td class="pn">D.Palencia</td><td>1.0</td><td>1</td><td>1</td></tr>
+            <tr class="pitcher-row"><td class="pn">H.Milner</td><td>1.0</td><td>2</td><td>1</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="bx-team-block">
+        <div class="bx-team-name">Pittsburgh</div>
+        <table class="bx-player-table">
+          <thead><tr><th class="pn"></th><th>AB</th><th>R</th><th>H</th><th>RBI</th></tr></thead>
+          <tbody>
+            <tr><td class="pn">K.Griffin, ss</td><td>4</td><td>2</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">B.Lowe, 2b</td><td>4</td><td>2</td><td>2</td><td>0</td></tr>
+            <tr><td class="pn">B.Reynolds, lf</td><td>4</td><td>2</td><td>2</td><td>2</td></tr>
+            <tr><td class="pn">N.Gonzales, 3b</td><td>5</td><td>2</td><td>2</td><td>1</td></tr>
+            <tr><td class="pn">O.Cruz, cf</td><td>3</td><td>1</td><td>3</td><td>1</td></tr>
+            <tr><td class="pn">M.Ozuna, dh</td><td>5</td><td>0</td><td>1</td><td>1</td></tr>
+            <tr><td class="pn">E.Valdez, rf</td><td>4</td><td>1</td><td>1</td><td>3</td></tr>
+            <tr><td class="pn">S.Horwitz, 1b</td><td>3</td><td>1</td><td>2</td><td>2</td></tr>
+            <tr><td class="pn">H.Davis, c</td><td>4</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr class="totals-row"><td class="pn">Totals</td><td class="tot">36</td><td class="tot">12</td><td class="tot">15</td><td class="tot">10</td></tr>
+            
+            <tr class="pitch-hdr"><td class="pn">Pitching</td><td>IP</td><td>ER</td><td>K</td></tr>
+            <tr class="pitcher-row wp"><td class="pn">B.Ashcraft (W)</td><td>6.1</td><td>1</td><td>5</td></tr>
+            <tr class="pitcher-row"><td class="pn">B.Bidois</td><td>1.2</td><td>0</td><td>3</td></tr>
+            <tr class="pitcher-row"><td class="pn">D.Santana</td><td>1.0</td><td>0</td><td>1</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ G6: CIN 7, NYM 2 ═══ -->
+<div class="game-card">
+  <div class="gc-left">
+    <div class="gc-kicker">New York · Citi Field</div>
+    <h2 class="gc-headline">Burns Fans Eight as Reds Overwhelm Mets with 15-Hit Attack</h2>
+    <div class="gc-score">Cincinnati 7 &nbsp;·&nbsp; New York 2</div>
+    <p class="gc-body">Chase Burns was sharp through 5.1 innings — eight strikeouts, four hits, two earned runs — as Cincinnati's lineup was relentless, collecting fifteen hits against a depleted Mets staff. JJ Bleday led the way going 3-for-5, and six different Reds recorded multi-hit games to pile up runs from the opening inning. Elly De La Cruz added two hits and two RBI, while Tyler Stephenson went 2-for-4 with a pair of runs driven in as well. David Peterson absorbed the loss after surrendering six earned runs on eleven hits over five ugly innings. Juan Soto homered in a losing cause for New York, one of only a handful of bright spots in an otherwise forgettable night at Citi Field.</p>
+    <a class="gc-readmore">Full Box Score →</a>
+  </div>
+  <div class="gc-right">
+    <div class="bx-meta"><b>W:</b> C.Burns &nbsp;<b>L:</b> D.Peterson &nbsp;·&nbsp; Citi Field · 2:56</div>
+    <div class="bx-line-wrap"><table class="bx-line">
+      <thead><tr><th class="tn"></th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th class="sep">R</th><th>H</th><th>E</th></tr></thead>
+      <tbody>
+        <tr class="w"><td class="tn">Cincinnati</td><td>2</td><td>0</td><td>0</td><td>3</td><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td><td class="sep">7</td><td>15</td><td>0</td></tr>
+        <tr><td class="tn">New York</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>2</td><td>0</td><td>0</td><td>0</td><td class="sep">2</td><td>5</td><td>1</td></tr>
+      </tbody>
+    </table></div>
+    <div class="bx-divider"></div>
+    <div class="bx-dual">
+      <div class="bx-team-block">
+        <div class="bx-team-name">Cincinnati</div>
+        <table class="bx-player-table">
+          <thead><tr><th class="pn"></th><th>AB</th><th>R</th><th>H</th><th>RBI</th></tr></thead>
+          <tbody>
+            <tr><td class="pn">B.Dunn, rf</td><td>4</td><td>1</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">E.De La Cruz, ss</td><td>5</td><td>0</td><td>2</td><td>2</td></tr>
+            <tr><td class="pn">S.Stewart, dh</td><td>5</td><td>1</td><td>2</td><td>1</td></tr>
+            <tr><td class="pn">S.Steer, 1b</td><td>3</td><td>1</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">E.Suárez, 3b</td><td>5</td><td>0</td><td>2</td><td>2</td></tr>
+            <tr><td class="pn">D.Myers, cf</td><td>4</td><td>1</td><td>2</td><td>0</td></tr>
+            <tr><td class="pn">JJ Bleday, lf</td><td>5</td><td>1</td><td>3</td><td>0</td></tr>
+            <tr><td class="pn">T.Stephenson, c</td><td>4</td><td>1</td><td>2</td><td>2</td></tr>
+            <tr><td class="pn">M.McLain, 2b</td><td>4</td><td>1</td><td>1</td><td>0</td></tr>
+            <tr class="totals-row"><td class="pn">Totals</td><td class="tot">39</td><td class="tot">7</td><td class="tot">15</td><td class="tot">7</td></tr>
+            
+            <tr class="pitch-hdr"><td class="pn">Pitching</td><td>IP</td><td>ER</td><td>K</td></tr>
+            <tr class="pitcher-row wp"><td class="pn">C.Burns (W)</td><td>5.1</td><td>2</td><td>8</td></tr>
+            <tr class="pitcher-row"><td class="pn">S.Moll</td><td>1.2</td><td>0</td><td>2</td></tr>
+            <tr class="pitcher-row"><td class="pn">T.Santillan</td><td>1.0</td><td>0</td><td>0</td></tr>
+            <tr class="pitcher-row"><td class="pn">P.Johnson</td><td>0.2</td><td>0</td><td>0</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="bx-team-block">
+        <div class="bx-team-name">New York</div>
+        <table class="bx-player-table">
+          <thead><tr><th class="pn"></th><th>AB</th><th>R</th><th>H</th><th>RBI</th></tr></thead>
+          <tbody>
+            <tr><td class="pn">C.Benge, rf</td><td>4</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">B.Bichette, ss</td><td>4</td><td>1</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">J.Soto, dh</td><td>4</td><td>1</td><td>1</td><td>2</td></tr>
+            <tr><td class="pn">A.J.Ewing, cf</td><td>4</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">B.Baty, 3b</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">M.Semien, 2b</td><td>3</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">MJ Melendez, lf</td><td>3</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">L.Torrens, c</td><td>3</td><td>0</td><td>2</td><td>0</td></tr>
+            <tr><td class="pn">J.Young, 1b</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr class="totals-row"><td class="pn">Totals</td><td class="tot">27</td><td class="tot">2</td><td class="tot">5</td><td class="tot">2</td></tr>
+            
+            <tr class="pitch-hdr"><td class="pn">Pitching</td><td>IP</td><td>ER</td><td>K</td></tr>
+            <tr class="pitcher-row"><td class="pn">D.Peterson (L)</td><td>5.0</td><td>6</td><td>4</td></tr>
+            <tr class="pitcher-row"><td class="pn">S.Manaea</td><td>3.0</td><td>1</td><td>6</td></tr>
+            <tr class="pitcher-row"><td class="pn">A.J.Minter</td><td>1.0</td><td>0</td><td>2</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ G7: MIL 6, STL 0 ═══ -->
+<div class="game-card">
+  <div class="gc-left">
+    <div class="gc-kicker">Milwaukee · American Family Field</div>
+    <h2 class="gc-headline">Harrison Blanks Cardinals Over Six, Brewers Erupt for Five in the Fifth</h2>
+    <div class="gc-score">Milwaukee 6 &nbsp;·&nbsp; St. Louis 0</div>
+    <p class="gc-body">Kyle Harrison threw six shutout innings on zero walks and two strikeouts, methodically working through a St. Louis lineup that could not do anything with him. Milwaukee broke the game open with a five-run fifth inning against Michael McGreevy, who had kept it close until that frame unraveled in a hurry. Garrett Mitchell hit a three-run homer and Jake Bauers added a solo shot to account for most of the damage. St. Louis managed seven hits across the afternoon but stranded runners in seemingly every inning, never finding the big blow that might have changed the game's complexion. Christian Yelich went 3-for-5 at the top of the Milwaukee order, extending his solid run of form.</p>
+    <a class="gc-readmore">Full Box Score →</a>
+  </div>
+  <div class="gc-right">
+    <div class="bx-meta"><b>W:</b> K.Harrison &nbsp;<b>L:</b> M.McGreevy &nbsp;·&nbsp; American Family Field · 2:29</div>
+    <div class="bx-line-wrap"><table class="bx-line">
+      <thead><tr><th class="tn"></th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th class="sep">R</th><th>H</th><th>E</th></tr></thead>
+      <tbody>
+        <tr><td class="tn">St. Louis</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="sep">0</td><td>7</td><td>0</td></tr>
+        <tr class="w"><td class="tn">Milwaukee</td><td>0</td><td>0</td><td>0</td><td>1</td><td>5</td><td>0</td><td>0</td><td>0</td><td>—</td><td class="sep">6</td><td>10</td><td>1</td></tr>
+      </tbody>
+    </table></div>
+    <div class="bx-divider"></div>
+    <div class="bx-dual">
+      <div class="bx-team-block">
+        <div class="bx-team-name">St. Louis</div>
+        <table class="bx-player-table">
+          <thead><tr><th class="pn"></th><th>AB</th><th>R</th><th>H</th><th>RBI</th></tr></thead>
+          <tbody>
+            <tr><td class="pn">JJ Wetherholt, 2b</td><td>4</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">I.Herrera, c</td><td>3</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">J.Walker, rf</td><td>4</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">A.Burleson, 1b</td><td>4</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">J.Fermín, 3b</td><td>4</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">M.Winn, ss</td><td>4</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">B.Torres, lf</td><td>4</td><td>0</td><td>2</td><td>0</td></tr>
+            <tr><td class="pn">Y.Pozo, dh</td><td>3</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">V.Scott II, cf</td><td>3</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr class="totals-row"><td class="pn">Totals</td><td class="tot">33</td><td class="tot">0</td><td class="tot">7</td><td class="tot">0</td></tr>
+            
+            <tr class="pitch-hdr"><td class="pn">Pitching</td><td>IP</td><td>ER</td><td>K</td></tr>
+            <tr class="pitcher-row"><td class="pn">M.McGreevy (L)</td><td>4.0</td><td>5</td><td>6</td></tr>
+            <tr class="pitcher-row"><td class="pn">J.Bruihl</td><td>2.0</td><td>0</td><td>2</td></tr>
+            <tr class="pitcher-row"><td class="pn">M.Pushard</td><td>1.0</td><td>0</td><td>1</td></tr>
+            <tr class="pitcher-row"><td class="pn">R.Fernandez</td><td>1.0</td><td>1</td><td>3</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="bx-team-block">
+        <div class="bx-team-name">Milwaukee</div>
+        <table class="bx-player-table">
+          <thead><tr><th class="pn"></th><th>AB</th><th>R</th><th>H</th><th>RBI</th></tr></thead>
+          <tbody>
+            <tr><td class="pn">C.Yelich, dh</td><td>5</td><td>1</td><td>3</td><td>0</td></tr>
+            <tr><td class="pn">J.Chourio, lf</td><td>3</td><td>1</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">B.Turang, 2b</td><td>3</td><td>1</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">W.Contreras, c</td><td>4</td><td>1</td><td>2</td><td>2</td></tr>
+            <tr><td class="pn">J.Bauers, 1b</td><td>4</td><td>1</td><td>2</td><td>1</td></tr>
+            <tr><td class="pn">G.Mitchell, cf</td><td>4</td><td>1</td><td>1</td><td>3</td></tr>
+            <tr><td class="pn">L.Rengifo, 3b</td><td>3</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">S.Frelick, rf</td><td>3</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">D.Hamilton, ss</td><td>4</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr class="totals-row"><td class="pn">Totals</td><td class="tot">33</td><td class="tot">6</td><td class="tot">10</td><td class="tot">6</td></tr>
+            
+            <tr class="pitch-hdr"><td class="pn">Pitching</td><td>IP</td><td>ER</td><td>K</td></tr>
+            <tr class="pitcher-row wp"><td class="pn">K.Harrison (W)</td><td>6.0</td><td>0</td><td>2</td></tr>
+            <tr class="pitcher-row"><td class="pn">A.Uribe</td><td>1.0</td><td>0</td><td>2</td></tr>
+            <tr class="pitcher-row"><td class="pn">G.Anderson</td><td>1.0</td><td>0</td><td>1</td></tr>
+            <tr class="pitcher-row"><td class="pn">T.Megill</td><td>1.0</td><td>0</td><td>0</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ G8: LAD 15, COL 6 ═══ -->
+<div class="game-card">
+  <div class="gc-left">
+    <div class="gc-kicker">Los Angeles · Dodger Stadium</div>
+    <h2 class="gc-headline">Mookie Goes Deep Twice, Dodgers Demolish Rockies in 15-Run Showcase</h2>
+    <div class="gc-score">Los Angeles 15 &nbsp;·&nbsp; Colorado 6</div>
+    <p class="gc-body">Mookie Betts hit two home runs and drove in five as Los Angeles scored fifteen runs on seventeen hits in what amounted to a thorough dismantling. Andy Pages went 4-for-5 with two doubles, a homer, and three RBI — his best game of the season — giving the Dodgers a force at the top of the lineup alongside Betts. Eric Lauer won with six innings of one-run ball, receiving plenty of cushion from a lineup that refused to stop scoring. Kyle Freeland was roughed up for eight earned runs in four innings to take the loss, and Zach Agnos allowed seven more in two innings of relief as the Colorado bullpen had no answers. The Rockies scored five in the ninth on a Dodger mistake-filled inning, adding cosmetic runs to what was already decided.</p>
+    <a class="gc-readmore">Full Box Score →</a>
+  </div>
+  <div class="gc-right">
+    <div class="bx-meta"><b>W:</b> E.Lauer &nbsp;<b>L:</b> K.Freeland &nbsp;·&nbsp; Dodger Stadium · 2:33</div>
+    <div class="bx-line-wrap"><table class="bx-line">
+      <thead><tr><th class="tn"></th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th class="sep">R</th><th>H</th><th>E</th></tr></thead>
+      <tbody>
+        <tr><td class="tn">Colorado</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>5</td><td class="sep">6</td><td>12</td><td>0</td></tr>
+        <tr class="w"><td class="tn">Los Angeles</td><td>2</td><td>0</td><td>2</td><td>4</td><td>2</td><td>5</td><td>0</td><td>0</td><td>—</td><td class="sep">15</td><td>17</td><td>1</td></tr>
+      </tbody>
+    </table></div>
+    <div class="bx-divider"></div>
+    <div class="bx-dual">
+      <div class="bx-team-block">
+        <div class="bx-team-name">Colorado</div>
+        <table class="bx-player-table">
+          <thead><tr><th class="pn"></th><th>AB</th><th>R</th><th>H</th><th>RBI</th></tr></thead>
+          <tbody>
+            <tr><td class="pn">W.Castro, 1b</td><td>3</td><td>0</td><td>2</td><td>0</td></tr>
+            <tr><td class="pn">T.Freeman, rf</td><td>5</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">E.Tovar, ss</td><td>5</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">H.Goodman, c</td><td>3</td><td>1</td><td>1</td><td>1</td></tr>
+            <tr><td class="pn">B.Fulford, dh</td><td>3</td><td>1</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">J.McCarthy, cf</td><td>4</td><td>1</td><td>2</td><td>0</td></tr>
+            <tr><td class="pn">K.Karros, 3b</td><td>4</td><td>1</td><td>1</td><td>3</td></tr>
+            <tr><td class="pn">T.Johnston, lf</td><td>4</td><td>1</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">C.Stevens, 2b</td><td>3</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr class="totals-row"><td class="pn">Totals</td><td class="tot">34</td><td class="tot">6</td><td class="tot">12</td><td class="tot">4</td></tr>
+            
+            <tr class="pitch-hdr"><td class="pn">Pitching</td><td>IP</td><td>ER</td><td>K</td></tr>
+            <tr class="pitcher-row"><td class="pn">K.Freeland (L)</td><td>4.0</td><td>8</td><td>4</td></tr>
+            <tr class="pitcher-row"><td class="pn">Z.Agnos</td><td>2.0</td><td>7</td><td>1</td></tr>
+            <tr class="pitcher-row"><td class="pn">W.Herrera</td><td>1.0</td><td>0</td><td>2</td></tr>
+            <tr class="pitcher-row"><td class="pn">B.Sullivan</td><td>1.0</td><td>0</td><td>0</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="bx-team-block">
+        <div class="bx-team-name">Los Angeles</div>
+        <table class="bx-player-table">
+          <thead><tr><th class="pn"></th><th>AB</th><th>R</th><th>H</th><th>RBI</th></tr></thead>
+          <tbody>
+            <tr><td class="pn">S.Ohtani, dh</td><td>2</td><td>1</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">A.Pages, cf</td><td>5</td><td>3</td><td>4</td><td>3</td></tr>
+            <tr><td class="pn">F.Freeman, 1b</td><td>3</td><td>2</td><td>2</td><td>1</td></tr>
+            <tr><td class="pn">M.Betts, ss</td><td>5</td><td>2</td><td>3</td><td>5</td></tr>
+            <tr><td class="pn">K.Tucker, rf</td><td>5</td><td>1</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">T.Hernández, lf</td><td>3</td><td>1</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">W.Smith, c</td><td>4</td><td>2</td><td>2</td><td>2</td></tr>
+            <tr><td class="pn">M.Rojas, 2b</td><td>5</td><td>1</td><td>2</td><td>1</td></tr>
+            <tr><td class="pn">E.Hernández, 3b</td><td>2</td><td>2</td><td>2</td><td>1</td></tr>
+            <tr class="totals-row"><td class="pn">Totals</td><td class="tot">34</td><td class="tot">15</td><td class="tot">17</td><td class="tot">13</td></tr>
+            
+            <tr class="pitch-hdr"><td class="pn">Pitching</td><td>IP</td><td>ER</td><td>K</td></tr>
+            <tr class="pitcher-row wp"><td class="pn">E.Lauer (W)</td><td>6.0</td><td>1</td><td>4</td></tr>
+            <tr class="pitcher-row"><td class="pn">J.Hernández</td><td>2.0</td><td>0</td><td>3</td></tr>
+            <tr class="pitcher-row"><td class="pn">M.Rojas</td><td>1.0</td><td>5</td><td>0</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ G9: NYY 15, KC 1 ═══ -->
+<div class="game-card">
+  <div class="gc-left">
+    <div class="gc-kicker">Kansas City · Kauffman Stadium</div>
+    <h2 class="gc-headline">Yankees Torch Royals 15–1, Collect 24 Hits as Rosario Homers Twice</h2>
+    <div class="gc-score">New York 15 &nbsp;·&nbsp; Kansas City 1</div>
+    <p class="gc-body">New York was dominant from pitch one, scoring four in the first inning and adding four more in the third to make it a rout before Kansas City could organize any resistance. Cam Schlittler threw six clean innings, surrendering just one run on four hits with six strikeouts in a masterful performance. Amed Rosario led the offensive onslaught with two home runs and four RBI, getting the Yankees' most powerful night from an unlikely source. Anthony Volpe, Jazz Chisholm Jr., Cody Bellinger, and Trent Grisham each homered as well, giving New York a record-setting 24-hit output across nine innings. Bailey Falter allowed seven earned runs in just 2.1 innings for Kansas City, with the bullpen surrendering eight more as the deficit became historic.</p>
+    <a class="gc-readmore">Full Box Score →</a>
+  </div>
+  <div class="gc-right">
+    <div class="bx-meta"><b>W:</b> C.Schlittler &nbsp;<b>L:</b> B.Falter &nbsp;<b>SV:</b> R.Yarbrough &nbsp;·&nbsp; Kauffman Stadium · 3:00</div>
+    <div class="bx-line-wrap"><table class="bx-line">
+      <thead><tr><th class="tn"></th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th class="sep">R</th><th>H</th><th>E</th></tr></thead>
+      <tbody>
+        <tr class="w"><td class="tn">New York</td><td>4</td><td>1</td><td>4</td><td>0</td><td>1</td><td>0</td><td>1</td><td>2</td><td>2</td><td class="sep">15</td><td>24</td><td>0</td></tr>
+        <tr><td class="tn">Kansas City</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="sep">1</td><td>6</td><td>0</td></tr>
+      </tbody>
+    </table></div>
+    <div class="bx-divider"></div>
+    <div class="bx-dual">
+      <div class="bx-team-block">
+        <div class="bx-team-name">New York</div>
+        <table class="bx-player-table">
+          <thead><tr><th class="pn"></th><th>AB</th><th>R</th><th>H</th><th>RBI</th></tr></thead>
+          <tbody>
+            <tr><td class="pn">T.Grisham, cf</td><td>7</td><td>1</td><td>3</td><td>2</td></tr>
+            <tr><td class="pn">A.Judge, rf</td><td>3</td><td>0</td><td>2</td><td>1</td></tr>
+            <tr><td class="pn">C.Bellinger, lf</td><td>5</td><td>1</td><td>2</td><td>3</td></tr>
+            <tr><td class="pn">P.Goldschmidt, 1b</td><td>6</td><td>1</td><td>2</td><td>0</td></tr>
+            <tr><td class="pn">B.Rice, dh</td><td>5</td><td>3</td><td>3</td><td>1</td></tr>
+            <tr><td class="pn">A.Rosario, 3b</td><td>6</td><td>3</td><td>4</td><td>4</td></tr>
+            <tr><td class="pn">J.Chisholm, 2b</td><td>5</td><td>2</td><td>2</td><td>1</td></tr>
+            <tr><td class="pn">A.Volpe, ss</td><td>6</td><td>3</td><td>3</td><td>2</td></tr>
+            <tr><td class="pn">A.Wells, c</td><td>6</td><td>1</td><td>3</td><td>1</td></tr>
+            <tr class="totals-row"><td class="pn">Totals</td><td class="tot">49</td><td class="tot">15</td><td class="tot">24</td><td class="tot">15</td></tr>
+            
+            <tr class="pitch-hdr"><td class="pn">Pitching</td><td>IP</td><td>ER</td><td>K</td></tr>
+            <tr class="pitcher-row wp"><td class="pn">C.Schlittler (W)</td><td>6.0</td><td>1</td><td>6</td></tr>
+            <tr class="pitcher-row"><td class="pn">R.Yarbrough (SV)</td><td>3.0</td><td>0</td><td>0</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="bx-team-block">
+        <div class="bx-team-name">Kansas City</div>
+        <table class="bx-player-table">
+          <thead><tr><th class="pn"></th><th>AB</th><th>R</th><th>H</th><th>RBI</th></tr></thead>
+          <tbody>
+            <tr><td class="pn">M.Garcia, 3b</td><td>3</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">B.Witt Jr., ss</td><td>3</td><td>1</td><td>1</td><td>1</td></tr>
+            <tr><td class="pn">V.Pasquantino, 1b</td><td>3</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">S.Perez, c</td><td>3</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">C.Jensen, dh</td><td>4</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">L.Thomas, lf</td><td>3</td><td>0</td><td>2</td><td>0</td></tr>
+            <tr><td class="pn">J.Caglianone, rf</td><td>4</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">K.Isbel, cf</td><td>3</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">N.Loftin, 2b</td><td>3</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr class="totals-row"><td class="pn">Totals</td><td class="tot">29</td><td class="tot">1</td><td class="tot">6</td><td class="tot">1</td></tr>
+            
+            <tr class="pitch-hdr"><td class="pn">Pitching</td><td>IP</td><td>ER</td><td>K</td></tr>
+            <tr class="pitcher-row"><td class="pn">L.Avila</td><td>3.0</td><td>3</td><td>1</td></tr>
+            <tr class="pitcher-row"><td class="pn">B.Falter (L)</td><td>2.1</td><td>7</td><td>0</td></tr>
+            <tr class="pitcher-row"><td class="pn">S.Cruz</td><td>1.2</td><td>1</td><td>4</td></tr>
+            <tr class="pitcher-row"><td class="pn">E.Morgan</td><td>1.0</td><td>2</td><td>0</td></tr>
+            <tr class="pitcher-row"><td class="pn">T.Tolbert</td><td>1.0</td><td>2</td><td>0</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ G10: LAA 10, DET 6 ═══ -->
+<div class="game-card">
+  <div class="gc-left">
+    <div class="gc-kicker">Detroit · Comerica Park</div>
+    <h2 class="gc-headline">Angels Rally From Five Down, Score Five in the Eighth to Stun Detroit</h2>
+    <div class="gc-score">Los Angeles 10 &nbsp;·&nbsp; Detroit 6</div>
+    <p class="gc-body">Los Angeles trailed 6–4 entering the eighth before erupting for five runs against Will Vest to complete one of the night's best comebacks. Vaughn Grissom was the catalyst, driving in six runs on a home run and two other hits as the Angels' lineup came alive at exactly the right moment. Keider Montero had pitched well for Detroit, fanning seven over 5.2 innings to keep his team in a winning position, but the Tigers bullpen could not protect the lead late. Vest took the loss after surrendering five earned runs in 1.1 innings, a brutal outing that handed Los Angeles the victory. Zach Neto added three hits and two runs scored, and Logan O'Hoppe went 2-for-4 as the Angels finished with fifteen hits on the night.</p>
+    <a class="gc-readmore">Full Box Score →</a>
+  </div>
+  <div class="gc-right">
+    <div class="bx-meta"><b>W:</b> J.Fermin &nbsp;<b>L:</b> W.Vest &nbsp;·&nbsp; Comerica Park · 2:57</div>
+    <div class="bx-line-wrap"><table class="bx-line">
+      <thead><tr><th class="tn"></th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th class="sep">R</th><th>H</th><th>E</th></tr></thead>
+      <tbody>
+        <tr class="w"><td class="tn">Los Angeles</td><td>0</td><td>0</td><td>2</td><td>2</td><td>0</td><td>0</td><td>0</td><td>5</td><td>1</td><td class="sep">10</td><td>15</td><td>0</td></tr>
+        <tr><td class="tn">Detroit</td><td>0</td><td>1</td><td>0</td><td>1</td><td>3</td><td>1</td><td>0</td><td>0</td><td>0</td><td class="sep">6</td><td>8</td><td>0</td></tr>
+      </tbody>
+    </table></div>
+    <div class="bx-divider"></div>
+    <div class="bx-dual">
+      <div class="bx-team-block">
+        <div class="bx-team-name">Los Angeles</div>
+        <table class="bx-player-table">
+          <thead><tr><th class="pn"></th><th>AB</th><th>R</th><th>H</th><th>RBI</th></tr></thead>
+          <tbody>
+            <tr><td class="pn">Z.Neto, ss</td><td>4</td><td>2</td><td>3</td><td>1</td></tr>
+            <tr><td class="pn">M.Trout, cf</td><td>4</td><td>1</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">V.Grissom, 1b</td><td>5</td><td>1</td><td>3</td><td>6</td></tr>
+            <tr><td class="pn">J.Soler, dh</td><td>5</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">W.Meckler, lf</td><td>4</td><td>0</td><td>2</td><td>0</td></tr>
+            <tr><td class="pn">J.Adell, rf</td><td>5</td><td>1</td><td>1</td><td>1</td></tr>
+            <tr><td class="pn">O.Peraza, 2b</td><td>4</td><td>1</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">D.Walton, 3b</td><td>5</td><td>1</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">L.O'Hoppe, c</td><td>4</td><td>2</td><td>2</td><td>1</td></tr>
+            <tr class="totals-row"><td class="pn">Totals</td><td class="tot">40</td><td class="tot">10</td><td class="tot">15</td><td class="tot">9</td></tr>
+            
+            <tr class="pitch-hdr"><td class="pn">Pitching</td><td>IP</td><td>ER</td><td>K</td></tr>
+            <tr class="pitcher-row"><td class="pn">J.Kochanowicz</td><td>4.0</td><td>5</td><td>4</td></tr>
+            <tr class="pitcher-row"><td class="pn">M.Farris</td><td>1.2</td><td>1</td><td>3</td></tr>
+            <tr class="pitcher-row wp"><td class="pn">J.Fermin (W)</td><td>1.1</td><td>0</td><td>3</td></tr>
+            <tr class="pitcher-row"><td class="pn">C.Silseth</td><td>1.0</td><td>0</td><td>1</td></tr>
+            <tr class="pitcher-row"><td class="pn">K.Yates</td><td>1.0</td><td>0</td><td>1</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="bx-team-block">
+        <div class="bx-team-name">Detroit</div>
+        <table class="bx-player-table">
+          <thead><tr><th class="pn"></th><th>AB</th><th>R</th><th>H</th><th>RBI</th></tr></thead>
+          <tbody>
+            <tr><td class="pn">K.McGonigle, 3b</td><td>4</td><td>1</td><td>3</td><td>2</td></tr>
+            <tr><td class="pn">D.Dingler, c</td><td>3</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">R.Greene, lf</td><td>3</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">C.Keith, dh</td><td>2</td><td>2</td><td>2</td><td>0</td></tr>
+            <tr><td class="pn">S.Torkelson, 1b</td><td>4</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">Z.McKinstry, ss</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
+            <tr><td class="pn">M.Vierling, cf</td><td>4</td><td>1</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">W.Pérez, rf</td><td>3</td><td>2</td><td>1</td><td>1</td></tr>
+            <tr><td class="pn">G.Workman, 2b</td><td>2</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr class="totals-row"><td class="pn">Totals</td><td class="tot">27</td><td class="tot">6</td><td class="tot">8</td><td class="tot">5</td></tr>
+            
+            <tr class="pitch-hdr"><td class="pn">Pitching</td><td>IP</td><td>ER</td><td>K</td></tr>
+            <tr class="pitcher-row"><td class="pn">K.Montero</td><td>5.2</td><td>4</td><td>7</td></tr>
+            <tr class="pitcher-row"><td class="pn">T.Holton</td><td>1.1</td><td>1</td><td>3</td></tr>
+            <tr class="pitcher-row"><td class="pn">W.Vest (L)</td><td>1.1</td><td>5</td><td>1</td></tr>
+            <tr class="pitcher-row"><td class="pn">B.Hanifee</td><td>0.2</td><td>0</td><td>0</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ G11: WSH 6, CLE 3 ═══ -->
+<div class="game-card">
+  <div class="gc-left">
+    <div class="gc-kicker">Cleveland · Progressive Field</div>
+    <h2 class="gc-headline">Cavalli Deals Six Strong as Nationals Ride Four-Run Second to Win</h2>
+    <div class="gc-score">Washington 6 &nbsp;·&nbsp; Cleveland 3</div>
+    <p class="gc-body">Cade Cavalli was the story for Washington — six innings, one earned run, seven strikeouts — as the Nationals scored four in the second inning and made it stand throughout the evening. James Wood homered and went 3-for-4 with two runs scored, looking every bit the offensive force Washington needs him to be. Keibert Ruiz added two hits and two RBI from the bottom of the order, with Andrés Chaparro driving in two more to give Cavalli all the support he needed. Mitchell Parker closed it out for the save despite surrendering two runs in the ninth, preserving a three-run lead under pressure. Joey Cantillo walked four batters in two innings for Cleveland and allowed four earned runs to take the loss in a frustrating relief appearance.</p>
+    <a class="gc-readmore">Full Box Score →</a>
+  </div>
+  <div class="gc-right">
+    <div class="bx-meta"><b>W:</b> C.Cavalli &nbsp;<b>L:</b> J.Cantillo &nbsp;<b>SV:</b> M.Parker &nbsp;·&nbsp; Progressive Field · 2:43</div>
+    <div class="bx-line-wrap"><table class="bx-line">
+      <thead><tr><th class="tn"></th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th class="sep">R</th><th>H</th><th>E</th></tr></thead>
+      <tbody>
+        <tr class="w"><td class="tn">Washington</td><td>0</td><td>4</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>2</td><td class="sep">6</td><td>11</td><td>0</td></tr>
+        <tr><td class="tn">Cleveland</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>2</td><td class="sep">3</td><td>8</td><td>0</td></tr>
+      </tbody>
+    </table></div>
+    <div class="bx-divider"></div>
+    <div class="bx-dual">
+      <div class="bx-team-block">
+        <div class="bx-team-name">Washington</div>
+        <table class="bx-player-table">
+          <thead><tr><th class="pn"></th><th>AB</th><th>R</th><th>H</th><th>RBI</th></tr></thead>
+          <tbody>
+            <tr><td class="pn">J.Wood, lf</td><td>4</td><td>2</td><td>3</td><td>2</td></tr>
+            <tr><td class="pn">C.Mead, 3b</td><td>3</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">A.Chaparro, 1b</td><td>5</td><td>0</td><td>1</td><td>2</td></tr>
+            <tr><td class="pn">CJ Abrams, ss</td><td>3</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">D.Crews, rf</td><td>4</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">D.Lile, dh</td><td>3</td><td>1</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">J.Young, cf</td><td>4</td><td>1</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">N.Nuñez, 2b</td><td>4</td><td>1</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">K.Ruiz, c</td><td>4</td><td>1</td><td>2</td><td>2</td></tr>
+            <tr class="totals-row"><td class="pn">Totals</td><td class="tot">34</td><td class="tot">6</td><td class="tot">11</td><td class="tot">6</td></tr>
+            
+            <tr class="pitch-hdr"><td class="pn">Pitching</td><td>IP</td><td>ER</td><td>K</td></tr>
+            <tr class="pitcher-row wp"><td class="pn">C.Cavalli (W)</td><td>6.0</td><td>1</td><td>7</td></tr>
+            <tr class="pitcher-row"><td class="pn">M.Parker (SV)</td><td>3.0</td><td>2</td><td>5</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="bx-team-block">
+        <div class="bx-team-name">Cleveland</div>
+        <table class="bx-player-table">
+          <thead><tr><th class="pn"></th><th>AB</th><th>R</th><th>H</th><th>RBI</th></tr></thead>
+          <tbody>
+            <tr><td class="pn">T.Bazzana, 2b</td><td>3</td><td>0</td><td>1</td><td>1</td></tr>
+            <tr><td class="pn">J.Ramírez, 3b</td><td>4</td><td>0</td><td>1</td><td>2</td></tr>
+            <tr><td class="pn">C.DeLauter, dh</td><td>5</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">K.Manzardo, 1b</td><td>4</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">D.Schneemann, cf</td><td>3</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">A.Martínez, rf</td><td>4</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">S.Kwan, lf</td><td>3</td><td>2</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">P.Bailey, c</td><td>2</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">B.Rocchio, ss</td><td>3</td><td>1</td><td>3</td><td>0</td></tr>
+            <tr class="totals-row"><td class="pn">Totals</td><td class="tot">31</td><td class="tot">3</td><td class="tot">8</td><td class="tot">3</td></tr>
+            
+            <tr class="pitch-hdr"><td class="pn">Pitching</td><td>IP</td><td>ER</td><td>K</td></tr>
+            <tr class="pitcher-row"><td class="pn">W.Dion</td><td>3.0</td><td>2</td><td>3</td></tr>
+            <tr class="pitcher-row"><td class="pn">C.Heuer</td><td>2.0</td><td>0</td><td>0</td></tr>
+            <tr class="pitcher-row"><td class="pn">J.Cantillo (L)</td><td>2.0</td><td>4</td><td>1</td></tr>
+            <tr class="pitcher-row"><td class="pn">S.Armstrong</td><td>1.0</td><td>0</td><td>1</td></tr>
+            <tr class="pitcher-row"><td class="pn">C.Holderman</td><td>1.0</td><td>0</td><td>1</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ G12: MIN 5, CWS 3 (F/11) ═══ -->
+<div class="game-card">
+  <div class="gc-left">
+    <div class="gc-kicker">Chicago · Rate Field · 11 Innings</div>
+    <h2 class="gc-headline">Twins Outlast White Sox in Eleven on Lee's Late Extra-Inning Heroics</h2>
+    <div class="gc-score">Minnesota 5 &nbsp;·&nbsp; Chicago 3 &nbsp;·&nbsp; F/11</div>
+    <p class="gc-body">Joe Ryan was exceptional for 7.2 innings — nine strikeouts, two earned runs — only for Minnesota and Chicago to trade runs late and force the game into extra innings. Brooks Lee drove in three runs on the night including the decisive blow in the eleventh as Minnesota plated three to take control. Sean Burke had pitched brilliantly for seven innings on the Chicago side, striking out eight while allowing just two, but the bullpen eventually cracked when Tyler Davis gave back the lead in the eleventh. Kody Clemens added a triple and an RBI for Minnesota, and Byron Buxton drew a key walk in the extra frame. Munetaka Murakami homered and drove in two for Chicago in a defeat that stung given how well their starter had thrown.</p>
+    <a class="gc-readmore">Full Box Score →</a>
+  </div>
+  <div class="gc-right">
+    <div class="bx-meta"><b>W:</b> T.Rogers &nbsp;<b>L:</b> T.Davis &nbsp;<b>SV:</b> Y.Gómez &nbsp;·&nbsp; Rate Field · 3:12</div>
+    <div class="bx-line-wrap"><table class="bx-line">
+      <thead><tr><th class="tn"></th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th class="sep">R</th><th>H</th><th>E</th></tr></thead>
+      <tbody>
+        <tr class="w"><td class="tn">Minnesota</td><td>0</td><td>0</td><td>0</td><td>2</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>3</td><td class="sep">5</td><td>7</td><td>0</td></tr>
+        <tr><td class="tn">Chicago</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>2</td><td>0</td><td>0</td><td>1</td><td class="sep">3</td><td>8</td><td>0</td></tr>
+      </tbody>
+    </table></div>
+    <div class="bx-divider"></div>
+    <div class="bx-dual">
+      <div class="bx-team-block">
+        <div class="bx-team-name">Minnesota</div>
+        <table class="bx-player-table">
+          <thead><tr><th class="pn"></th><th>AB</th><th>R</th><th>H</th><th>RBI</th></tr></thead>
+          <tbody>
+            <tr><td class="pn">B.Buxton, dh</td><td>4</td><td>1</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">B.Lee, 3b</td><td>5</td><td>0</td><td>2</td><td>3</td></tr>
+            <tr><td class="pn">T.Larnach, lf</td><td>3</td><td>1</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">K.Clemens, 1b</td><td>4</td><td>1</td><td>1</td><td>1</td></tr>
+            <tr><td class="pn">A.Martin, rf</td><td>4</td><td>0</td><td>1</td><td>1</td></tr>
+            <tr><td class="pn">V.Caratini, c</td><td>4</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">T.Gray, ss</td><td>2</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">L.Keaschall, 2b</td><td>4</td><td>1</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">J.Outman, cf</td><td>4</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr class="totals-row"><td class="pn">Totals</td><td class="tot">34</td><td class="tot">5</td><td class="tot">7</td><td class="tot">5</td></tr>
+            
+            <tr class="pitch-hdr"><td class="pn">Pitching</td><td>IP</td><td>ER</td><td>K</td></tr>
+            <tr class="pitcher-row"><td class="pn">J.Ryan</td><td>7.2</td><td>2</td><td>9</td></tr>
+            <tr class="pitcher-row wp"><td class="pn">T.Rogers (W)</td><td>1.0</td><td>0</td><td>1</td></tr>
+            <tr class="pitcher-row"><td class="pn">Y.Gómez (SV)</td><td>1.0</td><td>1</td><td>1</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="bx-team-block">
+        <div class="bx-team-name">Chicago</div>
+        <table class="bx-player-table">
+          <thead><tr><th class="pn"></th><th>AB</th><th>R</th><th>H</th><th>RBI</th></tr></thead>
+          <tbody>
+            <tr><td class="pn">S.Antonacci, lf</td><td>4</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">M.Murakami, 1b</td><td>5</td><td>2</td><td>1</td><td>2</td></tr>
+            <tr><td class="pn">M.Vargas, 3b</td><td>5</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">C.Montgomery, ss</td><td>5</td><td>0</td><td>2</td><td>0</td></tr>
+            <tr><td class="pn">C.Meidroth, 2b</td><td>5</td><td>0</td><td>2</td><td>1</td></tr>
+            <tr><td class="pn">A.Benintendi, dh</td><td>3</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">T.Peters, cf</td><td>3</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">D.Romo, c</td><td>4</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">R.Nishida, rf</td><td>4</td><td>1</td><td>1</td><td>0</td></tr>
+            <tr class="totals-row"><td class="pn">Totals</td><td class="tot">38</td><td class="tot">3</td><td class="tot">8</td><td class="tot">3</td></tr>
+            
+            <tr class="pitch-hdr"><td class="pn">Pitching</td><td>IP</td><td>ER</td><td>K</td></tr>
+            <tr class="pitcher-row"><td class="pn">S.Burke</td><td>7.0</td><td>2</td><td>8</td></tr>
+            <tr class="pitcher-row"><td class="pn">S.Newcomb</td><td>2.0</td><td>0</td><td>2</td></tr>
+            <tr class="pitcher-row"><td class="pn">B.Hudson</td><td>1.0</td><td>0</td><td>2</td></tr>
+            <tr class="pitcher-row"><td class="pn">T.Davis (L)</td><td>1.0</td><td>3</td><td>1</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ G13: ATL 7, BOS 6 ═══ -->
+<div class="game-card">
+  <div class="gc-left">
+    <div class="gc-kicker">Boston · Fenway Park</div>
+    <h2 class="gc-headline">Harris Provides the Muscle as Braves Escape Fenway With a One-Run Win</h2>
+    <div class="gc-score">Atlanta 7 &nbsp;·&nbsp; Boston 6</div>
+    <p class="gc-body">Michael Harris II went 4-for-4 with a home run, a double, and three RBI to pace Atlanta in a game that was never comfortable despite the Braves building a four-run lead at its largest. Spencer Strider picked up the win after five innings, receiving just enough support from Harris and Matt Olson, who added a solo shot. Boston kept fighting back — Isiah Kiner-Falefa hit a three-run homer late to pull the Red Sox within one, and the ninth inning got dicey before Raisel Iglesias worked through the threat. Jarren Duran and Ceddanne Rafaela each homered for Boston in a competitive game that came down to the final out. Ranger Suárez absorbed the loss after allowing five earned runs over five innings as the Red Sox bullpen did enough to keep it interesting.</p>
+    <a class="gc-readmore">Full Box Score →</a>
+  </div>
+  <div class="gc-right">
+    <div class="bx-meta"><b>W:</b> S.Strider &nbsp;<b>L:</b> R.Suárez &nbsp;<b>SV:</b> R.Iglesias &nbsp;·&nbsp; Fenway Park · 2:52</div>
+    <div class="bx-line-wrap"><table class="bx-line">
+      <thead><tr><th class="tn"></th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th class="sep">R</th><th>H</th><th>E</th></tr></thead>
+      <tbody>
+        <tr class="w"><td class="tn">Atlanta</td><td>0</td><td>0</td><td>0</td><td>0</td><td>2</td><td>3</td><td>0</td><td>2</td><td>0</td><td class="sep">7</td><td>9</td><td>1</td></tr>
+        <tr><td class="tn">Boston</td><td>2</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td>2</td><td class="sep">6</td><td>9</td><td>0</td></tr>
+      </tbody>
+    </table></div>
+    <div class="bx-divider"></div>
+    <div class="bx-dual">
+      <div class="bx-team-block">
+        <div class="bx-team-name">Atlanta</div>
+        <table class="bx-player-table">
+          <thead><tr><th class="pn"></th><th>AB</th><th>R</th><th>H</th><th>RBI</th></tr></thead>
+          <tbody>
+            <tr><td class="pn">R.Acuña Jr., rf</td><td>5</td><td>0</td><td>1</td><td>1</td></tr>
+            <tr><td class="pn">M.Dubón, lf</td><td>4</td><td>1</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">M.Olson, 1b</td><td>4</td><td>1</td><td>1</td><td>2</td></tr>
+            <tr><td class="pn">O.Albies, 2b</td><td>5</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">A.Riley, 3b</td><td>3</td><td>1</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">M.Harris II, cf</td><td>4</td><td>2</td><td>4</td><td>3</td></tr>
+            <tr><td class="pn">Ha-S.Kim, ss</td><td>4</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">E.White, dh</td><td>2</td><td>1</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">S.León, c</td><td>2</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr class="totals-row"><td class="pn">Totals</td><td class="tot">33</td><td class="tot">7</td><td class="tot">9</td><td class="tot">6</td></tr>
+            
+            <tr class="pitch-hdr"><td class="pn">Pitching</td><td>IP</td><td>ER</td><td>K</td></tr>
+            <tr class="pitcher-row wp"><td class="pn">S.Strider (W)</td><td>5.0</td><td>3</td><td>5</td></tr>
+            <tr class="pitcher-row"><td class="pn">D.Lee</td><td>1.1</td><td>1</td><td>1</td></tr>
+            <tr class="pitcher-row"><td class="pn">R.Suarez</td><td>1.0</td><td>0</td><td>1</td></tr>
+            <tr class="pitcher-row"><td class="pn">R.Iglesias (SV)</td><td>1.0</td><td>2</td><td>1</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="bx-team-block">
+        <div class="bx-team-name">Boston</div>
+        <table class="bx-player-table">
+          <thead><tr><th class="pn"></th><th>AB</th><th>R</th><th>H</th><th>RBI</th></tr></thead>
+          <tbody>
+            <tr><td class="pn">J.Duran, lf</td><td>5</td><td>1</td><td>2</td><td>1</td></tr>
+            <tr><td class="pn">C.Rafaela, cf</td><td>5</td><td>1</td><td>1</td><td>1</td></tr>
+            <tr><td class="pn">W.Abreu, rf</td><td>4</td><td>1</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">W.Contreras, 1b</td><td>4</td><td>0</td><td>2</td><td>0</td></tr>
+            <tr><td class="pn">M.Yoshida, dh</td><td>3</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">M.Gasper, c</td><td>3</td><td>1</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">N.Sogard, 2b</td><td>4</td><td>1</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">M.Mayer, ss</td><td>2</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">I.Kiner-Falefa, 3b</td><td>3</td><td>1</td><td>2</td><td>3</td></tr>
+            <tr class="totals-row"><td class="pn">Totals</td><td class="tot">33</td><td class="tot">6</td><td class="tot">9</td><td class="tot">5</td></tr>
+            
+            <tr class="pitch-hdr"><td class="pn">Pitching</td><td>IP</td><td>ER</td><td>K</td></tr>
+            <tr class="pitcher-row"><td class="pn">R.Suárez (L)</td><td>5.0</td><td>5</td><td>4</td></tr>
+            <tr class="pitcher-row"><td class="pn">T.Guerrero</td><td>2.0</td><td>2</td><td>4</td></tr>
+            <tr class="pitcher-row"><td class="pn">G.Weissert</td><td>1.0</td><td>0</td><td>1</td></tr>
+            <tr class="pitcher-row"><td class="pn">D.Coulombe</td><td>1.0</td><td>0</td><td>1</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ G14: BAL 6, TB 1 ═══ -->
+<div class="game-card">
+  <div class="gc-left">
+    <div class="gc-kicker">Baltimore · Camden Yards</div>
+    <h2 class="gc-headline">Shane Baz Dominant as Orioles Shut Down Tampa Bay, Basallo Provides Power</h2>
+    <div class="gc-score">Baltimore 6 &nbsp;·&nbsp; Tampa Bay 1</div>
+    <p class="gc-body">Shane Baz commanded the strike zone all night — seven innings, one run, nine strikeouts — in a dominant performance that gave Baltimore's offense room to breathe. Samuel Basallo hit a three-run home run in the fifth inning as the Orioles scored three times in that frame to put the game firmly away. Tampa Bay collected nine hits but stranded sixteen runners and committed three costly errors, squandering every opportunity they had to make a game of it. Jonathan Aranda went 3-for-4 and drove in a run for the Rays in a futile effort, with Chandler Simpson adding two hits as well. Griffin Jax took the loss after allowing three runs in two innings out of the Tampa Bay bullpen, unable to stem the Baltimore momentum.</p>
+    <a class="gc-readmore">Full Box Score →</a>
+  </div>
+  <div class="gc-right">
+    <div class="bx-meta"><b>W:</b> S.Baz &nbsp;<b>L:</b> G.Jax &nbsp;·&nbsp; Camden Yards · 2:24</div>
+    <div class="bx-line-wrap"><table class="bx-line">
+      <thead><tr><th class="tn"></th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th class="sep">R</th><th>H</th><th>E</th></tr></thead>
+      <tbody>
+        <tr><td class="tn">Tampa Bay</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="sep">1</td><td>9</td><td>3</td></tr>
+        <tr class="w"><td class="tn">Baltimore</td><td>0</td><td>3</td><td>0</td><td>0</td><td>3</td><td>0</td><td>0</td><td>0</td><td>—</td><td class="sep">6</td><td>7</td><td>0</td></tr>
+      </tbody>
+    </table></div>
+    <div class="bx-divider"></div>
+    <div class="bx-dual">
+      <div class="bx-team-block">
+        <div class="bx-team-name">Tampa Bay</div>
+        <table class="bx-player-table">
+          <thead><tr><th class="pn"></th><th>AB</th><th>R</th><th>H</th><th>RBI</th></tr></thead>
+          <tbody>
+            <tr><td class="pn">C.Simpson, lf</td><td>4</td><td>1</td><td>2</td><td>0</td></tr>
+            <tr><td class="pn">J.Caminero, 3b</td><td>3</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">J.Aranda, 1b</td><td>4</td><td>0</td><td>3</td><td>1</td></tr>
+            <tr><td class="pn">Y.Díaz, dh</td><td>4</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">R.Palacios, 2b</td><td>3</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">C.Mullins, cf</td><td>4</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">V.Mesa Jr., rf</td><td>3</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">H.Feduccia, c</td><td>4</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">O.Dunn, ss</td><td>4</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr class="totals-row"><td class="pn">Totals</td><td class="tot">33</td><td class="tot">1</td><td class="tot">9</td><td class="tot">1</td></tr>
+            
+            <tr class="pitch-hdr"><td class="pn">Pitching</td><td>IP</td><td>ER</td><td>K</td></tr>
+            <tr class="pitcher-row"><td class="pn">T.Martin</td><td>3.0</td><td>3</td><td>1</td></tr>
+            <tr class="pitcher-row"><td class="pn">G.Cleavinger</td><td>2.0</td><td>0</td><td>3</td></tr>
+            <tr class="pitcher-row"><td class="pn">G.Jax (L)</td><td>2.0</td><td>3</td><td>3</td></tr>
+            <tr class="pitcher-row"><td class="pn">C.Kimbrel</td><td>1.0</td><td>0</td><td>2</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="bx-team-block">
+        <div class="bx-team-name">Baltimore</div>
+        <table class="bx-player-table">
+          <thead><tr><th class="pn"></th><th>AB</th><th>R</th><th>H</th><th>RBI</th></tr></thead>
+          <tbody>
+            <tr><td class="pn">T.Ward, lf</td><td>3</td><td>0</td><td>0</td><td>1</td></tr>
+            <tr><td class="pn">G.Henderson, ss</td><td>4</td><td>1</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">P.Alonso, 1b</td><td>3</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">S.Basallo, c</td><td>4</td><td>2</td><td>1</td><td>3</td></tr>
+            <tr><td class="pn">L.Taveras, cf</td><td>4</td><td>1</td><td>2</td><td>0</td></tr>
+            <tr><td class="pn">J.Jackson, dh</td><td>4</td><td>1</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">C.Cowser, rf</td><td>3</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">B.Alexander, 3b</td><td>4</td><td>0</td><td>0</td><td>1</td></tr>
+            <tr><td class="pn">J.Holliday, 2b</td><td>3</td><td>1</td><td>2</td><td>1</td></tr>
+            <tr class="totals-row"><td class="pn">Totals</td><td class="tot">32</td><td class="tot">6</td><td class="tot">7</td><td class="tot">6</td></tr>
+            
+            <tr class="pitch-hdr"><td class="pn">Pitching</td><td>IP</td><td>ER</td><td>K</td></tr>
+            <tr class="pitcher-row wp"><td class="pn">S.Baz (W)</td><td>7.0</td><td>1</td><td>9</td></tr>
+            <tr class="pitcher-row"><td class="pn">A.Kittredge</td><td>1.0</td><td>0</td><td>1</td></tr>
+            <tr class="pitcher-row"><td class="pn">G.Wolfram</td><td>1.0</td><td>0</td><td>0</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ G15: SEA 4, ATH 1 ═══ -->
+<div class="game-card">
+  <div class="gc-left">
+    <div class="gc-kicker">Sacramento · Sutter Health Park</div>
+    <h2 class="gc-headline">Hancock Shuts Down Athletics Over Six as Mariners Win a Quiet One in Sacramento</h2>
+    <div class="gc-score">Seattle 4 &nbsp;·&nbsp; Athletics 1</div>
+    <p class="gc-body">Emerson Hancock was untouchable through six innings — one hit, zero runs, two walks, three strikeouts — turning in one of the cleaner pitching lines of the night in a quiet but professional win for Seattle. The Mariners struck for three runs in the second inning and added one more in the fourth, giving Hancock all the cushion he would need against a struggling Oakland offense. Victor Robles went 3-for-3 and scored a run, while Mitch Garver added two hits and an RBI to pace a Seattle attack that did just enough. Tyler Soderstrom homered in the ninth for Oakland's only run, taking Andrés Muñoz deep as the Athletics avoided the shutout. Gage Jump allowed four earned runs over five innings to take the loss, leaving Sacramento with a 7-20 road record.</p>
+    <a class="gc-readmore">Full Box Score →</a>
+  </div>
+  <div class="gc-right">
+    <div class="bx-meta"><b>W:</b> E.Hancock &nbsp;<b>L:</b> G.Jump &nbsp;·&nbsp; Sutter Health Park · 2:29</div>
+    <div class="bx-line-wrap"><table class="bx-line">
+      <thead><tr><th class="tn"></th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th class="sep">R</th><th>H</th><th>E</th></tr></thead>
+      <tbody>
+        <tr class="w"><td class="tn">Seattle</td><td>0</td><td>3</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="sep">4</td><td>11</td><td>0</td></tr>
+        <tr><td class="tn">Athletics</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td class="sep">1</td><td>4</td><td>0</td></tr>
+      </tbody>
+    </table></div>
+    <div class="bx-divider"></div>
+    <div class="bx-dual">
+      <div class="bx-team-block">
+        <div class="bx-team-name">Seattle</div>
+        <table class="bx-player-table">
+          <thead><tr><th class="pn"></th><th>AB</th><th>R</th><th>H</th><th>RBI</th></tr></thead>
+          <tbody>
+            <tr><td class="pn">JP Crawford, ss</td><td>4</td><td>0</td><td>1</td><td>1</td></tr>
+            <tr><td class="pn">J.Rodríguez, cf</td><td>5</td><td>0</td><td>1</td><td>1</td></tr>
+            <tr><td class="pn">R.Arozarena, lf</td><td>5</td><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">J.Naylor, 1b</td><td>4</td><td>1</td><td>2</td><td>0</td></tr>
+            <tr><td class="pn">R.Refsnyder, dh</td><td>2</td><td>1</td><td>1</td><td>0</td></tr>
+            <tr><td class="pn">M.Garver, c</td><td>4</td><td>1</td><td>2</td><td>1</td></tr>
+            <tr><td class="pn">C.Young, 2b</td><td>3</td><td>0</td><td>0</td><td>1</td></tr>
+            <tr><td class="pn">V.Robles, rf</td><td>3</td><td>1</td><td>3</td><td>0</td></tr>
+            <tr><td class="pn">C.Emerson, 3b</td><td>3</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr class="totals-row"><td class="pn">Totals</td><td class="tot">33</td><td class="tot">4</td><td class="tot">11</td><td class="tot">4</td></tr>
+            
+            <tr class="pitch-hdr"><td class="pn">Pitching</td><td>IP</td><td>ER</td><td>K</td></tr>
+            <tr class="pitcher-row wp"><td class="pn">E.Hancock (W)</td><td>6.0</td><td>0</td><td>3</td></tr>
+            <tr class="pitcher-row"><td class="pn">J.Ferrer</td><td>1.0</td><td>0</td><td>0</td></tr>
+            <tr class="pitcher-row"><td class="pn">A.Muñoz</td><td>1.0</td><td>1</td><td>1</td></tr>
+            <tr class="pitcher-row"><td class="pn">G.Speier</td><td>1.0</td><td>0</td><td>1</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="bx-team-block">
+        <div class="bx-team-name">Athletics</div>
+        <table class="bx-player-table">
+          <thead><tr><th class="pn"></th><th>AB</th><th>R</th><th>H</th><th>RBI</th></tr></thead>
+          <tbody>
+            <tr><td class="pn">C.Cortes, rf</td><td>2</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">N.Kurtz, 1b</td><td>4</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">S.Langeliers, c</td><td>3</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">B.Rooker, dh</td><td>3</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">T.Soderstrom, lf</td><td>4</td><td>1</td><td>2</td><td>1</td></tr>
+            <tr><td class="pn">Z.Gelof, 3b</td><td>4</td><td>0</td><td>2</td><td>0</td></tr>
+            <tr><td class="pn">J.McNeil, 2b</td><td>2</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">L.Butler, cf</td><td>4</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td class="pn">D.Hernaiz, ss</td><td>3</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr class="totals-row"><td class="pn">Totals</td><td class="tot">29</td><td class="tot">1</td><td class="tot">4</td><td class="tot">1</td></tr>
+            
+            <tr class="pitch-hdr"><td class="pn">Pitching</td><td>IP</td><td>ER</td><td>K</td></tr>
+            <tr class="pitcher-row"><td class="pn">G.Jump (L)</td><td>5.0</td><td>4</td><td>5</td></tr>
+            <tr class="pitcher-row"><td class="pn">J.Suarez</td><td>1.2</td><td>0</td><td>1</td></tr>
+            <tr class="pitcher-row"><td class="pn">J.Sterner</td><td>1.1</td><td>0</td><td>1</td></tr>
+            <tr class="pitcher-row"><td class="pn">H.Harris</td><td>1.0</td><td>0</td><td>1</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /games-list -->
+</div><!-- /content-centre -->
+<aside class="rail-right">
+  <div class="rail-hdr">Wednesday, May 27</div>
+
+  <div class="slate-game">
+    <div class="slate-matchup"><span class="away">Miami</span><span class="vs">@</span>Toronto</div>
+    <div class="slate-time">7:07 PM ET</div>
+    <div class="slate-pitchers"><span>MIA:</span> Roddery Muñoz<br><span>TOR:</span> Bowden Francis</div>
+  </div>
+  <div class="slate-game">
+    <div class="slate-matchup"><span class="away">Houston</span><span class="vs">@</span>Texas</div>
+    <div class="slate-time">7:05 PM ET</div>
+    <div class="slate-pitchers"><span>HOU:</span> Hunter Brown<br><span>TEX:</span> Nathan Eovaldi</div>
+  </div>
+  <div class="slate-game">
+    <div class="slate-matchup"><span class="away">Arizona</span><span class="vs">@</span>San Francisco</div>
+    <div class="slate-time">6:45 PM ET</div>
+    <div class="slate-pitchers"><span>ARI:</span> Merrill Kelly<br><span>SF:</span> Logan Webb</div>
+  </div>
+  <div class="slate-game">
+    <div class="slate-matchup"><span class="away">Philadelphia</span><span class="vs">@</span>San Diego</div>
+    <div class="slate-time">6:40 PM ET</div>
+    <div class="slate-pitchers"><span>PHI:</span> Cristopher Sánchez<br><span>SD:</span> Michael King</div>
+  </div>
+  <div class="slate-game">
+    <div class="slate-matchup"><span class="away">Chicago</span><span class="vs">@</span>Pittsburgh</div>
+    <div class="slate-time">6:40 PM ET</div>
+    <div class="slate-pitchers"><span>CHC:</span> Colin Rea<br><span>PIT:</span> Paul Skenes</div>
+  </div>
+  <div class="slate-game">
+    <div class="slate-matchup"><span class="away">Cincinnati</span><span class="vs">@</span>New York</div>
+    <div class="slate-time">7:10 PM ET</div>
+    <div class="slate-pitchers"><span>CIN:</span> Nick Lodolo<br><span>NYM:</span> Clay Holmes</div>
+  </div>
+  <div class="slate-game">
+    <div class="slate-matchup"><span class="away">St. Louis</span><span class="vs">@</span>Milwaukee</div>
+    <div class="slate-time">7:10 PM ET</div>
+    <div class="slate-pitchers"><span>STL:</span> Erick Fedde<br><span>MIL:</span> Freddy Peralta</div>
+  </div>
+  <div class="slate-game">
+    <div class="slate-matchup"><span class="away">Colorado</span><span class="vs">@</span>Los Angeles</div>
+    <div class="slate-time">9:10 PM ET</div>
+    <div class="slate-pitchers"><span>COL:</span> Cal Quantrill<br><span>LAD:</span> Yoshinobu Yamamoto</div>
+  </div>
+  <div class="slate-game">
+    <div class="slate-matchup"><span class="away">New York</span><span class="vs">@</span>Kansas City</div>
+    <div class="slate-time">7:10 PM ET</div>
+    <div class="slate-pitchers"><span>NYY:</span> Clarke Schmidt<br><span>KC:</span> Seth Lugo</div>
+  </div>
+  <div class="slate-game">
+    <div class="slate-matchup"><span class="away">Los Angeles</span><span class="vs">@</span>Detroit</div>
+    <div class="slate-time">6:40 PM ET</div>
+    <div class="slate-pitchers"><span>LAA:</span> Tyler Anderson<br><span>DET:</span> Tarik Skubal</div>
+  </div>
+  <div class="slate-game">
+    <div class="slate-matchup"><span class="away">Washington</span><span class="vs">@</span>Cleveland</div>
+    <div class="slate-time">6:10 PM ET</div>
+    <div class="slate-pitchers"><span>WSH:</span> MacKenzie Gore<br><span>CLE:</span> Tanner Bibee</div>
+  </div>
+  <div class="slate-game">
+    <div class="slate-matchup"><span class="away">Minnesota</span><span class="vs">@</span>Chi. White Sox</div>
+    <div class="slate-time">7:10 PM ET</div>
+    <div class="slate-pitchers"><span>MIN:</span> Pablo López<br><span>CWS:</span> Jonathan Cannon</div>
+  </div>
+  <div class="slate-game">
+    <div class="slate-matchup"><span class="away">Atlanta</span><span class="vs">@</span>Boston</div>
+    <div class="slate-time">7:10 PM ET</div>
+    <div class="slate-pitchers"><span>ATL:</span> Reynaldo López<br><span>BOS:</span> Brayan Bello</div>
+  </div>
+  <div class="slate-game">
+    <div class="slate-matchup"><span class="away">Tampa Bay</span><span class="vs">@</span>Baltimore</div>
+    <div class="slate-time">6:35 PM ET</div>
+    <div class="slate-pitchers"><span>TB:</span> Shane McClanahan<br><span>BAL:</span> Corbin Burnes</div>
+  </div>
+  <div class="slate-game">
+    <div class="slate-matchup"><span class="away">Seattle</span><span class="vs">@</span>Athletics</div>
+    <div class="slate-time">9:40 PM ET</div>
+    <div class="slate-pitchers"><span>SEA:</span> George Kirby<br><span>ATH:</span> JP Sears</div>
+  </div>
+</aside>
+</div><!-- /content-layout -->
+
+<footer>
+  <div class="footer-name">Barrel Proof Baseball</div>
+  <div class="footer-tag">RAW &nbsp;·&nbsp; UNFILTERED &nbsp;·&nbsp; BASEBALL &nbsp;·&nbsp; ENJOY RESPONSIBLY<br/><span style="opacity:.5">Data: MLB Stats API · Statcast · Baseball Savant</span></div>
+  <div class="footer-legal">© 2026 Barrel Proof<br/>Please gamble responsibly. 21+</div>
+</footer>
+</div>
+
+<script>
+function toggleNav(){
+  document.getElementById('navItems').classList.toggle('open');
+}
+</script>
+</body>
+</html>
