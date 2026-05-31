@@ -1,19 +1,6 @@
 #!/usr/bin/env python3
 """
 Barrel Proof — Dope Sheet Daily Updater
-Run each morning to pre-populate dope-sheet-data.json with today's
-schedule skeleton from the MLB Stats API.
-
-Usage:
-    python update_dope_sheet.py          # today's games
-    python update_dope_sheet.py 2026-06-01  # specific date
-
-After running, fill in manually:
-  - weather (or wire up a weather API)
-  - umpire
-  - lineups (available ~3 hours before first pitch via MLB API)
-  - bullpen availability
-  - props (lines/odds from FanDuel/DraftKings)
 """
 
 import json
@@ -56,58 +43,77 @@ def fetch(url):
     r.raise_for_status()
     return r.json()
 
-def fmt_odds(n):
-    if n is None: return "—"
-    return f"+{n}" if n > 0 else str(n)
+def get_lineup_players(game, side):
+    key = "awayPlayers" if side == "away" else "homePlayers"
+    players = game.get("lineups", {}).get(key, [])
+
+    return [
+        {
+            "name": p.get("fullName", ""),
+            "pos": p.get("primaryPosition", {}).get("abbreviation", "")
+        }
+        for p in players
+    ]
 
 def get_probable_pitcher(game, side):
-    """Pull probable pitcher info from game data."""
     try:
         pid = game.get("teams", {}).get(side, {}).get("probablePitcher", {}).get("id")
         if not pid:
             return empty_pitcher()
+
         data = fetch(f"{MLB_BASE}/people/{pid}?hydrate=stats(group=pitching,type=season)")
-        p    = data["people"][0]
+        p = data["people"][0]
         name = p.get("fullName", "TBD")
         hand = p.get("pitchHand", {}).get("code", "R")
+
         stats = {}
         for sg in p.get("stats", []):
             if sg.get("type", {}).get("displayName") == "season":
-                s = sg.get("splits", [{}])[0].get("stat", {})
-                stats = s
+                stats = sg.get("splits", [{}])[0].get("stat", {})
                 break
+
         return {
-            "name":      name,
-            "hand":      hand,
-            "era":       stats.get("era", "—"),
-            "whip":      stats.get("whip", "—"),
-            "k9":        stats.get("strikeoutsPer9Inn", "—"),
-            "bb9":       stats.get("walksPer9Inn", "—"),
-            "ip":        stats.get("inningsPitched", "—"),
+            "name": name,
+            "hand": hand,
+            "era": stats.get("era", "—"),
+            "whip": stats.get("whip", "—"),
+            "k9": stats.get("strikeoutsPer9Inn", "—"),
+            "bb9": stats.get("walksPer9Inn", "—"),
+            "ip": stats.get("inningsPitched", "—"),
             "lastStart": "—",
         }
+
     except Exception as e:
         print(f"  ⚠ Pitcher fetch error: {e}")
         return empty_pitcher()
 
 def empty_pitcher():
-    return {"name":"TBD","hand":"R","era":"—","whip":"—","k9":"—","bb9":"—","ip":"—","lastStart":"—"}
+    return {
+        "name": "TBD",
+        "hand": "R",
+        "era": "—",
+        "whip": "—",
+        "k9": "—",
+        "bb9": "—",
+        "ip": "—",
+        "lastStart": "—",
+    }
 
 def build_game(game):
     away_name = game["teams"]["away"]["team"]["name"]
     home_name = game["teams"]["home"]["team"]["name"]
-    venue     = game.get("venue", {}).get("name", "—")
+    venue = game.get("venue", {}).get("name", "—")
     game_time = game.get("gameDate", "")
 
-    # Parse time to ET display
     try:
         dt = datetime.fromisoformat(game_time.replace("Z", "+00:00"))
-        et_offset = -4  # EDT
-        et_hour   = (dt.hour + et_offset) % 24
-        ampm      = "AM" if et_hour < 12 else "PM"
+        et_offset = -4
+        et_hour = (dt.hour + et_offset) % 24
+        ampm = "AM" if et_hour < 12 else "PM"
         disp_hour = et_hour if et_hour <= 12 else et_hour - 12
-        if disp_hour == 0: disp_hour = 12
-        time_str  = f"{disp_hour}:{dt.minute:02d} {ampm} ET"
+        if disp_hour == 0:
+            disp_hour = 12
+        time_str = f"{disp_hour}:{dt.minute:02d} {ampm} ET"
     except Exception:
         time_str = "TBD"
 
@@ -117,38 +123,62 @@ def build_game(game):
     away_p = get_probable_pitcher(game, "away")
     home_p = get_probable_pitcher(game, "home")
 
+    away_lineup = get_lineup_players(game, "away")
+    home_lineup = get_lineup_players(game, "home")
+
     return {
-        "away":     TEAM_ABB.get(away_name, away_name[:3].upper()),
-        "home":     TEAM_ABB.get(home_name, home_name[:3].upper()),
+        "away": TEAM_ABB.get(away_name, away_name[:3].upper()),
+        "home": TEAM_ABB.get(home_name, home_name[:3].upper()),
         "awayFull": away_name,
         "homeFull": home_name,
-        "time":     time_str,
-        "venue":    venue,
-        "roof":     roof,
+        "time": time_str,
+        "venue": venue,
+        "roof": roof,
         "pitchers": {
             "away": away_p,
             "home": home_p,
         },
         "weather": {
-            "temp":     "—",
-            "sky":      "—",
-            "wind":     "—",
+            "temp": "—",
+            "sky": "—",
+            "wind": "—",
             "humidity": "—",
-            "precip":   "—",
-            "roof":     roof,
+            "precip": "—",
+            "roof": roof,
         },
-        "umpire": {"name": "TBD", "calledKpct": "—", "rpg": "—", "note": "—"},
-        "lineups": {"away": [], "home": []},
-        "bullpen":  {"away": [], "home": []},
-        "injuries": {"away": [], "home": []},
-        "props": {"note": "", "pitchers": [], "batters": []},
+        "umpire": {
+            "name": "TBD",
+            "calledKpct": "—",
+            "rpg": "—",
+            "note": "—",
+        },
+        "lineups": {
+            "away": away_lineup,
+            "home": home_lineup,
+        },
+        "bullpen": {
+            "away": [],
+            "home": [],
+        },
+        "injuries": {
+            "away": [],
+            "home": [],
+        },
+        "props": {
+            "note": "",
+            "pitchers": [],
+            "batters": [],
+        },
     }
 
 def main():
     date_str = sys.argv[1] if len(sys.argv) > 1 else datetime.now().strftime("%Y-%m-%d")
     print(f"\n🗓  Fetching MLB schedule for {date_str}...")
 
-    sched = fetch(f"{MLB_BASE}/schedule?sportId=1&date={date_str}&hydrate=probablePitcher,teams,venue")
+    sched = fetch(
+        f"{MLB_BASE}/schedule?sportId=1&date={date_str}&hydrate=lineups,probablePitcher,teams,venue"
+    )
+
     dates = sched.get("dates", [])
     if not dates:
         print("  ✗ No games found.")
@@ -157,7 +187,6 @@ def main():
     raw_games = dates[0].get("games", [])
     print(f"  ✓ {len(raw_games)} games found\n")
 
-    # Filter out non-regular season / spring training
     games = [g for g in raw_games if g.get("gameType") in ("R", "F", "D", "L", "W")]
 
     built = []
@@ -165,32 +194,38 @@ def main():
         print(f"  [{i}/{len(games)}] Building game data...")
         built.append(build_game(g))
 
-    # Format date display
     try:
-        dt      = datetime.strptime(date_str, "%Y-%m-%d")
+        dt = datetime.strptime(date_str, "%Y-%m-%d")
         display = dt.strftime("%A, %B %-d, %Y")
-        banner  = dt.strftime("%B %-d, %Y").upper()
+        banner = dt.strftime("%B %-d, %Y").upper()
     except Exception:
         display = date_str
-        banner  = date_str.upper()
+        banner = date_str.upper()
 
     output = {
         "date_display": display,
-        "date_banner":  banner,
-        "updated":      datetime.now(timezone.utc).isoformat(),
-        "games":        built,
+        "date_banner": banner,
+        "updated": datetime.now(timezone.utc).isoformat(),
+        "games": built,
     }
 
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     OUT_FILE.write_text(json.dumps(output, indent=2, ensure_ascii=False), encoding="utf-8")
+
+    lineup_count = sum(
+        len(g.get("lineups", {}).get("away", [])) + len(g.get("lineups", {}).get("home", []))
+        for g in built
+    )
+
     print(f"\n✅  dope-sheet-data.json written → {OUT_FILE}")
     print(f"    {len(built)} games · {display}")
-    print("\n📋  Still needed (manual or additional scripts):")
+    print(f"    {lineup_count} lineup players found")
+
+    print("\n📋  Still needed manually or by future scripts:")
     print("    • Weather per park")
-    print("    • Umpire assignments (available day-of via MLB API)")
-    print("    • Projected lineups (available ~3hr before first pitch)")
+    print("    • Umpire assignments")
     print("    • Bullpen availability")
-    print("    • Player props (lines/odds)")
+    print("    • Player props")
 
 if __name__ == "__main__":
     main()
