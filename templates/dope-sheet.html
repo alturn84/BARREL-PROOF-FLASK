@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Dope Sheet · {{ date_display }} — Barrel Proof</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Playfair+Display+SC:wght@400;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{--ink:#1A1108;--ink-soft:#2C1F0E;--ink-card:#1E1208;--parchment:#F0E6CC;--parchment2:#D8C9A8;--gold:#EDE5D0;--gold-light:#EDE5D0;--gold-dim:#887C60;--smoke:#7A6A52;--smoke-light:#A89070;--leather:#4E3A20;--rule:rgba(136,124,96,.28);--rule-heavy:rgba(136,124,96,.55);--green:#4A8A4A;--red:#A83030;--serif-display:"Playfair Display",Georgia,serif;--serif-sc:"Playfair Display SC",Georgia,serif;--serif-body:"Source Serif 4",Georgia,serif;--mono:"IBM Plex Mono","Courier New",monospace;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:16px;}
+body{background:var(--ink);color:var(--parchment);font-family:var(--serif-body);-webkit-font-smoothing:antialiased;min-height:100vh;}
+a{color:inherit;text-decoration:none;}
+.ticker-bar{background:var(--leather);border-bottom:1px solid var(--gold-dim);padding:5px 0;overflow:hidden;}
+.ticker-inner{display:flex;align-items:center;white-space:nowrap;animation:ticker 60s linear infinite;}
+.ticker-inner:hover{animation-play-state:paused;}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.ti{font-family:var(--mono);font-size:13px;letter-spacing:.04em;color:var(--parchment2);padding:0 20px;display:inline-flex;align-items:center;gap:7px;}
+.ti .w{color:var(--gold);font-weight:500;}.ti .sep{color:var(--gold-dim);opacity:.5;}
+.page{max-width:1280px;margin:0 auto;padding:0 22px 60px;}
+.masthead{padding:24px 0 0;border-bottom:2px solid var(--gold-dim);}
+.masthead-top{display:flex;justify-content:center;padding-bottom:7px;}
+.site-name{font-family:"Perpetua Titling MT","Perpetua","Book Antiqua","Palatino Linotype",Palatino,Georgia,serif;font-size:clamp(34px,5vw,64px);font-weight:400;letter-spacing:.18em;color:var(--parchment);line-height:1;text-align:center;text-transform:uppercase;white-space:nowrap;}
+.site-name span{color:var(--gold);}
+.tagline-bar{text-align:center;padding:8px 0 14px;border-top:.5px solid var(--rule);margin-top:6px;}
+.tagline-line{font-family:var(--serif-sc);font-size:20px;letter-spacing:.2em;color:var(--smoke-light);text-align:center;line-height:1.8;}
+.tagline-sub{font-size:17px;letter-spacing:.22em;color:var(--gold-dim);}
+nav.main-nav{display:flex;align-items:center;border-bottom:1px solid var(--rule-heavy);overflow:hidden;}
+.nav-barrel-btn{flex-shrink:0;width:52px;height:48px;cursor:pointer;border-right:.5px solid var(--rule-heavy);background:var(--ink) url('https://i.postimg.cc/pTNWxjb5/barrel-tab-logo-removebg-preview.png') center center / 40px auto no-repeat;transition:opacity .2s;}
+.nav-barrel-btn:hover{opacity:.75;}
+.nav-items-wrap{display:flex;align-items:center;overflow:hidden;max-width:0;transition:max-width .45s cubic-bezier(.4,0,.2,1);white-space:nowrap;}
+.nav-items-wrap.open{max-width:900px;}
+.nav-item{font-family:var(--serif-sc);font-size:17px;letter-spacing:.14em;color:var(--smoke-light);padding:12px 16px;position:relative;cursor:pointer;transition:color .2s;white-space:nowrap;display:inline-block;}
+.nav-item:hover,.nav-item.active{color:var(--parchment);}
+.nav-item.active::after{content:"";position:absolute;bottom:-1px;left:0;right:0;height:2px;background:var(--gold);}
+.nav-item:not(:last-child)::before{content:"·";position:absolute;right:-2px;color:var(--rule-heavy);}
+.date-banner{display:flex;align-items:center;gap:14px;padding:13px 0 11px;border-bottom:.5px solid var(--rule);}
+.dbl{flex:1;height:.5px;background:var(--rule);}
+.dbt{font-family:var(--serif-sc);font-size:17px;letter-spacing:.16em;color:var(--smoke);white-space:nowrap;}
+.sort-bar{display:flex;align-items:center;gap:8px;padding:12px 0 10px;border-bottom:.5px solid var(--rule);margin-bottom:16px;flex-wrap:wrap;}
+.sort-label{font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--smoke);text-transform:uppercase;}
+.sort-btn{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--smoke-light);padding:4px 12px;border:.5px solid var(--rule-heavy);border-radius:2px;cursor:pointer;transition:all .15s;background:none;}
+.sort-btn:hover{color:var(--parchment);border-color:var(--gold-dim);}
+.sort-btn.active{color:var(--gold);border-color:var(--gold);background:rgba(237,229,208,.06);}
+.games-count{font-family:var(--mono);font-size:12px;color:var(--smoke);margin-left:auto;}
+.odds-updated{font-family:var(--mono);font-size:10px;color:var(--smoke);opacity:.6;}
+.live-badge{font-family:var(--mono);font-size:9px;letter-spacing:.1em;padding:2px 6px;border-radius:2px;background:rgba(168,48,48,.2);color:#D05050;border:.5px solid #D05050;margin-left:6px;animation:pulse 1.5s ease infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+.game-row{border:.5px solid var(--rule-heavy);border-radius:3px;margin-bottom:8px;background:var(--ink-soft);overflow:hidden;transition:border-color .2s;}
+.game-row:hover{border-color:var(--gold-dim);}
+.game-row.open{border-color:var(--gold);}
+.game-row.live-game{border-color:rgba(168,48,48,.4);}
+.game-row-header{display:grid;grid-template-columns:170px 1fr 1fr 1fr 1fr 28px;align-items:center;padding:12px 16px;cursor:pointer;gap:12px;}
+.gr-matchup{display:flex;flex-direction:column;gap:3px;}
+.gr-teams{font-family:var(--serif-sc);font-size:15px;letter-spacing:.08em;color:var(--parchment);}
+.gr-time{font-family:var(--mono);font-size:12px;color:var(--smoke);letter-spacing:.06em;}
+.gr-pitchers{font-family:var(--mono);font-size:12px;color:var(--smoke-light);line-height:1.8;}
+.gr-pitchers span{color:var(--parchment2);}
+.gr-weather{font-family:var(--mono);font-size:12px;color:var(--smoke-light);line-height:1.8;}
+.gr-line{font-family:var(--mono);font-size:13px;color:var(--parchment2);line-height:1.8;}
+.gr-line .fav{color:var(--gold);font-weight:500;}
+.gr-ou{font-family:var(--mono);font-size:13px;color:var(--smoke-light);line-height:1.8;}
+.gr-toggle{font-family:var(--mono);font-size:13px;color:var(--gold-dim);transition:transform .3s;text-align:center;}
+.game-row.open .gr-toggle{transform:rotate(180deg);}
+.game-detail{display:none;border-top:.5px solid var(--rule-heavy);padding:20px;background:var(--ink-card);}
+.game-row.open .game-detail{display:block;}
+.detail-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:16px;}
+.detail-section{background:var(--ink-soft);border:.5px solid var(--rule-heavy);border-radius:3px;padding:14px;}
+.detail-section.two-col{grid-column:span 2;}
+.detail-section.full{grid-column:1/-1;}
+.ds-title{font-family:var(--serif-sc);font-size:12px;letter-spacing:.2em;color:var(--gold);margin-bottom:10px;padding-bottom:6px;border-bottom:.5px solid var(--rule);}
+.pitcher-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.pitcher-card{background:rgba(0,0,0,.2);border-radius:2px;padding:10px 12px;}
+.pc-team{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--gold-dim);margin-bottom:3px;text-transform:uppercase;}
+.pc-name{font-family:var(--serif-sc);font-size:15px;letter-spacing:.06em;color:var(--parchment);margin-bottom:8px;}
+.pc-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-bottom:6px;}
+.pc-stat{text-align:center;}
+.pc-val{font-family:var(--mono);font-size:14px;color:var(--parchment2);font-weight:500;display:block;}
+.pc-lbl{font-family:var(--mono);font-size:10px;color:var(--smoke);letter-spacing:.08em;display:block;}
+.pc-last{font-family:var(--mono);font-size:11px;color:var(--smoke-light);line-height:1.7;border-top:.5px solid var(--rule);padding-top:6px;}
+.pc-last span{color:var(--parchment2);}
+.lineup-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.lu-team{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--gold-dim);margin-bottom:6px;text-transform:uppercase;}
+.lu-status{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;padding:1px 5px;border-radius:2px;margin-left:5px;vertical-align:middle;}
+.lu-status.projected{background:rgba(136,124,96,.15);color:var(--smoke-light);border:.5px solid var(--smoke);}
+.lu-player{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:12px;padding:2px 0;border-bottom:.5px solid var(--rule);color:var(--parchment2);}
+.lu-player:last-child{border-bottom:none;}
+.lu-num{color:var(--smoke);width:14px;flex-shrink:0;font-size:11px;}
+.lu-pos{color:var(--smoke);width:26px;flex-shrink:0;}
+.lu-name{flex:1;}
+.lu-bat{color:var(--smoke);font-size:11px;}
+.lu-empty{font-family:var(--mono);font-size:10px;color:var(--smoke);font-style:italic;}
+.ump-row{display:flex;justify-content:space-between;padding:4px 0;border-bottom:.5px solid var(--rule);font-family:var(--mono);font-size:12px;}
+.ump-row:last-child{border-bottom:none;}
+.ump-lbl{color:var(--smoke);}
+.ump-val{color:var(--parchment2);}
+.ump-note{font-family:var(--mono);font-size:11px;color:var(--smoke-light);margin-top:8px;line-height:1.8;border-top:.5px solid var(--rule);padding-top:6px;}
+.wx-temp{font-family:var(--mono);font-size:30px;color:var(--parchment);margin-bottom:6px;}
+.wx-row{display:flex;justify-content:space-between;padding:3px 0;border-bottom:.5px solid var(--rule);font-family:var(--mono);font-size:12px;}
+.wx-row:last-child{border-bottom:none;}
+.wx-lbl{color:var(--smoke);}
+.wx-val{color:var(--parchment2);}
+.wx-warn{color:#C8882A;}
+.wx-good{color:var(--green);}
+.bp-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.bp-team{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--gold-dim);margin-bottom:6px;text-transform:uppercase;}
+.bp-row{display:flex;justify-content:space-between;align-items:center;padding:3px 0;border-bottom:.5px solid var(--rule);font-family:var(--mono);font-size:12px;}
+.bp-row:last-child{border-bottom:none;}
+.bp-name{color:var(--parchment2);}
+.bp-role{color:var(--smoke);font-size:11px;margin-left:3px;}
+.bp-dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:4px;vertical-align:middle;}
+.bp-dot.used{background:var(--red);}
+.bp-dot.light{background:#C8882A;}
+.bp-dot.fresh{background:var(--green);}
+.bp-rest{color:var(--smoke);font-size:11px;}
+.bp-empty{font-family:var(--mono);font-size:10px;color:var(--smoke);font-style:italic;}
+.lines-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+.line-item{text-align:center;padding:10px 8px;background:rgba(0,0,0,.2);border-radius:2px;}
+.line-lbl{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--smoke);margin-bottom:5px;text-transform:uppercase;}
+.line-val{font-family:var(--mono);font-size:18px;color:var(--parchment);font-weight:500;}
+.line-sub{font-family:var(--mono);font-size:11px;color:var(--smoke-light);margin-top:3px;}
+.line-na{font-family:var(--mono);font-size:12px;color:var(--smoke);font-style:italic;}
+.move-up{color:var(--green);font-size:11px;}
+.move-dn{color:var(--red);font-size:11px;}
+.inj-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.inj-team{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--gold-dim);margin-bottom:6px;text-transform:uppercase;}
+.inj-row{display:flex;justify-content:space-between;align-items:center;padding:3px 0;border-bottom:.5px solid var(--rule);font-family:var(--mono);font-size:12px;}
+.inj-row:last-child{border-bottom:none;}
+.inj-name{color:var(--parchment2);}
+.inj-pos{color:var(--smoke);font-size:11px;margin-left:3px;}
+.inj-tag{font-size:10px;padding:1px 5px;border-radius:2px;}
+.il10{background:rgba(168,48,48,.2);color:#D04040;border:.5px solid #D04040;}
+.il15{background:rgba(168,48,48,.25);color:#D05050;border:.5px solid #D05050;}
+.il60{background:rgba(168,48,48,.35);color:#E06060;border:.5px solid #E06060;}
+.dtd{background:rgba(200,136,42,.2);color:#C8882A;border:.5px solid #C8882A;}
+footer{border-top:.5px solid var(--rule-heavy);margin-top:40px;padding:20px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+.footer-name{font-family:var(--serif-sc);font-size:17px;color:var(--gold-dim);letter-spacing:.1em;}
+.footer-tag{font-family:var(--mono);font-size:11px;color:var(--smoke);letter-spacing:.1em;text-align:center;}
+.footer-legal{font-family:var(--mono);font-size:11px;color:var(--smoke);opacity:.6;text-align:right;line-height:1.7;}
+.props-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.props-col-head{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:8px;padding-bottom:5px;border-bottom:.5px solid var(--rule);}
+.prop-card{display:flex;align-items:center;gap:0;padding:7px 0;border-bottom:.5px solid var(--rule);}
+.prop-card:last-child{border-bottom:none;}
+.prop-flag{width:4px;height:36px;border-radius:1px;flex-shrink:0;margin-right:10px;}
+.prop-flag.value{background:var(--green);}
+.prop-flag.watch{background:#C8882A;}
+.prop-flag.standard{background:var(--rule-heavy);}
+.prop-player{flex:1;min-width:0;}
+.prop-name{font-family:var(--serif-sc);font-size:12px;letter-spacing:.05em;color:var(--parchment);line-height:1.2;}
+.prop-type{font-family:var(--mono);font-size:10px;color:var(--smoke-light);margin-top:1px;}
+.prop-line-block{text-align:center;min-width:52px;flex-shrink:0;}
+.prop-line{font-family:var(--mono);font-size:15px;font-weight:500;color:var(--parchment);line-height:1;}
+.prop-line-lbl{font-family:var(--mono);font-size:9px;color:var(--smoke);letter-spacing:.08em;margin-top:2px;}
+.prop-odds-block{display:flex;flex-direction:column;gap:3px;min-width:80px;flex-shrink:0;align-items:flex-end;}
+.prop-odds-row{display:flex;gap:5px;align-items:center;}
+.prop-odds-dir{font-family:var(--mono);font-size:9px;color:var(--smoke);width:14px;}
+.prop-odds{font-family:var(--mono);font-size:11px;padding:1px 6px;border-radius:2px;}
+.prop-odds.over{background:rgba(74,138,74,.15);color:#6BBF6B;border:.5px solid rgba(74,138,74,.4);}
+.prop-odds.under{background:rgba(168,48,48,.12);color:#C06060;border:.5px solid rgba(168,48,48,.3);}
+.prop-tag{font-family:var(--mono);font-size:8px;letter-spacing:.1em;padding:1px 5px;border-radius:2px;margin-top:2px;}
+.prop-tag.value{background:rgba(74,138,74,.15);color:#6BBF6B;border:.5px solid rgba(74,138,74,.35);}
+.prop-tag.watch{background:rgba(200,136,42,.15);color:#C8882A;border:.5px solid rgba(200,136,42,.35);}
+.prop-tag.standard{background:rgba(136,124,96,.1);color:var(--smoke-light);border:.5px solid var(--rule-heavy);}
+.props-note{font-family:var(--mono);font-size:10px;color:var(--smoke);margin-top:10px;padding-top:8px;border-top:.5px solid var(--rule);line-height:1.7;}
+.props-note em{color:var(--smoke-light);font-style:normal;}
+.props-empty{font-family:var(--mono);font-size:11px;color:var(--smoke);font-style:italic;padding:8px 0;}
+.pf-shell{display:grid;grid-template-columns:auto 1fr;gap:0;align-items:stretch;}
+.pf-verdict{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px 18px;border-right:.5px solid var(--rule);min-width:110px;text-align:center;gap:4px;}
+.pf-badge{font-family:var(--serif-sc);font-size:11px;letter-spacing:.16em;padding:4px 10px;border-radius:2px;margin-bottom:4px;white-space:nowrap;}
+.pf-badge.hitter{background:rgba(74,138,74,.15);color:#6BBF6B;border:.5px solid #4A8A4A;}
+.pf-badge.pitcher{background:rgba(168,48,48,.15);color:#D05050;border:.5px solid #A83030;}
+.pf-badge.neutral{background:rgba(136,124,96,.1);color:var(--smoke-light);border:.5px solid var(--smoke);}
+.pf-score-big{font-family:var(--mono);font-size:28px;font-weight:500;line-height:1;}
+.pf-score-big.pos{color:#6BBF6B;}
+.pf-score-big.neg{color:#D05050;}
+.pf-score-big.neu{color:var(--parchment2);}
+.pf-score-lbl{font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--smoke);text-transform:uppercase;}
+.pf-body{padding:0 0 0 16px;display:flex;flex-direction:column;gap:10px;}
+.pf-indices{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+.pf-index{background:rgba(0,0,0,.2);border-radius:2px;padding:8px 10px;text-align:center;}
+.pf-ix-val{font-family:var(--mono);font-size:16px;font-weight:500;display:block;line-height:1.2;}
+.pf-ix-val.above{color:#6BBF6B;}
+.pf-ix-val.below{color:#D05050;}
+.pf-ix-val.avg{color:var(--parchment2);}
+.pf-ix-lbl{font-family:var(--mono);font-size:9px;color:var(--smoke);letter-spacing:.08em;display:block;margin-top:2px;}
+.pf-ix-sub{font-family:var(--mono);font-size:9px;color:var(--smoke-light);display:block;margin-top:1px;}
+.pf-bars{display:flex;flex-direction:column;gap:5px;}
+.pf-bar-row{display:flex;align-items:center;gap:8px;}
+.pf-bar-lbl{font-family:var(--mono);font-size:10px;color:var(--smoke);width:60px;flex-shrink:0;}
+.pf-bar-track{flex:1;height:5px;background:rgba(136,124,96,.15);border-radius:2px;position:relative;}
+.pf-bar-fill{height:100%;border-radius:2px;transition:width .4s ease;}
+.pf-bar-fill.pos{background:#4A8A4A;}
+.pf-bar-fill.neg{background:#A83030;}
+.pf-bar-fill.neu{background:var(--smoke);}
+.pf-summary{font-family:var(--mono);font-size:11px;color:var(--smoke-light);line-height:1.75;border-top:.5px solid var(--rule);padding-top:10px;}
+.pf-summary em{color:var(--parchment2);font-style:normal;}
+.pf-src{font-family:var(--mono);font-size:9px;color:var(--smoke);opacity:.6;margin-top:4px;letter-spacing:.06em;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.masthead{animation:fadeUp .45s ease both;}
+.sort-bar{animation:fadeUp .45s .1s ease both;}
+#gamesContainer{animation:fadeUp .45s .16s ease both;}
+@media(max-width:900px){.game-row-header{grid-template-columns:140px 1fr 1fr 28px;}.gr-line,.gr-ou{display:none;}.detail-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:580px){.page{padding:0 12px 40px;}.game-row-header{grid-template-columns:1fr 28px;}.gr-pitchers,.gr-weather{display:none;}.detail-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<div class="ticker-bar">
+  <div class="ticker-inner" id="tickerInner"></div>
+</div>
+
+<div class="page">
+<header class="masthead">
+  <div class="masthead-top">
+    <div class="site-name">BARREL <span>PROOF</span></div>
+  </div>
+  <div class="tagline-bar">
+    <div class="tagline-line">The Dope Sheet</div>
+    <div class="tagline-line tagline-sub">Game Previews &amp; Intelligence</div>
+  </div>
+  <nav class="main-nav" id="mainNav">
+    <div class="nav-barrel-btn" onclick="toggleNav()" title="Menu"></div>
+    <div class="nav-items-wrap" id="navItems">
+      <a class="nav-item" href="/barrel-proof-home.html">Home</a>
+      <a class="nav-item active" href="/dope-sheet">Dope Sheet</a>
+      <a class="nav-item" href="/barrel-proof-american-league.html">American League</a>
+      <a class="nav-item" href="/barrel-proof-national-league.html">National League</a>
+    </div>
+  </nav>
+</header>
+
+<div class="date-banner">
+  <div class="dbl"></div>
+  <div class="dbt">{{ date_banner }}</div>
+  <div class="dbl"></div>
+</div>
+
+<div class="sort-bar">
+  <span class="sort-label">Sort:</span>
+  <button class="sort-btn active" onclick="sortGames('time',this)">By Time</button>
+  <button class="sort-btn" onclick="sortGames('ou',this)">By O/U</button>
+  <button class="sort-btn" onclick="sortGames('line',this)">By Line</button>
+  <span class="games-count" id="gamesCount"></span>
+  {% if odds_updated %}
+  <span class="odds-updated">Odds: FanDuel · {{ odds_updated[:16] | replace('T',' ') }} UTC</span>
+  {% endif %}
+</div>
+
+<div id="gamesContainer"></div>
+
+<footer>
+  <div class="footer-name">Barrel Proof</div>
+  <div class="footer-tag">RAW · UNFILTERED · BASEBALL · ENJOY RESPONSIBLY<br/>
+    <span style="opacity:.5">Stats via MLB Stats API · Odds via FanDuel/SharpAPI · Weather via NWS</span>
+  </div>
+  <div class="footer-legal">© 2026 Barrel Proof<br/>Please gamble responsibly. 21+</div>
+</footer>
+</div>
+
+<script>
+function toggleNav(){ document.getElementById('navItems').classList.toggle('open'); }
+
+// ── Games data injected by Flask ──────────────────────────────────────────
+const GAMES = {{ games | tojson }};
+
+// ═══════════════════════════════════════════════════════════════════════════
+// PARK FACTOR ENGINE
+// ═══════════════════════════════════════════════════════════════════════════
+const PARK_DNA = {
+  "Coors Field":              { runs:120, hr:116, xbh:124, alt:5200, dims:"Short alleys, thin air, extreme altitude" },
+  "Great American":           { runs:112, hr:118, xbh:110, alt:490,  dims:"Tight RF porch, very hitter-friendly" },
+  "Citizens Bank":            { runs:108, hr:112, xbh:107, alt:40,   dims:"Short RF porch, high HR rate" },
+  "Sutter Health":            { runs:107, hr:109, xbh:106, alt:25,   dims:"Minor league park, strong out-blowing wind patterns" },
+  "Camden Yards":             { runs:105, hr:103, xbh:107, alt:39,   dims:"LF wall favorable, classic dimensions" },
+  "Fenway":                   { runs:106, hr:97,  xbh:115, alt:19,   dims:"Green Monster inflates XBH, suppresses HR" },
+  "Globe Life":               { runs:104, hr:108, xbh:106, alt:551,  dims:"Retractable roof, HR-friendly, hot Texas summers" },
+  "Truist":                   { runs:103, hr:107, xbh:104, alt:1050, dims:"Elevated park, warm climate, HR-friendly" },
+  "Yankee Stadium":           { runs:103, hr:110, xbh:101, alt:55,   dims:"Short RF porch, clear HR booster" },
+  "Chase Field":              { runs:103, hr:105, xbh:102, alt:1082, dims:"Retractable roof, warm altitude, offense-friendly" },
+  "Minute Maid":              { runs:102, hr:104, xbh:101, alt:43,   dims:"Crawford Boxes in LF boost HR count" },
+  "Wrigley":                  { runs:101, hr:101, xbh:102, alt:597,  dims:"Wind-dependent, avg base — can swing either way" },
+  "Dodger Stadium":           { runs:99,  hr:99,  xbh:99,  alt:340,  dims:"Neutral park, slight pitcher lean at night" },
+  "Guaranteed Rate":          { runs:99,  hr:98,  xbh:99,  alt:594,  dims:"Slight pitcher lean, wind often blows in" },
+  "Angel Stadium":            { runs:98,  hr:97,  xbh:98,  alt:160,  dims:"Neutral park, average dimensions" },
+  "American Family":          { runs:98,  hr:95,  xbh:97,  alt:646,  dims:"Retractable dome, controlled environment, neutral-to-pitcher" },
+  "Rogers":                   { runs:97,  hr:98,  xbh:96,  alt:249,  dims:"Turf dome, suppressed scoring" },
+  "Busch Stadium":            { runs:97,  hr:96,  xbh:98,  alt:466,  dims:"Spacious outfield, neutral-to-pitcher" },
+  "PNC Park":                 { runs:97,  hr:95,  xbh:98,  alt:730,  dims:"Deep CF, pitcher-friendly, picturesque" },
+  "Kauffman":                 { runs:97,  hr:94,  xbh:97,  alt:750,  dims:"Large outfield, pitcher-friendly" },
+  "Target Field":             { runs:97,  hr:96,  xbh:97,  alt:830,  dims:"Cold early season suppresses scoring" },
+  "Progressive":              { runs:97,  hr:97,  xbh:97,  alt:650,  dims:"Neutral-to-mild pitcher lean, average dimensions" },
+  "T-Mobile":                 { runs:96,  hr:94,  xbh:97,  alt:17,   dims:"Marine air suppresses carry, pitcher-friendly" },
+  "Steinbrenner":             { runs:96,  hr:94,  xbh:95,  alt:10,   dims:"Minor league park (Rays 2025), pitcher-lean" },
+  "Citi Field":               { runs:96,  hr:95,  xbh:97,  alt:20,   dims:"Marine air, typically blows in, pitcher-friendly" },
+  "Comerica":                 { runs:95,  hr:90,  xbh:97,  alt:600,  dims:"Deep CF and alleys, strong pitcher park" },
+  "Tropicana":                { runs:94,  hr:92,  xbh:93,  alt:15,   dims:"Dome, suppressed scoring, pitcher-friendly" },
+  "loanDepot":                { runs:94,  hr:92,  xbh:94,  alt:10,   dims:"Retractable dome, marine air, pitcher-friendly" },
+  "Oracle Park":              { runs:93,  hr:87,  xbh:95,  alt:10,   dims:"Marine layer, cold SF air, one of the best pitcher parks" },
+  "Petco":                    { runs:93,  hr:90,  xbh:93,  alt:62,   dims:"Marine layer, ocean air, strong pitcher park" },
+};
+
+function getParkDNA(venue){
+  for(const key of Object.keys(PARK_DNA)){if(venue.includes(key)) return {key,...PARK_DNA[key]};}
+  return {key:"Unknown",runs:100,hr:100,xbh:100,alt:100,dims:"No park data available"};
+}
+function getWeatherMods(wx){
+  let runMod=0,hrMod=0,xbhMod=0;const notes=[];
+  if(wx.roof==='Closed') return {runMod:0,hrMod:0,xbhMod:0,notes:["Roof closed — weather neutralized. Park dimensions are the sole factor."]};
+  const temp=parseFloat(wx.temp);
+  if(!isNaN(temp)){
+    if(temp>=90){hrMod+=4;runMod+=2;notes.push(`Extreme heat (${wx.temp}) significantly increases ball carry.`);}
+    else if(temp>=80){hrMod+=2;runMod+=1.5;notes.push(`Warm temps (${wx.temp}) aid ball carry and boost offense.`);}
+    else if(temp>=72){hrMod+=1;runMod+=0.5;}
+    else if(temp<=55){hrMod-=3;runMod-=2;notes.push(`Cold temps (${wx.temp}) suppress ball flight meaningfully.`);}
+    else if(temp<=65){hrMod-=1;runMod-=0.5;}
+  }
+  const windStr=wx.wind||"";const windSpd=parseFloat(windStr);
+  if(!isNaN(windSpd)&&windSpd>0){
+    const wl=windStr.toLowerCase();
+    const isOut=wl.includes("out"),isIn=wl.includes("in"),isCross=wl.includes("cross")||wl.includes("across");
+    const dir=wl.includes("cf")||wl.includes("center")?"CF":wl.includes("lf")||wl.includes("left")?"LF":wl.includes("rf")||wl.includes("right")?"RF":"the outfield";
+    if(isOut){
+      if(windSpd>=15){hrMod+=6;xbhMod+=4;runMod+=3;notes.push(`Strong wind (${windSpd} mph) blowing out to ${dir} — major HR and XBH boost.`);}
+      else if(windSpd>=10){hrMod+=4;xbhMod+=3;runMod+=2;notes.push(`Wind (${windSpd} mph) blowing out to ${dir} — meaningful boost to ball carry.`);}
+      else if(windSpd>=6){hrMod+=2;xbhMod+=1.5;runMod+=1;notes.push(`Light outblowing wind (${windSpd} mph to ${dir}) — modest lift.`);}
+    } else if(isIn){
+      if(windSpd>=15){hrMod-=6;xbhMod-=4;runMod-=3;notes.push(`Strong wind (${windSpd} mph) blowing in from ${dir} — significant fly ball suppression.`);}
+      else if(windSpd>=10){hrMod-=4;xbhMod-=3;runMod-=2;notes.push(`Wind (${windSpd} mph) blowing in from ${dir} — fly balls suppressed.`);}
+      else if(windSpd>=6){hrMod-=2;xbhMod-=1.5;runMod-=1;notes.push(`Light inblowing wind (${windSpd} mph from ${dir}) — mild suppression.`);}
+    } else if(isCross){xbhMod+=1;notes.push(`Crosswind (${windSpd} mph) adds variance to ball flight direction.`);}
+  }
+  const hum=parseFloat(wx.humidity);
+  if(!isNaN(hum)){
+    if(hum<=30){hrMod+=2;notes.push(`Low humidity (${wx.humidity}) reduces air resistance — slight carry boost.`);}
+    else if(hum>=80){hrMod-=1;notes.push(`High humidity (${wx.humidity}) adds minor air resistance.`);}
+  }
+  return {runMod,hrMod,xbhMod,notes};
+}
+function calcParkFactor(g){
+  const dna=getParkDNA(g.venue);
+  const {runMod,hrMod,xbhMod,notes}=getWeatherMods(g.weather||{roof:'Open'});
+  const adjRuns=dna.runs+runMod,adjHR=dna.hr+hrMod,adjXBH=dna.xbh+xbhMod;
+  const score=Math.round((adjRuns*0.40)+(adjHR*0.35)+(adjXBH*0.25)-100);
+  return {dna,adjRuns,adjHR,adjXBH,score,wxNotes:notes};
+}
+function buildPFNarrative(g,pf){
+  const {dna,adjRuns,adjHR,adjXBH,score,wxNotes}=pf;const parts=[];
+  if(dna.runs>=108) parts.push(`<em>${g.venue}</em> is one of baseball's most hitter-friendly environments — ${dna.dims.toLowerCase()}.`);
+  else if(dna.runs>=104) parts.push(`<em>${g.venue}</em> plays as a meaningful hitter's park. ${dna.dims}.`);
+  else if(dna.runs>=101) parts.push(`<em>${g.venue}</em> carries a slight hitter lean in its baseline park factors. ${dna.dims}.`);
+  else if(dna.runs<=92) parts.push(`<em>${g.venue}</em> is one of the tougher scoring environments in the league — ${dna.dims.toLowerCase()}.`);
+  else if(dna.runs<=96) parts.push(`<em>${g.venue}</em> plays as a pitcher's park at baseline. ${dna.dims}.`);
+  else if(dna.runs<=99) parts.push(`<em>${g.venue}</em> is a mild pitcher's environment. ${dna.dims}.`);
+  else parts.push(`<em>${g.venue}</em> is a neutral park, close to the MLB average across all categories.`);
+  if(dna.alt>=1000&&(g.weather||{}).roof!=='Closed') parts.push(`Altitude of ~${dna.alt.toLocaleString()} ft above sea level reduces air resistance and adds carry to well-struck balls.`);
+  wxNotes.forEach(n=>parts.push(n));
+  if(adjHR>=112&&adjXBH>=108) parts.push(`Combined conditions strongly elevate both HR probability and extra-base hit potential today.`);
+  else if(adjHR>=108) parts.push(`HR index is notably elevated — environment favors hitters going deep.`);
+  else if(adjHR<=88) parts.push(`HR index is significantly suppressed — pitchers benefit from reduced fly ball carry.`);
+  else if(adjXBH>=108) parts.push(`Extra-base hit potential is above average even if HRs are not maximally boosted.`);
+  else if(adjXBH<=92) parts.push(`Extra-base hits are also suppressed — gap shots may stay in the park.`);
+  if(score>=10) parts.push(`Overall environment leans <em>hitter-friendly</em> — favor the over, stacks, and power hitters.`);
+  else if(score>=5) parts.push(`Modest tilt toward hitters — slightly above-average scoring expected.`);
+  else if(score<=-10) parts.push(`Overall environment leans <em>pitcher-friendly</em> — favor strikeout props and the under.`);
+  else if(score<=-5) parts.push(`Mild pitcher lean — below-average scoring environment today.`);
+  else parts.push(`Conditions are close to neutral — park factor is not a strong lean either way.`);
+  return parts.join(' ');
+}
+function renderParkFactor(g){
+  const pf=calcParkFactor(g);
+  const {adjRuns,adjHR,adjXBH,score}=pf;
+  const sign=score>0?'+':'';
+  const scoreClass=score>=5?'pos':score<=-5?'neg':'neu';
+  const badgeLabel=score>=5?'HITTER FRIENDLY':score<=-5?'PITCHER FRIENDLY':'NEUTRAL PARK';
+  const badgeClass=score>=5?'hitter':score<=-5?'pitcher':'neutral';
+  const ixClass=v=>v>=105?'above':v<=95?'below':'avg';
+  const ixSign=v=>v>=100?`+${(v-100).toFixed(0)}%`:`${(v-100).toFixed(0)}%`;
+  const barW=v=>Math.min(100,Math.max(0,50+(v-100)*2));
+  const barClass=v=>v>=105?'pos':v<=95?'neg':'neu';
+  const narrative=buildPFNarrative(g,pf);
+  return `<div class="detail-section full">
+    <div class="ds-title">Park Factor · Barrel Proof Index</div>
+    <div class="pf-shell">
+      <div class="pf-verdict">
+        <div class="pf-badge ${badgeClass}">${badgeLabel}</div>
+        <div class="pf-score-big ${scoreClass}">${sign}${score}</div>
+        <div class="pf-score-lbl">BP Index</div>
+      </div>
+      <div class="pf-body">
+        <div class="pf-indices">
+          <div class="pf-index"><span class="pf-ix-val ${ixClass(adjRuns)}">${ixSign(adjRuns)}</span><span class="pf-ix-lbl">Runs</span><span class="pf-ix-sub">Index: ${adjRuns.toFixed(0)}</span></div>
+          <div class="pf-index"><span class="pf-ix-val ${ixClass(adjHR)}">${ixSign(adjHR)}</span><span class="pf-ix-lbl">Home Runs</span><span class="pf-ix-sub">Index: ${adjHR.toFixed(0)}</span></div>
+          <div class="pf-index"><span class="pf-ix-val ${ixClass(adjXBH)}">${ixSign(adjXBH)}</span><span class="pf-ix-lbl">Extra Base Hits</span><span class="pf-ix-sub">Index: ${adjXBH.toFixed(0)}</span></div>
+        </div>
+        <div class="pf-bars">
+          <div class="pf-bar-row"><span class="pf-bar-lbl">Runs</span><div class="pf-bar-track"><div class="pf-bar-fill ${barClass(adjRuns)}" style="width:${barW(adjRuns)}%"></div></div><span class="pf-bar-val ${barClass(adjRuns)}">${adjRuns.toFixed(0)}</span></div>
+          <div class="pf-bar-row"><span class="pf-bar-lbl">Home Runs</span><div class="pf-bar-track"><div class="pf-bar-fill ${barClass(adjHR)}" style="width:${barW(adjHR)}%"></div></div><span class="pf-bar-val ${barClass(adjHR)}">${adjHR.toFixed(0)}</span></div>
+          <div class="pf-bar-row"><span class="pf-bar-lbl">XBH</span><div class="pf-bar-track"><div class="pf-bar-fill ${barClass(adjXBH)}" style="width:${barW(adjXBH)}%"></div></div><span class="pf-bar-val ${barClass(adjXBH)}">${adjXBH.toFixed(0)}</span></div>
+        </div>
+        <div class="pf-summary">${narrative}</div>
+        <div class="pf-src">SOURCES: Baseball Savant Statcast Park Factors (3-yr 2022–2024) · FanGraphs Park Factors · Weather via NWS · Barrel Proof composite model</div>
+      </div>
+    </div>
+  </div>`;
+}
+
+// ── RENDER ────────────────────────────────────────────────────────────────
+function fmtOddsNum(v){
+  if(v===null||v===undefined||v==='—'||v==='N/A') return '—';
+  const n=parseFloat(v);
+  if(isNaN(n)) return v;
+  return n>0?`+${n}`:String(n);
+}
+
+function renderProps(g){
+  const p=g.props;
+  if(!p||(!p.pitchers?.length&&!p.batters?.length)){
+    return `<div class="detail-section full">
+      <div class="ds-title">Intriguing Player Props · FanDuel</div>
+      <div class="props-empty">Props will be available closer to first pitch.</div>
+    </div>`;
+  }
+  const card=prop=>`<div class="prop-card">
+    <div class="prop-flag ${prop.flag}"></div>
+    <div class="prop-player">
+      <div class="prop-name">${prop.player}</div>
+      <div class="prop-type">${prop.type} <span style="color:var(--smoke)"> · ${prop.team}</span></div>
+    </div>
+    <div class="prop-line-block">
+      <div class="prop-line">${prop.line}</div>
+      <div class="prop-line-lbl">LINE</div>
+    </div>
+    <div class="prop-odds-block">
+      <div class="prop-odds-row"><span class="prop-odds-dir">O</span><span class="prop-odds over">${prop.over}</span></div>
+      <div class="prop-odds-row"><span class="prop-odds-dir">U</span><span class="prop-odds under">${prop.under}</span></div>
+      <div class="prop-tag ${prop.flag}">${prop.tag}</div>
+    </div>
+  </div>`;
+  return `<div class="detail-section full">
+    <div class="ds-title">Intriguing Player Props · FanDuel</div>
+    <div class="props-grid">
+      <div><div class="props-col-head">⚾ Pitchers</div>${(p.pitchers||[]).map(card).join('')}</div>
+      <div><div class="props-col-head">🪵 Batters</div>${(p.batters||[]).map(card).join('')}</div>
+    </div>
+    ${p.note?`<div class="props-note"><em>Context:</em> ${p.note} &nbsp;·&nbsp; <span style="opacity:.55">Lines via FanDuel · Updated pre-game · Not financial advice · 21+</span></div>`:''}
+  </div>`;
+}
+
+function render(games){
+  document.getElementById('gamesCount').textContent = `${games.length} Game${games.length!==1?'s':''} · First pitch ${games[0]?.time||'TBD'}`;
+  document.getElementById('gamesContainer').innerHTML = games.map((g,idx)=>{
+    // Odds — already merged by Flask, just display
+    const awayML  = fmtOddsNum(g.awayML);
+    const homeML  = fmtOddsNum(g.homeML);
+    const ou      = g.ou !== undefined && g.ou !== '—' ? g.ou : '—';
+    const overOdds  = fmtOddsNum(g.overOdds);
+    const underOdds = fmtOddsNum(g.underOdds);
+    const awaySpread = g.awaySpread || '—';
+    const homeSpread = g.homeSpread || '—';
+    const awaySpreadOdds = fmtOddsNum(g.awaySpreadOdds);
+    const homeSpreadOdds = fmtOddsNum(g.homeSpreadOdds);
+    const awayImplied = g.awayImplied || '—';
+    const homeImplied = g.homeImplied || '—';
+
+    // Determine favorite for header display
+    const awayN = parseFloat(awayML) || 999;
+    const homeN = parseFloat(homeML) || 999;
+    const favAbbr  = awayN < homeN ? g.away : g.home;
+    const dogAbbr  = awayN < homeN ? g.home : g.away;
+    const favOdds  = awayN < homeN ? awayML : homeML;
+    const dogOdds  = awayN < homeN ? homeML : awayML;
+
+    const isLive   = g.oddsLive ? `<span class="live-badge">LIVE</span>` : '';
+    const noOdds   = !g.oddsAvailable;
+
+    // Lineups
+    const luRow=(p,i)=>`<div class="lu-player"><span class="lu-num">${i+1}</span><span class="lu-pos">${p.pos||'—'}</span><span class="lu-name">${p.n||p.name||'—'}</span><span class="lu-bat">${p.bat||''}</span></div>`;
+    const awayLu = (g.lineups?.away||[]);
+    const homeLu = (g.lineups?.home||[]);
+    const luAway = awayLu.length ? awayLu.map(luRow).join('') : `<div class="lu-empty">Available ~3 hrs before first pitch</div>`;
+    const luHome = homeLu.length ? homeLu.map(luRow).join('') : `<div class="lu-empty">Available ~3 hrs before first pitch</div>`;
+
+    // Bullpen
+    const bpRow=p=>`<div class="bp-row"><span class="bp-name">${p.n||p.name}<span class="bp-role">${p.role||''}</span></span><span><span class="bp-dot ${p.usage||'fresh'}"></span><span class="bp-rest">${p.rest==='—'||!p.rest?'—':p.rest+'d'}</span></span></div>`;
+    const awayBP=(g.bullpen?.away||[]);
+    const homeBP=(g.bullpen?.home||[]);
+    const bpAway=awayBP.length?awayBP.map(bpRow).join(''):`<div class="bp-empty">Not yet available</div>`;
+    const bpHome=homeBP.length?homeBP.map(bpRow).join(''):`<div class="bp-empty">Not yet available</div>`;
+
+    // Injuries
+    const injRow=p=>`<div class="inj-row"><span class="inj-name">${p.n||p.name}<span class="inj-pos">${p.pos||''}</span></span><span class="inj-tag ${p.tag||'dtd'}">${(p.tag||'DTD').toUpperCase()}</span></div>`;
+    const awayInj=(g.injuries?.away||[]);
+    const homeInj=(g.injuries?.home||[]);
+    const injAway=awayInj.length?awayInj.map(injRow).join(''):`<div class="inj-row"><span style="color:var(--smoke);font-size:10px;">None reported</span></div>`;
+    const injHome=homeInj.length?homeInj.map(injRow).join(''):`<div class="inj-row"><span style="color:var(--smoke);font-size:10px;">None reported</span></div>`;
+
+    return `<div class="game-row${g.oddsLive?' live-game':''}" id="gr-${idx}">
+      <div class="game-row-header" onclick="toggle(${idx})">
+        <div class="gr-matchup">
+          <div class="gr-teams">${g.away} <span style="color:var(--smoke)">@</span> ${g.home}${isLive}</div>
+          <div class="gr-time">${g.time} · ${g.roof==='Closed'?'🏟':'⚾'} ${g.venue.split(' ')[0]}</div>
+        </div>
+        <div class="gr-pitchers">
+          <div>${g.away}: <span>${g.pitchers?.away?.name||'TBD'}</span></div>
+          <div>${g.home}: <span>${g.pitchers?.home?.name||'TBD'}</span></div>
+        </div>
+        <div class="gr-weather">
+          <div>${g.weather?.temp||'—'} · ${g.weather?.sky||'—'}</div>
+          <div>${g.weather?.wind||'—'}</div>
+        </div>
+        <div class="gr-line">
+          ${noOdds
+            ? `<div style="color:var(--smoke);font-size:10px;">Odds pending</div>`
+            : `<div class="fav">${favAbbr} ${favOdds}</div><div style="color:var(--smoke)">${dogAbbr} ${dogOdds}</div>`}
+        </div>
+        <div class="gr-ou">
+          ${noOdds
+            ? `<div style="color:var(--smoke);font-size:10px;">—</div>`
+            : `<div>O/U <span style="color:var(--parchment)">${ou}</span></div><div style="color:var(--smoke)">Total</div>`}
+        </div>
+        <div class="gr-toggle">▼</div>
+      </div>
+
+      <div class="game-detail">
+        <div class="detail-grid">
+
+          ${renderParkFactor(g)}
+
+          <div class="detail-section two-col">
+            <div class="ds-title">Probable Pitchers</div>
+            <div class="pitcher-grid">
+              <div class="pitcher-card">
+                <div class="pc-team">${g.away}</div>
+                <div class="pc-name">${g.pitchers?.away?.name||'TBD'} (${g.pitchers?.away?.hand||'R'})</div>
+                <div class="pc-stats">
+                  <div class="pc-stat"><span class="pc-val">${g.pitchers?.away?.era||'—'}</span><span class="pc-lbl">ERA</span></div>
+                  <div class="pc-stat"><span class="pc-val">${g.pitchers?.away?.whip||'—'}</span><span class="pc-lbl">WHIP</span></div>
+                  <div class="pc-stat"><span class="pc-val">${g.pitchers?.away?.k9||'—'}</span><span class="pc-lbl">K/9</span></div>
+                  <div class="pc-stat"><span class="pc-val">${g.pitchers?.away?.ip||'—'}</span><span class="pc-lbl">IP</span></div>
+                </div>
+                <div class="pc-last">Last: <span>${g.pitchers?.away?.lastStart||'—'}</span></div>
+              </div>
+              <div class="pitcher-card">
+                <div class="pc-team">${g.home}</div>
+                <div class="pc-name">${g.pitchers?.home?.name||'TBD'} (${g.pitchers?.home?.hand||'R'})</div>
+                <div class="pc-stats">
+                  <div class="pc-stat"><span class="pc-val">${g.pitchers?.home?.era||'—'}</span><span class="pc-lbl">ERA</span></div>
+                  <div class="pc-stat"><span class="pc-val">${g.pitchers?.home?.whip||'—'}</span><span class="pc-lbl">WHIP</span></div>
+                  <div class="pc-stat"><span class="pc-val">${g.pitchers?.home?.k9||'—'}</span><span class="pc-lbl">K/9</span></div>
+                  <div class="pc-stat"><span class="pc-val">${g.pitchers?.home?.ip||'—'}</span><span class="pc-lbl">IP</span></div>
+                </div>
+                <div class="pc-last">Last: <span>${g.pitchers?.home?.lastStart||'—'}</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="detail-section">
+            <div class="ds-title">Weather · ${g.venue}</div>
+            <div class="wx-temp">${g.weather?.temp||'—'}</div>
+            <div class="wx-row"><span class="wx-lbl">Sky</span><span class="wx-val">${g.weather?.sky||'—'}</span></div>
+            <div class="wx-row"><span class="wx-lbl">Wind</span><span class="wx-val ${parseFloat(g.weather?.wind)>10?'wx-warn':''}">${g.weather?.wind||'—'}</span></div>
+            <div class="wx-row"><span class="wx-lbl">Humidity</span><span class="wx-val">${g.weather?.humidity||'—'}</span></div>
+            <div class="wx-row"><span class="wx-lbl">Precip</span><span class="wx-val ${parseFloat(g.weather?.precip)>15?'wx-warn':'wx-good'}">${g.weather?.precip||'—'}</span></div>
+            <div class="wx-row"><span class="wx-lbl">Roof</span><span class="wx-val">${g.weather?.roof||'Open'}</span></div>
+          </div>
+
+          <div class="detail-section two-col">
+            <div class="ds-title">Projected Lineups</div>
+            <div class="lineup-grid">
+              <div><div class="lu-team">${g.away} <span class="lu-status projected">PROJECTED</span></div>${luAway}</div>
+              <div><div class="lu-team">${g.home} <span class="lu-status projected">PROJECTED</span></div>${luHome}</div>
+            </div>
+          </div>
+
+          <div class="detail-section">
+            <div class="ds-title">Home Plate Umpire</div>
+            <div class="ump-row"><span class="ump-lbl">Umpire</span><span class="ump-val">${g.umpire?.name||'TBD'}</span></div>
+            <div class="ump-row"><span class="ump-lbl">Called K%</span><span class="ump-val">${g.umpire?.calledKpct||'—'}</span></div>
+            <div class="ump-row"><span class="ump-lbl">R/G Avg</span><span class="ump-val">${g.umpire?.rpg||'—'}</span></div>
+            <div class="ump-note">${g.umpire?.note||'—'}</div>
+          </div>
+
+          <div class="detail-section two-col">
+            <div class="ds-title">Vegas Lines · FanDuel</div>
+            ${noOdds
+              ? `<div class="line-na">Odds not yet available for this game.</div>`
+              : `<div class="lines-grid">
+              <div class="line-item"><div class="line-lbl">${g.away} ML</div><div class="line-val">${awayML}</div><div class="line-sub">${g.awayFull}</div></div>
+              <div class="line-item"><div class="line-lbl">${g.home} ML</div><div class="line-val">${homeML}</div><div class="line-sub">${g.homeFull}</div></div>
+              <div class="line-item"><div class="line-lbl">Over/Under</div><div class="line-val">${ou}</div><div class="line-sub">O ${overOdds} · U ${underOdds}</div></div>
+              <div class="line-item"><div class="line-lbl">${g.away} Spread</div><div class="line-val">${awaySpread}</div><div class="line-sub">${awaySpreadOdds}</div></div>
+              <div class="line-item"><div class="line-lbl">${g.home} Spread</div><div class="line-val">${homeSpread}</div><div class="line-sub">${homeSpreadOdds}</div></div>
+              <div class="line-item"><div class="line-lbl">Implied Win%</div><div class="line-val" style="font-size:14px;">${awayN<homeN?awayImplied:homeImplied}</div><div class="line-sub">Favorite</div></div>
+            </div>`}
+          </div>
+
+          <div class="detail-section">
+            <div class="ds-title">Bullpen Availability</div>
+            <div style="display:flex;gap:12px;font-family:var(--mono);font-size:9px;color:var(--smoke);margin-bottom:8px;">
+              <span><span class="bp-dot used"></span>Heavy</span>
+              <span><span class="bp-dot light"></span>Light</span>
+              <span><span class="bp-dot fresh"></span>Fresh</span>
+            </div>
+            <div class="bp-grid">
+              <div><div class="bp-team">${g.away}</div>${bpAway}</div>
+              <div><div class="bp-team">${g.home}</div>${bpHome}</div>
+            </div>
+          </div>
+
+          <div class="detail-section two-col">
+            <div class="ds-title">Injury Report</div>
+            <div class="inj-grid">
+              <div><div class="inj-team">${g.away}</div>${injAway}</div>
+              <div><div class="inj-team">${g.home}</div>${injHome}</div>
+            </div>
+          </div>
+
+          ${renderProps(g)}
+
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function sortGames(key,btn){
+  document.querySelectorAll('.sort-btn').forEach(b=>b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  let sorted=[...GAMES];
+  if(key==='ou') sorted.sort((a,b)=>(parseFloat(b.ou)||0)-(parseFloat(a.ou)||0));
+  else if(key==='line') sorted.sort((a,b)=>Math.abs(parseFloat(b.homeML)||0)-Math.abs(parseFloat(a.homeML)||0));
+  else sorted.sort((a,b)=>(a.time||'').localeCompare(b.time||''));
+  render(sorted);
+}
+
+function toggle(idx){
+  const row=document.getElementById('gr-'+idx);
+  const wasOpen=row.classList.contains('open');
+  document.querySelectorAll('.game-row').forEach(r=>r.classList.remove('open'));
+  if(!wasOpen) row.classList.add('open');
+}
+
+// ── Ticker built from games data ──────────────────────────────────────────
+const tickerItems = GAMES.map(g=>`${g.away} @ ${g.home} · ${g.time}`);
+const t2=[...tickerItems,...tickerItems];
+document.getElementById('tickerInner').innerHTML=t2.map(s=>`<span class="ti"><span>${s}</span><span class="sep">|</span></span>`).join('');
+
+render(GAMES);
+</script>
+</body>
+</html>
