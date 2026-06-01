@@ -80,8 +80,8 @@ ws = wb.active
 ws.title = f"MLB Pitching {season}"
 
 header_fill  = PatternFill('solid', start_color='1A3A2A')
-header_font  = Font(bold=True, color='FFFFFF', name='Calibri', size=10)
-alt_fill     = PatternFill('solid', start_color='D6EAD6')
+header_font  = Font(bold=True, color='FFFFFF', name='Calibri', size=11)
+alt_fill     = PatternFill('solid', start_color='DDEEFF')
 white_fill   = PatternFill('solid', start_color='FFFFFF')
 body_font    = Font(name='Calibri', size=10)
 center_align = Alignment(horizontal='center', vertical='center')
@@ -89,8 +89,7 @@ left_align   = Alignment(horizontal='left',   vertical='center')
 thin         = Side(style='thin', color='AAAAAA')
 border       = Border(left=thin, right=thin, top=thin, bottom=thin)
 
-headers   = list(df.columns)
-rate_cols = {'ERA','WHIP','SO9','SO/BB','BABIP','GB/FB'}
+headers = list(df.columns)
 
 for col_idx, h in enumerate(headers, 1):
     cell = ws.cell(row=1, column=col_idx, value=h)
@@ -99,10 +98,11 @@ for col_idx, h in enumerate(headers, 1):
     cell.alignment = center_align
     cell.border    = border
 
-ws.row_dimensions[1].height = 22
+ws.row_dimensions[1].height = 28
 
 for row_idx, (_, row) in enumerate(df.iterrows(), 2):
     fill = alt_fill if row_idx % 2 == 0 else white_fill
+    ws.row_dimensions[row_idx].height = 20
     for col_idx, col_name in enumerate(headers, 1):
         cell = ws.cell(row=row_idx, column=col_idx)
         val  = row[col_name]
@@ -113,14 +113,24 @@ for row_idx, (_, row) in enumerate(df.iterrows(), 2):
         cell.fill      = fill
         cell.border    = border
         cell.alignment = left_align if col_name == 'Name' else center_align
-        if col_name in rate_cols and isinstance(val, float):
-            cell.number_format = '0.00'
+        if isinstance(val, float):
+            fmt = {
+                'IP':    '0.0',
+                'ERA':   '0.00',
+                'WHIP':  '0.000',
+                'SO9':   '0.0',
+                'SO/BB': '0.00',
+                'BABIP': '0.000',
+                'GB/FB': '0.00',
+            }.get(col_name)
+            if fmt:
+                cell.number_format = fmt
 
 col_widths = {
-    'Rk':5,'Name':24,'Age':5,'Team':16,'W':4,'L':4,'G':5,'GS':5,
-    'SV':5,'IP':6,'H':5,'R':5,'ER':5,'HR':5,'BB':5,'IBB':5,
-    'SO':5,'HBP':5,'BF':5,'ERA':6,'WHIP':6,'SO9':6,'SO/BB':7,
-    'BABIP':7,'GB/FB':7
+    'Rk':5,'Name':22,'Age':6,'Team':15,'W':4,'L':4,'G':5,'GS':5,
+    'SV':5,'IP':7,'H':5,'R':5,'ER':5,'HR':5,'BB':5,'IBB':6,
+    'SO':5,'HBP':5,'BF':6,'ERA':7,'WHIP':8,'SO9':7,'SO/BB':8,
+    'BABIP':8,'GB/FB':8
 }
 for col_idx, col_name in enumerate(headers, 1):
     ws.column_dimensions[get_column_letter(col_idx)].width = col_widths.get(col_name, 7)

@@ -75,8 +75,8 @@ ws = wb.active
 ws.title = f"MLB Batting {season}"
 
 header_fill  = PatternFill('solid', start_color='1F4E79')
-header_font  = Font(bold=True, color='FFFFFF', name='Calibri', size=10)
-alt_fill     = PatternFill('solid', start_color='D6E4F0')
+header_font  = Font(bold=True, color='FFFFFF', name='Calibri', size=11)
+alt_fill     = PatternFill('solid', start_color='DDEEFF')
 white_fill   = PatternFill('solid', start_color='FFFFFF')
 body_font    = Font(name='Calibri', size=10)
 center_align = Alignment(horizontal='center', vertical='center')
@@ -84,8 +84,7 @@ left_align   = Alignment(horizontal='left',   vertical='center')
 thin         = Side(style='thin', color='AAAAAA')
 border       = Border(left=thin, right=thin, top=thin, bottom=thin)
 
-headers  = list(df.columns)
-avg_cols = {'BA','OBP','SLG','OPS'}
+headers = list(df.columns)
 
 for col_idx, h in enumerate(headers, 1):
     cell = ws.cell(row=1, column=col_idx, value=h)
@@ -94,10 +93,11 @@ for col_idx, h in enumerate(headers, 1):
     cell.alignment = center_align
     cell.border    = border
 
-ws.row_dimensions[1].height = 22
+ws.row_dimensions[1].height = 28
 
 for row_idx, (_, row) in enumerate(df.iterrows(), 2):
     fill = alt_fill if row_idx % 2 == 0 else white_fill
+    ws.row_dimensions[row_idx].height = 20
     for col_idx, col_name in enumerate(headers, 1):
         cell = ws.cell(row=row_idx, column=col_idx)
         val  = row[col_name]
@@ -108,14 +108,21 @@ for row_idx, (_, row) in enumerate(df.iterrows(), 2):
         cell.fill      = fill
         cell.border    = border
         cell.alignment = left_align if col_name == 'Name' else center_align
-        if col_name in avg_cols and isinstance(val, float):
-            cell.number_format = '0.000'
+        if isinstance(val, float):
+            fmt = {
+                'BA':  '0.000',
+                'OBP': '0.000',
+                'SLG': '0.000',
+                'OPS': '0.000',
+            }.get(col_name)
+            if fmt:
+                cell.number_format = fmt
 
 widths = {
-    'Rk':5,'Name':24,'Age':5,'Team':16,'G':5,'PA':5,'AB':5,
+    'Rk':5,'Name':22,'Age':6,'Team':15,'G':5,'PA':5,'AB':5,
     'R':5,'H':5,'2B':5,'3B':5,'HR':5,'RBI':5,'BB':5,'IBB':5,
     'SO':5,'HBP':5,'SH':5,'SF':5,'GIDP':6,'SB':5,'CS':5,
-    'BA':7,'OBP':7,'SLG':7,'OPS':7
+    'BA':8,'OBP':8,'SLG':8,'OPS':8
 }
 for col_idx, col_name in enumerate(headers, 1):
     ws.column_dimensions[get_column_letter(col_idx)].width = widths.get(col_name, 7)
