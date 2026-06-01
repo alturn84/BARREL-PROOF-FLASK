@@ -1,11 +1,7 @@
-#!/usr/bin/env python3
-
 import json
 import os
-from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
-
 import requests
 from dotenv import load_dotenv
 
@@ -15,114 +11,107 @@ OUTPUT_FILE = DATA_DIR / "odds.json"
 
 load_dotenv(BASE_DIR / ".env")
 
-API_KEY = os.getenv("SHARP_API_KEY")
-BASE_URL = "https://api.sharpapi.io/api/v1/odds"
+API_KEY = os.getenv("ODDS_API_KEY")
+BASE_URL = "https://api.the-odds-api.com/v4/sports/baseball_mlb/odds"
 
-SPORTSBOOK = "fanduel"
-LEAGUE = "MLB"
+SPORTSBOOKS = ["fanduel", "draftkings"]
 
-MARKETS_TO_KEEP = {
-    "moneyline",
-    "run_line",
-    "total_runs",
+MARKETS = ["h2h", "spreads", "totals"]
+
+MARKET_NAME_MAP = {
+    "h2h": "moneyline",
+    "spreads": "run_line",
+    "totals": "total",
 }
 
 
 def fetch_odds():
     if not API_KEY:
-        raise RuntimeError("Missing SHARP_API_KEY")
+        raise RuntimeError("Missing ODDS_API_KEY in .env")
 
-    headers = {"X-API-Key": API_KEY}
-    params = {"league": "mlb",
-              "sportsbook": "draftkings, fanduel",
-              "market": "moneyline, run_line, total_runs",
-              "limit": 200,
-}
+    params = {
+        "apiKey": API_KEY,
+        "regions": "us",
+        "markets": ",".join(MARKETS),
+        "bookmakers": ",".join(SPORTSBOOKS),
+        "oddsFormat": "american",
+        "dateFormat": "iso",
+    }
 
-    response = requests.get(BASE_URL, headers=headers, params=params, timeout=30)
+    response = requests.get(BASE_URL, params=params, timeout=30)
     response.raise_for_status()
 
-    return response.json().get("data", [])
+    # Log remaining requests for monitoring
+    remaining = response.headers.get("x-requests-remaining", "unknown")
+    used = response.headers.get("x-requests-used", "unknown")
+    print(f"Odds API: {used} requests used, {remaining} remaining")
+
+    return response.json()
 
 
-def normalize_market_name(market_type):
-    market_type = (market_type or "").lower()
+def normalize(raw_games):
+    games = []
 
-    if market_type == "moneyline":
-        return "moneyline"
+    for game in raw_games:
+        game_id = game.get("id")
+        home_team = game.get("home_team")
+        away_team = game.get("away_team")
+        commence_time = game.get("commence_time")
 
-    if market_type in {"spread", "run_line", "runline"}:
-        return "run_line"
+        structured_game = {
+            "event_id": game_id,
+            "home_team": home_team,
+            "away_team": away_team,
+            "event_start_time": commence_time,
+            "sportsbooks": {},
+        }
 
-    if market_type in {"total", "totals"}:
-        return "total"
+        for bookmaker in game.get("bookmakers", []):
+            book_key = bookmaker.get("key")
+            if book_key not in SPORTSBOOKS:
+                continue
 
-    return market_type
+            markets = {}
+
+            for market in bookmaker.get("markets", []):
+                market_key = market.get("key")
+                market_name = MARKET_NAME_MAP.get(market_key, market_key)
+
+                outcomes = []
+                for outcome in market.get("outcomes", []):
+                    outcomes.append({
+                        "name": outcome.get("name"),
+                        "price": outcome.get("price"),
+                        "point": outcome.get("point"),
+                    })
+
+                markets[market_name] = outcomes
+
+            structured_game["sportsbooks"][book_key] = markets
+
+        games.append(structured_game)
+
+    return games
 
 
 def main():
-    raw_odds = fetch_odds()
+    print(f"SCRIPT STARTED: {datetime.now()}")
 
-    games = {}
+    raw_games = fetch_odds()
 
-    for item in raw_odds:
-        sportsbook = (item.get("sportsbook") or "").lower()
-        league = (item.get("league") or "").lower()
-        market_type = normalize_market_name(item.get("market_type"))
+    if not raw_games:
+        print("No games returned from The Odds API")
+        return
 
-        if sportsbook != SPORTSBOOK:
-            continue
-
-        if league != "mlb":
-            continue
-
-        if market_type not in {"moneyline", "run_line", "total"}:
-            continue
-
-        if item.get("is_alternate_line"):
-            continue
-
-        if not item.get("is_main_line", True):
-            continue
-
-        event_id = item.get("event_id")
-        if not event_id:
-            continue
-
-        if event_id not in games:
-            games[event_id] = {
-                "event_id": event_id,
-                "event_uuid": item.get("event_uuid"),
-                "home_team": item.get("home_team"),
-                "away_team": item.get("away_team"),
-                "event_start_time": item.get("event_start_time"),
-                "is_live": item.get("is_live"),
-                "sportsbook": SPORTSBOOK,
-                "markets": {
-                    "moneyline": [],
-                    "run_line": [],
-                    "total": [],
-                },
-            }
-
-        games[event_id]["markets"][market_type].append({
-            "selection": item.get("selection"),
-            "selection_type": item.get("selection_type"),
-            "team_side": item.get("team_side"),
-            "odds_american": item.get("odds_american"),
-            "line": item.get("line"),
-            "last_seen_at": item.get("last_seen_at"),
-            "odds_changed_at": item.get("odds_changed_at"),
-            "is_live": item.get("is_live"),
-        })
+    games = normalize(raw_games)
 
     output = {
         "updated": datetime.now(timezone.utc).isoformat(),
-        "source": "SharpAPI",
-        "sportsbook": SPORTSBOOK,
+        "source": "TheOddsAPI",
+        "sportsbooks": SPORTSBOOKS,
         "league": "MLB",
         "game_count": len(games),
-        "games": list(games.values()),
+        "games": games,
     }
 
     DATA_DIR.mkdir(parents=True, exist_ok=True)
@@ -130,6 +119,7 @@ def main():
 
     print(f"Wrote {OUTPUT_FILE}")
     print(f"Games with odds: {len(games)}")
+    print(f"SCRIPT COMPLETED: {datetime.now()}")
 
 
 if __name__ == "__main__":
