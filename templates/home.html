@@ -121,6 +121,197 @@ footer{border-top:.5px solid var(--rule-heavy);margin-top:48px;padding:24px 0;di
 .masthead{animation:fadeUp .5s ease both;}
 nav.main-nav{animation:fadeUp .5s .08s ease both;}
 .games-list{animation:fadeUp .5s .16s ease both;}
+/* ── Game of the Day ──────────────────────────────────────────────── */
+.gotd-wrap { margin-bottom: 0; }
+
+.gotd-flags { display:flex; gap:6px; flex-wrap:wrap; }
+.gotd-flag {
+  font-family:var(--mono); font-size:8px; letter-spacing:.12em;
+  color:var(--cream-dim); border:.5px solid var(--cream-dim);
+  border-radius:2px; padding:1px 5px; white-space:nowrap;
+}
+.gotd-card {
+  display:grid; grid-template-columns:1fr 240px; gap:0;
+  border-bottom:1px solid var(--rule-heavy);
+}
+.gotd-left {
+  padding:20px 28px 20px 0; border-right:1px solid var(--rule-heavy);
+  display:flex; flex-direction:column;
+}
+.gotd-kicker {
+  font-family:var(--mono); font-size:9px; letter-spacing:.14em;
+  color:var(--cream-dim); text-transform:uppercase; margin-bottom:6px;
+}
+.gotd-headline {
+  font-family:var(--serif-display); font-size:clamp(18px,1.8vw,24px);
+  font-weight:700; line-height:1.2; color:var(--parchment); margin-bottom:6px;
+}
+.gotd-subheadline {
+  font-family:var(--serif-sc); font-size:12px; letter-spacing:.08em;
+  color:var(--cream-mid); margin-bottom:12px;
+}
+.gotd-body {
+  font-family:var(--serif-body); font-size:14px; line-height:1.78;
+  color:var(--parchment2); font-weight:300;
+}
+.gotd-readmore {
+  display:inline-block; margin-top:12px; font-family:var(--mono);
+  font-size:9.5px; color:var(--cream-dim); letter-spacing:.08em; cursor:pointer;
+}
+.gotd-readmore:hover { color:var(--cream); }
+.gotd-right {
+  padding:20px 0 20px 24px; display:flex; flex-direction:column;
+}
+.gotd-lb-hdr {
+  font-family:var(--serif-sc); font-size:9px; letter-spacing:.18em;
+  color:var(--cream); margin-bottom:10px; padding-bottom:5px;
+  border-bottom:.5px solid var(--cream-dim);
+}
+.gotd-lb { display:flex; flex-direction:column; flex:1; }
+.gotd-lb-row {
+  display:grid; grid-template-columns:18px 1fr 48px;
+  align-items:center; gap:6px;
+  padding:4px 0; border-bottom:.5px solid var(--rule);
+  font-family:var(--mono); font-size:10px; color:var(--smoke);
+}
+.gotd-lb-row:last-child { border-bottom:none; }
+.gotd-lb-winner { color:var(--parchment); }
+.gotd-lb-winner .gotd-lb-rank { color:var(--cream); font-weight:600; }
+.gotd-lb-winner .gotd-lb-pts  { color:var(--cream-dim); }
+.gotd-lb-rank  { text-align:right; }
+.gotd-lb-match { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.gotd-lb-xi    { color:var(--smoke); font-size:9px; margin-left:2px; }
+.gotd-lb-pts   { text-align:right; font-size:9px; }
+.gotd-reason {
+  margin-top:14px; font-family:var(--mono); font-size:9px; line-height:1.7;
+  color:var(--smoke); border-top:.5px solid var(--rule); padding-top:10px;
+  font-style:italic;
+}
+/* ── Around the League ───────────────────────────────────────────── */
+.atl-wrap { margin-bottom: 0; }
+
+.section-sub {
+  font-family: var(--mono); font-size: 9px;
+  letter-spacing: .12em; color: var(--smoke);
+  white-space: nowrap;
+}
+.atl-list {
+  list-style: none; padding: 0; margin: 0;
+  border-bottom: 1px solid var(--rule-heavy);
+}
+.atl-item {
+  font-family: var(--serif-body); font-size: 13px;
+  line-height: 1.6; color: var(--parchment2); font-weight: 300;
+  padding: 9px 0;
+  border-bottom: .5px solid var(--rule);
+  display: flex; gap: 10px; align-items: baseline;
+}
+.atl-item:last-child { border-bottom: none; }
+.atl-item::before {
+  content: "—";
+  font-family: var(--mono); font-size: 10px;
+  color: var(--cream-dim); flex-shrink: 0;
+}
+/* ── Press Box ───────────────────────────────────────────────────── */
+.pb-wrap { margin-bottom: 0; }
+.pb-hdr-row {
+  display: flex; align-items: baseline; gap: 14px;
+  padding: 13px 0 9px; border-bottom: .5px solid var(--rule);
+  margin-bottom: 0;
+}
+.pb-title {
+  font-family: var(--serif-sc); font-size: 11px; letter-spacing: .18em;
+  color: var(--cream); white-space: nowrap;
+}
+.pb-rule { flex: 1; height: .5px; background: var(--rule); }
+.pb-byline {
+  font-family: var(--mono); font-size: 9px; letter-spacing: .10em;
+  color: var(--smoke); white-space: nowrap;
+}
+.pb-column {
+  font-family: var(--serif-body); font-size: 14px; line-height: 1.78;
+  color: var(--parchment2); font-weight: 300;
+  padding: 14px 0 0;
+}
+.pb-worth-watching {
+  font-family: var(--mono); font-size: 9.5px; line-height: 1.7;
+  color: var(--cream-dim); border-top: .5px solid var(--rule);
+  padding-top: 10px; margin-top: 12px;
+}
+.pb-worth-watching strong {
+  color: var(--cream); font-weight: 500; letter-spacing: .04em;
+}
+.pb-footer {
+  border-bottom: 1px solid var(--rule-heavy); margin-bottom: 0;
+  padding-bottom: 14px;
+}
+/* ── Game to Watch ───────────────────────────────────────────────── */
+.gtw-card {
+  background: rgba(0,0,0,.2); border: .5px solid var(--rule-heavy);
+  border-radius: 3px; padding: 12px 14px; margin-bottom: 18px;
+}
+.gtw-hdr {
+  font-family: var(--serif-sc); font-size: 9px; letter-spacing: .18em;
+  color: var(--cream); margin-bottom: 8px; padding-bottom: 5px;
+  border-bottom: .5px solid var(--cream-dim);
+}
+.gtw-matchup {
+  font-family: var(--serif-sc); font-size: 14px; letter-spacing: .08em;
+  color: var(--parchment); margin-bottom: 3px;
+}
+.gtw-at { color: var(--smoke); font-size: 10px; margin: 0 4px; }
+.gtw-time {
+  font-family: var(--mono); font-size: 9px; color: var(--smoke);
+  letter-spacing: .05em; margin-bottom: 8px;
+}
+.gtw-headline {
+  font-family: var(--serif-display); font-size: 14px; font-weight: 700;
+  color: var(--parchment); line-height: 1.2; margin-bottom: 8px;
+}
+.gtw-pitchers {
+  font-family: var(--mono); font-size: 9.5px; color: var(--parchment2);
+  display: flex; flex-wrap: wrap; gap: 4px; align-items: baseline;
+  margin-bottom: 8px;
+}
+.gtw-vs { color: var(--smoke); font-size: 9px; }
+.gtw-era {
+  color: var(--smoke); font-size: 8.5px; margin-left: 2px;
+}
+.gtw-reason {
+  font-family: var(--mono); font-size: 9px; line-height: 1.7;
+  color: var(--smoke); border-top: .5px solid var(--rule);
+  padding-top: 8px; font-style: italic;
+}
+@media(max-width:900px) {
+  .gotd-card { grid-template-columns:1fr; }
+  .gotd-left { padding-right:0; border-right:none;
+               border-bottom:1px solid var(--rule-heavy); }
+  .gotd-right { padding-left:0; padding-top:16px; }
+}
+/* ── Lead Story Image ─────────────────────────────────────────────── */
+.gotd-image-wrap {
+  margin: 12px 0 14px;
+  border: 1px solid var(--rule-heavy);
+}
+.gotd-image-wrap img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: sepia(30%) saturate(70%);
+}
+.gotd-image-caption {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .05em;
+  color: var(--smoke);
+  padding: 5px 8px;
+  border-top: .5px solid var(--rule);
+  line-height: 1.5;
+}
+.gotd-image-credit {
+  color: var(--cream-dim);
+  margin-left: 6px;
+}
 </style>
 </head>
 <body>
@@ -215,6 +406,105 @@ nav.main-nav{animation:fadeUp .5s .08s ease both;}
 </aside>
 
 <div class="content-centre">
+
+{% if gotd %}
+<div class="gotd-wrap">
+
+  <div class="section-hdr">
+    <div class="section-title">Game of the Day</div>
+    <div class="section-rule"></div>
+    {% if gotd.game.flags %}
+    <div class="gotd-flags">
+      {% for flag in gotd.game.flags[:3] %}
+      <span class="gotd-flag">{{ flag }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+
+  <div class="gotd-card">
+
+    <div class="gotd-left">
+      <div class="gotd-kicker">
+        {{ gotd.game.away }} {{ gotd.game.away_runs }}
+        {% if gotd.game.innings > 9 %} · F/{{ gotd.game.innings }}{% endif %}
+        &nbsp;·&nbsp;
+        {{ gotd.game.home }} {{ gotd.game.home_runs }}
+      </div>
+      <h2 class="gotd-headline">{{ gotd.editorial.headline }}</h2>
+      <div class="gotd-subheadline">{{ gotd.editorial.subheadline }}</div>
+      {% if lead_image %}
+      <div class="gotd-image-wrap">
+        <img src="{{ lead_image.url }}" alt="{{ lead_image.caption }}">
+        <div class="gotd-image-caption">
+          {{ lead_image.caption }}<span class="gotd-image-credit">{{ lead_image.credit }}</span>
+        </div>
+      </div>
+      {% endif %}
+      <p class="gotd-body">{{ gotd.editorial.lead_angle }}</p>
+      <a class="gotd-readmore" href="/barrel-proof-boxscores.html">Full Box Score →</a>
+    </div>
+
+    <div class="gotd-right">
+      <div class="gotd-lb-hdr">Today's Slate — Ranked</div>
+      <div class="gotd-lb">
+        {% for g in gotd.all_games %}
+        <div class="gotd-lb-row{% if g.selected %} gotd-lb-winner{% endif %}">
+          <span class="gotd-lb-rank">{{ g.rank }}</span>
+          <span class="gotd-lb-match">
+            {{ g.away }} {{ g.away_runs }}–{{ g.home_runs }} {{ g.home }}
+            {% if g.innings > 9 %}<span class="gotd-lb-xi">/{{ g.innings }}</span>{% endif %}
+          </span>
+          <span class="gotd-lb-pts">{{ g.raw_score }}</span>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="gotd-reason">{{ gotd.editorial.reason }}</div>
+    </div>
+
+  </div>
+</div>
+{% endif %}
+
+{% if atl and atl['items'] %}
+<div class="atl-wrap">
+  <div class="section-hdr">
+    <div class="section-title">Around the League</div>
+    <div class="section-rule"></div>
+    {% if atl.date_display %}
+    <div class="section-sub">{{ atl.date_display }}</div>
+    {% endif %}
+  </div>
+  <ul class="atl-list">
+    {% for item in atl['items'] %}
+    <li class="atl-item">{{ item }}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+
+{% if pb and pb.passed_validation %}
+<div class="pb-wrap">
+  <div class="pb-hdr-row">
+    <div class="pb-title">From the Press Box</div>
+    <div class="pb-rule"></div>
+    <div class="pb-byline">Hermes · Editor-at-Large</div>
+  </div>
+  <div class="pb-footer">
+    <div class="pb-column">
+      {% set ww_marker = "Worth watching:" %}
+      {% if ww_marker in pb.column.text %}
+        {% set parts = pb.column.text.split(ww_marker) %}
+        {{ parts[0] | trim }}
+        <div class="pb-worth-watching"><strong>Worth watching:</strong> {{ parts[1] | trim }}</div>
+      {% else %}
+        {{ pb.column.text }}
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endif %}
+
 <div class="section-hdr">
   <div class="section-title">Game Summaries</div>
   <div class="section-rule"></div>
@@ -402,6 +692,20 @@ nav.main-nav{animation:fadeUp .5s .08s ease both;}
 
 {# RIGHT RAIL: today's games from schedule.json #}
 <aside class="rail-right">
+{% if gtw %}
+<div class="gtw-card">
+  <div class="gtw-hdr">Game to Watch</div>
+  <div class="gtw-matchup">{{ gtw.away }} <span class="gtw-at">@</span> {{ gtw.home }}</div>
+  <div class="gtw-time">{{ gtw.game_time }}{% if gtw.date_display %} · {{ gtw.date_display }}{% endif %}</div>
+  <div class="gtw-headline">{{ gtw.headline }}</div>
+  <div class="gtw-pitchers">
+    <span class="gtw-pitcher">{{ gtw.away_pitcher }}{% if gtw.away_era != '—' %} <span class="gtw-era">{{ gtw.away_era }}</span>{% endif %}</span>
+    <span class="gtw-vs">vs.</span>
+    <span class="gtw-pitcher">{{ gtw.home_pitcher }}{% if gtw.home_era != '—' %} <span class="gtw-era">{{ gtw.home_era }}</span>{% endif %}</span>
+  </div>
+  <div class="gtw-reason">{{ gtw.reason }}</div>
+</div>
+{% endif %}
   <div class="rail-hdr">{{ rail_date if rail_date else "Today" }}</div>
   {% if today_slate and today_slate.get('games') %}
     {% for game in today_slate.get('games', []) %}

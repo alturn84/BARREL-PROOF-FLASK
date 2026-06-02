@@ -6,10 +6,12 @@ Barrel Proof Baseball — Flask Web Server
 import json
 import os
 from pathlib import Path
-from flask import Flask, render_template
+from flask import Flask, render_template, abort, send_from_directory
 
 BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = Path(os.environ.get("DATA_DIR", str(BASE_DIR / "Site Data")))
+VALID_SOURCE_TYPES = {"ap", "getty", "mlb", "team", "manual", "illustrated"}
+MEDIA_DIR = BASE_DIR / "media" / "lead-images"
 
 app = Flask(__name__, template_folder=str(BASE_DIR / "templates"))
 
@@ -46,6 +48,60 @@ def get_game_cards():
 def get_odds():
     data = load_json("odds.json", fallback={})
     return data.get("games", []), data.get("updated", "")
+
+def get_game_of_day():
+    data = load_json("game_of_day.json", fallback={})
+    return data if data else None
+
+def get_around_the_league():
+    data = load_json("around_the_league.json", fallback={})
+    return data if data else None
+
+def get_game_to_watch():
+    data = load_json("game_to_watch.json", fallback={})
+    return data if data else None
+
+def get_press_box():
+    data = load_json("press_box.json", fallback={})
+    if not data or not data.get("passed_validation"):
+        return None
+    # Date guard: compare ISO date in press_box.json against
+    # ISO date in game_cards.json — both are YYYY-MM-DD format
+    gc = load_json("game_cards.json", fallback={})
+    gc_date = gc.get("date", "")
+    pb_date = data.get("date", "")
+    if gc_date and pb_date and pb_date != gc_date:
+        print(f"  press_box date {pb_date} != game_cards date {gc_date} — suppressing")
+        return None
+    return data
+
+def get_lead_image(edition_date: str):
+    jpg  = MEDIA_DIR / f"{edition_date}_lead.jpg"
+    webp = MEDIA_DIR / f"{edition_date}_lead.webp"
+    if jpg.exists():
+        filename = jpg.name
+    elif webp.exists():
+        filename = webp.name
+    else:
+        return None
+    captions_path = MEDIA_DIR / "captions.json"
+    try:
+        captions = json.loads(captions_path.read_text(encoding="utf-8"))
+    except Exception:
+        return None
+    meta        = captions.get(edition_date, {})
+    caption     = meta.get("caption", "").strip()
+    credit      = meta.get("credit", "").strip()
+    source_type = meta.get("source_type", "").strip()
+    if not caption or not credit or source_type not in VALID_SOURCE_TYPES:
+        return None
+    return {
+        "filename":    filename,
+        "url":         f"/media/lead-images/{filename}",
+        "caption":     caption,
+        "credit":      credit,
+        "source_type": source_type,
+    }
 
 # ── ADD THIS ROUTE TO app.py ──────────────────────────────────────────────
 # Place after the get_odds() function and before the @app.route("/") block
@@ -181,8 +237,22 @@ def homepage():
     today_slate, rail_date, games_date, schedule_updated = get_schedule()
     games, display_date, game_count = get_game_cards()
     odds_games, odds_updated = get_odds()
+    gotd = get_game_of_day()
+    atl = get_around_the_league()
+    gtw = get_game_to_watch()
+    pb = get_press_box()
 
     banner_date = display_date or games_date
+
+    lead_image = None
+    if gotd:
+        gotd_date = gotd.get("date", "")
+        gc_data   = load_json("game_cards.json", fallback={})
+        gc_date   = gc_data.get("date", "")
+        if gotd_date and gc_date and gotd_date == gc_date:
+            lead_image = get_lead_image(gotd_date)
+        elif gotd_date and gc_date and gotd_date != gc_date:
+            print(f"  ⚠ MEDIA-001: lead image suppressed — gotd.date ({gotd_date}) != game_cards.date ({gc_date})")
 
     return render_template(
         "home.html",
@@ -196,7 +266,68 @@ def homepage():
         odds_games=odds_games,
         odds_updated=odds_updated,
         schedule_updated=schedule_updated,
+        gotd=gotd,
+        atl=atl,
+        gtw=gtw,
+        pb=pb,
+        lead_image=lead_image,
     )
+
+
+VAULT = Path("/Users/allanturner/BARREL PROOF")
+
+@app.route("/archive/<year>/<month>/<day>")
+def archive_edition(year, month, day):
+    snap_path = VAULT / "Site Data" / "archive" / year / "snapshots" / f"{year}-{month}-{day}.json"
+    if not snap_path.exists():
+        abort(404)
+    try:
+        snapshot = json.loads(snap_path.read_text(encoding="utf-8"))
+    except Exception as e:
+        app.logger.error(f"archive snapshot malformed: {snap_path}: {e}")
+        abort(500)
+
+    edition      = snapshot.get("edition") or {}
+    completeness = snapshot.get("completeness", "historical")
+    facts        = snapshot.get("facts") or {}
+    facts_games  = facts.get("games") or []
+
+    # Edition sections — null if not captured for this date
+    gotd = edition.get("game_of_day")
+    gtw  = edition.get("game_to_watch")
+    atl  = edition.get("around_the_league")
+    pb   = edition.get("press_box")
+
+    # Press box: only show if it passed validation
+    if pb and not pb.get("passed_validation"):
+        pb = None
+
+    # Game Summaries: prefer game_cards edition (has summary/headline),
+    # fall back to facts.games (has linescore + batting/pitching, no prose)
+    gc_edition = edition.get("game_cards")
+    if gc_edition and gc_edition.get("games"):
+        games = gc_edition["games"]
+    else:
+        games = facts_games
+
+    return render_template(
+        "archive-edition.html",
+        snapshot=snapshot,
+        display_date=snapshot.get("display_date", ""),
+        day_of_week=snapshot.get("day_of_week", ""),
+        completeness=completeness,
+        facts_games=facts_games,
+        games=games,
+        gotd=gotd,
+        gtw=gtw,
+        atl=atl,
+        pb=pb,
+    )
+
+
+@app.route("/media/lead-images/<path:filename>")
+def serve_lead_image(filename):
+    return send_from_directory(str(MEDIA_DIR), filename)
 
 
 @app.route("/barrel-proof-american-league.html")
