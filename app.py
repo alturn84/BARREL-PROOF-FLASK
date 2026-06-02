@@ -75,6 +75,163 @@ def get_press_box():
         return None
     return data
 
+
+# ── BOX SCORES HELPERS ────────────────────────────────────────────────────────
+
+AL_TEAMS = {
+    "BAL","BOS","CWS","CLE","DET","HOU","KC","LAA",
+    "MIN","NYY","ATH","SEA","TB","TEX","TOR"
+}
+NL_TEAMS = {
+    "AZ","ATL","CHC","CIN","COL","LAD","MIA","MIL",
+    "NYM","PHI","PIT","SD","SF","STL","WSH","WAS"
+}
+
+def get_team_league(abbr):
+    if abbr in AL_TEAMS: return "AL"
+    if abbr in NL_TEAMS: return "NL"
+    return "NL"
+
+def group_games_by_league(games):
+    al, nl = [], []
+    for g in games:
+        league = get_team_league(g.get("home_abbr", ""))
+        if league == "AL":
+            al.append(g)
+        else:
+            nl.append(g)
+    return al, nl
+
+def build_day_summary(games):
+    total     = len(games)
+    one_run   = sum(1 for g in games
+                    if abs(g.get("away_runs", 0) - g.get("home_runs", 0)) == 1)
+    shutouts  = sum(1 for g in games
+                    if g.get("away_runs", 0) == 0 or g.get("home_runs", 0) == 0)
+    home_runs = sum(
+        sum(int(b.get("hr", 0)) for b in g.get("away_batting", []))
+        + sum(int(b.get("hr", 0)) for b in g.get("home_batting", []))
+        for g in games
+    )
+    extra_inn = sum(1 for g in games if len(g.get("innings", [])) > 9)
+    return {
+        "total":     total,
+        "one_run":   one_run,
+        "shutouts":  shutouts,
+        "home_runs": home_runs,
+        "extra_inn": extra_inn,
+    }
+
+def build_key_note(g):
+    away  = g.get("away_abbr", "")
+    home  = g.get("home_abbr", "")
+    aR    = g.get("away_runs", 0)
+    hR    = g.get("home_runs", 0)
+    notes = []
+
+    # Extra innings
+    inn_count = len(g.get("innings", []))
+    if inn_count > 9:
+        notes.append(f"Game required {inn_count} innings.")
+
+    # Shutout
+    if aR == 0:
+        notes.append(f"{home} blanked {away}.")
+    elif hR == 0:
+        notes.append(f"{away} blanked {home}.")
+
+    # Decisive inning
+    winner_line = g.get("away_line", []) if aR > hR else g.get("home_line", [])
+    winner_name = away if aR > hR else home
+    if winner_line:
+        try:
+            max_runs = max(int(r) for r in winner_line if str(r).isdigit())
+            max_inn  = next(
+                (i + 1 for i, r in enumerate(winner_line)
+                 if str(r).isdigit() and int(r) == max_runs),
+                None
+            )
+            if max_runs >= 3 and max_inn:
+                ordinals = {
+                    1:"1st",2:"2nd",3:"3rd",4:"4th",5:"5th",
+                    6:"6th",7:"7th",8:"8th",9:"9th",10:"10th",
+                    11:"11th",12:"12th"
+                }
+                inn_label = ordinals.get(max_inn, f"{max_inn}th")
+                notes.append(
+                    f"{winner_name} scored {max_runs} in the {inn_label}."
+                )
+        except (ValueError, TypeError):
+            pass
+
+    # Home run notes (cap at 3)
+    all_batters = (
+        [(b, away) for b in g.get("away_batting", [])] +
+        [(b, home) for b in g.get("home_batting", [])]
+    )
+    hr_batters = [
+        f"{b['name']} ({t})" + (" (2)" if int(b.get("hr", 0)) >= 2 else "")
+        for b, t in all_batters if int(b.get("hr", 0)) >= 1
+    ]
+    if hr_batters:
+        notes.append("HR: " + ", ".join(hr_batters[:3]) + ".")
+
+    # Pitching gem: 6+ IP, <= 2 ER
+    all_pitchers = (
+        [(p, away) for p in g.get("away_pitching", [])] +
+        [(p, home) for p in g.get("home_pitching", [])]
+    )
+    for p, t in all_pitchers:
+        try:
+            ip_str = str(p.get("ip", "0"))
+            ip = float(ip_str.replace(".1", ".33").replace(".2", ".67"))
+            er = int(p.get("er", 99))
+            k  = int(p.get("k", 0))
+            if ip >= 6.0 and er <= 2:
+                k_note = f", {k} K" if k >= 6 else ""
+                notes.append(f"{p['name']} ({t}): {p['ip']} IP{k_note}.")
+                break
+        except (ValueError, TypeError):
+            pass
+
+    return "  ".join(notes) if notes else ""
+
+def build_press_wire_bullets(games):
+    bullets = []
+    for g in games:
+        away  = g.get("away_abbr", "")
+        home  = g.get("home_abbr", "")
+        aR    = g.get("away_runs", 0)
+        hR    = g.get("home_runs", 0)
+        wR    = max(aR, hR)
+        lR    = min(aR, hR)
+        winner = away if aR > hR else home
+        loser  = home if aR > hR else away
+        inn_count = len(g.get("innings", []))
+
+        if lR == 0:
+            bullets.append(f"{winner} blanked {loser}, {wR}\u20130")
+        elif inn_count > 9:
+            bullets.append(f"{winner} defeated {loser} in {inn_count} innings, {wR}\u2013{lR}")
+        elif abs(aR - hR) >= 7:
+            bullets.append(f"{winner} routed {loser}, {wR}\u2013{lR}")
+        elif abs(aR - hR) == 1:
+            bullets.append(f"{winner} held off {loser}, {wR}\u2013{lR}")
+        else:
+            bullets.append(f"{winner} defeated {loser}, {wR}\u2013{lR}")
+
+    return bullets
+
+def get_box_scores_data():
+    data = load_json("game_cards.json")
+    return {
+        "games":        data.get("games", []),
+        "display_date": data.get("display_date", ""),
+        "date":         data.get("date", ""),
+        "game_count":   data.get("game_count", 0),
+        "updated":      data.get("updated", ""),
+    }
+
 def get_lead_image(edition_date: str):
     jpg  = MEDIA_DIR / f"{edition_date}_lead.jpg"
     webp = MEDIA_DIR / f"{edition_date}_lead.webp"
@@ -103,9 +260,6 @@ def get_lead_image(edition_date: str):
         "source_type": source_type,
     }
 
-# ── ADD THIS ROUTE TO app.py ──────────────────────────────────────────────
-# Place after the get_odds() function and before the @app.route("/") block
-
 def get_dope_sheet_data():
     data = load_json("dope-sheet-data.json", fallback={})
     return (
@@ -121,8 +275,6 @@ def dope_sheet():
     ds_games, date_display, date_banner, ds_updated = get_dope_sheet_data()
     odds_games, odds_updated = get_odds()
 
-    # ── Merge odds into dope sheet games by team name ─────────────────────
-    # Build a lookup from odds: (away_team, home_team) → markets
     TEAM_ALIASES = {
         "Athletics":               "Oakland Athletics",
         "D-backs":                 "Arizona Diamondbacks",
@@ -185,7 +337,6 @@ def dope_sheet():
         key = (away_full, home_full)
         markets = odds_lookup.get(key, {})
 
-        # Moneyline
         ml = markets.get("moneyline", [])
         away_ml = next((m["odds_american"] for m in ml if m["team_side"] == "away"), None)
         home_ml = next((m["odds_american"] for m in ml if m["team_side"] == "home"), None)
@@ -195,7 +346,6 @@ def dope_sheet():
         g["homeImplied"] = implied_pct(home_ml)
         g["oddsLive"]    = any(m.get("is_live") for m in ml)
 
-        # Run line / spread
         rl = markets.get("run_line", [])
         away_rl = next((m for m in rl if m["team_side"] == "away"), {})
         home_rl = next((m for m in rl if m["team_side"] == "home"), {})
@@ -208,7 +358,6 @@ def dope_sheet():
         g["awaySpreadOdds"] = fmt_odds(away_rl_odds) if away_rl_odds is not None else "—"
         g["homeSpreadOdds"] = fmt_odds(home_rl_odds) if home_rl_odds is not None else "—"
 
-        # Total / O/U
         tot = markets.get("total_runs", [])
         over_tot  = next((m for m in tot if m.get("selection_type") == "over"), {})
         under_tot = next((m for m in tot if m.get("selection_type") == "under"), {})
@@ -216,7 +365,6 @@ def dope_sheet():
         g["overOdds"]  = fmt_odds(over_tot.get("odds_american"))  if over_tot.get("odds_american")  is not None else "—"
         g["underOdds"] = fmt_odds(under_tot.get("odds_american")) if under_tot.get("odds_american") is not None else "—"
 
-        # No odds found flag
         g["oddsAvailable"] = bool(markets)
 
     return render_template(
@@ -227,6 +375,48 @@ def dope_sheet():
         ds_updated=ds_updated,
         odds_updated=odds_updated,
     )
+
+
+@app.route("/box-scores")
+@app.route("/box-scores/")
+def box_scores():
+    data     = get_box_scores_data()
+    games    = data["games"]
+    al_games, nl_games = group_games_by_league(games)
+    summary  = build_day_summary(games)
+    wire     = build_press_wire_bullets(games)
+    for g in games:
+        g["key_note"] = build_key_note(g)
+    return render_template(
+        "box_scores.html",
+        al_games=al_games,
+        nl_games=nl_games,
+        all_games=games,
+        summary=summary,
+        press_wire=wire,
+        display_date=data["display_date"],
+        date=data["date"],
+        updated=data["updated"],
+    )
+
+# Phase 2 stub — archive date routing
+@app.route("/box-scores/<date_str>")
+def box_scores_date(date_str):
+    from flask import redirect, url_for
+    return redirect(url_for("box_scores"))
+
+# Aliases
+@app.route("/boxscores")
+@app.route("/boxscores/")
+def box_scores_alias():
+    from flask import redirect, url_for
+    return redirect(url_for("box_scores"), 301)
+
+@app.route("/ledger")
+@app.route("/ledger/")
+def ledger_redirect():
+    from flask import redirect, url_for
+    return redirect(url_for("box_scores"), 301)
 
 
 @app.route("/")
@@ -290,18 +480,14 @@ def archive_edition(year, month, day):
     facts        = snapshot.get("facts") or {}
     facts_games  = facts.get("games") or []
 
-    # Edition sections — null if not captured for this date
     gotd = edition.get("game_of_day")
     gtw  = edition.get("game_to_watch")
     atl  = edition.get("around_the_league")
     pb   = edition.get("press_box")
 
-    # Press box: only show if it passed validation
     if pb and not pb.get("passed_validation"):
         pb = None
 
-    # Game Summaries: prefer game_cards edition (has summary/headline),
-    # fall back to facts.games (has linescore + batting/pitching, no prose)
     gc_edition = edition.get("game_cards")
     if gc_edition and gc_edition.get("games"):
         games = gc_edition["games"]

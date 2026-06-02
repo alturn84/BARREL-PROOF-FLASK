@@ -113,15 +113,28 @@ def parse_game(block):
             cells = [c.strip().strip('*') for c in row.split('|')]
             return [c for c in cells if c]
 
+        def parse_data_row(row):
+            # Preserve empty cells so column indices match the header
+            cells = [c.strip().strip('*') for c in row.split('|')]
+            # Drop only the first/last artifact from splitting on outer pipes
+            if cells and cells[0] == '':
+                cells = cells[1:]
+            if cells and cells[-1] == '':
+                cells = cells[:-1]
+            return cells
+
         hdr   = parse_row(ls_m.group(1))
-        arow  = parse_row(ls_m.group(2))
-        hrow  = parse_row(ls_m.group(3))
-        n_inn = len(arow) - 3
-        innings   = hdr[:n_inn]
-        away_line = arow[:n_inn]
-        home_line = hrow[:n_inn]
-        away_rhe  = arow[-3:]
-        home_rhe  = hrow[-3:]
+        arow  = parse_data_row(ls_m.group(2))
+        hrow  = parse_data_row(ls_m.group(3))
+        try:
+            r_idx = next(i for i, h in enumerate(hdr) if h.strip().upper() == 'R')
+        except StopIteration:
+            r_idx = len(hdr) - 3
+        innings   = hdr[:r_idx]
+        away_line = [c if c != '' else '0' for c in arow[:r_idx]]
+        home_line = [c if c != '' else '0' for c in hrow[:r_idx]]
+        away_rhe  = [v for v in arow[r_idx:r_idx + 3] if v != '']
+        home_rhe  = [v for v in hrow[r_idx:r_idx + 3] if v != '']
 
     game['innings']   = innings
     game['away_line'] = away_line
