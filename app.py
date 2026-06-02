@@ -274,11 +274,9 @@ def homepage():
     )
 
 
-VAULT = Path("/Users/allanturner/BARREL PROOF")
-
 @app.route("/archive/<year>/<month>/<day>")
 def archive_edition(year, month, day):
-    snap_path = VAULT / "Site Data" / "archive" / year / "snapshots" / f"{year}-{month}-{day}.json"
+    snap_path = BASE_DIR / "Site Data" / "archive" / year / "snapshots" / f"{year}-{month}-{day}.json"
     if not snap_path.exists():
         abort(404)
     try:
