@@ -22,9 +22,9 @@ from pathlib import Path
 
 print(f"SCRIPT STARTED: {datetime.now()}", flush=True)
 
-VAULT    = Path("/Users/allanturner/BARREL PROOF")
-DAILY    = VAULT / "Daily"
-OUT_FILE = VAULT / "Site Data" / "game_cards.json"
+VAULT    = Path(".")
+DAILY    = Path("Daily")
+OUT_FILE = Path("Site Data") / "game_cards.json"
 
 # ── Team abbreviation → full city name ────────────────────────────────────────
 TEAM_CITIES = {

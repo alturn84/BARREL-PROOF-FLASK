@@ -26,7 +26,7 @@ from pathlib import Path
 print(f"SCRIPT STARTED: {datetime.now()}", flush=True)
 
 # ── Config ────────────────────────────────────────────────────────────────────
-VAULT    = Path("/Users/allanturner/BARREL PROOF")
+VAULT    = Path(".")
 OUT_FILE = VAULT / "Site Data" / "schedule.json"
 BASE_URL = "https://statsapi.mlb.com"
 

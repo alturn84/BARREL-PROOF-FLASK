@@ -29,7 +29,7 @@ from pybaseball import batting_stats_bref
 from pybaseball import cache
 
 # ── Config ────────────────────────────────────────────────────────────────────
-VAULT   = Path("/Users/allanturner/BARREL PROOF")
+VAULT   = Path(".")
 OUTPUT  = VAULT / "2026 Batting Stats" / "mlb_batting_stats.xlsx"
 MIN_PA  = 50
 

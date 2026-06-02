@@ -24,7 +24,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 
 print(f"SCRIPT STARTED: {datetime.now()}", flush=True)
 
-VAULT      = Path("/Users/allanturner/BARREL PROOF")
+VAULT      = Path(".")
 OUTPUT_DIR = VAULT / "Daily"
 BASE_URL   = "https://statsapi.mlb.com"
 

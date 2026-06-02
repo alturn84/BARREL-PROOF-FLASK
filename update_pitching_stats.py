@@ -29,7 +29,7 @@ from pybaseball import pitching_stats_bref
 from pybaseball import cache
 
 # ── Config ────────────────────────────────────────────────────────────────────
-VAULT   = Path("/Users/allanturner/BARREL PROOF")
+VAULT   = Path(".")
 OUTPUT  = VAULT / "2026 Pitching Stats" / "mlb_pitching_stats.xlsx"
 MIN_IP  = 10
 
