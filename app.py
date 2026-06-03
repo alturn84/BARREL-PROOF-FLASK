@@ -45,6 +45,74 @@ def get_game_cards():
     return data.get("games", []), data.get("display_date", ""), data.get("game_count", 0)
 
 
+def get_all_teams():
+    data = load_json("teams.json", fallback={})
+    teams = data.get("teams", [])
+    return sorted(teams, key=lambda t: (t.get("league", ""), t.get("division", ""), t.get("name", "")))
+
+def get_team_by_slug(slug):
+    for team in get_all_teams():
+        if team.get("slug") == slug:
+            return team
+    return None
+
+def get_team_record(team_abbr):
+    leagues, _ = get_standings()
+    # Build city + league lookup from teams.json for disambiguation
+    # (standings.json stores city only, not abbr)
+    teams_meta = {t["abbr"]: t for t in load_json("teams.json", fallback={}).get("teams", [])}
+    meta = teams_meta.get(team_abbr, {})
+    expected_city   = meta.get("city", "")
+    expected_league = meta.get("division", "").split()[0]  # "AL East" -> "AL"
+    for league in leagues:
+        league_name = league.get("league", "")
+        for division in league.get("divisions", []):
+            teams = division.get("teams", [])
+            for idx, team in enumerate(teams, start=1):
+                # Direct abbr match (future-proof if standings gains abbr field)
+                if team.get("abbr") == team_abbr or team.get("team_abbr") == team_abbr:
+                    return {
+                        "wins": team.get("w"),
+                        "losses": team.get("l"),
+                        "record": f"{team.get('w', '—')}-{team.get('l', '—')}",
+                        "position": idx,
+                        "division": division.get("name", ""),
+                        "games_back": team.get("gb", team.get("games_back", "—"))
+                    }
+                # Fallback: city + league match (handles NY/CHI/LA disambiguation)
+                if expected_city and team.get("city") == expected_city and league_name == expected_league:
+                    return {
+                        "wins": team.get("w"),
+                        "losses": team.get("l"),
+                        "record": f"{team.get('w', '—')}-{team.get('l', '—')}",
+                        "position": idx,
+                        "division": division.get("name", ""),
+                        "games_back": team.get("gb", team.get("games_back", "—"))
+                    }
+    return None
+
+def team_in_game(game, team_abbr):
+    return team_abbr in [
+        game.get("away_abbr"),
+        game.get("home_abbr"),
+        game.get("away"),
+        game.get("home"),
+    ]
+
+def get_team_recent_games(team_abbr):
+    games, _, _ = get_game_cards()
+    return [g for g in games if team_in_game(g, team_abbr)][:5]
+
+def get_team_upcoming_games(team_abbr):
+    today_slate, _, _, _ = get_schedule()
+    games = today_slate.get("games", []) if isinstance(today_slate, dict) else []
+    return [g for g in games if team_in_game(g, team_abbr)][:5]
+
+def get_latest_team_box_score(team_abbr):
+    recent = get_team_recent_games(team_abbr)
+    return recent[0] if recent else None
+
+
 def get_odds():
     data = load_json("odds.json", fallback={})
     return data.get("games", []), data.get("updated", "")
@@ -464,6 +532,29 @@ def homepage():
     )
 
 
+@app.route("/archive")
+@app.route("/archive/")
+def archive_index():
+    index_path = DATA_DIR / "archive" / "archive_index.json"
+    try:
+        index_data = json.loads(index_path.read_text(encoding="utf-8"))
+    except Exception:
+        index_data = {}
+    return render_template("archive_index.html", index=index_data)
+
+@app.route("/advance-scout")
+@app.route("/advance-scout/")
+def advance_scout():
+    return render_template("advance_scout.html")
+
+@app.route("/al-nl")
+@app.route("/al-nl/")
+def al_nl():
+    standings, standings_updated = get_standings()
+    return render_template("al_nl.html",
+        standings=standings,
+        standings_updated=standings_updated)
+
 @app.route("/archive/<year>/<month>/<day>")
 def archive_edition(year, month, day):
     snap_path = BASE_DIR / "Site Data" / "archive" / year / "snapshots" / f"{year}-{month}-{day}.json"
@@ -512,6 +603,41 @@ def archive_edition(year, month, day):
 @app.route("/media/lead-images/<path:filename>")
 def serve_lead_image(filename):
     return send_from_directory(str(MEDIA_DIR), filename)
+
+
+@app.route("/teams")
+@app.route("/teams/")
+def teams_index():
+    teams = get_all_teams()
+    return render_template(
+        "teams_index.html",
+        teams=teams,
+        page_title="MLB Teams — Barrel Proof",
+        meta_description="Browse MLB team pages for scores, schedules, standings and recent results from Barrel Proof."
+    )
+
+@app.route("/team/<team_slug>")
+def team_detail(team_slug):
+    team = get_team_by_slug(team_slug)
+    if not team:
+        abort(404)
+
+    abbr = team.get("abbr")
+    record = get_team_record(abbr)
+    recent_games = get_team_recent_games(abbr)
+    upcoming_games = get_team_upcoming_games(abbr)
+    latest_box_score = get_latest_team_box_score(abbr)
+
+    return render_template(
+        "team_detail.html",
+        team=team,
+        record=record,
+        recent_games=recent_games,
+        upcoming_games=upcoming_games,
+        latest_box_score=latest_box_score,
+        page_title=f"{team.get('name')} Scores, Schedule & Standings — Barrel Proof",
+        meta_description=f"{team.get('name')} scores, recent results, standings and upcoming schedule from Barrel Proof."
+    )
 
 
 @app.route("/barrel-proof-american-league.html")

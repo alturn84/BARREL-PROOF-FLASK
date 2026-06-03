@@ -21,8 +21,8 @@ html{font-size:16px;}
 body{background:var(--ink);color:var(--parchment);font-family:var(--serif-body);line-height:1.6;min-height:100vh;-webkit-font-smoothing:antialiased;}
 a{color:inherit;text-decoration:none;}
 body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");opacity:0.55;}
-.page{position:relative;z-index:1;max-width:1280px;margin:0 auto;padding:0 48px 60px;}
-.content-layout{display:grid;grid-template-columns:160px 1fr 210px;gap:0 36px;align-items:start;}
+.page{position:relative;z-index:1;max-width:1600px;margin:0 auto;padding:0 clamp(24px,8vw,120px) 60px;}
+.content-layout{display:grid;grid-template-columns:180px 1fr 240px;gap:0 44px;align-items:start;}
 .rail-left{padding-top:18px;position:sticky;top:20px;}
 .rail-section{margin-bottom:28px;}
 .rail-hdr{font-family:var(--serif-sc);font-size:9px;letter-spacing:.22em;color:var(--cream);padding-bottom:5px;border-bottom:1px solid var(--cream-dim);margin-bottom:0;text-transform:uppercase;}
@@ -58,10 +58,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;bac
 .tagline-line{font-family:var(--serif-sc);font-size:18px;letter-spacing:.2em;color:var(--smoke-light);line-height:1.8;}
 .tagline-sub{font-size:15px;letter-spacing:.24em;color:var(--cream-dim);}
 nav.main-nav{display:flex;align-items:center;border-bottom:1px solid var(--rule-heavy);}
-.nav-barrel-btn{flex-shrink:0;width:52px;height:48px;cursor:pointer;border-right:.5px solid var(--rule-heavy);background:var(--ink) url('https://i.postimg.cc/pTNWxjb5/barrel-tab-logo-removebg-preview.png') center/40px auto no-repeat;transition:opacity .2s;}
-.nav-barrel-btn:hover{opacity:.75;}
-.nav-items-wrap{display:flex;align-items:center;overflow:hidden;max-width:0;transition:max-width .45s cubic-bezier(.4,0,.2,1);white-space:nowrap;}
-.nav-items-wrap.open{max-width:1400px;}
+.nav-items-wrap{display:flex;align-items:center;white-space:nowrap;}
 .nav-item{font-family:var(--serif-sc);font-size:15px;letter-spacing:.14em;color:var(--smoke-light);padding:12px 18px;position:relative;cursor:pointer;transition:color .2s;white-space:nowrap;display:inline-block;}
 .nav-item:hover,.nav-item.active{color:var(--parchment);}
 .nav-item.active::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:2px;background:var(--cream);}
@@ -359,14 +356,13 @@ nav.main-nav{animation:fadeUp .5s .08s ease both;}
 </header>
 
 <nav class="main-nav">
-  <div class="nav-barrel-btn" id="navToggle" onclick="toggleNav()" title="Menu"></div>
-  <div class="nav-items-wrap open" id="navItems">
+  <div class="nav-items-wrap">
     <a class="nav-item active" href="/">Page 1</a>
     <a class="nav-item" href="/box-scores">Box Scores</a>
     <a class="nav-item" href="/dope-sheet">Dope Sheet</a>
-    <a class="nav-item">Advance Scout</a>
-    <a class="nav-item" href="/barrel-proof-american-league.html">American League</a>
-    <a class="nav-item" href="/barrel-proof-national-league.html">National League</a>
+    <a class="nav-item" href="/advance-scout">Advance Scout</a>
+    <a class="nav-item" href="/al-nl">AL/NL</a>
+    <a class="nav-item" href="/archive">Archive</a>
   </div>
 </nav>
 
@@ -734,10 +730,6 @@ nav.main-nav{animation:fadeUp .5s .08s ease both;}
 </footer>
 </div>
 
-<script>
-function toggleNav(){
-  document.getElementById('navItems').classList.toggle('open');
-}
-</script>
+
 </body>
 </html>

@@ -24,7 +24,7 @@ a{color:inherit;text-decoration:none;}
 body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
   opacity:0.55;}
-.page{position:relative;z-index:1;max-width:1280px;margin:0 auto;padding:0 48px 60px;}
+.page{position:relative;z-index:1;max-width:1600px;margin:0 auto;padding:0 clamp(24px,8vw,120px) 60px;}
 
 /* ── TICKER ── */
 .ticker-bar{background:var(--leather);border-bottom:1px solid var(--cream-dim);
@@ -52,14 +52,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
 
 /* ── NAV ── */
 nav.main-nav{display:flex;align-items:center;border-bottom:1px solid var(--rule-heavy);}
-.nav-barrel-btn{flex-shrink:0;width:52px;height:48px;cursor:pointer;
-  border-right:.5px solid var(--rule-heavy);
-  background:var(--ink) url('https://i.postimg.cc/pTNWxjb5/barrel-tab-logo-removebg-preview.png')
-  center/40px auto no-repeat;transition:opacity .2s;}
-.nav-barrel-btn:hover{opacity:.75;}
-.nav-items-wrap{display:flex;align-items:center;overflow:hidden;max-width:0;
-  transition:max-width .45s cubic-bezier(.4,0,.2,1);white-space:nowrap;}
-.nav-items-wrap.open{max-width:1400px;}
+.nav-items-wrap{display:flex;align-items:center;white-space:nowrap;}
 .nav-item{font-family:var(--serif-sc);font-size:15px;letter-spacing:.14em;
   color:var(--smoke-light);padding:12px 18px;position:relative;cursor:pointer;
   transition:color .2s;white-space:nowrap;display:inline-block;}
@@ -188,16 +181,13 @@ nav.main-nav{display:flex;align-items:center;border-bottom:1px solid var(--rule-
 
   <!-- NAV -->
   <nav class="main-nav">
-    <div class="nav-barrel-btn"
-         onclick="this.nextElementSibling.classList.toggle('open')"
-         title="Menu"></div>
     <div class="nav-items-wrap">
-      <div class="nav-item" onclick="location.href='/'">Today</div>
-      <div class="nav-item active">Box Scores</div>
-      <div class="nav-item" onclick="location.href='/dope-sheet'">Dope Sheet</div>
-      <div class="nav-item">Advance Scout</div>
-      <div class="nav-item">Barrels &amp; Whiffs</div>
-      <div class="nav-item">Rosters</div>
+      <a class="nav-item" href="/">Page 1</a>
+      <a class="nav-item active" href="/box-scores">Box Scores</a>
+      <a class="nav-item" href="/dope-sheet">Dope Sheet</a>
+      <a class="nav-item" href="/advance-scout">Advance Scout</a>
+      <a class="nav-item" href="/al-nl">AL/NL</a>
+      <a class="nav-item" href="/archive">Archive</a>
     </div>
   </nav>
 
