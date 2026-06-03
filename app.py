@@ -10,6 +10,48 @@ from flask import Flask, render_template, abort, send_from_directory
 
 BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = Path(os.environ.get("DATA_DIR", str(BASE_DIR / "Site Data")))
+VAULT = Path(os.environ.get("VAULT_DIR", "/Users/allanturner/BARREL PROOF"))
+
+CITY_TO_TEAM = {
+    "Arizona":       "Arizona Diamondbacks",
+    "Atlanta":       "Atlanta Braves",
+    "Athletics":     "Athletics",
+    "Baltimore":     "Baltimore Orioles",
+    "Boston":        "Boston Red Sox",
+    "Chicago":       "Chicago Cubs",
+    "Cincinnati":    "Cincinnati Reds",
+    "Cleveland":     "Cleveland Guardians",
+    "Colorado":      "Colorado Rockies",
+    "Detroit":       "Detroit Tigers",
+    "Houston":       "Houston Astros",
+    "Kansas City":   "Kansas City Royals",
+    "Los Angeles":   "Los Angeles Angels",
+    "Miami":         "Miami Marlins",
+    "Milwaukee":     "Milwaukee Brewers",
+    "Minnesota":     "Minnesota Twins",
+    "New York":      "New York Yankees",
+    "Oakland":       "Oakland Athletics",
+    "Philadelphia":  "Philadelphia Phillies",
+    "Pittsburgh":    "Pittsburgh Pirates",
+    "San Diego":     "San Diego Padres",
+    "San Francisco": "San Francisco Giants",
+    "Seattle":       "Seattle Mariners",
+    "St. Louis":     "St. Louis Cardinals",
+    "Tampa Bay":     "Tampa Bay Rays",
+    "Texas":         "Texas Rangers",
+    "Toronto":       "Toronto Blue Jays",
+    "Washington":    "Washington Nationals",
+}
+
+CITY_LEAGUE_TO_TEAM = {
+    ("Chicago", "AL"):     "Chicago White Sox",
+    ("Chicago", "NL"):     "Chicago Cubs",
+    ("Los Angeles", "AL"): "Los Angeles Angels",
+    ("Los Angeles", "NL"): "Los Angeles Dodgers",
+    ("New York", "AL"):    "New York Yankees",
+    ("New York", "NL"):    "New York Mets",
+}
+
 VALID_SOURCE_TYPES = {"ap", "getty", "mlb", "team", "manual", "illustrated"}
 MEDIA_DIR = BASE_DIR / "media" / "lead-images"
 
@@ -49,6 +91,44 @@ def get_all_teams():
     data = load_json("teams.json", fallback={})
     teams = data.get("teams", [])
     return sorted(teams, key=lambda t: (t.get("league", ""), t.get("division", ""), t.get("name", "")))
+
+def load_roster_md(team_name):
+    """
+    Load a team roster from Rosters/ markdown files.
+    Returns list of dicts with keys: number, name, pos, bats, throws
+    Returns empty list if file not found.
+    """
+    import re
+    roster_dirs = [
+        VAULT / "Rosters" / "American League" / "American League East",
+        VAULT / "Rosters" / "American League" / "American League Central",
+        VAULT / "Rosters" / "American League" / "American League West",
+        VAULT / "Rosters" / "National League" / "National League East",
+        VAULT / "Rosters" / "National League" / "National League Central",
+        VAULT / "Rosters" / "National League" / "National League West",
+    ]
+    for d in roster_dirs:
+        p = d / f"{team_name}.md"
+        if p.exists():
+            try:
+                text = p.read_text(encoding="utf-8")
+                players = []
+                for line in text.splitlines():
+                    if line.startswith("| #") and "Name" not in line and "---" not in line:
+                        parts = [x.strip() for x in line.split("|")]
+                        parts = [x for x in parts if x]
+                        if len(parts) >= 3:
+                            players.append({
+                                "number": parts[0].lstrip("#"),
+                                "name": parts[1],
+                                "pos": parts[2],
+                                "bats": parts[3] if len(parts) > 3 else "",
+                                "throws": parts[4] if len(parts) > 4 else "",
+                            })
+                return players
+            except Exception:
+                return []
+    return []
 
 def get_team_by_slug(slug):
     for team in get_all_teams():
@@ -559,9 +639,41 @@ def advance_scout():
 @app.route("/al-nl/")
 def al_nl():
     standings, standings_updated = get_standings()
-    return render_template("al_nl.html",
-        standings=standings,
-        standings_updated=standings_updated)
+    enriched = []
+    for league in standings:
+        league_code = league.get("league", "")
+        enriched_divs = []
+        for div in league.get("divisions", []):
+            enriched_teams = []
+            for team in div.get("teams", []):
+                city = team.get("city", "")
+                key = (city, league_code)
+                if key in CITY_LEAGUE_TO_TEAM:
+                    full_name = CITY_LEAGUE_TO_TEAM[key]
+                else:
+                    full_name = CITY_TO_TEAM.get(city, city)
+                roster = load_roster_md(full_name)
+                enriched_teams.append({
+                    "city": city,
+                    "full_name": full_name,
+                    "w": team.get("w", "—"),
+                    "l": team.get("l", "—"),
+                    "gb": team.get("gb", "—"),
+                    "roster": roster,
+                })
+            enriched_divs.append({
+                "name": div.get("name", ""),
+                "teams": enriched_teams,
+            })
+        enriched.append({
+            "league": league_code,
+            "divisions": enriched_divs,
+        })
+    return render_template(
+        "al_nl.html",
+        leagues=enriched,
+        standings_updated=standings_updated,
+    )
 
 @app.route("/archive/<year>/<month>/<day>")
 def archive_edition(year, month, day):

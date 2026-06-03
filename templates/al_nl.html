@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>AL / NL Standings — Barrel Proof</title>
+<title>AL &amp; NL League Hub — Barrel Proof</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Playfair+Display+SC:wght@400;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
@@ -22,6 +22,8 @@ body{background:var(--ink);color:var(--parchment);font-family:var(--serif-body);
 a{color:inherit;text-decoration:none;}
 body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");opacity:0.55;}
 .page{position:relative;z-index:1;max-width:1600px;margin:0 auto;padding:0 clamp(24px,8vw,120px) 60px;}
+
+/* ── MASTHEAD ── */
 .masthead{padding:32px 0 0;border-bottom:2px solid var(--cream-dim);}
 .masthead-top{display:flex;justify-content:center;padding-bottom:8px;}
 .site-name{font-family:'Perpetua Titling MT','Perpetua','Book Antiqua','Palatino Linotype',Palatino,Georgia,serif;font-size:clamp(34px,5vw,64px);font-weight:400;letter-spacing:.18em;color:var(--parchment);line-height:1;text-align:center;text-transform:uppercase;white-space:nowrap;}
@@ -29,30 +31,67 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;bac
 .tagline-bar{text-align:center;padding:8px 0 14px;border-top:.5px solid var(--rule);margin-top:6px;}
 .tagline-line{font-family:var(--serif-sc);font-size:18px;letter-spacing:.2em;color:var(--smoke-light);line-height:1.8;}
 .tagline-sub{font-size:15px;letter-spacing:.24em;color:var(--cream-dim);}
+
+/* ── NAV ── */
 nav.main-nav{display:flex;align-items:center;border-bottom:1px solid var(--rule-heavy);}
 .nav-items-wrap{display:flex;align-items:center;white-space:nowrap;}
 .nav-item{font-family:var(--serif-sc);font-size:15px;letter-spacing:.14em;color:var(--smoke-light);padding:12px 18px;position:relative;cursor:pointer;transition:color .2s;white-space:nowrap;display:inline-block;}
 .nav-item:hover,.nav-item.active{color:var(--parchment);}
 .nav-item.active::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:2px;background:var(--cream);}
 .nav-item:not(:last-child)::before{content:'·';position:absolute;right:-2px;color:var(--rule-heavy);}
-.standings-layout{display:grid;grid-template-columns:1fr 1fr;gap:0 48px;margin-top:32px;}
-@media(max-width:760px){.standings-layout{grid-template-columns:1fr;gap:32px 0;}}
-.league-block{}
-.league-hdr{font-family:var(--serif-sc);font-size:10px;letter-spacing:.26em;color:var(--cream);padding-bottom:8px;border-bottom:2px solid var(--cream-dim);margin-bottom:16px;}
-.division-block{margin-bottom:22px;}
-.div-name{font-family:var(--mono);font-size:8px;letter-spacing:.14em;color:var(--smoke);text-transform:uppercase;padding:4px 0 3px;border-bottom:.5px solid var(--rule);margin-bottom:0;}
-.standing-row{display:flex;justify-content:space-between;align-items:baseline;padding:3px 0;border-bottom:.5px solid var(--rule);}
-.standing-row:last-child{border-bottom:none;}
-.st-team{font-family:var(--mono);font-size:9.5px;color:var(--parchment2);letter-spacing:.02em;}
-.st-team.lead{color:var(--cream);font-weight:500;}
-.st-record{font-family:var(--mono);font-size:9px;color:var(--smoke);letter-spacing:.02em;}
+
+/* ── PAGE HEADER ── */
+.league-hub-header{padding:36px 0 28px;border-bottom:1px solid var(--rule);}
+.league-hub-header h1{font-family:var(--serif-display);font-size:clamp(22px,3vw,34px);font-weight:700;color:var(--parchment);letter-spacing:.04em;margin-bottom:6px;}
+.league-hub-header p{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--smoke);}
+
+/* ── TWO-COLUMN LAYOUT ── */
+.hub-layout{display:grid;grid-template-columns:1fr 1fr;gap:0 48px;margin-top:32px;align-items:start;}
+@media(max-width:768px){.hub-layout{grid-template-columns:1fr;gap:32px 0;}}
+
+/* ── LEAGUE COLUMN ── */
+.league-col{}
+.league-col-hdr{font-family:var(--serif-sc);font-size:11px;letter-spacing:.26em;color:var(--cream);padding-bottom:8px;border-bottom:2px solid var(--cream-dim);margin-bottom:20px;}
+
+/* ── DIVISION ── */
+.division-block{margin-bottom:28px;}
+.div-hdr{font-family:var(--serif-sc);font-size:9px;letter-spacing:.22em;color:var(--smoke-light);text-transform:uppercase;padding:5px 0 4px;border-bottom:1px solid var(--rule-heavy);margin-bottom:10px;}
+
+/* ── TEAM BLOCK ── */
+.team-block{margin-bottom:20px;padding-bottom:16px;border-bottom:.5px solid var(--rule);}
+.team-block:last-child{border-bottom:none;}
+.team-name{font-family:var(--serif-display);font-size:16px;font-weight:700;color:var(--parchment);margin-bottom:2px;}
+.team-record{font-family:var(--mono);font-size:10px;color:var(--smoke);letter-spacing:.06em;margin-bottom:8px;}
+.roster-rule{border:none;border-top:.5px solid var(--rule);margin-bottom:8px;}
+
+/* ── ROSTER TABLE ── */
+.roster-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.roster-table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:10px;color:var(--parchment2);}
+.roster-table th{font-size:8px;letter-spacing:.14em;color:var(--smoke);font-weight:400;text-align:left;padding:2px 6px 4px 0;border-bottom:.5px solid var(--rule-heavy);white-space:nowrap;}
+.roster-table td{padding:2px 6px 2px 0;border-bottom:.5px solid var(--rule);white-space:nowrap;vertical-align:middle;}
+.roster-table tr:last-child td{border-bottom:none;}
+.col-num{width:28px;color:var(--smoke);}
+.col-name{min-width:100px;max-width:160px;overflow:hidden;text-overflow:ellipsis;}
+.col-pos{width:36px;}
+
+/* ── EMPTY ROSTER ── */
+.roster-empty{font-family:var(--mono);font-size:10px;color:var(--smoke);opacity:.6;font-style:italic;}
+
+/* ── UPDATED LINE ── */
 .standings-updated{font-family:var(--mono);font-size:9px;color:var(--smoke);opacity:.55;letter-spacing:.06em;margin-top:32px;}
-.standings-empty{font-family:var(--serif-body);font-size:16px;color:var(--smoke-light);font-style:italic;padding:40px 0;}
+
+/* ── FOOTER ── */
 footer{border-top:.5px solid var(--rule-heavy);margin-top:48px;padding:24px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
 .footer-name{font-family:var(--serif-sc);font-size:18px;color:var(--cream-dim);letter-spacing:.1em;}
 .footer-tag{font-family:var(--mono);font-size:10px;color:var(--smoke);letter-spacing:.12em;text-align:center;}
 .footer-legal{font-family:var(--mono);font-size:9.5px;color:var(--smoke);opacity:.7;text-align:right;line-height:1.7;}
-@media(max-width:540px){.page{padding:0 14px 40px;}}
+
+@media(max-width:540px){
+  .page{padding:0 14px 40px;}
+  .roster-table{font-size:9px;}
+  .col-name{max-width:110px;}
+}
+
 @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 .masthead{animation:fadeUp .5s ease both;}
 nav.main-nav{animation:fadeUp .5s .08s ease both;}
@@ -61,6 +100,7 @@ nav.main-nav{animation:fadeUp .5s .08s ease both;}
 <body>
 
 <div class="page">
+
 <header class="masthead">
   <div class="masthead-top"><h1 class="site-name">BARREL <span>PROOF</span></h1></div>
   <div class="tagline-bar">
@@ -80,39 +120,74 @@ nav.main-nav{animation:fadeUp .5s .08s ease both;}
   </div>
 </nav>
 
-{% if standings %}
-<div class="standings-layout">
-  {% for league in standings %}
-  <div class="league-block">
-    <div class="league-hdr">{{ league.league }}</div>
-    {% for division in league.divisions %}
+<div class="league-hub-header">
+  <h1>American League &amp; National League</h1>
+  <p>League standings and active rosters.</p>
+</div>
+
+{% if leagues %}
+<div class="hub-layout">
+  {% for league in leagues %}
+  <div class="league-col">
+    <div class="league-col-hdr">{{ "American League" if league.league == "AL" else "National League" }}</div>
+
+    {% for div in league.divisions %}
     <div class="division-block">
-      <div class="div-name">{{ division.name }}</div>
-      {% for team in division.teams %}
-      <div class="standing-row">
-        <span class="st-team {% if loop.first %}lead{% endif %}">{{ team.city }}</span>
-        <span class="st-record">{{ team.w }}–{{ team.l }}</span>
+      <div class="div-hdr">{{ league.league }} {{ div.name }}</div>
+
+      {% for team in div.teams %}
+      <div class="team-block">
+        <div class="team-name">{{ team.full_name }}</div>
+        <div class="team-record">{{ team.w }}–{{ team.l }}{% if team.gb != "-" and team.gb != "—" %} &nbsp;·&nbsp; {{ team.gb }} GB{% endif %}</div>
+        <hr class="roster-rule"/>
+        {% if team.roster %}
+        <div class="roster-wrap">
+          <table class="roster-table">
+            <thead>
+              <tr>
+                <th class="col-num">#</th>
+                <th class="col-name">Name</th>
+                <th class="col-pos">Pos</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for player in team.roster %}
+              <tr>
+                <td class="col-num">{{ player.number }}</td>
+                <td class="col-name">{{ player.name }}</td>
+                <td class="col-pos">{{ player.pos }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        {% else %}
+        <p class="roster-empty">Roster data unavailable.</p>
+        {% endif %}
       </div>
       {% endfor %}
+
     </div>
     {% endfor %}
+
   </div>
   {% endfor %}
 </div>
+
 {% if standings_updated %}
-<div class="standings-updated">Updated {{ standings_updated }}</div>
+<div class="standings-updated">Standings updated {{ standings_updated }}</div>
 {% endif %}
+
 {% else %}
-<p class="standings-empty">Standings are not available at this time.</p>
+<p style="font-family:var(--serif-body);color:var(--smoke-light);font-style:italic;padding:40px 0;">League data is not available at this time.</p>
 {% endif %}
 
 <footer>
   <div class="footer-name">Barrel Proof</div>
-  <div class="footer-tag">
-    RAW &nbsp;·&nbsp; UNFILTERED &nbsp;·&nbsp; BASEBALL &nbsp;·&nbsp; ENJOY RESPONSIBLY
-  </div>
+  <div class="footer-tag">RAW &nbsp;·&nbsp; UNFILTERED &nbsp;·&nbsp; BASEBALL &nbsp;·&nbsp; ENJOY RESPONSIBLY</div>
   <div class="footer-legal">© 2026 Barrel Proof<br/>Data via MLB Stats API</div>
 </footer>
+
 </div><!-- /.page -->
 </body>
 </html>
