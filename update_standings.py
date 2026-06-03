@@ -24,7 +24,7 @@ from pathlib import Path
 print(f"SCRIPT STARTED: {datetime.now()}", flush=True)
 
 # ── Config ────────────────────────────────────────────────────────────────────
-VAULT     = Path("/Users/allanturner/BARREL PROOF")
+VAULT     = Path("/opt/data/workspace/barrel-proof")
 OUT_FILE  = VAULT / "Site Data" / "standings.json"
 BASE_URL  = "https://statsapi.mlb.com"
 SEASON    = datetime.today().year
