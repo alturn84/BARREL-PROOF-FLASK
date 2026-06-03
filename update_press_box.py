@@ -26,6 +26,10 @@ import sys
 from datetime import datetime, timedelta
 from pathlib import Path
 
+# Explicit import for google.generativeai components
+import google.generativeai as genai
+from google.generativeai import configure, GenerativeModel, GenerationConfig
+
 print(f"SCRIPT STARTED: {datetime.now()}", flush=True)
 
 VAULT     = Path(__file__).resolve().parent
@@ -332,21 +336,21 @@ def run(date_str):
     print(f"  Context assembled: {len(context)} chars", flush=True)
 
     try:
-        from google import genai
-        from google.genai import types
+        # We explicitly import configure, GenerativeModel, GenerationConfig above,
+        # so this block now only catches ImportError for google.generativeai itself.
+        pass
     except ImportError:
-        write_failed("google-genai not installed — run: pip install google-genai --break-system-packages", date_str)
+        write_failed("google-generativeai not installed — run: pip install google-generativeai", date_str)
         sys.exit(1)
 
-    client = genai.Client(api_key=api_key)
+    configure(api_key=api_key)
+    model = GenerativeModel(model_name=MODEL, system_instruction=SYSTEM_PROMPT)
 
     print("  Calling Hermes...", flush=True)
     try:
-        response = client.models.generate_content(
-            model=MODEL,
+        response = model.generate_content(
             contents=context,
-            config=types.GenerateContentConfig(
-                system_instruction=SYSTEM_PROMPT,
+            generation_config=GenerationConfig(
                 max_output_tokens=MAX_TOKENS,
             ),
         )
