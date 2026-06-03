@@ -127,7 +127,15 @@ def get_around_the_league():
 
 def get_game_to_watch():
     data = load_json("game_to_watch.json", fallback={})
-    return data if data else None
+    if not data:
+        return None
+    gtw_date = data.get("updated", "")[:10]
+    gc_data = load_json("game_cards.json", fallback={})
+    gc_date = gc_data.get("date", "")
+    if gtw_date and gc_date and gtw_date != gc_date:
+        print(f"  ⚠ DATA-003: game_to_watch suppressed — updated date ({gtw_date}) != game_cards date ({gc_date})")
+        return None
+    return data
 
 def get_press_box():
     data = load_json("press_box.json", fallback={})
