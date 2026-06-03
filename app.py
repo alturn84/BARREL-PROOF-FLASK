@@ -383,7 +383,7 @@ def dope_sheet():
     odds_lookup = {}
     for og in odds_games:
         key = (normalize(og["away_team"]), normalize(og["home_team"]))
-        odds_lookup[key] = og["markets"]
+        odds_lookup[key] = og.get("markets", {})
 
     def fmt_odds(n):
         if n is None:
