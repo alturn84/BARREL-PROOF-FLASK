@@ -10,7 +10,7 @@ from flask import Flask, render_template, abort, send_from_directory
 
 BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = Path(os.environ.get("DATA_DIR", str(BASE_DIR / "Site Data")))
-VAULT = Path(os.environ.get("VAULT_DIR", "/Users/allanturner/BARREL PROOF"))
+VAULT = Path(os.environ.get("VAULT_DIR", str(BASE_DIR)))
 
 CITY_TO_TEAM = {
     "Arizona":       "Arizona Diamondbacks",
