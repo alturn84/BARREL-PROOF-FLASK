@@ -130,10 +130,10 @@ def get_game_to_watch():
     if not data:
         return None
     gtw_date = data.get("updated", "")[:10]
-    gc_data = load_json("game_cards.json", fallback={})
-    gc_date = gc_data.get("date", "")
-    if gtw_date and gc_date and gtw_date != gc_date:
-        print(f"  ⚠ DATA-003: game_to_watch suppressed — updated date ({gtw_date}) != game_cards date ({gc_date})")
+    sched_data = load_json("schedule.json", fallback={})
+    schedule_date = sched_data.get("updated", "")[:10]
+    if gtw_date and schedule_date and gtw_date != schedule_date:
+        print(f"  ⚠ DATA-003: game_to_watch suppressed — gtw date ({gtw_date}) != schedule slate date ({schedule_date})")
         return None
     return data
 
