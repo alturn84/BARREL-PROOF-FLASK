@@ -28,7 +28,7 @@ from pathlib import Path
 
 print(f"SCRIPT STARTED: {datetime.now()}", flush=True)
 
-VAULT     = Path("/Users/allanturner/BARREL PROOF")
+VAULT     = Path(__file__).resolve().parent
 SITE_DATA = VAULT / "Site Data"
 ARCHIVE   = VAULT / "Archive"
 OUT_FILE  = SITE_DATA / "press_box.json"
