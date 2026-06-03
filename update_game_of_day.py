@@ -18,7 +18,7 @@ Pipeline position:
 
 Cron (runs after mlb_fetch.py and update_game_cards.py):
     20 8 * * * /Library/Frameworks/Python.framework/Versions/3.14/bin/python3 \
-        "/Users/allanturner/BARREL PROOF/update_game_of_day.py"
+        "update_game_of_day.py"
 """
 
 import json
@@ -32,7 +32,7 @@ from pathlib import Path
 
 print(f"SCRIPT STARTED: {datetime.now()}", flush=True)
 
-VAULT    = Path("/Users/allanturner/BARREL PROOF")
+VAULT    = Path(__file__).resolve().parent
 DAILY    = VAULT / "Daily"
 OUT_FILE = VAULT / "Site Data" / "game_of_day.json"
 BASE_URL = "https://statsapi.mlb.com"

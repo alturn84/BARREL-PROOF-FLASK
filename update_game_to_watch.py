@@ -11,7 +11,7 @@ Pipeline position:
 
 Cron:
     35 8 * * * /Library/Frameworks/Python.framework/Versions/3.14/bin/python3 \
-        "/Users/allanturner/BARREL PROOF/update_game_to_watch.py"
+        "update_game_to_watch.py"
 
 Usage:
     python3 update_game_to_watch.py
@@ -29,7 +29,7 @@ except ImportError:
 
 print(f"SCRIPT STARTED: {datetime.now()}", flush=True)
 
-VAULT        = Path("/Users/allanturner/BARREL PROOF")
+VAULT        = Path(__file__).resolve().parent
 SITE_DATA    = VAULT / "Site Data"
 PITCHING_XLS = VAULT / "2026 Pitching Stats" / "mlb_pitching_stats.xlsx"
 OUT_FILE     = SITE_DATA / "game_to_watch.json"

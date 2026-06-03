@@ -27,7 +27,7 @@ from pathlib import Path
 
 print(f"SCRIPT STARTED: {datetime.now()}", flush=True)
 
-VAULT    = Path("/Users/allanturner/BARREL PROOF")
+VAULT    = Path(__file__).resolve().parent
 DAILY    = VAULT / "Daily"
 OUT_FILE = VAULT / "Site Data" / "around_the_league.json"
 

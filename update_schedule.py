@@ -13,7 +13,7 @@ Usage:
     python update_schedule.py --dry-run     # prints JSON, does not write
 
 Schedule with cron (7 AM daily):
-    0 7 * * * /Library/Frameworks/Python.framework/Versions/3.14/bin/python3 "/Users/allanturner/BARREL PROOF/update_schedule.py"
+    0 7 * * * /Library/Frameworks/Python.framework/Versions/3.14/bin/python3 "update_schedule.py"
 """
 
 import json
@@ -161,11 +161,11 @@ def main():
 
     output = {
         "updated": datetime.now().strftime("%Y-%m-%d %H:%M"),
-        "rail_date":  today.strftime("%A, %B %-d"),      # shown as rail header
-        "games_date": yesterday.strftime("%A, %B %-d"),  # shown in main date banner
+        "rail_date":  today.strftime("%A, %B %-d"),
+        "games_date": yesterday.strftime("%Y-%m-%d"),
         "games_date_full": yesterday.strftime("%A, %B %-d, %Y"),
         "today": {
-            "date":  today.strftime("%A, %B %-d"),
+            "date":  today.strftime("%Y-%m-%d"),
             "games": today_games,
         },
     }
