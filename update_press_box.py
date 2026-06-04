@@ -34,69 +34,39 @@ ARCHIVE   = VAULT / "Archive"
 OUT_FILE  = SITE_DATA / "press_box.json"
 
 MODEL          = "gemini-2.5-flash"   # change here to swap Gemini models
-MAX_TOKENS     = 8192
+MAX_TOKENS     = 4096
 CONTEXT_DAYS   = 7
 MAX_CTX_TOKENS = 2000
 
-SYSTEM_PROMPT = """You are the Editor-at-Large for Barrel Proof Baseball, a vintage newspaper-style baseball publication. Your column is called "From the Press Box."
+SYSTEM_PROMPT = """You write the Press Box notebook for Barrel Proof Baseball.
 
-Today you will produce three things from a single editorial observation — something meaningful in today's baseball results that a casual fan might have overlooked.
+The Press Box is a daily baseball news digest. Format it as 6 to 10 bullet points.
+Each bullet is one sentence, maximum 25 words.
 
-You are looking for one of the following:
-- A trend becoming visible across multiple days
-- A team quietly doing something the standings don't yet reflect
-- A pitcher or hitter whose recent results suggest a turn
-- A division race developing in an unexpected direction
-- A result today that connects to something from earlier this week
+Cover only these topics — skip any category you have no data for:
+- Injured list placements and returns
+- Designated for assignment moves
+- Call-ups from the minors
+- Trades
+- Free agent signings or contract extensions
+- Rehab assignments
+- Suspensions or disciplinary actions
+- Career milestones (500 HR, 3000 hits, 300 wins, etc.)
 
-Do not summarize the day's results. The reader already has the box scores. Give them the thing worth noticing underneath.
+Do not include:
+- Game scores or recaps
+- Standings information
+- Opinion or analysis
+- Any item you cannot directly source from the transactions data provided
 
-Voice: thoughtful, observant, restrained. Veteran baseball columnist. No hyperbole. No hot takes. No gambling references. No fantasy baseball. No fan bias. No predictions framed as facts.
-
-────────────────────────────────────────────
-ITEM 1: HOMEPAGE COLUMN
-────────────────────────────────────────────
-100 to 175 words. This is the thesis — tight and complete on its own. A reader who only reads this should finish thinking: "I hadn't noticed that, but that's interesting."
-
-End with exactly one sentence that begins: "Worth watching:"
-That sentence tells the reader what to look for in the next few days.
-
-────────────────────────────────────────────
-ITEM 2: X ARTICLE
-────────────────────────────────────────────
-400 to 800 words. This expands the same observation from the homepage column. Do not introduce a different take. Add:
-- historical context if relevant
-- specific game moments from today's data that support the thesis
-- what the numbers say about where this trend goes
-- one counterargument, briefly acknowledged and addressed
-
-Write in the same newspaper column voice. Sections are allowed but not required. No subheadings needed.
-
-Also produce:
-- A title: direct, specific, not a question, not clickbait
-- A subtitle: one sentence that adds context to the title
-
-────────────────────────────────────────────
-ITEM 3: SOCIAL TEASER (optional)
-────────────────────────────────────────────
-280 characters or less. This promotes the X Article — it is not a summary of the column. It is the hook that earns the click. Write it as something a baseball writer would post, not a promotional announcement. No hashtags. No emojis.
-
-If you cannot produce a teaser that meets these standards, omit it entirely rather than produce a weak one.
-
-────────────────────────────────────────────
-RETURN FORMAT
-────────────────────────────────────────────
-Return only valid JSON with exactly these keys:
-{
-  "column": "...",
-  "x_article_title": "...",
-  "x_article_subtitle": "...",
-  "x_article_body": "...",
-  "x_teaser": "..."
-}
-
-x_teaser may be an empty string if omitted.
-No markdown. No preamble. No explanation. Raw JSON only."""
+Format rules:
+- Start each bullet with a bullet character: •
+- One sentence per bullet, maximum 25 words
+- Plain text only, no markdown, no bold, no asterisks
+- No section headers
+- No intro sentence before the bullets
+- No closing sentence after the bullets
+- Output bullets only"""
 
 
 def load_json(path):
@@ -122,6 +92,39 @@ def write_failed(reason, date_str):
     print(f"  ✗ Failed: {reason}", flush=True)
 
 
+def fetch_transactions(date_str):
+    """Fetch MLB transactions for the given date from the Stats API."""
+    import requests as _requests
+    url = "https://statsapi.mlb.com/api/v1/transactions"
+    params = {"startDate": date_str, "endDate": date_str, "sportId": 1}
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
+        "Accept": "application/json",
+        "Origin": "https://www.mlb.com",
+        "Referer": "https://www.mlb.com/",
+    }
+    try:
+        resp = _requests.get(url, params=params, headers=headers, timeout=15)
+        resp.raise_for_status()
+        data = resp.json()
+        transactions = data.get("transactions", [])
+        # Filter to meaningful transaction types only
+        keep_types = {"DFA", "RL", "SC", "TR", "SG", "RLC", "ASG", "CLW", "DES"}
+        filtered = []
+        for t in transactions:
+            type_code = t.get("typeCode", "")
+            desc = t.get("description", "").strip()
+            if desc and (type_code in keep_types or any(kw in desc.lower() for kw in
+                ["injured list", "designated for assignment", "called up", "traded",
+                 "signed", "released", "optioned", "recalled", "rehab"])):
+                filtered.append(desc)
+        print(f"  Transactions fetched: {len(filtered)} items", flush=True)
+        return filtered
+    except Exception as e:
+        print(f"  ⚠ Transactions fetch failed: {e}", flush=True)
+        return []
+
+
 def load_recent_columns(date_str):
     results = []
     dt = datetime.strptime(date_str, "%Y-%m-%d")
@@ -141,7 +144,7 @@ def load_recent_columns(date_str):
     return results
 
 
-def build_context(date_str, gotd, atl, standings, game_cards, recent_columns):
+def build_context(date_str, gotd, atl, standings, game_cards, recent_columns, transactions=None):
     dt       = datetime.strptime(date_str, "%Y-%m-%d")
     day_name = dt.strftime("%A, %B %-d, %Y")
     month_end = (dt.replace(day=28) + timedelta(days=4)).replace(day=1) - timedelta(days=1)
@@ -196,6 +199,12 @@ def build_context(date_str, gotd, atl, standings, game_cards, recent_columns):
                 lines.append(f"  {lg} {div['name']}: {team_line} | Leader gap to 2nd: {gap} GB")
         lines.append("")
 
+    if transactions:
+        lines.append("MLB TRANSACTIONS TODAY")
+        for t in transactions[:20]:
+            lines.append(f"  {t}")
+        lines.append("")
+
     if recent_columns:
         lines.append(f"RECENT PRESS BOX CONTEXT (last {len(recent_columns)} days)")
         for rc_date, ww in recent_columns:
@@ -206,7 +215,7 @@ def build_context(date_str, gotd, atl, standings, game_cards, recent_columns):
 
     if len(context) > MAX_CTX_TOKENS * 4 and len(recent_columns) > 3:
         print(f"  ⚠ Context {len(context)} chars — trimming recent columns", flush=True)
-        return build_context(date_str, gotd, atl, standings, game_cards, recent_columns[:3])
+        return build_context(date_str, gotd, atl, standings, game_cards, recent_columns[:3], transactions)
 
     return context
 
@@ -217,9 +226,9 @@ def validate(column_text, article_title, article_subtitle, article_body, teaser_
 
     col_words = len(column_text.split())
     # Relaxed column word count validation
-    results["column_word_count_ok"] = col_words > 50 # At least 50 words
+    results["column_word_count_ok"] = col_words > 20 # At least 20 words
     if not results["column_word_count_ok"]:
-        failures.append(f"column_word_count={col_words} (expected > 50)")
+        failures.append(f"column_word_count={col_words} (expected > 20)")
 
     # "Worth watching:" is no longer expected from narrative output
     # results["column_worth_watching"] = "Worth watching:" in column_text
@@ -228,9 +237,9 @@ def validate(column_text, article_title, article_subtitle, article_body, teaser_
 
     art_words = len(article_body.split())
     # Relaxed article word count validation
-    results["article_word_count_ok"] = art_words > 200 # At least 200 words
+    results["article_word_count_ok"] = art_words > 50 # At least 50 words
     if not results["article_word_count_ok"]:
-        failures.append(f"article_word_count={art_words} (expected > 200)")
+        failures.append(f"article_word_count={art_words} (expected > 50)")
 
     results["article_title_present"] = len(article_title.strip()) > 0
     if not results["article_title_present"]:
@@ -294,6 +303,8 @@ def run(date_str):
     atl        = load_json(SITE_DATA / "around_the_league.json")
     standings  = load_json(SITE_DATA / "standings.json")
     game_cards = load_json(SITE_DATA / "game_cards.json")
+    transactions = fetch_transactions(date_str)
+    print(f"  {len(transactions)} transactions loaded", flush=True)
     recent     = load_recent_columns(date_str)
 
     # ── Date guard — validate inputs match requested date ─────────────────────
@@ -328,29 +339,26 @@ def run(date_str):
         sys.exit(1)
 
     effective_date = gotd.get("date", date_str)
-    context = build_context(effective_date, gotd, atl, standings, game_cards, recent)
+    context = build_context(effective_date, gotd, atl, standings, game_cards, recent, transactions)
     print(f"  Context assembled: {len(context)} chars", flush=True)
 
     try:
-        from google.generativeai.client import configure
-        from google.generativeai.generative_models import GenerativeModel
-        from google.generativeai.types import GenerationConfig, HarmBlockThreshold, HarmCategory # Include types here
-        # HarmBlockThreshold and HarmCategory were imported from types before, keep them.
-        
-        configure(api_key=api_key) # Use direct api_key from run function
-        model = GenerativeModel(MODEL) # Initialize GenerativeModel with MODEL variable
+        from google import genai
+        from google.genai import types as genai_types
     except ImportError:
-        write_failed("google-generativeai not installed", date_str) # Corrected error message
+        write_failed("google-genai not installed", date_str)
         sys.exit(1)
-    except Exception as e:
-        write_failed(f"Failed to configure GenerativeModel: {e}", date_str)
-        sys.exit(1)
+
+    client = genai.Client(api_key=api_key, http_options=genai_types.HttpOptions(api_version="v1"))
+
+    full_prompt = f"{SYSTEM_PROMPT}\n\n{context}"
 
     print("  Calling Hermes...", flush=True)
     try:
-        response = model.generate_content(
-            contents=context,
-            generation_config=GenerationConfig( # Use GenerationConfig directly after importing
+        response = client.models.generate_content(
+            model=MODEL,
+            contents=full_prompt,
+            config=genai_types.GenerateContentConfig(
                 max_output_tokens=MAX_TOKENS,
             ),
         )

@@ -22,6 +22,93 @@ from pathlib import Path
 
 print(f"SCRIPT STARTED: {datetime.now()}", flush=True)
 
+
+def load_api_key():
+    import os
+    key = os.environ.get("GEMINI_API_KEY", "")
+    if not key:
+        env_file = Path(__file__).resolve().parent / ".env"
+        if env_file.exists():
+            for line in env_file.read_text(encoding="utf-8").splitlines():
+                if line.startswith("GEMINI_API_KEY="):
+                    key = line.split("=", 1)[1].strip()
+                    break
+    return key
+
+
+def generate_game_summary(game, client):
+    """Generate a human-written game summary using Gemini."""
+    away = game.get("away_city", game.get("away_abbr", ""))
+    home = game.get("home_city", game.get("home_abbr", ""))
+    away_runs = game.get("away_runs", 0)
+    home_runs = game.get("home_runs", 0)
+    winner = away if game.get("winner") == "away" else home
+    loser = home if game.get("winner") == "away" else away
+    venue = game.get("venue", "")
+    innings = len(game.get("innings", [])) or 9
+    decisions = game.get("decisions", {})
+    wp = decisions.get("W", "")
+    lp = decisions.get("L", "")
+    sv = decisions.get("SV", "")
+
+    # Build pitcher context
+    pitcher_lines = []
+    for p in game.get("away_pitching", [])[:2]:
+        pitcher_lines.append(f"{p['name']}: {p.get('ip','?')} IP, {p.get('er','?')} ER, {p.get('k','?')} K")
+    for p in game.get("home_pitching", [])[:2]:
+        pitcher_lines.append(f"{p['name']}: {p.get('ip','?')} IP, {p.get('er','?')} ER, {p.get('k','?')} K")
+
+    # Build top offensive performers
+    top_bats = []
+    for side in ("away_batting", "home_batting"):
+        team = game.get("away_abbr") if side == "away_batting" else game.get("home_abbr")
+        for b in game.get(side, []):
+            hr = b.get("hr", 0)
+            h = b.get("h", 0)
+            rbi = b.get("rbi", 0)
+            if hr >= 1 or h >= 2 or rbi >= 2:
+                top_bats.append(f"{b['name']} ({team}): {h}H {hr}HR {rbi}RBI")
+
+    extra = f" ({innings} innings)" if innings > 9 else ""
+    shutout = f" {loser} was held scoreless." if min(away_runs, home_runs) == 0 else ""
+
+    context = f"""Game: {away} at {home}{extra}
+Final: {away} {away_runs}, {home} {home_runs}
+Venue: {venue}
+Winning pitcher: {wp}
+Losing pitcher: {lp}
+{"Save: " + sv if sv else ""}
+Pitching lines: {"; ".join(pitcher_lines[:3])}
+Key performers: {"; ".join(top_bats[:4]) if top_bats else "none notable"}
+{shutout}"""
+
+    prompt = f"""Write a 2-sentence baseball game summary for a vintage newspaper. 40-65 words.
+
+{context}
+
+Rules:
+- Do not start with the winning team name
+- Mention the final score once
+- Name one key pitcher and one key offensive performer
+- Use full city names on first reference
+- Write like a beat reporter, not a statistician
+- No markdown, no bold, plain prose only
+- Do not say "allowed X earned runs" — say what happened instead"""
+
+    try:
+        from google.genai import types
+        response = client.models.generate_content(
+            model="gemini-2.5-flash",
+            contents=prompt,
+            config=types.GenerateContentConfig(max_output_tokens=2048),
+        )
+        summary = response.text.strip().replace("**", "").replace("*", "")
+        if len(summary.split()) >= 20:
+            return summary
+    except Exception as e:
+        print(f"  ⚠ Summary generation failed for {away}@{home}: {e}", flush=True)
+    return None  # caller uses fallback
+
 VAULT    = Path(".")
 DAILY    = Path("Daily")
 OUT_FILE = Path("Site Data") / "game_cards.json"
@@ -356,6 +443,17 @@ def main():
         print(f"  ✗ No file found: {md_file}", flush=True)
         sys.exit(1)
 
+    api_key = load_api_key()
+    gemini_client = None
+    if api_key:
+        try:
+            from google import genai
+            from google.genai import types as genai_types
+            gemini_client = genai.Client(api_key=api_key, http_options=genai_types.HttpOptions(api_version="v1"))
+            print("  Gemini client initialized for summaries", flush=True)
+        except Exception as e:
+            print(f"  ⚠ Gemini init failed: {e}", flush=True)
+
     print(f"  Parsing {md_file.name}...", flush=True)
     text = md_file.read_text(encoding='utf-8')
 
@@ -368,6 +466,10 @@ def main():
         if g:
             g['headline'] = build_headline(g)
             g['summary']  = build_summary(g)
+            if gemini_client:
+                ai_summary = generate_game_summary(g, gemini_client)
+                if ai_summary:
+                    g['summary'] = ai_summary
             games.append(g)
 
     print(f"  ✓ {len(games)} games parsed", flush=True)

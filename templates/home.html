@@ -378,7 +378,7 @@ nav.main-nav{animation:fadeUp .5s .08s ease both;}
 }
 /* ── Lead Story Image ─────────────────────────────────────────────── */
 .gotd-image-wrap {
-  margin: 12px 0 14px;
+  margin: 0 0 8px;
   border: 1px solid var(--rule-heavy);
 }
 .gotd-image-wrap img {
@@ -416,7 +416,22 @@ nav.main-nav{animation:fadeUp .5s .08s ease both;}
   border-right: 1px solid var(--rule-heavy);
 }
 .gotd-zone .gotd-image-panel {
-  padding-top: 20px;
+  padding-top: 4px;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+}
+.gotd-zone .gotd-image-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+.gotd-zone .gotd-image-wrap img {
+  width: 95%;
+  height: auto;
+  object-fit: contain;
+  display: block;
 }
 @media(max-width: 900px) {
   .gotd-zone .gotd-card {
@@ -467,6 +482,32 @@ nav.main-nav{animation:fadeUp .5s .08s ease both;}
   .tri-center {
     padding: 0;
   }
+}
+/* ── Press Box bullets ────────────────────────────────────────────── */
+.pb-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 14px 0 0;
+}
+.pb-bullet {
+  font-family: var(--serif-body);
+  font-size: 13px;
+  line-height: 1.62;
+  color: var(--parchment2);
+  font-weight: 300;
+  padding: 7px 0;
+  border-bottom: .5px solid var(--rule);
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+.pb-bullet:last-child { border-bottom: none; }
+.pb-bullet::before {
+  content: "—";
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--cream-dim);
+  flex-shrink: 0;
 }
 /* ── ATL section header ───────────────────────────────────────────── */
 .atl-wrap .section-hdr {
@@ -537,36 +578,21 @@ nav.main-nav{animation:fadeUp .5s .08s ease both;}
 </nav>
 
 <div class="ticker-bar"><div class="ticker-inner">
-  <span class="ticker-item"><span class="winner">TOR 8</span> MIA 1 <span class="div">|</span></span>
-  <span class="ticker-item"><span class="winner">TEX 10</span> HOU 7 <span class="div">|</span></span>
-  <span class="ticker-item"><span class="winner">AZ 7</span> SF 5 <span class="div">|</span></span>
-  <span class="ticker-item"><span class="winner">PHI 4</span> SD 3 <span class="div">|</span></span>
-  <span class="ticker-item"><span class="winner">PIT 12</span> CHC 1 <span class="div">|</span></span>
-  <span class="ticker-item"><span class="winner">CIN 7</span> NYM 2 <span class="div">|</span></span>
-  <span class="ticker-item"><span class="winner">MIL 6</span> STL 0 <span class="div">|</span></span>
-  <span class="ticker-item"><span class="winner">LAD 15</span> COL 6 <span class="div">|</span></span>
-  <span class="ticker-item"><span class="winner">NYY 15</span> KC 1 <span class="div">|</span></span>
-  <span class="ticker-item"><span class="winner">LAA 10</span> DET 6 <span class="div">|</span></span>
-  <span class="ticker-item"><span class="winner">WSH 6</span> CLE 3 <span class="div">|</span></span>
-  <span class="ticker-item"><span class="winner">MIN 5</span> CWS 3 (F/11) <span class="div">|</span></span>
-  <span class="ticker-item"><span class="winner">ATL 7</span> BOS 6 <span class="div">|</span></span>
-  <span class="ticker-item"><span class="winner">BAL 6</span> TB 1 <span class="div">|</span></span>
-  <span class="ticker-item"><span class="winner">SEA 4</span> ATH 1 <span class="div">|</span></span>
-  <span class="ticker-item"><span class="winner">TOR 8</span> MIA 1 <span class="div">|</span></span>
-  <span class="ticker-item"><span class="winner">TEX 10</span> HOU 7 <span class="div">|</span></span>
-  <span class="ticker-item"><span class="winner">AZ 7</span> SF 5 <span class="div">|</span></span>
-  <span class="ticker-item"><span class="winner">PHI 4</span> SD 3 <span class="div">|</span></span>
-  <span class="ticker-item"><span class="winner">PIT 12</span> CHC 1 <span class="div">|</span></span>
-  <span class="ticker-item"><span class="winner">CIN 7</span> NYM 2 <span class="div">|</span></span>
-  <span class="ticker-item"><span class="winner">MIL 6</span> STL 0 <span class="div">|</span></span>
-  <span class="ticker-item"><span class="winner">LAD 15</span> COL 6 <span class="div">|</span></span>
-  <span class="ticker-item"><span class="winner">NYY 15</span> KC 1 <span class="div">|</span></span>
-  <span class="ticker-item"><span class="winner">LAA 10</span> DET 6 <span class="div">|</span></span>
-  <span class="ticker-item"><span class="winner">WSH 6</span> CLE 3 <span class="div">|</span></span>
-  <span class="ticker-item"><span class="winner">MIN 5</span> CWS 3 (F/11) <span class="div">|</span></span>
-  <span class="ticker-item"><span class="winner">ATL 7</span> BOS 6 <span class="div">|</span></span>
-  <span class="ticker-item"><span class="winner">BAL 6</span> TB 1 <span class="div">|</span></span>
-  <span class="ticker-item"><span class="winner">SEA 4</span> ATH 1 <span class="div">|</span></span>
+  {% set ticker_games = games if games else [] %}
+  {% for game in ticker_games %}
+  {% if game.winner == 'away' %}
+  <span class="ticker-item"><span class="winner">{{ game.away_abbr }} {{ game.away_runs }}</span> {{ game.home_abbr }} {{ game.home_runs }} <span class="div">|</span></span>
+  {% else %}
+  <span class="ticker-item">{{ game.away_abbr }} {{ game.away_runs }} <span class="winner">{{ game.home_abbr }} {{ game.home_runs }}</span> <span class="div">|</span></span>
+  {% endif %}
+  {% endfor %}
+  {% for game in ticker_games %}
+  {% if game.winner == 'away' %}
+  <span class="ticker-item"><span class="winner">{{ game.away_abbr }} {{ game.away_runs }}</span> {{ game.home_abbr }} {{ game.home_runs }} <span class="div">|</span></span>
+  {% else %}
+  <span class="ticker-item">{{ game.away_abbr }} {{ game.away_runs }} <span class="winner">{{ game.home_abbr }} {{ game.home_runs }}</span> <span class="div">|</span></span>
+  {% endif %}
+  {% endfor %}
 </div></div>
 
 <div class="date-banner">
@@ -827,18 +853,18 @@ nav.main-nav{animation:fadeUp .5s .08s ease both;}
       </div>
       <div class="pb-footer">
         <div class="pb-column">
-          {% set raw_text = pb.column.text %}
-          {% if raw_text.startswith('**DATE:') or raw_text.startswith('**Date:') %}
-            {% set raw_text = raw_text.split('\n\n', 1)[1] if '\n\n' in raw_text else raw_text %}
-          {% endif %}
-          {% set ww_marker = "Worth watching:" %}
-          {% if ww_marker in raw_text %}
-            {% set parts = raw_text.split(ww_marker) %}
-            {{ parts[0] | trim }}
-            <div class="pb-worth-watching"><strong>Worth watching:</strong> {{ parts[1] | trim }}</div>
-          {% else %}
-            {{ raw_text }}
-          {% endif %}
+          {% set raw_text = pb.column.text | replace('**', '') | replace('*', '') %}
+          {% set lines = raw_text.strip().splitlines() %}
+          <ul class="pb-bullets">
+            {% for line in lines %}
+              {% set line = line.strip() %}
+              {% if line.startswith('•') %}
+              <li class="pb-bullet">{{ line[1:].strip() }}</li>
+              {% elif line and not line.startswith('#') %}
+              <li class="pb-bullet">{{ line }}</li>
+              {% endif %}
+            {% endfor %}
+          </ul>
         </div>
       </div>
     </div>
