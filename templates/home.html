@@ -68,6 +68,11 @@ nav.main-nav{display:flex;align-items:center;border-bottom:1px solid var(--rule-
 .date-banner-text{font-family:var(--serif-sc);font-size:14px;letter-spacing:.16em;color:var(--smoke);white-space:nowrap;}
 .section-hdr{display:flex;align-items:baseline;gap:14px;padding:13px 0 9px;border-bottom:.5px solid var(--rule);}
 .section-title{font-family:var(--serif-sc);font-size:10px;letter-spacing:.22em;color:var(--cream);white-space:nowrap;}
+.gotd-wrap .section-title {
+  font-size: 11px;
+  letter-spacing: .28em;
+  color: var(--parchment);
+}
 .section-rule{flex:1;height:.5px;background:var(--rule);}
 .games-list{display:flex;flex-direction:column;}
 .game-card{display:grid;grid-template-columns:1fr 1fr;gap:0;border-bottom:1px solid var(--rule-heavy);align-items:start;}
@@ -140,8 +145,9 @@ nav.main-nav{animation:fadeUp .5s .08s ease both;}
   color:var(--cream-dim); text-transform:uppercase; margin-bottom:6px;
 }
 .gotd-headline {
-  font-family:var(--serif-display); font-size:clamp(18px,1.8vw,24px);
-  font-weight:700; line-height:1.2; color:var(--parchment); margin-bottom:6px;
+  font-family:var(--serif-display); font-size:clamp(22px,2.2vw,30px);
+  font-weight:700; line-height:1.15; color:var(--cream); margin-bottom:8px;
+  letter-spacing:-.01em;
 }
 .gotd-subheadline {
   font-family:var(--serif-sc); font-size:12px; letter-spacing:.08em;
@@ -309,6 +315,25 @@ nav.main-nav{animation:fadeUp .5s .08s ease both;}
   color: var(--cream-dim);
   margin-left: 6px;
 }
+/* ── Frontispiece ─────────────────────────────────────────────────── */
+.frontispiece {
+  display: flex;
+  justify-content: center;
+  padding: 18px 0 0;
+  border-bottom: 1px solid var(--rule-heavy);
+}
+.frontispiece img {
+  width: clamp(260px, 32vw, 420px);
+  height: auto;
+  opacity: 0.72;
+  filter: sepia(20%) saturate(60%) contrast(1.05);
+  display: block;
+}
+@media(max-width: 768px) {
+  .frontispiece img {
+    width: clamp(200px, 72vw, 320px);
+  }
+}
 </style>
 </head>
 <body>
@@ -354,6 +379,12 @@ nav.main-nav{animation:fadeUp .5s .08s ease both;}
     <div class="tagline-line tagline-sub">Enjoy Responsibly.</div>
   </div>
 </header>
+
+<div class="frontispiece">
+  <img src="/static/images/frontispiece.png"
+       alt="Barrel Proof Baseball — Vintage Engraving"
+       loading="eager">
+</div>
 
 <nav class="main-nav">
   <div class="nav-items-wrap">
