@@ -2,14 +2,14 @@
 team: Athletics
 league: American League
 division: American League West
-updated: 2026-05-30 09:10 AM
+updated: 2026-06-04 09:10 AM
 tags: [baseball, mlb, roster]
 ---
 
 # Athletics — Active Roster
 
 **League:** American League  ·  **Division:** American League West
-*Last updated: 2026-05-30 09:10 AM*
+*Last updated: 2026-06-04 09:10 AM*
 
 | # | Name | Pos | Bats | Throws | Age | Height | Weight |
 |---|------|-----|------|--------|-----|--------|--------|
@@ -29,13 +29,13 @@ tags: [baseball, mlb, roster]
 | #35 | J.T. Ginn | P | R | R | 27 | 6' 2" | 200 lbs |
 | #36 | Hogan Harris | P | R | L | 29 | 6' 3" | 230 lbs |
 | #38 | Mark Leiter Jr. | P | R | R | 35 | 6' 0" | 210 lbs |
-| #40 | Luis Severino | P | R | R | 32 | 6' 2" | 218 lbs |
 | #46 | Luis Medina | P | R | R | 27 | 6' 1" | 175 lbs |
 | #47 | Joel Kuhnel | P | R | R | 31 | 6' 5" | 290 lbs |
 | #50 | Jack Perkins | P | R | R | 26 | 6' 1" | 220 lbs |
 | #54 | José Suarez | P | L | L | 28 | 5' 10" | 225 lbs |
-| #57 | Jacob Lopez | P | L | L | 28 | 6' 4" | 220 lbs |
 | #58 | Scott Barlow | P | R | R | 33 | 6' 3" | 210 lbs |
 | #59 | Jeffrey Springs | P | L | L | 33 | 6' 3" | 218 lbs |
 | #60 | Justin Sterner | P | R | R | 29 | 6' 1" | 215 lbs |
 | #61 | Gage Jump | P | L | L | 23 | 6' 0" | 200 lbs |
+| #63 | Mason Barnett | P | R | R | 25 | 6' 0" | 218 lbs |
+| #67 | Kade Morris | P | R | R | 23 | 6' 3" | 190 lbs |

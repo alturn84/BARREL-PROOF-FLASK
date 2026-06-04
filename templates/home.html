@@ -827,13 +827,17 @@ nav.main-nav{animation:fadeUp .5s .08s ease both;}
       </div>
       <div class="pb-footer">
         <div class="pb-column">
+          {% set raw_text = pb.column.text %}
+          {% if raw_text.startswith('**DATE:') or raw_text.startswith('**Date:') %}
+            {% set raw_text = raw_text.split('\n\n', 1)[1] if '\n\n' in raw_text else raw_text %}
+          {% endif %}
           {% set ww_marker = "Worth watching:" %}
-          {% if ww_marker in pb.column.text %}
-            {% set parts = pb.column.text.split(ww_marker) %}
+          {% if ww_marker in raw_text %}
+            {% set parts = raw_text.split(ww_marker) %}
             {{ parts[0] | trim }}
             <div class="pb-worth-watching"><strong>Worth watching:</strong> {{ parts[1] | trim }}</div>
           {% else %}
-            {{ pb.column.text }}
+            {{ raw_text }}
           {% endif %}
         </div>
       </div>

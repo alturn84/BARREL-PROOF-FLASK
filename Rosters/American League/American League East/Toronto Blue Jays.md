@@ -2,14 +2,14 @@
 team: Toronto Blue Jays
 league: American League
 division: American League East
-updated: 2026-05-30 09:10 AM
+updated: 2026-06-04 09:10 AM
 tags: [baseball, mlb, roster]
 ---
 
 # Toronto Blue Jays — Active Roster
 
 **League:** American League  ·  **Division:** American League East
-*Last updated: 2026-05-30 09:10 AM*
+*Last updated: 2026-06-04 09:10 AM*
 
 | # | Name | Pos | Bats | Throws | Age | Height | Weight |
 |---|------|-----|------|--------|-----|--------|--------|
@@ -32,10 +32,10 @@ tags: [baseball, mlb, roster]
 | #39 | Trey Yesavage | P | R | R | 22 | 6' 4" | 225 lbs |
 | #40 | Connor Seabold | P | R | R | 30 | 6' 2" | 190 lbs |
 | #46 | Patrick Corbin | P | L | L | 36 | 6' 4" | 225 lbs |
-| #58 | Austin Voth | P | R | R | 33 | 6' 2" | 215 lbs |
 | #62 | Spencer Miles | P | L | R | 25 | 6' 3" | 180 lbs |
 | #63 | Braydon Fisher | P | R | R | 25 | 6' 4" | 180 lbs |
 | #64 | Adam Macko | P | L | L | 25 | 6' 0" | 170 lbs |
 | #68 | Mason Fluharty | P | R | L | 24 | 6' 2" | 215 lbs |
+| #70 | Hayden Juenger | P | R | R | 25 | 6' 0" | 180 lbs |
 | #71 | Tyler Rogers | P | R | R | 35 | 6' 3" | 180 lbs |
 | #77 | Louis Varland | P | L | R | 28 | 6' 1" | 205 lbs |

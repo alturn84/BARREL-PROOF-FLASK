@@ -2,14 +2,14 @@
 team: Atlanta Braves
 league: National League
 division: National League East
-updated: 2026-05-30 09:10 AM
+updated: 2026-06-04 09:10 AM
 tags: [baseball, mlb, roster]
 ---
 
 # Atlanta Braves — Active Roster
 
 **League:** National League  ·  **Division:** National League East
-*Last updated: 2026-05-30 09:10 AM*
+*Last updated: 2026-06-04 09:10 AM*
 
 | # | Name | Pos | Bats | Throws | Age | Height | Weight |
 |---|------|-----|------|--------|-----|--------|--------|
@@ -34,7 +34,7 @@ tags: [baseball, mlb, roster]
 | #51 | Chris Sale | P | L | L | 37 | 6' 6" | 180 lbs |
 | #52 | Dylan Lee | P | L | L | 31 | 6' 3" | 214 lbs |
 | #55 | Bryce Elder | P | R | R | 27 | 6' 2" | 220 lbs |
-| #61 | Anthony Molina | P | R | R | 24 | 6' 1" | 170 lbs |
+| #59 | Carlos Carrasco | P | R | R | 39 | 6' 4" | 224 lbs |
 | #66 | Grant Holmes | P | L | R | 30 | 6' 0" | 226 lbs |
 | #72 | Didier Fuentes | P | R | R | 20 | 6' 0" | 170 lbs |
 | #75 | Robert Suarez | P | R | R | 35 | 6' 2" | 210 lbs |

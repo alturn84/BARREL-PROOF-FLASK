@@ -2,14 +2,14 @@
 team: Los Angeles Dodgers
 league: National League
 division: National League West
-updated: 2026-05-30 09:10 AM
+updated: 2026-06-04 09:10 AM
 tags: [baseball, mlb, roster]
 ---
 
 # Los Angeles Dodgers — Active Roster
 
 **League:** National League  ·  **Division:** National League West
-*Last updated: 2026-05-30 09:10 AM*
+*Last updated: 2026-06-04 09:10 AM*
 
 | # | Name | Pos | Bats | Throws | Age | Height | Weight |
 |---|------|-----|------|--------|-----|--------|--------|
@@ -29,13 +29,13 @@ tags: [baseball, mlb, roster]
 | #11 | Roki Sasaki | P | R | R | 24 | 6' 2" | 187 lbs |
 | #18 | Yoshinobu Yamamoto | P | R | R | 27 | 5' 10" | 176 lbs |
 | #29 | Jonathan Hernández | P | R | R | 29 | 6' 3" | 190 lbs |
-| #33 | Eric Lauer | P | R | L | 30 | 6' 3" | 209 lbs |
+| #33 | Eric Lauer | P | R | L | 31 | 6' 3" | 209 lbs |
 | #49 | Blake Treinen | P | R | R | 37 | 6' 5" | 225 lbs |
 | #51 | Alex Vesia | P | L | L | 30 | 6' 1" | 209 lbs |
 | #60 | Edgardo Henriquez | P | R | R | 23 | 6' 4" | 200 lbs |
 | #61 | Will Klein | P | R | R | 26 | 6' 5" | 230 lbs |
 | #63 | Kyle Hurt | P | R | R | 28 | 6' 3" | 240 lbs |
-| #65 | Paul Gervase | P | R | R | 26 | 6' 10" | 230 lbs |
 | #66 | Tanner Scott | P | R | L | 31 | 6' 0" | 235 lbs |
 | #70 | Justin Wrobleski | P | L | L | 25 | 6' 1" | 194 lbs |
 | #80 | Emmet Sheehan | P | R | R | 26 | 6' 5" | 220 lbs |
+| #86 | Jack Dreyer | P | R | L | 27 | 6' 2" | 205 lbs |

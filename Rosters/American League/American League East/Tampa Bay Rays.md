@@ -2,14 +2,14 @@
 team: Tampa Bay Rays
 league: American League
 division: American League East
-updated: 2026-05-30 09:10 AM
+updated: 2026-06-04 09:10 AM
 tags: [baseball, mlb, roster]
 ---
 
 # Tampa Bay Rays — Active Roster
 
 **League:** American League  ·  **Division:** American League East
-*Last updated: 2026-05-30 09:10 AM*
+*Last updated: 2026-06-04 09:10 AM*
 
 | # | Name | Pos | Bats | Throws | Age | Height | Weight |
 |---|------|-----|------|--------|-----|--------|--------|
@@ -30,12 +30,12 @@ tags: [baseball, mlb, roster]
 | #22 | Griffin Jax | P | R | R | 31 | 6' 2" | 195 lbs |
 | #28 | Nick Martinez | P | L | R | 35 | 6' 1" | 200 lbs |
 | #32 | Steven Matz | P | R | L | 35 | 6' 2" | 205 lbs |
-| #43 | Hunter Bigge | P | R | R | 27 | 6' 0" | 215 lbs |
-| #46 | Craig Kimbrel | P | R | R | 38 | 6' 0" | 215 lbs |
 | #47 | Bryan Baker | P | R | R | 31 | 6' 6" | 235 lbs |
 | #49 | Kevin Kelly | P | R | R | 28 | 6' 2" | 195 lbs |
-| #50 | Andrew Wantz | P | R | R | 30 | 6' 4" | 235 lbs |
 | #57 | Drew Rasmussen | P | R | R | 30 | 6' 1" | 240 lbs |
+| #59 | Mason Englert | P | S | R | 26 | 6' 4" | 205 lbs |
 | #60 | Garrett Cleavinger | P | R | L | 32 | 6' 1" | 225 lbs |
 | #61 | Ian Seymour | P | L | L | 27 | 6' 0" | 215 lbs |
+| #62 | Cam Booser | P | L | L | 34 | 6' 3" | 230 lbs |
 | #67 | Casey Legumina | P | R | R | 28 | 6' 2" | 195 lbs |
+| #71 | Cole Sulser | P | R | R | 36 | 6' 0" | 200 lbs |

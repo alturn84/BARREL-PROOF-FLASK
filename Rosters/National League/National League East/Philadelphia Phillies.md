@@ -2,14 +2,14 @@
 team: Philadelphia Phillies
 league: National League
 division: National League East
-updated: 2026-05-30 09:10 AM
+updated: 2026-06-04 09:10 AM
 tags: [baseball, mlb, roster]
 ---
 
 # Philadelphia Phillies — Active Roster
 
 **League:** National League  ·  **Division:** National League East
-*Last updated: 2026-05-30 09:10 AM*
+*Last updated: 2026-06-04 09:10 AM*
 
 | # | Name | Pos | Bats | Throws | Age | Height | Weight |
 |---|------|-----|------|--------|-----|--------|--------|
@@ -27,12 +27,12 @@ tags: [baseball, mlb, roster]
 | #53 | Adolis García | RF | R | R | 33 | 6' 0" | 205 lbs |
 | #12 | Kyle Schwarber | DH | L | R | 33 | 5' 11" | 229 lbs |
 | #24 | Andrew Painter | P | R | R | 23 | 6' 7" | 215 lbs |
+| #27 | Aaron Nola | P | R | R | 33 | 6' 2" | 200 lbs |
 | #37 | Tim Mayza | P | L | L | 34 | 6' 3" | 215 lbs |
 | #40 | Brad Keller | P | R | R | 30 | 6' 5" | 255 lbs |
 | #44 | Jesús Luzardo | P | L | L | 28 | 6' 0" | 218 lbs |
 | #45 | Zack Wheeler | P | L | R | 36 | 6' 4" | 195 lbs |
 | #46 | José Alvarado | P | L | L | 31 | 6' 2" | 245 lbs |
-| #47 | Nolan Hoffman | P | R | R | 28 | 6' 4" | 190 lbs |
 | #50 | Orion Kerkering | P | R | R | 25 | 6' 2" | 204 lbs |
 | #52 | Jonathan Bowlan | P | R | R | 29 | 6' 6" | 240 lbs |
 | #55 | Chase Shugart | P | L | R | 29 | 5' 11" | 200 lbs |

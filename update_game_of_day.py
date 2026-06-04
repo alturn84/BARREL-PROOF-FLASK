@@ -749,7 +749,7 @@ def expand_lead_angle(gs, base_copy, feed, date_str):
     api_key = load_api_key()
     if not api_key:
         print("  ⚠ GEMINI_API_KEY not set — using short lead angle", flush=True)
-        return base_copy["lead_angle"]
+        return base_copy["lead_angle"], base_copy["headline"]
 
     # Build box score context from feed
     ld = feed.get("liveData", {})
@@ -794,9 +794,11 @@ def expand_lead_angle(gs, base_copy, feed, date_str):
         if ar > 0 or hr > 0:
             innings_summary.append(f"Inning {n}: {gs.away} {ar}, {gs.home} {hr}")
 
+    venue = feed.get("gameData", {}).get("venue", {}).get("name", "")
     context_lines = [
         f"Date: {date_str}",
         f"Game: {away_name} ({gs.away}) at {home_name} ({gs.home})",
+        f"Venue: {venue}" if venue else "Venue: unknown",
         f"Final: {gs.away} {gs.away_runs}, {gs.home} {gs.home_runs}",
         f"Innings played: {gs.innings}",
         f"Winner: {winner_name}",
@@ -861,11 +863,47 @@ Write 4-5 paragraphs of lead story copy. Plain text only. No markdown."""
         print(f"  ✓ Expanded lead angle: {word_count} words", flush=True)
         if word_count < 100:
             print("  ⚠ Response too short — falling back to template", flush=True)
-            return base_copy["lead_angle"]
-        return expanded
+            return base_copy["lead_angle"], base_copy["headline"]
+
+        # Generate improved headline
+        headline_prompt = f"""You are writing a headline for the lead story of a vintage baseball newspaper.
+
+Game: {away_name} vs {home_name}
+Result: {gs.away} {gs.away_runs}, {gs.home} {gs.home_runs} ({gs.innings} innings)
+Winner: {winner_name}
+Story flags: {', '.join(gs.flags) if gs.flags else 'None'}
+Lead story opening: {expanded[:200]}
+
+Write ONE headline only. Rules:
+- Use full team names or city names, not abbreviations
+- Mention the decisive element (walk-off, comeback, extra innings, dominant pitcher, etc.)
+- 6 to 12 words maximum
+- No punctuation at the end
+- No quotation marks
+- Plain text only"""
+
+        try:
+            hl_response = client.models.generate_content(
+                model=GEMINI_MODEL,
+                contents=headline_prompt,
+                config=types.GenerateContentConfig(
+                    max_output_tokens=512,
+                ),
+            )
+            headline = hl_response.text.strip().strip('"').strip("'")
+            print(f"  DEBUG headline raw: {repr(headline[:200])}", flush=True)
+            if 3 <= len(headline.split()) <= 15:
+                print(f"  ✓ Generated headline: {headline}", flush=True)
+                return expanded, headline
+            else:
+                print(f"  ⚠ Headline out of range — using template", flush=True)
+                return expanded, base_copy["headline"]
+        except Exception as e:
+            print(f"  ⚠ Headline generation failed: {e}", flush=True)
+            return expanded, base_copy["headline"]
     except Exception as e:
         print(f"  ⚠ Gemini call failed: {e} — using short lead angle", flush=True)
-        return base_copy["lead_angle"]
+        return base_copy["lead_angle"], base_copy["headline"]
 
 
 # ── Build JSON output ─────────────────────────────────────────────────────────
@@ -873,7 +911,11 @@ def build_output(winner, all_scored, date_str, feed=None):
     dt = datetime.strptime(date_str, "%Y-%m-%d")
     copy = editorial(winner, date_str)
     if feed is not None:
-        copy["lead_angle"] = expand_lead_angle(winner, copy, feed, date_str)
+        result = expand_lead_angle(winner, copy, feed, date_str)
+        if isinstance(result, tuple):
+            copy["lead_angle"], copy["headline"] = result
+        else:
+            copy["lead_angle"] = result
 
     ranked = []
     for rank, gs in enumerate(

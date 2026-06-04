@@ -2,14 +2,14 @@
 team: San Diego Padres
 league: National League
 division: National League West
-updated: 2026-05-30 09:10 AM
+updated: 2026-06-04 09:10 AM
 tags: [baseball, mlb, roster]
 ---
 
 # San Diego Padres — Active Roster
 
 **League:** National League  ·  **Division:** National League West
-*Last updated: 2026-05-30 09:10 AM*
+*Last updated: 2026-06-04 09:10 AM*
 
 | # | Name | Pos | Bats | Throws | Age | Height | Weight |
 |---|------|-----|------|--------|-----|--------|--------|
@@ -17,12 +17,12 @@ tags: [baseball, mlb, roster]
 | #54 | Freddy Fermin | C | R | R | 31 | 5' 10" | 200 lbs |
 | #25 | Ty France | 1B | R | R | 31 | 5' 10" | 215 lbs |
 | #30 | Gavin Sheets | 1B | L | L | 30 | 6' 3" | 235 lbs |
+| #0 | Samad Taylor | 2B | R | R | 27 | 5' 8" | 160 lbs |
 | #24 | Sung-Mun Song | 2B | L | R | 29 | 6' 0" | 194 lbs |
 | #13 | Manny Machado | 3B | R | R | 33 | 6' 2" | 218 lbs |
 | #2 | Xander Bogaerts | SS | R | R | 33 | 6' 2" | 218 lbs |
-| #5 | Ramón Laureano | LF | R | R | 31 | 5' 9" | 203 lbs |
 | #3 | Jackson Merrill | CF | L | R | 23 | 6' 2" | 195 lbs |
-| #21 | Nick Castellanos | RF | R | R | 34 | 6' 3" | 203 lbs |
+| #4 | Jase Bowen | CF | R | R | 25 | 6' 0" | 215 lbs |
 | #23 | Fernando Tatis Jr. | RF | R | R | 27 | 6' 3" | 217 lbs |
 | #29 | Bryce Johnson | RF | S | R | 30 | 5' 11" | 190 lbs |
 | #41 | Miguel Andujar | DH | R | R | 31 | 6' 0" | 211 lbs |

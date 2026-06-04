@@ -2,14 +2,14 @@
 team: Houston Astros
 league: American League
 division: American League West
-updated: 2026-05-30 09:10 AM
+updated: 2026-06-04 09:10 AM
 tags: [baseball, mlb, roster]
 ---
 
 # Houston Astros — Active Roster
 
 **League:** American League  ·  **Division:** American League West
-*Last updated: 2026-05-30 09:10 AM*
+*Last updated: 2026-06-04 09:10 AM*
 
 | # | Name | Pos | Bats | Throws | Age | Height | Weight |
 |---|------|-----|------|--------|-----|--------|--------|
@@ -19,8 +19,8 @@ tags: [baseball, mlb, roster]
 | #15 | Isaac Paredes | 3B | R | R | 27 | 5' 11" | 213 lbs |
 | #3 | Jeremy Peña | SS | R | R | 28 | 6' 0" | 202 lbs |
 | #20 | Nick Allen | SS | R | R | 27 | 5' 7" | 166 lbs |
-| #28 | Braden Shewmake | SS | L | R | 28 | 6' 3" | 200 lbs |
 | #9 | Zach Dezenzo | LF | R | R | 26 | 6' 5" | 220 lbs |
+| #16 | Zach Cole | LF | L | R | 25 | 6' 2" | 190 lbs |
 | #0 | Brice Matthews | CF | R | R | 24 | 5' 10" | 190 lbs |
 | #6 | Jake Meyers | CF | R | L | 29 | 6' 0" | 200 lbs |
 | #26 | Taylor Trammell | CF | L | L | 28 | 6' 1" | 220 lbs |
@@ -34,8 +34,8 @@ tags: [baseball, mlb, roster]
 | #50 | Mike Burrows | P | R | R | 26 | 6' 1" | 200 lbs |
 | #52 | Bryan Abreu | P | R | R | 29 | 6' 1" | 230 lbs |
 | #55 | Nate Pearson | P | R | R | 29 | 6' 6" | 255 lbs |
-| #64 | Logan VanWey | P | R | R | 27 | 6' 2" | 205 lbs |
 | #65 | Enyel De Los Santos | P | R | R | 30 | 6' 3" | 235 lbs |
 | #69 | AJ Blubaugh | P | R | R | 25 | 6' 2" | 190 lbs |
+| #71 | Josh Hader | P | L | L | 32 | 6' 3" | 188 lbs |
 | #72 | Alimber Santa | P | R | R | 23 | 5' 10" | 228 lbs |
 | #74 | Bryan King | P | R | L | 29 | 6' 1" | 205 lbs |

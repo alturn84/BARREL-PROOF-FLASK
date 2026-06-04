@@ -2,14 +2,14 @@
 team: Seattle Mariners
 league: American League
 division: American League West
-updated: 2026-05-30 09:10 AM
+updated: 2026-06-04 09:10 AM
 tags: [baseball, mlb, roster]
 ---
 
 # Seattle Mariners — Active Roster
 
 **League:** American League  ·  **Division:** American League West
-*Last updated: 2026-05-30 09:10 AM*
+*Last updated: 2026-06-04 09:10 AM*
 
 | # | Name | Pos | Bats | Throws | Age | Height | Weight |
 |---|------|-----|------|--------|-----|--------|--------|
@@ -27,7 +27,7 @@ tags: [baseball, mlb, roster]
 | #8 | Dominic Canzone | DH | L | R | 28 | 6' 0" | 190 lbs |
 | #30 | Rob Refsnyder | DH | R | R | 35 | 5' 11" | 215 lbs |
 | #22 | Bryan Woo | P | R | R | 26 | 6' 2" | 205 lbs |
-| #26 | Emerson Hancock | P | R | R | 26 | 6' 4" | 213 lbs |
+| #26 | Emerson Hancock | P | R | R | 27 | 6' 4" | 213 lbs |
 | #36 | Logan Gilbert | P | R | R | 29 | 6' 6" | 215 lbs |
 | #45 | José A. Ferrer | P | L | L | 26 | 6' 1" | 233 lbs |
 | #47 | Matt Brash | P | R | R | 28 | 6' 1" | 173 lbs |

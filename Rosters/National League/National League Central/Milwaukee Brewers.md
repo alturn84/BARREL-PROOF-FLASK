@@ -2,14 +2,14 @@
 team: Milwaukee Brewers
 league: National League
 division: National League Central
-updated: 2026-05-30 09:10 AM
+updated: 2026-06-04 09:10 AM
 tags: [baseball, mlb, roster]
 ---
 
 # Milwaukee Brewers — Active Roster
 
 **League:** National League  ·  **Division:** National League Central
-*Last updated: 2026-05-30 09:10 AM*
+*Last updated: 2026-06-04 09:10 AM*
 
 | # | Name | Pos | Bats | Throws | Age | Height | Weight |
 |---|------|-----|------|--------|-----|--------|--------|
@@ -28,7 +28,6 @@ tags: [baseball, mlb, roster]
 | #99 | Gary Sánchez | DH | R | R | 33 | 6' 2" | 251 lbs |
 | #23 | Brandon Sproat | P | R | R | 25 | 6' 3" | 205 lbs |
 | #26 | Aaron Ashby | P | R | L | 28 | 6' 0" | 194 lbs |
-| #27 | Carlos Rodriguez | P | R | R | 24 | 5' 11" | 203 lbs |
 | #29 | Trevor Megill | P | L | R | 32 | 6' 8" | 253 lbs |
 | #32 | Jacob Misiorowski | P | R | R | 24 | 6' 7" | 201 lbs |
 | #37 | DL Hall | P | L | L | 27 | 6' 1" | 209 lbs |
@@ -36,6 +35,7 @@ tags: [baseball, mlb, roster]
 | #41 | Jake Woodford | P | R | R | 29 | 6' 4" | 215 lbs |
 | #45 | Abner Uribe | P | R | R | 25 | 6' 3" | 205 lbs |
 | #52 | Kyle Harrison | P | R | L | 24 | 6' 2" | 216 lbs |
+| #54 | Robert Gasser | P | L | L | 27 | 6' 0" | 197 lbs |
 | #55 | Shane Drohan | P | L | L | 27 | 6' 2" | 202 lbs |
 | #56 | Grant Anderson | P | R | R | 28 | 6' 0" | 213 lbs |
 | #57 | Coleman Crow | P | R | R | 25 | 5' 10" | 175 lbs |

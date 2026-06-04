@@ -2,14 +2,14 @@
 team: Pittsburgh Pirates
 league: National League
 division: National League Central
-updated: 2026-05-30 09:10 AM
+updated: 2026-06-04 09:10 AM
 tags: [baseball, mlb, roster]
 ---
 
 # Pittsburgh Pirates — Active Roster
 
 **League:** National League  ·  **Division:** National League Central
-*Last updated: 2026-05-30 09:10 AM*
+*Last updated: 2026-06-04 09:10 AM*
 
 | # | Name | Pos | Bats | Throws | Age | Height | Weight |
 |---|------|-----|------|--------|-----|--------|--------|
@@ -19,11 +19,11 @@ tags: [baseball, mlb, roster]
 | #5 | Brandon Lowe | 2B | L | R | 31 | 5' 9" | 181 lbs |
 | #3 | Nick Gonzales | 3B | R | R | 27 | 5' 8" | 193 lbs |
 | #19 | Jared Triolo | 3B | R | R | 28 | 6' 3" | 212 lbs |
-| #6 | Konnor Griffin | SS | R | R | 20 | 6' 3" | 222 lbs |
 | #10 | Bryan Reynolds | LF | S | R | 31 | 6' 2" | 210 lbs |
 | #28 | Jake Mangum | LF | S | L | 30 | 5' 11" | 191 lbs |
 | #37 | Tyler Callihan | LF | L | R | 25 | 5' 11" | 205 lbs |
 | #15 | Oneil Cruz | CF | L | R | 27 | 6' 7" | 248 lbs |
+| #29 | Ryan O'Hearn | RF | L | L | 32 | 6' 2" | 220 lbs |
 | #34 | Jhostynxon Garcia | RF | R | R | 23 | 6' 0" | 224 lbs |
 | #24 | Marcell Ozuna | DH | R | R | 35 | 6' 1" | 251 lbs |
 | #17 | Jared Jones | P | L | R | 24 | 6' 0" | 211 lbs |

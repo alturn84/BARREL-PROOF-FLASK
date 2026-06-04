@@ -2,14 +2,14 @@
 team: Boston Red Sox
 league: American League
 division: American League East
-updated: 2026-05-30 09:10 AM
+updated: 2026-06-04 09:10 AM
 tags: [baseball, mlb, roster]
 ---
 
 # Boston Red Sox — Active Roster
 
 **League:** American League  ·  **Division:** American League East
-*Last updated: 2026-05-30 09:10 AM*
+*Last updated: 2026-06-04 09:10 AM*
 
 | # | Name | Pos | Bats | Throws | Age | Height | Weight |
 |---|------|-----|------|--------|-----|--------|--------|
@@ -19,8 +19,8 @@ tags: [baseball, mlb, roster]
 | #40 | Willson Contreras | 1B | R | R | 34 | 6' 0" | 240 lbs |
 | #2 | Isiah Kiner-Falefa | 2B | R | R | 31 | 5' 10" | 195 lbs |
 | #11 | Marcelo Mayer | 2B | L | R | 23 | 6' 3" | 188 lbs |
+| #48 | Anthony Seigler | 2B | L | S | 26 | 5' 9" | 192 lbs |
 | #5 | Caleb Durbin | 3B | R | R | 26 | 5' 6" | 183 lbs |
-| #20 | Nick Sogard | 3B | S | R | 28 | 6' 1" | 189 lbs |
 | #32 | Andruw Monasterio | SS | R | R | 29 | 5' 11" | 195 lbs |
 | #16 | Jarren Duran | LF | L | R | 29 | 6' 0" | 205 lbs |
 | #3 | Ceddanne Rafaela | CF | R | R | 25 | 5' 10" | 165 lbs |

@@ -2,14 +2,14 @@
 team: Cleveland Guardians
 league: American League
 division: American League Central
-updated: 2026-05-30 09:10 AM
+updated: 2026-06-04 09:10 AM
 tags: [baseball, mlb, roster]
 ---
 
 # Cleveland Guardians — Active Roster
 
 **League:** American League  ·  **Division:** American League Central
-*Last updated: 2026-05-30 09:10 AM*
+*Last updated: 2026-06-04 09:10 AM*
 
 | # | Name | Pos | Bats | Throws | Age | Height | Weight |
 |---|------|-----|------|--------|-----|--------|--------|
@@ -21,8 +21,8 @@ tags: [baseball, mlb, roster]
 | #11 | José Ramírez | 3B | S | R | 33 | 5' 8" | 190 lbs |
 | #4 | Brayan Rocchio | SS | S | R | 25 | 5' 9" | 170 lbs |
 | #1 | Angel Martínez | LF | S | R | 24 | 5' 11" | 200 lbs |
-| #0 | Petey Halpin | CF | L | R | 24 | 5' 11" | 200 lbs |
 | #10 | Daniel Schneemann | CF | L | R | 29 | 6' 0" | 185 lbs |
+| #38 | Steven Kwan | CF | L | L | 28 | 5' 8" | 170 lbs |
 | #6 | David Fry | RF | R | R | 30 | 6' 1" | 215 lbs |
 | #17 | Stuart Fairchild | RF | R | R | 30 | 5' 11" | 205 lbs |
 | #24 | Chase DeLauter | RF | L | L | 24 | 6' 3" | 235 lbs |

@@ -2,28 +2,28 @@
 team: Arizona Diamondbacks
 league: National League
 division: National League West
-updated: 2026-05-30 09:10 AM
+updated: 2026-06-04 09:10 AM
 tags: [baseball, mlb, roster]
 ---
 
 # Arizona Diamondbacks — Active Roster
 
 **League:** National League  ·  **Division:** National League West
-*Last updated: 2026-05-30 09:10 AM*
+*Last updated: 2026-06-04 09:10 AM*
 
 | # | Name | Pos | Bats | Throws | Age | Height | Weight |
 |---|------|-----|------|--------|-----|--------|--------|
 | #14 | Gabriel Moreno | C | R | R | 26 | 5' 9" | 195 lbs |
 | #35 | Aramis Garcia | C | R | R | 33 | 6' 1" | 228 lbs |
 | #6 | Ildemaro Vargas | 1B | S | R | 34 | 5' 11" | 202 lbs |
+| #26 | Pavin Smith | 1B | L | L | 30 | 6' 2" | 208 lbs |
 | #4 | Ketel Marte | 2B | S | R | 32 | 6' 0" | 210 lbs |
 | #28 | Nolan Arenado | 3B | R | R | 35 | 6' 2" | 215 lbs |
 | #2 | Geraldo Perdomo | SS | S | R | 26 | 6' 2" | 203 lbs |
-| #13 | Tim Tawa | LF | R | R | 27 | 5' 11" | 196 lbs |
+| #9 | Tommy Troy | LF | R | R | 24 | 5' 9" | 197 lbs |
 | #1 | Jorge Barrosa | CF | S | L | 25 | 5' 6" | 165 lbs |
 | #15 | Ryan Waldschmidt | CF | R | R | 23 | 6' 0" | 205 lbs |
 | #7 | Corbin Carroll | RF | L | L | 25 | 5' 10" | 165 lbs |
-| #9 | Tommy Troy | OF | R | R | 24 | 5' 9" | 197 lbs |
 | #11 | Jose Fernandez | DH | R | R | 22 | 6' 3" | 165 lbs |
 | #25 | Adrian Del Castillo | DH | L | R | 26 | 5' 9" | 208 lbs |
 | #19 | Ryne Nelson | P | R | R | 28 | 6' 3" | 184 lbs |

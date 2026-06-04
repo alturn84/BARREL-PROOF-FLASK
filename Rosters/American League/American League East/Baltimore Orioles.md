@@ -2,14 +2,14 @@
 team: Baltimore Orioles
 league: American League
 division: American League East
-updated: 2026-05-30 09:10 AM
+updated: 2026-06-04 09:10 AM
 tags: [baseball, mlb, roster]
 ---
 
 # Baltimore Orioles — Active Roster
 
 **League:** American League  ·  **Division:** American League East
-*Last updated: 2026-05-30 09:10 AM*
+*Last updated: 2026-06-04 09:10 AM*
 
 | # | Name | Pos | Bats | Throws | Age | Height | Weight |
 |---|------|-----|------|--------|-----|--------|--------|
@@ -23,9 +23,9 @@ tags: [baseball, mlb, roster]
 | #32 | Weston Wilson | 3B | R | R | 31 | 6' 3" | 215 lbs |
 | #2 | Gunnar Henderson | SS | L | R | 24 | 6' 3" | 230 lbs |
 | #3 | Taylor Ward | LF | R | R | 32 | 6' 0" | 205 lbs |
-| #17 | Colton Cowser | CF | L | R | 26 | 6' 3" | 220 lbs |
 | #30 | Leody Taveras | CF | S | R | 27 | 6' 2" | 210 lbs |
 | #9 | Tyler O'Neill | RF | R | R | 30 | 5' 9" | 200 lbs |
+| #17 | Colton Cowser | RF | L | R | 26 | 6' 3" | 220 lbs |
 | #28 | Trevor Rogers | P | L | L | 28 | 6' 5" | 230 lbs |
 | #34 | Shane Baz | P | R | R | 26 | 6' 3" | 200 lbs |
 | #38 | Kyle Bradish | P | R | R | 29 | 6' 3" | 215 lbs |
