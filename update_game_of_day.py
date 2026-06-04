@@ -30,6 +30,21 @@ from datetime import datetime, timedelta
 from dataclasses import dataclass, field
 from pathlib import Path
 
+GEMINI_MODEL = "gemini-2.5-flash"
+
+def load_api_key():
+    """Load GEMINI_API_KEY from environment or .env file."""
+    import os
+    key = os.environ.get("GEMINI_API_KEY", "")
+    if not key:
+        env_file = VAULT / ".env"
+        if env_file.exists():
+            for line in env_file.read_text(encoding="utf-8").splitlines():
+                if line.startswith("GEMINI_API_KEY="):
+                    key = line.split("=", 1)[1].strip()
+                    break
+    return key
+
 print(f"SCRIPT STARTED: {datetime.now()}", flush=True)
 
 VAULT    = Path(__file__).resolve().parent
@@ -726,10 +741,139 @@ def editorial(gs, date_str):
     }
 
 
+def expand_lead_angle(gs, base_copy, feed, date_str):
+    """
+    Use Gemini to expand the lead_angle into a 350-600 word lead story.
+    Falls back to the hardcoded base_copy lead_angle if API call fails.
+    """
+    api_key = load_api_key()
+    if not api_key:
+        print("  ⚠ GEMINI_API_KEY not set — using short lead angle", flush=True)
+        return base_copy["lead_angle"]
+
+    # Build box score context from feed
+    ld = feed.get("liveData", {})
+    ls = ld.get("linescore", {})
+    bs = ld.get("boxscore", {})
+
+    away_name = TEAM_NAMES.get(gs.away, gs.away)
+    home_name = TEAM_NAMES.get(gs.home, gs.home)
+    winner_name = TEAM_NAMES.get(gs.winner, gs.winner)
+    loser_name = TEAM_NAMES.get(gs.loser, gs.loser)
+
+    # Get decisions
+    decisions = feed.get("liveData", {}).get("decisions", {})
+    winner_pitcher = decisions.get("winner", {}).get("fullName", "")
+    loser_pitcher = decisions.get("loser", {}).get("fullName", "")
+    save_pitcher = decisions.get("save", {}).get("fullName", "")
+
+    # Get top performers from box score
+    top_batters = []
+    for side in ("away", "home"):
+        team_abbr = gs.away if side == "away" else gs.home
+        team_full = TEAM_NAMES.get(team_abbr, team_abbr)
+        players = bs.get("teams", {}).get(side, {}).get("players", {})
+        for _, p in players.items():
+            bat = p.get("stats", {}).get("batting", {})
+            if not bat:
+                continue
+            h = bat.get("hits", 0)
+            hr = bat.get("homeRuns", 0)
+            rbi = bat.get("rbi", 0)
+            if h >= 2 or hr >= 1 or rbi >= 2:
+                name = p["person"]["fullName"]
+                line = f"{name} ({team_full}): {h}H, {hr}HR, {rbi}RBI"
+                top_batters.append(line)
+
+    # Get inning-by-inning scoring summary
+    innings_summary = []
+    for inn in ls.get("innings", []):
+        n = inn.get("num", "")
+        ar = inn.get("away", {}).get("runs", 0) or 0
+        hr = inn.get("home", {}).get("runs", 0) or 0
+        if ar > 0 or hr > 0:
+            innings_summary.append(f"Inning {n}: {gs.away} {ar}, {gs.home} {hr}")
+
+    context_lines = [
+        f"Date: {date_str}",
+        f"Game: {away_name} ({gs.away}) at {home_name} ({gs.home})",
+        f"Final: {gs.away} {gs.away_runs}, {gs.home} {gs.home_runs}",
+        f"Innings played: {gs.innings}",
+        f"Winner: {winner_name}",
+        f"Loser: {loser_name}",
+        f"Headline: {base_copy['headline']}",
+        f"Subheadline: {base_copy['subheadline']}",
+        f"Story flags: {', '.join(gs.flags) if gs.flags else 'None'}",
+    ]
+    if winner_pitcher:
+        context_lines.append(f"Winning pitcher: {winner_pitcher}")
+    if loser_pitcher:
+        context_lines.append(f"Losing pitcher: {loser_pitcher}")
+    if save_pitcher:
+        context_lines.append(f"Save: {save_pitcher}")
+    if top_batters:
+        context_lines.append("Key performers: " + "; ".join(top_batters[:6]))
+    if innings_summary:
+        context_lines.append("Scoring by inning: " + "; ".join(innings_summary))
+
+    context = "\n".join(context_lines)
+
+    system_prompt = """You are the lead sportswriter for Barrel Proof Baseball, a vintage newspaper-style baseball publication. Your job is to write the lead story of the daily edition — the Game of the Day.
+
+Your writing style: authoritative, atmospheric, economical. Think Red Smith, not ESPN.com. No filler. No corporate sports language. No generic phrases like "put together a strong performance" or "had a great outing."
+
+Rules:
+- Write 4 to 5 paragraphs, 350 to 500 words total.
+- Paragraph 1: What happened — the result, the moment, the decisive play.
+- Paragraph 2: How the game developed — early innings, momentum, turning point.
+- Paragraph 3: Key performer — one player, specific numbers, specific moment.
+- Paragraph 4: Why it mattered — standings, context, what this game means.
+- Paragraph 5 (optional): Clean closing sentence. One thought. Not a summary.
+- Use full team names on first reference, abbreviations acceptable after.
+- Mention the winning and losing pitcher by name if available.
+- Do not use the headline or subheadline verbatim — the body should complement them.
+- Do not use bullet points, headers, or markdown.
+- Output plain paragraphs only, separated by newlines.
+- Do not start with "In a game" or "On [date]"."""
+
+    prompt = f"""Write the lead story for today's Game of the Day using this box score data:
+
+{context}
+
+Write 4-5 paragraphs of lead story copy. Plain text only. No markdown."""
+
+    try:
+        from google import genai
+        from google.genai import types as genai_types
+        from google.genai import types
+        client = genai.Client(api_key=api_key, http_options=genai_types.HttpOptions(api_version="v1"))
+        print("  Calling Gemini for expanded lead angle...", flush=True)
+        full_prompt = f"{system_prompt}\n\n{prompt}"
+        response = client.models.generate_content(
+            model=GEMINI_MODEL,
+            contents=full_prompt,
+            config=types.GenerateContentConfig(
+                max_output_tokens=8192,
+            ),
+        )
+        expanded = response.text.strip()
+        word_count = len(expanded.split())
+        print(f"  ✓ Expanded lead angle: {word_count} words", flush=True)
+        if word_count < 100:
+            print("  ⚠ Response too short — falling back to template", flush=True)
+            return base_copy["lead_angle"]
+        return expanded
+    except Exception as e:
+        print(f"  ⚠ Gemini call failed: {e} — using short lead angle", flush=True)
+        return base_copy["lead_angle"]
+
+
 # ── Build JSON output ─────────────────────────────────────────────────────────
-def build_output(winner, all_scored, date_str):
+def build_output(winner, all_scored, date_str, feed=None):
     dt = datetime.strptime(date_str, "%Y-%m-%d")
     copy = editorial(winner, date_str)
+    if feed is not None:
+        copy["lead_angle"] = expand_lead_angle(winner, copy, feed, date_str)
 
     ranked = []
     for rank, gs in enumerate(
@@ -786,6 +930,7 @@ def run(date_str):
     standings = fetch_standings(date_str)
 
     all_scored = []
+    feeds = {}
     for game in games:
         away = game["teams"]["away"]["team"]["abbreviation"]
         home = game["teams"]["home"]["team"]["abbreviation"]
@@ -795,6 +940,7 @@ def run(date_str):
             feed = fetch_live_feed(pk)
             gs   = score_game(game, feed, standings, date_str)
             all_scored.append(gs)
+            feeds[gs.game_pk] = feed
             print(f"{gs.raw_score:.1f} pts  [{', '.join(gs.flags) or '—'}]")
         except Exception as e:
             print(f"ERROR: {e}")
@@ -804,7 +950,8 @@ def run(date_str):
         return
 
     winner = pick_winner(all_scored)
-    output = build_output(winner, all_scored, date_str)
+    winner_feed = feeds.get(winner.game_pk, {})
+    output = build_output(winner, all_scored, date_str, feed=winner_feed)
 
     OUT_FILE.parent.mkdir(parents=True, exist_ok=True)
     OUT_FILE.write_text(json.dumps(output, indent=2, ensure_ascii=False), encoding="utf-8")
