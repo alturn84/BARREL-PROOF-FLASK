@@ -820,23 +820,30 @@ def expand_lead_angle(gs, base_copy, feed, date_str):
 
     context = "\n".join(context_lines)
 
-    system_prompt = """You are the lead sportswriter for Barrel Proof Baseball, a vintage newspaper-style baseball publication. Your job is to write the lead story of the daily edition — the Game of the Day.
+    system_prompt = """You are the lead sportswriter for Barrel Proof Baseball,
+a vintage newspaper-style baseball publication.
+Write the lead story of the daily edition — the Game of the Day.
 
-Your writing style: authoritative, atmospheric, economical. Think Red Smith, not ESPN.com. No filler. No corporate sports language. No generic phrases like "put together a strong performance" or "had a great outing."
+Style: authoritative, atmospheric, economical. Think Red Smith.
+No filler. No corporate sports language. No generic phrases.
+Do not use: "neither side would yield", "the story is full",
+"put together a strong performance", "had a great outing".
+Do not use markdown. No bold, no asterisks, no headers. Plain prose only.
+
+Structure — write exactly 3 paragraphs, 175 to 300 words total:
+Paragraph 1: What happened — the result, the decisive moment, the winning play.
+Paragraph 2: How the game developed — turning point, key inning, momentum shift.
+Paragraph 3: Key performer and why this game mattered — one player, specific
+numbers, standings context, closing thought.
 
 Rules:
-- Write 4 to 5 paragraphs, 350 to 500 words total.
-- Paragraph 1: What happened — the result, the moment, the decisive play.
-- Paragraph 2: How the game developed — early innings, momentum, turning point.
-- Paragraph 3: Key performer — one player, specific numbers, specific moment.
-- Paragraph 4: Why it mattered — standings, context, what this game means.
-- Paragraph 5 (optional): Clean closing sentence. One thought. Not a summary.
-- Use full team names on first reference, abbreviations acceptable after.
-- Mention the winning and losing pitcher by name if available.
-- Do not use the headline or subheadline verbatim — the body should complement them.
-- Do not use bullet points, headers, or markdown.
-- Output plain paragraphs only, separated by newlines.
-- Do not start with "In a game" or "On [date]"."""
+- Use full team names on first reference, city names acceptable after
+- Mention winning and losing pitcher by name if available
+- Mention the key offensive performer by name with specific numbers
+- Do not repeat the score more than twice
+- Do not start with "In a game" or "On [date]"
+- Output plain paragraphs only, separated by single blank lines
+- No markdown formatting of any kind"""
 
     prompt = f"""Write the lead story for today's Game of the Day using this box score data:
 
@@ -866,21 +873,30 @@ Write 4-5 paragraphs of lead story copy. Plain text only. No markdown."""
             return base_copy["lead_angle"], base_copy["headline"]
 
         # Generate improved headline
-        headline_prompt = f"""You are writing a headline for the lead story of a vintage baseball newspaper.
+        headline_prompt = f"""Write one headline for a baseball newspaper lead story.
 
-Game: {away_name} vs {home_name}
-Result: {gs.away} {gs.away_runs}, {gs.home} {gs.home_runs} ({gs.innings} innings)
-Winner: {winner_name}
-Story flags: {', '.join(gs.flags) if gs.flags else 'None'}
-Lead story opening: {expanded[:200]}
+Game: {away_name} at {home_name}
+Result: {winner_name} won {gs.away_runs if gs.winner == gs.away else gs.home_runs}-{gs.home_runs if gs.winner == gs.away else gs.away_runs}
+Innings: {gs.innings}
+Key story elements: {', '.join(gs.flags) if gs.flags else 'close game'}
+Winning pitcher: {winner_pitcher if winner_pitcher else 'unknown'}
+Key performer from lead story: {expanded[:150]}
 
-Write ONE headline only. Rules:
-- Use full team names or city names, not abbreviations
-- Mention the decisive element (walk-off, comeback, extra innings, dominant pitcher, etc.)
-- 6 to 12 words maximum
+Rules:
+- 5 to 10 words only
+- Use city names or full team names, never abbreviations
+- Reference the decisive moment or key player when possible
 - No punctuation at the end
 - No quotation marks
-- Plain text only"""
+- Plain text only
+- Do not include the score in the headline
+
+Good examples:
+"Soderstrom Powers Oakland Past Cubs in Ten Innings"
+"Athletics Outlast Chicago in Extras Behind Soderstrom"
+"Oakland Grinds Out Ten-Inning Win at Wrigley"
+
+Write the headline only. Nothing else."""
 
         try:
             hl_response = client.models.generate_content(
