@@ -72,6 +72,17 @@ def generate_game_summary(game, client):
     extra = f" ({innings} innings)" if innings > 9 else ""
     shutout = f" {loser} was held scoreless." if min(away_runs, home_runs) == 0 else ""
 
+    # Build verified name list from batting and pitching data
+    all_names = set()
+    for side in ("away_batting", "home_batting"):
+        for b in game.get(side, []):
+            if b.get("name"):
+                all_names.add(b["name"])
+    for side in ("away_pitching", "home_pitching"):
+        for p in game.get(side, []):
+            if p.get("name"):
+                all_names.add(p["name"])
+
     context = f"""Game: {away} at {home}{extra}
 Final: {away} {away_runs}, {home} {home_runs}
 Venue: {venue}
@@ -80,20 +91,50 @@ Losing pitcher: {lp}
 {"Save: " + sv if sv else ""}
 Pitching lines: {"; ".join(pitcher_lines[:3])}
 Key performers: {"; ".join(top_bats[:4]) if top_bats else "none notable"}
-{shutout}"""
+{shutout}
+VERIFIED PLAYER NAMES — only use names from this list: {", ".join(sorted(all_names))}
+DO NOT invent or alter player names."""
 
-    prompt = f"""Write a 2-sentence baseball game summary for a vintage newspaper. 40-65 words.
+    prompt = f"""Write a 1-2 sentence baseball game summary. 35-60 words.
 
 {context}
 
-Rules:
-- Do not start with the winning team name
+RULES:
+- Use team nicknames not city names (Yankees not New York, Mets not New York, Dodgers not Los Angeles, Angels not Los Angeles)
+- Explain why the game turned — name one specific play, pitcher, or at-bat
+- Name one player who made the difference with a specific detail
 - Mention the final score once
-- Name one key pitcher and one key offensive performer
-- Use full city names on first reference
-- Write like a beat reporter, not a statistician
+- Start with the key moment or player, not the winning team name
+- CRITICAL: Only use player names from the VERIFIED PLAYER NAMES list. Never invent or alter names.
 - No markdown, no bold, plain prose only
-- Do not say "allowed X earned runs" — say what happened instead"""
+
+BANNED PHRASES — never use:
+- "proved the difference"
+- "the decisive blow"
+- "the contest"
+- "hopes were dashed"
+- "ultimately prevailed"
+- "the affair"
+- "the game unfolded"
+- "allowed X earned runs"
+- "pitched X innings allowing"
+- "strong performance"
+
+NAMES — CRITICAL:
+- Player names in the data appear as "D.Dingler" or "J.Smith" — use only the last name (Dingler, Smith)
+- Never guess or invent a full first name from an initial
+- If you need to reference a player specifically, use their last name only
+
+GOOD EXAMPLES:
+"Tarik Skubal struck out nine and the Tigers backed him with three home runs in a convincing win over Tampa Bay."
+"Pete Alonso's seventh-inning homer broke a 2-2 tie and the Mets held on as New York finished off Seattle, 4-2."
+"A four-run eighth turned a Phillies deficit into a win, with Bryce Harper driving in two to cap the rally against Atlanta."
+
+BAD EXAMPLES:
+"New York beat Seattle 4-2. The winning pitcher allowed 2 earned runs over 6 innings."
+"The decisive blow came in the seventh when the Mets scored twice."
+"Washington's hopes were dashed in extra innings."
+"""
 
     try:
         from google.genai import types

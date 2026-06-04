@@ -250,18 +250,62 @@ def build_copy(game, breakdown, away_era, home_era):
 
     # Reason
     reasons = []
-    if has_aces:
+    if has_aces and away_era and home_era:
+        combined = (away_era + home_era) / 2
         reasons.append(
-            f"One of the better pitching matchups on the slate"
-            + (f" — combined ERA of {((away_era or 0) + (home_era or 0)) / 2:.2f}" if away_era and home_era else "")
+            f"{away_pitcher} ({away_era:.2f} ERA) against {home_pitcher} ({home_era:.2f} ERA) "
+            f"is one of Thursday's better pitching matchups"
         )
+    elif has_aces and away_era:
+        reasons.append(
+            f"{away_pitcher} ({away_era:.2f} ERA) takes the mound in a game "
+            f"where pitching figures to dominate"
+        )
+    elif has_aces and home_era:
+        reasons.append(
+            f"{home_pitcher} ({home_era:.2f} ERA) gives {home_full} an edge "
+            f"in what should be a low-scoring game"
+        )
+    elif away_pitcher and home_pitcher:
+        reasons.append(
+            f"{away_pitcher} faces {home_pitcher} in a matchup "
+            f"worth watching from the first pitch"
+        )
+
     if is_rivalry:
-        reasons.append("a natural rivalry adds stakes beyond the standings")
+        reasons.append(
+            f"{away_full} and {home_full} have history — "
+            f"this rivalry adds weight to every at-bat"
+        )
+
     if is_standings:
-        reasons.append("both clubs are in the thick of the division race")
+        away_gb_str = f"{away_std.get('gb', '—')} GB" if away_std.get('gb', 99) < 99 else ""
+        home_gb_str = f"{home_std.get('gb', '—')} GB" if home_std.get('gb', 99) < 99 else ""
+        if away_gb_str and home_gb_str:
+            reasons.append(
+                f"Both teams are in the thick of the division race "
+                f"({away} {away_gb_str}, {home} {home_gb_str})"
+            )
+        else:
+            reasons.append(
+                f"This one has division implications — "
+                f"a loss here hurts in the standings"
+            )
+
     if not reasons:
-        reasons.append("This is the strongest overall matchup on today's schedule, with enough pitching quality, team context, and game stakes to make it the featured watch.")
-    reason = ". ".join(r.capitalize() for r in reasons)
+        if away_pitcher and home_pitcher:
+            reasons.append(
+                f"{away_pitcher} and {home_pitcher} square off "
+                f"in the day's featured game"
+            )
+        else:
+            reasons.append(
+                f"{away_full} at {home_full} is the best overall matchup "
+                f"on today's schedule"
+            )
+    def cap_first(s):
+        return s[:1].upper() + s[1:] if s else s
+    reason = ". ".join(cap_first(r) for r in reasons)
     if not reason.endswith("."):
         reason += "."
 

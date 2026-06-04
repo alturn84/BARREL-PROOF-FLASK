@@ -34,18 +34,22 @@ ARCHIVE   = VAULT / "Archive"
 OUT_FILE  = SITE_DATA / "press_box.json"
 
 MODEL          = "gemini-2.5-flash"   # change here to swap Gemini models
-MAX_TOKENS     = 2048
+MAX_TOKENS     = 4096
 CONTEXT_DAYS   = 7
 MAX_CTX_TOKENS = 2000
 
 SYSTEM_PROMPT = """You write the Press Box notebook for Barrel Proof Baseball.
 
-The Press Box is a daily baseball news digest. Format it as bullet points.
-- 10 to 15 bullets minimum — use every significant transaction
-  in the data, do not omit items to be brief
-- One sentence per bullet, maximum 30 words
+FORMAT — output bullet points only:
+- One sentence per bullet
+- 6 to 10 bullets
+- Maximum 25 words per bullet
+- No paragraphs
+- No intro sentence
+- No closing sentence
+- Start every bullet with •
 
-Cover only these topics — skip any category you have no data for:
+COVER ONLY:
 - Injured list placements and returns
 - Designated for assignment moves
 - Call-ups from the minors
@@ -55,20 +59,37 @@ Cover only these topics — skip any category you have no data for:
 - Suspensions or disciplinary actions
 - Career milestones (500 HR, 3000 hits, 300 wins, etc.)
 
-Do not include:
+PRIORITY ORDER — list items in this order, most important first:
+1. Significant injuries (torn ligaments, fractures, season-ending)
+2. DFA moves
+3. Trades
+4. Free agent signings
+5. Call-ups from the minors
+6. Rehab assignments
+7. Minor roster moves and option assignments
+
+Do not simply list items in the order they appear in the data.
+Rank by news value. A torn ACL comes before a rehab assignment.
+
+DO NOT INCLUDE:
 - Game scores or recaps
 - Standings information
 - Opinion or analysis
-- Any item you cannot directly source from the transactions data provided
+- Any item not directly sourced from the transactions data
 
-Format rules:
-- Start each bullet with a bullet character: •
-- One sentence per bullet, maximum 30 words
-- Plain text only, no markdown, no bold, no asterisks
-- No section headers
-- No intro sentence before the bullets
-- No closing sentence after the bullets
-- Output bullets only"""
+STYLE RULES:
+- Plain text only
+- No markdown, no bold, no asterisks, no headers
+- Use full team names on first reference
+- Be specific: name the player, the team, the injury or move
+- Do not pad with generic phrases
+
+GOOD EXAMPLE:
+- Brewers placed LHP Rob Zastryzny on the 15-day injured list with a left trapezius strain.
+- Blue Jays sent RHP Yimi García on a rehab assignment to Triple-A Buffalo.
+
+BAD EXAMPLE:
+- The Milwaukee Brewers have announced a roster move involving their left-handed pitching staff."""
 
 
 def load_json(path):

@@ -617,9 +617,9 @@ def editorial(gs, date_str):
             "headline":    f"{gs.innings} innings. {gs.winner} finally puts it away.",
             "subheadline": f"{score_str} in a marathon that went to the {inn_str}th.",
             "lead_angle":  (
-                f"Neither side would yield. {winner_name} and {loser_name} played through "
-                f"{gs.innings} innings before {gs.winner} walked away with a {score_str} win. "
-                f"The bullpens are empty; the story is full."
+                f"{winner_name} and {loser_name} played {gs.innings} innings before "
+                f"{gs.winner} walked away with it, {score_str}. "
+                f"When baseball goes this long, somebody earns it."
             ),
             "reason": f"Marathon ball. {gs.innings} innings of sustained tension makes this the day's standout.",
         }
@@ -732,12 +732,12 @@ def editorial(gs, date_str):
     return {
         "headline":    f"{gs.winner} {gs.home_runs if gs.winner == gs.home else gs.away_runs}, "
                        f"{gs.loser} {gs.home_runs if gs.loser == gs.home else gs.away_runs}.",
-        "subheadline": f"{winner_name} takes the day's marquee matchup.",
+        "subheadline": f"{winner_name} beats {loser_name}.",
         "lead_angle":  (
-            f"{winner_name} beat {loser_name} {score_str} in the game that stood out most "
-            f"from a full slate. {lead_flag.capitalize()}."
+            f"{winner_name} took care of business against {loser_name}, {score_str}. "
+            f"{lead_flag.capitalize()}."
         ),
-        "reason": f"Highest composite score on today's slate. Flags: {', '.join(gs.flags) or 'None'}.",
+        "reason": f"Best game on today's slate.",
     }
 
 
@@ -818,32 +818,70 @@ def expand_lead_angle(gs, base_copy, feed, date_str):
     if innings_summary:
         context_lines.append("Scoring by inning: " + "; ".join(innings_summary))
 
+    # Build verified player name list from actual box score data
+    verified_names = []
+    for side in ("away", "home"):
+        players = bs.get("teams", {}).get(side, {}).get("players", {})
+        for _, p in players.items():
+            full_name = p.get("person", {}).get("fullName", "")
+            if full_name:
+                verified_names.append(full_name)
+    if verified_names:
+        context_lines.append(
+            "VERIFIED PLAYER NAMES — only use names from this list: "
+            + ", ".join(sorted(set(verified_names)))
+        )
+        context_lines.append(
+            "DO NOT invent or alter player names. If a name is not on this list, do not use it."
+        )
+
     context = "\n".join(context_lines)
 
-    system_prompt = """You are the lead sportswriter for Barrel Proof Baseball,
-a vintage newspaper-style baseball publication.
-Write the lead story of the daily edition — the Game of the Day.
+    system_prompt = """You are a baseball columnist writing the lead story for Barrel Proof Baseball, a vintage newspaper publication.
 
-Style: authoritative, atmospheric, economical. Think Red Smith.
-No filler. No corporate sports language. No generic phrases.
-Do not use: "neither side would yield", "the story is full",
-"put together a strong performance", "had a great outing".
-Do not use markdown. No bold, no asterisks, no headers. Plain prose only.
+Write like a beat writer from the old sports pages. Economical. Specific. No filler. No AI recap language.
 
-Structure — write exactly 3 paragraphs, 175 to 300 words total:
-Paragraph 1: What happened — the result, the decisive moment, the winning play.
-Paragraph 2: How the game developed — turning point, key inning, momentum shift.
-Paragraph 3: Key performer and why this game mattered — one player, specific
-numbers, standings context, closing thought.
+BANNED PHRASES — never use these:
+- "The contest began"
+- "The decisive blow came"
+- "The story was"
+- "neither side would yield"
+- "the game finally settled it"
+- "the outcome underscored"
+- "put together a strong performance"
+- "had a great outing"
+- "in a game that"
+- "the bullpens are empty"
+- "the story is full"
+- "the affair"
+- "ultimately prevailed"
+- "the game unfolded"
+- "hopes were dashed"
+- "the club"
+- "proved the difference"
 
-Rules:
-- Use full team names on first reference, city names acceptable after
-- Mention winning and losing pitcher by name if available
-- Mention the key offensive performer by name with specific numbers
-- Do not repeat the score more than twice
-- Do not start with "In a game" or "On [date]"
-- Output plain paragraphs only, separated by single blank lines
-- No markdown formatting of any kind"""
+STRUCTURE — write exactly 3 paragraphs, 175 to 300 words total:
+Paragraph 1: The result and the decisive moment. Name the winning team, the score, and the play or player that decided it. Start with action, not setup.
+Paragraph 2: How the game turned. One specific inning, one specific sequence. What changed?
+Paragraph 3: The player who mattered most. Specific numbers. Why this game matters in the standings or season context.
+
+RULES:
+- Use full team names on first reference
+- Name the winning and losing pitcher
+- Name the key offensive performer with specific numbers
+- Do not repeat the score more than once
+- Do not start with "In a game" or "On [date]" or "The [team]"
+- CRITICAL: Only use player names that appear in the VERIFIED PLAYER NAMES list. Never invent, guess, or alter player names. If unsure of a name, do not use it.
+- No markdown, no bold, no asterisks
+- Plain paragraphs only, separated by single blank lines
+- 175 to 300 words total — no more, no less
+
+GOOD EXAMPLE VOICE:
+"Oakland had spent most of the afternoon waiting for one clean swing. It finally came in the tenth, when Tyler Soderstrom lined a single to center that scored the go-ahead run and sent Wrigley Field quiet."
+
+BAD EXAMPLE VOICE:
+"The contest began as a display of power before the decisive blow came in extra innings, fundamentally shifting the game's energy."
+"""
 
     prompt = f"""Write the lead story for today's Game of the Day using this box score data:
 
@@ -883,7 +921,9 @@ Winning pitcher: {winner_pitcher if winner_pitcher else 'unknown'}
 Key performer from lead story: {expanded[:150]}
 
 Rules:
-- 5 to 10 words only
+- 6 to 12 words
+- Must be a complete grammatical phrase — do not cut off mid-thought
+- If describing extra innings, write "Ten Innings" or "Extra Innings" not just "Ten"
 - Use city names or full team names, never abbreviations
 - Reference the decisive moment or key player when possible
 - No punctuation at the end
@@ -908,7 +948,7 @@ Write the headline only. Nothing else."""
             )
             headline = hl_response.text.strip().strip('"').strip("'")
             print(f"  DEBUG headline raw: {repr(headline[:200])}", flush=True)
-            if 3 <= len(headline.split()) <= 15:
+            if 3 <= len(headline.split()) <= 20:
                 print(f"  ✓ Generated headline: {headline}", flush=True)
                 return expanded, headline
             else:
