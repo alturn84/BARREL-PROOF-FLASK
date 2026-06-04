@@ -34,14 +34,16 @@ ARCHIVE   = VAULT / "Archive"
 OUT_FILE  = SITE_DATA / "press_box.json"
 
 MODEL          = "gemini-2.5-flash"   # change here to swap Gemini models
-MAX_TOKENS     = 4096
+MAX_TOKENS     = 2048
 CONTEXT_DAYS   = 7
 MAX_CTX_TOKENS = 2000
 
 SYSTEM_PROMPT = """You write the Press Box notebook for Barrel Proof Baseball.
 
-The Press Box is a daily baseball news digest. Format it as 6 to 10 bullet points.
-Each bullet is one sentence, maximum 25 words.
+The Press Box is a daily baseball news digest. Format it as bullet points.
+- 10 to 15 bullets minimum — use every significant transaction
+  in the data, do not omit items to be brief
+- One sentence per bullet, maximum 30 words
 
 Cover only these topics — skip any category you have no data for:
 - Injured list placements and returns
@@ -61,7 +63,7 @@ Do not include:
 
 Format rules:
 - Start each bullet with a bullet character: •
-- One sentence per bullet, maximum 25 words
+- One sentence per bullet, maximum 30 words
 - Plain text only, no markdown, no bold, no asterisks
 - No section headers
 - No intro sentence before the bullets
@@ -383,18 +385,22 @@ def run(date_str):
         article_title = "MLB Daily Recap"
         article_body = cleaned
 
-    # Heuristically generate column text (first few sentences, aiming for > 50 words)
-    sentences = re.findall(r"([^.!?]+[.!?])", article_body, re.DOTALL)
-    column_text_sentences = []
-    current_word_count = 0
-    for sentence in sentences:
-        column_text_sentences.append(sentence)
-        current_word_count += len(sentence.split())
-        if current_word_count >= 50 and len(column_text_sentences) >= 3:
-            break
-    column_text = "".join(column_text_sentences).strip()
-    if not column_text:
-        column_text = article_body[:500].strip() # Fallback to first 500 chars
+    # For bullet format (starts with •), use the full body as column text
+    if article_body.strip().startswith("•"):
+        column_text = article_body.strip()
+    else:
+        # Heuristically generate column text (first few sentences, aiming for > 50 words)
+        sentences = re.findall(r"([^.!?]+[.!?])", article_body, re.DOTALL)
+        column_text_sentences = []
+        current_word_count = 0
+        for sentence in sentences:
+            column_text_sentences.append(sentence)
+            current_word_count += len(sentence.split())
+            if current_word_count >= 50 and len(column_text_sentences) >= 3:
+                break
+        column_text = "".join(column_text_sentences).strip()
+        if not column_text:
+            column_text = article_body[:500].strip()  # Fallback to first 500 chars
 
     # Heuristically generate teaser text (first sentence)
     first_sentence_match = re.search(r"^(.*?\.)(?:\s|$)", column_text, re.DOTALL)

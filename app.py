@@ -92,6 +92,11 @@ def get_all_teams():
     teams = data.get("teams", [])
     return sorted(teams, key=lambda t: (t.get("league", ""), t.get("division", ""), t.get("name", "")))
 
+def get_team_nicknames():
+    """Returns dict mapping abbr -> nickname, e.g. 'NYY' -> 'Yankees'"""
+    data = load_json("teams.json", fallback={})
+    return {t["abbr"]: t["nickname"] for t in data.get("teams", []) if t.get("abbr") and t.get("nickname")}
+
 def load_roster_md(team_name):
     """
     Load a team roster from Rosters/ markdown files.
@@ -215,6 +220,29 @@ def get_game_to_watch():
     if gtw_date and schedule_date and gtw_date != schedule_date:
         print(f"  ⚠ DATA-003: game_to_watch suppressed — gtw date ({gtw_date}) != schedule slate date ({schedule_date})")
         return None
+    # Clean internal scoring language from reason field
+    bad_phrases = [
+        "composite score", "ranking score", "algorithm",
+        "model output", "best composite", "score on today's slate",
+        "highest composite", "slate score"
+    ]
+    reason = data.get("reason", "")
+    reason_lower = reason.lower()
+    if any(phrase in reason_lower for phrase in bad_phrases):
+        # Replace with editorial explanation based on breakdown
+        breakdown = data.get("breakdown", {})
+        away_full = data.get("away_full", data.get("away", ""))
+        home_full = data.get("home_full", data.get("home", ""))
+        away_pitcher = data.get("away_pitcher", "")
+        home_pitcher = data.get("home_pitcher", "")
+        if breakdown.get("pitching_matchup", 0) >= 30:
+            data["reason"] = f"Features one of the stronger pitching matchups on the slate — {away_pitcher} against {home_pitcher}."
+        elif breakdown.get("national_relevance", 0) >= 20:
+            data["reason"] = f"Two nationally relevant clubs meet in a game with playoff implications."
+        elif breakdown.get("division_race", 0) >= 20:
+            data["reason"] = f"A division matchup with standings implications."
+        else:
+            data["reason"] = f"{away_full} and {home_full} meet in today's featured game."
     return data
 
 def get_press_box():
@@ -600,6 +628,21 @@ def homepage():
         elif gotd_date and gc_date and gotd_date != gc_date:
             print(f"  ⚠ MEDIA-001: lead image suppressed — gotd.date ({gotd_date}) != game_cards.date ({gc_date})")
 
+    # Find GOTD game in game_cards for box score display
+    gotd_game = None
+    if gotd:
+        gotd_away = gotd.get("game", {}).get("away", "")
+        gotd_home = gotd.get("game", {}).get("home", "")
+        for g in games:
+            if g.get("away_abbr") == gotd_away and g.get("home_abbr") == gotd_home:
+                gotd_game = g
+                break
+
+    from datetime import date
+    edition_date = date.today().strftime("%B %-d, %Y").upper() + " EDITION"
+
+    team_nicknames = get_team_nicknames()
+
     return render_template(
         "home.html",
         standings=standings,
@@ -617,6 +660,9 @@ def homepage():
         gtw=gtw,
         pb=pb,
         lead_image=lead_image,
+        gotd_game=gotd_game,
+        edition_date=edition_date,
+        team_nicknames=team_nicknames,
     )
 
 

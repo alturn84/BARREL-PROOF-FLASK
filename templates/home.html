@@ -266,40 +266,6 @@ nav.main-nav{animation:fadeUp .5s .08s ease both;}
   color:var(--smoke); border-top:.5px solid var(--rule); padding-top:10px;
   font-style:italic;
 }
-/* ── Around the League ───────────────────────────────────────────── */
-.atl-wrap { margin-bottom: 28px; }
-
-.section-sub {
-  font-family: var(--mono); font-size: 9px;
-  letter-spacing: .12em; color: var(--smoke);
-  white-space: nowrap;
-}
-.atl-list {
-  list-style: none; padding: 0; margin: 0;
-  border-bottom: 1px solid var(--rule-heavy);
-}
-.atl-item {
-  padding: 12px 0;
-  border-bottom: .5px solid var(--rule);
-  list-style: none;
-}
-.atl-item:last-child { border-bottom: none; }
-.atl-item-hl {
-  font-family: var(--serif-display);
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--cream);
-  line-height: 1.2;
-  margin-bottom: 4px;
-  letter-spacing: -.01em;
-}
-.atl-item-body {
-  font-family: var(--serif-body);
-  font-size: 13px;
-  line-height: 1.62;
-  color: var(--parchment2);
-  font-weight: 300;
-}
 /* ── Press Box ───────────────────────────────────────────────────── */
 .pb-wrap { margin-bottom: 28px; }
 .pb-hdr-row {
@@ -483,6 +449,32 @@ nav.main-nav{animation:fadeUp .5s .08s ease both;}
     padding: 0;
   }
 }
+/* ── GOTD box score panel ─────────────────────────────────────────── */
+.gotd-boxscore {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--rule-heavy);
+}
+.gotd-bx-hdr {
+  font-family: var(--serif-sc);
+  font-size: 9px;
+  letter-spacing: .20em;
+  color: var(--cream-dim);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+/* ── Masthead edition date ────────────────────────────────────────── */
+.masthead-edition {
+  font-family: var(--mono);
+  font-size: clamp(9px, 0.9vw, 13px);
+  letter-spacing: .28em;
+  color: var(--ink);
+  opacity: 0.75;
+  text-align: center;
+  margin-top: 10px;
+  text-transform: uppercase;
+  text-shadow: 0 1px 0 rgba(240,230,204,0.5);
+}
 /* ── Press Box bullets ────────────────────────────────────────────── */
 .pb-bullets {
   list-style: none;
@@ -508,22 +500,6 @@ nav.main-nav{animation:fadeUp .5s .08s ease both;}
   font-size: 10px;
   color: var(--cream-dim);
   flex-shrink: 0;
-}
-/* ── ATL section header ───────────────────────────────────────────── */
-.atl-wrap .section-hdr {
-  justify-content: center;
-  border-bottom: 1px solid var(--cream-dim);
-  padding-bottom: 10px;
-  margin-bottom: 14px;
-}
-.atl-wrap .section-title {
-  font-size: 13px;
-  letter-spacing: .30em;
-  color: var(--cream);
-  text-align: center;
-}
-.atl-wrap .section-rule {
-  display: none;
 }
 /* ── Frontispiece ─────────────────────────────────────────────────── */
 .frontispiece {
@@ -562,6 +538,7 @@ nav.main-nav{animation:fadeUp .5s .08s ease both;}
         <div class="masthead-tagline-line">BASEBALL</div>
         <div class="masthead-tagline-line masthead-tagline-sub">ENJOY RESPONSIBLY</div>
       </div>
+      <div class="masthead-edition">{{ edition_date }}</div>
     </div>
   </div>
 </header>
@@ -597,7 +574,13 @@ nav.main-nav{animation:fadeUp .5s .08s ease both;}
 
 <div class="date-banner">
   <div class="date-banner-line"></div>
-  <div class="date-banner-text">{{ games_date if games_date else "Game Summaries" }}</div>
+  <div class="date-banner-text">
+    {% if games_date %}
+      {{ games_date | upper }} GAMES &amp; RESULTS
+    {% else %}
+      GAME RESULTS
+    {% endif %}
+  </div>
   <div class="date-banner-line"></div>
 </div>
 
@@ -626,14 +609,51 @@ nav.main-nav{animation:fadeUp .5s .08s ease both;}
       <p class="gotd-body">{{ gotd.editorial.lead_angle }}</p>
       <a class="gotd-readmore" href="/box-scores">Full Box Score →</a>
     </div>
-    {% if lead_image %}
+    {% if lead_image or gotd_game %}
     <div class="gotd-image-panel">
+      {% if lead_image %}
       <div class="gotd-image-wrap">
         <img src="{{ lead_image.url }}" alt="{{ lead_image.caption }}">
         <div class="gotd-image-caption">
           {{ lead_image.caption }}<span class="gotd-image-credit">{{ lead_image.credit }}</span>
         </div>
       </div>
+      {% endif %}
+      {% if gotd_game %}
+      <div class="gotd-boxscore">
+        <div class="gotd-bx-hdr">Box Score</div>
+        <div class="bx-line-wrap">
+          <table class="bx-line">
+            <thead>
+              <tr>
+                <th class="tn"></th>
+                {% for inn in gotd_game.innings %}<th>{{ inn }}</th>{% endfor %}
+                <th class="sep">R</th><th>H</th><th>E</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="{% if gotd_game.winner == 'away' %}w{% endif %}">
+                <td class="tn">{{ gotd_game.away_abbr }}</td>
+                {% for run in gotd_game.away_line %}<td>{{ run }}</td>{% endfor %}
+                {% for val in gotd_game.away_rhe %}<td class="{% if loop.first %}sep{% endif %}">{{ val }}</td>{% endfor %}
+              </tr>
+              <tr class="{% if gotd_game.winner == 'home' %}w{% endif %}">
+                <td class="tn">{{ gotd_game.home_abbr }}</td>
+                {% for run in gotd_game.home_line %}<td>{{ run }}</td>{% endfor %}
+                {% for val in gotd_game.home_rhe %}<td class="{% if loop.first %}sep{% endif %}">{{ val }}</td>{% endfor %}
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        {% if gotd_game.decisions %}
+        <div class="bx-meta" style="margin-top:6px;">
+          {% if gotd_game.decisions.W %}<b>W:</b> {{ gotd_game.decisions.W }}{% endif %}
+          {% if gotd_game.decisions.L %} &nbsp;<b>L:</b> {{ gotd_game.decisions.L }}{% endif %}
+          {% if gotd_game.decisions.SV %} &nbsp;<b>SV:</b> {{ gotd_game.decisions.SV }}{% endif %}
+        </div>
+        {% endif %}
+      </div>
+      {% endif %}
     </div>
     {% endif %}
 
@@ -659,7 +679,11 @@ nav.main-nav{animation:fadeUp .5s .08s ease both;}
         <span class="gtw-vs">vs.</span>
         <span class="gtw-pitcher">{{ gtw.home_pitcher }}{% if gtw.home_era != '—' %} <span class="gtw-era">{{ gtw.home_era }}</span>{% endif %}</span>
       </div>
+      {% if gtw.reason %}
       <div class="gtw-reason">{{ gtw.reason }}</div>
+      {% elif gtw.subheadline %}
+      <div class="gtw-reason">{{ gtw.subheadline }}</div>
+      {% endif %}
     </div>
     {% endif %}
 
@@ -717,18 +741,22 @@ nav.main-nav{animation:fadeUp .5s .08s ease both;}
     <div class="games-list">
       {% if games %}
         {% for game in games %}
+        {% set is_gotd = gotd_game and game.away_abbr == gotd_game.away_abbr and game.home_abbr == gotd_game.home_abbr %}
+        {% if not is_gotd %}
         <div class="game-card">
           <div class="gc-left">
             <div class="gc-kicker">
               {{ game.away_city }} @ {{ game.home_city }}{% if game.venue %} · {{ game.venue }}{% endif %}
             </div>
             <h2 class="gc-headline">
+              {% set away_nick = team_nicknames.get(game.away_abbr, game.away_city) %}
+              {% set home_nick = team_nicknames.get(game.home_abbr, game.home_city) %}
               {% if game.winner == "away" %}
-                {{ game.away_city }} beats {{ game.home_city }}, {{ game.away_runs }}-{{ game.home_runs }}
+                {{ away_nick }} beat {{ home_nick }}, {{ game.away_runs }}-{{ game.home_runs }}
               {% elif game.winner == "home" %}
-                {{ game.home_city }} beats {{ game.away_city }}, {{ game.home_runs }}-{{ game.away_runs }}
+                {{ home_nick }} beat {{ away_nick }}, {{ game.home_runs }}-{{ game.away_runs }}
               {% else %}
-                {{ game.away_city }} and {{ game.home_city }} go final
+                {{ away_nick }} and {{ home_nick }} go final
               {% endif %}
             </h2>
             <div class="gc-score">
@@ -807,6 +835,7 @@ nav.main-nav{animation:fadeUp .5s .08s ease both;}
             </div>
           </div>
         </div>
+        {% endif %}{# /not is_gotd #}
         {% endfor %}
       {% else %}
         <div class="game-card">
@@ -822,28 +851,6 @@ nav.main-nav{animation:fadeUp .5s .08s ease both;}
 
   {# TRI-RIGHT: Around the League + Press Box #}
   <div class="tri-right">
-
-    {% if atl and atl['items'] %}
-    <div class="atl-wrap">
-      <div class="section-hdr">
-        <div class="section-title">Around the League</div>
-        <div class="section-rule"></div>
-      </div>
-      <ul class="atl-list">
-        {% for item in atl['items'] %}
-        <li class="atl-item">
-          {% set comma_pos = item.find(',') %}
-          {% if comma_pos > 0 and comma_pos < 60 %}
-            <div class="atl-item-hl">{{ item[:comma_pos] }}</div>
-            <div class="atl-item-body">{{ item[comma_pos+1:].strip() }}</div>
-          {% else %}
-            <div class="atl-item-hl">{{ item }}</div>
-          {% endif %}
-        </li>
-        {% endfor %}
-      </ul>
-    </div>
-    {% endif %}
 
     {% if pb and pb.passed_validation %}
     <div class="pb-wrap">
