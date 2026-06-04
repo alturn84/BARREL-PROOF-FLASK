@@ -260,8 +260,10 @@ def build_copy(game, breakdown, away_era, home_era):
     if is_standings:
         reasons.append("both clubs are in the thick of the division race")
     if not reasons:
-        reasons.append("best composite score on today's slate")
-    reason = ". ".join(r.capitalize() for r in reasons) + "."
+        reasons.append("This is the strongest overall matchup on today's schedule, with enough pitching quality, team context, and game stakes to make it the featured watch.")
+    reason = ". ".join(r.capitalize() for r in reasons)
+    if not reason.endswith("."):
+        reason += "."
 
     return headline, subheadline, reason
 
