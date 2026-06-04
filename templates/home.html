@@ -652,6 +652,43 @@ nav.main-nav{animation:fadeUp .5s .08s ease both;}
           {% if gotd_game.decisions.SV %} &nbsp;<b>SV:</b> {{ gotd_game.decisions.SV }}{% endif %}
         </div>
         {% endif %}
+        <div class="bx-divider" style="margin-top:8px;"></div>
+        <div class="bx-dual">
+          <div class="bx-team-block">
+            <div class="bx-team-name">{{ gotd_game.away_abbr }}</div>
+            <table class="bx-player-table">
+              <thead><tr><th class="pn"></th><th>AB</th><th>R</th><th>H</th><th>RBI</th></tr></thead>
+              <tbody>
+                {% for batter in gotd_game.away_batting[:9] %}
+                <tr><td class="pn">{{ batter.name }}{% if batter.pos %}, {{ batter.pos }}{% endif %}</td><td>{{ batter.ab }}</td><td>{{ batter.r }}</td><td>{{ batter.h }}</td><td>{{ batter.rbi }}</td></tr>
+                {% endfor %}
+                <tr class="pitch-hdr"><td class="pn">Pitching</td><td>IP</td><td>ER</td><td>K</td><td></td></tr>
+                {% for pitcher in gotd_game.away_pitching[:4] %}
+                <tr class="pitcher-row{% if gotd_game.decisions and pitcher.name == gotd_game.decisions.W %} wp{% endif %}">
+                  <td class="pn">{{ pitcher.name }}</td><td>{{ pitcher.ip }}</td><td>{{ pitcher.er }}</td><td>{{ pitcher.k }}</td><td></td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          <div class="bx-team-block">
+            <div class="bx-team-name">{{ gotd_game.home_abbr }}</div>
+            <table class="bx-player-table">
+              <thead><tr><th class="pn"></th><th>AB</th><th>R</th><th>H</th><th>RBI</th></tr></thead>
+              <tbody>
+                {% for batter in gotd_game.home_batting[:9] %}
+                <tr><td class="pn">{{ batter.name }}{% if batter.pos %}, {{ batter.pos }}{% endif %}</td><td>{{ batter.ab }}</td><td>{{ batter.r }}</td><td>{{ batter.h }}</td><td>{{ batter.rbi }}</td></tr>
+                {% endfor %}
+                <tr class="pitch-hdr"><td class="pn">Pitching</td><td>IP</td><td>ER</td><td>K</td><td></td></tr>
+                {% for pitcher in gotd_game.home_pitching[:4] %}
+                <tr class="pitcher-row{% if gotd_game.decisions and pitcher.name == gotd_game.decisions.W %} wp{% endif %}">
+                  <td class="pn">{{ pitcher.name }}</td><td>{{ pitcher.ip }}</td><td>{{ pitcher.er }}</td><td>{{ pitcher.k }}</td><td></td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
       {% endif %}
     </div>
