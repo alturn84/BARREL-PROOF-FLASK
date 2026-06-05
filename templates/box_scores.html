@@ -10,138 +10,177 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/hero-banners.css') }}"/>
 <style>
 :root{
-  --ink:#1A1108;--ink-soft:#221808;--parchment:#F0E6CC;--parchment2:#D8C9A8;
-  --cream:#EDE5D0;--cream-dim:#887C60;--cream-mid:#C8BC98;--smoke:#7A6A52;
-  --smoke-light:#A89070;--leather:#4E3A20;--rule:rgba(136,124,96,.25);
-  --rule-heavy:rgba(136,124,96,.65);--serif-display:'Playfair Display',Georgia,serif;
-  --serif-sc:'Playfair Display SC',Georgia,serif;--serif-body:'Source Serif 4',Georgia,serif;
+  --ink:#1A1108;--ink-card:#1E1208;--leather:#3A2010;
+  --parchment:#F5EDD8;--parchment2:#D8C9A8;--parchment3:#C8BC98;
+  --gold:#A89070;--gold-dim:#887C60;--zero:#5A4A32;
+  --rule:rgba(168,144,112,.4);--rule-heavy:rgba(168,144,112,.6);
+  --serif:'Playfair Display',Georgia,serif;
+  --serif-sc:'Playfair Display SC',Georgia,serif;
+  --serif-body:'Source Serif 4',Georgia,serif;
   --mono:'IBM Plex Mono','Courier New',monospace;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{font-size:16px;}
-body{background:var(--ink);color:var(--parchment);font-family:var(--serif-body);
+body{background:var(--ink);color:var(--parchment2);font-family:var(--serif-body);
   line-height:1.6;min-height:100vh;-webkit-font-smoothing:antialiased;}
 a{color:inherit;text-decoration:none;}
 body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
   opacity:0.55;}
-.page{position:relative;z-index:1;max-width:1600px;margin:0 auto;padding:0 clamp(24px,8vw,120px) 60px;}
+.page{position:relative;z-index:1;max-width:1280px;margin:0 auto;padding:0 48px 80px;}
 
 /* ── TICKER ── */
-.ticker-bar{background:var(--leather);border-bottom:1px solid var(--cream-dim);
-  padding:6px 0;overflow:hidden;}
+.ticker-bar{background:var(--leather);border-bottom:1px solid var(--gold);
+  padding:7px 0;overflow:hidden;}
 .ticker-inner{display:flex;align-items:center;white-space:nowrap;
-  animation:ticker 60s linear infinite;}
+  animation:ticker 70s linear infinite;}
 .ticker-inner:hover{animation-play-state:paused;}
 @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.ticker-item{font-family:var(--mono);font-size:11px;letter-spacing:.04em;
-  color:var(--parchment2);padding:0 28px;display:inline-flex;align-items:center;gap:10px;}
-.ticker-item .winner{color:var(--cream);font-weight:500;}
-.ticker-item .div{color:var(--cream-dim);opacity:.6;}
+.ticker-item{font-family:var(--mono);font-size:12px;font-weight:600;
+  letter-spacing:.05em;color:var(--parchment);padding:0 32px;
+  display:inline-flex;align-items:center;gap:12px;}
+.ticker-item .loser{color:var(--gold);font-weight:400;}
+.ticker-item .div{color:var(--gold-dim);opacity:.5;}
 
 /* ── MASTHEAD ── */
-.masthead{padding:32px 0 0;border-bottom:2px solid var(--cream-dim);}
+.masthead{padding:32px 0 0;border-bottom:2px solid var(--gold);}
 .masthead-top{display:flex;justify-content:center;padding-bottom:8px;}
-.site-name{font-family:'Perpetua Titling MT','Perpetua','Book Antiqua','Palatino Linotype',
-  Palatino,Georgia,serif;font-size:clamp(34px,5vw,64px);font-weight:400;
-  letter-spacing:.18em;color:var(--parchment);line-height:1;text-align:center;
-  text-transform:uppercase;white-space:nowrap;}
-.tagline-bar{text-align:center;padding:8px 0 14px;border-top:.5px solid var(--rule);margin-top:6px;}
+.site-name{font-family:'Perpetua Titling MT','Perpetua','Book Antiqua',
+  'Palatino Linotype',Palatino,Georgia,serif;font-size:clamp(34px,5vw,64px);
+  font-weight:400;letter-spacing:.18em;color:var(--parchment);line-height:1;
+  text-align:center;text-transform:uppercase;white-space:nowrap;}
+.tagline-bar{text-align:center;padding:8px 0 14px;
+  border-top:.5px solid var(--rule);margin-top:6px;}
 .tagline-line{font-family:var(--serif-sc);font-size:18px;letter-spacing:.2em;
-  color:var(--smoke-light);line-height:1.8;}
-.tagline-sub{font-size:15px;letter-spacing:.24em;color:var(--cream-dim);}
+  color:var(--parchment3);line-height:1.8;}
+.tagline-sub{font-size:15px;letter-spacing:.24em;color:var(--gold-dim);}
 
 /* ── NAV ── */
 nav.main-nav{display:flex;align-items:center;border-bottom:1px solid var(--rule-heavy);}
-.nav-items-wrap{display:flex;align-items:center;white-space:nowrap;}
+.nav-barrel-btn{flex-shrink:0;width:52px;height:48px;cursor:pointer;
+  border-right:.5px solid var(--rule-heavy);
+  background:var(--ink) url('https://i.postimg.cc/pTNWxjb5/barrel-tab-logo-removebg-preview.png')
+  center/40px auto no-repeat;transition:opacity .2s;}
+.nav-barrel-btn:hover{opacity:.75;}
+.nav-items-wrap{display:flex;align-items:center;overflow:hidden;max-width:0;
+  transition:max-width .45s cubic-bezier(.4,0,.2,1);white-space:nowrap;}
+.nav-items-wrap.open{max-width:1400px;}
 .nav-item{font-family:var(--serif-sc);font-size:15px;letter-spacing:.14em;
-  color:var(--smoke-light);padding:12px 18px;position:relative;cursor:pointer;
+  color:var(--gold);padding:12px 18px;position:relative;cursor:pointer;
   transition:color .2s;white-space:nowrap;display:inline-block;}
 .nav-item:hover,.nav-item.active{color:var(--parchment);}
 .nav-item.active::after{content:'';position:absolute;bottom:-1px;left:0;right:0;
-  height:2px;background:var(--cream);}
+  height:2px;background:var(--parchment);}
 .nav-item:not(:last-child)::before{content:'·';position:absolute;right:-2px;
   color:var(--rule-heavy);}
 
 /* ── DATE BANNER ── */
 .date-banner{display:flex;align-items:center;gap:16px;
-  padding:13px 0 11px;border-bottom:2px solid var(--cream-dim);}
-.date-banner-line{flex:1;height:.5px;background:var(--rule);}
-.date-banner-text{font-family:var(--serif-sc);font-size:14px;letter-spacing:.16em;
-  color:var(--smoke);white-space:nowrap;}
+  padding:14px 0 12px;border-bottom:2px solid var(--gold);}
+.date-banner-rule{flex:1;height:.5px;background:var(--rule);}
+.date-banner-text{font-family:var(--serif-sc);font-size:15px;letter-spacing:.18em;
+  color:var(--parchment2);white-space:nowrap;}
 
 /* ── SUMMARY BAR ── */
-.bs-summary-bar{display:flex;align-items:center;padding:10px 0;
+.bs-summary-bar{display:flex;align-items:center;padding:12px 0;
   border-bottom:1px solid var(--rule-heavy);flex-wrap:wrap;gap:0;}
-.bs-summary-item{font-family:var(--mono);font-size:10px;letter-spacing:.08em;
-  color:var(--smoke-light);padding:0 18px;border-right:.5px solid var(--rule);
+.bs-summary-item{font-family:var(--mono);font-size:12px;letter-spacing:.06em;
+  color:var(--parchment2);padding:0 22px;border-right:.5px solid var(--rule);
   white-space:nowrap;}
 .bs-summary-item:first-child{padding-left:0;}
 .bs-summary-item:last-child{border-right:none;}
-.bs-summary-item strong{color:var(--parchment2);}
+.bs-summary-item strong{color:var(--parchment);font-size:14px;}
+.bs-updated{font-family:var(--mono);font-size:10px;color:var(--gold-dim);
+  letter-spacing:.06em;margin-left:auto;}
 
-/* ── PRESS WIRE ── */
-.bs-wire-section{padding:20px 0 18px;border-bottom:1px solid var(--rule-heavy);}
-.bs-wire-hdr{font-family:var(--serif-sc);font-size:11px;letter-spacing:.26em;
-  color:var(--cream);margin-bottom:14px;}
-.bs-wire-list{list-style:none;padding:0;margin:0;columns:2;column-gap:40px;}
-.bs-wire-item{font-family:var(--mono);font-size:11px;color:var(--smoke-light);
-  letter-spacing:.03em;line-height:1.8;padding:4px 0;
-  border-bottom:.5px solid var(--rule);break-inside:avoid;}
-.bs-wire-item::before{content:"•";color:var(--cream-dim);margin-right:8px;}
-@media(max-width:700px){.bs-wire-list{columns:1;}}
+/* ── AROUND BASEBALL ── */
+.around-baseball{padding:24px 0 22px;border-bottom:1px solid var(--rule-heavy);}
+.section-label{font-family:var(--serif-sc);font-size:11px;letter-spacing:.3em;
+  color:var(--parchment2);text-transform:uppercase;margin-bottom:14px;
+  padding-bottom:8px;border-bottom:.5px solid var(--rule);}
+.ab-list{list-style:none;padding:0;margin:0;columns:2;column-gap:52px;}
+.ab-item{font-family:var(--mono);font-size:13px;color:var(--parchment2);
+  letter-spacing:.03em;line-height:2.1;padding:4px 0;
+  border-bottom:.5px solid rgba(168,144,112,.2);break-inside:avoid;}
+.ab-item::before{content:"·";color:var(--gold-dim);margin-right:10px;}
+@media(max-width:700px){.ab-list{columns:1;}}
 
-/* ── LEAGUE SECTIONS ── */
-.bs-league-hdr{display:flex;align-items:center;gap:14px;
-  padding:22px 0 10px;border-bottom:1px solid var(--rule-heavy);}
-.bs-league-title{font-family:var(--serif-sc);font-size:11px;letter-spacing:.26em;
-  color:var(--cream);white-space:nowrap;}
-.bs-league-rule{flex:1;height:.5px;background:var(--rule-heavy);}
+/* ── LEAGUE HEADER ── */
+.league-hdr{display:flex;align-items:center;gap:16px;
+  padding:34px 0 14px;}
+.league-hdr-text{font-family:var(--serif-sc);font-size:13px;letter-spacing:.3em;
+  color:var(--parchment);text-transform:uppercase;white-space:nowrap;font-weight:700;}
+.league-hdr-rule{flex:1;height:1px;background:var(--parchment2);}
 
-/* ── GAME ENTRIES ── */
-.bs-game{padding:18px 0 16px;border-bottom:1px solid var(--rule);}
-.bs-game:last-child{border-bottom:none;}
+/* ── GAME ARTICLE ── */
+article.bs-game{padding:30px 0 32px;border-bottom:1px solid var(--rule);}
+article.bs-game:last-child{border-bottom:none;}
 
-.bs-headline{font-family:var(--serif-display);font-size:clamp(17px,1.8vw,22px);
-  font-weight:700;line-height:1.15;color:var(--parchment);margin-bottom:6px;}
+.game-score-headline{font-family:var(--serif);font-size:34px;font-weight:700;
+  color:var(--parchment);line-height:1.05;margin-bottom:10px;
+  text-transform:uppercase;letter-spacing:.02em;}
 
-.bs-meta{font-family:var(--mono);font-size:9.5px;color:var(--smoke);
-  letter-spacing:.05em;margin-bottom:10px;}
-.bs-meta span{color:var(--smoke-light);}
+.game-meta{font-family:var(--mono);font-size:12px;color:var(--gold-dim);
+  letter-spacing:.06em;margin-bottom:22px;line-height:1.8;}
+.game-meta span{color:var(--gold);}
 
-.bs-linescore{font-family:var(--mono);font-size:11.5px;
-  line-height:2.2;margin-bottom:8px;overflow-x:auto;white-space:nowrap;}
-.bs-linescore-row{display:block;}
-.bs-linescore-row.winner .ls-abbr{color:var(--parchment);}
-.bs-linescore-row.winner .ls-rhe-r{color:var(--parchment);font-weight:500;}
-.ls-abbr{display:inline-block;width:44px;letter-spacing:.06em;color:var(--parchment2);}
-.ls-inn{display:inline-block;width:16px;text-align:center;color:var(--smoke);}
-.ls-sep{display:inline-block;width:14px;text-align:center;color:var(--rule-heavy);}
-.ls-rhe-r{display:inline-block;width:24px;text-align:center;color:var(--smoke-light);}
-.ls-rhe-he{display:inline-block;width:22px;text-align:center;color:var(--smoke);}
+/* ── LINE SCORE ── */
+.ls-wrap{overflow-x:auto;margin-bottom:20px;
+  border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+  padding:14px 0;}
+.ls-row{font-family:var(--mono);font-size:16px;line-height:3;
+  white-space:nowrap;display:block;}
+.ls-abbr{display:inline-block;width:50px;letter-spacing:.06em;
+  color:var(--parchment2);}
+.ls-abbr.winner{color:var(--parchment);font-weight:700;}
+.ls-inn{display:inline-block;width:24px;text-align:center;color:var(--zero);}
+.ls-inn.scoring{color:var(--parchment);font-weight:700;}
+.ls-sep{display:inline-block;width:24px;text-align:center;
+  color:rgba(168,144,112,.3);}
+.ls-r{display:inline-block;width:34px;text-align:center;
+  color:var(--parchment2);font-weight:700;}
+.ls-r.winner{color:var(--parchment);font-size:18px;}
+.ls-he{display:inline-block;width:30px;text-align:center;color:var(--gold);}
 
-.bs-decisions{font-family:var(--mono);font-size:10px;color:var(--smoke);
-  letter-spacing:.04em;margin-bottom:8px;}
-.bs-decisions strong{color:var(--parchment2);font-weight:500;}
+/* ── DECISIONS ── */
+.game-decisions{font-family:var(--mono);font-size:13px;color:var(--gold-dim);
+  letter-spacing:.03em;margin-bottom:20px;line-height:2;}
+.game-decisions strong{color:var(--parchment);font-weight:600;}
 
-.bs-keynote{font-family:var(--serif-body);font-size:13px;color:var(--smoke-light);
-  line-height:1.65;font-style:italic;padding-left:12px;
-  border-left:2px solid var(--cream-dim);margin-top:10px;}
+/* ── KEY MOMENT ── */
+.key-moment-label{font-family:var(--serif-sc);font-size:10px;letter-spacing:.28em;
+  color:var(--parchment2);text-transform:uppercase;margin-bottom:8px;}
+.key-moment-body{border-left:4px solid var(--parchment2);padding:14px 20px;
+  background:rgba(0,0,0,.3);font-family:var(--serif-body);font-size:16px;
+  color:var(--parchment2);line-height:1.85;font-style:italic;}
+
+/* ── GAMECENTER HOOK ── */
+.gc-hook{margin-top:14px;}
+.gc-hook a{font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+  color:var(--gold-dim);text-transform:uppercase;transition:color .2s;
+  opacity:.5;cursor:default;}
 
 /* ── FOOTER ── */
-.site-footer{border-top:.5px solid var(--rule-heavy);margin-top:48px;padding:20px 0;
-  display:flex;justify-content:space-between;align-items:center;
-  flex-wrap:wrap;gap:10px;}
-.footer-name{font-family:var(--serif-sc);font-size:15px;color:var(--cream-dim);
+.site-footer{border-top:.5px solid var(--rule-heavy);margin-top:52px;
+  padding:22px 0;display:flex;justify-content:space-between;
+  align-items:center;flex-wrap:wrap;gap:10px;}
+.footer-name{font-family:var(--serif-sc);font-size:15px;color:var(--parchment3);
   letter-spacing:.1em;}
-.footer-tag{font-family:var(--mono);font-size:9px;color:var(--smoke);
+.footer-tag{font-family:var(--mono);font-size:9px;color:var(--gold-dim);
   letter-spacing:.1em;text-align:center;line-height:1.8;}
-.footer-legal{font-family:var(--mono);font-size:9px;color:var(--smoke);
+.footer-legal{font-family:var(--mono);font-size:9px;color:var(--gold-dim);
   opacity:.6;text-align:right;line-height:1.7;}
 
-@media(max-width:640px){
-  .page{padding:0 18px 40px;}
-  .bs-wire-list{columns:1;}
+@media(max-width:860px){.page{padding:0 24px 60px;}}
+@media(max-width:540px){
+  .page{padding:0 16px 40px;}
+  .game-score-headline{font-size:24px;}
+  .ls-row{font-size:13px;}
+  .ls-inn{width:18px;}.ls-abbr{width:38px;}
+  .ls-r{width:26px;}.ls-he{width:22px;}
+  .ab-list{columns:1;}
+  .bs-summary-bar{gap:4px;}
+  .bs-summary-item{padding:0 12px;font-size:11px;}
 }
 </style>
 </head>
@@ -153,13 +192,13 @@ nav.main-nav{display:flex;align-items:center;border-bottom:1px solid var(--rule-
     {% for g in all_games + all_games %}
       <span class="ticker-item">
         {% if g.away_runs > g.home_runs %}
-          <span class="winner">{{ g.away_abbr }} {{ g.away_runs }}</span>
+          {{ g.away_abbr }} {{ g.away_runs }}
           <span class="div">–</span>
-          <span>{{ g.home_abbr }} {{ g.home_runs }}</span>
+          <span class="loser">{{ g.home_abbr }} {{ g.home_runs }}</span>
         {% else %}
-          <span>{{ g.away_abbr }} {{ g.away_runs }}</span>
+          <span class="loser">{{ g.away_abbr }} {{ g.away_runs }}</span>
           <span class="div">–</span>
-          <span class="winner">{{ g.home_abbr }} {{ g.home_runs }}</span>
+          {{ g.home_abbr }} {{ g.home_runs }}
         {% endif %}
         <span class="div">|</span>
       </span>
@@ -176,19 +215,22 @@ nav.main-nav{display:flex;align-items:center;border-bottom:1px solid var(--rule-
     </div>
     <div class="tagline-bar">
       <div class="tagline-line">Raw &nbsp;·&nbsp; Unfiltered &nbsp;·&nbsp; Baseball.</div>
-      <div class="tagline-sub">Enjoy Responsibly.</div>
+      <div class="tagline-line tagline-sub">Enjoy Responsibly.</div>
     </div>
   </header>
 
   <!-- NAV -->
   <nav class="main-nav">
+    <div class="nav-barrel-btn"
+         onclick="this.nextElementSibling.classList.toggle('open')"
+         title="Menu"></div>
     <div class="nav-items-wrap">
-      <a class="nav-item" href="/">Page 1</a>
-      <a class="nav-item active" href="/box-scores">Box Scores</a>
-      <a class="nav-item" href="/dope-sheet">Dope Sheet</a>
-      <a class="nav-item" href="/advance-scout">Advance Scout</a>
-      <a class="nav-item" href="/al-nl">AL/NL</a>
-      <a class="nav-item" href="/archive">Archive</a>
+      <div class="nav-item" onclick="location.href='/'">Today</div>
+      <div class="nav-item active">Box Scores</div>
+      <div class="nav-item" onclick="location.href='/dope-sheet'">Dope Sheet</div>
+      <div class="nav-item">Advance Scout</div>
+      <div class="nav-item">Barrels &amp; Whiffs</div>
+      <div class="nav-item">Rosters</div>
     </div>
   </nav>
 
@@ -196,9 +238,9 @@ nav.main-nav{display:flex;align-items:center;border-bottom:1px solid var(--rule-
 
   <!-- DATE BANNER -->
   <div class="date-banner">
-    <div class="date-banner-line"></div>
-    <div class="date-banner-text">{{ display_date }}</div>
-    <div class="date-banner-line"></div>
+    <div class="date-banner-rule"></div>
+    <div class="date-banner-text">{{ display_date }} &nbsp;·&nbsp; Games &amp; Results</div>
+    <div class="date-banner-rule"></div>
   </div>
 
   <!-- SUMMARY BAR -->
@@ -210,17 +252,16 @@ nav.main-nav{display:flex;align-items:center;border-bottom:1px solid var(--rule-
     {% if summary.extra_inn > 0 %}
     <div class="bs-summary-item"><strong>{{ summary.extra_inn }}</strong> extra innings</div>
     {% endif %}
-    <div class="bs-summary-item" style="margin-left:auto;border-right:none;
-      font-size:9px;color:var(--smoke);opacity:.6;">Updated {{ updated }}</div>
+    <div class="bs-updated">Updated {{ updated }}</div>
   </div>
 
-  <!-- PRESS WIRE -->
-  {% if press_wire %}
-  <div class="bs-wire-section">
-    <div class="bs-wire-hdr">Press Wire</div>
-    <ul class="bs-wire-list">
-      {% for bullet in press_wire %}
-      <li class="bs-wire-item">{{ bullet }}</li>
+  <!-- AROUND BASEBALL -->
+  {% if around_baseball %}
+  <div class="around-baseball">
+    <div class="section-label">Around Baseball</div>
+    <ul class="ab-list">
+      {% for bullet in around_baseball %}
+      <li class="ab-item">{{ bullet }}</li>
       {% endfor %}
     </ul>
   </div>
@@ -228,105 +269,135 @@ nav.main-nav{display:flex;align-items:center;border-bottom:1px solid var(--rule-
 
   <!-- AMERICAN LEAGUE -->
   {% if al_games %}
-  <div class="bs-league-hdr">
-    <div class="bs-league-title">American League</div>
-    <div class="bs-league-rule"></div>
+  <div class="league-hdr">
+    <div class="league-hdr-text">American League Finals</div>
+    <div class="league-hdr-rule"></div>
   </div>
   {% for g in al_games %}
   {% set away_wins = g.away_runs > g.home_runs %}
-  <div class="bs-game">
-    <div class="bs-headline">
+  <article class="bs-game" id="game-{{ g.away_abbr|lower }}-{{ g.home_abbr|lower }}">
+
+    <h2 class="game-score-headline">
       {% if away_wins %}
         {{ g.away_city }} {{ g.away_runs }}, {{ g.home_city }} {{ g.home_runs }}
       {% else %}
         {{ g.home_city }} {{ g.home_runs }}, {{ g.away_city }} {{ g.away_runs }}
       {% endif %}
-      {% if g.innings|length > 9 %} (F/{{ g.innings|length }}){% endif %}
-    </div>
-    <div class="bs-meta">
-      <span>{{ g.venue }}</span>
+      {% if g.innings|length > 9 %}<span style="font-size:20px;font-weight:400;"> (F/{{ g.innings|length }})</span>{% endif %}
+    </h2>
+
+    <div class="game-meta">
+      {% if g.venue %}<span>{{ g.venue }}</span>{% endif %}
       {% if g.duration %} &nbsp;·&nbsp; {{ g.duration }}{% endif %}
-      {% if g.attendance %} &nbsp;·&nbsp; Att: {{ g.attendance }}{% endif %}
+      {% if g.attendance %} &nbsp;·&nbsp; {{ g.attendance }}{% endif %}
     </div>
-    <div class="bs-linescore">
-      <div class="bs-linescore-row{% if away_wins %} winner{% endif %}">
-        <span class="ls-abbr">{{ g.away_abbr }}</span>
-        {% for inn in g.away_line %}<span class="ls-inn">{{ inn }}</span>{% endfor %}
+
+    <div class="ls-wrap">
+      <div class="ls-row">
+        <span class="ls-abbr{% if not away_wins %} winner{% endif %}">{{ g.away_abbr }}</span>
+        {% for inn in g.away_line %}
+          <span class="ls-inn{% if inn != '0' and inn != '' %} scoring{% endif %}">{{ inn if inn != '' else '0' }}</span>
+        {% endfor %}
         <span class="ls-sep">—</span>
-        <span class="ls-rhe-r">{{ g.away_rhe[0] }}</span>
-        <span class="ls-rhe-he">{{ g.away_rhe[1] }}</span>
-        <span class="ls-rhe-he">{{ g.away_rhe[2] }}</span>
+        <span class="ls-r{% if not away_wins %} winner{% endif %}">{{ g.away_rhe[0] if g.away_rhe|length > 0 else '—' }}</span>
+        <span class="ls-he">{{ g.away_rhe[1] if g.away_rhe|length > 1 else '—' }}</span>
+        <span class="ls-he">{{ g.away_rhe[2] if g.away_rhe|length > 2 else '—' }}</span>
       </div>
-      <div class="bs-linescore-row{% if not away_wins %} winner{% endif %}">
-        <span class="ls-abbr">{{ g.home_abbr }}</span>
-        {% for inn in g.home_line %}<span class="ls-inn">{{ inn }}</span>{% endfor %}
+      <div class="ls-row">
+        <span class="ls-abbr{% if away_wins %} winner{% endif %}">{{ g.home_abbr }}</span>
+        {% for inn in g.home_line %}
+          <span class="ls-inn{% if inn != '0' and inn != '' %} scoring{% endif %}">{{ inn if inn != '' else '0' }}</span>
+        {% endfor %}
         <span class="ls-sep">—</span>
-        <span class="ls-rhe-r">{{ g.home_rhe[0] }}</span>
-        <span class="ls-rhe-he">{{ g.home_rhe[1] }}</span>
-        <span class="ls-rhe-he">{{ g.home_rhe[2] }}</span>
+        <span class="ls-r{% if away_wins %} winner{% endif %}">{{ g.home_rhe[0] if g.home_rhe|length > 0 else '—' }}</span>
+        <span class="ls-he">{{ g.home_rhe[1] if g.home_rhe|length > 1 else '—' }}</span>
+        <span class="ls-he">{{ g.home_rhe[2] if g.home_rhe|length > 2 else '—' }}</span>
       </div>
     </div>
-    <div class="bs-decisions">
+
+    <div class="game-decisions">
       {% if g.decisions.W %}W: <strong>{{ g.decisions.W }}</strong>{% endif %}
-      {% if g.decisions.L %}&nbsp;&nbsp;L: <strong>{{ g.decisions.L }}</strong>{% endif %}
-      {% if g.decisions.SV %}&nbsp;&nbsp;SV: <strong>{{ g.decisions.SV }}</strong>{% endif %}
+      {% if g.decisions.L %} &nbsp;&nbsp; L: <strong>{{ g.decisions.L }}</strong>{% endif %}
+      {% if g.decisions.SV %} &nbsp;&nbsp; SV: <strong>{{ g.decisions.SV }}</strong>{% endif %}
     </div>
+
     {% if g.key_note %}
-    <div class="bs-keynote">{{ g.key_note }}</div>
+    <div class="key-moment-label">Key Moment</div>
+    <div class="key-moment-body">{{ g.key_note }}</div>
     {% endif %}
-  </div>
+
+    <div class="gc-hook">
+      <a>Full GameCenter &rarr;</a>
+    </div>
+
+  </article>
   {% endfor %}
   {% endif %}
 
   <!-- NATIONAL LEAGUE -->
   {% if nl_games %}
-  <div class="bs-league-hdr" style="margin-top:12px;">
-    <div class="bs-league-title">National League</div>
-    <div class="bs-league-rule"></div>
+  <div class="league-hdr">
+    <div class="league-hdr-text">National League Finals</div>
+    <div class="league-hdr-rule"></div>
   </div>
   {% for g in nl_games %}
   {% set away_wins = g.away_runs > g.home_runs %}
-  <div class="bs-game">
-    <div class="bs-headline">
+  <article class="bs-game" id="game-{{ g.away_abbr|lower }}-{{ g.home_abbr|lower }}">
+
+    <h2 class="game-score-headline">
       {% if away_wins %}
         {{ g.away_city }} {{ g.away_runs }}, {{ g.home_city }} {{ g.home_runs }}
       {% else %}
         {{ g.home_city }} {{ g.home_runs }}, {{ g.away_city }} {{ g.away_runs }}
       {% endif %}
-      {% if g.innings|length > 9 %} (F/{{ g.innings|length }}){% endif %}
-    </div>
-    <div class="bs-meta">
-      <span>{{ g.venue }}</span>
+      {% if g.innings|length > 9 %}<span style="font-size:20px;font-weight:400;"> (F/{{ g.innings|length }})</span>{% endif %}
+    </h2>
+
+    <div class="game-meta">
+      {% if g.venue %}<span>{{ g.venue }}</span>{% endif %}
       {% if g.duration %} &nbsp;·&nbsp; {{ g.duration }}{% endif %}
-      {% if g.attendance %} &nbsp;·&nbsp; Att: {{ g.attendance }}{% endif %}
+      {% if g.attendance %} &nbsp;·&nbsp; {{ g.attendance }}{% endif %}
     </div>
-    <div class="bs-linescore">
-      <div class="bs-linescore-row{% if away_wins %} winner{% endif %}">
-        <span class="ls-abbr">{{ g.away_abbr }}</span>
-        {% for inn in g.away_line %}<span class="ls-inn">{{ inn }}</span>{% endfor %}
+
+    <div class="ls-wrap">
+      <div class="ls-row">
+        <span class="ls-abbr{% if not away_wins %} winner{% endif %}">{{ g.away_abbr }}</span>
+        {% for inn in g.away_line %}
+          <span class="ls-inn{% if inn != '0' and inn != '' %} scoring{% endif %}">{{ inn if inn != '' else '0' }}</span>
+        {% endfor %}
         <span class="ls-sep">—</span>
-        <span class="ls-rhe-r">{{ g.away_rhe[0] }}</span>
-        <span class="ls-rhe-he">{{ g.away_rhe[1] }}</span>
-        <span class="ls-rhe-he">{{ g.away_rhe[2] }}</span>
+        <span class="ls-r{% if not away_wins %} winner{% endif %}">{{ g.away_rhe[0] if g.away_rhe|length > 0 else '—' }}</span>
+        <span class="ls-he">{{ g.away_rhe[1] if g.away_rhe|length > 1 else '—' }}</span>
+        <span class="ls-he">{{ g.away_rhe[2] if g.away_rhe|length > 2 else '—' }}</span>
       </div>
-      <div class="bs-linescore-row{% if not away_wins %} winner{% endif %}">
-        <span class="ls-abbr">{{ g.home_abbr }}</span>
-        {% for inn in g.home_line %}<span class="ls-inn">{{ inn }}</span>{% endfor %}
+      <div class="ls-row">
+        <span class="ls-abbr{% if away_wins %} winner{% endif %}">{{ g.home_abbr }}</span>
+        {% for inn in g.home_line %}
+          <span class="ls-inn{% if inn != '0' and inn != '' %} scoring{% endif %}">{{ inn if inn != '' else '0' }}</span>
+        {% endfor %}
         <span class="ls-sep">—</span>
-        <span class="ls-rhe-r">{{ g.home_rhe[0] }}</span>
-        <span class="ls-rhe-he">{{ g.home_rhe[1] }}</span>
-        <span class="ls-rhe-he">{{ g.home_rhe[2] }}</span>
+        <span class="ls-r{% if away_wins %} winner{% endif %}">{{ g.home_rhe[0] if g.home_rhe|length > 0 else '—' }}</span>
+        <span class="ls-he">{{ g.home_rhe[1] if g.home_rhe|length > 1 else '—' }}</span>
+        <span class="ls-he">{{ g.home_rhe[2] if g.home_rhe|length > 2 else '—' }}</span>
       </div>
     </div>
-    <div class="bs-decisions">
+
+    <div class="game-decisions">
       {% if g.decisions.W %}W: <strong>{{ g.decisions.W }}</strong>{% endif %}
-      {% if g.decisions.L %}&nbsp;&nbsp;L: <strong>{{ g.decisions.L }}</strong>{% endif %}
-      {% if g.decisions.SV %}&nbsp;&nbsp;SV: <strong>{{ g.decisions.SV }}</strong>{% endif %}
+      {% if g.decisions.L %} &nbsp;&nbsp; L: <strong>{{ g.decisions.L }}</strong>{% endif %}
+      {% if g.decisions.SV %} &nbsp;&nbsp; SV: <strong>{{ g.decisions.SV }}</strong>{% endif %}
     </div>
+
     {% if g.key_note %}
-    <div class="bs-keynote">{{ g.key_note }}</div>
+    <div class="key-moment-label">Key Moment</div>
+    <div class="key-moment-body">{{ g.key_note }}</div>
     {% endif %}
-  </div>
+
+    <div class="gc-hook">
+      <a>Full GameCenter &rarr;</a>
+    </div>
+
+  </article>
   {% endfor %}
   {% endif %}
 
@@ -337,12 +408,9 @@ nav.main-nav{display:flex;align-items:center;border-bottom:1px solid var(--rule-
       RAW &nbsp;·&nbsp; UNFILTERED &nbsp;·&nbsp; BASEBALL &nbsp;·&nbsp; ENJOY RESPONSIBLY<br/>
       <span style="opacity:.5;">MLB Stats API &nbsp;·&nbsp; statsapi.mlb.com</span>
     </div>
-    <div class="footer-legal">
-      © 2026 Barrel Proof<br/>
-      Data via MLB Stats API
-    </div>
+    <div class="footer-legal">© 2026 Barrel Proof<br/>Data via MLB Stats API</div>
   </footer>
 
-</div><!-- /.page -->
+</div>
 </body>
 </html>

@@ -381,7 +381,11 @@ def build_key_note(g):
     return "  ".join(notes) if notes else ""
 
 def build_press_wire_bullets(games):
+    return build_around_baseball(games)
+
+def build_around_baseball(games):
     bullets = []
+
     for g in games:
         away  = g.get("away_abbr", "")
         home  = g.get("home_abbr", "")
@@ -393,16 +397,81 @@ def build_press_wire_bullets(games):
         loser  = home if aR > hR else away
         inn_count = len(g.get("innings", []))
 
+        # Shutout
         if lR == 0:
             bullets.append(f"{winner} blanked {loser}, {wR}\u20130")
-        elif inn_count > 9:
-            bullets.append(f"{winner} defeated {loser} in {inn_count} innings, {wR}\u2013{lR}")
-        elif abs(aR - hR) >= 7:
+            continue
+
+        # Extra innings
+        if inn_count > 9:
+            bullets.append(f"{winner} walked off {loser} in {inn_count} innings, {wR}\u2013{lR}")
+            continue
+
+        # Blowout
+        if abs(aR - hR) >= 7:
             bullets.append(f"{winner} routed {loser}, {wR}\u2013{lR}")
-        elif abs(aR - hR) == 1:
-            bullets.append(f"{winner} held off {loser}, {wR}\u2013{lR}")
-        else:
-            bullets.append(f"{winner} defeated {loser}, {wR}\u2013{lR}")
+            continue
+
+        # One-run game
+        if abs(aR - hR) == 1:
+            bullets.append(f"{winner} edged {loser} in a one-run game, {wR}\u2013{lR}")
+            continue
+
+        bullets.append(f"{winner} defeated {loser}, {wR}\u2013{lR}")
+
+    # Notable batting \u2014 multi-HR games
+    for g in games:
+        away = g.get("away_abbr", "")
+        home = g.get("home_abbr", "")
+        all_batters = (
+            [(b, away) for b in g.get("away_batting", [])] +
+            [(b, home) for b in g.get("home_batting", [])]
+        )
+        for b, t in all_batters:
+            try:
+                hr = int(b.get("hr", 0))
+                if hr >= 2:
+                    bullets.append(f"{b['name']} ({t}) homered {hr} times")
+            except (ValueError, TypeError):
+                pass
+
+    # Notable pitching \u2014 dominant starts (7+ IP, \u2264 1 ER, 7+ K)
+    for g in games:
+        away = g.get("away_abbr", "")
+        home = g.get("home_abbr", "")
+        all_pitchers = (
+            [(p, away) for p in g.get("away_pitching", [])] +
+            [(p, home) for p in g.get("home_pitching", [])]
+        )
+        for p, t in all_pitchers:
+            try:
+                ip_str = str(p.get("ip", "0"))
+                ip = float(ip_str.replace(".1", ".33").replace(".2", ".67"))
+                er = int(p.get("er", 99))
+                k  = int(p.get("k", 0))
+                if ip >= 7.0 and er <= 1 and k >= 7:
+                    bullets.append(
+                        f"{p['name']} ({t}) dominant: {p['ip']} IP, {k} K, {er} ER"
+                    )
+                    break
+            except (ValueError, TypeError):
+                pass
+
+    # High RBI games (4+)
+    for g in games:
+        away = g.get("away_abbr", "")
+        home = g.get("home_abbr", "")
+        all_batters = (
+            [(b, away) for b in g.get("away_batting", [])] +
+            [(b, home) for b in g.get("home_batting", [])]
+        )
+        for b, t in all_batters:
+            try:
+                rbi = int(b.get("rbi", 0))
+                if rbi >= 4:
+                    bullets.append(f"{b['name']} ({t}) drove in {rbi} runs")
+            except (ValueError, TypeError):
+                pass
 
     return bullets
 
@@ -568,7 +637,7 @@ def box_scores():
     games    = data["games"]
     al_games, nl_games = group_games_by_league(games)
     summary  = build_day_summary(games)
-    wire     = build_press_wire_bullets(games)
+    wire     = build_around_baseball(games)
     for g in games:
         g["key_note"] = build_key_note(g)
     from datetime import datetime
@@ -579,7 +648,7 @@ def box_scores():
         nl_games=nl_games,
         all_games=games,
         summary=summary,
-        press_wire=wire,
+        around_baseball=wire,
         display_date=data["display_date"],
         date=data["date"],
         updated=data["updated"],
