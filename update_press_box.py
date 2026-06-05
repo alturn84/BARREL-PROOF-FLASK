@@ -60,16 +60,21 @@ COVER ONLY:
 - Career milestones (500 HR, 3000 hits, 300 wins, etc.)
 
 PRIORITY ORDER — list items in this order, most important first:
-1. Significant injuries (torn ligaments, fractures, season-ending)
-2. DFA moves
+1. Season-ending or significant injuries (torn ligaments, fractures, surgery)
+2. DFA moves — these are news, lead with them
 3. Trades
 4. Free agent signings
-5. Call-ups from the minors
-6. Rehab assignments
-7. Minor roster moves and option assignments
+5. Call-ups from Triple-A
+6. Rehab assignments for notable players
+7. Option assignments and roster moves
+8. Minor transactions
 
-Do not simply list items in the order they appear in the data.
-Rank by news value. A torn ACL comes before a rehab assignment.
+CURATION RULES:
+- An editor selected these items, not an API
+- If two items are similar priority, pick the one with more news value
+- A star player's injury is more important than a bench player's DFA
+- Do not list every transaction — select the most newsworthy 6-10
+- Write each bullet like a wire brief: who, what, why it matters
 
 DO NOT INCLUDE:
 - Game scores or recaps

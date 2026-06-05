@@ -874,7 +874,7 @@ RULES:
 - CRITICAL: Only use player names that appear in the VERIFIED PLAYER NAMES list. Never invent, guess, or alter player names. If unsure of a name, do not use it.
 - No markdown, no bold, no asterisks
 - Plain paragraphs only, separated by single blank lines
-- 175 to 300 words total — no more, no less
+- 200 to 350 words total
 
 GOOD EXAMPLE VOICE:
 "Oakland had spent most of the afternoon waiting for one clean swing. It finally came in the tenth, when Tyler Soderstrom lined a single to center that scored the go-ahead run and sent Wrigley Field quiet."
@@ -905,7 +905,7 @@ Write 4-5 paragraphs of lead story copy. Plain text only. No markdown."""
         expanded = response.text.strip()
         word_count = len(expanded.split())
         print(f"  ✓ Expanded lead angle: {word_count} words", flush=True)
-        if word_count < 100:
+        if word_count < 150:
             print("  ⚠ Response too short — falling back to template", flush=True)
             return base_copy["lead_angle"], base_copy["headline"]
 
@@ -920,9 +920,11 @@ Winning pitcher: {winner_pitcher if winner_pitcher else 'unknown'}
 Key performer from lead story: {expanded[:150]}
 
 Rules:
-- 6 to 12 words
-- Must be a complete grammatical phrase — do not cut off mid-thought
+- 7 to 11 words maximum — shorter is better
+- Must be a complete thought — never cut off mid-word or mid-phrase
+- Lead with the decisive player or moment when possible
 - If describing extra innings, write "Ten Innings" or "Extra Innings" not just "Ten"
+- If a walk-off, name the player who ended it
 - Use city names or full team names, never abbreviations
 - Reference the decisive moment or key player when possible
 - No punctuation at the end
@@ -947,7 +949,7 @@ Write the headline only. Nothing else."""
             )
             headline = hl_response.text.strip().strip('"').strip("'")
             print(f"  DEBUG headline raw: {repr(headline[:200])}", flush=True)
-            if 3 <= len(headline.split()) <= 20:
+            if 3 <= len(headline.split()) <= 12 and len(headline) <= 80:
                 print(f"  ✓ Generated headline: {headline}", flush=True)
                 return expanded, headline
             else:

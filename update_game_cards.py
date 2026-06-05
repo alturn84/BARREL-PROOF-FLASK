@@ -73,6 +73,30 @@ def generate_game_summary(game, client):
     extra = f" ({innings} innings)" if innings > 9 else ""
     shutout = f" {loser} was held scoreless." if min(away_runs, home_runs) == 0 else ""
 
+    # Detect game type for tone guidance
+    margin = abs(away_runs - home_runs)
+    is_walkoff = any(kw in str(decisions).lower() for kw in ["walk-off", "walkoff"]) or \
+                 (innings == 9 and margin <= 2)
+    is_blowout = margin >= 6
+    is_extra = innings > 9
+    is_shutout = min(away_runs, home_runs) == 0
+    is_comeback = False  # detected from flags if available
+    total_runs = away_runs + home_runs
+    is_slugfest = total_runs >= 14
+
+    if is_extra:
+        game_type = "extra innings"
+    elif is_blowout:
+        game_type = "blowout"
+    elif is_shutout:
+        game_type = "shutout/pitcher's duel"
+    elif is_slugfest:
+        game_type = "slugfest"
+    elif margin <= 1:
+        game_type = "one-run game"
+    else:
+        game_type = "standard"
+
     # Build verified name list from batting and pitching data
     all_names = set()
     for side in ("away_batting", "home_batting"):
@@ -97,19 +121,27 @@ VERIFIED PLAYER NAMES — only use names from this list: {", ".join(sorted(all_n
 DO NOT invent or alter player names."""
 
     prompt = f"""Write a 1-2 sentence baseball game summary. 35-60 words.
+Game type: {game_type}
 
 {context}
 
 RULES:
 - Use team nicknames not city names (Yankees not New York, Mets not New York, Dodgers not Los Angeles, Angels not Los Angeles)
-- Explain why the game turned — name one specific play, pitcher, or at-bat
+- Write in a style that matches the game type:
+  * extra innings: emphasize the length and tension, name who ended it
+  * blowout: lead with the dominant performance, keep it brief
+  * shutout/pitcher's duel: lead with the pitcher, make defense the story
+  * slugfest: lead with the run total or a big individual performance
+  * one-run game: convey the tightness, name the decisive moment
+  * walk-off: name the player who ended it and how
+  * standard: explain why the game turned with one key player or play
+- Start with the key moment or player, not the winning team name
 - Name one player who made the difference with a specific detail
 - Mention the final score once
-- Start with the key moment or player, not the winning team name
-- CRITICAL: Only use player names from the VERIFIED PLAYER NAMES list. Never invent or alter names.
 - No markdown, no bold, plain prose only
+- CRITICAL: Only use player names from the VERIFIED PLAYER NAMES list. Never invent or alter names.
 
-BANNED PHRASES — never use:
+BANNED PHRASES:
 - "proved the difference"
 - "the decisive blow"
 - "the contest"
@@ -118,23 +150,15 @@ BANNED PHRASES — never use:
 - "the affair"
 - "the game unfolded"
 - "allowed X earned runs"
-- "pitched X innings allowing"
 - "strong performance"
 
-NAMES — CRITICAL:
-- Player names in the data appear as "D.Dingler" or "J.Smith" — use only the last name (Dingler, Smith)
-- Never guess or invent a full first name from an initial
-- If you need to reference a player specifically, use their last name only
-
-GOOD EXAMPLES:
-"Tarik Skubal struck out nine and the Tigers backed him with three home runs in a convincing win over Tampa Bay."
-"Pete Alonso's seventh-inning homer broke a 2-2 tie and the Mets held on as New York finished off Seattle, 4-2."
-"A four-run eighth turned a Phillies deficit into a win, with Bryce Harper driving in two to cap the rally against Atlanta."
-
-BAD EXAMPLES:
-"New York beat Seattle 4-2. The winning pitcher allowed 2 earned runs over 6 innings."
-"The decisive blow came in the seventh when the Mets scored twice."
-"Washington's hopes were dashed in extra innings."
+GOOD EXAMPLES by game type:
+- Walk-off: "Pete Alonso lined a single to right in the ninth to end it, giving the Mets a 4-3 win over Seattle after trailing by two."
+- Blowout: "Tarik Skubal struck out nine and Detroit backed him with three home runs in a 9-2 rout of Tampa Bay."
+- Shutout: "Sandy Alcantara went eight scoreless innings and the Marlins scratched out two runs to beat Washington, 2-0."
+- Slugfest: "The teams combined for 19 runs, but it was Yordan Alvarez's two-homer, five-RBI afternoon that separated Houston from Texas in an 11-8 slugfest."
+- One-run: "A Carlos Correa single in the seventh scored the go-ahead run and Minnesota held on for a 3-2 win over Cleveland."
+- Extra innings: "Neither team could break through for nine innings, but Jazz Chisholm homered in the tenth to give the Yankees a 5-4 win over Baltimore."
 """
 
     try:

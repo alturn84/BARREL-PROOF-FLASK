@@ -53,6 +53,40 @@ blog post. Every sentence should earn its place.
 
 ---
 
+## Game Summary Writing by Game Type
+
+Each game type has a different story. Match the writing to the game.
+
+**Walk-off**
+Lead with the player and the moment. Name the at-bat or play.
+"Pete Alonso lined a single to right in the ninth to end it, giving the Mets a 4-3 win."
+
+**Blowout (6+ run margin)**
+Lead with the dominant performance. Keep it brief — the score tells most of the story.
+"Tarik Skubal struck out nine and Detroit backed him with three home runs in a 9-2 rout."
+
+**Shutout / Pitcher's Duel**
+Lead with the pitcher. Make defense and pitching the story.
+"Sandy Alcantara went eight scoreless innings and Miami scratched out two runs to beat Washington, 2-0."
+
+**Slugfest (14+ combined runs)**
+Lead with the run total or a big individual line.
+"The teams combined for 19 runs, but Yordan Alvarez's two-homer afternoon separated Houston from Texas in an 11-8 win."
+
+**One-Run Game**
+Convey the tightness. Name the decisive moment.
+"A Carlos Correa single in the seventh scored the go-ahead run and Minnesota held on for a 3-2 win."
+
+**Extra Innings**
+Emphasize the length. Name who ended it and how.
+"Jazz Chisholm homered in the tenth to give the Yankees a 5-4 win over Baltimore after neither team could break through for nine."
+
+**Standard**
+Explain why the game turned. One player, one moment.
+"Freddy Peralta struck out eight and the Brewers broke a tie with two runs in the sixth to beat San Francisco, 4-2."
+
+---
+
 ## Game of the Day
 
 - 3 paragraphs, 175–300 words
