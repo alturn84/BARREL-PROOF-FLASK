@@ -1,156 +1,131 @@
 {
-  "date": "2026-06-03",
-  "date_display": "Wednesday, June 3, 2026",
-  "updated": "2026-06-04 17:17",
+  "date": "2026-06-04",
+  "date_display": "Thursday, June 4, 2026",
+  "updated": "2026-06-05 12:54",
   "game": {
     "away": "ATH",
     "home": "CHC",
-    "away_runs": 5,
-    "home_runs": 4,
-    "innings": 10,
-    "raw_score": 55.0,
+    "away_runs": 6,
+    "home_runs": 7,
+    "innings": 9,
+    "raw_score": 89.0,
     "flags": [
-      "EXTRA INNINGS (10)",
+      "WALK-OFF WIN",
+      "COMEBACK (trailed 3)",
       "ONE-RUN GAME",
-      "PLAYOFF IMPLICATIONS",
+      "MULTI-HR: Shea Langeliers (2 HR)",
       "CHC HOME GAME"
     ],
-    "winner": "ATH",
-    "loser": "CHC",
+    "winner": "CHC",
+    "loser": "ATH",
     "margin": 1,
-    "total_runs": 9
+    "total_runs": 13
   },
   "editorial": {
-    "headline": "Soderstrom's Tenth-Inning Single Lifts Oakland Past Chicago Cubs",
-    "subheadline": "ATH 5, CHC 4 in a marathon that went to the 10th.",
-    "lead_angle": "Tyler Soderstrom drove a tenth-inning single into center field, plating the automatic runner and finally putting the Oakland Athletics ahead for good. The Athletics edged the Chicago Cubs 5-4 in a marathon afternoon at Wrigley Field.\n\nThe Chicago Cubs had seized control early, taking a 4-2 lead into the eighth behind solo home runs from Pete Crow-Armstrong in the second and Seiya Suzuki in the third. But the Oakland Athletics found life in the eighth. Colby Thomas connected for a solo home run, cutting the lead. Another run scored later in the frame, knotting the score and forcing extra innings at Wrigley.\n\nSoderstrom finished with two hits and two runs batted in, driving in the crucial tenth-inning score against losing pitcher Ethan Roberts. Hogan Harris earned the victory for Oakland, with Justin Sterner recording the save. This road win keeps the Athletics in the thick of the American League playoff chase, while the Cubs now face renewed pressure in a tight National League Central division battle.",
-    "reason": "Marathon ball. 10 innings of sustained tension makes this the day's standout."
+    "headline": "Down 3, CHC walks it off.",
+    "subheadline": "ATH 6, CHC 7. Chicago Cubs completes the comeback.",
+    "lead_angle": "They were staring at a 3-run deficit and they came all the way back. Chicago Cubs finished it with a walk-off, beating Oakland Athletics ATH 6, CHC 7. The kind of game you remember.",
+    "reason": "Walk-off comeback from 3 runs — drama stacked on drama."
   },
   "all_games": [
     {
       "rank": 1,
       "away": "ATH",
       "home": "CHC",
-      "away_runs": 5,
-      "home_runs": 4,
-      "innings": 10,
-      "raw_score": 55.0,
+      "away_runs": 6,
+      "home_runs": 7,
+      "innings": 9,
+      "raw_score": 89.0,
       "flags": [
-        "EXTRA INNINGS (10)",
+        "WALK-OFF WIN",
+        "COMEBACK (trailed 3)",
         "ONE-RUN GAME",
-        "PLAYOFF IMPLICATIONS",
+        "MULTI-HR: Shea Langeliers (2 HR)",
         "CHC HOME GAME"
       ],
       "selected": true
     },
     {
       "rank": 2,
-      "away": "CLE",
-      "home": "NYY",
-      "away_runs": 5,
-      "home_runs": 4,
-      "innings": 9,
-      "raw_score": 49.0,
-      "flags": [
-        "ONE-RUN GAME",
-        "PLAYOFF IMPLICATIONS",
-        "NYY HOME GAME"
-      ],
-      "selected": false
-    },
-    {
-      "rank": 3,
-      "away": "SD",
-      "home": "PHI",
+      "away": "LAD",
+      "home": "AZ",
       "away_runs": 2,
       "home_runs": 3,
       "innings": 9,
-      "raw_score": 45.0,
+      "raw_score": 85.0,
       "flags": [
+        "WALK-OFF WIN",
         "ONE-RUN GAME",
-        "DOMINANT START: Cristopher Sánchez (7.0 IP, 1 ER, 8 K)",
-        "PHI HOME GAME"
-      ],
-      "selected": false
-    },
-    {
-      "rank": 4,
-      "away": "TOR",
-      "home": "ATL",
-      "away_runs": 3,
-      "home_runs": 7,
-      "innings": 9,
-      "raw_score": 42.0,
-      "flags": [
-        "PLAYOFF IMPLICATIONS",
-        "SB SPREE (3)",
-        "ATL HOME GAME"
-      ],
-      "selected": false
-    },
-    {
-      "rank": 5,
-      "away": "LAD",
-      "home": "AZ",
-      "away_runs": 7,
-      "home_runs": 0,
-      "innings": 9,
-      "raw_score": 40.0,
-      "flags": [
         "PLAYOFF IMPLICATIONS",
         "DIVISION MATCHUP"
       ],
       "selected": false
     },
     {
-      "rank": 6,
-      "away": "SF",
-      "home": "MIL",
+      "rank": 3,
+      "away": "CLE",
+      "home": "NYY",
       "away_runs": 1,
-      "home_runs": 0,
+      "home_runs": 2,
       "innings": 9,
-      "raw_score": 37.0,
+      "raw_score": 57.0,
       "flags": [
         "ONE-RUN GAME",
-        "PLAYOFF IMPLICATIONS"
+        "PLAYOFF IMPLICATIONS",
+        "SB SPREE (4)",
+        "NYY HOME GAME"
+      ],
+      "selected": false
+    },
+    {
+      "rank": 4,
+      "away": "SF",
+      "home": "MIL",
+      "away_runs": 12,
+      "home_runs": 9,
+      "innings": 9,
+      "raw_score": 52.0,
+      "flags": [
+        "PLAYOFF IMPLICATIONS",
+        "MULTI-HR: Jackson Chourio (2 HR)",
+        "HIGH-SCORING (21 runs)"
+      ],
+      "selected": false
+    },
+    {
+      "rank": 5,
+      "away": "KC",
+      "home": "MIN",
+      "away_runs": 8,
+      "home_runs": 6,
+      "innings": 9,
+      "raw_score": 38.0,
+      "flags": [
+        "DIVISION MATCHUP",
+        "MULTI-HR: Kody Clemens (2 HR)"
+      ],
+      "selected": false
+    },
+    {
+      "rank": 6,
+      "away": "TOR",
+      "home": "ATL",
+      "away_runs": 7,
+      "home_runs": 2,
+      "innings": 9,
+      "raw_score": 34.0,
+      "flags": [
+        "PLAYOFF IMPLICATIONS",
+        "ATL HOME GAME"
       ],
       "selected": false
     },
     {
       "rank": 7,
-      "away": "PIT",
-      "home": "HOU",
-      "away_runs": 9,
-      "home_runs": 11,
-      "innings": 9,
-      "raw_score": 34.0,
-      "flags": [
-        "COMEBACK (trailed 3)",
-        "HOU HOME GAME",
-        "HIGH-SCORING (20 runs)"
-      ],
-      "selected": false
-    },
-    {
-      "rank": 8,
-      "away": "NYM",
-      "home": "SEA",
-      "away_runs": 7,
-      "home_runs": 1,
-      "innings": 9,
-      "raw_score": 30.0,
-      "flags": [
-        "PLAYOFF IMPLICATIONS",
-        "SB SPREE (3)"
-      ],
-      "selected": false
-    },
-    {
-      "rank": 9,
       "away": "BAL",
       "home": "BOS",
-      "away_runs": 1,
-      "home_runs": 8,
+      "away_runs": 8,
+      "home_runs": 2,
       "innings": 9,
       "raw_score": 30.0,
       "flags": [
@@ -160,77 +135,29 @@
       "selected": false
     },
     {
-      "rank": 10,
-      "away": "DET",
-      "home": "TB",
-      "away_runs": 7,
-      "home_runs": 2,
+      "rank": 8,
+      "away": "SD",
+      "home": "PHI",
+      "away_runs": 4,
+      "home_runs": 6,
       "innings": 9,
-      "raw_score": 22.0,
+      "raw_score": 12.0,
       "flags": [
-        "PLAYOFF IMPLICATIONS"
+        "PHI HOME GAME"
       ],
       "selected": false
     },
     {
-      "rank": 11,
-      "away": "MIA",
-      "home": "WSH",
-      "away_runs": 4,
+      "rank": 9,
+      "away": "PIT",
+      "home": "HOU",
+      "away_runs": 5,
       "home_runs": 1,
       "innings": 9,
-      "raw_score": 18.0,
+      "raw_score": 12.0,
       "flags": [
-        "DIVISION MATCHUP"
+        "HOU HOME GAME"
       ],
-      "selected": false
-    },
-    {
-      "rank": 12,
-      "away": "CWS",
-      "home": "MIN",
-      "away_runs": 8,
-      "home_runs": 0,
-      "innings": 9,
-      "raw_score": 18.0,
-      "flags": [
-        "DIVISION MATCHUP"
-      ],
-      "selected": false
-    },
-    {
-      "rank": 13,
-      "away": "TEX",
-      "home": "STL",
-      "away_runs": 3,
-      "home_runs": 5,
-      "innings": 9,
-      "raw_score": 8.0,
-      "flags": [
-        "SB SPREE (4)"
-      ],
-      "selected": false
-    },
-    {
-      "rank": 14,
-      "away": "KC",
-      "home": "CIN",
-      "away_runs": 5,
-      "home_runs": 2,
-      "innings": 9,
-      "raw_score": 0.0,
-      "flags": [],
-      "selected": false
-    },
-    {
-      "rank": 15,
-      "away": "COL",
-      "home": "LAA",
-      "away_runs": 4,
-      "home_runs": 11,
-      "innings": 9,
-      "raw_score": 0.0,
-      "flags": [],
       "selected": false
     }
   ]
