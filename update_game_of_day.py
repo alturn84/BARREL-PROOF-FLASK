@@ -890,10 +890,9 @@ BAD EXAMPLE VOICE:
 Write 4-5 paragraphs of lead story copy. Plain text only. No markdown."""
 
     try:
-        from google import genai
-        from google.genai import types as genai_types
+        import google.genai as genai
         from google.genai import types
-        client = genai.Client(api_key=api_key, http_options=genai_types.HttpOptions(api_version="v1"))
+        client = genai.Client(api_key=api_key, http_options=types.HttpOptions(api_version="v1"))
         print("  Calling Gemini for expanded lead angle...", flush=True)
         full_prompt = f"{system_prompt}\n\n{prompt}"
         response = client.models.generate_content(

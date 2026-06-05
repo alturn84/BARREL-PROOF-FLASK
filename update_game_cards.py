@@ -19,6 +19,7 @@ import re
 import sys
 from datetime import datetime, timedelta
 from pathlib import Path
+from google.genai import types
 
 print(f"SCRIPT STARTED: {datetime.now()}", flush=True)
 
@@ -137,7 +138,7 @@ BAD EXAMPLES:
 """
 
     try:
-        from google.genai import types
+
         response = client.models.generate_content(
             model="gemini-2.5-flash",
             contents=prompt,
@@ -488,9 +489,9 @@ def main():
     gemini_client = None
     if api_key:
         try:
-            from google import genai
-            from google.genai import types as genai_types
-            gemini_client = genai.Client(api_key=api_key, http_options=genai_types.HttpOptions(api_version="v1"))
+            import google.genai as genai
+            from google.genai import types
+            gemini_client = genai.Client(api_key=api_key, http_options=types.HttpOptions(api_version="v1"))
             print("  Gemini client initialized for summaries", flush=True)
         except Exception as e:
             print(f"  ⚠ Gemini init failed: {e}", flush=True)

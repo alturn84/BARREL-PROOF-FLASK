@@ -366,13 +366,13 @@ def run(date_str):
     print(f"  Context assembled: {len(context)} chars", flush=True)
 
     try:
-        from google import genai
-        from google.genai import types as genai_types
+        import google.genai as genai
+        from google.genai import types
     except ImportError:
         write_failed("google-genai not installed", date_str)
         sys.exit(1)
-
-    client = genai.Client(api_key=api_key, http_options=genai_types.HttpOptions(api_version="v1"))
+    
+    client = genai.Client(api_key=api_key, http_options=types.HttpOptions(api_version="v1"))
 
     full_prompt = f"{SYSTEM_PROMPT}\n\n{context}"
 
@@ -381,7 +381,7 @@ def run(date_str):
         response = client.models.generate_content(
             model=MODEL,
             contents=full_prompt,
-            config=genai_types.GenerateContentConfig(
+            config=types.GenerateContentConfig(
                 max_output_tokens=MAX_TOKENS,
             ),
         )
