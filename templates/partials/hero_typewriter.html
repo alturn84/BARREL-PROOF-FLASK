@@ -1,0 +1,16 @@
+<div class="hero-banner hero-banner--typewriter">
+  <img class="hero-image"
+       src="{{ url_for('static', filename='images/hero-typewriter.jpg .png') }}"
+       alt="Barrel Proof — Typewriter">
+  <div class="hero-overlay">
+    <div class="hero-date--typewriter">{{ edition_date }}</div>
+    {% if scout_notes %}
+    <div class="hero-notes--typewriter">
+      <div class="notes-heading">Scout Notes</div>
+      {% for note in scout_notes %}
+      <div>– {{ note }}</div>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</div>

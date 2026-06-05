@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Box Scores · Monday, May 11, 2026 — Barrel Proof</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Playfair+Display+SC:wght@400;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ink:#1A1108;--ink-soft:#2C1F0E;--ink-card:#1E1208;
+  --parchment:#EDE5D0;--parchment2:#D8C9A8;
+  --gold-dim:#887C60;--smoke:#7A6A52;--smoke-light:#A89070;
+  --leather:#3A2010;--rule:rgba(100,68,20,.22);--rule-heavy:rgba(100,68,20,.45);
+  --green:#4A8A4A;--red:#A83030;
+  --serif-display:"Playfair Display",Georgia,serif;
+  --serif-sc:"Playfair Display SC",Georgia,serif;
+  --serif-body:"Source Serif 4",Georgia,serif;
+  --mono:"IBM Plex Mono","Courier New",monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:14px;}
+body{background:var(--ink);color:var(--parchment);font-family:var(--serif-body);-webkit-font-smoothing:antialiased;min-height:100vh;}
+a{color:inherit;text-decoration:none;}
+
+/* ── TICKER ── */
+.ticker-bar{background:var(--leather);border-bottom:1px solid var(--gold-dim);padding:5px 0;overflow:hidden;}
+.ticker-inner{display:flex;align-items:center;white-space:nowrap;animation:ticker 60s linear infinite;}
+.ticker-inner:hover{animation-play-state:paused;}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.ti{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--parchment2);padding:0 20px;display:inline-flex;align-items:center;gap:7px;}
+.ti .w{color:var(--parchment);font-weight:500;}.ti .sep{color:var(--gold-dim);opacity:.5;}
+
+/* ── MASTHEAD ── */
+.page{max-width:1280px;margin:0 auto;padding:0 22px 60px;}
+.masthead{padding:32px 0 0;border-bottom:2px solid var(--gold-dim);}
+.masthead-top{display:flex;justify-content:center;align-items:center;padding-bottom:8px;}
+.site-name{font-family:'Perpetua Titling MT','Perpetua','Book Antiqua','Palatino Linotype',Palatino,Georgia,serif;font-size:clamp(34px,5vw,64px);font-weight:400;letter-spacing:.18em;color:var(--parchment);line-height:1;text-align:center;text-transform:uppercase;white-space:nowrap;}
+.tagline-bar{text-align:center;padding:8px 0 14px;border-top:.5px solid var(--rule);margin-top:6px;}
+.tagline{font-family:var(--serif-sc);font-size:18px;letter-spacing:.2em;color:var(--smoke-light);line-height:1.8;}
+.tagline em{color:var(--gold-dim);font-style:normal;}
+.tagline-sub{font-size:15px;letter-spacing:.24em;color:var(--gold-dim);}
+
+/* ── NAV ── */
+nav.main-nav{display:flex;align-items:center;border-bottom:1px solid var(--rule-heavy);}
+.nav-barrel-btn{flex-shrink:0;width:52px;height:48px;cursor:pointer;border-right:.5px solid var(--rule-heavy);background:var(--ink) url('https://i.postimg.cc/pTNWxjb5/barrel-tab-logo-removebg-preview.png') center/40px auto no-repeat;transition:opacity .2s;}
+.nav-barrel-btn:hover{opacity:.75;}
+.nav-items-wrap{display:flex;align-items:center;overflow:hidden;max-width:0;transition:max-width .45s cubic-bezier(.4,0,.2,1);white-space:nowrap;}
+.nav-items-wrap.open{max-width:1400px;}
+.nav-item{font-family:var(--serif-sc);font-size:15px;letter-spacing:.14em;color:var(--smoke-light);padding:12px 18px;position:relative;cursor:pointer;transition:color .2s;white-space:nowrap;display:inline-block;}
+.nav-item:hover,.nav-item.active{color:var(--parchment);}
+.nav-item.active::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:2px;background:var(--parchment);}
+.nav-item:not(:last-child)::before{content:'·';position:absolute;right:-2px;color:var(--rule-heavy);}
+
+/* ── DATE NAVIGATION ── */
+.date-nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0 10px;border-bottom:.5px solid var(--rule);gap:12px;}
+.date-arrow{background:none;border:.5px solid var(--rule-heavy);border-radius:3px;color:var(--smoke-light);font-family:var(--mono);font-size:13px;padding:5px 12px;cursor:pointer;transition:all .15s;white-space:nowrap;}
+.date-arrow:hover:not(:disabled){border-color:var(--gold-dim);color:var(--parchment);}
+.date-arrow:disabled{opacity:.25;cursor:default;}
+.date-center{display:flex;align-items:center;gap:10px;}
+.date-display{font-family:var(--serif-sc);font-size:13px;letter-spacing:.14em;color:var(--parchment);cursor:pointer;white-space:nowrap;}
+.date-display:hover{color:var(--gold-dim);}
+.game-count{font-family:var(--mono);font-size:10px;color:var(--smoke);letter-spacing:.06em;}
+
+/* ── CALENDAR DROPDOWN ── */
+.cal-overlay{display:none;position:fixed;inset:0;z-index:100;background:rgba(20,12,4,.7);}
+.cal-overlay.open{display:flex;align-items:flex-start;justify-content:center;padding-top:120px;}
+.cal-panel{background:var(--ink-soft);border:1px solid var(--rule-heavy);border-radius:4px;padding:20px;max-width:480px;width:100%;max-height:70vh;overflow-y:auto;}
+.cal-panel-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;}
+.cal-panel-title{font-family:var(--serif-sc);font-size:12px;letter-spacing:.2em;color:var(--gold-dim);}
+.cal-close{background:none;border:none;color:var(--smoke);cursor:pointer;font-size:18px;line-height:1;padding:0 4px;}
+.cal-close:hover{color:var(--parchment);}
+.cal-month{margin-bottom:18px;}
+.cal-month-hdr{font-family:var(--serif-sc);font-size:11px;letter-spacing:.18em;color:var(--smoke-light);margin-bottom:8px;padding-bottom:4px;border-bottom:.5px solid var(--rule);}
+.cal-days{display:flex;flex-wrap:wrap;gap:4px;}
+.cal-day{font-family:var(--mono);font-size:11px;padding:5px 8px;border-radius:2px;cursor:pointer;border:.5px solid transparent;min-width:36px;text-align:center;color:var(--smoke-light);transition:all .12s;}
+.cal-day.has-games{color:var(--parchment2);border-color:var(--rule);}
+.cal-day.has-games:hover{border-color:var(--gold-dim);color:var(--parchment);}
+.cal-day.current{border-color:var(--gold-dim);background:rgba(136,124,96,.15);color:var(--parchment);}
+.cal-day.no-games{opacity:.2;cursor:default;}
+
+/* ── GAME SELECTOR ── */
+.game-sel-wrap{margin:12px 0 4px;overflow-x:auto;padding-bottom:3px;}
+.game-sel{display:flex;gap:6px;padding:1px 0;min-width:max-content;}
+.game-btn{background:var(--ink-soft);border:.5px solid var(--rule-heavy);border-radius:3px;padding:7px 11px;cursor:pointer;transition:border-color .15s,background .15s;flex-shrink:0;text-align:center;min-width:108px;}
+.game-btn:hover{border-color:var(--gold-dim);}.game-btn.active{border-color:var(--gold-dim);background:var(--ink-card);}
+.gb-status{font-family:var(--mono);font-size:9px;letter-spacing:.09em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:4px;}
+.gb-match{display:flex;align-items:center;gap:5px;justify-content:center;}
+.gb-team{font-family:var(--serif-sc);font-size:11px;letter-spacing:.05em;}
+.gb-team.w{color:var(--parchment);}.gb-team.l{color:var(--smoke);}
+.gb-sc{font-family:var(--mono);font-size:14px;}
+.gb-sc.w{color:var(--parchment);font-weight:500;}.gb-sc.l{color:var(--smoke);}
+.gb-at{color:var(--smoke);font-size:9px;font-family:var(--mono);}
+
+/* ── BOX SCORE LAYOUT ── */
+.bs-layout{display:grid;grid-template-columns:1fr 260px;gap:22px;margin-top:16px;}
+.sec-hdr{display:flex;align-items:baseline;gap:11px;padding:12px 0 8px;border-bottom:.5px solid var(--rule);margin-bottom:14px;}
+.sec-title{font-family:var(--serif-sc);font-size:10.5px;letter-spacing:.2em;color:var(--gold-dim);white-space:nowrap;}
+.sec-rule{flex:1;height:.5px;background:var(--rule);}
+.sec-sub{font-family:var(--mono);font-size:9.5px;color:var(--smoke);letter-spacing:.05em;}
+
+/* ── GAME HEADER ── */
+.game-hdr{margin-bottom:16px;}
+.game-teams-row{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;margin-bottom:10px;}
+.game-team-block{text-align:center;}
+.gt-abbr{font-family:var(--serif-sc);font-size:26px;letter-spacing:.1em;display:block;margin-bottom:2px;}
+.gt-abbr.w{color:var(--parchment);}.gt-abbr.l{color:var(--smoke);}
+.score-center{display:flex;align-items:center;gap:10px;justify-content:center;}
+.gt-score{font-family:var(--mono);font-size:50px;line-height:1;}
+.gt-score.w{color:var(--parchment);font-weight:500;}.gt-score.l{color:var(--smoke);}
+.game-info-bar{font-family:var(--mono);font-size:10px;color:var(--smoke);letter-spacing:.04em;line-height:1.8;border-top:.5px solid var(--rule);padding-top:8px;margin-bottom:10px;}
+.game-info-bar strong{color:var(--smoke-light);}
+.game-decisions{font-family:var(--mono);font-size:11px;color:var(--smoke);letter-spacing:.03em;margin-bottom:12px;}
+.game-decisions strong{color:var(--parchment2);font-weight:500;}
+
+/* ── LINE SCORE ── */
+.ls-wrap{overflow-x:auto;margin-bottom:20px;}
+.ls{border-collapse:collapse;width:100%;font-family:var(--mono);font-size:12px;white-space:nowrap;}
+.ls th{color:var(--smoke);font-weight:400;font-size:10px;text-align:center;padding:0 6px 5px;letter-spacing:.06em;border-bottom:.5px solid var(--rule);}
+.ls th.tn{text-align:left;min-width:42px;}
+.ls td{text-align:center;padding:5px 6px;color:var(--smoke);}
+.ls td.tn{text-align:left;font-family:var(--serif-sc);font-size:11px;letter-spacing:.08em;min-width:42px;padding-left:1px;}
+.ls td.sep{border-left:1px solid var(--rule-heavy);}
+.ls tr.w td{color:var(--parchment);}.ls tr.w td.tn{color:var(--parchment);}
+.ls tr.w td.sep:first-of-type{font-weight:600;}
+
+/* ── STAT TABLES ── */
+.team-block{margin-bottom:22px;}
+.team-label{font-family:var(--serif-sc);font-size:11px;letter-spacing:.14em;color:var(--gold-dim);margin-bottom:8px;padding-bottom:4px;border-bottom:.5px solid var(--rule);}
+.stat-wrap{overflow-x:auto;margin-bottom:6px;}
+.stat-tbl{border-collapse:collapse;width:100%;font-family:var(--mono);font-size:11px;white-space:nowrap;}
+.stat-tbl th{color:var(--smoke);font-weight:400;font-size:9.5px;text-align:center;padding:4px 6px;letter-spacing:.06em;border-bottom:.5px solid var(--rule-heavy);background:rgba(0,0,0,.18);}
+.stat-tbl th.nl{text-align:left;}
+.stat-tbl td{text-align:center;padding:4px 6px;color:var(--parchment2);border-bottom:.5px solid var(--rule);}
+.stat-tbl td.nl{text-align:left;min-width:155px;}
+.stat-tbl tr:last-child td{border-bottom:none;font-weight:500;background:rgba(0,0,0,.15);}
+.stat-tbl tr:hover td{background:rgba(136,124,96,.05);}
+.hi-hr{color:var(--parchment);font-weight:600;}.hi-h3{color:var(--parchment);font-weight:500;}
+.hi-rbi{color:var(--parchment);font-weight:500;}.hi-k8{color:var(--parchment);font-weight:600;}
+.era-good{color:var(--green);}.era-bad{color:var(--red);}
+
+/* ── GAME NOTES ── */
+.game-notes{font-family:var(--mono);font-size:10.5px;color:var(--smoke-light);line-height:1.9;margin-bottom:18px;padding:10px 12px;background:rgba(0,0,0,.2);border-left:2px solid var(--gold-dim);}
+.game-notes strong{color:var(--parchment2);}
+
+/* ── SIDEBAR ── */
+.sb-card{background:var(--ink-soft);border:.5px solid var(--rule-heavy);border-radius:3px;padding:12px 14px;margin-bottom:14px;}
+.sb-title{font-family:var(--serif-sc);font-size:10.5px;letter-spacing:.16em;color:var(--gold-dim);margin-bottom:10px;}
+.sb-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:.5px solid var(--rule);font-family:var(--mono);font-size:11px;}
+.sb-row:last-child{border-bottom:none;}
+.sb-lbl{color:var(--parchment2);flex:1;padding-right:8px;}.sb-val{color:var(--parchment);font-weight:500;white-space:nowrap;}
+.sb-empty{font-family:var(--mono);font-size:10px;color:var(--smoke);font-style:italic;}
+
+/* ── FOOTER ── */
+footer{border-top:.5px solid var(--rule-heavy);margin-top:40px;padding:20px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+.footer-name{font-family:var(--serif-sc);font-size:15px;color:var(--gold-dim);letter-spacing:.1em;}
+.footer-tag{font-family:var(--mono);font-size:9.5px;color:var(--smoke);letter-spacing:.1em;text-align:center;}
+.footer-legal{font-family:var(--mono);font-size:9px;color:var(--smoke);opacity:.6;text-align:right;line-height:1.7;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:920px){.bs-layout{grid-template-columns:1fr;}.bs-side{order:-1;}}
+@media(max-width:540px){.page{padding:0 12px 40px;}.nav-item:nth-child(n+6){display:none;}.gt-score{font-size:38px;}.gt-abbr{font-size:18px;}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+<div class="ticker-bar"><div class="ticker-inner"><span class="ti"><span class="w">TB 8</span><span class="sep">–</span><span class="">TOR 5</span><span class="sep">|</span></span><span class="ti"><span class="w">AZ 1</span><span class="sep">–</span><span class="">TEX 0</span><span class="sep">|</span></span><span class="ti"><span class="w">SF 9</span><span class="sep">–</span><span class="">LAD 3</span><span class="sep">|</span></span><span class="ti"><span class="w">SEA 3</span><span class="sep">–</span><span class="">HOU 1</span><span class="sep">|</span></span><span class="ti"><span class="">LAA 2</span><span class="sep">–</span><span class="w">CLE 7</span><span class="sep">|</span></span><span class="ti"><span class="">NYY 2</span><span class="sep">–</span><span class="w">BAL 3</span><span class="sep">|</span></span><span class="ti"><span class="w">TB 8</span><span class="sep">–</span><span class="">TOR 5</span><span class="sep">|</span></span><span class="ti"><span class="w">AZ 1</span><span class="sep">–</span><span class="">TEX 0</span><span class="sep">|</span></span><span class="ti"><span class="w">SF 9</span><span class="sep">–</span><span class="">LAD 3</span><span class="sep">|</span></span><span class="ti"><span class="w">SEA 3</span><span class="sep">–</span><span class="">HOU 1</span><span class="sep">|</span></span><span class="ti"><span class="">LAA 2</span><span class="sep">–</span><span class="w">CLE 7</span><span class="sep">|</span></span><span class="ti"><span class="">NYY 2</span><span class="sep">–</span><span class="w">BAL 3</span><span class="sep">|</span></span></div></div>
+<div class="page">
+<header class="masthead">
+  <div class="masthead-top"><h1 class="site-name">BARREL PROOF</h1></div>
+  <div class="tagline-bar">
+    <div class="tagline">Raw &nbsp;<em>·</em>&nbsp; Unfiltered &nbsp;<em>·</em>&nbsp; Baseball.</div>
+    <div class="tagline tagline-sub">Enjoy Responsibly.</div>
+  </div>
+</header>
+<nav class="main-nav">
+  <div class="nav-barrel-btn" onclick="this.nextElementSibling.classList.toggle('open')" title="Menu"></div>
+  <div class="nav-items-wrap">
+    <div class="nav-item" onclick="location.href='../barrel-proof-home.html'">Today</div>
+    <div class="nav-item active">Box Scores</div>
+    <div class="nav-item" onclick="location.href='../barrel-proof-dope-sheet.html'">Dope Sheet</div>
+    <div class="nav-item">Advance Scout</div>
+    <div class="nav-item">Barrels &amp; Whiffs</div>
+    <div class="nav-item">Rosters</div>
+  </div>
+</nav>
+
+<div class="date-nav">
+  <button class="date-arrow" onclick="location.href='boxscores-2026-05-10.html'" >← Prev</button>
+  <div class="date-center">
+    <div class="date-display" onclick="openCal()" title="Browse archive">
+      Monday, May 11, 2026
+    </div>
+    <span class="game-count">6 games</span>
+  </div>
+  <button class="date-arrow" onclick="location.href='boxscores-2026-05-12.html'" >Next →</button>
+</div>
+
+<div class="game-sel-wrap"><div class="game-sel" id="gameSel"></div></div>
+<div class="bs-layout"><main id="bsMain"></main><aside class="bs-side" id="bsSide"></aside></div>
+
+<footer>
+  <div class="footer-name">Barrel Proof</div>
+  <div class="footer-tag">RAW · UNFILTERED · BASEBALL · ENJOY RESPONSIBLY<br/><span style="opacity:.5">MLB Stats API · statsapi.mlb.com</span></div>
+  <div class="footer-legal">© 2026 Barrel Proof<br/>Please gamble responsibly. 21+</div>
+</footer>
+</div>
+
+<!-- Calendar overlay -->
+<div class="cal-overlay" id="calOverlay" onclick="if(event.target===this)closeCal()">
+  <div class="cal-panel">
+    <div class="cal-panel-hdr">
+      <span class="cal-panel-title">Box Score Archive</span>
+      <button class="cal-close" onclick="closeCal()">✕</button>
+    </div>
+    <div class="cal-month"><div class="cal-month-hdr">MARCH 2026</div><div class="cal-days"><div class="cal-day has-games" onclick="gotoDate('2026-03-25')">25</div><div class="cal-day has-games" onclick="gotoDate('2026-03-26')">26</div><div class="cal-day has-games" onclick="gotoDate('2026-03-27')">27</div><div class="cal-day has-games" onclick="gotoDate('2026-03-28')">28</div><div class="cal-day has-games" onclick="gotoDate('2026-03-29')">29</div><div class="cal-day has-games" onclick="gotoDate('2026-03-30')">30</div><div class="cal-day has-games" onclick="gotoDate('2026-03-31')">31</div></div></div><div class="cal-month"><div class="cal-month-hdr">APRIL 2026</div><div class="cal-days"><div class="cal-day has-games" onclick="gotoDate('2026-04-01')">1</div><div class="cal-day has-games" onclick="gotoDate('2026-04-02')">2</div><div class="cal-day has-games" onclick="gotoDate('2026-04-03')">3</div><div class="cal-day has-games" onclick="gotoDate('2026-04-04')">4</div><div class="cal-day has-games" onclick="gotoDate('2026-04-05')">5</div><div class="cal-day has-games" onclick="gotoDate('2026-04-06')">6</div><div class="cal-day has-games" onclick="gotoDate('2026-04-07')">7</div><div class="cal-day has-games" onclick="gotoDate('2026-04-08')">8</div><div class="cal-day has-games" onclick="gotoDate('2026-04-09')">9</div><div class="cal-day has-games" onclick="gotoDate('2026-04-10')">10</div><div class="cal-day has-games" onclick="gotoDate('2026-04-11')">11</div><div class="cal-day has-games" onclick="gotoDate('2026-04-12')">12</div><div class="cal-day has-games" onclick="gotoDate('2026-04-13')">13</div><div class="cal-day has-games" onclick="gotoDate('2026-04-14')">14</div><div class="cal-day has-games" onclick="gotoDate('2026-04-15')">15</div><div class="cal-day has-games" onclick="gotoDate('2026-04-16')">16</div><div class="cal-day has-games" onclick="gotoDate('2026-04-17')">17</div><div class="cal-day has-games" onclick="gotoDate('2026-04-18')">18</div><div class="cal-day has-games" onclick="gotoDate('2026-04-19')">19</div><div class="cal-day has-games" onclick="gotoDate('2026-04-20')">20</div><div class="cal-day has-games" onclick="gotoDate('2026-04-21')">21</div><div class="cal-day has-games" onclick="gotoDate('2026-04-22')">22</div><div class="cal-day has-games" onclick="gotoDate('2026-04-23')">23</div><div class="cal-day has-games" onclick="gotoDate('2026-04-24')">24</div><div class="cal-day has-games" onclick="gotoDate('2026-04-25')">25</div><div class="cal-day has-games" onclick="gotoDate('2026-04-26')">26</div><div class="cal-day has-games" onclick="gotoDate('2026-04-27')">27</div><div class="cal-day has-games" onclick="gotoDate('2026-04-28')">28</div><div class="cal-day has-games" onclick="gotoDate('2026-04-29')">29</div><div class="cal-day has-games" onclick="gotoDate('2026-04-30')">30</div></div></div><div class="cal-month"><div class="cal-month-hdr">MAY 2026</div><div class="cal-days"><div class="cal-day has-games" onclick="gotoDate('2026-05-01')">1</div><div class="cal-day has-games" onclick="gotoDate('2026-05-02')">2</div><div class="cal-day has-games" onclick="gotoDate('2026-05-03')">3</div><div class="cal-day has-games" onclick="gotoDate('2026-05-04')">4</div><div class="cal-day has-games" onclick="gotoDate('2026-05-05')">5</div><div class="cal-day has-games" onclick="gotoDate('2026-05-06')">6</div><div class="cal-day has-games" onclick="gotoDate('2026-05-07')">7</div><div class="cal-day has-games" onclick="gotoDate('2026-05-08')">8</div><div class="cal-day has-games" onclick="gotoDate('2026-05-09')">9</div><div class="cal-day has-games" onclick="gotoDate('2026-05-10')">10</div><div class="cal-day has-games current" onclick="gotoDate('2026-05-11')">11</div><div class="cal-day has-games" onclick="gotoDate('2026-05-12')">12</div><div class="cal-day has-games" onclick="gotoDate('2026-05-13')">13</div><div class="cal-day has-games" onclick="gotoDate('2026-05-14')">14</div><div class="cal-day has-games" onclick="gotoDate('2026-05-15')">15</div><div class="cal-day has-games" onclick="gotoDate('2026-05-16')">16</div><div class="cal-day has-games" onclick="gotoDate('2026-05-17')">17</div><div class="cal-day has-games" onclick="gotoDate('2026-05-18')">18</div><div class="cal-day has-games" onclick="gotoDate('2026-05-19')">19</div><div class="cal-day has-games" onclick="gotoDate('2026-05-20')">20</div><div class="cal-day has-games" onclick="gotoDate('2026-05-21')">21</div><div class="cal-day has-games" onclick="gotoDate('2026-05-22')">22</div><div class="cal-day has-games" onclick="gotoDate('2026-05-23')">23</div><div class="cal-day has-games" onclick="gotoDate('2026-05-24')">24</div><div class="cal-day has-games" onclick="gotoDate('2026-05-25')">25</div><div class="cal-day has-games" onclick="gotoDate('2026-05-26')">26</div><div class="cal-day has-games" onclick="gotoDate('2026-05-27')">27</div><div class="cal-day has-games" onclick="gotoDate('2026-05-28')">28</div><div class="cal-day has-games" onclick="gotoDate('2026-05-29')">29</div><div class="cal-day has-games" onclick="gotoDate('2026-05-30')">30</div><div class="cal-day has-games" onclick="gotoDate('2026-05-31')">31</div></div></div>
+  </div>
+</div>
+
+<script>
+const GAME_DATE="2026-05-11";
+const ALL_DATES=["2026-03-25", "2026-03-26", "2026-03-27", "2026-03-28", "2026-03-29", "2026-03-30", "2026-03-31", "2026-04-01", "2026-04-02", "2026-04-03", "2026-04-04", "2026-04-05", "2026-04-06", "2026-04-07", "2026-04-08", "2026-04-09", "2026-04-10", "2026-04-11", "2026-04-12", "2026-04-13", "2026-04-14", "2026-04-15", "2026-04-16", "2026-04-17", "2026-04-18", "2026-04-19", "2026-04-20", "2026-04-21", "2026-04-22", "2026-04-23", "2026-04-24", "2026-04-25", "2026-04-26", "2026-04-27", "2026-04-28", "2026-04-29", "2026-04-30", "2026-05-01", "2026-05-02", "2026-05-03", "2026-05-04", "2026-05-05", "2026-05-06", "2026-05-07", "2026-05-08", "2026-05-09", "2026-05-10", "2026-05-11", "2026-05-12", "2026-05-13", "2026-05-14", "2026-05-15", "2026-05-16", "2026-05-17", "2026-05-18", "2026-05-19", "2026-05-20", "2026-05-21", "2026-05-22", "2026-05-23", "2026-05-24", "2026-05-25", "2026-05-26", "2026-05-27", "2026-05-28", "2026-05-29", "2026-05-30", "2026-05-31"];
+const GAMES=[{"away":"TB","home":"TOR","awayR":8,"homeR":5,"status":"Final","venue":"Rogers Centre","start":"","attendance":"","duration":"","weather":"","decisions":{"W":"Drew Rasmussen","L":"Kevin Gausman","SV":"Bryan Baker"},"innings":{"away":[3,2,0,1,1,0,1,0,0],"home":[]},"rhe":{"away":[8,12,0],"home":[0,0,0]},"batting":{"away":[{"n":"Chandler Simpson","pos":"LF","pa":0,"ab":5,"r":3,"h":3,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":0,"avg":".297","obp":"—","slg":"—","ops":"—"},{"n":"Junior Caminero","pos":"3B","pa":0,"ab":4,"r":1,"h":1,"d":0,"t":0,"hr":0,"rbi":0,"bb":1,"so":0,"avg":".256","obp":"—","slg":"—","ops":"—"},{"n":"Jonathan Aranda","pos":"1B","pa":0,"ab":3,"r":2,"h":2,"d":0,"t":0,"hr":1,"rbi":3,"bb":0,"so":1,"avg":".270","obp":"—","slg":"—","ops":"—"},{"n":"Yandy Díaz","pos":"DH","pa":0,"ab":5,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":2,"avg":".295","obp":"—","slg":"—","ops":"—"},{"n":"Jake Fraley","pos":"RF","pa":0,"ab":4,"r":1,"h":1,"d":1,"t":0,"hr":0,"rbi":0,"bb":0,"so":2,"avg":".232","obp":"—","slg":"—","ops":"—"},{"n":"Richie Palacios","pos":"2B","pa":0,"ab":4,"r":0,"h":3,"d":0,"t":0,"hr":0,"rbi":3,"bb":0,"so":0,"avg":".247","obp":"—","slg":"—","ops":"—"},{"n":"Cedric Mullins","pos":"CF","pa":0,"ab":4,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":0,"avg":".182","obp":"—","slg":"—","ops":"—"},{"n":"Hunter Feduccia","pos":"C","pa":0,"ab":4,"r":1,"h":1,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":1,"avg":".250","obp":"—","slg":"—","ops":"—"},{"n":"Taylor Walls","pos":"SS","pa":0,"ab":4,"r":0,"h":1,"d":0,"t":1,"hr":0,"rbi":1,"bb":0,"so":1,"avg":".216","obp":"—","slg":"—","ops":"—"}],"home":[{"n":"George Springer","pos":"DH","pa":0,"ab":4,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":2,"avg":".186","obp":"—","slg":"—","ops":"—"},{"n":"Yohendrick Piñango","pos":"LF","pa":0,"ab":3,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":1,"so":0,"avg":".333","obp":"—","slg":"—","ops":"—"},{"n":"Vladimir Guerrero Jr.","pos":"1B","pa":0,"ab":4,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":1,"avg":".286","obp":"—","slg":"—","ops":"—"},{"n":"Kazuma Okamoto","pos":"3B","pa":0,"ab":4,"r":1,"h":1,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":2,"avg":".233","obp":"—","slg":"—","ops":"—"},{"n":"Daulton Varsho","pos":"CF","pa":0,"ab":4,"r":0,"h":1,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":1,"avg":".261","obp":"—","slg":"—","ops":"—"},{"n":"Jesús Sánchez","pos":"RF","pa":0,"ab":2,"r":1,"h":1,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":0,"avg":".259","obp":"—","slg":"—","ops":"—"},{"n":"Myles Straw","pos":"PH","pa":0,"ab":2,"r":1,"h":1,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":1,"avg":".282","obp":"—","slg":"—","ops":"—"},{"n":"Ernie Clement","pos":"2B","pa":0,"ab":4,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":1,"avg":".282","obp":"—","slg":"—","ops":"—"},{"n":"Andrés Giménez","pos":"SS","pa":0,"ab":4,"r":2,"h":2,"d":0,"t":0,"hr":2,"rbi":5,"bb":0,"so":2,"avg":".238","obp":"—","slg":"—","ops":"—"},{"n":"Brandon Valenzuela","pos":"C","pa":0,"ab":2,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":1,"so":0,"avg":".232","obp":"—","slg":"—","ops":"—"}]},"pitching":{"away":[{"n":"Drew Rasmussen","ip":"6.0","h":4,"r":3,"er":3,"bb":1,"k":6,"hr":1,"bf":"","ps":"100-63","era":"3.19","whip":"1.00"},{"n":"Hunter Bigge","ip":"1.2","h":0,"r":0,"er":0,"bb":0,"k":1,"hr":0,"bf":"","ps":"15-10","era":"5.94","whip":"1.26"},{"n":"Bryan Baker","ip":"1.0","h":0,"r":0,"er":0,"bb":0,"k":2,"hr":0,"bf":"","ps":"11-9","era":"2.79","whip":"1.09"},{"n":"Ian Seymour","ip":"0.1","h":2,"r":2,"er":2,"bb":1,"k":1,"hr":1,"bf":"","ps":"23-16","era":"5.32","whip":"1.32"}],"home":[{"n":"Kevin Gausman","ip":"4.2","h":10,"r":7,"er":6,"bb":0,"k":5,"hr":1,"bf":"","ps":"100-71","era":"3.45","whip":"1.05"},{"n":"Joe Mantiply","ip":"1.1","h":0,"r":0,"er":0,"bb":0,"k":0,"hr":0,"bf":"","ps":"16-9","era":"2.04","whip":"1.13"},{"n":"Mason Fluharty","ip":"1.0","h":1,"r":0,"er":0,"bb":0,"k":0,"hr":0,"bf":"","ps":"18-11","era":"4.96","whip":"1.35"},{"n":"Yariel Rodríguez","ip":"1.0","h":0,"r":0,"er":0,"bb":1,"k":2,"hr":0,"bf":"","ps":"11-6","era":"3.86","whip":"0.86"},{"n":"Braydon Fisher","ip":"1.0","h":1,"r":1,"er":1,"bb":0,"k":0,"hr":0,"bf":"","ps":"19-13","era":"3.28","whip":"1.09"}]},"notes":[],"lob":""},{"away":"AZ","home":"TEX","awayR":1,"homeR":0,"status":"Final · SHO","venue":"Globe Life Field","start":"","attendance":"","duration":"","weather":"","decisions":{"W":"Michael Soroka","L":"Jakob Junis","SV":"Paul Sewald"},"innings":{"away":[1,0,0,0,0,0,0,0,0],"home":[]},"rhe":{"away":[1,6,0],"home":[0,0,0]},"batting":{"away":[{"n":"Ketel Marte","pos":"2B","pa":0,"ab":4,"r":0,"h":1,"d":1,"t":0,"hr":0,"rbi":0,"bb":0,"so":0,"avg":".216","obp":"—","slg":"—","ops":"—"},{"n":"Corbin Carroll","pos":"RF","pa":0,"ab":2,"r":1,"h":1,"d":1,"t":0,"hr":0,"rbi":0,"bb":2,"so":0,"avg":".278","obp":"—","slg":"—","ops":"—"},{"n":"Geraldo Perdomo","pos":"SS","pa":0,"ab":4,"r":0,"h":2,"d":1,"t":0,"hr":0,"rbi":1,"bb":0,"so":1,"avg":".226","obp":"—","slg":"—","ops":"—"},{"n":"Adrian Del Castillo","pos":"DH","pa":0,"ab":3,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":2,"avg":".185","obp":"—","slg":"—","ops":"—"},{"n":"Jose Fernandez","pos":"PH","pa":0,"ab":1,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":1,"avg":".275","obp":"—","slg":"—","ops":"—"},{"n":"Ildemaro Vargas","pos":"1B","pa":0,"ab":4,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":1,"avg":".333","obp":"—","slg":"—","ops":"—"},{"n":"Nolan Arenado","pos":"3B","pa":0,"ab":4,"r":0,"h":2,"d":1,"t":0,"hr":0,"rbi":0,"bb":0,"so":0,"avg":".273","obp":"—","slg":"—","ops":"—"},{"n":"Lourdes Gurriel Jr.","pos":"LF","pa":0,"ab":4,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":1,"avg":".228","obp":"—","slg":"—","ops":"—"},{"n":"Gabriel Moreno","pos":"C","pa":0,"ab":4,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":2,"avg":".253","obp":"—","slg":"—","ops":"—"},{"n":"Ryan Waldschmidt","pos":"CF","pa":0,"ab":3,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":0,"avg":".241","obp":"—","slg":"—","ops":"—"}],"home":[{"n":"Brandon Nimmo","pos":"RF","pa":0,"ab":4,"r":0,"h":1,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":1,"avg":".267","obp":"—","slg":"—","ops":"—"},{"n":"Ezequiel Duran","pos":"2B","pa":0,"ab":4,"r":0,"h":1,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":2,"avg":".270","obp":"—","slg":"—","ops":"—"},{"n":"Corey Seager","pos":"SS","pa":0,"ab":3,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":0,"avg":".179","obp":"—","slg":"—","ops":"—"},{"n":"Josh Jung","pos":"3B","pa":0,"ab":4,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":1,"avg":".301","obp":"—","slg":"—","ops":"—"},{"n":"Evan Carter","pos":"CF","pa":0,"ab":2,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":0,"avg":".167","obp":"—","slg":"—","ops":"—"},{"n":"Justin Foscue","pos":"PH","pa":0,"ab":1,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":1,"avg":".182","obp":"—","slg":"—","ops":"—"},{"n":"Joc Pederson","pos":"DH","pa":0,"ab":1,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":1,"so":0,"avg":".212","obp":"—","slg":"—","ops":"—"},{"n":"Andrew McCutchen","pos":"PH","pa":0,"ab":1,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":0,"avg":".220","obp":"—","slg":"—","ops":"—"},{"n":"Alejandro Osuna","pos":"LF","pa":0,"ab":3,"r":0,"h":1,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":1,"avg":".261","obp":"—","slg":"—","ops":"—"},{"n":"Jake Burger","pos":"1B","pa":0,"ab":3,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":1,"avg":".232","obp":"—","slg":"—","ops":"—"},{"n":"Kyle Higashioka","pos":"C","pa":0,"ab":3,"r":0,"h":1,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":0,"avg":".211","obp":"—","slg":"—","ops":"—"}]},"pitching":{"away":[{"n":"Michael Soroka","ip":"6.1","h":3,"r":0,"er":0,"bb":1,"k":5,"hr":0,"bf":"","ps":"89-59","era":"3.49","whip":"1.33"},{"n":"Paul Sewald","ip":"1.0","h":0,"r":0,"er":0,"bb":0,"k":1,"hr":0,"bf":"","ps":"15-11","era":"4.41","whip":"0.92"},{"n":"Taylor Clarke","ip":"1.0","h":1,"r":0,"er":0,"bb":0,"k":0,"hr":0,"bf":"","ps":"11-8","era":"2.18","whip":"0.73"},{"n":"Brandyn Garcia","ip":"0.2","h":0,"r":0,"er":0,"bb":0,"k":1,"hr":0,"bf":"","ps":"7-6","era":"1.59","whip":"0.71"}],"home":[{"n":"Peyton Gray","ip":"2.2","h":1,"r":0,"er":0,"bb":0,"k":2,"hr":0,"bf":"","ps":"29-20","era":"0.87","whip":"1.26"},{"n":"Jakob Junis","ip":"2.2","h":2,"r":1,"er":1,"bb":0,"k":2,"hr":0,"bf":"","ps":"31-22","era":"1.89","whip":"0.79"},{"n":"Tyler Alexander","ip":"1.2","h":0,"r":0,"er":0,"bb":0,"k":2,"hr":0,"bf":"","ps":"17-13","era":"2.14","whip":"1.38"},{"n":"Jalen Beeks","ip":"1.0","h":1,"r":0,"er":0,"bb":1,"k":1,"hr":0,"bf":"","ps":"15-9","era":"2.95","whip":"1.25"},{"n":"Cole Winn","ip":"1.0","h":2,"r":0,"er":0,"bb":1,"k":1,"hr":0,"bf":"","ps":"17-11","era":"5.00","whip":"1.50"}]},"notes":[],"lob":""},{"away":"SF","home":"LAD","awayR":9,"homeR":3,"status":"Final","venue":"UNIQLO Field at Dodger Stadium","start":"","attendance":"","duration":"","weather":"","decisions":{"W":"Matt Gage","L":"Alex Vesia","SV":""},"innings":{"away":[0,1,0,0,0,2,3,0,3],"home":[]},"rhe":{"away":[9,12,0],"home":[0,0,0]},"batting":{"away":[{"n":"Jung Hoo Lee","pos":"RF","pa":0,"ab":5,"r":1,"h":1,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":1,"avg":".266","obp":"—","slg":"—","ops":"—"},{"n":"Luis Arraez","pos":"2B","pa":0,"ab":6,"r":1,"h":2,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":0,"avg":".328","obp":"—","slg":"—","ops":"—"},{"n":"Casey Schmitt","pos":"1B","pa":0,"ab":3,"r":3,"h":2,"d":0,"t":0,"hr":0,"rbi":0,"bb":1,"so":0,"avg":".297","obp":"—","slg":"—","ops":"—"},{"n":"Rafael Devers","pos":"DH","pa":0,"ab":3,"r":3,"h":2,"d":0,"t":0,"hr":1,"rbi":2,"bb":2,"so":0,"avg":".246","obp":"—","slg":"—","ops":"—"},{"n":"Heliot Ramos","pos":"LF","pa":0,"ab":4,"r":1,"h":2,"d":1,"t":0,"hr":0,"rbi":2,"bb":1,"so":1,"avg":".267","obp":"—","slg":"—","ops":"—"},{"n":"Willy Adames","pos":"SS","pa":0,"ab":5,"r":0,"h":2,"d":0,"t":0,"hr":0,"rbi":3,"bb":0,"so":1,"avg":".234","obp":"—","slg":"—","ops":"—"},{"n":"Matt Chapman","pos":"3B","pa":0,"ab":4,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":1,"bb":1,"so":2,"avg":".223","obp":"—","slg":"—","ops":"—"},{"n":"Harrison Bader","pos":"CF","pa":0,"ab":5,"r":0,"h":1,"d":1,"t":0,"hr":0,"rbi":0,"bb":0,"so":1,"avg":".153","obp":"—","slg":"—","ops":"—"},{"n":"Jesus Rodriguez","pos":"C","pa":0,"ab":4,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":1,"bb":1,"so":1,"avg":".214","obp":"—","slg":"—","ops":"—"}],"home":[{"n":"Shohei Ohtani","pos":"DH","pa":0,"ab":5,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":2,"avg":".258","obp":"—","slg":"—","ops":"—"},{"n":"Mookie Betts","pos":"SS","pa":0,"ab":5,"r":0,"h":1,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":1,"avg":".180","obp":"—","slg":"—","ops":"—"},{"n":"Freddie Freeman","pos":"1B","pa":0,"ab":4,"r":1,"h":2,"d":1,"t":0,"hr":0,"rbi":0,"bb":0,"so":1,"avg":".257","obp":"—","slg":"—","ops":"—"},{"n":"Kyle Tucker","pos":"RF","pa":0,"ab":3,"r":1,"h":1,"d":0,"t":0,"hr":0,"rbi":0,"bb":1,"so":0,"avg":".259","obp":"—","slg":"—","ops":"—"},{"n":"Will Smith","pos":"C","pa":0,"ab":4,"r":0,"h":2,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":1,"avg":".262","obp":"—","slg":"—","ops":"—"},{"n":"Max Muncy","pos":"3B","pa":0,"ab":4,"r":1,"h":2,"d":0,"t":0,"hr":1,"rbi":2,"bb":0,"so":1,"avg":".267","obp":"—","slg":"—","ops":"—"},{"n":"Andy Pages","pos":"CF","pa":0,"ab":4,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":0,"avg":".301","obp":"—","slg":"—","ops":"—"},{"n":"Teoscar Hernández","pos":"LF","pa":0,"ab":3,"r":0,"h":2,"d":1,"t":0,"hr":0,"rbi":0,"bb":1,"so":0,"avg":".268","obp":"—","slg":"—","ops":"—"},{"n":"Hyeseong Kim","pos":"2B","pa":0,"ab":2,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":1,"avg":".274","obp":"—","slg":"—","ops":"—"},{"n":"Miguel Rojas","pos":"PH","pa":0,"ab":2,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":0,"avg":".286","obp":"—","slg":"—","ops":"—"}]},"pitching":{"away":[{"n":"Trevor McDonald","ip":"5.1","h":9,"r":3,"er":3,"bb":2,"k":4,"hr":1,"bf":"","ps":"101-58","era":"2.37","whip":"1.00"},{"n":"Matt Gage","ip":"1.2","h":0,"r":0,"er":0,"bb":0,"k":1,"hr":0,"bf":"","ps":"21-13","era":"1.40","whip":"1.14"},{"n":"JT Brubaker","ip":"1.0","h":0,"r":0,"er":0,"bb":0,"k":1,"hr":0,"bf":"","ps":"12-8","era":"3.66","whip":"1.63"},{"n":"Keaton Winn","ip":"1.0","h":1,"r":0,"er":0,"bb":0,"k":1,"hr":0,"bf":"","ps":"14-12","era":"2.33","whip":"0.83"}],"home":[{"n":"Roki Sasaki","ip":"5.0","h":6,"r":3,"er":3,"bb":1,"k":5,"hr":1,"bf":"","ps":"91-60","era":"5.09","whip":"1.45"},{"n":"Wyatt Mills","ip":"1.0","h":1,"r":3,"er":3,"bb":4,"k":0,"hr":0,"bf":"","ps":"37-17","era":"8.10","whip":"3.00"},{"n":"Jack Dreyer","ip":"1.0","h":1,"r":0,"er":0,"bb":0,"k":0,"hr":0,"bf":"","ps":"15-11","era":"2.08","whip":"0.97"},{"n":"Blake Treinen","ip":"1.0","h":0,"r":0,"er":0,"bb":0,"k":0,"hr":0,"bf":"","ps":"9-6","era":"3.68","whip":"1.36"},{"n":"Will Klein","ip":"0.2","h":1,"r":0,"er":0,"bb":0,"k":1,"hr":0,"bf":"","ps":"8-7","era":"2.45","whip":"1.31"},{"n":"Alex Vesia","ip":"0.1","h":3,"r":3,"er":3,"bb":1,"k":1,"hr":0,"bf":"","ps":"23-15","era":"2.76","whip":"0.98"}]},"notes":[],"lob":""},{"away":"SEA","home":"HOU","awayR":3,"homeR":1,"status":"Final","venue":"Daikin Park","start":"","attendance":"","duration":"","weather":"","decisions":{"W":"George Kirby","L":"Peter Lambert","SV":"Andrés Muñoz"},"innings":{"away":[0,2,1,0,0,0,0,0,0],"home":[]},"rhe":{"away":[3,7,0],"home":[0,0,0]},"batting":{"away":[{"n":"Brendan Donovan","pos":"3B","pa":0,"ab":4,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":0,"avg":".274","obp":"—","slg":"—","ops":"—"},{"n":"Julio Rodríguez","pos":"CF","pa":0,"ab":4,"r":1,"h":2,"d":0,"t":0,"hr":1,"rbi":1,"bb":0,"so":1,"avg":".251","obp":"—","slg":"—","ops":"—"},{"n":"Josh Naylor","pos":"1B","pa":0,"ab":4,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":1,"avg":".249","obp":"—","slg":"—","ops":"—"},{"n":"Cal Raleigh","pos":"C","pa":0,"ab":4,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":1,"avg":".161","obp":"—","slg":"—","ops":"—"},{"n":"Randy Arozarena","pos":"LF","pa":0,"ab":4,"r":1,"h":2,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":1,"avg":".301","obp":"—","slg":"—","ops":"—"},{"n":"Luke Raley","pos":"RF","pa":0,"ab":2,"r":1,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":1,"so":1,"avg":".269","obp":"—","slg":"—","ops":"—"},{"n":"Rob Refsnyder","pos":"PH","pa":0,"ab":1,"r":0,"h":1,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":0,"avg":".123","obp":"—","slg":"—","ops":"—"},{"n":"J.P. Crawford","pos":"SS","pa":0,"ab":4,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":0,"avg":".216","obp":"—","slg":"—","ops":"—"},{"n":"Dominic Canzone","pos":"DH","pa":0,"ab":3,"r":0,"h":1,"d":0,"t":0,"hr":0,"rbi":1,"bb":0,"so":2,"avg":".245","obp":"—","slg":"—","ops":"—"},{"n":"Cole Young","pos":"2B","pa":0,"ab":3,"r":0,"h":1,"d":0,"t":0,"hr":0,"rbi":1,"bb":0,"so":0,"avg":".249","obp":"—","slg":"—","ops":"—"}],"home":[{"n":"Jose Altuve","pos":"2B","pa":0,"ab":5,"r":1,"h":3,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":1,"avg":".245","obp":"—","slg":"—","ops":"—"},{"n":"Yordan Alvarez","pos":"DH","pa":0,"ab":5,"r":0,"h":1,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":3,"avg":".316","obp":"—","slg":"—","ops":"—"},{"n":"Isaac Paredes","pos":"3B","pa":0,"ab":4,"r":0,"h":3,"d":0,"t":0,"hr":0,"rbi":1,"bb":0,"so":0,"avg":".250","obp":"—","slg":"—","ops":"—"},{"n":"Christian Walker","pos":"1B","pa":0,"ab":3,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":1,"so":2,"avg":".263","obp":"—","slg":"—","ops":"—"},{"n":"Zach Cole","pos":"LF","pa":0,"ab":4,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":3,"avg":".211","obp":"—","slg":"—","ops":"—"},{"n":"Cam Smith","pos":"RF","pa":0,"ab":2,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":2,"so":1,"avg":".196","obp":"—","slg":"—","ops":"—"},{"n":"Brice Matthews","pos":"CF","pa":0,"ab":4,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":3,"avg":".204","obp":"—","slg":"—","ops":"—"},{"n":"Braden Shewmake","pos":"SS","pa":0,"ab":4,"r":0,"h":1,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":0,"avg":".333","obp":"—","slg":"—","ops":"—"},{"n":"Christian Vázquez","pos":"C","pa":0,"ab":3,"r":0,"h":1,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":0,"avg":".244","obp":"—","slg":"—","ops":"—"},{"n":"Zach Dezenzo","pos":"PH","pa":0,"ab":1,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":0,"avg":".231","obp":"—","slg":"—","ops":"—"}]},"pitching":{"away":[{"n":"George Kirby","ip":"5.0","h":7,"r":1,"er":1,"bb":2,"k":7,"hr":0,"bf":"","ps":"99-64","era":"3.45","whip":"1.18"},{"n":"Nick Davila","ip":"1.0","h":1,"r":0,"er":0,"bb":0,"k":1,"hr":0,"bf":"","ps":"14-9","era":"0.00","whip":"1.11"},{"n":"Cooper Criswell","ip":"1.0","h":0,"r":0,"er":0,"bb":0,"k":1,"hr":0,"bf":"","ps":"13-7","era":"2.79","whip":"1.03"},{"n":"Andrés Muñoz","ip":"1.0","h":1,"r":0,"er":0,"bb":0,"k":1,"hr":0,"bf":"","ps":"14-11","era":"5.29","whip":"1.35"},{"n":"Eduard Bazardo","ip":"1.0","h":0,"r":0,"er":0,"bb":1,"k":3,"hr":0,"bf":"","ps":"17-11","era":"2.21","whip":"1.23"}],"home":[{"n":"Peter Lambert","ip":"7.0","h":6,"r":3,"er":3,"bb":1,"k":6,"hr":1,"bf":"","ps":"96-63","era":"3.57","whip":"1.08"},{"n":"Steven Okert","ip":"1.0","h":0,"r":0,"er":0,"bb":0,"k":1,"hr":0,"bf":"","ps":"12-11","era":"3.60","whip":"1.10"},{"n":"Bryan King","ip":"1.0","h":1,"r":0,"er":0,"bb":0,"k":0,"hr":0,"bf":"","ps":"15-11","era":"3.15","whip":"1.35"}]},"notes":[],"lob":""},{"away":"LAA","home":"CLE","awayR":2,"homeR":7,"status":"Final","venue":"Progressive Field","start":"","attendance":"","duration":"","weather":"","decisions":{"W":"Joey Cantillo","L":"Brent Suter","SV":""},"innings":{"away":[0,0,0,0,0,0,0,1,1],"home":[]},"rhe":{"away":[2,9,0],"home":[0,0,0]},"batting":{"away":[{"n":"Zach Neto","pos":"SS","pa":0,"ab":5,"r":1,"h":1,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":1,"avg":".223","obp":"—","slg":"—","ops":"—"},{"n":"Mike Trout","pos":"CF","pa":0,"ab":4,"r":0,"h":1,"d":0,"t":0,"hr":0,"rbi":0,"bb":1,"so":2,"avg":".238","obp":"—","slg":"—","ops":"—"},{"n":"Vaughn Grissom","pos":"3B","pa":0,"ab":5,"r":0,"h":1,"d":0,"t":0,"hr":0,"rbi":1,"bb":0,"so":0,"avg":".247","obp":"—","slg":"—","ops":"—"},{"n":"Jorge Soler","pos":"DH","pa":0,"ab":4,"r":1,"h":1,"d":0,"t":0,"hr":0,"rbi":0,"bb":1,"so":1,"avg":".218","obp":"—","slg":"—","ops":"—"},{"n":"Jo Adell","pos":"RF","pa":0,"ab":4,"r":0,"h":2,"d":1,"t":0,"hr":0,"rbi":1,"bb":0,"so":1,"avg":".261","obp":"—","slg":"—","ops":"—"},{"n":"Nolan Schanuel","pos":"1B","pa":0,"ab":4,"r":0,"h":2,"d":1,"t":0,"hr":0,"rbi":0,"bb":0,"so":1,"avg":".256","obp":"—","slg":"—","ops":"—"},{"n":"Oswald Peraza","pos":"2B","pa":0,"ab":2,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":1,"so":1,"avg":".261","obp":"—","slg":"—","ops":"—"},{"n":"Sebastián Rivero","pos":"C","pa":0,"ab":3,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":1,"avg":".154","obp":"—","slg":"—","ops":"—"},{"n":"Yoán Moncada","pos":"PH","pa":0,"ab":1,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":1,"avg":".194","obp":"—","slg":"—","ops":"—"},{"n":"Bryce Teodosio","pos":"LF","pa":0,"ab":2,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":0,"avg":".213","obp":"—","slg":"—","ops":"—"},{"n":"Josh Lowe","pos":"PH","pa":0,"ab":2,"r":0,"h":1,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":0,"avg":".179","obp":"—","slg":"—","ops":"—"}],"home":[{"n":"Steven Kwan","pos":"LF","pa":0,"ab":3,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":2,"so":1,"avg":".201","obp":"—","slg":"—","ops":"—"},{"n":"Chase DeLauter","pos":"RF","pa":0,"ab":3,"r":1,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":1,"so":0,"avg":".282","obp":"—","slg":"—","ops":"—"},{"n":"Petey Halpin","pos":"PH","pa":0,"ab":1,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":0,"avg":".100","obp":"—","slg":"—","ops":"—"},{"n":"José Ramírez","pos":"3B","pa":0,"ab":5,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":1,"avg":".229","obp":"—","slg":"—","ops":"—"},{"n":"Rhys Hoskins","pos":"DH","pa":0,"ab":2,"r":1,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":3,"so":1,"avg":".196","obp":"—","slg":"—","ops":"—"},{"n":"Kyle Manzardo","pos":"1B","pa":0,"ab":4,"r":2,"h":2,"d":1,"t":0,"hr":0,"rbi":0,"bb":1,"so":0,"avg":".223","obp":"—","slg":"—","ops":"—"},{"n":"David Fry","pos":"C","pa":0,"ab":3,"r":1,"h":2,"d":1,"t":0,"hr":0,"rbi":1,"bb":1,"so":0,"avg":".246","obp":"—","slg":"—","ops":"—"},{"n":"Daniel Schneemann","pos":"CF","pa":0,"ab":4,"r":2,"h":1,"d":0,"t":0,"hr":0,"rbi":2,"bb":0,"so":0,"avg":".254","obp":"—","slg":"—","ops":"—"},{"n":"Travis Bazzana","pos":"2B","pa":0,"ab":2,"r":0,"h":1,"d":1,"t":0,"hr":0,"rbi":2,"bb":2,"so":1,"avg":".271","obp":"—","slg":"—","ops":"—"},{"n":"Brayan Rocchio","pos":"SS","pa":0,"ab":4,"r":0,"h":1,"d":0,"t":0,"hr":0,"rbi":2,"bb":0,"so":0,"avg":".285","obp":"—","slg":"—","ops":"—"}]},"pitching":{"away":[{"n":"Alek Manoah","ip":"5.0","h":2,"r":0,"er":0,"bb":5,"k":2,"hr":0,"bf":"","ps":"91-47","era":"9.82","whip":"2.18"},{"n":"Brent Suter","ip":"1.2","h":2,"r":2,"er":2,"bb":1,"k":1,"hr":0,"bf":"","ps":"37-23","era":"4.32","whip":"1.32"},{"n":"José Fermin","ip":"0.2","h":1,"r":3,"er":3,"bb":3,"k":0,"hr":0,"bf":"","ps":"26-10","era":"4.00","whip":"0.89"},{"n":"Kirby Yates","ip":"0.2","h":2,"r":2,"er":2,"bb":1,"k":1,"hr":0,"bf":"","ps":"22-13","era":"4.91","whip":"1.09"}],"home":[{"n":"Joey Cantillo","ip":"6.0","h":5,"r":0,"er":0,"bb":1,"k":4,"hr":0,"bf":"","ps":"93-63","era":"3.40","whip":"1.35"},{"n":"Matt Festa","ip":"1.0","h":1,"r":0,"er":0,"bb":1,"k":1,"hr":0,"bf":"","ps":"28-16","era":"4.87","whip":"1.18"},{"n":"Colin Holderman","ip":"1.0","h":1,"r":1,"er":1,"bb":1,"k":3,"hr":0,"bf":"","ps":"32-19","era":"1.65","whip":"0.73"},{"n":"Peyton Pallette","ip":"1.0","h":2,"r":1,"er":1,"bb":0,"k":1,"hr":0,"bf":"","ps":"17-12","era":"5.79","whip":"1.55"}]},"notes":[],"lob":""},{"away":"NYY","home":"BAL","awayR":2,"homeR":3,"status":"Final","venue":"Oriole Park at Camden Yards","start":"","attendance":"","duration":"","weather":"","decisions":{"W":"Dietrich Enns","L":"Brent Headrick","SV":"Anthony Nunez"},"innings":{"away":[0,0,2,0,0,0,0,0,0],"home":[]},"rhe":{"away":[2,5,0],"home":[0,0,0]},"batting":{"away":[{"n":"Trent Grisham","pos":"CF","pa":0,"ab":3,"r":1,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":1,"so":0,"avg":".166","obp":"—","slg":"—","ops":"—"},{"n":"Ben Rice","pos":"1B","pa":0,"ab":4,"r":1,"h":2,"d":0,"t":0,"hr":1,"rbi":2,"bb":0,"so":1,"avg":".301","obp":"—","slg":"—","ops":"—"},{"n":"Aaron Judge","pos":"RF","pa":0,"ab":4,"r":0,"h":1,"d":1,"t":0,"hr":0,"rbi":0,"bb":0,"so":1,"avg":".266","obp":"—","slg":"—","ops":"—"},{"n":"Cody Bellinger","pos":"LF","pa":0,"ab":2,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":2,"so":1,"avg":".265","obp":"—","slg":"—","ops":"—"},{"n":"Jazz Chisholm Jr.","pos":"2B","pa":0,"ab":4,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":3,"avg":".230","obp":"—","slg":"—","ops":"—"},{"n":"Ryan McMahon","pos":"3B","pa":0,"ab":4,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":1,"avg":".183","obp":"—","slg":"—","ops":"—"},{"n":"Spencer Jones","pos":"DH","pa":0,"ab":2,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":1,"avg":".167","obp":"—","slg":"—","ops":"—"},{"n":"Paul Goldschmidt","pos":"PH","pa":0,"ab":2,"r":0,"h":1,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":0,"avg":".277","obp":"—","slg":"—","ops":"—"},{"n":"Max Schuemann","pos":"SS","pa":0,"ab":3,"r":0,"h":1,"d":1,"t":0,"hr":0,"rbi":0,"bb":0,"so":1,"avg":".250","obp":"—","slg":"—","ops":"—"},{"n":"Austin Wells","pos":"C","pa":0,"ab":3,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":0,"avg":".173","obp":"—","slg":"—","ops":"—"}],"home":[{"n":"Taylor Ward","pos":"LF","pa":0,"ab":3,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":1,"so":0,"avg":".262","obp":"—","slg":"—","ops":"—"},{"n":"Gunnar Henderson","pos":"SS","pa":0,"ab":4,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":1,"avg":".214","obp":"—","slg":"—","ops":"—"},{"n":"Adley Rutschman","pos":"C","pa":0,"ab":4,"r":1,"h":1,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":1,"avg":".268","obp":"—","slg":"—","ops":"—"},{"n":"Pete Alonso","pos":"1B","pa":0,"ab":3,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":0,"avg":".215","obp":"—","slg":"—","ops":"—"},{"n":"Tyler O'Neill","pos":"RF","pa":0,"ab":2,"r":1,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":1,"so":2,"avg":".178","obp":"—","slg":"—","ops":"—"},{"n":"Coby Mayo","pos":"DH","pa":0,"ab":2,"r":1,"h":1,"d":0,"t":0,"hr":1,"rbi":3,"bb":1,"so":1,"avg":".185","obp":"—","slg":"—","ops":"—"},{"n":"Leody Taveras","pos":"CF","pa":0,"ab":3,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":2,"avg":".259","obp":"—","slg":"—","ops":"—"},{"n":"Weston Wilson","pos":"3B","pa":0,"ab":3,"r":0,"h":1,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":2,"avg":".259","obp":"—","slg":"—","ops":"—"},{"n":"Blaze Alexander","pos":"2B","pa":0,"ab":3,"r":0,"h":0,"d":0,"t":0,"hr":0,"rbi":0,"bb":0,"so":2,"avg":".242","obp":"—","slg":"—","ops":"—"}]},"pitching":{"away":[{"n":"Ryan Weathers","ip":"6.1","h":1,"r":2,"er":2,"bb":3,"k":9,"hr":0,"bf":"","ps":"101-63","era":"3.00","whip":"1.11"},{"n":"Camilo Doval","ip":"1.0","h":0,"r":0,"er":0,"bb":0,"k":1,"hr":0,"bf":"","ps":"17-8","era":"5.19","whip":"1.04"},{"n":"Brent Headrick","ip":"0.2","h":2,"r":1,"er":1,"bb":0,"k":1,"hr":1,"bf":"","ps":"12-11","era":"2.31","whip":"1.29"}],"home":[{"n":"Brandon Young","ip":"5.1","h":3,"r":2,"er":2,"bb":3,"k":5,"hr":1,"bf":"","ps":"97-54","era":"4.25","whip":"1.48"},{"n":"Dietrich Enns","ip":"1.2","h":1,"r":0,"er":0,"bb":0,"k":1,"hr":0,"bf":"","ps":"21-16","era":"1.42","whip":"1.26"},{"n":"Rico Garcia","ip":"1.0","h":0,"r":0,"er":0,"bb":0,"k":2,"hr":0,"bf":"","ps":"9-7","era":"0.45","whip":"0.45"},{"n":"Anthony Nunez","ip":"1.0","h":1,"r":0,"er":0,"bb":0,"k":1,"hr":0,"bf":"","ps":"11-7","era":"3.80","whip":"1.13"}]},"notes":[],"lob":""}];
+
+function openCal(){document.getElementById('calOverlay').classList.add('open');}
+function closeCal(){document.getElementById('calOverlay').classList.remove('open');}
+function gotoDate(d){location.href='boxscores-'+d+'.html';}
+
+function buildSel(){
+  document.getElementById('gameSel').innerHTML=GAMES.map((g,i)=>{
+    const aw=g.awayR>g.homeR,hw=g.homeR>g.awayR;
+    const st=g.status.replace('Final · SHO','SHO').replace('Final','F');
+    return `<div class="game-btn${i===0?' active':''}" onclick="selGame(${i})">
+      <div class="gb-status">${st}</div>
+      <div class="gb-match">
+        <span class="gb-team ${aw?'w':'l'}">${g.away}</span>
+        <span class="gb-sc ${aw?'w':'l'}">${g.awayR}</span>
+        <span class="gb-at">@</span>
+        <span class="gb-sc ${hw?'w':'l'}">${g.homeR}</span>
+        <span class="gb-team ${hw?'w':'l'}">${g.home}</span>
+      </div></div>`;
+  }).join('');
+}
+
+function lsHTML(g){
+  const aw=g.awayR>g.homeR,hw=g.homeR>g.awayR;
+  const ai=g.innings.away,hi=g.innings.home;
+  const maxI=Math.max(ai.length,hi.length,9);
+  let hdrs='<th class="tn"></th>';
+  for(let i=1;i<=maxI;i++)hdrs+=`<th>${i}</th>`;
+  hdrs+='<th class="sep">R</th><th>H</th><th>E</th>';
+  function row(abbr,runs,rhe,win){
+    let c='';for(let i=0;i<maxI;i++){const v=runs[i];c+=`<td>${v===null||v===undefined?'—':v}</td>`;}
+    return `<tr class="${win?'w':''}"><td class="tn">${abbr}</td>${c}<td class="sep">${rhe[0]}</td><td>${rhe[1]}</td><td>${rhe[2]}</td></tr>`;
+  }
+  return `<div class="ls-wrap"><table class="ls"><thead><tr>${hdrs}</tr></thead><tbody>${row(g.away,ai,g.rhe.away,aw)}${row(g.home,hi,g.rhe.home,hw)}</tbody></table></div>`;
+}
+
+function batHTML(players,abbr){
+  if(!players||!players.length)return`<div class="sb-empty">No batting data available.</div>`;
+  let tPA=0,tAB=0,tR=0,tH=0,tD=0,tT=0,tHR=0,tRBI=0,tBB=0,tSO=0;
+  players.forEach(p=>{tPA+=p.pa;tAB+=p.ab;tR+=p.r;tH+=p.h;tD+=p.d;tT+=p.t;tHR+=p.hr;tRBI+=p.rbi;tBB+=p.bb;tSO+=p.so;});
+  const hasAdv=players.some(p=>p.obp&&p.obp!=='—');
+  const advHdr=hasAdv?'<th>OBP</th><th>SLG</th><th>OPS</th>':'';
+  const rows=players.map(p=>{
+    const adv=hasAdv?`<td>${p.obp}</td><td>${p.slg}</td><td>${p.ops}</td>`:'';
+    return `<tr>
+      <td class="nl">${p.n} <span style="color:var(--smoke);font-size:9.5px">${p.pos}</span></td>
+      <td>${p.pa||p.ab}</td><td>${p.ab}</td><td>${p.r}</td>
+      <td class="${p.h>=3?'hi-h3':''}">${p.h}</td><td>${p.d}</td><td>${p.t}</td>
+      <td class="${p.hr>0?'hi-hr':''}">${p.hr}</td>
+      <td class="${p.rbi>=3?'hi-rbi':''}">${p.rbi}</td>
+      <td>${p.bb}</td><td>${p.so}</td><td>${p.avg}</td>${adv}
+    </tr>`;
+  }).join('');
+  const advTot=hasAdv?'<td colspan="3" style="color:var(--smoke)">—</td>':'';
+  const tot=`<tr><td class="nl" style="color:var(--smoke)">Totals</td><td>${tPA||tAB}</td><td>${tAB}</td><td>${tR}</td><td>${tH}</td><td>${tD}</td><td>${tT}</td><td>${tHR}</td><td>${tRBI}</td><td>${tBB}</td><td>${tSO}</td><td style="color:var(--smoke)">—</td>${advTot}</tr>`;
+  return `<div class="stat-wrap"><table class="stat-tbl">
+    <thead><tr><th class="nl">${abbr} Batting</th><th>PA</th><th>AB</th><th>R</th><th>H</th><th>2B</th><th>3B</th><th>HR</th><th>RBI</th><th>BB</th><th>SO</th><th>AVG</th>${advHdr}</tr></thead>
+    <tbody>${rows}${tot}</tbody></table></div>`;
+}
+
+function pitHTML(players,abbr){
+  if(!players||!players.length)return`<div class="sb-empty">No pitching data available.</div>`;
+  let tIP=0,tH=0,tR=0,tER=0,tBB=0,tK=0,tHR=0;
+  players.forEach(p=>{
+    const n=parseFloat((p.ip||'0').replace('.1','.333').replace('.2','.667'))||0;
+    tIP+=n;tH+=p.h;tR+=p.r;tER+=p.er;tBB+=p.bb;tK+=p.k;tHR+=p.hr;
+  });
+  const tIf=Math.floor(tIP)+'.'+(Math.round((tIP%1)*3));
+  const rows=players.map(p=>{
+    const ef=parseFloat(p.era);
+    const ec=ef<=3.0?'era-good':ef>=5.5?'era-bad':'';
+    const kc=p.k>=8?'hi-k8':'';
+    return `<tr><td class="nl">${p.n}</td><td>${p.ip}</td><td>${p.h}</td><td>${p.r}</td><td>${p.er}</td><td>${p.bb}</td><td class="${kc}">${p.k}</td><td>${p.hr}</td><td>${p.bf||'—'}</td><td>${p.ps||'—'}</td><td class="${ec}">${p.era}</td><td>${p.whip}</td></tr>`;
+  }).join('');
+  const tot=`<tr><td class="nl" style="color:var(--smoke)">Totals</td><td>${tIf}</td><td>${tH}</td><td>${tR}</td><td>${tER}</td><td>${tBB}</td><td>${tK}</td><td>${tHR}</td><td colspan="4" style="color:var(--smoke)">—</td></tr>`;
+  return `<div class="stat-wrap"><table class="stat-tbl">
+    <thead><tr><th class="nl">${abbr} Pitching</th><th>IP</th><th>H</th><th>R</th><th>ER</th><th>BB</th><th>K</th><th>HR</th><th>BF</th><th>P-S</th><th>ERA</th><th>WHIP</th></tr></thead>
+    <tbody>${rows}${tot}</tbody></table></div>`;
+}
+
+function renderGame(i){
+  const g=GAMES[i];
+  const aw=g.awayR>g.homeR,hw=g.homeR>g.awayR;
+  const dec=[
+    g.decisions.W?`W: <strong>${g.decisions.W}</strong>`:'',
+    g.decisions.L?`L: <strong>${g.decisions.L}</strong>`:'',
+    g.decisions.SV?`SV: <strong>${g.decisions.SV}</strong>`:''
+  ].filter(Boolean).join(' &nbsp;·&nbsp; ');
+  const notesHTML=g.notes.length?`<div class="game-notes">${g.notes.join('<br/>')}</div>`:'';
+
+  document.getElementById('bsMain').innerHTML=`
+    <div class="sec-hdr"><div class="sec-title">Box Score</div><div class="sec-rule"></div><div class="sec-sub">${g.away} at ${g.home} &nbsp;·&nbsp; ${g.status}</div></div>
+    <div class="game-hdr">
+      <div class="game-teams-row">
+        <div class="game-team-block"><span class="gt-abbr ${aw?'w':'l'}">${g.away}</span></div>
+        <div class="score-center">
+          <span class="gt-score ${aw?'w':'l'}">${g.awayR}</span>
+          <span style="font-family:var(--mono);color:var(--smoke);font-size:22px;">–</span>
+          <span class="gt-score ${hw?'w':'l'}">${g.homeR}</span>
+        </div>
+        <div class="game-team-block"><span class="gt-abbr ${hw?'w':'l'}">${g.home}</span></div>
+      </div>
+      <div class="game-info-bar">
+        ${g.venue?`<strong>Venue:</strong> ${g.venue}`:''}&nbsp;
+        ${g.start?`&nbsp;·&nbsp;<strong>Start:</strong> ${g.start}`:''}
+        ${g.attendance?`&nbsp;·&nbsp;<strong>Att:</strong> ${g.attendance}`:''}
+        ${g.duration?`&nbsp;·&nbsp;<strong>Time:</strong> ${g.duration}`:''}
+        ${g.weather?`<br/><strong>Weather:</strong> ${g.weather}`:''}</div>
+      <div class="game-decisions">${dec||'&mdash;'}</div>
+    </div>
+    ${lsHTML(g)}
+    <div class="team-block"><div class="team-label">${g.away} Batting</div>${batHTML(g.batting.away,g.away)}</div>
+    <div class="team-block"><div class="team-label">${g.home} Batting</div>${batHTML(g.batting.home,g.home)}</div>
+    ${notesHTML}
+    <div class="team-block"><div class="team-label">${g.away} Pitching</div>${pitHTML(g.pitching.away,g.away)}</div>
+    <div class="team-block"><div class="team-label">${g.home} Pitching</div>${pitHTML(g.pitching.home,g.home)}</div>
+  `;
+}
+
+function renderSide(i){
+  const g=GAMES[i];
+  const hrs=[...(g.batting.away||[]),...(g.batting.home||[])].filter(p=>p.hr>0);
+  const hrRows=hrs.length?hrs.map(p=>{
+    const tm=(g.batting.away||[]).includes(p)?g.away:g.home;
+    return `<div class="sb-row"><span class="sb-lbl">${p.n} <span style="color:var(--smoke)">${tm}</span></span><span class="sb-val">${p.hr} HR</span></div>`;
+  }).join(''):`<div class="sb-row"><span class="sb-empty">No home runs</span></div>`;
+
+  const quality=[...(g.pitching.away||[]),...(g.pitching.home||[])].filter(p=>parseFloat(p.ip)>=6&&p.er<=3);
+  const qRows=quality.length?quality.map(p=>{
+    const tm=(g.pitching.away||[]).includes(p)?g.away:g.home;
+    const ef=parseFloat(p.era);
+    const ec=ef<=3?'color:var(--green)':ef>=5.5?'color:var(--red)':'';
+    return `<div class="sb-row"><span class="sb-lbl">${p.n} <span style="color:var(--smoke)">${tm}</span></span><span class="sb-val" style="${ec}">${p.k}K ${p.ip}IP</span></div>`;
+  }).join(''):`<div class="sb-row"><span class="sb-empty">—</span></div>`;
+
+  const notable=[...(g.batting.away||[]),...(g.batting.home||[])].filter(p=>p.h>=3||p.rbi>=3||p.hr>=2);
+  const notRows=notable.length?notable.map(p=>{
+    const tm=(g.batting.away||[]).includes(p)?g.away:g.home;
+    const tags=[];
+    if(p.hr>=2)tags.push(`${p.hr}HR`);
+    if(p.h>=3)tags.push(`${p.h}-for-${p.ab}`);
+    if(p.rbi>=3)tags.push(`${p.rbi}RBI`);
+    return `<div class="sb-row"><span class="sb-lbl">${p.n} <span style="color:var(--smoke)">${tm}</span></span><span class="sb-val">${tags.join(' · ')}</span></div>`;
+  }).join(''):`<div class="sb-row"><span class="sb-empty">—</span></div>`;
+
+  document.getElementById('bsSide').innerHTML=`
+    <div class="sec-hdr" style="padding-top:0"><div class="sec-title">Home Runs</div><div class="sec-rule"></div></div>
+    <div class="sb-card">${hrRows}</div>
+    <div class="sec-hdr"><div class="sec-title">Quality Starts</div><div class="sec-rule"></div></div>
+    <div class="sb-card">${qRows}</div>
+    <div class="sec-hdr"><div class="sec-title">Notable Performances</div><div class="sec-rule"></div></div>
+    <div class="sb-card">${notRows}</div>
+  `;
+}
+
+let cur=0;
+function selGame(i){
+  cur=i;
+  document.querySelectorAll('.game-btn').forEach((b,j)=>b.classList.toggle('active',j===i));
+  renderGame(i);renderSide(i);
+  window.scrollTo({top:document.querySelector('.bs-layout').offsetTop-14,behavior:'smooth'});
+}
+
+buildSel();renderGame(0);renderSide(0);
+</script>
+</body>
+</html>

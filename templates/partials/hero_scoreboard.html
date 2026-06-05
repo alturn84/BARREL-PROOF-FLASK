@@ -1,0 +1,22 @@
+<div class="hero-banner hero-banner--scoreboard">
+  <img class="hero-image"
+       src="{{ url_for('static', filename='images/hero-scoreboard.jpg.png') }}"
+       alt="Barrel Proof — Scoreboard">
+  <div class="hero-overlay">
+    <div class="scoreboard-stats">
+      <div class="scoreboard-stat">
+        <span class="scoreboard-stat__value">{{ games_count }}</span>
+      </div>
+      <div class="scoreboard-stat">
+        <span class="scoreboard-stat__value">{{ home_runs_count }}</span>
+      </div>
+      <div class="scoreboard-stat">
+        <span class="scoreboard-stat__value">{{ extras_count }}</span>
+      </div>
+      <div class="scoreboard-stat">
+        <span class="scoreboard-stat__value">{{ shutouts_count }}</span>
+      </div>
+    </div>
+    <div class="hero-date--scoreboard">{{ edition_date }}</div>
+  </div>
+</div>

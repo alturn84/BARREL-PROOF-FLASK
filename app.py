@@ -571,6 +571,8 @@ def box_scores():
     wire     = build_press_wire_bullets(games)
     for g in games:
         g["key_note"] = build_key_note(g)
+    from datetime import datetime
+    edition_date = datetime.now().strftime("%-B %-d, %Y EDITION").upper()
     return render_template(
         "box_scores.html",
         al_games=al_games,
@@ -581,6 +583,11 @@ def box_scores():
         display_date=data["display_date"],
         date=data["date"],
         updated=data["updated"],
+        edition_date=edition_date,
+        games_count=summary.get("total", 0),
+        home_runs_count=summary.get("home_runs", 0),
+        extras_count=summary.get("extra_inn", 0),
+        shutouts_count=summary.get("shutouts", 0),
     )
 
 # Phase 2 stub — archive date routing
@@ -679,7 +686,12 @@ def archive_index():
 @app.route("/advance-scout")
 @app.route("/advance-scout/")
 def advance_scout():
-    return render_template("advance_scout.html")
+    from datetime import datetime
+    edition_date = datetime.now().strftime("%-B %-d, %Y EDITION").upper()
+    return render_template("advance_scout.html",
+        edition_date=edition_date,
+        scout_notes=[],
+    )
 
 @app.route("/al-nl")
 @app.route("/al-nl/")
