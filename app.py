@@ -475,7 +475,7 @@ def build_around_baseball(games):
 
     return bullets
 
-def get_box_scores_data():
+def get_scoreboard_data():
     data = load_json("game_cards.json")
     return {
         "games":        data.get("games", []),
@@ -630,10 +630,10 @@ def dope_sheet():
     )
 
 
-@app.route("/box-scores")
-@app.route("/box-scores/")
-def box_scores():
-    data     = get_box_scores_data()
+@app.route("/scoreboard")
+@app.route("/scoreboard/")
+def scoreboard():
+    data     = get_scoreboard_data()
     games    = data["games"]
     al_games, nl_games = group_games_by_league(games)
     summary  = build_day_summary(games)
@@ -643,7 +643,7 @@ def box_scores():
     from datetime import datetime
     edition_date = datetime.now().strftime("%-B %-d, %Y EDITION").upper()
     return render_template(
-        "box_scores.html",
+        "scoreboard.html",
         al_games=al_games,
         nl_games=nl_games,
         all_games=games,
@@ -660,23 +660,25 @@ def box_scores():
     )
 
 # Phase 2 stub — archive date routing
-@app.route("/box-scores/<date_str>")
-def box_scores_date(date_str):
+@app.route("/scoreboard/<date_str>")
+def scoreboard_date(date_str):
     from flask import redirect, url_for
-    return redirect(url_for("box_scores"))
+    return redirect(url_for("scoreboard"))
 
 # Aliases
+@app.route("/box-scores")
+@app.route("/box-scores/")
 @app.route("/boxscores")
 @app.route("/boxscores/")
-def box_scores_alias():
+def scoreboard_alias():
     from flask import redirect, url_for
-    return redirect(url_for("box_scores"), 301)
+    return redirect(url_for("scoreboard"), 301)
 
 @app.route("/ledger")
 @app.route("/ledger/")
 def ledger_redirect():
     from flask import redirect, url_for
-    return redirect(url_for("box_scores"), 301)
+    return redirect(url_for("scoreboard"), 301)
 
 
 @app.route("/")
