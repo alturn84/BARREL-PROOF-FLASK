@@ -7,7 +7,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Playfair+Display+SC:wght@400;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="{{ url_for('static', filename='css/hero-banners.css') }}"/>
 <style>
 :root{
   --ink:#1A1108;--ink-card:#1E1208;--leather:#3A2010;
@@ -29,125 +28,153 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
   opacity:0.55;}
 .page{position:relative;z-index:1;max-width:1280px;margin:0 auto;padding:0 48px 80px;}
 
+/* ── SCOREBOARD BANNER ── */
+.bs-scoreboard-banner{width:100%;overflow:hidden;background:var(--ink);margin:0;padding:0;}
+.bs-scoreboard-banner img{width:100%;height:auto;display:block;}
 
 /* ── NAV ── */
 nav.main-nav{display:flex;justify-content:center;align-items:center;
-  border-bottom:1px solid rgba(168,144,112,.5);
-  border-top:1px solid rgba(168,144,112,.5);background:#1A1108;}
-.nav-items-wrap{display:flex;align-items:center;justify-content:center;
-  white-space:nowrap;}
+  border-bottom:1px solid var(--rule-heavy);border-top:1px solid var(--rule-heavy);
+  background:var(--ink);}
+.nav-items-wrap{display:flex;align-items:center;justify-content:center;white-space:nowrap;}
 .nav-item{font-family:var(--serif-sc);font-size:15px;letter-spacing:.14em;
-  color:#A89070;padding:12px 18px;position:relative;cursor:pointer;
+  color:var(--gold);padding:12px 18px;position:relative;cursor:pointer;
   transition:color .2s;display:inline-block;white-space:nowrap;}
-.nav-item:hover,.nav-item.active{color:#F5EDD8;}
+.nav-item:hover,.nav-item.active{color:var(--parchment);}
 .nav-item.active::after{content:'';position:absolute;bottom:-1px;left:0;right:0;
-  height:2px;background:#F5EDD8;}
+  height:2px;background:var(--parchment);}
 .nav-item:not(:last-child)::before{content:'·';position:absolute;right:-2px;
-  color:rgba(168,144,112,.4);}
+  color:var(--rule-heavy);}
 
-/* ── SCOREBOARD BANNER ── */
-.bs-scoreboard-banner{width:100%;overflow:hidden;background:#1A1108;margin:0;padding:0;}
-.bs-scoreboard-banner img{width:100%;height:auto;display:block;}
+/* ── GAME NAV STRIP ── */
+.game-nav-strip{overflow-x:auto;border-bottom:1px solid var(--rule-heavy);
+  padding:8px 0;background:var(--ink-card);-webkit-overflow-scrolling:touch;}
+.game-nav-inner{display:flex;gap:4px;padding:0 4px;min-width:max-content;}
+.game-nav-btn{font-family:var(--mono);font-size:11px;letter-spacing:.04em;
+  padding:6px 12px;border:.5px solid var(--rule);border-radius:2px;
+  cursor:pointer;white-space:nowrap;transition:all .15s;color:var(--gold);
+  background:transparent;text-decoration:none;display:inline-block;}
+.game-nav-btn:hover{border-color:var(--gold);color:var(--parchment);}
+.game-nav-winner{color:var(--parchment);}
 
+/* ── DATE BANNER ── */
+.date-banner{display:flex;align-items:center;gap:16px;
+  padding:14px 0 12px;border-bottom:1px solid var(--rule-heavy);}
+.date-banner-rule{flex:1;height:.5px;background:var(--rule);}
+.date-banner-text{font-family:var(--serif-sc);font-size:15px;letter-spacing:.18em;
+  color:var(--parchment2);white-space:nowrap;}
 
-/* ── AROUND BASEBALL ── */
-.around-baseball{padding:28px 0 26px;border-bottom:1px solid rgba(168,144,112,.4);}
-.around-baseball .section-label{font-family:var(--serif-sc);font-size:13px;
-  letter-spacing:.28em;color:var(--parchment);text-transform:uppercase;
-  margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid #C8BC98;}
-.ab-list{list-style:none;padding:0;margin:0;columns:2;column-gap:52px;}
-.ab-item{font-family:var(--mono);font-size:13px;color:#D8C9A8;
-  letter-spacing:.03em;line-height:2.2;padding:5px 0;
-  border-bottom:.5px solid rgba(168,144,112,.25);break-inside:avoid;}
-.ab-item::before{content:"·";color:#A89070;margin-right:10px;}
-@media(max-width:700px){.ab-list{columns:1;}}
+/* ── SUMMARY BAR ── */
+.bs-summary-bar{display:flex;align-items:center;padding:10px 0;
+  border-bottom:1px solid var(--rule);flex-wrap:wrap;}
+.bs-summary-item{font-family:var(--mono);font-size:12px;letter-spacing:.06em;
+  color:var(--parchment2);padding:0 20px;border-right:.5px solid var(--rule);
+  white-space:nowrap;}
+.bs-summary-item:first-child{padding-left:0;}
+.bs-summary-item strong{color:var(--parchment);font-size:14px;}
+.bs-updated{font-family:var(--mono);font-size:10px;color:var(--gold-dim);
+  letter-spacing:.06em;margin-left:auto;}
+
+/* ── SECTION HEADERS ── */
+.section-hdr{display:flex;align-items:center;gap:14px;padding:28px 0 14px;}
+.section-hdr-text{font-family:var(--serif-sc);font-size:11px;letter-spacing:.28em;
+  color:var(--parchment);text-transform:uppercase;white-space:nowrap;font-weight:700;}
+.section-hdr-rule{flex:1;height:.5px;background:var(--rule-heavy);}
+
+/* ── TODAY'S BOARD ── */
+.todays-board{padding:0 0 8px;}
+.board-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:14px;margin-bottom:8px;}
+.board-card{background:var(--ink-card);border:.5px solid var(--rule-heavy);
+  border-radius:2px;padding:16px 18px;transition:border-color .15s;}
+.board-card:hover{border-color:var(--gold);}
+.board-card a{display:block;text-decoration:none;color:inherit;}
+.board-label{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;
+  color:var(--gold-dim);text-transform:uppercase;margin-bottom:8px;}
+.board-summary{font-family:var(--serif);font-size:18px;font-weight:700;
+  color:var(--parchment);line-height:1.2;margin-bottom:8px;}
+.board-note{font-family:var(--serif-body);font-size:13px;color:var(--parchment2);
+  line-height:1.65;font-style:italic;margin-bottom:10px;}
+.board-link{font-family:var(--mono);font-size:10px;letter-spacing:.1em;
+  color:var(--gold);text-transform:uppercase;}
 
 /* ── LEAGUE HEADER ── */
-.league-hdr{display:flex;align-items:center;gap:16px;
-  padding:34px 0 14px;}
+.league-hdr{display:flex;align-items:center;gap:16px;padding:34px 0 14px;}
 .league-hdr-text{font-family:var(--serif-sc);font-size:13px;letter-spacing:.3em;
   color:var(--parchment);text-transform:uppercase;white-space:nowrap;font-weight:700;}
 .league-hdr-rule{flex:1;height:1px;background:var(--parchment2);}
 
-/* ── GAME ARTICLE ── */
-article.bs-game{padding:30px 0 32px;border-bottom:1px solid var(--rule);}
+/* ── GAME CARDS ── */
+article.bs-game{padding:26px 0 28px;border-bottom:1px solid var(--rule);}
 article.bs-game:last-child{border-bottom:none;}
-
-.game-score-headline{font-family:var(--serif);font-size:34px;font-weight:700;
-  color:var(--parchment);line-height:1.05;margin-bottom:10px;
+.game-score-headline{font-family:var(--serif);font-size:28px;font-weight:700;
+  color:var(--parchment);line-height:1.05;margin-bottom:8px;
   text-transform:uppercase;letter-spacing:.02em;}
-
 .game-meta{font-family:var(--mono);font-size:12px;color:var(--gold-dim);
-  letter-spacing:.06em;margin-bottom:22px;line-height:1.8;}
+  letter-spacing:.06em;margin-bottom:18px;line-height:1.8;}
 .game-meta span{color:var(--gold);}
 
 /* ── LINE SCORE ── */
-.ls-wrap{overflow-x:auto;margin-bottom:20px;
-  border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
-  padding:14px 0;}
-.ls-row{font-family:var(--mono);font-size:16px;line-height:3;
+.ls-wrap{overflow-x:auto;border-top:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);padding:12px 0;margin-bottom:16px;}
+.ls-row{font-family:var(--mono);font-size:15px;line-height:2.8;
   white-space:nowrap;display:block;}
-.ls-abbr{display:inline-block;width:50px;letter-spacing:.06em;
-  color:var(--parchment2);}
+.ls-abbr{display:inline-block;width:50px;letter-spacing:.06em;color:var(--parchment2);}
 .ls-abbr.winner{color:var(--parchment);font-weight:700;}
-.ls-inn{display:inline-block;width:24px;text-align:center;color:var(--zero);}
+.ls-inn{display:inline-block;width:22px;text-align:center;color:var(--zero);}
 .ls-inn.scoring{color:var(--parchment);font-weight:700;}
-.ls-sep{display:inline-block;width:24px;text-align:center;
+.ls-sep{display:inline-block;width:22px;text-align:center;
   color:rgba(168,144,112,.3);}
-.ls-r{display:inline-block;width:34px;text-align:center;
+.ls-r{display:inline-block;width:32px;text-align:center;
   color:var(--parchment2);font-weight:700;}
-.ls-r.winner{color:var(--parchment);font-size:18px;}
-.ls-he{display:inline-block;width:30px;text-align:center;color:var(--gold);}
+.ls-r.winner{color:var(--parchment);font-size:17px;}
+.ls-he{display:inline-block;width:28px;text-align:center;color:var(--gold);}
 
-/* ── DECISIONS ── */
-.game-decisions{font-family:var(--mono);font-size:13px;color:var(--gold-dim);
-  letter-spacing:.03em;margin-bottom:20px;line-height:2;}
+/* ── DECISIONS + KEY MOMENT ── */
+.game-decisions{font-family:var(--mono);font-size:12px;color:var(--gold-dim);
+  letter-spacing:.03em;margin-bottom:16px;line-height:2;}
 .game-decisions strong{color:var(--parchment);font-weight:600;}
+.key-moment-body{border-left:3px solid var(--parchment2);padding:12px 18px;
+  background:rgba(0,0,0,.3);font-family:var(--serif-body);font-size:15px;
+  color:var(--parchment2);line-height:1.8;font-style:italic;}
 
-/* ── KEY MOMENT ── */
-.key-moment-label{font-family:var(--serif-sc);font-size:10px;letter-spacing:.28em;
-  color:var(--parchment2);text-transform:uppercase;margin-bottom:8px;}
-.key-moment-body{border-left:4px solid var(--parchment2);padding:14px 20px;
-  background:rgba(0,0,0,.3);font-family:var(--serif-body);font-size:16px;
-  color:var(--parchment2);line-height:1.85;font-style:italic;}
-
-/* ── GAMECENTER HOOK ── */
-.gc-hook{margin-top:14px;}
-.gc-hook a{font-family:var(--mono);font-size:11px;letter-spacing:.1em;
-  color:var(--gold-dim);text-transform:uppercase;transition:color .2s;
-  opacity:.5;cursor:default;}
+/* ── GAME REPORT LINK ── */
+.game-report-link{margin-top:14px;}
+.game-report-link a{font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+  color:var(--gold);text-transform:uppercase;transition:color .2s;}
+.game-report-link a:hover{color:var(--parchment);}
 
 /* ── FOOTER ── */
 .site-footer{border-top:.5px solid var(--rule-heavy);margin-top:52px;
   padding:22px 0;display:flex;justify-content:space-between;
   align-items:center;flex-wrap:wrap;gap:10px;}
-.footer-name{font-family:var(--serif-sc);font-size:15px;color:var(--parchment3);
-  letter-spacing:.1em;}
+.footer-name{font-family:var(--serif-sc);font-size:15px;
+  color:var(--parchment3);letter-spacing:.1em;}
 .footer-tag{font-family:var(--mono);font-size:9px;color:var(--gold-dim);
   letter-spacing:.1em;text-align:center;line-height:1.8;}
 .footer-legal{font-family:var(--mono);font-size:9px;color:var(--gold-dim);
   opacity:.6;text-align:right;line-height:1.7;}
 
 @media(max-width:860px){.page{padding:0 24px 60px;}}
-@media(max-width:540px){
+@media(max-width:640px){
   .page{padding:0 16px 40px;}
-  .game-score-headline{font-size:24px;}
+  .game-score-headline{font-size:22px;}
   .ls-row{font-size:13px;}
   .ls-inn{width:18px;}.ls-abbr{width:38px;}
   .ls-r{width:26px;}.ls-he{width:22px;}
-  .ab-list{columns:1;}
+  .board-grid{grid-template-columns:1fr;}
 }
 </style>
 </head>
 <body>
 
-<div class="page">
+<!-- SCOREBOARD BANNER -->
+<div class="bs-scoreboard-banner">
+  <img src="/static/images/header-templates/boxscores/boxscores-scoreboard-header.png"
+       alt="Barrel Proof Scoreboard"/>
+</div>
 
-  <!-- SCOREBOARD BANNER -->
-  <div class="bs-scoreboard-banner">
-    <img src="/static/images/header-templates/boxscores/boxscores-scoreboard-header.png"
-         alt="Barrel Proof Scoreboard"/>
-  </div>
+<div class="page">
 
   <!-- NAV -->
   <nav class="main-nav">
@@ -161,15 +188,68 @@ article.bs-game:last-child{border-bottom:none;}
     </div>
   </nav>
 
-  <!-- AROUND BASEBALL -->
-  {% if around_baseball %}
-  <div class="around-baseball">
-    <div class="section-label">Around Baseball</div>
-    <ul class="ab-list">
-      {% for bullet in around_baseball %}
-      <li class="ab-item">{{ bullet }}</li>
+  <!-- GAME NAV STRIP -->
+  <div class="game-nav-strip">
+    <div class="game-nav-inner">
+      {% for s in all_slugs %}
+      <a class="game-nav-btn" href="/scoreboard/{{ s.slug }}">
+        {% if s.away_runs > s.home_runs %}
+          <span class="game-nav-winner">{{ s.away_abbr }} {{ s.away_runs }}</span>
+          <span style="color:var(--gold-dim);"> – </span>
+          <span>{{ s.home_abbr }} {{ s.home_runs }}</span>
+        {% else %}
+          <span>{{ s.away_abbr }} {{ s.away_runs }}</span>
+          <span style="color:var(--gold-dim);"> – </span>
+          <span class="game-nav-winner">{{ s.home_abbr }} {{ s.home_runs }}</span>
+        {% endif %}
+        {% if s.innings > 9 %}
+          <span style="color:var(--gold-dim);font-size:9px;"> F/{{ s.innings }}</span>
+        {% endif %}
+      </a>
       {% endfor %}
-    </ul>
+    </div>
+  </div>
+
+  <!-- DATE BANNER -->
+  <div class="date-banner">
+    <div class="date-banner-rule"></div>
+    <div class="date-banner-text">{{ display_date }} &nbsp;·&nbsp; Games &amp; Results</div>
+    <div class="date-banner-rule"></div>
+  </div>
+
+  <!-- SUMMARY BAR -->
+  <div class="bs-summary-bar">
+    <div class="bs-summary-item"><strong>{{ summary.total }}</strong> games</div>
+    <div class="bs-summary-item"><strong>{{ summary.home_runs }}</strong> home runs</div>
+    <div class="bs-summary-item"><strong>{{ summary.one_run }}</strong> one-run games</div>
+    <div class="bs-summary-item"><strong>{{ summary.shutouts }}</strong> shutouts</div>
+    {% if summary.extra_inn > 0 %}
+    <div class="bs-summary-item"><strong>{{ summary.extra_inn }}</strong> extra innings</div>
+    {% endif %}
+    <div class="bs-updated">Updated {{ updated }}</div>
+  </div>
+
+  <!-- TODAY'S BOARD -->
+  {% if todays_board %}
+  <div class="section-hdr">
+    <div class="section-hdr-text">Today's Board</div>
+    <div class="section-hdr-rule"></div>
+  </div>
+  <div class="todays-board">
+    <div class="board-grid">
+      {% for key, item in todays_board.items() %}
+      <div class="board-card">
+        <a href="/scoreboard/{{ item.slug }}">
+          <div class="board-label">{{ item.label }}</div>
+          <div class="board-summary">{{ item.summary }}</div>
+          {% if item.note %}
+          <div class="board-note">{{ item.note }}</div>
+          {% endif %}
+          <div class="board-link">Full Game Report &rarr;</div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
   </div>
   {% endif %}
 
@@ -182,127 +262,115 @@ article.bs-game:last-child{border-bottom:none;}
   {% for g in al_games %}
   {% set away_wins = g.away_runs > g.home_runs %}
   <article class="bs-game" id="game-{{ g.away_abbr|lower }}-{{ g.home_abbr|lower }}">
-
     <h2 class="game-score-headline">
       {% if away_wins %}
         {{ g.away_city }} {{ g.away_runs }}, {{ g.home_city }} {{ g.home_runs }}
       {% else %}
         {{ g.home_city }} {{ g.home_runs }}, {{ g.away_city }} {{ g.away_runs }}
       {% endif %}
-      {% if g.innings|length > 9 %}<span style="font-size:20px;font-weight:400;"> (F/{{ g.innings|length }})</span>{% endif %}
+      {% if g.innings|length > 9 %}
+        <span style="font-size:18px;font-weight:400;"> (F/{{ g.innings|length }})</span>
+      {% endif %}
     </h2>
-
     <div class="game-meta">
       {% if g.venue %}<span>{{ g.venue }}</span>{% endif %}
       {% if g.duration %} &nbsp;·&nbsp; {{ g.duration }}{% endif %}
       {% if g.attendance %} &nbsp;·&nbsp; {{ g.attendance }}{% endif %}
     </div>
-
     <div class="ls-wrap">
       <div class="ls-row">
-        <span class="ls-abbr{% if not away_wins %} winner{% endif %}">{{ g.away_abbr }}</span>
+        <span class="ls-abbr{% if away_wins %} winner{% endif %}">{{ g.away_abbr }}</span>
         {% for inn in g.away_line %}
           <span class="ls-inn{% if inn != '0' and inn != '' %} scoring{% endif %}">{{ inn if inn != '' else '0' }}</span>
         {% endfor %}
         <span class="ls-sep">—</span>
-        <span class="ls-r{% if not away_wins %} winner{% endif %}">{{ g.away_rhe[0] if g.away_rhe|length > 0 else '—' }}</span>
+        <span class="ls-r{% if away_wins %} winner{% endif %}">{{ g.away_rhe[0] if g.away_rhe|length > 0 else '—' }}</span>
         <span class="ls-he">{{ g.away_rhe[1] if g.away_rhe|length > 1 else '—' }}</span>
         <span class="ls-he">{{ g.away_rhe[2] if g.away_rhe|length > 2 else '—' }}</span>
       </div>
       <div class="ls-row">
-        <span class="ls-abbr{% if away_wins %} winner{% endif %}">{{ g.home_abbr }}</span>
+        <span class="ls-abbr{% if not away_wins %} winner{% endif %}">{{ g.home_abbr }}</span>
         {% for inn in g.home_line %}
           <span class="ls-inn{% if inn != '0' and inn != '' %} scoring{% endif %}">{{ inn if inn != '' else '0' }}</span>
         {% endfor %}
         <span class="ls-sep">—</span>
-        <span class="ls-r{% if away_wins %} winner{% endif %}">{{ g.home_rhe[0] if g.home_rhe|length > 0 else '—' }}</span>
+        <span class="ls-r{% if not away_wins %} winner{% endif %}">{{ g.home_rhe[0] if g.home_rhe|length > 0 else '—' }}</span>
         <span class="ls-he">{{ g.home_rhe[1] if g.home_rhe|length > 1 else '—' }}</span>
         <span class="ls-he">{{ g.home_rhe[2] if g.home_rhe|length > 2 else '—' }}</span>
       </div>
     </div>
-
     <div class="game-decisions">
       {% if g.decisions.W %}W: <strong>{{ g.decisions.W }}</strong>{% endif %}
       {% if g.decisions.L %} &nbsp;&nbsp; L: <strong>{{ g.decisions.L }}</strong>{% endif %}
       {% if g.decisions.SV %} &nbsp;&nbsp; SV: <strong>{{ g.decisions.SV }}</strong>{% endif %}
     </div>
-
     {% if g.key_note %}
-    <div class="key-moment-label">Key Moment</div>
     <div class="key-moment-body">{{ g.key_note }}</div>
     {% endif %}
-
-    <div class="gc-hook">
-      <a>Full GameCenter &rarr;</a>
+    <div class="game-report-link">
+      <a href="/scoreboard/{{ g.slug }}">Full Game Report &rarr;</a>
     </div>
-
   </article>
   {% endfor %}
   {% endif %}
 
   <!-- NATIONAL LEAGUE -->
   {% if nl_games %}
-  <div class="league-hdr">
+  <div class="league-hdr" style="margin-top:12px;">
     <div class="league-hdr-text">National League Finals</div>
     <div class="league-hdr-rule"></div>
   </div>
   {% for g in nl_games %}
   {% set away_wins = g.away_runs > g.home_runs %}
   <article class="bs-game" id="game-{{ g.away_abbr|lower }}-{{ g.home_abbr|lower }}">
-
     <h2 class="game-score-headline">
       {% if away_wins %}
         {{ g.away_city }} {{ g.away_runs }}, {{ g.home_city }} {{ g.home_runs }}
       {% else %}
         {{ g.home_city }} {{ g.home_runs }}, {{ g.away_city }} {{ g.away_runs }}
       {% endif %}
-      {% if g.innings|length > 9 %}<span style="font-size:20px;font-weight:400;"> (F/{{ g.innings|length }})</span>{% endif %}
+      {% if g.innings|length > 9 %}
+        <span style="font-size:18px;font-weight:400;"> (F/{{ g.innings|length }})</span>
+      {% endif %}
     </h2>
-
     <div class="game-meta">
       {% if g.venue %}<span>{{ g.venue }}</span>{% endif %}
       {% if g.duration %} &nbsp;·&nbsp; {{ g.duration }}{% endif %}
       {% if g.attendance %} &nbsp;·&nbsp; {{ g.attendance }}{% endif %}
     </div>
-
     <div class="ls-wrap">
       <div class="ls-row">
-        <span class="ls-abbr{% if not away_wins %} winner{% endif %}">{{ g.away_abbr }}</span>
+        <span class="ls-abbr{% if away_wins %} winner{% endif %}">{{ g.away_abbr }}</span>
         {% for inn in g.away_line %}
           <span class="ls-inn{% if inn != '0' and inn != '' %} scoring{% endif %}">{{ inn if inn != '' else '0' }}</span>
         {% endfor %}
         <span class="ls-sep">—</span>
-        <span class="ls-r{% if not away_wins %} winner{% endif %}">{{ g.away_rhe[0] if g.away_rhe|length > 0 else '—' }}</span>
+        <span class="ls-r{% if away_wins %} winner{% endif %}">{{ g.away_rhe[0] if g.away_rhe|length > 0 else '—' }}</span>
         <span class="ls-he">{{ g.away_rhe[1] if g.away_rhe|length > 1 else '—' }}</span>
         <span class="ls-he">{{ g.away_rhe[2] if g.away_rhe|length > 2 else '—' }}</span>
       </div>
       <div class="ls-row">
-        <span class="ls-abbr{% if away_wins %} winner{% endif %}">{{ g.home_abbr }}</span>
+        <span class="ls-abbr{% if not away_wins %} winner{% endif %}">{{ g.home_abbr }}</span>
         {% for inn in g.home_line %}
           <span class="ls-inn{% if inn != '0' and inn != '' %} scoring{% endif %}">{{ inn if inn != '' else '0' }}</span>
         {% endfor %}
         <span class="ls-sep">—</span>
-        <span class="ls-r{% if away_wins %} winner{% endif %}">{{ g.home_rhe[0] if g.home_rhe|length > 0 else '—' }}</span>
+        <span class="ls-r{% if not away_wins %} winner{% endif %}">{{ g.home_rhe[0] if g.home_rhe|length > 0 else '—' }}</span>
         <span class="ls-he">{{ g.home_rhe[1] if g.home_rhe|length > 1 else '—' }}</span>
         <span class="ls-he">{{ g.home_rhe[2] if g.home_rhe|length > 2 else '—' }}</span>
       </div>
     </div>
-
     <div class="game-decisions">
       {% if g.decisions.W %}W: <strong>{{ g.decisions.W }}</strong>{% endif %}
       {% if g.decisions.L %} &nbsp;&nbsp; L: <strong>{{ g.decisions.L }}</strong>{% endif %}
       {% if g.decisions.SV %} &nbsp;&nbsp; SV: <strong>{{ g.decisions.SV }}</strong>{% endif %}
     </div>
-
     {% if g.key_note %}
-    <div class="key-moment-label">Key Moment</div>
     <div class="key-moment-body">{{ g.key_note }}</div>
     {% endif %}
-
-    <div class="gc-hook">
-      <a>Full GameCenter &rarr;</a>
+    <div class="game-report-link">
+      <a href="/scoreboard/{{ g.slug }}">Full Game Report &rarr;</a>
     </div>
-
   </article>
   {% endfor %}
   {% endif %}

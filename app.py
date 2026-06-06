@@ -485,6 +485,341 @@ def get_scoreboard_data():
         "updated":      data.get("updated", ""),
     }
 
+def build_game_slug(away_abbr, home_abbr, date_str):
+    """
+    Build URL slug from game identifiers.
+    Example: build_game_slug("SD", "PHI", "2026-06-04") -> "sd-phi-2026-06-04"
+    """
+    return f"{away_abbr.lower()}-{home_abbr.lower()}-{date_str}"
+
+def find_game_by_slug(slug, games, date_str):
+    """
+    Find a game dict by slug.
+    Slug format: away_abbr-home_abbr-YYYY-MM-DD (all lowercase)
+    Returns game dict or None.
+    """
+    if not slug or not games:
+        return None
+    parts = slug.split("-")
+    if len(parts) < 5:
+        return None
+    # Last 3 parts are the date: YYYY-MM-DD
+    date_part = "-".join(parts[-3:])
+    away = parts[0].upper()
+    home = parts[1].upper()
+    if date_part != date_str:
+        return None
+    for g in games:
+        if g.get("away_abbr", "").upper() == away and \
+           g.get("home_abbr", "").upper() == home:
+            return g
+    return None
+
+def build_star_performers(game):
+    """
+    Derive top performers from batting and pitching data.
+    Returns dict with batters and pitchers lists.
+    """
+    away = game.get("away_abbr", "")
+    home = game.get("home_abbr", "")
+    batters = []
+    pitchers = []
+
+    all_batters = (
+        [(b, away) for b in game.get("away_batting", [])] +
+        [(b, home) for b in game.get("home_batting", [])]
+    )
+    for b, team in all_batters:
+        highlights = []
+        try:
+            if int(b.get("hr", 0)) >= 1:
+                highlights.append(f"{b['hr']} HR")
+            if int(b.get("rbi", 0)) >= 3:
+                highlights.append(f"{b['rbi']} RBI")
+            if int(b.get("h", 0)) >= 3:
+                highlights.append(f"{b['h']}-for-{b['ab']}")
+            if highlights:
+                batters.append({
+                    "name": b["name"],
+                    "team": team,
+                    "ab": b.get("ab", 0),
+                    "r":  b.get("r", 0),
+                    "h":  b.get("h", 0),
+                    "hr": b.get("hr", 0),
+                    "rbi": b.get("rbi", 0),
+                    "highlight": " · ".join(highlights),
+                })
+        except (ValueError, TypeError):
+            pass
+
+    all_pitchers = (
+        [(p, away) for p in game.get("away_pitching", [])] +
+        [(p, home) for p in game.get("home_pitching", [])]
+    )
+    for p, team in all_pitchers:
+        try:
+            ip_str = str(p.get("ip", "0"))
+            ip = float(ip_str.replace(".1", ".33").replace(".2", ".67"))
+            er = int(p.get("er", 99))
+            k  = int(p.get("k", 0))
+            highlight = None
+            if ip >= 6.0 and er <= 2:
+                highlight = f"{p['ip']} IP, {k} K, {er} ER"
+            elif k >= 8:
+                highlight = f"{k} K, {p['ip']} IP"
+            if highlight:
+                pitchers.append({
+                    "name": p["name"],
+                    "team": team,
+                    "ip":   p.get("ip", ""),
+                    "er":   p.get("er", 0),
+                    "k":    p.get("k", 0),
+                    "bb":   p.get("bb", 0),
+                    "highlight": highlight,
+                })
+        except (ValueError, TypeError):
+            pass
+
+    return {"batters": batters[:4], "pitchers": pitchers[:3]}
+
+def build_turning_point(game):
+    """
+    Identify the decisive inning from the line score.
+    Returns dict with inning, team, runs, description.
+    """
+    away = game.get("away_abbr", "")
+    home = game.get("home_abbr", "")
+    aR   = game.get("away_runs", 0)
+    hR   = game.get("home_runs", 0)
+    winner = away if aR > hR else home
+    winner_line = game.get("away_line", []) if aR > hR else game.get("home_line", [])
+
+    ordinals = {
+        1:"1st",2:"2nd",3:"3rd",4:"4th",5:"5th",
+        6:"6th",7:"7th",8:"8th",9:"9th",10:"10th",
+        11:"11th",12:"12th"
+    }
+
+    try:
+        max_runs = max(int(r) for r in winner_line if str(r).isdigit())
+        max_inn  = next(
+            (i + 1 for i, r in enumerate(winner_line)
+             if str(r).isdigit() and int(r) == max_runs),
+            None
+        )
+        if max_runs >= 2 and max_inn:
+            inn_label = ordinals.get(max_inn, f"{max_inn}th")
+            return {
+                "inning": max_inn,
+                "inn_label": inn_label,
+                "team": winner,
+                "runs": max_runs,
+                "description": (
+                    f"{winner} scored {max_runs} run{'s' if max_runs > 1 else ''} "
+                    f"in the {inn_label} inning to take control of the game."
+                )
+            }
+    except (ValueError, TypeError):
+        pass
+
+    return {
+        "inning": None,
+        "inn_label": "",
+        "team": winner,
+        "runs": 0,
+        "description": ""
+    }
+
+
+def build_todays_board(games):
+    """
+    Derive slate overview features from game data.
+    Returns dict with up to 5 features.
+    Only includes features that can be safely derived.
+    """
+    board = {}
+
+    if not games:
+        return board
+
+    # Game of the Night — priority: extra innings > one-run > highest run total
+    game_of_night = None
+    for g in games:
+        inn_count = len(g.get("innings", []))
+        if inn_count > 9:
+            game_of_night = g
+            break
+    if not game_of_night:
+        one_run = [g for g in games
+                   if abs(g.get("away_runs",0) - g.get("home_runs",0)) == 1]
+        if one_run:
+            game_of_night = one_run[0]
+    if not game_of_night:
+        game_of_night = max(games,
+            key=lambda g: g.get("away_runs",0) + g.get("home_runs",0))
+    if game_of_night:
+        aR = game_of_night.get("away_runs", 0)
+        hR = game_of_night.get("home_runs", 0)
+        winner = game_of_night.get("away_city") if aR > hR \
+            else game_of_night.get("home_city")
+        loser  = game_of_night.get("home_city") if aR > hR \
+            else game_of_night.get("away_city")
+        wR = max(aR, hR)
+        lR = min(aR, hR)
+        inn_count = len(game_of_night.get("innings", []))
+        suffix = f" (F/{inn_count})" if inn_count > 9 else ""
+        board["game_of_night"] = {
+            "label": "Game of the Night",
+            "headline": game_of_night.get("headline", ""),
+            "summary": f"{winner} {wR}, {loser} {lR}{suffix}",
+            "note": game_of_night.get("summary", ""),
+            "slug": build_game_slug(
+                game_of_night["away_abbr"],
+                game_of_night["home_abbr"],
+                ""  # filled in route
+            ),
+            "away_abbr": game_of_night["away_abbr"],
+            "home_abbr": game_of_night["home_abbr"],
+        }
+
+    # Best Finish — extra innings first, then closest margin
+    best_finish = None
+    extras = [g for g in games if len(g.get("innings", [])) > 9]
+    if extras:
+        best_finish = extras[0]
+    else:
+        one_run = [g for g in games
+                   if abs(g.get("away_runs",0) - g.get("home_runs",0)) == 1]
+        if one_run:
+            best_finish = one_run[0]
+    if best_finish and best_finish is not game_of_night:
+        aR = best_finish.get("away_runs", 0)
+        hR = best_finish.get("home_runs", 0)
+        inn_count = len(best_finish.get("innings", []))
+        suffix = f" in {inn_count} innings" if inn_count > 9 else ", one-run game"
+        board["best_finish"] = {
+            "label": "Best Finish",
+            "summary": f"{best_finish.get('away_abbr')} {aR} – "
+                       f"{best_finish.get('home_abbr')} {hR}{suffix}",
+            "note": best_finish.get("summary", ""),
+            "slug": build_game_slug(
+                best_finish["away_abbr"],
+                best_finish["home_abbr"],
+                ""
+            ),
+            "away_abbr": best_finish["away_abbr"],
+            "home_abbr": best_finish["home_abbr"],
+        }
+
+    # Biggest Offensive Performance — highest combined runs
+    biggest_offense = max(games,
+        key=lambda g: g.get("away_runs",0) + g.get("home_runs",0))
+    if biggest_offense:
+        aR = biggest_offense.get("away_runs", 0)
+        hR = biggest_offense.get("home_runs", 0)
+        board["biggest_offense"] = {
+            "label": "Biggest Offensive Game",
+            "summary": f"{biggest_offense.get('away_abbr')} {aR} – "
+                       f"{biggest_offense.get('home_abbr')} {hR} "
+                       f"({aR + hR} combined runs)",
+            "note": biggest_offense.get("summary", ""),
+            "slug": build_game_slug(
+                biggest_offense["away_abbr"],
+                biggest_offense["home_abbr"],
+                ""
+            ),
+            "away_abbr": biggest_offense["away_abbr"],
+            "home_abbr": biggest_offense["home_abbr"],
+        }
+
+    # Pitching Gem — starter with 6+ IP, <= 2 ER, 6+ K
+    pitching_gem = None
+    gem_pitcher = None
+    gem_team = None
+    for g in games:
+        away = g.get("away_abbr", "")
+        home = g.get("home_abbr", "")
+        for p, t in ([(p, away) for p in g.get("away_pitching", [])] +
+                     [(p, home) for p in g.get("home_pitching", [])]):
+            try:
+                ip = float(str(p.get("ip","0")).replace(".1",".33")
+                           .replace(".2",".67"))
+                er = int(p.get("er", 99))
+                k  = int(p.get("k", 0))
+                if ip >= 6.0 and er <= 2 and k >= 6:
+                    pitching_gem = g
+                    gem_pitcher = p
+                    gem_team = t
+                    break
+            except (ValueError, TypeError):
+                pass
+        if pitching_gem:
+            break
+    if pitching_gem and gem_pitcher:
+        board["pitching_gem"] = {
+            "label": "Pitching Gem",
+            "summary": f"{gem_pitcher['name']} ({gem_team}): "
+                       f"{gem_pitcher['ip']} IP, "
+                       f"{gem_pitcher['k']} K, {gem_pitcher['er']} ER",
+            "note": pitching_gem.get("summary", ""),
+            "slug": build_game_slug(
+                pitching_gem["away_abbr"],
+                pitching_gem["home_abbr"],
+                ""
+            ),
+            "away_abbr": pitching_gem["away_abbr"],
+            "home_abbr": pitching_gem["home_abbr"],
+        }
+
+    # Oddity — shutout or blowout (7+ run margin)
+    shutouts = [g for g in games
+                if g.get("away_runs",0) == 0 or g.get("home_runs",0) == 0]
+    if shutouts:
+        oddity = shutouts[0]
+        aR = oddity.get("away_runs", 0)
+        hR = oddity.get("home_runs", 0)
+        winner = oddity.get("away_abbr") if aR > hR else oddity.get("home_abbr")
+        loser  = oddity.get("home_abbr") if aR > hR else oddity.get("away_abbr")
+        board["oddity"] = {
+            "label": "Shutout",
+            "summary": f"{winner} blanked {loser}, {max(aR,hR)}–0",
+            "note": oddity.get("summary", ""),
+            "slug": build_game_slug(
+                oddity["away_abbr"],
+                oddity["home_abbr"],
+                ""
+            ),
+            "away_abbr": oddity["away_abbr"],
+            "home_abbr": oddity["home_abbr"],
+        }
+    else:
+        blowouts = [g for g in games
+                    if abs(g.get("away_runs",0) - g.get("home_runs",0)) >= 7]
+        if blowouts:
+            oddity = blowouts[0]
+            aR = oddity.get("away_runs", 0)
+            hR = oddity.get("home_runs", 0)
+            winner = oddity.get("away_abbr") if aR > hR \
+                else oddity.get("home_abbr")
+            loser  = oddity.get("home_abbr") if aR > hR \
+                else oddity.get("away_abbr")
+            board["oddity"] = {
+                "label": "Blowout",
+                "summary": f"{winner} routed {loser}, "
+                           f"{max(aR,hR)}–{min(aR,hR)}",
+                "note": oddity.get("summary", ""),
+                "slug": build_game_slug(
+                    oddity["away_abbr"],
+                    oddity["home_abbr"],
+                    ""
+                ),
+                "away_abbr": oddity["away_abbr"],
+                "home_abbr": oddity["home_abbr"],
+            }
+
+    return board
+
+
 def get_lead_image(edition_date: str):
     jpg  = MEDIA_DIR / f"{edition_date}_lead.jpg"
     webp = MEDIA_DIR / f"{edition_date}_lead.webp"
@@ -635,35 +970,88 @@ def dope_sheet():
 def scoreboard():
     data     = get_scoreboard_data()
     games    = data["games"]
+    date_str = data["date"]
     al_games, nl_games = group_games_by_league(games)
     summary  = build_day_summary(games)
-    wire     = build_around_baseball(games)
     for g in games:
         g["key_note"] = build_key_note(g)
-    from datetime import datetime
-    edition_date = datetime.now().strftime("%-B %-d, %Y EDITION").upper()
+        g["slug"] = build_game_slug(g["away_abbr"], g["home_abbr"], date_str)
+    todays_board = build_todays_board(games)
+    # Fix slugs in todays_board to include date
+    for key, item in todays_board.items():
+        if item.get("away_abbr") and item.get("home_abbr"):
+            item["slug"] = build_game_slug(
+                item["away_abbr"], item["home_abbr"], date_str)
+    all_slugs = [
+        {
+            "slug":      g["slug"],
+            "away_abbr": g["away_abbr"],
+            "home_abbr": g["home_abbr"],
+            "away_runs": g["away_runs"],
+            "home_runs": g["home_runs"],
+            "innings":   len(g.get("innings", [])),
+            "active":    False,
+        }
+        for g in games
+    ]
     return render_template(
         "scoreboard.html",
         al_games=al_games,
         nl_games=nl_games,
         all_games=games,
         summary=summary,
-        around_baseball=wire,
+        todays_board=todays_board,
+        all_slugs=all_slugs,
         display_date=data["display_date"],
-        date=data["date"],
+        date=date_str,
         updated=data["updated"],
-        edition_date=edition_date,
-        games_count=summary.get("total", 0),
-        home_runs_count=summary.get("home_runs", 0),
-        extras_count=summary.get("extra_inn", 0),
-        shutouts_count=summary.get("shutouts", 0),
     )
 
-# Phase 2 stub — archive date routing
-@app.route("/scoreboard/<date_str>")
-def scoreboard_date(date_str):
-    from flask import redirect, url_for
-    return redirect(url_for("scoreboard"))
+@app.route("/scoreboard/<game_slug>")
+def scoreboard_game(game_slug):
+    from flask import abort
+    data  = get_scoreboard_data()
+    games = data["games"]
+    date_str = data["date"]
+
+    game = find_game_by_slug(game_slug, games, date_str)
+    if not game:
+        abort(404)
+
+    # Attach key note
+    game["key_note"] = build_key_note(game)
+
+    # Build supporting data
+    stars    = build_star_performers(game)
+    turning  = build_turning_point(game)
+
+    # Build slug list for game nav strip
+    all_slugs = [
+        {
+            "slug":       build_game_slug(g["away_abbr"], g["home_abbr"], date_str),
+            "away_abbr":  g["away_abbr"],
+            "home_abbr":  g["home_abbr"],
+            "away_runs":  g["away_runs"],
+            "home_runs":  g["home_runs"],
+            "winner":     g.get("winner", ""),
+            "innings":    len(g.get("innings", [])),
+            "active":     (g["away_abbr"] == game["away_abbr"] and
+                          g["home_abbr"] == game["home_abbr"]),
+        }
+        for g in games
+    ]
+
+    return render_template(
+        "scoreboard_game.html",
+        game=game,
+        game_slug=game_slug,
+        stars=stars,
+        turning=turning,
+        all_slugs=all_slugs,
+        display_date=data["display_date"],
+        date=date_str,
+        updated=data["updated"],
+    )
 
 # Aliases
 @app.route("/box-scores")
