@@ -2,14 +2,14 @@
 team: Pittsburgh Pirates
 league: National League
 division: National League Central
-updated: 2026-06-04 09:10 AM
+updated: 2026-06-06 09:10 AM
 tags: [baseball, mlb, roster]
 ---
 
 # Pittsburgh Pirates — Active Roster
 
 **League:** National League  ·  **Division:** National League Central
-*Last updated: 2026-06-04 09:10 AM*
+*Last updated: 2026-06-06 09:10 AM*
 
 | # | Name | Pos | Bats | Throws | Age | Height | Weight |
 |---|------|-----|------|--------|-----|--------|--------|
@@ -18,7 +18,7 @@ tags: [baseball, mlb, roster]
 | #2 | Spencer Horwitz | 1B | L | R | 28 | 5' 10" | 204 lbs |
 | #5 | Brandon Lowe | 2B | L | R | 31 | 5' 9" | 181 lbs |
 | #3 | Nick Gonzales | 3B | R | R | 27 | 5' 8" | 193 lbs |
-| #19 | Jared Triolo | 3B | R | R | 28 | 6' 3" | 212 lbs |
+| #19 | Jared Triolo | SS | R | R | 28 | 6' 3" | 212 lbs |
 | #10 | Bryan Reynolds | LF | S | R | 31 | 6' 2" | 210 lbs |
 | #28 | Jake Mangum | LF | S | L | 30 | 5' 11" | 191 lbs |
 | #37 | Tyler Callihan | LF | L | R | 25 | 5' 11" | 205 lbs |

@@ -2,14 +2,14 @@
 team: Los Angeles Dodgers
 league: National League
 division: National League West
-updated: 2026-06-04 09:10 AM
+updated: 2026-06-06 09:10 AM
 tags: [baseball, mlb, roster]
 ---
 
 # Los Angeles Dodgers — Active Roster
 
 **League:** National League  ·  **Division:** National League West
-*Last updated: 2026-06-04 09:10 AM*
+*Last updated: 2026-06-06 09:10 AM*
 
 | # | Name | Pos | Bats | Throws | Age | Height | Weight |
 |---|------|-----|------|--------|-----|--------|--------|

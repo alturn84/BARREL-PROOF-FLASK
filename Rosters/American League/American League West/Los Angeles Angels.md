@@ -2,14 +2,14 @@
 team: Los Angeles Angels
 league: American League
 division: American League West
-updated: 2026-06-04 09:10 AM
+updated: 2026-06-06 09:10 AM
 tags: [baseball, mlb, roster]
 ---
 
 # Los Angeles Angels — Active Roster
 
 **League:** American League  ·  **Division:** American League West
-*Last updated: 2026-06-04 09:10 AM*
+*Last updated: 2026-06-06 09:10 AM*
 
 | # | Name | Pos | Bats | Throws | Age | Height | Weight |
 |---|------|-----|------|--------|-----|--------|--------|
@@ -33,9 +33,9 @@ tags: [baseball, mlb, roster]
 | #40 | Sam Bachman | P | R | R | 26 | 6' 1" | 235 lbs |
 | #41 | Jack Kochanowicz | P | L | R | 25 | 6' 7" | 228 lbs |
 | #48 | Reid Detmers | P | L | L | 26 | 6' 2" | 210 lbs |
+| #52 | Samy Natera Jr. | P | L | L | 26 | 6' 4" | 230 lbs |
 | #56 | Ryan Zeferjahn | P | R | R | 28 | 6' 5" | 209 lbs |
 | #57 | Walbert Ureña | P | R | R | 22 | 6' 0" | 210 lbs |
 | #59 | José Soriano | P | R | R | 27 | 6' 3" | 220 lbs |
 | #63 | Chase Silseth | P | R | R | 26 | 6' 0" | 217 lbs |
-| #64 | Shaun Anderson | P | R | R | 31 | 6' 6" | 228 lbs |
 | #70 | Mitch Farris | P | L | L | 25 | 6' 2" | 195 lbs |

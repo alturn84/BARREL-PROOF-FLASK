@@ -2,14 +2,14 @@
 team: Philadelphia Phillies
 league: National League
 division: National League East
-updated: 2026-06-04 09:10 AM
+updated: 2026-06-06 09:10 AM
 tags: [baseball, mlb, roster]
 ---
 
 # Philadelphia Phillies — Active Roster
 
 **League:** National League  ·  **Division:** National League East
-*Last updated: 2026-06-04 09:10 AM*
+*Last updated: 2026-06-06 09:10 AM*
 
 | # | Name | Pos | Bats | Throws | Age | Height | Weight |
 |---|------|-----|------|--------|-----|--------|--------|
@@ -23,7 +23,7 @@ tags: [baseball, mlb, roster]
 | #7 | Trea Turner | SS | R | R | 32 | 6' 1" | 185 lbs |
 | #16 | Brandon Marsh | LF | L | R | 28 | 6' 2" | 215 lbs |
 | #2 | Justin Crawford | CF | L | R | 22 | 6' 2" | 188 lbs |
-| #39 | Steward Berroa | RF | S | R | 26 | 5' 9" | 193 lbs |
+| #39 | Steward Berroa | RF | S | R | 27 | 5' 9" | 193 lbs |
 | #53 | Adolis García | RF | R | R | 33 | 6' 0" | 205 lbs |
 | #12 | Kyle Schwarber | DH | L | R | 33 | 5' 11" | 229 lbs |
 | #24 | Andrew Painter | P | R | R | 23 | 6' 7" | 215 lbs |

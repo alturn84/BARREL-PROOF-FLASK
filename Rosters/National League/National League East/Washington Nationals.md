@@ -2,14 +2,14 @@
 team: Washington Nationals
 league: National League
 division: National League East
-updated: 2026-06-04 09:10 AM
+updated: 2026-06-06 09:10 AM
 tags: [baseball, mlb, roster]
 ---
 
 # Washington Nationals — Active Roster
 
 **League:** National League  ·  **Division:** National League East
-*Last updated: 2026-06-04 09:10 AM*
+*Last updated: 2026-06-06 09:10 AM*
 
 | # | Name | Pos | Bats | Throws | Age | Height | Weight |
 |---|------|-----|------|--------|-----|--------|--------|
@@ -22,8 +22,8 @@ tags: [baseball, mlb, roster]
 | #84 | Jorbit Vivas | 3B | L | R | 25 | 5' 9" | 171 lbs |
 | #5 | CJ Abrams | SS | L | R | 25 | 6' 0" | 191 lbs |
 | #4 | Daylen Lile | LF | L | R | 23 | 5' 11" | 195 lbs |
-| #3 | Dylan Crews | CF | R | R | 24 | 5' 11" | 203 lbs |
 | #30 | Jacob Young | CF | R | R | 26 | 5' 11" | 192 lbs |
+| #3 | Dylan Crews | RF | R | R | 24 | 5' 11" | 203 lbs |
 | #29 | James Wood | RF | L | R | 23 | 6' 6" | 234 lbs |
 | #8 | José Tena | DH | L | R | 25 | 5' 10" | 195 lbs |
 | #18 | Zack Littell | P | R | R | 30 | 6' 4" | 250 lbs |

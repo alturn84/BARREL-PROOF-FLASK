@@ -2,14 +2,14 @@
 team: Cincinnati Reds
 league: National League
 division: National League Central
-updated: 2026-06-04 09:10 AM
+updated: 2026-06-06 09:10 AM
 tags: [baseball, mlb, roster]
 ---
 
 # Cincinnati Reds — Active Roster
 
 **League:** National League  ·  **Division:** National League Central
-*Last updated: 2026-06-04 09:10 AM*
+*Last updated: 2026-06-06 09:10 AM*
 
 | # | Name | Pos | Bats | Throws | Age | Height | Weight |
 |---|------|-----|------|--------|-----|--------|--------|
@@ -21,9 +21,9 @@ tags: [baseball, mlb, roster]
 | #7 | Spencer Steer | LF | R | R | 28 | 5' 9" | 185 lbs |
 | #22 | JJ Bleday | LF | L | L | 28 | 6' 2" | 205 lbs |
 | #17 | Dane Myers | CF | R | R | 30 | 6' 0" | 205 lbs |
+| #4 | Noelvi Marte | RF | R | R | 24 | 6' 2" | 216 lbs |
 | #30 | Will Benson | RF | L | L | 27 | 6' 4" | 230 lbs |
 | #59 | Blake Dunn | RF | R | R | 27 | 5' 9" | 210 lbs |
-| #4 | Noelvi Marte | OF | R | R | 24 | 6' 2" | 216 lbs |
 | #28 | Eugenio Suárez | DH | R | R | 34 | 5' 11" | 213 lbs |
 | #31 | Nathaniel Lowe | DH | L | R | 30 | 6' 4" | 220 lbs |
 | #26 | Chase Burns | P | R | R | 23 | 6' 3" | 210 lbs |

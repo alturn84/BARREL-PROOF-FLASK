@@ -2,14 +2,14 @@
 team: San Francisco Giants
 league: National League
 division: National League West
-updated: 2026-06-04 09:10 AM
+updated: 2026-06-06 09:10 AM
 tags: [baseball, mlb, roster]
 ---
 
 # San Francisco Giants — Active Roster
 
 **League:** National League  ·  **Division:** National League West
-*Last updated: 2026-06-04 09:10 AM*
+*Last updated: 2026-06-06 09:10 AM*
 
 | # | Name | Pos | Bats | Throws | Age | Height | Weight |
 |---|------|-----|------|--------|-----|--------|--------|
@@ -37,5 +37,5 @@ tags: [baseball, mlb, roster]
 | #66 | Dylan Smith | P | R | R | 26 | 6' 2" | 180 lbs |
 | #67 | Keaton Winn | P | R | R | 28 | 6' 4" | 230 lbs |
 | #68 | Erik Miller | P | L | L | 28 | 6' 5" | 269 lbs |
-| #71 | Wilkin Ramos | P | R | R | 25 | 6' 6" | 192 lbs |
 | #72 | Trevor McDonald | P | R | R | 25 | 6' 0" | 205 lbs |
+| #77 | Carson Seymour | P | R | R | 27 | 6' 5" | 264 lbs |

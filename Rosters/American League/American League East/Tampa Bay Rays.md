@@ -2,18 +2,18 @@
 team: Tampa Bay Rays
 league: American League
 division: American League East
-updated: 2026-06-04 09:10 AM
+updated: 2026-06-06 09:10 AM
 tags: [baseball, mlb, roster]
 ---
 
 # Tampa Bay Rays — Active Roster
 
 **League:** American League  ·  **Division:** American League East
-*Last updated: 2026-06-04 09:10 AM*
+*Last updated: 2026-06-06 09:10 AM*
 
 | # | Name | Pos | Bats | Throws | Age | Height | Weight |
 |---|------|-----|------|--------|-----|--------|--------|
-| #9 | Hunter Feduccia | C | L | R | 28 | 6' 1" | 215 lbs |
+| #9 | Hunter Feduccia | C | L | R | 29 | 6' 1" | 215 lbs |
 | #40 | Nick Fortes | C | R | R | 29 | 5' 11" | 198 lbs |
 | #8 | Jonathan Aranda | 1B | L | R | 28 | 6' 0" | 215 lbs |
 | #1 | Richie Palacios | 2B | L | R | 29 | 5' 8" | 185 lbs |

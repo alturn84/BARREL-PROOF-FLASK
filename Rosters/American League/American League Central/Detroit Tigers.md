@@ -2,14 +2,14 @@
 team: Detroit Tigers
 league: American League
 division: American League Central
-updated: 2026-06-04 09:10 AM
+updated: 2026-06-06 09:10 AM
 tags: [baseball, mlb, roster]
 ---
 
 # Detroit Tigers — Active Roster
 
 **League:** American League  ·  **Division:** American League Central
-*Last updated: 2026-06-04 09:10 AM*
+*Last updated: 2026-06-06 09:10 AM*
 
 | # | Name | Pos | Bats | Throws | Age | Height | Weight |
 |---|------|-----|------|--------|-----|--------|--------|
@@ -28,7 +28,7 @@ tags: [baseball, mlb, roster]
 | #18 | Jahmai Jones | DH | R | R | 28 | 5' 10" | 210 lbs |
 | #4 | Beau Brieske | P | R | R | 28 | 6' 3" | 200 lbs |
 | #9 | Jack Flaherty | P | R | R | 30 | 6' 4" | 225 lbs |
-| #19 | Will Vest | P | R | R | 30 | 6' 0" | 180 lbs |
+| #19 | Will Vest | P | R | R | 31 | 6' 0" | 180 lbs |
 | #36 | Ty Madden | P | R | R | 26 | 6' 3" | 215 lbs |
 | #37 | Enmanuel De Jesus | P | L | L | 29 | 6' 3" | 190 lbs |
 | #38 | Drew Anderson | P | R | R | 32 | 6' 3" | 205 lbs |

@@ -2,14 +2,14 @@
 team: Toronto Blue Jays
 league: American League
 division: American League East
-updated: 2026-06-04 09:10 AM
+updated: 2026-06-06 09:10 AM
 tags: [baseball, mlb, roster]
 ---
 
 # Toronto Blue Jays — Active Roster
 
 **League:** American League  ·  **Division:** American League East
-*Last updated: 2026-06-04 09:10 AM*
+*Last updated: 2026-06-06 09:10 AM*
 
 | # | Name | Pos | Bats | Throws | Age | Height | Weight |
 |---|------|-----|------|--------|-----|--------|--------|
@@ -26,6 +26,7 @@ tags: [baseball, mlb, roster]
 | #12 | Jesús Sánchez | RF | L | R | 28 | 6' 3" | 222 lbs |
 | #38 | Nathan Lukes | RF | L | R | 31 | 5' 11" | 180 lbs |
 | #4 | George Springer | DH | R | R | 36 | 6' 1" | 220 lbs |
+| #10 | Simeon Woods Richardson | P | R | R | 25 | 6' 3" | 210 lbs |
 | #23 | Jeff Hoffman | P | R | R | 33 | 6' 5" | 235 lbs |
 | #29 | Yariel Rodríguez | P | R | R | 29 | 6' 0" | 165 lbs |
 | #34 | Kevin Gausman | P | L | R | 35 | 6' 2" | 205 lbs |
@@ -36,6 +37,5 @@ tags: [baseball, mlb, roster]
 | #63 | Braydon Fisher | P | R | R | 25 | 6' 4" | 180 lbs |
 | #64 | Adam Macko | P | L | L | 25 | 6' 0" | 170 lbs |
 | #68 | Mason Fluharty | P | R | L | 24 | 6' 2" | 215 lbs |
-| #70 | Hayden Juenger | P | R | R | 25 | 6' 0" | 180 lbs |
 | #71 | Tyler Rogers | P | R | R | 35 | 6' 3" | 180 lbs |
 | #77 | Louis Varland | P | L | R | 28 | 6' 1" | 205 lbs |

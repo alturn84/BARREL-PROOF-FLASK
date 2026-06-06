@@ -8,13 +8,24 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Playfair+Display+SC:wght@400;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
-:root{
-  --ink:#1A1108;--ink-soft:#221808;--parchment:#F0E6CC;--parchment2:#D8C9A8;
-  --cream:#EDE5D0;--cream-dim:#887C60;--cream-mid:#C8BC98;--smoke:#7A6A52;
-  --smoke-light:#A89070;--leather:#4E3A20;--rule:rgba(136,124,96,.25);
-  --rule-heavy:rgba(136,124,96,.65);--serif-display:'Playfair Display',Georgia,serif;
-  --serif-sc:'Playfair Display SC',Georgia,serif;--serif-body:'Source Serif 4',Georgia,serif;
-  --mono:'IBM Plex Mono','Courier New',monospace;
+:root {
+  --ink: #1A1108;
+  --ink-soft: #221808;
+  --ink-card: #1E1208;
+  --parchment: #F0E6CC;
+  --parchment2: #D8C9A8;
+  --cream: #EDE5D0;
+  --cream-dim: #887C60;
+  --cream-mid: #C8BC98;
+  --smoke: #7A6A52;
+  --smoke-light: #A89070;
+  --leather: #4E3A20;
+  --rule: rgba(136,124,96,.25);
+  --rule-heavy: rgba(136,124,96,.65);
+  --serif-display: 'Playfair Display', Georgia, serif;
+  --serif-sc: 'Playfair Display SC', Georgia, serif;
+  --serif-body: 'Source Serif 4', Georgia, serif;
+  --mono: 'IBM Plex Mono', 'Courier New', monospace;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{font-size:16px;}
@@ -52,10 +63,10 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;bac
 .ticker-item .div{color:var(--cream-dim);opacity:.6;}
 .masthead {
   position: relative;
-  width: 100%;
+  width: 100vw;
   border-bottom: 3px solid var(--cream-dim);
   overflow: hidden;
-  margin: 0;
+  margin-left: calc(50% - 50vw);
   padding: 0;
 }
 .masthead-banner {
@@ -121,12 +132,57 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;bac
     0 2px 8px rgba(240,230,204,0.4);
 }
 .site-name span { color: var(--leather); }
-nav.main-nav{display:flex;justify-content:center;align-items:center;border-bottom:1px solid var(--rule-heavy);}
-.nav-items-wrap{display:flex;align-items:center;white-space:nowrap;}
-.nav-item{font-family:var(--serif-sc);font-size:16px;letter-spacing:.14em;color:var(--smoke-light);padding:10px 18px;position:relative;cursor:pointer;transition:color .2s;white-space:nowrap;display:inline-block;}
-.nav-item:hover,.nav-item.active{color:var(--parchment);}
-.nav-item.active::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:2px;background:var(--cream);}
-.nav-item:not(:last-child)::before{content:'·';position:absolute;right:-2px;color:var(--rule-heavy);}
+.site-banner {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  display: block;
+}
+.site-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+nav.main-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid var(--rule-heavy);
+  border-bottom: 1px solid var(--rule-heavy);
+  background: var(--ink);
+}
+.nav-items-wrap {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+.nav-item {
+  font-family: var(--serif-sc);
+  font-size: 15px;
+  letter-spacing: .14em;
+  color: var(--smoke-light);
+  padding: 12px 18px;
+  position: relative;
+  cursor: pointer;
+  transition: color .2s;
+  white-space: nowrap;
+  display: inline-block;
+}
+.nav-item:hover, .nav-item.active { color: var(--parchment); }
+.nav-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; left: 0; right: 0;
+  height: 2px;
+  background: var(--cream);
+}
+.nav-item:not(:last-child)::before {
+  content: '·';
+  position: absolute;
+  right: -2px;
+  color: var(--rule-heavy);
+}
 .date-banner{display:flex;align-items:center;gap:16px;padding:8px 0 8px;border-bottom:2px solid var(--cream-dim);}
 .date-banner-line{flex:1;height:.5px;background:var(--rule);}
 .date-banner-text{font-family:var(--serif-sc);font-size:18px;letter-spacing:.18em;color:var(--cream-mid);white-space:nowrap;text-align:center;}
@@ -193,7 +249,6 @@ footer{border-top:.5px solid var(--rule-heavy);margin-top:48px;padding:24px 0;di
 @media(max-width:900px){.game-card{grid-template-columns:1fr;}.gc-left{padding-right:0;border-right:none;border-bottom:1px solid var(--rule-heavy);padding-bottom:16px;}.gc-right{padding-left:0;padding-top:16px;}}
 @media(max-width:540px){.page{padding:0 14px 40px;}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-nav.main-nav{animation:fadeUp .5s .08s ease both;}
 .games-list{animation:fadeUp .5s .16s ease both;}
 /* ── Game of the Day ──────────────────────────────────────────────── */
 .gotd-wrap {
@@ -543,16 +598,7 @@ nav.main-nav{animation:fadeUp .5s .08s ease both;}
   </div>
 </header>
 
-<nav class="main-nav">
-  <div class="nav-items-wrap">
-    <a class="nav-item active" href="/">Page 1</a>
-    <a class="nav-item" href="/scoreboard">Scoreboard</a>
-    <a class="nav-item" href="/dope-sheet">Dope Sheet</a>
-    <a class="nav-item" href="/advance-scout">Advance Scout</a>
-    <a class="nav-item" href="/al-nl">AL/NL</a>
-    <a class="nav-item" href="/archive">Archive</a>
-  </div>
-</nav>
+{% set active_page = 'home' %}{% include 'partials/site_nav.html' %}
 
 <div class="ticker-bar"><div class="ticker-inner">
   {% set ticker_games = games if games else [] %}

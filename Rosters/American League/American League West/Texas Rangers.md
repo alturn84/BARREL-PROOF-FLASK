@@ -2,14 +2,14 @@
 team: Texas Rangers
 league: American League
 division: American League West
-updated: 2026-06-04 09:10 AM
+updated: 2026-06-06 09:10 AM
 tags: [baseball, mlb, roster]
 ---
 
 # Texas Rangers — Active Roster
 
 **League:** American League  ·  **Division:** American League West
-*Last updated: 2026-06-04 09:10 AM*
+*Last updated: 2026-06-06 09:10 AM*
 
 | # | Name | Pos | Bats | Throws | Age | Height | Weight |
 |---|------|-----|------|--------|-----|--------|--------|
@@ -20,8 +20,8 @@ tags: [baseball, mlb, roster]
 | #20 | Ezequiel Duran | 2B | R | R | 27 | 5' 10" | 185 lbs |
 | #33 | Nicky Lopez | 2B | L | R | 31 | 5' 10" | 186 lbs |
 | #6 | Josh Jung | 3B | R | R | 28 | 6' 1" | 214 lbs |
-| #39 | Cody Freeman | 3B | R | R | 25 | 5' 9" | 180 lbs |
-| #19 | Alejandro Osuna | LF | L | L | 23 | 5' 9" | 185 lbs |
+| #5 | Corey Seager | SS | L | R | 32 | 6' 4" | 215 lbs |
+| #36 | Wyatt Langford | LF | R | R | 24 | 6' 0" | 225 lbs |
 | #23 | Michael Helman | CF | R | R | 30 | 6' 0" | 195 lbs |
 | #32 | Evan Carter | CF | L | R | 23 | 6' 2" | 190 lbs |
 | #24 | Brandon Nimmo | RF | L | R | 33 | 6' 1" | 206 lbs |

@@ -2,18 +2,17 @@
 team: New York Yankees
 league: American League
 division: American League East
-updated: 2026-06-04 09:10 AM
+updated: 2026-06-06 09:10 AM
 tags: [baseball, mlb, roster]
 ---
 
 # New York Yankees — Active Roster
 
 **League:** American League  ·  **Division:** American League East
-*Last updated: 2026-06-04 09:10 AM*
+*Last updated: 2026-06-06 09:10 AM*
 
 | # | Name | Pos | Bats | Throws | Age | Height | Weight |
 |---|------|-----|------|--------|-----|--------|--------|
-| #25 | J.C. Escarra | C | L | R | 31 | 6' 2" | 220 lbs |
 | #28 | Austin Wells | C | L | R | 26 | 6' 1" | 220 lbs |
 | #22 | Ben Rice | 1B | L | R | 27 | 6' 2" | 228 lbs |
 | #48 | Paul Goldschmidt | 1B | R | R | 38 | 6' 2" | 225 lbs |
@@ -25,7 +24,7 @@ tags: [baseball, mlb, roster]
 | #72 | José Caballero | SS | R | R | 29 | 5' 9" | 190 lbs |
 | #35 | Cody Bellinger | LF | L | L | 30 | 6' 3" | 204 lbs |
 | #12 | Trent Grisham | CF | L | L | 29 | 5' 10" | 221 lbs |
-| #99 | Aaron Judge | RF | R | R | 34 | 6' 7" | 282 lbs |
+| #78 | Spencer Jones | RF | L | L | 25 | 6' 7" | 240 lbs |
 | #29 | Will Warren | P | R | R | 26 | 6' 2" | 200 lbs |
 | #31 | Cam Schlittler | P | R | R | 25 | 6' 6" | 215 lbs |
 | #33 | Ryan Yarbrough | P | R | L | 34 | 6' 5" | 205 lbs |

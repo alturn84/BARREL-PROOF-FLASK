@@ -35,6 +35,21 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
   margin: 0 auto 24px auto;
   border: 1px solid #d6c7a8;
 }
+.site-banner {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  display: block;
+  overflow: hidden;
+}
+.site-banner img {
+  width: 100%;
+  height: clamp(220px, 28vw, 420px);
+  object-fit: cover;
+  object-position: center 45%;
+  display: block;
+}
 
 /* ── NAV ── */
 nav.main-nav{display:flex;justify-content:center;align-items:center;

@@ -1149,7 +1149,7 @@ def archive_index():
 def advance_scout():
     from datetime import datetime
     edition_date = datetime.now().strftime("%-B %-d, %Y EDITION").upper()
-    return render_template("advanced-scout.html",
+    return render_template("advance_scout.html",
         edition_date=edition_date,
         scout_notes=[],
     )

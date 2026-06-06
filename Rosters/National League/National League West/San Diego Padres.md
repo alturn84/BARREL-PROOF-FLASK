@@ -2,14 +2,14 @@
 team: San Diego Padres
 league: National League
 division: National League West
-updated: 2026-06-04 09:10 AM
+updated: 2026-06-06 09:10 AM
 tags: [baseball, mlb, roster]
 ---
 
 # San Diego Padres — Active Roster
 
 **League:** National League  ·  **Division:** National League West
-*Last updated: 2026-06-04 09:10 AM*
+*Last updated: 2026-06-06 09:10 AM*
 
 | # | Name | Pos | Bats | Throws | Age | Height | Weight |
 |---|------|-----|------|--------|-----|--------|--------|
@@ -34,8 +34,8 @@ tags: [baseball, mlb, roster]
 | #40 | Jason Adam | P | R | R | 34 | 6' 3" | 229 lbs |
 | #50 | Adrian Morejon | P | L | L | 27 | 5' 11" | 224 lbs |
 | #55 | Lucas Giolito | P | R | R | 31 | 6' 6" | 245 lbs |
-| #56 | Jeremiah Estrada | P | S | R | 27 | 6' 1" | 185 lbs |
 | #58 | Wandy Peralta | P | L | L | 34 | 6' 0" | 227 lbs |
+| #66 | David Morgan | P | R | R | 26 | 6' 0" | 185 lbs |
 | #72 | Bradgley Rodriguez | P | R | R | 22 | 6' 1" | 160 lbs |
 | #97 | Ron Marinaccio | P | R | R | 30 | 6' 2" | 205 lbs |
 | #98 | Randy Vásquez | P | R | R | 27 | 6' 0" | 165 lbs |

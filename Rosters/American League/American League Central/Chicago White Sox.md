@@ -2,14 +2,14 @@
 team: Chicago White Sox
 league: American League
 division: American League Central
-updated: 2026-06-04 09:10 AM
+updated: 2026-06-06 09:10 AM
 tags: [baseball, mlb, roster]
 ---
 
 # Chicago White Sox — Active Roster
 
 **League:** American League  ·  **Division:** American League Central
-*Last updated: 2026-06-04 09:10 AM*
+*Last updated: 2026-06-06 09:10 AM*
 
 | # | Name | Pos | Bats | Throws | Age | Height | Weight |
 |---|------|-----|------|--------|-----|--------|--------|
@@ -29,6 +29,7 @@ tags: [baseball, mlb, roster]
 | #15 | Sean Newcomb | P | L | L | 32 | 6' 5" | 255 lbs |
 | #18 | Anthony Kay | P | L | L | 31 | 6' 0" | 225 lbs |
 | #31 | Grant Taylor | P | R | R | 24 | 6' 3" | 230 lbs |
+| #40 | Tyler Gilbert | P | L | L | 32 | 6' 3" | 225 lbs |
 | #43 | Trevor Richards | P | R | R | 33 | 6' 2" | 205 lbs |
 | #47 | Erick Fedde | P | R | R | 33 | 6' 4" | 205 lbs |
 | #53 | Brandon Eisert | P | L | L | 28 | 6' 2" | 210 lbs |

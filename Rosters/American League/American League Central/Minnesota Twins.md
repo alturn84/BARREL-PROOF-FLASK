@@ -2,14 +2,14 @@
 team: Minnesota Twins
 league: American League
 division: American League Central
-updated: 2026-06-04 09:10 AM
+updated: 2026-06-06 09:10 AM
 tags: [baseball, mlb, roster]
 ---
 
 # Minnesota Twins — Active Roster
 
 **League:** American League  ·  **Division:** American League Central
-*Last updated: 2026-06-04 09:10 AM*
+*Last updated: 2026-06-06 09:10 AM*
 
 | # | Name | Pos | Bats | Throws | Age | Height | Weight |
 |---|------|-----|------|--------|-----|--------|--------|
@@ -29,7 +29,7 @@ tags: [baseball, mlb, roster]
 | #19 | Eric Orze | P | R | R | 28 | 6' 4" | 205 lbs |
 | #26 | Taj Bradley | P | R | R | 25 | 6' 2" | 220 lbs |
 | #31 | Justin Lawrence | P | R | R | 31 | 6' 3" | 211 lbs |
-| #41 | Joe Ryan | P | R | R | 29 | 6' 2" | 205 lbs |
+| #41 | Joe Ryan | P | R | R | 30 | 6' 2" | 205 lbs |
 | #43 | Anthony Banda | P | L | L | 32 | 6' 2" | 221 lbs |
 | #45 | Travis Adams | P | R | R | 26 | 6' 1" | 197 lbs |
 | #52 | Zebby Matthews | P | R | R | 26 | 6' 5" | 225 lbs |

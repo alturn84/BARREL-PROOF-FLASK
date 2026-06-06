@@ -2,14 +2,14 @@
 team: Colorado Rockies
 league: National League
 division: National League West
-updated: 2026-06-04 09:10 AM
+updated: 2026-06-06 09:10 AM
 tags: [baseball, mlb, roster]
 ---
 
 # Colorado Rockies — Active Roster
 
 **League:** National League  ·  **Division:** National League West
-*Last updated: 2026-06-04 09:10 AM*
+*Last updated: 2026-06-06 09:10 AM*
 
 | # | Name | Pos | Bats | Throws | Age | Height | Weight |
 |---|------|-----|------|--------|-----|--------|--------|
@@ -31,8 +31,8 @@ tags: [baseball, mlb, roster]
 | #18 | Ryan Feltner | P | R | R | 29 | 6' 4" | 200 lbs |
 | #21 | Kyle Freeland | P | L | L | 33 | 6' 4" | 202 lbs |
 | #24 | Michael Lorenzen | P | R | R | 34 | 6' 1" | 210 lbs |
-| #29 | Tanner Gordon | P | L | R | 28 | 6' 5" | 220 lbs |
 | #34 | Keegan Thompson | P | R | R | 31 | 6' 1" | 197 lbs |
+| #36 | Zach Agnos | P | R | R | 25 | 6' 0" | 225 lbs |
 | #47 | Juan Mejia | P | R | R | 25 | 6' 3" | 210 lbs |
 | #49 | Antonio Senzatela | P | R | R | 31 | 6' 1" | 235 lbs |
 | #52 | TJ Shook | P | R | R | 28 | 6' 4" | 217 lbs |

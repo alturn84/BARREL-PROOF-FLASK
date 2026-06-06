@@ -9,15 +9,30 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Playfair+Display+SC:wght@400;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
-:root{
-  --ink:#1A1108;--ink-card:#1E1208;--leather:#3A2010;
-  --parchment:#F5EDD8;--parchment2:#D8C9A8;--parchment3:#C8BC98;
-  --gold:#A89070;--gold-dim:#887C60;--zero:#5A4A32;
-  --rule:rgba(168,144,112,.4);--rule-heavy:rgba(168,144,112,.6);
-  --serif:'Playfair Display',Georgia,serif;
-  --serif-sc:'Playfair Display SC',Georgia,serif;
-  --serif-body:'Source Serif 4',Georgia,serif;
-  --mono:'IBM Plex Mono','Courier New',monospace;
+:root {
+  --ink: #1A1108;
+  --ink-soft: #221808;
+  --ink-card: #1E1208;
+  --parchment: #F0E6CC;
+  --parchment2: #D8C9A8;
+  --cream: #EDE5D0;
+  --cream-dim: #887C60;
+  --cream-mid: #C8BC98;
+  --smoke: #7A6A52;
+  --smoke-light: #A89070;
+  --leather: #4E3A20;
+  --rule: rgba(136,124,96,.25);
+  --rule-heavy: rgba(136,124,96,.65);
+  --serif-display: 'Playfair Display', Georgia, serif;
+  --serif-sc: 'Playfair Display SC', Georgia, serif;
+  --serif-body: 'Source Serif 4', Georgia, serif;
+  --mono: 'IBM Plex Mono', 'Courier New', monospace;
+  /* scoreboard-specific aliases */
+  --parchment3: #C8BC98;
+  --gold: #A89070;
+  --gold-dim: #887C60;
+  --zero: #5A4A32;
+  --serif: 'Playfair Display', Georgia, serif;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{font-size:16px;}
@@ -27,25 +42,69 @@ a{color:inherit;text-decoration:none;}
 body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
   opacity:0.55;}
-.page{position:relative;z-index:1;max-width:1280px;margin:0 auto;padding:0 48px 80px;}
+.page {
+  position: relative;
+  z-index: 1;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 clamp(24px, 8vw, 120px) 60px;
+}
 
-/* ── SCOREBOARD BANNER ── */
-.bs-scoreboard-banner{width:100%;overflow:hidden;background:var(--ink);margin:0;padding:0;}
-.bs-scoreboard-banner img{width:100%;height:auto;display:block;}
-
-/* ── NAV ── */
-nav.main-nav{display:flex;justify-content:center;align-items:center;
-  border-bottom:1px solid var(--rule-heavy);border-top:1px solid var(--rule-heavy);
-  background:var(--ink);}
-.nav-items-wrap{display:flex;align-items:center;justify-content:center;white-space:nowrap;}
-.nav-item{font-family:var(--serif-sc);font-size:15px;letter-spacing:.14em;
-  color:var(--gold);padding:12px 18px;position:relative;cursor:pointer;
-  transition:color .2s;display:inline-block;white-space:nowrap;}
-.nav-item:hover,.nav-item.active{color:var(--parchment);}
-.nav-item.active::after{content:'';position:absolute;bottom:-1px;left:0;right:0;
-  height:2px;background:var(--parchment);}
-.nav-item:not(:last-child)::before{content:'·';position:absolute;right:-2px;
-  color:var(--rule-heavy);}
+/* ── SHELL CSS ── */
+.site-banner {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  display: block;
+  overflow: hidden;
+}
+.site-banner img {
+  width: 100%;
+  height: clamp(220px, 28vw, 420px);
+  object-fit: cover;
+  object-position: center 45%;
+  display: block;
+}
+nav.main-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid var(--rule-heavy);
+  border-bottom: 1px solid var(--rule-heavy);
+  background: var(--ink);
+}
+.nav-items-wrap {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+.nav-item {
+  font-family: var(--serif-sc);
+  font-size: 15px;
+  letter-spacing: .14em;
+  color: var(--smoke-light);
+  padding: 12px 18px;
+  position: relative;
+  cursor: pointer;
+  transition: color .2s;
+  white-space: nowrap;
+  display: inline-block;
+}
+.nav-item:hover, .nav-item.active { color: var(--parchment); }
+.nav-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; left: 0; right: 0;
+  height: 2px;
+  background: var(--cream);
+}
+.nav-item:not(:last-child)::before {
+  content: '·';
+  position: absolute;
+  right: -2px;
+  color: var(--rule-heavy);
+}
 
 /* ── GAME NAV STRIP ── */
 .game-nav-strip{overflow-x:auto;border-bottom:1px solid var(--rule-heavy);
@@ -194,25 +253,13 @@ nav.main-nav{display:flex;justify-content:center;align-items:center;
 </head>
 <body>
 
-<!-- SCOREBOARD BANNER -->
-<div class="bs-scoreboard-banner">
-  <img src="/static/images/header-templates/scoreboard/scoreboard-master.png"
-       alt="Barrel Proof Scoreboard"/>
-</div>
+{% set banner_src = '/static/images/hero-scoreboard.png' %}
+{% set banner_alt = 'Barrel Proof Scoreboard' %}
+{% include 'partials/site_banner.html' %}
 
 <div class="page">
 
-  <!-- NAV -->
-  <nav class="main-nav">
-    <div class="nav-items-wrap">
-      <div class="nav-item" onclick="location.href='/'">Today</div>
-      <div class="nav-item active" onclick="location.href='/scoreboard'">Scoreboard</div>
-      <div class="nav-item" onclick="location.href='/dope-sheet'">Dope Sheet</div>
-      <div class="nav-item">Advance Scout</div>
-      <div class="nav-item">Barrels &amp; Whiffs</div>
-      <div class="nav-item">Rosters</div>
-    </div>
-  </nav>
+  {% set active_page = 'scoreboard' %}{% include 'partials/site_nav.html' %}
 
   <!-- GAME NAV STRIP -->
   <div class="game-nav-strip">

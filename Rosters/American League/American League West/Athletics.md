@@ -2,14 +2,14 @@
 team: Athletics
 league: American League
 division: American League West
-updated: 2026-06-04 09:10 AM
+updated: 2026-06-06 09:10 AM
 tags: [baseball, mlb, roster]
 ---
 
 # Athletics — Active Roster
 
 **League:** American League  ·  **Division:** American League West
-*Last updated: 2026-06-04 09:10 AM*
+*Last updated: 2026-06-06 09:10 AM*
 
 | # | Name | Pos | Bats | Throws | Age | Height | Weight |
 |---|------|-----|------|--------|-----|--------|--------|
@@ -28,9 +28,9 @@ tags: [baseball, mlb, roster]
 | #25 | Brent Rooker | DH | R | R | 31 | 6' 3" | 225 lbs |
 | #35 | J.T. Ginn | P | R | R | 27 | 6' 2" | 200 lbs |
 | #36 | Hogan Harris | P | R | L | 29 | 6' 3" | 230 lbs |
+| #37 | Elvis Alvarado | P | R | R | 27 | 6' 6" | 253 lbs |
 | #38 | Mark Leiter Jr. | P | R | R | 35 | 6' 0" | 210 lbs |
 | #46 | Luis Medina | P | R | R | 27 | 6' 1" | 175 lbs |
-| #47 | Joel Kuhnel | P | R | R | 31 | 6' 5" | 290 lbs |
 | #50 | Jack Perkins | P | R | R | 26 | 6' 1" | 220 lbs |
 | #54 | José Suarez | P | L | L | 28 | 5' 10" | 225 lbs |
 | #58 | Scott Barlow | P | R | R | 33 | 6' 3" | 210 lbs |
