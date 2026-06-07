@@ -194,7 +194,7 @@ def fetch_schedule(date_str):
     if not dates:
         return []
     return [g for g in dates[0]["games"]
-            if g["status"]["abstractGameState"] == "Final" and g["status"].get("detailedGameState") != "Postponed"]
+            if g["status"]["abstractGameState"] == "Final" and g["status"].get("detailedGameState") != "Postponed" and not (g["teams"]["away"]["score"] == 0 and g["teams"]["home"]["score"] == 0)]
 
 
 # ── Markdown parser (mirrors update_game_cards.py pattern) ───────────────────
