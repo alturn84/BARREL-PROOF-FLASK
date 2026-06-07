@@ -1,47 +1,49 @@
 {
-  "date": "2026-06-05",
-  "date_display": "Friday, June 5, 2026",
-  "updated": "2026-06-06 12:30",
+  "date": "2026-06-06",
+  "date_display": "Saturday, June 6, 2026",
+  "updated": "2026-06-07 10:15",
   "game": {
-    "away": "LAA",
-    "home": "LAD",
-    "away_runs": 0,
-    "home_runs": 1,
-    "innings": 9,
-    "raw_score": 97.0,
+    "away": "SF",
+    "home": "CHC",
+    "away_runs": 2,
+    "home_runs": 3,
+    "innings": 10,
+    "raw_score": 101.0,
     "flags": [
       "WALK-OFF WIN",
+      "EXTRA INNINGS (10)",
       "ONE-RUN GAME",
-      "PLAYOFF IMPLICATIONS",
-      "DOMINANT START: Roki Sasaki (7.0 IP, 0 ER, 10 K)",
-      "LAD HOME GAME"
+      "MULTI-HR: Pete Crow-Armstrong (2 HR)",
+      "SB SPREE (3)",
+      "CHC HOME GAME"
     ],
-    "winner": "LAD",
-    "loser": "LAA",
+    "winner": "CHC",
+    "loser": "SF",
     "margin": 1,
-    "total_runs": 1
+    "total_runs": 5
   },
   "editorial": {
-    "headline": "Freddie Freeman Delivers Walk-Off Winner for Los Angeles Dodgers",
-    "subheadline": "Los Angeles Dodgers 1, Los Angeles Angels 0.",
-    "lead_angle": "Freddie Freeman blasted a one-out solo home run into the right field seats in the bottom of the ninth, gifting the Los Angeles Dodgers a hard-fought 1-0 walk-off victory over the visiting Los Angeles Angels. Blake Treinen earned the win, while Kirby Yates took the loss after yielding the game-winning blast.\n\nNine innings of scoreless baseball preceded Freeman's heroics. Los Angeles Angels starter Reid Detmers matched Dodgers ace Roki Sasaki, pitch-for-pitch, through the early frames. Sasaki carved through the Angels order for seven innings, fanning ten batters without allowing a run. The Angels bullpen then held the line until the ninth, when Kirby Yates entered in relief of Jose Soriano. Yates recorded the first out before Freeman stepped in, delivering the game's only score.\n\nFreeman's two hits, including his ninth-inning solo shot, accounted for the game’s sole run and provided the offensive spark the Dodgers desperately needed. His critical 2-for-4 afternoon, capped by the walk-off, pushed the Dodgers ahead in a tight division race. The hard-fought win maintains their narrow lead, with the Angels now facing increased pressure to regain ground in their own wild card chase.",
-    "reason": "Walk-offs are baseball's signature drama. The season's best finish this day."
+    "headline": "Walk-off in extras. CHC wins it in the 10th.",
+    "subheadline": "SF 2, CHC 3 — 10 innings of baseball finally settle it.",
+    "lead_angle": "They played deep into the night and Chicago Cubs ended it the right way. A walk-off in the 10th inning gave CHC a SF 2, CHC 3 victory over SF in a game that refused to end. The best kind.",
+    "reason": "Extra-inning walk-off — the purest combination of tension and resolution the sport offers."
   },
   "all_games": [
     {
       "rank": 1,
-      "away": "LAA",
-      "home": "LAD",
-      "away_runs": 0,
-      "home_runs": 1,
-      "innings": 9,
-      "raw_score": 97.0,
+      "away": "SF",
+      "home": "CHC",
+      "away_runs": 2,
+      "home_runs": 3,
+      "innings": 10,
+      "raw_score": 101.0,
       "flags": [
         "WALK-OFF WIN",
+        "EXTRA INNINGS (10)",
         "ONE-RUN GAME",
-        "PLAYOFF IMPLICATIONS",
-        "DOMINANT START: Roki Sasaki (7.0 IP, 0 ER, 10 K)",
-        "LAD HOME GAME"
+        "MULTI-HR: Pete Crow-Armstrong (2 HR)",
+        "SB SPREE (3)",
+        "CHC HOME GAME"
       ],
       "selected": true
     },
@@ -49,8 +51,8 @@
       "rank": 2,
       "away": "BOS",
       "home": "NYY",
-      "away_runs": 5,
-      "home_runs": 3,
+      "away_runs": 0,
+      "home_runs": 0,
       "innings": 9,
       "raw_score": 72.0,
       "flags": [
@@ -63,86 +65,55 @@
     },
     {
       "rank": 3,
-      "away": "SF",
-      "home": "CHC",
-      "away_runs": 18,
-      "home_runs": 3,
+      "away": "MIL",
+      "home": "COL",
+      "away_runs": 7,
+      "home_runs": 1,
       "innings": 9,
-      "raw_score": 56.0,
+      "raw_score": 60.0,
       "flags": [
-        "MULTI-HR: Casey Schmitt (2 HR)",
-        "BIG RBI GAME: Matt Chapman (8 RBI)",
-        "CHC HOME GAME",
-        "HIGH-SCORING (21 runs)"
+        "PLAYOFF IMPLICATIONS",
+        "MULTI-HR: Brice Turang (2 HR)",
+        "DOMINANT START: Jacob Misiorowski (7.0 IP, 0 ER, 8 K)"
       ],
       "selected": false
     },
     {
       "rank": 4,
-      "away": "CWS",
-      "home": "PHI",
-      "away_runs": 6,
-      "home_runs": 8,
+      "away": "PIT",
+      "home": "ATL",
+      "away_runs": 3,
+      "home_runs": 6,
       "innings": 9,
-      "raw_score": 54.0,
+      "raw_score": 42.0,
       "flags": [
         "PLAYOFF IMPLICATIONS",
-        "MULTI-HR: Randal Grichuk (2 HR)",
-        "PHI HOME GAME"
+        "SB SPREE (6)",
+        "ATL HOME GAME"
       ],
       "selected": false
     },
     {
       "rank": 5,
-      "away": "MIL",
-      "home": "COL",
-      "away_runs": 9,
-      "home_runs": 7,
-      "innings": 10,
-      "raw_score": 46.0,
+      "away": "CIN",
+      "home": "STL",
+      "away_runs": 5,
+      "home_runs": 6,
+      "innings": 9,
+      "raw_score": 41.0,
       "flags": [
-        "EXTRA INNINGS (10)",
-        "PLAYOFF IMPLICATIONS",
-        "SB SPREE (4)",
-        "HIGH-SCORING (16 runs)"
+        "ONE-RUN GAME",
+        "DIVISION MATCHUP",
+        "SB SPREE (6)"
       ],
       "selected": false
     },
     {
       "rank": 6,
-      "away": "BAL",
-      "home": "TOR",
-      "away_runs": 13,
-      "home_runs": 3,
-      "innings": 9,
-      "raw_score": 42.0,
-      "flags": [
-        "DIVISION MATCHUP",
-        "BIG RBI GAME: Adley Rutschman (5 RBI)",
-        "HIGH-SCORING (16 runs)"
-      ],
-      "selected": false
-    },
-    {
-      "rank": 7,
       "away": "TB",
       "home": "MIA",
-      "away_runs": 6,
-      "home_runs": 0,
-      "innings": 9,
-      "raw_score": 40.0,
-      "flags": [
-        "PLAYOFF IMPLICATIONS",
-        "DOMINANT START: Drew Rasmussen (7.0 IP, 0 ER, 9 K)"
-      ],
-      "selected": false
-    },
-    {
-      "rank": 8,
-      "away": "CLE",
-      "home": "TEX",
-      "away_runs": 2,
-      "home_runs": 3,
+      "away_runs": 3,
+      "home_runs": 4,
       "innings": 9,
       "raw_score": 37.0,
       "flags": [
@@ -152,53 +123,53 @@
       "selected": false
     },
     {
-      "rank": 9,
-      "away": "PIT",
-      "home": "ATL",
-      "away_runs": 3,
-      "home_runs": 6,
+      "rank": 7,
+      "away": "CWS",
+      "home": "PHI",
+      "away_runs": 6,
+      "home_runs": 3,
       "innings": 9,
       "raw_score": 34.0,
       "flags": [
         "PLAYOFF IMPLICATIONS",
-        "ATL HOME GAME"
+        "PHI HOME GAME"
+      ],
+      "selected": false
+    },
+    {
+      "rank": 8,
+      "away": "LAA",
+      "home": "LAD",
+      "away_runs": 2,
+      "home_runs": 9,
+      "innings": 9,
+      "raw_score": 34.0,
+      "flags": [
+        "PLAYOFF IMPLICATIONS",
+        "LAD HOME GAME"
+      ],
+      "selected": false
+    },
+    {
+      "rank": 9,
+      "away": "KC",
+      "home": "MIN",
+      "away_runs": 3,
+      "home_runs": 2,
+      "innings": 9,
+      "raw_score": 33.0,
+      "flags": [
+        "ONE-RUN GAME",
+        "DIVISION MATCHUP"
       ],
       "selected": false
     },
     {
       "rank": 10,
-      "away": "WSH",
-      "home": "AZ",
-      "away_runs": 14,
-      "home_runs": 1,
-      "innings": 9,
-      "raw_score": 34.0,
-      "flags": [
-        "MULTI-HR: Luis García Jr. (2 HR)",
-        "BIG RBI GAME: Luis García Jr. (6 RBI)"
-      ],
-      "selected": false
-    },
-    {
-      "rank": 11,
-      "away": "SEA",
-      "home": "DET",
-      "away_runs": 3,
-      "home_runs": 7,
-      "innings": 9,
-      "raw_score": 30.0,
-      "flags": [
-        "PLAYOFF IMPLICATIONS",
-        "SB SPREE (3)"
-      ],
-      "selected": false
-    },
-    {
-      "rank": 12,
       "away": "ATH",
       "home": "HOU",
-      "away_runs": 1,
-      "home_runs": 5,
+      "away_runs": 2,
+      "home_runs": 13,
       "innings": 9,
       "raw_score": 30.0,
       "flags": [
@@ -208,11 +179,37 @@
       "selected": false
     },
     {
+      "rank": 11,
+      "away": "SEA",
+      "home": "DET",
+      "away_runs": 4,
+      "home_runs": 0,
+      "innings": 9,
+      "raw_score": 22.0,
+      "flags": [
+        "PLAYOFF IMPLICATIONS"
+      ],
+      "selected": false
+    },
+    {
+      "rank": 12,
+      "away": "CLE",
+      "home": "TEX",
+      "away_runs": 6,
+      "home_runs": 0,
+      "innings": 9,
+      "raw_score": 22.0,
+      "flags": [
+        "PLAYOFF IMPLICATIONS"
+      ],
+      "selected": false
+    },
+    {
       "rank": 13,
-      "away": "CIN",
-      "home": "STL",
-      "away_runs": 3,
-      "home_runs": 10,
+      "away": "BAL",
+      "home": "TOR",
+      "away_runs": 4,
+      "home_runs": 6,
       "innings": 9,
       "raw_score": 18.0,
       "flags": [
@@ -222,23 +219,23 @@
     },
     {
       "rank": 14,
-      "away": "KC",
-      "home": "MIN",
-      "away_runs": 3,
-      "home_runs": 5,
+      "away": "NYM",
+      "home": "SD",
+      "away_runs": 2,
+      "home_runs": 3,
       "innings": 9,
-      "raw_score": 18.0,
+      "raw_score": 15.0,
       "flags": [
-        "DIVISION MATCHUP"
+        "ONE-RUN GAME"
       ],
       "selected": false
     },
     {
       "rank": 15,
-      "away": "NYM",
-      "home": "SD",
-      "away_runs": 5,
-      "home_runs": 0,
+      "away": "WSH",
+      "home": "AZ",
+      "away_runs": 6,
+      "home_runs": 1,
       "innings": 9,
       "raw_score": 0.0,
       "flags": [],
