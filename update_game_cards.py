@@ -383,8 +383,8 @@ def build_summary(game):
     contributors, notes anything that stands out. No adjectives or hyperbole.
     Placeholder until Hermes takes over.
     """
-    ar  = game['away_runs']
-    hr  = game['home_runs']
+    ar  = game.get('away_runs', 0)
+    hr  = game.get('home_runs', 0)
     dec = game['decisions']
     w   = dec.get('W', '')
     l   = dec.get('L', '')
@@ -483,8 +483,8 @@ def build_summary(game):
 
 # ── Build headline ────────────────────────────────────────────────────────────
 def build_headline(game):
-    ar  = game['away_runs']
-    hr  = game['home_runs']
+    ar  = game.get('away_runs', 0)
+    hr  = game.get('home_runs', 0)
     dec = game['decisions']
     w   = dec.get('W', '').split()[-1] if dec.get('W') else ''
 
