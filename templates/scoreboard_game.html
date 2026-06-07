@@ -300,16 +300,26 @@ nav.main-nav {
         </span>
       </div>
       <div class="game-score-block">
-        <span class="game-score{% if away_wins %} winner{% endif %}">
-          {{ game.away_runs }}
-        </span>
-        <span class="game-score-dash">–</span>
-        <span class="game-score{% if not away_wins %} winner{% endif %}">
-          {{ game.home_runs }}
-        </span>
+        {% if is_game_postponed(game) %}
+          <span class="game-score">—</span>
+          <span class="game-score-dash"></span>
+          <span class="game-score">—</span>
+        {% else %}
+          <span class="game-score{% if away_wins %} winner{% endif %}">
+            {{ game.away_runs }}
+          </span>
+          <span class="game-score-dash">–</span>
+          <span class="game-score{% if not away_wins %} winner{% endif %}">
+            {{ game.home_runs }}
+          </span>
+        {% endif %}
         <span class="game-final">
-          {% if game.game_status and game.game_status != "Final" %}
-            {{ game.game_status.upper() }}
+          {% if is_game_postponed(game) %}
+            POSTPONED
+          {% elif game.game_status == "SUSPENDED" %}
+            SUSPENDED
+          {% elif game.game_status == "DELAYED" %}
+            DELAYED
           {% else %}
             FINAL{% if game.innings|length > 9 %} / {{ game.innings|length }}{% endif %}
           {% endif %}
@@ -339,7 +349,7 @@ nav.main-nav {
   </div>
 
   <!-- GAME STORY -->
-  {% if game.summary %}
+  {% if game.summary and not is_game_postponed(game) %}
   <div class="section-hdr">
     <div class="section-hdr-text">Game Story</div>
     <div class="section-hdr-rule"></div>
@@ -353,7 +363,7 @@ nav.main-nav {
   {% endif %}
 
   <!-- TURNING POINT -->
-  {% if turning.description %}
+  {% if turning.description and not is_game_postponed(game) %}
   <div class="section-hdr">
     <div class="section-hdr-text">Turning Point</div>
     <div class="section-hdr-rule"></div>
@@ -364,6 +374,7 @@ nav.main-nav {
   {% endif %}
 
   <!-- LINE SCORE -->
+  {% if not is_game_postponed(game) %}
   <div class="section-hdr">
     <div class="section-hdr-text">Line Score</div>
     <div class="section-hdr-rule"></div>
@@ -404,9 +415,10 @@ nav.main-nav {
     {% if game.decisions.L %} &nbsp;&nbsp; L: <strong>{{ game.decisions.L }}</strong>{% endif %}
     {% if game.decisions.SV %} &nbsp;&nbsp; SV: <strong>{{ game.decisions.SV }}</strong>{% endif %}
   </div>
+  {% endif %}
 
   <!-- STAR PERFORMERS -->
-  {% if stars.batters or stars.pitchers %}
+  {% if (stars.batters or stars.pitchers) and not is_game_postponed(game) %}
   <div class="section-hdr">
     <div class="section-hdr-text">Star Performers</div>
     <div class="section-hdr-rule"></div>
@@ -444,6 +456,7 @@ nav.main-nav {
   {% endif %}
 
   <!-- FULL BOX SCORE -->
+  {% if not is_game_postponed(game) %}
   <div class="section-hdr">
     <div class="section-hdr-text">Box Score</div>
     <div class="section-hdr-rule"></div>
@@ -508,7 +521,7 @@ nav.main-nav {
             <td>{{ p.r }}</td>
             <td>{{ p.er }}</td>
             <td>{{ p.bb }}</td>
-            <td class="{% if p.k|int >= 8 %}hi{% endif %}">{{ p.k }}</td>
+            <td>{{ p.k }}</td>
           </tr>
           {% endfor %}
         </tbody>
@@ -516,6 +529,7 @@ nav.main-nav {
     </div>
   </div>
   {% endfor %}
+  {% endif %}
 
   <!-- PLACEHOLDER SECTIONS -->
   <div class="section-hdr">
