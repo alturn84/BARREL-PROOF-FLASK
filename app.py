@@ -184,6 +184,10 @@ def team_in_game(game, team_abbr):
         game.get("home"),
     ]
 
+def is_game_postponed(game):
+    """Helper to determine if a game is postponed based on its status."""
+    return game.get("game_status") == "POSTPONED"
+
 def get_team_recent_games(team_abbr):
     games, _, _ = get_game_cards()
     return [g for g in games if team_in_game(g, team_abbr)][:5]
