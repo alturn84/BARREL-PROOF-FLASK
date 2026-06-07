@@ -240,7 +240,13 @@ article.bs-game:last-child{border-bottom:none;}
     <div class="game-nav-inner">
       {% for s in all_slugs %}
       <a class="game-nav-btn" href="/scoreboard/{{ s.slug }}">
-        {% if s.away_runs > s.home_runs %}
+        {% if s.game_status == "POSTPONED" %}
+          <span>POSTPONED</span>
+        {% elif s.game_status == "SUSPENDED" %}
+          <span>SUSPENDED</span>
+        {% elif s.game_status == "DELAYED" %}
+          <span>DELAYED</span>
+        {% elif s.away_runs > s.home_runs %}
           <span class="game-nav-winner">{{ s.away_abbr }} {{ s.away_runs }}</span>
           <span style="color:var(--gold-dim);"> – </span>
           <span>{{ s.home_abbr }} {{ s.home_runs }}</span>
@@ -310,12 +316,18 @@ article.bs-game:last-child{border-bottom:none;}
   {% set away_wins = g.away_runs > g.home_runs %}
   <article class="bs-game" id="game-{{ g.away_abbr|lower }}-{{ g.home_abbr|lower }}">
     <h2 class="game-score-headline">
-      {% if away_wins %}
+      {% if g.game_status == "POSTPONED" %}
+        POSTPONED
+      {% elif g.game_status == "SUSPENDED" %}
+        SUSPENDED
+      {% elif g.game_status == "DELAYED" %}
+        DELAYED
+      {% elif away_wins %}
         {{ g.away_city }} {{ g.away_runs }}, {{ g.home_city }} {{ g.home_runs }}
       {% else %}
         {{ g.home_city }} {{ g.home_runs }}, {{ g.away_city }} {{ g.away_runs }}
       {% endif %}
-      {% if g.innings|length > 9 %}
+      {% if g.innings|length > 9 and g.game_status == "Final" %}
         <span style="font-size:18px;font-weight:400;"> (F/{{ g.innings|length }})</span>
       {% endif %}
     </h2>
@@ -371,12 +383,18 @@ article.bs-game:last-child{border-bottom:none;}
   {% set away_wins = g.away_runs > g.home_runs %}
   <article class="bs-game" id="game-{{ g.away_abbr|lower }}-{{ g.home_abbr|lower }}">
     <h2 class="game-score-headline">
-      {% if away_wins %}
+      {% if g.game_status == "POSTPONED" %}
+        POSTPONED
+      {% elif g.game_status == "SUSPENDED" %}
+        SUSPENDED
+      {% elif g.game_status == "DELAYED" %}
+        DELAYED
+      {% elif away_wins %}
         {{ g.away_city }} {{ g.away_runs }}, {{ g.home_city }} {{ g.home_runs }}
       {% else %}
         {{ g.home_city }} {{ g.home_runs }}, {{ g.away_city }} {{ g.away_runs }}
       {% endif %}
-      {% if g.innings|length > 9 %}
+      {% if g.innings|length > 9 and g.game_status == "Final" %}
         <span style="font-size:18px;font-weight:400;"> (F/{{ g.innings|length }})</span>
       {% endif %}
     </h2>

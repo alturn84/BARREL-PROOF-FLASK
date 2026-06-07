@@ -308,7 +308,11 @@ nav.main-nav {
           {{ game.home_runs }}
         </span>
         <span class="game-final">
-          FINAL{% if game.innings|length > 9 %} / {{ game.innings|length }}{% endif %}
+          {% if game.game_status and game.game_status != "Final" %}
+            {{ game.game_status.upper() }}
+          {% else %}
+            FINAL{% if game.innings|length > 9 %} / {{ game.innings|length }}{% endif %}
+          {% endif %}
         </span>
       </div>
       <div class="game-team-block">
