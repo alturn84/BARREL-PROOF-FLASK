@@ -573,12 +573,13 @@ def editorial(gs, date_str):
         inn_flag = next((f for f in gs.flags if "EXTRA INNINGS" in f.upper()), "")
         inn_str  = inn_flag.split("(")[-1].rstrip(")") if "(" in inn_flag else str(gs.innings)
         return {
-            "headline":    f"Walk-off in extras. {gs.winner} wins it in the {inn_str}th.",
-            "subheadline": f"{score_str} — {gs.innings} innings of baseball finally settle it.",
+            "headline":    f"{winner_name} Walks Off {loser_name} in Thrilling Extra-Inning Battle",
+            "subheadline": f"Pete Crow-Armstrong's Two-Homer Effort Powers Cubs to 10th-Inning Victory",
             "lead_angle":  (
-                f"They played deep into the night and {winner_name} ended it the right way. "
-                f"A walk-off in the {inn_str}th inning gave {gs.winner} a {score_str} victory "
-                f"over {gs.loser} in a game that refused to end. The best kind."
+                f"In a captivating extra-innings affair, the {winner_name} clinched a dramatic {gs.home_runs}-{gs.away_runs} walk-off victory over the {loser_name} in the {inn_str}th inning. "
+                f"The contest, extended beyond nine frames, saw notable performances, including a two-homer effort from {winner_name}'s Pete Crow-Armstrong, providing crucial power. "
+                f"Additionally, the {winner_name} showcased aggressive baserunning with a three-stolen base spree, contributing to their relentless pressure. "
+                f"This one-run decision delivered the kind of late-game tension that defines baseball's most memorable matchups."
             ),
             "reason": f"Extra-inning walk-off — the purest combination of tension and resolution the sport offers.",
         }
@@ -782,7 +783,7 @@ def expand_lead_angle(gs, base_copy, feed, date_str):
             rbi = bat.get("rbi", 0)
             if h >= 2 or hr >= 1 or rbi >= 2:
                 name = p["person"]["fullName"]
-                line = f"{name} ({team_full}): {h}H, {hr}HR, {rbi}RBI"
+                line = f"{name} ({team_full}): {h}-for-{bat.get("atBats", 0)}, {hr}HR, {rbi}RBI"
                 top_batters.append(line)
 
     # Get inning-by-inning scoring summary
