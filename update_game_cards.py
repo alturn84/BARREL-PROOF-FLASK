@@ -248,13 +248,20 @@ def parse_game(block):
 
     # Infer game status for postponed/cancelled games (0-0 scores, no duration/attendance/decisions)
     if away_runs == 0 and home_runs == 0:
-        if not dur_m or not att_m or not dec_m: # If duration, attendance, or decisions are empty, likely postponed
+        is_postponed = (not dur_m or not dur_m.group(1)) and \
+                       (not att_m or not att_m.group(1)) and \
+                       (not dec_m or not dec_m.group(1))
+        if is_postponed:
             game['game_status'] = "POSTPONED"
+            game['is_final'] = False
+            game['winner'] = '' # No winner for postponed games
         else:
             game['game_status'] = "Final"
+            game['is_final'] = True
     else:
         game['game_status'] = "Final" # Explicitly mark as final for played games
-
+        game['is_final'] = True
+    game['winner']    = 'away' if away_runs > home_runs else 'home' if game['is_final'] else '' # Only set winner if game is final and not postponed
     ls_m = re.search(
         r'\| Team \|(.+?)\n\|[-|]+\|\n\| \*\*' + re.escape(away_abbr) + r'\*\* \|(.+?)\n\| \*\*' + re.escape(home_abbr) + r'\*\* \|(.+?)(?:\n|$)',
         block
