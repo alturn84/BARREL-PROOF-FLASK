@@ -175,7 +175,7 @@ GOOD EXAMPLES by game type:
         print(f"  ⚠ Summary generation failed for {away}@{home}: {e}", flush=True)
     return None  # caller uses fallback
 
-VAULT    = Path(".")
+VAULT    = Path(__file__).resolve().parent
 DAILY    = Path("Daily")
 OUT_FILE = Path("Site Data") / "game_cards.json"
 
@@ -225,7 +225,6 @@ def parse_game(block):
     game['away_city'] = TEAM_CITIES.get(away_abbr, away_abbr)
     game['home_city'] = TEAM_CITIES.get(home_abbr, home_abbr)
     game['away_runs'] = away_runs
-    game['home_runs'] = home_runs
     game['winner']    = 'away' if away_runs > home_runs else 'home'
 
     venue_m = re.search(r'\*\*Venue:\*\* ([^·]+)', block)
@@ -246,6 +245,15 @@ def parse_game(block):
             if km:
                 decisions[key] = km.group(1).strip()
     game['decisions'] = decisions
+
+    # Infer game status for postponed/cancelled games (0-0 scores, no duration/attendance/decisions)
+    if away_runs == 0 and home_runs == 0:
+        if not dur_m or not att_m or not dec_m: # If duration, attendance, or decisions are empty, likely postponed
+            game['game_status'] = "POSTPONED"
+        else:
+            game['game_status'] = "Final"
+    else:
+        game['game_status'] = "Final" # Explicitly mark as final for played games
 
     ls_m = re.search(
         r'\| Team \|(.+?)\n\|[-|]+\|\n\| \*\*' + re.escape(away_abbr) + r'\*\* \|(.+?)\n\| \*\*' + re.escape(home_abbr) + r'\*\* \|(.+?)(?:\n|$)',
@@ -388,6 +396,10 @@ def build_summary(game):
     w_runs      = ar if game['winner'] == 'away' else hr
     l_runs      = hr if game['winner'] == 'away' else ar
     total_inn   = len(game['innings'])
+    game_status = game.get('game_status', 'Final')
+
+    if game_status == "POSTPONED":
+        return "Game Postponed."
 
     win_pit = game['away_pitching'] if game['winner'] == 'away' else game['home_pitching']
     los_pit = game['home_pitching'] if game['winner'] == 'away' else game['away_pitching']
@@ -482,8 +494,11 @@ def build_headline(game):
     l_runs      = min(ar, hr)
     diff        = abs(ar - hr)
     total_inn   = len(game['innings'])
+    game_status = game.get('game_status', 'Final')
 
-    if total_inn > 9:
+    if game_status == "POSTPONED":
+        return "POSTPONED"
+    elif total_inn > 9:
         return f"{winner_city} {w_runs}, {loser_city} {l_runs} (F/{total_inn})"
     elif l_runs == 0:
         return f"{winner_city} Blank {loser_city}, {w_runs}-0"
