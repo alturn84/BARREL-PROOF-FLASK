@@ -1,7 +1,8 @@
 {#
   partials/site_banner.html
   Required variables: banner_src, banner_alt
+  Optional variables: banner_class (extra CSS class on .site-banner)
 #}
-<div class="site-banner">
+<div class="site-banner{{ ' ' + banner_class if banner_class else '' }}">
   <img src="{{ banner_src }}" alt="{{ banner_alt }}">
 </div>
