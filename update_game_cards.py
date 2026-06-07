@@ -176,7 +176,7 @@ GOOD EXAMPLES by game type:
     return None  # caller uses fallback
 
 VAULT    = Path(__file__).resolve().parent
-DAILY    = Path("Daily")
+DAILY    = Path("/opt/data/workspace/barrel-proof/Daily")
 OUT_FILE = Path("Site Data") / "game_cards.json"
 
 # ── Team abbreviation → full city name ────────────────────────────────────────
