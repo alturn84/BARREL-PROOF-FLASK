@@ -931,13 +931,14 @@ Rules:
 - No quotation marks
 - Plain text only
 - Do not include the score in the headline
+- NEVER include meta-comments, questions, conversational filler, or internal thoughts (e.g. "counted as a word?" or "let's make it tighter")
 
 Good examples:
 "Soderstrom Powers Oakland Past Cubs in Ten Innings"
 "Athletics Outlast Chicago in Extras Behind Soderstrom"
 "Oakland Grinds Out Ten-Inning Win at Wrigley"
 
-Write the headline only. Nothing else."""
+Write the raw headline text only. Do not include any other words, explanations, or formatting."""
 
         try:
             hl_response = client.models.generate_content(
