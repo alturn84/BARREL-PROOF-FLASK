@@ -61,7 +61,19 @@ app = Flask(__name__, template_folder=str(BASE_DIR / "templates"))
 def load_json(filename, fallback=None):
     path = DATA_DIR / filename
     try:
-        return json.loads(path.read_text(encoding="utf-8"))
+        data = json.loads(path.read_text(encoding="utf-8"))
+        if filename == "game_cards.json" and isinstance(data, dict) and "games" in data:
+            for g in data["games"]:
+                if isinstance(g, dict) and "home_runs" not in g:
+                    home_rhe = g.get("home_rhe", [])
+                    if home_rhe and len(home_rhe) > 0 and home_rhe[0] != '':
+                        try:
+                            g["home_runs"] = int(home_rhe[0])
+                        except (ValueError, TypeError):
+                            g["home_runs"] = 0
+                    else:
+                        g["home_runs"] = 0
+        return data
     except Exception as e:
         print(f"  ⚠ Could not load {filename}: {e}")
         return fallback if fallback is not None else {}
@@ -187,6 +199,10 @@ def team_in_game(game, team_abbr):
 def is_game_postponed(game):
     """Helper to determine if a game is postponed based on its status."""
     return game.get("game_status") == "POSTPONED"
+
+@app.context_processor
+def inject_is_game_postponed():
+    return dict(is_game_postponed=is_game_postponed)
 
 def get_team_recent_games(team_abbr):
     games, _, _ = get_game_cards()
