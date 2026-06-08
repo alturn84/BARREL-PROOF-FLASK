@@ -834,12 +834,16 @@ footer{border-top:.5px solid var(--rule-heavy);margin-top:48px;padding:24px 0;di
             <h2 class="gc-headline">
               {% set away_nick = team_nicknames.get(game.away_abbr, game.away_city) %}
               {% set home_nick = team_nicknames.get(game.home_abbr, game.home_city) %}
-              {% if game.winner == "away" %}
-                {{ away_nick }} beat {{ home_nick }}, {{ game.away_runs }}-{{ game.home_runs }}
-              {% elif game.winner == "home" %}
-                {{ home_nick }} beat {{ away_nick }}, {{ game.home_runs }}-{{ game.away_runs }}
+              {% set away_r = game.away_runs | int %}
+              {% set home_r = game.home_runs | int %}
+              {% if away_r > 0 or home_r > 0 %}
+                {% if game.winner == "away" %}
+                  {{ away_nick }} beat {{ home_nick }}, {{ away_r }}-{{ home_r }}
+                {% else %}
+                  {{ home_nick }} beat {{ away_nick }}, {{ home_r }}-{{ away_r }}
+                {% endif %}
               {% else %}
-                {{ away_nick }} and {{ home_nick }} go final
+                {{ away_nick }} vs. {{ home_nick }}
               {% endif %}
             </h2>
             <div class="gc-score">

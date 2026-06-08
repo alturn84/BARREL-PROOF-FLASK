@@ -310,6 +310,24 @@ def parse_game(block):
     game['away_rhe']  = away_rhe
     game['home_rhe']  = home_rhe
 
+    # Clamp runs to non-negative integers; re-derive from rhe if header parse failed
+    try:
+        parsed_away = int(away_rhe[0]) if away_rhe else 0
+        parsed_home = int(home_rhe[0]) if home_rhe else 0
+        game['away_runs'] = max(0, parsed_away)
+        game['home_runs'] = max(0, parsed_home)
+    except (ValueError, IndexError):
+        # Keep values from header parse as fallback
+        game['away_runs'] = max(0, game.get('away_runs', 0))
+        game['home_runs'] = max(0, game.get('home_runs', 0))
+
+    # Re-derive winner after run correction
+    if game['away_runs'] > game['home_runs']:
+        game['winner'] = 'away'
+    elif game['home_runs'] > game['away_runs']:
+        game['winner'] = 'home'
+    # If tied (0-0 or genuine tie mid-parse), leave winner as previously set
+
     def parse_batting(team_abbr):
         pattern = rf'\*\*{re.escape(team_abbr)} Batting\*\*\n\n\|[^\n]+\|\n\|[-|]+\|\n((?:\|[^\n]+\|\n?)+)'
         m = re.search(pattern, block)

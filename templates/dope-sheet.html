@@ -263,6 +263,31 @@ footer{border-top:.5px solid var(--rule-heavy);margin-top:40px;padding:20px 0;di
   .detail-section.two-col{grid-column:1/-1;}
   .snap-full{grid-template-columns:repeat(2,1fr);}
 }
+.banner-wrap {
+  position: relative;
+  line-height: 0;
+}
+.banner-date-mask {
+  position: absolute;
+  top: 37%;
+  height: 12%;
+  left: 32%;
+  width: 36%;
+  background: #C4A06A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.banner-date-text {
+  font-family: 'Playfair Display SC', Georgia, serif;
+  font-size: clamp(11px, 1.4vw, 22px);
+  letter-spacing: .22em;
+  color: #3D2B10;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 1.3;
+}
 </style>
 </head>
 <body>
@@ -270,7 +295,12 @@ footer{border-top:.5px solid var(--rule-heavy);margin-top:40px;padding:20px 0;di
 {% set banner_src = '/static/images/hero-dope-sheet.png' %}
 {% set banner_alt = 'Barrel Proof Dope Sheet' %}
 {% set banner_class = 'dope-sheet-banner' %}
+<div class="banner-wrap">
 {% include 'partials/site_banner.html' %}
+<div class="banner-date-mask">
+  <div class="banner-date-text">{{ date_banner }}</div>
+</div>
+</div>
 
 <div class="ticker-bar">
   <div class="ticker-inner" id="tickerInner"></div>

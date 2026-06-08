@@ -293,9 +293,9 @@ def group_games_by_league(games):
 def build_day_summary(games):
     total     = len(games)
     one_run   = sum(1 for g in games
-                    if abs(g.get("away_runs", 0) - g.get("home_runs", 0)) == 1)
+                    if abs(int(g.get("away_runs") or 0) - int(g.get("home_runs") or 0)) == 1)
     shutouts  = sum(1 for g in games
-                    if g.get("away_runs", 0) == 0 or g.get("home_runs", 0) == 0)
+                    if int(g.get("away_runs") or 0) == 0 or int(g.get("home_runs") or 0) == 0)
     home_runs = sum(
         sum(int(b.get("hr", 0)) for b in g.get("away_batting", []))
         + sum(int(b.get("hr", 0)) for b in g.get("home_batting", []))
@@ -655,15 +655,15 @@ def build_todays_board(games):
             break
     if not game_of_night:
         one_run = [g for g in games
-                   if abs(g.get("away_runs",0) - g.get("home_runs",0)) == 1]
+                   if abs(int(g.get("away_runs") or 0) - int(g.get("home_runs") or 0)) == 1]
         if one_run:
             game_of_night = one_run[0]
     if not game_of_night:
         game_of_night = max(games,
-            key=lambda g: g.get("away_runs",0) + g.get("home_runs",0))
+            key=lambda g: int(g.get("away_runs") or 0) + int(g.get("home_runs") or 0))
     if game_of_night:
-        aR = game_of_night.get("away_runs", 0)
-        hR = game_of_night.get("home_runs", 0)
+        aR = int(game_of_night.get("away_runs") or 0)
+        hR = int(game_of_night.get("home_runs") or 0)
         winner = game_of_night.get("away_city") if aR > hR \
             else game_of_night.get("home_city")
         loser  = game_of_night.get("home_city") if aR > hR \
@@ -693,12 +693,12 @@ def build_todays_board(games):
         best_finish = extras[0]
     else:
         one_run = [g for g in games
-                   if abs(g.get("away_runs",0) - g.get("home_runs",0)) == 1]
+                   if abs(int(g.get("away_runs") or 0) - int(g.get("home_runs") or 0)) == 1]
         if one_run:
             best_finish = one_run[0]
     if best_finish and best_finish is not game_of_night:
-        aR = best_finish.get("away_runs", 0)
-        hR = best_finish.get("home_runs", 0)
+        aR = int(best_finish.get("away_runs") or 0)
+        hR = int(best_finish.get("home_runs") or 0)
         inn_count = len(best_finish.get("innings", []))
         suffix = f" in {inn_count} innings" if inn_count > 9 else ", one-run game"
         board["best_finish"] = {
@@ -717,10 +717,10 @@ def build_todays_board(games):
 
     # Biggest Offensive Performance — highest combined runs
     biggest_offense = max(games,
-        key=lambda g: g.get("away_runs",0) + g.get("home_runs",0))
+        key=lambda g: int(g.get("away_runs") or 0) + int(g.get("home_runs") or 0))
     if biggest_offense:
-        aR = biggest_offense.get("away_runs", 0)
-        hR = biggest_offense.get("home_runs", 0)
+        aR = int(biggest_offense.get("away_runs") or 0)
+        hR = int(biggest_offense.get("home_runs") or 0)
         board["biggest_offense"] = {
             "label": "Biggest Offensive Game",
             "summary": f"{biggest_offense.get('away_abbr')} {aR} – "
@@ -777,11 +777,11 @@ def build_todays_board(games):
 
     # Oddity — shutout or blowout (7+ run margin)
     shutouts = [g for g in games
-                if g.get("away_runs",0) == 0 or g.get("home_runs",0) == 0]
+                if int(g.get("away_runs") or 0) == 0 or int(g.get("home_runs") or 0) == 0]
     if shutouts:
         oddity = shutouts[0]
-        aR = oddity.get("away_runs", 0)
-        hR = oddity.get("home_runs", 0)
+        aR = int(oddity.get("away_runs") or 0)
+        hR = int(oddity.get("home_runs") or 0)
         winner = oddity.get("away_abbr") if aR > hR else oddity.get("home_abbr")
         loser  = oddity.get("home_abbr") if aR > hR else oddity.get("away_abbr")
         board["oddity"] = {
@@ -798,11 +798,11 @@ def build_todays_board(games):
         }
     else:
         blowouts = [g for g in games
-                    if abs(g.get("away_runs",0) - g.get("home_runs",0)) >= 7]
+                    if abs(int(g.get("away_runs") or 0) - int(g.get("home_runs") or 0)) >= 7]
         if blowouts:
             oddity = blowouts[0]
-            aR = oddity.get("away_runs", 0)
-            hR = oddity.get("home_runs", 0)
+            aR = int(oddity.get("away_runs") or 0)
+            hR = int(oddity.get("home_runs") or 0)
             winner = oddity.get("away_abbr") if aR > hR \
                 else oddity.get("home_abbr")
             loser  = oddity.get("home_abbr") if aR > hR \
@@ -986,18 +986,21 @@ def scoreboard():
         if item.get("away_abbr") and item.get("home_abbr"):
             item["slug"] = build_game_slug(
                 item["away_abbr"], item["home_abbr"], date_str)
-    all_slugs = [
-        {
-            "slug":      g["slug"],
-            "away_abbr": g["away_abbr"],
-            "home_abbr": g["home_abbr"],
-            "away_runs": g["away_runs"],
-            "home_runs": g["home_runs"],
-            "innings":   len(g.get("innings", [])),
-            "active":    False,
-        }
-        for g in games
-    ]
+    all_slugs = []
+    for g in games:
+        try:
+            if g.get("away_abbr") and g.get("home_abbr"):
+                all_slugs.append({
+                    "slug":      g["slug"],
+                    "away_abbr": g["away_abbr"],
+                    "home_abbr": g["home_abbr"],
+                    "away_runs": int(g.get("away_runs") or 0),
+                    "home_runs": int(g.get("home_runs") or 0),
+                    "innings":   len(g.get("innings", [])),
+                    "active":    False,
+                })
+        except Exception as e:
+            print(f"  ⚠ Skipping malformed game in scoreboard slugs: {e}")
     return render_template(
         "scoreboard.html",
         al_games=al_games,
