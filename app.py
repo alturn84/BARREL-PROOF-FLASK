@@ -968,8 +968,53 @@ def dope_sheet():
 
     odds_lookup = {}
     for og in odds_games:
-        key = (normalize(og["away_team"]), normalize(og["home_team"]))
-        odds_lookup[key] = og.get("markets", {})
+        away_team = og.get("away_team", "")
+        home_team = og.get("home_team", "")
+        key = (normalize(away_team), normalize(home_team))
+        
+        sb_dict = og.get("sportsbooks", {})
+        sb_data = sb_dict.get("fanduel") or sb_dict.get("draftkings") or {}
+        
+        mapped_markets = {}
+        if sb_data:
+            # 1. Moneyline
+            mapped_ml = []
+            for item in sb_data.get("moneyline", []):
+                item_name = item.get("name", "")
+                side = "away" if item_name == away_team else "home" if item_name == home_team else None
+                if side:
+                    mapped_ml.append({
+                        "team_side": side,
+                        "odds_american": item.get("price")
+                    })
+            mapped_markets["moneyline"] = mapped_ml
+            
+            # 2. Run Line (Spread)
+            mapped_rl = []
+            for item in sb_data.get("run_line", []):
+                item_name = item.get("name", "")
+                side = "away" if item_name == away_team else "home" if item_name == home_team else None
+                if side:
+                    mapped_rl.append({
+                        "team_side": side,
+                        "line": item.get("point"),
+                        "odds_american": item.get("price")
+                    })
+            mapped_markets["run_line"] = mapped_rl
+            
+            # 3. Total
+            mapped_tot = []
+            for item in sb_data.get("total", []):
+                sel_type = item.get("name", "").lower()
+                if sel_type in ["over", "under"]:
+                    mapped_tot.append({
+                        "selection_type": sel_type,
+                        "line": item.get("point"),
+                        "odds_american": item.get("price")
+                    })
+            mapped_markets["total_runs"] = mapped_tot
+            
+        odds_lookup[key] = mapped_markets
 
     def fmt_odds(n):
         if n is None:
@@ -1007,8 +1052,8 @@ def dope_sheet():
         home_line = home_rl.get("line")
         away_rl_odds = away_rl.get("odds_american")
         home_rl_odds = home_rl.get("odds_american")
-        g["awaySpread"]     = fmt_odds(int(away_line)) if away_line is not None else "—"
-        g["homeSpread"]     = fmt_odds(int(home_line)) if home_line is not None else "—"
+        g["awaySpread"]     = fmt_odds(away_line) if away_line is not None else "—"
+        g["homeSpread"]     = fmt_odds(home_line) if home_line is not None else "—"
         g["awaySpreadOdds"] = fmt_odds(away_rl_odds) if away_rl_odds is not None else "—"
         g["homeSpreadOdds"] = fmt_odds(home_rl_odds) if home_rl_odds is not None else "—"
 

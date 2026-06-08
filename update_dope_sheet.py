@@ -490,6 +490,13 @@ def build_game(game, date_str, standings_data, season):
 
     std_ctx = get_standings_context(away_name, home_name, standings_data)
 
+    ump_name = "TBD"
+    officials = game.get("officials", [])
+    for o in officials:
+        if o.get("officialType") == "Home Plate":
+            ump_name = o.get("official", {}).get("fullName", "TBD")
+            break
+
     return {
         "away":     TEAM_ABB.get(away_name, away_name[:3].upper()),
         "home":     TEAM_ABB.get(home_name, home_name[:3].upper()),
@@ -502,7 +509,7 @@ def build_game(game, date_str, standings_data, season):
         "roof":     roof,
         "pitchers": {"away": away_p, "home": home_p},
         "weather":  weather,
-        "umpire":   {"name":"TBD","calledKpct":"—","rpg":"—","note":""},
+        "umpire":   {"name": ump_name, "calledKpct": "—", "rpg": "—", "note": ""},
         "lineups":  {"away": away_lu, "home": home_lu},
         "bullpen":  {"away": away_bp, "home": home_bp},
         "injuries": {"away": [], "home": []},
@@ -525,7 +532,7 @@ def main():
 
     sched = fetch(
         f"{MLB_BASE}/schedule?sportId=1&date={date_str}"
-        f"&hydrate=lineups,probablePitcher,teams,venue"
+        f"&hydrate=lineups,probablePitcher,teams,venue,officials"
     )
     dates = sched.get("dates", [])
     if not dates:
@@ -579,7 +586,44 @@ def main():
     print(f"    {lineup_total} lineup players")
     print(f"    {weather_live}/{len(built)} games with live NWS weather")
     print(f"    {bullpen_total} bullpen entries")
-    print(f"\n📋  Manual fills:")
+
+    # Lightweight Refresh Summary Logs
+    games_with_umpire = sum(1 for g in built if g.get("umpire", {}).get("name", "TBD") != "TBD")
+    games_with_lineups = sum(
+        1 for g in built 
+        if g.get("lineups", {}).get("away") or g.get("lineups", {}).get("home")
+    )
+    
+    games_with_odds = 0
+    odds_file = DATA_DIR / "odds.json"
+    if odds_file.exists():
+        try:
+            odds_data = json.loads(odds_file.read_text(encoding="utf-8"))
+            odds_games_list = odds_data.get("games", [])
+            for bg in built:
+                bg_away = bg.get("awayFull", "")
+                bg_home = bg.get("homeFull", "")
+                for og in odds_games_list:
+                    if og.get("away_team") == bg_away and og.get("home_team") == bg_home:
+                        games_with_odds += 1
+                        break
+        except Exception:
+            pass
+
+    if games_with_umpire == 0:
+        print(f"  ⚠ Umpire source returned no assignments for {date_str}")
+
+    print(f"\n==========================================")
+    print(f"       DOPE SHEET REFRESH SUMMARY         ")
+    print(f"==========================================")
+    print(f"Date Used:        {date_str}")
+    print(f"Games Processed:  {len(built)}")
+    print(f"Games with Odds:  {games_with_odds}")
+    print(f"Games with Ump:   {games_with_umpire}")
+    print(f"Games with LUs:   {games_with_lineups}")
+    print(f"==========================================\n")
+
+    print(f"📋  Manual fills:")
     print(f"    • Umpire (add to each game's umpire object)")
     print(f"    • Props (add to each game's props object)")
     print(f"    • why_matters / scouts_edge overrides (optional)")
