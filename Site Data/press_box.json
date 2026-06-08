@@ -1,6 +1,38 @@
 {
   "date": "2026-06-07",
-  "generated_at": "2026-06-08 10:25",
-  "passed_validation": false,
-  "error": "API error: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}"
+  "date_display": "Sunday, June 7, 2026",
+  "generated_at": "2026-06-08 10:36",
+  "model": "hermes-editor-at-large-v1",
+  "passed_validation": true,
+  "column": {
+    "text": "• Los Angeles Angels placed right-handed pitcher Jack Kochanowicz on the 15-day injured list with right elbow inflammation.\n• Texas Rangers released outfielder Sam Haggerty.\n• Los Angeles Dodgers traded left-handed pitcher Antoine Kelly to the Chicago Cubs.\n• Arizona Diamondbacks signed free agent outfielder Max Kepler.\n• Los Angeles Angels recalled left-handed pitcher Sam Aldegheri from Salt Lake Bees.\n• Colorado Rockies recalled left-handed pitcher Sammy Peralta from Albuquerque Isotopes.\n• Detroit Tigers sent left-handed pitcher Tarik Skubal on a rehab assignment to West Michigan Whitecaps.\n• Seattle Mariners sent catcher Cal Raleigh on a rehab assignment to Everett AquaSox.\n• Cincinnati Reds activated right-handed pitcher Rhett Lowder from the 15-day injured list.",
+    "worth_watching": "",
+    "word_count": 114
+  },
+  "x_article": {
+    "title": "MLB Daily Recap",
+    "subtitle": "",
+    "body": "• Los Angeles Angels placed right-handed pitcher Jack Kochanowicz on the 15-day injured list with right elbow inflammation.\n• Texas Rangers released outfielder Sam Haggerty.\n• Los Angeles Dodgers traded left-handed pitcher Antoine Kelly to the Chicago Cubs.\n• Arizona Diamondbacks signed free agent outfielder Max Kepler.\n• Los Angeles Angels recalled left-handed pitcher Sam Aldegheri from Salt Lake Bees.\n• Colorado Rockies recalled left-handed pitcher Sammy Peralta from Albuquerque Isotopes.\n• Detroit Tigers sent left-handed pitcher Tarik Skubal on a rehab assignment to West Michigan Whitecaps.\n• Seattle Mariners sent catcher Cal Raleigh on a rehab assignment to Everett AquaSox.\n• Cincinnati Reds activated right-handed pitcher Rhett Lowder from the 15-day injured list.",
+    "word_count": 114
+  },
+  "x_teaser": {
+    "text": "• Los Angeles Angels placed right-handed pitcher Jack Kochanowicz on the 15-day injured list with right elbow inflammation.",
+    "char_count": 123,
+    "included": true
+  },
+  "validation": {
+    "column_word_count_ok": true,
+    "article_word_count_ok": true,
+    "article_title_present": true,
+    "article_subtitle_present": true,
+    "teaser_char_count": true,
+    "teaser_no_hashtags": true,
+    "teaser_not_truncation": true
+  },
+  "input_summary": {
+    "games_processed": 15,
+    "gotd": "BOS @ NYY",
+    "atl_item_count": 10,
+    "days_of_context": 0
+  }
 }

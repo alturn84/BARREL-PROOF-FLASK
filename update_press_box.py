@@ -33,7 +33,7 @@ SITE_DATA = VAULT / "Site Data"
 ARCHIVE   = VAULT / "Archive"
 OUT_FILE  = SITE_DATA / "press_box.json"
 
-MODEL          = "gemini-2.5-flash"   # change here to swap Gemini models
+MODEL          = "gemini-3.5-flash"   # change here to swap Gemini models
 MAX_TOKENS     = 4096
 CONTEXT_DAYS   = 7
 MAX_CTX_TOKENS = 2000
