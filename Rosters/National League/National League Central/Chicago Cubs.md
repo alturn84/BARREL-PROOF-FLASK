@@ -2,14 +2,14 @@
 team: Chicago Cubs
 league: National League
 division: National League Central
-updated: 2026-06-06 09:10 AM
+updated: 2026-06-08 09:10 AM
 tags: [baseball, mlb, roster]
 ---
 
 # Chicago Cubs — Active Roster
 
 **League:** National League  ·  **Division:** National League Central
-*Last updated: 2026-06-06 09:10 AM*
+*Last updated: 2026-06-08 09:10 AM*
 
 | # | Name | Pos | Bats | Throws | Age | Height | Weight |
 |---|------|-----|------|--------|-----|--------|--------|
@@ -31,11 +31,11 @@ tags: [baseball, mlb, roster]
 | #30 | Edward Cabrera | P | R | R | 28 | 6' 5" | 217 lbs |
 | #32 | Ben Brown | P | R | R | 26 | 6' 6" | 210 lbs |
 | #33 | Ryan Rolison | P | R | L | 28 | 6' 2" | 213 lbs |
-| #39 | Ethan Roberts | P | R | R | 28 | 5' 10" | 180 lbs |
 | #41 | Hoby Milner | P | L | L | 35 | 6' 3" | 187 lbs |
 | #48 | Daniel Palencia | P | R | R | 26 | 5' 11" | 160 lbs |
 | #49 | Trent Thornton | P | R | R | 32 | 6' 0" | 190 lbs |
 | #50 | Jameson Taillon | P | R | R | 34 | 6' 5" | 230 lbs |
 | #53 | Colin Rea | P | R | R | 35 | 6' 5" | 220 lbs |
 | #71 | Jacob Webb | P | R | R | 32 | 6' 2" | 210 lbs |
+| #72 | Javier Assad | P | R | R | 28 | 6' 1" | 200 lbs |
 | #88 | Phil Maton | P | R | R | 33 | 6' 2" | 206 lbs |

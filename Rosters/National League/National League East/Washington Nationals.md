@@ -2,14 +2,14 @@
 team: Washington Nationals
 league: National League
 division: National League East
-updated: 2026-06-06 09:10 AM
+updated: 2026-06-08 09:10 AM
 tags: [baseball, mlb, roster]
 ---
 
 # Washington Nationals — Active Roster
 
 **League:** National League  ·  **Division:** National League East
-*Last updated: 2026-06-06 09:10 AM*
+*Last updated: 2026-06-08 09:10 AM*
 
 | # | Name | Pos | Bats | Throws | Age | Height | Weight |
 |---|------|-----|------|--------|-----|--------|--------|
@@ -37,5 +37,5 @@ tags: [baseball, mlb, roster]
 | #55 | Richard Lovelady | P | L | L | 30 | 6' 0" | 185 lbs |
 | #64 | Orlando Ribalta | P | R | R | 28 | 6' 7" | 245 lbs |
 | #70 | Mitchell Parker | P | L | L | 26 | 6' 4" | 239 lbs |
+| #74 | Riley Cornelio | P | R | R | 26 | 6' 3" | 195 lbs |
 | #75 | Paxton Schultz | P | L | R | 28 | 6' 3" | 205 lbs |
-| #99 | Cole Henry | P | R | R | 26 | 6' 4" | 200 lbs |

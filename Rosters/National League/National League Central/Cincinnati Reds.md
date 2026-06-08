@@ -2,14 +2,14 @@
 team: Cincinnati Reds
 league: National League
 division: National League Central
-updated: 2026-06-06 09:10 AM
+updated: 2026-06-08 09:10 AM
 tags: [baseball, mlb, roster]
 ---
 
 # Cincinnati Reds — Active Roster
 
 **League:** National League  ·  **Division:** National League Central
-*Last updated: 2026-06-06 09:10 AM*
+*Last updated: 2026-06-08 09:10 AM*
 
 | # | Name | Pos | Bats | Throws | Age | Height | Weight |
 |---|------|-----|------|--------|-----|--------|--------|
@@ -26,11 +26,11 @@ tags: [baseball, mlb, roster]
 | #59 | Blake Dunn | RF | R | R | 27 | 5' 9" | 210 lbs |
 | #28 | Eugenio Suárez | DH | R | R | 34 | 5' 11" | 213 lbs |
 | #31 | Nathaniel Lowe | DH | L | R | 30 | 6' 4" | 220 lbs |
+| #25 | Rhett Lowder | P | R | R | 24 | 6' 1" | 200 lbs |
 | #26 | Chase Burns | P | R | R | 23 | 6' 3" | 210 lbs |
 | #40 | Nick Lodolo | P | L | L | 28 | 6' 6" | 216 lbs |
 | #41 | Andrew Abbott | P | L | L | 27 | 6' 0" | 192 lbs |
 | #46 | Caleb Ferguson | P | R | L | 29 | 6' 3" | 225 lbs |
-| #47 | Luis Mey | P | R | R | 24 | 6' 5" | 235 lbs |
 | #49 | Brock Burke | P | L | L | 29 | 6' 4" | 210 lbs |
 | #50 | Sam Moll | P | L | L | 34 | 5' 9" | 190 lbs |
 | #51 | Brady Singer | P | R | R | 29 | 6' 5" | 215 lbs |

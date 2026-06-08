@@ -2,14 +2,14 @@
 team: Arizona Diamondbacks
 league: National League
 division: National League West
-updated: 2026-06-06 09:10 AM
+updated: 2026-06-08 09:10 AM
 tags: [baseball, mlb, roster]
 ---
 
 # Arizona Diamondbacks — Active Roster
 
 **League:** National League  ·  **Division:** National League West
-*Last updated: 2026-06-06 09:10 AM*
+*Last updated: 2026-06-08 09:10 AM*
 
 | # | Name | Pos | Bats | Throws | Age | Height | Weight |
 |---|------|-----|------|--------|-----|--------|--------|
@@ -28,14 +28,14 @@ tags: [baseball, mlb, roster]
 | #25 | Adrian Del Castillo | DH | L | R | 26 | 5' 9" | 208 lbs |
 | #19 | Ryne Nelson | P | R | R | 28 | 6' 3" | 184 lbs |
 | #23 | Zac Gallen | P | R | R | 30 | 6' 2" | 189 lbs |
-| #24 | Kade Strowd | P | R | R | 28 | 6' 2" | 200 lbs |
 | #29 | Merrill Kelly | P | R | R | 37 | 6' 2" | 202 lbs |
 | #34 | Michael Soroka | P | R | R | 28 | 6' 5" | 250 lbs |
 | #37 | Kevin Ginkel | P | L | R | 32 | 6' 4" | 235 lbs |
 | #38 | Paul Sewald | P | R | R | 36 | 6' 3" | 219 lbs |
 | #43 | Jonathan Loáisiga | P | R | R | 31 | 5' 11" | 195 lbs |
-| #50 | Philip Abner | P | L | L | 24 | 6' 1" | 230 lbs |
+| #45 | Taylor Clarke | P | R | R | 33 | 6' 3" | 210 lbs |
 | #55 | Brandyn Garcia | P | L | L | 26 | 6' 4" | 235 lbs |
 | #57 | Eduardo Rodriguez | P | L | L | 33 | 6' 2" | 231 lbs |
 | #62 | Juan Morillo | P | R | R | 27 | 6' 1" | 150 lbs |
 | #81 | Ryan Thompson | P | R | R | 33 | 6' 5" | 210 lbs |
+| #99 | Drey Jameson | P | R | R | 28 | 6' 0" | 165 lbs |

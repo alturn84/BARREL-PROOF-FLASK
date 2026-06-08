@@ -2,14 +2,14 @@
 team: Colorado Rockies
 league: National League
 division: National League West
-updated: 2026-06-06 09:10 AM
+updated: 2026-06-08 09:10 AM
 tags: [baseball, mlb, roster]
 ---
 
 # Colorado Rockies — Active Roster
 
 **League:** National League  ·  **Division:** National League West
-*Last updated: 2026-06-06 09:10 AM*
+*Last updated: 2026-06-08 09:10 AM*
 
 | # | Name | Pos | Bats | Throws | Age | Height | Weight |
 |---|------|-----|------|--------|-----|--------|--------|
@@ -35,7 +35,7 @@ tags: [baseball, mlb, roster]
 | #36 | Zach Agnos | P | R | R | 25 | 6' 0" | 225 lbs |
 | #47 | Juan Mejia | P | R | R | 25 | 6' 3" | 210 lbs |
 | #49 | Antonio Senzatela | P | R | R | 31 | 6' 1" | 235 lbs |
-| #52 | TJ Shook | P | R | R | 28 | 6' 4" | 217 lbs |
 | #54 | Seth Halvorsen | P | R | R | 26 | 6' 2" | 243 lbs |
+| #57 | Sammy Peralta | P | L | L | 28 | 6' 1" | 214 lbs |
 | #63 | Blas Castaño | P | R | R | 27 | 5' 10" | 162 lbs |
 | #83 | Brennan Bernardino | P | L | L | 34 | 6' 4" | 216 lbs |

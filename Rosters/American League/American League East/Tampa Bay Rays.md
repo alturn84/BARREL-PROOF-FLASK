@@ -2,14 +2,14 @@
 team: Tampa Bay Rays
 league: American League
 division: American League East
-updated: 2026-06-06 09:10 AM
+updated: 2026-06-08 09:10 AM
 tags: [baseball, mlb, roster]
 ---
 
 # Tampa Bay Rays — Active Roster
 
 **League:** American League  ·  **Division:** American League East
-*Last updated: 2026-06-06 09:10 AM*
+*Last updated: 2026-06-08 09:10 AM*
 
 | # | Name | Pos | Bats | Throws | Age | Height | Weight |
 |---|------|-----|------|--------|-----|--------|--------|
@@ -22,8 +22,8 @@ tags: [baseball, mlb, roster]
 | #35 | Oliver Dunn | 3B | L | R | 28 | 5' 10" | 207 lbs |
 | #6 | Taylor Walls | SS | S | R | 29 | 5' 9" | 185 lbs |
 | #14 | Chandler Simpson | LF | L | R | 25 | 5' 11" | 170 lbs |
-| #25 | Victor Mesa Jr. | CF | L | L | 24 | 5' 11" | 195 lbs |
 | #31 | Cedric Mullins | CF | L | L | 31 | 5' 7" | 175 lbs |
+| #25 | Victor Mesa Jr. | RF | L | L | 24 | 5' 11" | 195 lbs |
 | #26 | Ryan Vilade | RF | R | R | 27 | 6' 1" | 226 lbs |
 | #2 | Yandy Díaz | DH | R | R | 34 | 6' 0" | 235 lbs |
 | #18 | Shane McClanahan | P | L | L | 29 | 6' 3" | 210 lbs |

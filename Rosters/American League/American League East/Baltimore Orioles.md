@@ -2,25 +2,25 @@
 team: Baltimore Orioles
 league: American League
 division: American League East
-updated: 2026-06-06 09:10 AM
+updated: 2026-06-08 09:10 AM
 tags: [baseball, mlb, roster]
 ---
 
 # Baltimore Orioles — Active Roster
 
 **League:** American League  ·  **Division:** American League East
-*Last updated: 2026-06-06 09:10 AM*
+*Last updated: 2026-06-08 09:10 AM*
 
 | # | Name | Pos | Bats | Throws | Age | Height | Weight |
 |---|------|-----|------|--------|-----|--------|--------|
 | #29 | Samuel Basallo | C | L | R | 21 | 6' 4" | 250 lbs |
+| #31 | Sam Huff | C | R | R | 28 | 6' 4" | 242 lbs |
 | #35 | Adley Rutschman | C | S | R | 28 | 6' 1" | 230 lbs |
 | #25 | Pete Alonso | 1B | R | R | 31 | 6' 3" | 245 lbs |
 | #7 | Jackson Holliday | 2B | L | R | 22 | 5' 11" | 200 lbs |
 | #82 | Jeremiah Jackson | 2B | R | R | 26 | 5' 11" | 200 lbs |
 | #16 | Coby Mayo | 3B | R | R | 24 | 6' 5" | 225 lbs |
 | #23 | Blaze Alexander | 3B | R | R | 26 | 5' 11" | 200 lbs |
-| #32 | Weston Wilson | 3B | R | R | 31 | 6' 3" | 215 lbs |
 | #2 | Gunnar Henderson | SS | L | R | 24 | 6' 3" | 230 lbs |
 | #3 | Taylor Ward | LF | R | R | 32 | 6' 0" | 205 lbs |
 | #30 | Leody Taveras | CF | S | R | 27 | 6' 2" | 210 lbs |

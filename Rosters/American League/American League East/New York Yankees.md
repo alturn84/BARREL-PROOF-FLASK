@@ -2,18 +2,19 @@
 team: New York Yankees
 league: American League
 division: American League East
-updated: 2026-06-06 09:10 AM
+updated: 2026-06-08 09:10 AM
 tags: [baseball, mlb, roster]
 ---
 
 # New York Yankees — Active Roster
 
 **League:** American League  ·  **Division:** American League East
-*Last updated: 2026-06-06 09:10 AM*
+*Last updated: 2026-06-08 09:10 AM*
 
 | # | Name | Pos | Bats | Throws | Age | Height | Weight |
 |---|------|-----|------|--------|-----|--------|--------|
-| #28 | Austin Wells | C | L | R | 26 | 6' 1" | 220 lbs |
+| #25 | J.C. Escarra | C | L | R | 31 | 6' 2" | 220 lbs |
+| #39 | Ali Sánchez | C | R | R | 29 | 6' 0" | 200 lbs |
 | #22 | Ben Rice | 1B | L | R | 27 | 6' 2" | 228 lbs |
 | #48 | Paul Goldschmidt | 1B | R | R | 38 | 6' 2" | 225 lbs |
 | #13 | Jazz Chisholm Jr. | 2B | L | R | 28 | 5' 11" | 184 lbs |

@@ -2,20 +2,20 @@
 team: Miami Marlins
 league: National League
 division: National League East
-updated: 2026-06-06 09:10 AM
+updated: 2026-06-08 09:10 AM
 tags: [baseball, mlb, roster]
 ---
 
 # Miami Marlins — Active Roster
 
 **League:** National League  ·  **Division:** National League East
-*Last updated: 2026-06-06 09:10 AM*
+*Last updated: 2026-06-08 09:10 AM*
 
 | # | Name | Pos | Bats | Throws | Age | Height | Weight |
 |---|------|-----|------|--------|-----|--------|--------|
 | #34 | Liam Hicks | C | L | R | 27 | 5' 9" | 185 lbs |
 | #80 | Joe Mack | C | L | R | 23 | 6' 0" | 210 lbs |
-| #1 | Connor Norby | 1B | R | R | 25 | 5' 10" | 180 lbs |
+| #1 | Connor Norby | 1B | R | R | 26 | 5' 10" | 180 lbs |
 | #5 | Christopher Morel | 1B | R | R | 26 | 6' 0" | 200 lbs |
 | #9 | Xavier Edwards | 2B | S | R | 26 | 5' 9" | 175 lbs |
 | #8 | Javier Sanoja | 3B | R | R | 23 | 5' 7" | 150 lbs |

@@ -2,14 +2,14 @@
 team: San Francisco Giants
 league: National League
 division: National League West
-updated: 2026-06-06 09:10 AM
+updated: 2026-06-08 09:10 AM
 tags: [baseball, mlb, roster]
 ---
 
 # San Francisco Giants — Active Roster
 
 **League:** National League  ·  **Division:** National League West
-*Last updated: 2026-06-06 09:10 AM*
+*Last updated: 2026-06-08 09:10 AM*
 
 | # | Name | Pos | Bats | Throws | Age | Height | Weight |
 |---|------|-----|------|--------|-----|--------|--------|

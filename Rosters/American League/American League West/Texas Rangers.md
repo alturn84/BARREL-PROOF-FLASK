@@ -2,19 +2,19 @@
 team: Texas Rangers
 league: American League
 division: American League West
-updated: 2026-06-06 09:10 AM
+updated: 2026-06-08 09:10 AM
 tags: [baseball, mlb, roster]
 ---
 
 # Texas Rangers — Active Roster
 
 **League:** American League  ·  **Division:** American League West
-*Last updated: 2026-06-06 09:10 AM*
+*Last updated: 2026-06-08 09:10 AM*
 
 | # | Name | Pos | Bats | Throws | Age | Height | Weight |
 |---|------|-----|------|--------|-----|--------|--------|
-| #9 | Danny Jansen | C | R | R | 31 | 6' 2" | 240 lbs |
 | #11 | Kyle Higashioka | C | R | R | 36 | 6' 1" | 202 lbs |
+| #35 | Elias Díaz | C | R | R | 35 | 6' 1" | 223 lbs |
 | #21 | Jake Burger | 1B | R | R | 30 | 6' 0" | 230 lbs |
 | #14 | Justin Foscue | 2B | R | R | 27 | 5' 11" | 205 lbs |
 | #20 | Ezequiel Duran | 2B | R | R | 27 | 5' 10" | 185 lbs |

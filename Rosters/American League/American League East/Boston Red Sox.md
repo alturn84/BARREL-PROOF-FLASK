@@ -2,14 +2,14 @@
 team: Boston Red Sox
 league: American League
 division: American League East
-updated: 2026-06-06 09:10 AM
+updated: 2026-06-08 09:10 AM
 tags: [baseball, mlb, roster]
 ---
 
 # Boston Red Sox — Active Roster
 
 **League:** American League  ·  **Division:** American League East
-*Last updated: 2026-06-06 09:10 AM*
+*Last updated: 2026-06-08 09:10 AM*
 
 | # | Name | Pos | Bats | Throws | Age | Height | Weight |
 |---|------|-----|------|--------|-----|--------|--------|
@@ -29,7 +29,6 @@ tags: [baseball, mlb, roster]
 | #41 | Tyron Guerrero | P | R | R | 35 | 6' 8" | 225 lbs |
 | #44 | Aroldis Chapman | P | L | L | 38 | 6' 4" | 235 lbs |
 | #46 | Tommy Kahnle | P | R | R | 36 | 6' 1" | 230 lbs |
-| #47 | Jovani Morán | P | L | L | 29 | 6' 1" | 167 lbs |
 | #54 | Sonny Gray | P | R | R | 36 | 5' 10" | 190 lbs |
 | #55 | Ranger Suarez | P | L | L | 30 | 6' 1" | 217 lbs |
 | #56 | Ryan Watson | P | R | R | 28 | 6' 5" | 225 lbs |
@@ -37,5 +36,6 @@ tags: [baseball, mlb, roster]
 | #60 | Joe La Sorsa | P | L | L | 28 | 6' 5" | 224 lbs |
 | #63 | Justin Slaten | P | R | R | 28 | 6' 4" | 222 lbs |
 | #67 | Danny Coulombe | P | L | L | 36 | 5' 10" | 190 lbs |
+| #68 | Alec Gamboa | P | S | L | 29 | 6' 1" | 205 lbs |
 | #70 | Payton Tolle | P | L | L | 23 | 6' 6" | 250 lbs |
 | #71 | Connelly Early | P | L | L | 24 | 6' 3" | 195 lbs |

@@ -2,14 +2,14 @@
 team: Minnesota Twins
 league: American League
 division: American League Central
-updated: 2026-06-06 09:10 AM
+updated: 2026-06-08 09:10 AM
 tags: [baseball, mlb, roster]
 ---
 
 # Minnesota Twins — Active Roster
 
 **League:** American League  ·  **Division:** American League Central
-*Last updated: 2026-06-06 09:10 AM*
+*Last updated: 2026-06-08 09:10 AM*
 
 | # | Name | Pos | Bats | Throws | Age | Height | Weight |
 |---|------|-----|------|--------|-----|--------|--------|
@@ -18,12 +18,12 @@ tags: [baseball, mlb, roster]
 | #2 | Kody Clemens | 1B | L | R | 30 | 6' 0" | 200 lbs |
 | #15 | Luke Keaschall | 2B | R | R | 23 | 6' 0" | 190 lbs |
 | #4 | Tristan Gray | 3B | L | R | 30 | 6' 1" | 215 lbs |
+| #23 | Royce Lewis | 3B | R | R | 27 | 6' 0" | 200 lbs |
 | #11 | Orlando Arcia | SS | R | R | 31 | 5' 11" | 187 lbs |
 | #22 | Brooks Lee | SS | S | R | 25 | 6' 0" | 205 lbs |
 | #9 | Trevor Larnach | LF | L | R | 29 | 6' 3" | 223 lbs |
 | #5 | Ryan Kreidler | CF | R | R | 28 | 6' 3" | 208 lbs |
 | #25 | Byron Buxton | CF | R | R | 32 | 6' 1" | 190 lbs |
-| #30 | James Outman | CF | L | R | 29 | 6' 2" | 215 lbs |
 | #16 | Austin Martin | RF | R | R | 27 | 5' 10" | 185 lbs |
 | #56 | Josh Bell | DH | S | R | 33 | 6' 3" | 261 lbs |
 | #19 | Eric Orze | P | R | R | 28 | 6' 4" | 205 lbs |
