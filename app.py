@@ -880,8 +880,54 @@ def get_dope_sheet_data():
 @app.route("/dope-sheet")
 @app.route("/dope-sheet.html")
 def dope_sheet():
+    sched_data = load_json("schedule.json", fallback={})
+    today_slate = sched_data.get("today", {})
+    sched_date = today_slate.get("date", "")
+    
+    from datetime import datetime
+    try:
+        dt = datetime.strptime(sched_date, "%Y-%m-%d")
+    except Exception:
+        dt = datetime.now()
+    
+    expected_display = dt.strftime("%A, %B %-d, %Y")
+    expected_banner  = dt.strftime("%B %-d, %Y").upper()
+
     ds_games, date_display, date_banner, ds_updated = get_dope_sheet_data()
     odds_games, odds_updated = get_odds()
+
+    if date_display != expected_display:
+        import sys
+        print(f"  ⚠ Dope Sheet date mismatch! Stale: {date_display} vs Expected: {expected_display}. Regenerating...")
+        try:
+            import subprocess
+            cmd = [str(Path(sys.executable)), "update_dope_sheet.py", sched_date]
+            subprocess.run(cmd, cwd=str(BASE_DIR), timeout=45, check=True)
+            ds_games, date_display, date_banner, ds_updated = get_dope_sheet_data()
+        except Exception as e:
+            print(f"  ✗ Failed to regenerate Dope Sheet: {e}")
+            ds_games = []
+            for sg in today_slate.get("games", []):
+                ds_games.append({
+                    "away": sg.get("away_abbr", ""),
+                    "home": sg.get("home_abbr", ""),
+                    "awayFull": sg.get("away", "") + " " + sg.get("away_abbr", ""),
+                    "homeFull": sg.get("home", "") + " " + sg.get("home_abbr", ""),
+                    "time": sg.get("time", ""),
+                    "venue": "TBD",
+                    "pitchers": {
+                        "away": {"name": sg.get("away_prob", "TBD"), "hand": "R", "era": "—", "whip": "—", "k9": "—", "bb9": "—", "ip": "—", "lastStart": "—"},
+                        "home": {"name": sg.get("home_prob", "TBD"), "hand": "R", "era": "—", "whip": "—", "k9": "—", "bb9": "—", "ip": "—", "lastStart": "—"}
+                    },
+                    "weather": {"temp": "—", "sky": "—", "wind": "—", "humidity": "—", "precip": "—", "roof": "Open"},
+                    "umpire": {"name": "TBD", "calledKpct": "—", "rpg": "—", "note": "—"},
+                    "lineups": {"away": [], "home": []},
+                    "bullpen": {"away": [], "home": []},
+                    "injuries": {"away": [], "home": []},
+                    "props": {"note": "", "pitchers": [], "batters": []}
+                })
+            date_display = expected_display
+            date_banner = expected_banner
 
     TEAM_ALIASES = {
         "Athletics":               "Oakland Athletics",
