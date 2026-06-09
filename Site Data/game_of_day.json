@@ -1,213 +1,117 @@
 {
-  "date": "2026-06-07",
-  "date_display": "Sunday, June 7, 2026",
-  "updated": "2026-06-08 20:47",
+  "date": "2026-06-08",
+  "date_display": "Monday, June 8, 2026",
+  "updated": "2026-06-09 10:15",
   "game": {
-    "away": "BOS",
-    "home": "NYY",
-    "away_runs": 1,
-    "home_runs": 6,
-    "innings": 9,
-    "raw_score": 72.0,
+    "away": "MIL",
+    "home": "ATH",
+    "away_runs": 15,
+    "home_runs": 14,
+    "innings": 12,
+    "raw_score": 97.0,
     "flags": [
+      "EXTRA INNINGS (12)",
+      "COMEBACK (trailed 4)",
+      "ONE-RUN GAME",
       "PLAYOFF IMPLICATIONS",
-      "DIVISION MATCHUP",
-      "NYY HOME GAME",
-      "RIVALRY GAME"
+      "MULTI-HR: Tyler Soderstrom (2 HR)",
+      "HIGH-SCORING (29 runs)"
     ],
-    "winner": "NYY",
-    "loser": "BOS",
-    "margin": 5,
-    "total_runs": 7
+    "winner": "MIL",
+    "loser": "ATH",
+    "margin": 1,
+    "total_runs": 29
   },
   "editorial": {
-    "headline": "Jazz Chisholm Jr. Powers Yankees Past Red Sox with Late Blast",
-    "subheadline": "New York Yankees beats Boston Red Sox.",
-    "lead_angle": "Yankee Stadium erupted in the eighth inning when Jazz Chisholm Jr. lined a three-run home run into the right-field seats, lifting the New York Yankees to a 6-1 victory over the Boston Red Sox. Reliever Tim Hill secured the win with a clean frame out of the bullpen, while Boston reliever Justin Slaten took the loss after failing to escape the late-inning jam.\n\nA quiet afternoon suddenly shifted in the bottom of the eighth inning. With the score locked in a 1-1 tie, Slaten struggled with his command, putting two runners aboard with a quick walk and a hit batsman. Chisholm then hammered a hanging slider deep into the seats to break the tie, followed immediately by Cody Bellinger smashing a solo shot to right. Trent Grisham capped the five-run surge with a sharp run-scoring single to center.\n\nGrisham proved to be the day's toughest out, finishing 3-for-4 with an RBI, while Chisholm ended the afternoon 1-for-4 with three runs driven in on his pivotal blast. This high-stakes division matchup carries immense weight in the American League East standings as the summer heat begins to shape the wild-card chase. Taking this rivalry game gives New York vital momentum and a critical edge in the postseason race.",
-    "reason": "Best game on today's slate."
+    "headline": "12 innings. MIL finally puts it away.",
+    "subheadline": "MIL 15, ATH 14 in a marathon that went to the 12th.",
+    "lead_angle": "Milwaukee Brewers and Oakland Athletics played 12 innings before MIL walked away with it, MIL 15, ATH 14. When baseball goes this long, somebody earns it.",
+    "reason": "Marathon ball. 12 innings of sustained tension makes this the day's standout."
   },
   "all_games": [
     {
       "rank": 1,
-      "away": "BOS",
-      "home": "NYY",
-      "away_runs": 1,
-      "home_runs": 6,
-      "innings": 9,
-      "raw_score": 72.0,
+      "away": "MIL",
+      "home": "ATH",
+      "away_runs": 15,
+      "home_runs": 14,
+      "innings": 12,
+      "raw_score": 97.0,
       "flags": [
+        "EXTRA INNINGS (12)",
+        "COMEBACK (trailed 4)",
+        "ONE-RUN GAME",
         "PLAYOFF IMPLICATIONS",
-        "DIVISION MATCHUP",
-        "NYY HOME GAME",
-        "RIVALRY GAME"
+        "MULTI-HR: Tyler Soderstrom (2 HR)",
+        "HIGH-SCORING (29 runs)"
       ],
       "selected": true
     },
     {
       "rank": 2,
-      "away": "SEA",
-      "home": "DET",
-      "away_runs": 4,
-      "home_runs": 5,
-      "innings": 9,
-      "raw_score": 67.0,
+      "away": "HOU",
+      "home": "LAA",
+      "away_runs": 5,
+      "home_runs": 4,
+      "innings": 10,
+      "raw_score": 51.0,
       "flags": [
-        "WALK-OFF WIN",
+        "EXTRA INNINGS (10)",
+        "COMEBACK (trailed 3)",
         "ONE-RUN GAME",
-        "PLAYOFF IMPLICATIONS"
+        "DIVISION MATCHUP"
       ],
       "selected": false
     },
     {
       "rank": 3,
-      "away": "LAA",
-      "home": "LAD",
-      "away_runs": 13,
-      "home_runs": 5,
+      "away": "BOS",
+      "home": "TB",
+      "away_runs": 1,
+      "home_runs": 3,
       "innings": 9,
-      "raw_score": 58.0,
+      "raw_score": 48.0,
       "flags": [
         "PLAYOFF IMPLICATIONS",
-        "BIG RBI GAME: Sebastián Rivero (6 RBI)",
-        "LAD HOME GAME",
-        "HIGH-SCORING (18 runs)"
+        "DIVISION MATCHUP",
+        "SB SPREE (3)"
       ],
       "selected": false
     },
     {
       "rank": 4,
-      "away": "PIT",
-      "home": "ATL",
-      "away_runs": 2,
-      "home_runs": 3,
-      "innings": 9,
-      "raw_score": 49.0,
+      "away": "NYY",
+      "home": "CLE",
+      "away_runs": 7,
+      "home_runs": 5,
+      "innings": 10,
+      "raw_score": 28.0,
       "flags": [
-        "ONE-RUN GAME",
-        "PLAYOFF IMPLICATIONS",
-        "ATL HOME GAME"
+        "EXTRA INNINGS (10)",
+        "PLAYOFF IMPLICATIONS"
       ],
       "selected": false
     },
     {
       "rank": 5,
-      "away": "CIN",
-      "home": "STL",
-      "away_runs": 3,
-      "home_runs": 5,
+      "away": "WSH",
+      "home": "SF",
+      "away_runs": 4,
+      "home_runs": 3,
       "innings": 9,
-      "raw_score": 38.0,
+      "raw_score": 27.0,
       "flags": [
-        "DIVISION MATCHUP",
-        "MULTI-HR: Matt McLain (2 HR)"
+        "ONE-RUN GAME",
+        "SF HOME GAME"
       ],
       "selected": false
     },
     {
       "rank": 6,
-      "away": "CWS",
-      "home": "PHI",
-      "away_runs": 5,
-      "home_runs": 9,
-      "innings": 9,
-      "raw_score": 34.0,
-      "flags": [
-        "PLAYOFF IMPLICATIONS",
-        "PHI HOME GAME"
-      ],
-      "selected": false
-    },
-    {
-      "rank": 7,
-      "away": "KC",
-      "home": "MIN",
+      "away": "SEA",
+      "home": "BAL",
       "away_runs": 6,
-      "home_runs": 5,
-      "innings": 9,
-      "raw_score": 33.0,
-      "flags": [
-        "ONE-RUN GAME",
-        "DIVISION MATCHUP"
-      ],
-      "selected": false
-    },
-    {
-      "rank": 8,
-      "away": "SF",
-      "home": "CHC",
-      "away_runs": 2,
-      "home_runs": 1,
-      "innings": 10,
-      "raw_score": 33.0,
-      "flags": [
-        "EXTRA INNINGS (10)",
-        "ONE-RUN GAME",
-        "CHC HOME GAME"
-      ],
-      "selected": false
-    },
-    {
-      "rank": 9,
-      "away": "MIL",
-      "home": "COL",
-      "away_runs": 12,
-      "home_runs": 4,
-      "innings": 9,
-      "raw_score": 32.0,
-      "flags": [
-        "PLAYOFF IMPLICATIONS",
-        "HIGH-SCORING (16 runs)"
-      ],
-      "selected": false
-    },
-    {
-      "rank": 10,
-      "away": "BAL",
-      "home": "TOR",
-      "away_runs": 4,
-      "home_runs": 6,
-      "innings": 9,
-      "raw_score": 30.0,
-      "flags": [
-        "COMEBACK (trailed 4)",
-        "DIVISION MATCHUP"
-      ],
-      "selected": false
-    },
-    {
-      "rank": 11,
-      "away": "TB",
-      "home": "MIA",
-      "away_runs": 1,
-      "home_runs": 4,
-      "innings": 9,
-      "raw_score": 30.0,
-      "flags": [
-        "PLAYOFF IMPLICATIONS",
-        "SB SPREE (5)"
-      ],
-      "selected": false
-    },
-    {
-      "rank": 12,
-      "away": "ATH",
-      "home": "HOU",
-      "away_runs": 5,
-      "home_runs": 0,
-      "innings": 9,
-      "raw_score": 30.0,
-      "flags": [
-        "DIVISION MATCHUP",
-        "HOU HOME GAME"
-      ],
-      "selected": false
-    },
-    {
-      "rank": 13,
-      "away": "CLE",
-      "home": "TEX",
-      "away_runs": 0,
-      "home_runs": 10,
+      "home_runs": 3,
       "innings": 9,
       "raw_score": 22.0,
       "flags": [
@@ -216,22 +120,24 @@
       "selected": false
     },
     {
-      "rank": 14,
-      "away": "WSH",
-      "home": "AZ",
-      "away_runs": 1,
-      "home_runs": 5,
+      "rank": 7,
+      "away": "CIN",
+      "home": "SD",
+      "away_runs": 2,
+      "home_runs": 6,
       "innings": 9,
-      "raw_score": 0.0,
-      "flags": [],
+      "raw_score": 8.0,
+      "flags": [
+        "SB SPREE (4)"
+      ],
       "selected": false
     },
     {
-      "rank": 15,
-      "away": "NYM",
-      "home": "SD",
-      "away_runs": 7,
-      "home_runs": 3,
+      "rank": 8,
+      "away": "PHI",
+      "home": "TOR",
+      "away_runs": 5,
+      "home_runs": 2,
       "innings": 9,
       "raw_score": 0.0,
       "flags": [],
