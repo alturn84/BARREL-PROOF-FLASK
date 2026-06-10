@@ -19,161 +19,8 @@ import re
 import sys
 from datetime import datetime, timedelta
 from pathlib import Path
-from google.genai import types
 
 print(f"SCRIPT STARTED: {datetime.now()}", flush=True)
-
-
-def load_api_key():
-    import os
-    key = os.environ.get("GEMINI_API_KEY", "")
-    if not key:
-        env_file = Path(__file__).resolve().parent / ".env"
-        if env_file.exists():
-            for line in env_file.read_text(encoding="utf-8").splitlines():
-                if line.startswith("GEMINI_API_KEY="):
-                    key = line.split("=", 1)[1].strip()
-                    break
-    return key
-
-
-def generate_game_summary(game, client):
-    """Generate a human-written game summary using Gemini."""
-    away = game.get("away_city", game.get("away_abbr", ""))
-    home = game.get("home_city", game.get("home_abbr", ""))
-    away_runs = game.get("away_runs", 0)
-    home_runs = game.get("home_runs", 0)
-    winner = away if game.get("winner") == "away" else home
-    loser = home if game.get("winner") == "away" else away
-    venue = game.get("venue", "")
-    innings = len(game.get("innings", [])) or 9
-    decisions = game.get("decisions", {})
-    wp = decisions.get("W", "")
-    lp = decisions.get("L", "")
-    sv = decisions.get("SV", "")
-
-    # Build pitcher context
-    pitcher_lines = []
-    for p in game.get("away_pitching", [])[:2]:
-        pitcher_lines.append(f"{p['name']}: {p.get('ip','?')} IP, {p.get('er','?')} ER, {p.get('k','?')} K")
-    for p in game.get("home_pitching", [])[:2]:
-        pitcher_lines.append(f"{p['name']}: {p.get('ip','?')} IP, {p.get('er','?')} ER, {p.get('k','?')} K")
-
-    # Build top offensive performers
-    top_bats = []
-    for side in ("away_batting", "home_batting"):
-        team = game.get("away_abbr") if side == "away_batting" else game.get("home_abbr")
-        for b in game.get(side, []):
-            hr = b.get("hr", 0)
-            h = b.get("h", 0)
-            rbi = b.get("rbi", 0)
-            if hr >= 1 or h >= 2 or rbi >= 2:
-                top_bats.append(f"{b['name']} ({team}): {h}H {hr}HR {rbi}RBI")
-
-    extra = f" ({innings} innings)" if innings > 9 else ""
-    shutout = f" {loser} was held scoreless." if min(away_runs, home_runs) == 0 else ""
-
-    # Detect game type for tone guidance
-    margin = abs(away_runs - home_runs)
-    is_walkoff = any(kw in str(decisions).lower() for kw in ["walk-off", "walkoff"]) or \
-                 (innings == 9 and margin <= 2)
-    is_blowout = margin >= 6
-    is_extra = innings > 9
-    is_shutout = min(away_runs, home_runs) == 0
-    is_comeback = False  # detected from flags if available
-    total_runs = away_runs + home_runs
-    is_slugfest = total_runs >= 14
-
-    if is_extra:
-        game_type = "extra innings"
-    elif is_blowout:
-        game_type = "blowout"
-    elif is_shutout:
-        game_type = "shutout/pitcher's duel"
-    elif is_slugfest:
-        game_type = "slugfest"
-    elif margin <= 1:
-        game_type = "one-run game"
-    else:
-        game_type = "standard"
-
-    # Build verified name list from batting and pitching data
-    all_names = set()
-    for side in ("away_batting", "home_batting"):
-        for b in game.get(side, []):
-            if b.get("name"):
-                all_names.add(b["name"])
-    for side in ("away_pitching", "home_pitching"):
-        for p in game.get(side, []):
-            if p.get("name"):
-                all_names.add(p["name"])
-
-    context = f"""Game: {away} at {home}{extra}
-Final: {away} {away_runs}, {home} {home_runs}
-Venue: {venue}
-Winning pitcher: {wp}
-Losing pitcher: {lp}
-{"Save: " + sv if sv else ""}
-Pitching lines: {"; ".join(pitcher_lines[:3])}
-Key performers: {"; ".join(top_bats[:4]) if top_bats else "none notable"}
-{shutout}
-VERIFIED PLAYER NAMES — only use names from this list: {", ".join(sorted(all_names))}
-DO NOT invent or alter player names."""
-
-    prompt = f"""Write a 1-2 sentence baseball game summary. 35-60 words.
-Game type: {game_type}
-
-{context}
-
-RULES:
-- Use team nicknames not city names (Yankees not New York, Mets not New York, Dodgers not Los Angeles, Angels not Los Angeles)
-- Write in a style that matches the game type:
-  * extra innings: emphasize the length and tension, name who ended it
-  * blowout: lead with the dominant performance, keep it brief
-  * shutout/pitcher's duel: lead with the pitcher, make defense the story
-  * slugfest: lead with the run total or a big individual performance
-  * one-run game: convey the tightness, name the decisive moment
-  * walk-off: name the player who ended it and how
-  * standard: explain why the game turned with one key player or play
-- Start with the key moment or player, not the winning team name
-- Name one player who made the difference with a specific detail
-- Mention the final score once
-- No markdown, no bold, plain prose only
-- CRITICAL: Only use player names from the VERIFIED PLAYER NAMES list. Never invent or alter names.
-
-BANNED PHRASES:
-- "proved the difference"
-- "the decisive blow"
-- "the contest"
-- "hopes were dashed"
-- "ultimately prevailed"
-- "the affair"
-- "the game unfolded"
-- "allowed X earned runs"
-- "strong performance"
-
-GOOD EXAMPLES by game type:
-- Walk-off: "Pete Alonso lined a single to right in the ninth to end it, giving the Mets a 4-3 win over Seattle after trailing by two."
-- Blowout: "Tarik Skubal struck out nine and Detroit backed him with three home runs in a 9-2 rout of Tampa Bay."
-- Shutout: "Sandy Alcantara went eight scoreless innings and the Marlins scratched out two runs to beat Washington, 2-0."
-- Slugfest: "The teams combined for 19 runs, but it was Yordan Alvarez's two-homer, five-RBI afternoon that separated Houston from Texas in an 11-8 slugfest."
-- One-run: "A Carlos Correa single in the seventh scored the go-ahead run and Minnesota held on for a 3-2 win over Cleveland."
-- Extra innings: "Neither team could break through for nine innings, but Jazz Chisholm homered in the tenth to give the Yankees a 5-4 win over Baltimore."
-"""
-
-    try:
-
-        response = client.models.generate_content(
-            model="gemini-3.5-flash",
-            contents=prompt,
-            config=types.GenerateContentConfig(max_output_tokens=2048),
-        )
-        summary = response.text.strip().replace("**", "").replace("*", "")
-        if len(summary.split()) >= 20:
-            return summary
-    except Exception as e:
-        print(f"  ⚠ Summary generation failed for {away}@{home}: {e}", flush=True)
-    return None  # caller uses fallback
 
 VAULT    = Path(__file__).resolve().parent
 DAILY    = Path("/opt/data/workspace/barrel-proof/Daily")
@@ -400,110 +247,166 @@ def parse_game(block):
     return game
 
 
-# ── Build AP-wire style summary ───────────────────────────────────────────────
-def build_summary(game):
+# ── Build editorial game notes ────────────────────────────────────────────────
+def build_game_notes(game, standings_data=None):
     """
-    AP wire style — factual and readable, 3-4 sentences.
-    Leads with the starter's outing woven into the result, covers key offensive
-    contributors, notes anything that stands out. No adjectives or hyperbole.
-    Placeholder until Hermes takes over.
+    Builds 2-4 concise editorial notes per game from box score data.
+    No LLM calls. Fully deterministic.
     """
-    ar  = game.get('away_runs', 0)
-    hr  = game.get('home_runs', 0)
-    dec = game['decisions']
-    w   = dec.get('W', '')
-    l   = dec.get('L', '')
-    sv  = dec.get('SV', '')
-
-    winner_city = game['away_city'] if game['winner'] == 'away' else game['home_city']
-    loser_city  = game['home_city'] if game['winner'] == 'away' else game['away_city']
-    venue       = game.get('venue', '')
-    w_runs      = ar if game['winner'] == 'away' else hr
-    l_runs      = hr if game['winner'] == 'away' else ar
-    total_inn   = len(game['innings'])
-    game_status = game.get('game_status', 'Final')
+    away = game.get("away_abbr", "")
+    home = game.get("home_abbr", "")
+    away_city = game.get("away_city", away)
+    home_city = game.get("home_city", home)
+    away_runs = int(game.get("away_runs") or 0)
+    home_runs = int(game.get("home_runs") or 0)
+    winner_abbr = away if game.get("winner") == "away" else home
+    winner_city = away_city if game.get("winner") == "away" else home_city
+    loser_city  = home_city if game.get("winner") == "away" else away_city
+    innings_list = game.get("innings", [])
+    total_inn = len(innings_list)
+    decisions = game.get("decisions", {})
+    sv = decisions.get("SV", "")
+    game_status = game.get("game_status", "Final")
 
     if game_status == "POSTPONED":
-        return "Game Postponed."
+        return {
+            "key_moment": "Game postponed.",
+            "standout": "",
+            "why_it_mattered": "",
+            "notable_stat": "",
+        }
 
-    win_pit = game['away_pitching'] if game['winner'] == 'away' else game['home_pitching']
-    los_pit = game['home_pitching'] if game['winner'] == 'away' else game['away_pitching']
-    win_bat = game['away_batting']  if game['winner'] == 'away' else game['home_batting']
-    los_bat = game['home_batting']  if game['winner'] == 'away' else game['away_batting']
-
-    sentences = []
-
-    # ── S1: Lead with the winning starter's outing and the result
-    if w:
-        wp = next((p for p in win_pit if w.split()[-1].lower() in p['name'].lower()), None)
-        if wp:
-            er_val    = wp['er'] if wp['er'] else '0'
-            k_clause  = f" with {wp['k']} strikeouts" if wp['k'] and wp['k'] != '0' else ''
-            venue_str = f" at {venue}" if venue else ''
-            sentences.append(
-                f"{w} pitched {wp['ip']} innings, allowing {er_val} earned runs{k_clause}, "
-                f"leading {winner_city} past {loser_city} {w_runs}-{l_runs}{venue_str}."
-            )
+    # ── KEY MOMENT ────────────────────────────────────────────────────
+    key_moment = ""
+    winner_line = game.get("away_line", []) if game.get("winner") == "away" else game.get("home_line", [])
+    try:
+        max_runs = max((int(r) for r in winner_line if str(r).isdigit()), default=0)
+        max_inn  = next(
+            (i + 1 for i, r in enumerate(winner_line)
+             if str(r).isdigit() and int(r) == max_runs),
+            None,
+        )
+        ordinals = {
+            1:"1st",2:"2nd",3:"3rd",4:"4th",5:"5th",
+            6:"6th",7:"7th",8:"8th",9:"9th",10:"10th",
+            11:"11th",12:"12th",13:"13th",14:"14th",
+        }
+        if max_runs >= 3 and max_inn:
+            inn_label = ordinals.get(max_inn, f"{max_inn}th")
+            key_moment = f"{winner_city} scored {max_runs} runs in the {inn_label} inning."
+        elif total_inn > 9:
+            key_moment = f"Neither team could separate in nine innings, requiring {total_inn} frames to decide it."
+        elif min(away_runs, home_runs) == 0:
+            key_moment = f"{winner_city} held {loser_city} scoreless, winning {max(away_runs, home_runs)}-0."
+        elif abs(away_runs - home_runs) == 1:
+            key_moment = f"{winner_city} edged {loser_city} by a single run, {max(away_runs, home_runs)}-{min(away_runs, home_runs)}."
         else:
-            venue_str = f" at {venue}" if venue else ''
-            sentences.append(f"{winner_city} beat {loser_city} {w_runs}-{l_runs}{venue_str}.")
-    else:
-        sentences.append(f"{winner_city} beat {loser_city} {w_runs}-{l_runs}.")
+            key_moment = f"{winner_city} defeated {loser_city}, {max(away_runs, home_runs)}-{min(away_runs, home_runs)}."
+        if sv and key_moment:
+            key_moment = key_moment.rstrip(".") + f", with {sv} closing it out."
+    except Exception:
+        key_moment = f"{winner_city} defeated {loser_city}."
 
-    # ── S2: Losing starter — how far they went and what did them in
-    if l:
-        lp = next((p for p in los_pit if l.split()[-1].lower() in p['name'].lower()), None)
-        if lp:
-            er_val = lp['er'] if lp['er'] else '0'
-            k_str  = f", {lp['k']} strikeouts" if lp['k'] and lp['k'] != '0' else ''
-            bb_str = f", {lp['bb']} walks" if lp['bb'] and lp['bb'] != '0' else ''
-            sentences.append(
-                f"{l} lasted {lp['ip']} innings, giving up {er_val} earned runs{k_str}{bb_str}."
+    # ── STANDOUT PERFORMER ────────────────────────────────────────────
+    standout = ""
+    all_batters = (
+        [(b, away_city) for b in game.get("away_batting", [])] +
+        [(b, home_city) for b in game.get("home_batting", [])]
+    )
+    best_batter = None
+    best_score  = 0
+    for b, team in all_batters:
+        score = int(b.get("hr", 0)) * 4 + int(b.get("rbi", 0)) * 2 + int(b.get("h", 0))
+        if score > best_score:
+            best_score  = score
+            best_batter = (b, team)
+    if best_batter and best_score >= 4:
+        b, team = best_batter
+        parts = []
+        if int(b.get("hr", 0)) >= 1:
+            hr_val = int(b["hr"])
+            parts.append(f"homered{' twice' if hr_val == 2 else ' three times' if hr_val >= 3 else ''}")
+        if int(b.get("rbi", 0)) >= 2:
+            parts.append(f"drove in {b['rbi']} runs")
+        if int(b.get("h", 0)) >= 3 and not parts:
+            parts.append(f"went {b['h']}-for-{b['ab']}")
+        if parts:
+            standout = f"{b['name']} ({team}) {' and '.join(parts)}."
+
+    if not standout:
+        # Fall back to pitching gem
+        all_pitchers = (
+            [(p, away_city) for p in game.get("away_pitching", [])] +
+            [(p, home_city) for p in game.get("home_pitching", [])]
+        )
+        for p, team in all_pitchers:
+            try:
+                ip = float(str(p.get("ip","0")).replace(".1",".33").replace(".2",".67"))
+                er = int(p.get("er", 99) or 99)
+                k  = int(p.get("k", 0) or 0)
+                if ip >= 6.0 and er <= 2:
+                    k_str = f" with {k} strikeouts" if k >= 5 else ""
+                    standout = f"{p['name']} ({team}) threw {p['ip']} innings, allowing {er} earned runs{k_str}."
+                    break
+            except (ValueError, TypeError):
+                pass
+
+    # ── WHY IT MATTERED ───────────────────────────────────────────────
+    why_it_mattered = ""
+    if standings_data:
+        try:
+            leagues = standings_data.get("leagues", [])
+            winner_record = loser_record = None
+            winner_div = loser_div = ""
+            for league in leagues:
+                for div in league.get("divisions", []):
+                    for team in div.get("teams", []):
+                        city = team.get("city", "")
+                        if city == winner_city:
+                            winner_record = f"{team.get('w','—')}-{team.get('l','—')}"
+                            winner_div = div.get("name", "")
+                        elif city == loser_city:
+                            loser_record = f"{team.get('w','—')}-{team.get('l','—')}"
+                            loser_div = div.get("name", "")
+            if winner_record and winner_div:
+                why_it_mattered = (
+                    f"{winner_city} improved to {winner_record} in the {winner_div}."
+                )
+        except Exception:
+            pass
+    if not why_it_mattered:
+        why_it_mattered = f"{winner_city} takes the series game."
+
+    # ── NOTABLE STAT (optional) ───────────────────────────────────────
+    notable_stat = ""
+    try:
+        total_hits = (
+            sum(int(b.get("h", 0)) for b in game.get("away_batting", [])) +
+            sum(int(b.get("h", 0)) for b in game.get("home_batting", []))
+        )
+        total_hr_game = sum(
+            int(b.get("hr", 0))
+            for side in ("away_batting", "home_batting")
+            for b in game.get(side, [])
+        )
+        if total_inn >= 12:
+            notable_stat = (
+                f"The teams needed {total_inn} innings and combined for "
+                f"{total_hits} hits and {total_hr_game} home runs."
             )
+        elif total_hits >= 24:
+            notable_stat = f"The teams combined for {total_hits} hits."
+        elif total_hr_game >= 5:
+            notable_stat = f"The teams combined for {total_hr_game} home runs."
+    except Exception:
+        pass
 
-    # ── S3: Offensive contributors for the winner — HRs first, then multi-hit
-    hr_hitters    = [p for p in win_bat if p['hr'] >= 1]
-    multi_hitters = [p for p in win_bat if p['h'] >= 2 and p not in hr_hitters]
-    rbi_hitters   = [p for p in win_bat if p['rbi'] >= 2 and p not in hr_hitters]
-
-    off_parts = []
-    for p in hr_hitters[:3]:
-        rbi_str = f" with {p['rbi']} RBI" if p['rbi'] > 1 else ''
-        off_parts.append(f"{p['name']} homered{rbi_str}")
-    for p in multi_hitters[:2]:
-        if len(off_parts) >= 3:
-            break
-        xbh = []
-        if p['2b']: xbh.append(f"{p['2b']} double{'s' if p['2b'] > 1 else ''}")
-        if p['3b']: xbh.append(f"{p['3b']} triple{'s' if p['3b'] > 1 else ''}")
-        xbh_str = f", including {', '.join(xbh)}" if xbh else ''
-        rbi_str = f" with {p['rbi']} RBI" if p['rbi'] else ''
-        off_parts.append(f"{p['name']} went {p['h']}-for-{p['ab']}{xbh_str}{rbi_str}")
-    if not off_parts:
-        for p in rbi_hitters[:2]:
-            off_parts.append(f"{p['name']} drove in {p['rbi']}")
-
-    if off_parts:
-        sentences.append(f"Offensively for {winner_city}: {'; '.join(off_parts)}.")
-
-    # ── S4: Notable from the losing side
-    los_hr = [p for p in los_bat if p['hr'] >= 1]
-    if los_hr:
-        names = ', '.join(p['name'] for p in los_hr[:3])
-        sentences.append(f"{names} went deep for {loser_city}.")
-
-    # ── Extras: save, extra innings, shutout
-    extras = []
-    if sv:
-        extras.append(f"{sv} closed it out for the save.")
-    if total_inn > 9:
-        extras.append(f"The teams needed {total_inn} innings to decide it.")
-    if l_runs == 0:
-        extras.append(f"{loser_city} was held scoreless.")
-    if extras:
-        sentences.append(' '.join(extras))
-
-    return ' '.join(sentences)
+    return {
+        "key_moment":      key_moment,
+        "standout":        standout,
+        "why_it_mattered": why_it_mattered,
+        "notable_stat":    notable_stat,
+    }
 
 
 # ── Build headline ────────────────────────────────────────────────────────────
@@ -549,33 +452,28 @@ def main():
         print(f"  ✗ No file found: {md_file}", flush=True)
         sys.exit(1)
 
-    api_key = load_api_key()
-    gemini_client = None
-    if api_key:
-        try:
-            import google.genai as genai
-            from google.genai import types
-            gemini_client = genai.Client(api_key=api_key, http_options=types.HttpOptions(api_version="v1"))
-            print("  Gemini client initialized for summaries", flush=True)
-        except Exception as e:
-            print(f"  ⚠ Gemini init failed: {e}", flush=True)
-
     print(f"  Parsing {md_file.name}...", flush=True)
     text = md_file.read_text(encoding='utf-8')
 
     raw_blocks = re.split(r'\n(?=### )', text)
     raw_blocks = [b for b in raw_blocks if b.strip().startswith('###')]
 
+    standings_data = {}
+    standings_path = Path("Site Data") / "standings.json"
+    if standings_path.exists():
+        try:
+            standings_data = json.loads(
+                standings_path.read_text(encoding="utf-8")
+            )
+        except Exception:
+            pass
+
     games = []
     for block in raw_blocks:
         g = parse_game(block)
         if g:
             g['headline'] = build_headline(g)
-            g['summary']  = build_summary(g)
-            if gemini_client:
-                ai_summary = generate_game_summary(g, gemini_client)
-                if ai_summary:
-                    g['summary'] = ai_summary
+            g['notes']    = build_game_notes(g, standings_data)
             games.append(g)
 
     print(f"  ✓ {len(games)} games parsed", flush=True)

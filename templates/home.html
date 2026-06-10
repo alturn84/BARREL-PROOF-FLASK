@@ -212,6 +212,41 @@ nav.main-nav {
 .gc-body{font-family:var(--serif-body);font-size:13px;line-height:1.72;color:var(--parchment2);font-weight:300;}
 .gc-readmore{display:inline-block;margin-top:9px;font-family:var(--mono);font-size:9.5px;color:var(--cream-dim);letter-spacing:.08em;cursor:pointer;}
 .gc-readmore:hover{color:var(--cream);}
+.gc-notes {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.gc-note-row {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  padding: 5px 0;
+  border-bottom: .5px solid var(--rule);
+  font-size: 13px;
+  line-height: 1.55;
+}
+.gc-note-row:last-child {
+  border-bottom: none;
+}
+.gc-note-label {
+  font-family: var(--mono);
+  font-size: 8.5px;
+  letter-spacing: .12em;
+  color: var(--cream-dim);
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+.gc-note-text {
+  font-family: var(--serif-body);
+  font-size: 13px;
+  color: var(--parchment2);
+  line-height: 1.55;
+  font-weight: 300;
+}
 .gc-right{padding:18px 0 18px 28px;}
 .bx-meta{font-family:var(--mono);font-size:9px;color:var(--smoke);letter-spacing:.04em;margin-bottom:6px;line-height:1.5;}
 .bx-meta b{color:var(--parchment2);font-weight:500;}
@@ -818,7 +853,7 @@ footer{border-top:.5px solid var(--rule-heavy);margin-top:48px;padding:24px 0;di
   <div class="tri-center">
 
     <div class="section-hdr">
-      <div class="section-title">Game Summaries</div>
+      <div class="section-title">Game Notes</div>
       <div class="section-rule"></div>
     </div>
     <div class="games-list">
@@ -849,8 +884,35 @@ footer{border-top:.5px solid var(--rule-heavy);margin-top:48px;padding:24px 0;di
             <div class="gc-score">
               {{ game.away_abbr }} {{ game.away_runs }} &nbsp;·&nbsp; {{ game.home_abbr }} {{ game.home_runs }}
             </div>
-            <p class="gc-body">{{ game.summary }}</p>
-            <a class="gc-readmore">Full Box Score →</a>
+            {% if game.notes %}
+            <div class="gc-notes">
+              {% if game.notes.key_moment %}
+              <div class="gc-note-row">
+                <span class="gc-note-label">Key Moment</span>
+                <span class="gc-note-text">{{ game.notes.key_moment }}</span>
+              </div>
+              {% endif %}
+              {% if game.notes.standout %}
+              <div class="gc-note-row">
+                <span class="gc-note-label">Standout</span>
+                <span class="gc-note-text">{{ game.notes.standout }}</span>
+              </div>
+              {% endif %}
+              {% if game.notes.why_it_mattered %}
+              <div class="gc-note-row">
+                <span class="gc-note-label">Why It Mattered</span>
+                <span class="gc-note-text">{{ game.notes.why_it_mattered }}</span>
+              </div>
+              {% endif %}
+              {% if game.notes.notable_stat %}
+              <div class="gc-note-row">
+                <span class="gc-note-label">Notable</span>
+                <span class="gc-note-text">{{ game.notes.notable_stat }}</span>
+              </div>
+              {% endif %}
+            </div>
+            {% endif %}
+            <a class="gc-readmore" href="/scoreboard">Full Box Score →</a>
           </div>
           <div class="gc-right">
             <div class="bx-meta">
