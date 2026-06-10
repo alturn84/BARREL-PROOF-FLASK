@@ -9,11 +9,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Playfair+Display+SC:wght@400;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
-:root {
-  --ink:#1A1108; --parchment:#F0E6CC; --parchment2:#D8C9A8;
-  --cream:#EDE5D0; --cream-dim:#887C60; --cream-mid:#C8BC98;
-  --smoke:#7A6A52; --smoke-light:#A89070; --leather:#4E3A20;
-  --rule:rgba(136,124,96,.25); --rule-heavy:rgba(136,124,96,.65);
+:root{
+  --ink:#1A1108;--parchment:#F0E6CC;--parchment2:#D8C9A8;
+  --cream:#EDE5D0;--cream-dim:#887C60;--cream-mid:#C8BC98;
+  --smoke:#7A6A52;--smoke-light:#A89070;--leather:#4E3A20;
+  --rule:rgba(136,124,96,.25);--rule-heavy:rgba(136,124,96,.65);
   --serif-display:'Playfair Display',Georgia,serif;
   --serif-sc:'Playfair Display SC',Georgia,serif;
   --serif-body:'Source Serif 4',Georgia,serif;
@@ -21,120 +21,172 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{font-size:16px;}
-body{background:var(--ink);color:var(--parchment);font-family:var(--serif-body);line-height:1.6;min-height:100vh;-webkit-font-smoothing:antialiased;}
+body{background:var(--ink);color:var(--parchment);font-family:var(--serif-body);
+  line-height:1.6;min-height:100vh;-webkit-font-smoothing:antialiased;}
 a{color:inherit;text-decoration:none;}
 body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");opacity:.55;}
-.page{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:0 48px 60px;}
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity:.55;}
+.page{position:relative;z-index:1;max-width:900px;margin:0 auto;
+  padding:0 clamp(20px,5vw,60px) 60px;}
 
 /* ── Masthead ── */
-.masthead{padding:32px 0 0;border-bottom:2px solid var(--cream-dim);}
+.masthead{padding:28px 0 0;border-bottom:2px solid var(--cream-dim);}
 .masthead-top{display:flex;justify-content:center;padding-bottom:8px;}
-.site-name{font-family:'Perpetua Titling MT','Perpetua','Book Antiqua','Palatino Linotype',Palatino,Georgia,serif;
-  font-size:clamp(34px,5vw,64px);font-weight:400;letter-spacing:.18em;color:var(--parchment);
-  line-height:1;text-align:center;text-transform:uppercase;white-space:nowrap;}
+.site-name{font-family:'Perpetua Titling MT','Perpetua','Book Antiqua','Palatino Linotype',
+  Palatino,Georgia,serif;font-size:clamp(30px,4.5vw,56px);font-weight:400;
+  letter-spacing:.18em;color:var(--parchment);line-height:1;text-align:center;
+  text-transform:uppercase;white-space:nowrap;}
 .site-name span{color:var(--cream);}
-.tagline-bar{text-align:center;padding:8px 0 14px;border-top:.5px solid var(--rule);margin-top:6px;}
-.tagline-line{font-family:var(--serif-sc);font-size:18px;letter-spacing:.2em;color:var(--smoke-light);line-height:1.8;}
-.tagline-sub{font-size:15px;letter-spacing:.24em;color:var(--cream-dim);}
+.tagline-bar{text-align:center;padding:6px 0 12px;border-top:.5px solid var(--rule);
+  margin-top:5px;}
+.tagline-line{font-family:var(--serif-sc);font-size:16px;letter-spacing:.2em;
+  color:var(--smoke-light);line-height:1.8;}
+.tagline-sub{font-size:14px;letter-spacing:.24em;color:var(--cream-dim);}
 
-/* ── Nav (matches partial CSS) ── */
+/* ── Nav ── */
 nav.main-nav{display:flex;justify-content:center;align-items:center;
-  border-top:1px solid var(--rule-heavy);border-bottom:1px solid var(--rule-heavy);background:var(--ink);}
+  border-top:1px solid var(--rule-heavy);border-bottom:1px solid var(--rule-heavy);
+  background:var(--ink);}
 .nav-items-wrap{display:flex;align-items:center;white-space:nowrap;}
-.nav-item{font-family:var(--serif-sc);font-size:15px;letter-spacing:.14em;color:var(--smoke-light);
-  padding:12px 18px;position:relative;cursor:pointer;transition:color .2s;white-space:nowrap;display:inline-block;}
+.nav-item{font-family:var(--serif-sc);font-size:15px;letter-spacing:.14em;
+  color:var(--smoke-light);padding:12px 18px;position:relative;cursor:pointer;
+  transition:color .2s;white-space:nowrap;display:inline-block;}
 .nav-item:hover,.nav-item.active{color:var(--parchment);}
-.nav-item.active::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:2px;background:var(--cream);}
-.nav-item:not(:last-child)::before{content:'·';position:absolute;right:-2px;color:var(--rule-heavy);}
+.nav-item.active::after{content:'';position:absolute;bottom:-1px;left:0;right:0;
+  height:2px;background:var(--cream);}
+.nav-item:not(:last-child)::before{content:'·';position:absolute;right:-2px;
+  color:var(--rule-heavy);}
 
-/* ── Team banner ── */
-.team-banner{padding:20px 0 16px;border-bottom:2px solid var(--cream-dim);}
-.team-banner-back{font-family:var(--mono);font-size:9px;letter-spacing:.10em;color:var(--smoke);margin-bottom:10px;}
-.team-banner-back a:hover{color:var(--cream);}
-.team-banner-top{display:flex;align-items:baseline;gap:20px;flex-wrap:wrap;}
-.team-abbr-badge{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--cream-dim);
-  border:.5px solid var(--rule-heavy);padding:3px 8px;border-radius:2px;}
-.team-full-name{font-family:var(--serif-sc);font-size:clamp(20px,2.8vw,32px);letter-spacing:.12em;color:var(--parchment);}
-.team-division-tag{font-family:var(--mono);font-size:9px;letter-spacing:.12em;color:var(--smoke);}
-.team-record-row{display:flex;align-items:baseline;gap:24px;margin-top:10px;flex-wrap:wrap;}
-.record-stat{display:flex;flex-direction:column;gap:2px;}
-.record-label{font-family:var(--mono);font-size:8px;letter-spacing:.14em;color:var(--smoke);text-transform:uppercase;}
-.record-value{font-family:var(--serif-sc);font-size:18px;letter-spacing:.06em;color:var(--cream);}
-.record-value.sm{font-size:13px;color:var(--parchment2);}
+/* ─────────────────────────────────────────────
+   TEAM HEADER
+───────────────────────────────────────────── */
+.team-header{padding:24px 0 20px;border-bottom:2px solid var(--cream-dim);}
+.team-header-back{font-family:var(--mono);font-size:11px;letter-spacing:.10em;
+  color:var(--smoke);margin-bottom:14px;}
+.team-header-back a:hover{color:var(--cream);}
+.team-name{font-family:var(--serif-sc);
+  font-size:clamp(28px,4.5vw,52px);letter-spacing:.10em;
+  color:var(--parchment);line-height:1.05;margin-bottom:10px;}
+.team-record-line{font-family:var(--mono);font-size:clamp(14px,1.8vw,18px);
+  letter-spacing:.06em;color:var(--parchment2);line-height:1.4;}
+.team-record-line .hl{color:var(--cream);}
+.team-record-line .sep{color:var(--smoke);margin:0 8px;}
+.team-record-line .sk-w{color:var(--parchment);}
+.team-record-line .sk-l{color:var(--smoke-light);}
 
-/* ── Section headers ── */
-.section-hdr{display:flex;align-items:baseline;gap:14px;padding:18px 0 9px;border-bottom:.5px solid var(--rule);}
-.section-title{font-family:var(--serif-sc);font-size:10px;letter-spacing:.22em;color:var(--cream);white-space:nowrap;}
+/* ─────────────────────────────────────────────
+   CONTEXT NOTE
+───────────────────────────────────────────── */
+.context-note{font-family:var(--serif-body);font-style:italic;
+  font-size:clamp(15px,1.6vw,18px);color:var(--parchment2);
+  line-height:1.8;padding:16px 0 4px 20px;
+  border-left:3px solid var(--cream-dim);margin-top:14px;}
+
+/* ─────────────────────────────────────────────
+   SECTION HEADERS
+───────────────────────────────────────────── */
+.section-hdr{display:flex;align-items:center;gap:14px;
+  padding:22px 0 12px;border-bottom:.5px solid var(--rule);}
+.section-title{font-family:var(--serif-sc);font-size:12px;
+  letter-spacing:.22em;color:var(--cream);white-space:nowrap;}
 .section-rule{flex:1;height:.5px;background:var(--rule);}
 
-/* ── Form bar ── */
-.form-bar{display:flex;flex-wrap:wrap;gap:24px;padding:12px 0 6px;}
-.form-stat{display:flex;flex-direction:column;gap:3px;}
-.form-label{font-family:var(--mono);font-size:8px;letter-spacing:.14em;color:var(--smoke);text-transform:uppercase;}
-.form-value{font-family:var(--serif-sc);font-size:16px;letter-spacing:.04em;color:var(--cream);}
-.form-value.streak-w{color:var(--parchment);}
-.form-value.streak-l{color:var(--smoke-light);}
+/* ─────────────────────────────────────────────
+   RECENT FORM — stat blocks
+───────────────────────────────────────────── */
+.form-blocks{display:flex;flex-wrap:wrap;gap:12px 24px;padding:10px 0 6px;}
+.form-block{display:flex;flex-direction:column;gap:4px;
+  background:var(--ink-card);border:.5px solid var(--rule-heavy);
+  border-radius:2px;padding:12px 16px;min-width:90px;}
+.form-block-label{font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+  color:var(--smoke);text-transform:uppercase;}
+.form-block-value{font-family:var(--serif-sc);font-size:26px;
+  letter-spacing:.02em;color:var(--cream);line-height:1;}
+.form-block-value.sk-w{color:var(--parchment);}
+.form-block-value.sk-l{color:var(--smoke-light);}
+.form-block-value.pos{color:var(--parchment);}
+.form-block-value.neg{color:var(--smoke-light);}
 
-/* ── Data tables (shared) ── */
+/* ─────────────────────────────────────────────
+   TABLES — schedule & results
+───────────────────────────────────────────── */
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
 .data-table{width:100%;border-collapse:collapse;margin-top:4px;}
-.data-table thead th{font-family:var(--mono);font-size:8px;letter-spacing:.12em;color:var(--smoke);
-  text-align:left;padding:5px 8px 5px 0;border-bottom:.5px solid var(--rule-heavy);font-weight:400;}
+.data-table thead th{font-family:var(--mono);font-size:10px;letter-spacing:.12em;
+  color:var(--smoke);text-align:left;padding:6px 10px 6px 0;
+  border-bottom:.5px solid var(--rule-heavy);font-weight:400;}
 .data-table thead th.r{text-align:right;}
 .data-table tbody tr{border-bottom:.5px solid var(--rule);}
 .data-table tbody tr:last-child{border-bottom:none;}
 .data-table tbody tr:hover td{color:var(--parchment);}
-.data-table tbody td{font-family:var(--mono);font-size:10.5px;color:var(--smoke);padding:7px 8px 7px 0;vertical-align:middle;}
+.data-table tbody td{font-family:var(--mono);font-size:14px;color:var(--smoke);
+  padding:10px 10px 10px 0;vertical-align:middle;}
 .data-table tbody td.r{text-align:right;}
 .data-table tbody td.main{color:var(--parchment2);}
-.data-table tbody td.result-w{color:var(--cream);font-weight:500;}
-.data-table tbody td.result-l{color:var(--smoke);}
-.data-table tbody td.link-cell a{font-family:var(--mono);font-size:9px;letter-spacing:.06em;color:var(--smoke-light);}
+.data-table tbody td.result-w{color:var(--cream);font-weight:600;font-size:15px;}
+.data-table tbody td.result-l{color:var(--smoke-light);}
+.data-table tbody td.link-cell a{font-family:var(--mono);font-size:12px;
+  letter-spacing:.06em;color:var(--smoke-light);}
 .data-table tbody td.link-cell a:hover{color:var(--cream);}
-.tbl-wrap{overflow-x:auto;}
 
-/* ── Team snapshot ── */
-.snapshot-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 32px;margin-top:8px;}
-.snapshot-col-hdr{font-family:var(--serif-sc);font-size:9px;letter-spacing:.18em;color:var(--cream-dim);
-  padding:6px 0 5px;border-bottom:.5px solid var(--rule-heavy);margin-bottom:2px;}
-.stat-row{display:flex;justify-content:space-between;align-items:baseline;
-  padding:6px 0;border-bottom:.5px solid var(--rule);}
-.stat-row:last-child{border-bottom:none;}
-.stat-name{font-family:var(--mono);font-size:9px;letter-spacing:.10em;color:var(--smoke);text-transform:uppercase;}
-.stat-value{font-family:var(--serif-sc);font-size:14px;letter-spacing:.04em;color:var(--cream);}
+/* ─────────────────────────────────────────────
+   TEAM SNAPSHOT
+───────────────────────────────────────────── */
+.snapshot-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 36px;
+  margin-top:8px;}
+.snapshot-panel{background:var(--ink-card);border:.5px solid var(--rule-heavy);
+  border-radius:2px;padding:16px 18px;}
+.snapshot-panel-hdr{font-family:var(--serif-sc);font-size:11px;
+  letter-spacing:.18em;color:var(--cream-dim);padding-bottom:8px;
+  border-bottom:.5px solid var(--rule-heavy);margin-bottom:4px;}
+.snap-row{display:flex;justify-content:space-between;align-items:baseline;
+  padding:8px 0;border-bottom:.5px solid var(--rule);}
+.snap-row:last-child{border-bottom:none;}
+.snap-name{font-family:var(--mono);font-size:12px;letter-spacing:.10em;
+  color:var(--smoke);text-transform:uppercase;}
+.snap-value{font-family:var(--serif-sc);font-size:22px;letter-spacing:.02em;
+  color:var(--cream);line-height:1;}
 
-/* ── Key players ── */
-.players-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0 24px;margin-top:8px;}
-.players-col-hdr{font-family:var(--serif-sc);font-size:9px;letter-spacing:.18em;color:var(--cream-dim);
-  padding:6px 0 5px;border-bottom:.5px solid var(--rule-heavy);margin-bottom:2px;}
-.player-row{font-family:var(--mono);font-size:10px;color:var(--smoke);
-  padding:5px 0;border-bottom:.5px solid var(--rule);display:flex;gap:8px;}
+/* ─────────────────────────────────────────────
+   ROSTER
+───────────────────────────────────────────── */
+.players-grid{display:grid;grid-template-columns:repeat(3,1fr);
+  gap:0 28px;margin-top:8px;}
+.players-col-hdr{font-family:var(--serif-sc);font-size:11px;
+  letter-spacing:.18em;color:var(--cream-dim);padding:7px 0 6px;
+  border-bottom:.5px solid var(--rule-heavy);}
+.player-row{font-family:var(--mono);font-size:12px;color:var(--smoke);
+  padding:6px 0;border-bottom:.5px solid var(--rule);
+  display:flex;gap:10px;}
 .player-row:last-child{border-bottom:none;}
-.player-pos{color:var(--cream-dim);min-width:28px;flex-shrink:0;}
+.player-pos{color:var(--cream-dim);min-width:32px;flex-shrink:0;}
 .player-name{color:var(--parchment2);}
-.players-empty{font-family:var(--mono);font-size:10px;color:var(--smoke);padding:8px 0;}
-
-/* ── Context note ── */
-.context-note{font-family:var(--serif-body);font-style:italic;font-size:14px;
-  color:var(--parchment2);line-height:1.75;padding:12px 0 4px;border-left:3px solid var(--rule-heavy);
-  padding-left:16px;margin-top:6px;}
+.players-empty{font-family:var(--mono);font-size:11px;color:var(--smoke);
+  padding:8px 0;}
 
 /* ── Footer ── */
-footer{border-top:.5px solid var(--rule-heavy);margin-top:48px;padding:24px 0;
-  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
-.footer-name{font-family:var(--serif-sc);font-size:15px;color:var(--cream-dim);letter-spacing:.1em;}
-.footer-tag{font-family:var(--mono);font-size:9px;color:var(--smoke);letter-spacing:.1em;text-align:center;line-height:1.8;}
-.footer-legal{font-family:var(--mono);font-size:9px;color:var(--smoke);opacity:.7;text-align:right;line-height:1.7;}
+footer{border-top:.5px solid var(--rule-heavy);margin-top:52px;padding:24px 0;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:12px;}
+.footer-name{font-family:var(--serif-sc);font-size:15px;color:var(--cream-dim);
+  letter-spacing:.1em;}
+.footer-tag{font-family:var(--mono);font-size:9px;color:var(--smoke);
+  letter-spacing:.1em;text-align:center;line-height:1.8;}
+.footer-legal{font-family:var(--mono);font-size:9px;color:var(--smoke);
+  opacity:.7;text-align:right;line-height:1.7;}
 
-@media(max-width:700px){
-  .page{padding:0 20px 40px;}
+@media(max-width:640px){
+  .page{padding:0 18px 40px;}
   .snapshot-grid{grid-template-columns:1fr;}
   .players-grid{grid-template-columns:1fr;}
-  .team-record-row{gap:16px;}
+  .form-blocks{gap:10px 16px;}
+  .form-block-value{font-size:22px;}
 }
-@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}
+  to{opacity:1;transform:translateY(0)}}
 .masthead{animation:fadeUp .5s ease both;}
-.team-banner{animation:fadeUp .4s .05s ease both;}
+.team-header{animation:fadeUp .4s .05s ease both;}
 </style>
 </head>
 <body>
@@ -149,46 +201,37 @@ footer{border-top:.5px solid var(--rule-heavy);margin-top:48px;padding:24px 0;
   </div>
 </header>
 
-{# ── Nav ── #}
-{% set active_page = 'teams' %}
+{% set active_page = 'al-nl' %}
 {% include 'partials/site_nav.html' %}
 
 {# ══════════════════════════════════════════════ #}
 {# SECTION 1 — Team Header                        #}
 {# ══════════════════════════════════════════════ #}
-<div class="team-banner">
-  <div class="team-banner-back"><a href="/teams">← All Teams</a></div>
-  <div class="team-banner-top">
-    <span class="team-abbr-badge">{{ team.abbr }}</span>
-    <span class="team-full-name">{{ team.name }}</span>
-    <span class="team-division-tag">{{ team.division }}</span>
-  </div>
+<div class="team-header">
+  <div class="team-header-back"><a href="/al-nl#team-directory">← The League</a></div>
+  <div class="team-name">{{ team.name }}</div>
   {% if record %}
-  <div class="team-record-row">
-    <div class="record-stat">
-      <span class="record-label">Record</span>
-      <span class="record-value">{{ record.record }}</span>
-    </div>
-    <div class="record-stat">
-      <span class="record-label">Div Rank</span>
-      <span class="record-value">
-        {{ record.position }}{% if record.position == 1 %}st{% elif record.position == 2 %}nd{% elif record.position == 3 %}rd{% else %}th{% endif %}
-      </span>
-    </div>
-    <div class="record-stat">
-      <span class="record-label">Games Back</span>
-      <span class="record-value sm">{{ record.games_back if record.games_back and record.games_back != '-' else '—' }}</span>
-    </div>
-    <div class="record-stat">
-      <span class="record-label">Division</span>
-      <span class="record-value sm">{{ record.division }}</span>
-    </div>
+  {% set pos = record.position %}
+  {% set pos_suffix = 'st' if pos == 1 else 'nd' if pos == 2 else 'rd' if pos == 3 else 'th' %}
+  {% set gb_str = record.games_back if record.games_back and record.games_back not in ('-','—') else None %}
+  <div class="team-record-line">
+    <span class="hl">{{ record.record }}</span>
+    <span class="sep">|</span>
+    <span>{{ pos }}{{ pos_suffix }} {{ record.division }}</span>
+    {% if gb_str %}
+    <span class="sep">|</span>
+    <span>{{ gb_str }} GB</span>
+    {% endif %}
+    {% if form and form.current_streak %}
+    <span class="sep">|</span>
+    <span class="{% if form.streak_type == 'W' %}sk-w{% else %}sk-l{% endif %}">{{ form.current_streak }}</span>
+    {% endif %}
   </div>
   {% endif %}
 </div>
 
 {# ══════════════════════════════════════════════ #}
-{# SECTION 7 — Context Note (top, brief)          #}
+{# Context Note                                   #}
 {# ══════════════════════════════════════════════ #}
 {% if context_note %}
 <div class="context-note">{{ context_note }}</div>
@@ -198,42 +241,40 @@ footer{border-top:.5px solid var(--rule-heavy);margin-top:48px;padding:24px 0;
 {# SECTION 2 — Recent Form                        #}
 {# ══════════════════════════════════════════════ #}
 {% if form %}
-<div class="section-hdr" style="margin-top:20px;">
+<div class="section-hdr" style="margin-top:8px;">
   <div class="section-title">Recent Form</div>
   <div class="section-rule"></div>
 </div>
-<div class="form-bar">
+<div class="form-blocks">
   {% if form.last_10_record %}
-  <div class="form-stat">
-    <span class="form-label">Last 10</span>
-    <span class="form-value">{{ form.last_10_record }}</span>
+  <div class="form-block">
+    <span class="form-block-label">Last 10</span>
+    <span class="form-block-value">{{ form.last_10_record }}</span>
   </div>
   {% endif %}
   {% if form.current_streak %}
-  <div class="form-stat">
-    <span class="form-label">Streak</span>
-    <span class="form-value {% if form.streak_type == 'W' %}streak-w{% else %}streak-l{% endif %}">
-      {{ form.current_streak }}
-    </span>
+  <div class="form-block">
+    <span class="form-block-label">Streak</span>
+    <span class="form-block-value {% if form.streak_type == 'W' %}sk-w{% else %}sk-l{% endif %}">{{ form.current_streak }}</span>
   </div>
   {% endif %}
   {% if form.runs_scored_last_10 is not none %}
-  <div class="form-stat">
-    <span class="form-label">RS (L10)</span>
-    <span class="form-value">{{ form.runs_scored_last_10 }}</span>
+  <div class="form-block">
+    <span class="form-block-label">RS (L10)</span>
+    <span class="form-block-value">{{ form.runs_scored_last_10 }}</span>
   </div>
   {% endif %}
   {% if form.runs_allowed_last_10 is not none %}
-  <div class="form-stat">
-    <span class="form-label">RA (L10)</span>
-    <span class="form-value">{{ form.runs_allowed_last_10 }}</span>
+  <div class="form-block">
+    <span class="form-block-label">RA (L10)</span>
+    <span class="form-block-value">{{ form.runs_allowed_last_10 }}</span>
   </div>
   {% endif %}
   {% if form.run_diff_last_10 is not none %}
-  <div class="form-stat">
-    <span class="form-label">Run Diff (L10)</span>
-    <span class="form-value {% if form.run_diff_last_10 >= 0 %}streak-w{% else %}streak-l{% endif %}">
-      {% if form.run_diff_last_10 >= 0 %}+{% endif %}{{ form.run_diff_last_10 }}
+  <div class="form-block">
+    <span class="form-block-label">Run Diff</span>
+    <span class="form-block-value {% if form.run_diff_last_10 >= 0 %}pos{% else %}neg{% endif %}">
+      {% if form.run_diff_last_10 > 0 %}+{% endif %}{{ form.run_diff_last_10 }}
     </span>
   </div>
   {% endif %}
@@ -244,7 +285,7 @@ footer{border-top:.5px solid var(--rule-heavy);margin-top:48px;padding:24px 0;
 {# SECTION 3 — Upcoming Schedule                  #}
 {# ══════════════════════════════════════════════ #}
 {% if lookahead %}
-<div class="section-hdr" style="margin-top:20px;">
+<div class="section-hdr">
   <div class="section-title">Upcoming Schedule</div>
   <div class="section-rule"></div>
 </div>
@@ -253,7 +294,7 @@ footer{border-top:.5px solid var(--rule-heavy);margin-top:48px;padding:24px 0;
   <thead>
     <tr>
       <th>Date</th>
-      <th>Matchup</th>
+      <th>Opponent</th>
       <th>Time</th>
       <th>Probable Pitchers</th>
     </tr>
@@ -276,7 +317,7 @@ footer{border-top:.5px solid var(--rule-heavy);margin-top:48px;padding:24px 0;
 {# SECTION 4 — Recent Results                     #}
 {# ══════════════════════════════════════════════ #}
 {% if recent_games %}
-<div class="section-hdr" style="margin-top:20px;">
+<div class="section-hdr">
   <div class="section-title">Recent Results</div>
   <div class="section-rule"></div>
 </div>
@@ -284,15 +325,14 @@ footer{border-top:.5px solid var(--rule-heavy);margin-top:48px;padding:24px 0;
 <table class="data-table">
   <thead>
     <tr>
-      <th>Matchup</th>
+      <th>Opponent</th>
       <th class="r">Score</th>
-      <th class="r">Result</th>
+      <th class="r">W / L</th>
       <th class="r">Report</th>
     </tr>
   </thead>
   <tbody>
     {% for g in recent_games %}
-    {# Determine side — check both canonical and game-data abbr #}
     {% set is_home = g.home_abbr == team.abbr or (team.abbr == 'ARI' and g.home_abbr == 'AZ') %}
     {% set opp_city = g.away_city if is_home else g.home_city %}
     {% set opp_abbr = g.away_abbr if is_home else g.home_abbr %}
@@ -301,7 +341,7 @@ footer{border-top:.5px solid var(--rule-heavy);margin-top:48px;padding:24px 0;
     {% set won = g.winner == ('home' if is_home else 'away') %}
     <tr>
       <td class="main">{{ "vs." if is_home else "@" }} {{ opp_city }} ({{ opp_abbr }})</td>
-      <td class="r">{{ team_runs }}–{{ opp_runs }}</td>
+      <td class="r main">{{ team_runs }}–{{ opp_runs }}</td>
       <td class="r {% if won %}result-w{% else %}result-l{% endif %}">{{ "W" if won else "L" }}</td>
       <td class="r link-cell">
         {% set slug = game_link(g) %}
@@ -318,50 +358,48 @@ footer{border-top:.5px solid var(--rule-heavy);margin-top:48px;padding:24px 0;
 {# SECTION 5 — Team Snapshot                      #}
 {# ══════════════════════════════════════════════ #}
 {% if team_batting or team_pitching %}
-<div class="section-hdr" style="margin-top:20px;">
+<div class="section-hdr">
   <div class="section-title">Team Snapshot</div>
   <div class="section-rule"></div>
 </div>
 <div class="snapshot-grid">
-  {# Batting column #}
   {% if team_batting %}
-  <div>
-    <div class="snapshot-col-hdr">Batting</div>
+  <div class="snapshot-panel">
+    <div class="snapshot-panel-hdr">Batting</div>
     {% if team_batting.avg %}
-    <div class="stat-row"><span class="stat-name">AVG</span><span class="stat-value">{{ team_batting.avg }}</span></div>
+    <div class="snap-row"><span class="snap-name">AVG</span><span class="snap-value">{{ team_batting.avg }}</span></div>
     {% endif %}
     {% if team_batting.obp %}
-    <div class="stat-row"><span class="stat-name">OBP</span><span class="stat-value">{{ team_batting.obp }}</span></div>
+    <div class="snap-row"><span class="snap-name">OBP</span><span class="snap-value">{{ team_batting.obp }}</span></div>
     {% endif %}
     {% if team_batting.slg %}
-    <div class="stat-row"><span class="stat-name">SLG</span><span class="stat-value">{{ team_batting.slg }}</span></div>
+    <div class="snap-row"><span class="snap-name">SLG</span><span class="snap-value">{{ team_batting.slg }}</span></div>
     {% endif %}
     {% if team_batting.ops %}
-    <div class="stat-row"><span class="stat-name">OPS</span><span class="stat-value">{{ team_batting.ops }}</span></div>
+    <div class="snap-row"><span class="snap-name">OPS</span><span class="snap-value">{{ team_batting.ops }}</span></div>
     {% endif %}
     {% if team_batting.runs_per_game %}
-    <div class="stat-row"><span class="stat-name">R/G</span><span class="stat-value">{{ team_batting.runs_per_game }}</span></div>
+    <div class="snap-row"><span class="snap-name">R / G</span><span class="snap-value">{{ team_batting.runs_per_game }}</span></div>
     {% endif %}
     {% if team_batting.home_runs %}
-    <div class="stat-row"><span class="stat-name">HR</span><span class="stat-value">{{ team_batting.home_runs }}</span></div>
+    <div class="snap-row"><span class="snap-name">HR</span><span class="snap-value">{{ team_batting.home_runs }}</span></div>
     {% endif %}
   </div>
   {% endif %}
-  {# Pitching column #}
   {% if team_pitching %}
-  <div>
-    <div class="snapshot-col-hdr">Pitching</div>
+  <div class="snapshot-panel">
+    <div class="snapshot-panel-hdr">Pitching</div>
     {% if team_pitching.era %}
-    <div class="stat-row"><span class="stat-name">ERA</span><span class="stat-value">{{ team_pitching.era }}</span></div>
+    <div class="snap-row"><span class="snap-name">ERA</span><span class="snap-value">{{ team_pitching.era }}</span></div>
     {% endif %}
     {% if team_pitching.whip %}
-    <div class="stat-row"><span class="stat-name">WHIP</span><span class="stat-value">{{ team_pitching.whip }}</span></div>
+    <div class="snap-row"><span class="snap-name">WHIP</span><span class="snap-value">{{ team_pitching.whip }}</span></div>
     {% endif %}
     {% if team_pitching.k9 %}
-    <div class="stat-row"><span class="stat-name">K/9</span><span class="stat-value">{{ team_pitching.k9 }}</span></div>
+    <div class="snap-row"><span class="snap-name">K / 9</span><span class="snap-value">{{ team_pitching.k9 }}</span></div>
     {% endif %}
     {% if team_pitching.bb9 %}
-    <div class="stat-row"><span class="stat-name">BB/9</span><span class="stat-value">{{ team_pitching.bb9 }}</span></div>
+    <div class="snap-row"><span class="snap-name">BB / 9</span><span class="snap-value">{{ team_pitching.bb9 }}</span></div>
     {% endif %}
   </div>
   {% endif %}
@@ -369,60 +407,44 @@ footer{border-top:.5px solid var(--rule-heavy);margin-top:48px;padding:24px 0;
 {% endif %}
 
 {# ══════════════════════════════════════════════ #}
-{# SECTION 6 — Key Players / Roster               #}
+{# SECTION 6 — Roster                             #}
 {# ══════════════════════════════════════════════ #}
 {% if starters or bullpen or lineup %}
-<div class="section-hdr" style="margin-top:20px;">
+<div class="section-hdr">
   <div class="section-title">Roster</div>
   <div class="section-rule"></div>
 </div>
 <div class="players-grid">
-  {# Rotation #}
   <div>
     <div class="players-col-hdr">Rotation</div>
-    {% if starters %}
-      {% for p in starters %}
-      <div class="player-row">
-        <span class="player-pos">{{ p.pos }}</span>
-        <span class="player-name">{{ p.name }}</span>
-      </div>
-      {% endfor %}
-    {% else %}
-      <div class="players-empty">—</div>
-    {% endif %}
+    {% for p in starters %}
+    <div class="player-row">
+      <span class="player-pos">{{ p.pos }}</span>
+      <span class="player-name">{{ p.name }}</span>
+    </div>
+    {% else %}<div class="players-empty">—</div>{% endfor %}
   </div>
-  {# Bullpen #}
   <div>
     <div class="players-col-hdr">Bullpen</div>
-    {% if bullpen %}
-      {% for p in bullpen %}
-      <div class="player-row">
-        <span class="player-pos">{{ p.pos }}</span>
-        <span class="player-name">{{ p.name }}</span>
-      </div>
-      {% endfor %}
-    {% else %}
-      <div class="players-empty">—</div>
-    {% endif %}
+    {% for p in bullpen %}
+    <div class="player-row">
+      <span class="player-pos">{{ p.pos }}</span>
+      <span class="player-name">{{ p.name }}</span>
+    </div>
+    {% else %}<div class="players-empty">—</div>{% endfor %}
   </div>
-  {# Lineup / Position players #}
   <div>
     <div class="players-col-hdr">Position Players</div>
-    {% if lineup %}
-      {% for p in lineup %}
-      <div class="player-row">
-        <span class="player-pos">{{ p.pos }}</span>
-        <span class="player-name">{{ p.name }}</span>
-      </div>
-      {% endfor %}
-    {% else %}
-      <div class="players-empty">—</div>
-    {% endif %}
+    {% for p in lineup %}
+    <div class="player-row">
+      <span class="player-pos">{{ p.pos }}</span>
+      <span class="player-name">{{ p.name }}</span>
+    </div>
+    {% else %}<div class="players-empty">—</div>{% endfor %}
   </div>
 </div>
 {% endif %}
 
-{# ── Footer ── #}
 <footer>
   <div class="footer-name">Barrel Proof Baseball</div>
   <div class="footer-tag">RAW &nbsp;·&nbsp; UNFILTERED &nbsp;·&nbsp; BASEBALL &nbsp;·&nbsp; ENJOY RESPONSIBLY<br/>

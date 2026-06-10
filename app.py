@@ -1477,38 +1477,8 @@ def serve_lead_image(filename):
 @app.route("/teams")
 @app.route("/teams/")
 def teams_index():
-    teams_raw  = get_all_teams()
-    form_data  = get_team_form()
-
-    enriched = []
-    for team in teams_raw:
-        abbr   = team.get("abbr", "")
-        record = get_team_record(abbr)
-        form   = form_data.get(abbr, {})
-        enriched.append({
-            "abbr":        abbr,
-            "name":        team.get("name", ""),
-            "nickname":    team.get("nickname", ""),
-            "city":        team.get("city", ""),
-            "league":      team.get("league", ""),
-            "division":    team.get("division", ""),
-            "slug":        team.get("slug", ""),
-            "w":           record.get("wins", "—")        if record else "—",
-            "l":           record.get("losses", "—")      if record else "—",
-            "record":      record.get("record", "—-—")    if record else "—",
-            "position":    record.get("position", 0)      if record else 0,
-            "gb":          record.get("games_back", "—")  if record else "—",
-            "last_10":     form.get("last_10_record", ""),
-            "streak":      form.get("current_streak", ""),
-            "streak_type": form.get("streak_type", ""),
-        })
-
-    return render_template(
-        "teams_index.html",
-        teams=enriched,
-        page_title="MLB Teams — Barrel Proof",
-        meta_description="Browse MLB team pages for scores, schedules, standings and recent results from Barrel Proof."
-    )
+    from flask import redirect
+    return redirect("/al-nl#team-directory", 302)
 
 def build_team_context_note(team, record, form):
     """

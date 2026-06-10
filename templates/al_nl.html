@@ -21,114 +21,171 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{font-size:16px;}
-body{background:var(--ink);color:var(--parchment);font-family:var(--serif-body);line-height:1.6;min-height:100vh;-webkit-font-smoothing:antialiased;}
+body{background:var(--ink);color:var(--parchment);font-family:var(--serif-body);
+  line-height:1.6;min-height:100vh;-webkit-font-smoothing:antialiased;}
 a{color:inherit;text-decoration:none;}
 body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");opacity:.55;}
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity:.55;}
 
 /* ── Shell ── */
 .site-banner{width:100%;margin:0;padding:0;line-height:0;display:block;overflow:hidden;}
-.site-banner img{width:100%;height:clamp(180px,22vw,320px);object-fit:cover;object-position:center 45%;display:block;}
-.page{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,80px) 60px;}
+.site-banner img{width:100%;height:clamp(160px,20vw,300px);object-fit:cover;
+  object-position:center 45%;display:block;}
+.page{position:relative;z-index:1;max-width:1200px;margin:0 auto;
+  padding:0 clamp(20px,5vw,80px) 60px;}
 
-/* ── Nav CSS (mirrors partial) ── */
+/* ── Nav (mirrors partial) ── */
 nav.main-nav{display:flex;justify-content:center;align-items:center;
-  border-top:1px solid var(--rule-heavy);border-bottom:1px solid var(--rule-heavy);background:var(--ink);}
+  border-top:1px solid var(--rule-heavy);border-bottom:1px solid var(--rule-heavy);
+  background:var(--ink);}
 .nav-items-wrap{display:flex;align-items:center;white-space:nowrap;}
-.nav-item{font-family:var(--serif-sc);font-size:15px;letter-spacing:.14em;color:var(--smoke-light);
-  padding:12px 18px;position:relative;cursor:pointer;transition:color .2s;white-space:nowrap;display:inline-block;}
+.nav-item{font-family:var(--serif-sc);font-size:15px;letter-spacing:.14em;
+  color:var(--smoke-light);padding:12px 18px;position:relative;cursor:pointer;
+  transition:color .2s;white-space:nowrap;display:inline-block;}
 .nav-item:hover,.nav-item.active{color:var(--parchment);}
-.nav-item.active::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:2px;background:var(--cream);}
-.nav-item:not(:last-child)::before{content:'·';position:absolute;right:-2px;color:var(--rule-heavy);}
+.nav-item.active::after{content:'';position:absolute;bottom:-1px;left:0;right:0;
+  height:2px;background:var(--cream);}
+.nav-item:not(:last-child)::before{content:'·';position:absolute;right:-2px;
+  color:var(--rule-heavy);}
 
 /* ── Page header ── */
-.league-header{padding:22px 0 16px;border-bottom:2px solid var(--cream-dim);}
-.league-header-eyebrow{font-family:var(--mono);font-size:8px;letter-spacing:.22em;color:var(--smoke);margin-bottom:6px;}
-.league-header-title{font-family:var(--serif-sc);font-size:clamp(22px,2.5vw,32px);letter-spacing:.14em;color:var(--parchment);}
-.league-header-meta{font-family:var(--mono);font-size:9px;letter-spacing:.10em;color:var(--smoke);margin-top:4px;}
+.league-header{padding:24px 0 18px;border-bottom:2px solid var(--cream-dim);}
+.league-header-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.22em;
+  color:var(--smoke);margin-bottom:6px;}
+.league-header-title{font-family:var(--serif-sc);font-size:clamp(26px,3vw,40px);
+  letter-spacing:.14em;color:var(--parchment);}
+.league-header-meta{font-family:var(--mono);font-size:10px;letter-spacing:.10em;
+  color:var(--smoke);margin-top:6px;}
 
 /* ── Section headers ── */
-.section-hdr{display:flex;align-items:center;gap:14px;padding:20px 0 10px;}
-.section-title{font-family:var(--serif-sc);font-size:9.5px;letter-spacing:.22em;color:var(--cream);white-space:nowrap;}
+.section-hdr{display:flex;align-items:center;gap:16px;padding:24px 0 12px;}
+.section-title{font-family:var(--serif-sc);font-size:12px;letter-spacing:.22em;
+  color:var(--cream);white-space:nowrap;}
 .section-rule{flex:1;height:.5px;background:var(--rule-heavy);}
 
-/* ── Hot / Cold ── */
-.hot-cold-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 32px;margin-bottom:8px;}
-.hot-cold-col-hdr{font-family:var(--serif-sc);font-size:9px;letter-spacing:.18em;padding:5px 0 6px;
-  border-bottom:.5px solid var(--rule-heavy);margin-bottom:2px;}
-.hot-col-hdr{color:var(--parchment);}
-.cold-col-hdr{color:var(--smoke-light);}
-.form-team-row{display:flex;align-items:center;gap:12px;padding:7px 0;border-bottom:.5px solid var(--rule);
-  transition:opacity .15s;}
-.form-team-row:last-child{border-bottom:none;}
-.form-team-row:hover{opacity:.8;}
-.form-team-name{font-family:var(--serif-sc);font-size:11.5px;letter-spacing:.06em;color:var(--parchment2);flex:1;}
-.form-team-l10{font-family:var(--mono);font-size:10px;color:var(--smoke);min-width:36px;text-align:right;}
-.form-team-streak{font-family:var(--mono);font-size:10px;min-width:28px;text-align:right;}
+/* ─────────────────────────────────────────────
+   HOT / COLD
+───────────────────────────────────────────── */
+.hot-cold-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 40px;}
+.hc-col-hdr{font-family:var(--serif-sc);font-size:11px;letter-spacing:.18em;
+  padding:6px 0 8px;border-bottom:1px solid var(--rule-heavy);margin-bottom:0;}
+.hc-hot{color:var(--parchment);}
+.hc-cold{color:var(--smoke-light);}
+.hc-row{display:flex;align-items:center;gap:14px;padding:9px 0;
+  border-bottom:.5px solid var(--rule);transition:opacity .15s;}
+.hc-row:last-child{border-bottom:none;}
+.hc-row:hover{opacity:.75;}
+.hc-name{font-family:var(--serif-sc);font-size:13px;letter-spacing:.06em;
+  color:var(--parchment2);flex:1;}
+.hc-l10{font-family:var(--mono);font-size:12px;color:var(--smoke);
+  min-width:40px;text-align:right;}
+.hc-streak{font-family:var(--mono);font-size:12px;min-width:32px;text-align:right;}
 .streak-w{color:var(--parchment);}
 .streak-l{color:var(--smoke-light);}
-.form-empty{font-family:var(--mono);font-size:10px;color:var(--smoke);font-style:italic;padding:8px 0;}
+.hc-empty{font-family:var(--mono);font-size:11px;color:var(--smoke);
+  font-style:italic;padding:10px 0;}
 
-/* ── Division races ── */
-.races-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px 24px;margin-top:4px;}
-.race-card{background:var(--ink-card);border:.5px solid var(--rule-heavy);border-radius:2px;padding:12px 14px;}
-.race-div-name{font-family:var(--serif-sc);font-size:8.5px;letter-spacing:.20em;color:var(--cream-dim);margin-bottom:6px;}
-.race-team-row{display:flex;align-items:baseline;gap:8px;padding:4px 0;border-bottom:.5px solid var(--rule);}
-.race-team-row:last-child{border-bottom:none;}
-.race-pos{font-family:var(--mono);font-size:9px;color:var(--smoke);width:14px;flex-shrink:0;}
-.race-name{font-family:var(--serif-sc);font-size:11px;letter-spacing:.05em;color:var(--parchment2);flex:1;}
-.race-record{font-family:var(--mono);font-size:10px;color:var(--smoke);}
-.race-gb{font-family:var(--mono);font-size:10px;color:var(--cream-dim);min-width:30px;text-align:right;}
+/* ─────────────────────────────────────────────
+   CLOSEST RACES
+───────────────────────────────────────────── */
+.races-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));
+  gap:12px 24px;margin-top:4px;}
+.race-card{background:var(--ink-card);border:.5px solid var(--rule-heavy);
+  border-radius:2px;padding:14px 16px;}
+.race-div-name{font-family:var(--serif-sc);font-size:10px;letter-spacing:.20em;
+  color:var(--cream-dim);margin-bottom:8px;}
+.race-row{display:flex;align-items:baseline;gap:8px;padding:5px 0;
+  border-bottom:.5px solid var(--rule);}
+.race-row:last-child{border-bottom:none;}
+.race-pos{font-family:var(--mono);font-size:10px;color:var(--smoke);
+  width:16px;flex-shrink:0;}
+.race-name{font-family:var(--serif-sc);font-size:12px;letter-spacing:.05em;
+  color:var(--parchment2);flex:1;}
+.race-record{font-family:var(--mono);font-size:11px;color:var(--smoke);}
+.race-gb{font-family:var(--mono);font-size:11px;color:var(--cream-dim);
+  min-width:32px;text-align:right;}
 
-/* ── Standings tables ── */
-.league-block{margin-bottom:8px;}
-.league-block-hdr{font-family:var(--serif-sc);font-size:10px;letter-spacing:.22em;color:var(--cream);
-  padding:14px 0 8px;border-bottom:1px solid var(--cream-dim);margin-bottom:0;}
-.divisions-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0 24px;margin-top:12px;}
-.div-col{}
-.div-name{font-family:var(--mono);font-size:8px;letter-spacing:.16em;color:var(--smoke);text-transform:uppercase;
-  padding:4px 0 5px;border-bottom:.5px solid var(--rule-heavy);margin-bottom:0;}
-.standings-row{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:.5px solid var(--rule);}
-.standings-row:last-child{border-bottom:none;}
-.standings-row a.row-link{display:flex;align-items:center;gap:8px;width:100%;transition:opacity .15s;}
-.standings-row a.row-link:hover{opacity:.8;}
-.st-pos{font-family:var(--mono);font-size:9px;color:var(--smoke);width:12px;flex-shrink:0;}
-.st-abbr{font-family:var(--mono);font-size:10px;color:var(--cream-dim);width:30px;flex-shrink:0;}
-.st-name{font-family:var(--serif-sc);font-size:11px;letter-spacing:.05em;color:var(--parchment2);flex:1;}
-.st-record{font-family:var(--mono);font-size:10px;color:var(--smoke);white-space:nowrap;}
-.st-gb{font-family:var(--mono);font-size:10px;color:var(--smoke);min-width:28px;text-align:right;white-space:nowrap;}
-.st-streak{font-family:var(--mono);font-size:9px;min-width:24px;text-align:right;}
+/* ─────────────────────────────────────────────
+   STANDINGS
+───────────────────────────────────────────── */
+.divisions-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0 28px;
+  margin-top:8px;}
+.div-name{font-family:var(--mono);font-size:10px;letter-spacing:.16em;
+  color:var(--smoke);text-transform:uppercase;padding:4px 0 6px;
+  border-bottom:.5px solid var(--rule-heavy);}
+.st-row{display:flex;align-items:center;gap:8px;padding:8px 0;
+  border-bottom:.5px solid var(--rule);}
+.st-row:last-child{border-bottom:none;}
+.st-row a{display:flex;align-items:center;gap:8px;width:100%;
+  transition:opacity .15s;}
+.st-row a:hover{opacity:.75;}
+.st-pos{font-family:var(--mono);font-size:10px;color:var(--smoke);
+  width:14px;flex-shrink:0;}
+.st-abbr{font-family:var(--mono);font-size:11px;color:var(--cream-dim);
+  width:32px;flex-shrink:0;}
+.st-name{font-family:var(--serif-sc);font-size:13px;letter-spacing:.05em;
+  color:var(--parchment2);flex:1;}
+.st-record{font-family:var(--mono);font-size:12px;color:var(--smoke);
+  white-space:nowrap;}
+.st-gb{font-family:var(--mono);font-size:11px;color:var(--smoke);
+  min-width:30px;text-align:right;white-space:nowrap;}
+.st-streak{font-family:var(--mono);font-size:11px;min-width:26px;text-align:right;}
 
-/* ── Team directory CTA ── */
-.teams-cta{display:flex;align-items:center;gap:20px;flex-wrap:wrap;
-  padding:14px 20px;margin-top:8px;
-  border:.5px solid var(--rule-heavy);border-radius:2px;background:var(--ink-card);
-  transition:border-color .15s;}
-.teams-cta:hover{border-color:var(--smoke-light);}
-.teams-cta-label{font-family:var(--serif-sc);font-size:12px;letter-spacing:.14em;color:var(--cream);}
-.teams-cta-desc{font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--smoke);flex:1;}
-.teams-cta-arrow{font-family:var(--mono);font-size:11px;letter-spacing:.10em;color:var(--smoke-light);
-  white-space:nowrap;transition:color .15s;}
-.teams-cta:hover .teams-cta-arrow{color:var(--parchment);}
+/* ─────────────────────────────────────────────
+   TEAM DIRECTORY CARDS
+───────────────────────────────────────────── */
+.dir-league-hdr{font-family:var(--serif-sc);font-size:12px;letter-spacing:.22em;
+  color:var(--cream);padding:6px 0 10px;border-bottom:1px solid var(--cream-dim);
+  margin-bottom:14px;}
+.dir-division{margin-bottom:20px;}
+.dir-div-name{font-family:var(--mono);font-size:10px;letter-spacing:.18em;
+  color:var(--smoke);text-transform:uppercase;padding:0 0 8px;
+  border-bottom:.5px solid var(--rule);}
+.dir-cards{display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+  gap:8px;margin-top:8px;}
+.dir-card{display:block;background:var(--ink-card);
+  border:.5px solid var(--rule-heavy);border-radius:2px;
+  padding:12px 14px;transition:border-color .15s,background .15s;}
+.dir-card:hover{border-color:var(--smoke-light);
+  background:rgba(30,18,8,.9);}
+.dir-card-name{font-family:var(--serif-sc);font-size:13px;letter-spacing:.08em;
+  color:var(--parchment);display:block;margin-bottom:5px;}
+.dir-card-record{font-family:var(--mono);font-size:11px;color:var(--smoke-light);
+  display:block;margin-bottom:3px;}
+.dir-card-form{font-family:var(--mono);font-size:11px;display:block;}
+.dir-card-form .fw{color:var(--parchment);}
+.dir-card-form .fl{color:var(--smoke);}
+.dir-card-nodta{font-family:var(--mono);font-size:10px;color:var(--smoke);
+  font-style:italic;}
 
 /* ── Footer ── */
-footer{border-top:.5px solid var(--rule-heavy);margin-top:48px;padding:24px 0;
-  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
-.footer-name{font-family:var(--serif-sc);font-size:15px;color:var(--cream-dim);letter-spacing:.1em;}
-.footer-tag{font-family:var(--mono);font-size:9px;color:var(--smoke);letter-spacing:.12em;text-align:center;line-height:1.8;}
-.footer-legal{font-family:var(--mono);font-size:9px;color:var(--smoke);opacity:.7;text-align:right;line-height:1.7;}
+footer{border-top:.5px solid var(--rule-heavy);margin-top:52px;padding:24px 0;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:12px;}
+.footer-name{font-family:var(--serif-sc);font-size:15px;color:var(--cream-dim);
+  letter-spacing:.1em;}
+.footer-tag{font-family:var(--mono);font-size:10px;color:var(--smoke);
+  letter-spacing:.12em;text-align:center;line-height:1.8;}
+.footer-legal{font-family:var(--mono);font-size:9px;color:var(--smoke);
+  opacity:.7;text-align:right;line-height:1.7;}
 
-@media(max-width:860px){
+@media(max-width:900px){
   .hot-cold-grid{grid-template-columns:1fr;}
   .divisions-row{grid-template-columns:1fr;}
+}
+@media(max-width:600px){
+  .page{padding:0 18px 40px;}
   .races-grid{grid-template-columns:1fr 1fr;}
+  .dir-cards{grid-template-columns:1fr 1fr;}
 }
-@media(max-width:540px){
-  .page{padding:0 16px 40px;}
+@media(max-width:420px){
+  .dir-cards{grid-template-columns:1fr;}
   .races-grid{grid-template-columns:1fr;}
-  .teams-cta{flex-direction:column;align-items:flex-start;gap:6px;}
 }
-@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}
+  to{opacity:1;transform:translateY(0)}}
 .league-header{animation:fadeUp .4s ease both;}
 </style>
 </head>
@@ -150,18 +207,9 @@ footer{border-top:.5px solid var(--rule-heavy);margin-top:48px;padding:24px 0;
   {% endif %}
 </div>
 
-{# ── Team Directory CTA ── #}
-<div class="section-hdr" style="padding-top:16px;">
-  <div class="section-title">Team Pages</div>
-  <div class="section-rule"></div>
-</div>
-<a class="teams-cta" href="/teams">
-  <span class="teams-cta-label">All 30 Clubs</span>
-  <span class="teams-cta-desc">Scores · Schedule · Roster · Stats for every team</span>
-  <span class="teams-cta-arrow">Browse Teams →</span>
-</a>
-
-{# ── Hot / Cold ── #}
+{# ══════════════════════════════════════════════ #}
+{# HOT / COLD                                     #}
+{# ══════════════════════════════════════════════ #}
 {% if hot_teams or cold_teams %}
 <div class="section-hdr">
   <div class="section-title">Form Report</div>
@@ -169,37 +217,39 @@ footer{border-top:.5px solid var(--rule-heavy);margin-top:48px;padding:24px 0;
 </div>
 <div class="hot-cold-grid">
   <div>
-    <div class="hot-cold-col-hdr hot-col-hdr">Hot &nbsp;— 7 or more W in last 10</div>
+    <div class="hc-col-hdr hc-hot">Hot — 7+ W in last 10</div>
     {% if hot_teams %}
       {% for t in hot_teams %}
-      <a class="form-team-row" href="/team/{{ t.slug }}">
-        <span class="form-team-name">{{ t.nickname }}</span>
-        <span class="form-team-l10">{{ t.last_10 }}</span>
-        <span class="form-team-streak streak-w">{{ t.streak }}</span>
+      <a class="hc-row" href="/team/{{ t.slug }}">
+        <span class="hc-name">{{ t.nickname }}</span>
+        <span class="hc-l10">{{ t.last_10 }}</span>
+        <span class="hc-streak streak-w">{{ t.streak }}</span>
       </a>
       {% endfor %}
     {% else %}
-      <div class="form-empty">No teams currently qualify</div>
+      <div class="hc-empty">No teams currently qualify</div>
     {% endif %}
   </div>
   <div>
-    <div class="hot-cold-col-hdr cold-col-hdr">Cold &nbsp;— 3 or fewer W in last 10</div>
+    <div class="hc-col-hdr hc-cold">Cold — 3 or fewer W in last 10</div>
     {% if cold_teams %}
       {% for t in cold_teams %}
-      <a class="form-team-row" href="/team/{{ t.slug }}">
-        <span class="form-team-name">{{ t.nickname }}</span>
-        <span class="form-team-l10">{{ t.last_10 }}</span>
-        <span class="form-team-streak streak-l">{{ t.streak }}</span>
+      <a class="hc-row" href="/team/{{ t.slug }}">
+        <span class="hc-name">{{ t.nickname }}</span>
+        <span class="hc-l10">{{ t.last_10 }}</span>
+        <span class="hc-streak streak-l">{{ t.streak }}</span>
       </a>
       {% endfor %}
     {% else %}
-      <div class="form-empty">No teams currently qualify</div>
+      <div class="hc-empty">No teams currently qualify</div>
     {% endif %}
   </div>
 </div>
 {% endif %}
 
-{# ── Closest Races ── #}
+{# ══════════════════════════════════════════════ #}
+{# CLOSEST RACES                                  #}
+{# ══════════════════════════════════════════════ #}
 {% if closest_races %}
 <div class="section-hdr">
   <div class="section-title">Closest Races</div>
@@ -210,7 +260,7 @@ footer{border-top:.5px solid var(--rule-heavy);margin-top:48px;padding:24px 0;
   <div class="race-card">
     <div class="race-div-name">{{ race.label }}</div>
     {% for t in race.teams %}
-    <div class="race-team-row">
+    <div class="race-row">
       <span class="race-pos">{{ loop.index }}</span>
       <span class="race-name">
         {% if t.slug %}<a href="/team/{{ t.slug }}" style="color:inherit">{{ t.nickname or t.city }}</a>
@@ -225,50 +275,96 @@ footer{border-top:.5px solid var(--rule-heavy);margin-top:48px;padding:24px 0;
 </div>
 {% endif %}
 
-{# ── AL / NL Standings ── #}
+{# ══════════════════════════════════════════════ #}
+{# AL / NL STANDINGS                              #}
+{# ══════════════════════════════════════════════ #}
 {% if leagues %}
 {% for league in leagues %}
 <div class="section-hdr">
   <div class="section-title">{{ league.league_full }}</div>
   <div class="section-rule"></div>
 </div>
-<div class="league-block">
-  <div class="divisions-row">
-    {% for div in league.divisions %}
-    <div class="div-col">
-      <div class="div-name">{{ league.league }} {{ div.name }}</div>
-      {% for t in div.teams %}
-      <div class="standings-row">
-        {% if t.slug %}
-        <a class="row-link" href="/team/{{ t.slug }}">
-          <span class="st-pos">{{ loop.index }}</span>
-          <span class="st-abbr">{{ t.abbr }}</span>
-          <span class="st-name">{{ t.nickname or t.city }}</span>
-          <span class="st-record">{{ t.w }}-{{ t.l }}</span>
-          <span class="st-gb">{% if loop.index == 1 %}—{% else %}{{ t.gb }}{% endif %}</span>
-          {% if t.streak %}
-          <span class="st-streak {% if t.streak_type == 'W' %}streak-w{% else %}streak-l{% endif %}">{{ t.streak }}</span>
-          {% endif %}
-        </a>
-        {% else %}
+<div class="divisions-row">
+  {% for div in league.divisions %}
+  <div>
+    <div class="div-name">{{ league.league }} {{ div.name }}</div>
+    {% for t in div.teams %}
+    <div class="st-row">
+      {% if t.slug %}
+      <a href="/team/{{ t.slug }}">
         <span class="st-pos">{{ loop.index }}</span>
         <span class="st-abbr">{{ t.abbr }}</span>
         <span class="st-name">{{ t.nickname or t.city }}</span>
         <span class="st-record">{{ t.w }}-{{ t.l }}</span>
         <span class="st-gb">{% if loop.index == 1 %}—{% else %}{{ t.gb }}{% endif %}</span>
+        {% if t.streak %}
+        <span class="st-streak {% if t.streak_type == 'W' %}streak-w{% else %}streak-l{% endif %}">{{ t.streak }}</span>
         {% endif %}
-      </div>
-      {% endfor %}
+      </a>
+      {% else %}
+      <span class="st-pos">{{ loop.index }}</span>
+      <span class="st-abbr">{{ t.abbr }}</span>
+      <span class="st-name">{{ t.nickname or t.city }}</span>
+      <span class="st-record">{{ t.w }}-{{ t.l }}</span>
+      <span class="st-gb">{% if loop.index == 1 %}—{% else %}{{ t.gb }}{% endif %}</span>
+      {% endif %}
     </div>
     {% endfor %}
   </div>
+  {% endfor %}
+</div>
+{% endfor %}
+{% endif %}
+
+{# ══════════════════════════════════════════════ #}
+{# TEAM DIRECTORY                                 #}
+{# ══════════════════════════════════════════════ #}
+<div class="section-hdr" id="team-directory">
+  <div class="section-title">Team Directory</div>
+  <div class="section-rule"></div>
+</div>
+
+{% if leagues %}
+{% for league in leagues %}
+<div style="margin-bottom:28px;">
+  <div class="dir-league-hdr">{{ league.league_full }}</div>
+  {% for div in league.divisions %}
+  <div class="dir-division">
+    <div class="dir-div-name">{{ league.league }} {{ div.name }}</div>
+    <div class="dir-cards">
+      {% for t in div.teams %}
+      {% if t.slug %}
+      <a class="dir-card" href="/team/{{ t.slug }}">
+        <span class="dir-card-name">{{ t.nickname or t.full_name }}</span>
+        {% if t.w and t.w != '—' %}
+        <span class="dir-card-record">{{ t.w }}-{{ t.l }} &nbsp;·&nbsp; {{ t.position }}{% if t.position == 1 %}st{% elif t.position == 2 %}nd{% elif t.position == 3 %}rd{% else %}th{% endif %} {{ league.league }} {{ div.name }}{% if t.position != 1 and t.gb and t.gb not in ('—','-','') %} &nbsp;·&nbsp; {{ t.gb }} GB{% endif %}</span>
+        {% endif %}
+        {% if t.streak or t.last_10 %}
+        <span class="dir-card-form">
+          {% if t.streak %}<span class="{% if t.streak_type == 'W' %}fw{% else %}fl{% endif %}">{{ t.streak }}</span>{% endif %}
+          {% if t.streak and t.last_10 %} &nbsp;·&nbsp; {% endif %}
+          {% if t.last_10 %}Last 10: {{ t.last_10 }}{% endif %}
+        </span>
+        {% endif %}
+      </a>
+      {% else %}
+      <div class="dir-card">
+        <span class="dir-card-name">{{ t.nickname or t.city }}</span>
+        <span class="dir-card-nodta">—</span>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  {% endfor %}
 </div>
 {% endfor %}
 {% endif %}
 
 <footer>
   <div class="footer-name">Barrel Proof</div>
-  <div class="footer-tag">RAW &nbsp;·&nbsp; UNFILTERED &nbsp;·&nbsp; BASEBALL &nbsp;·&nbsp; ENJOY RESPONSIBLY<br/><span style="opacity:.5">Data via MLB Stats API</span></div>
+  <div class="footer-tag">RAW &nbsp;·&nbsp; UNFILTERED &nbsp;·&nbsp; BASEBALL &nbsp;·&nbsp; ENJOY RESPONSIBLY<br/>
+    <span style="opacity:.5">Data via MLB Stats API</span></div>
   <div class="footer-legal">© 2026 Barrel Proof<br/>Please gamble responsibly. 21+</div>
 </footer>
 
