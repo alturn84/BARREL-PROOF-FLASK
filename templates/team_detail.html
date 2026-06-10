@@ -445,6 +445,48 @@ footer{border-top:.5px solid var(--rule-heavy);margin-top:52px;padding:24px 0;
 </div>
 {% endif %}
 
+{# ══════════════════════════════════════════════ #}
+{# INJURED LIST                                   #}
+{# ══════════════════════════════════════════════ #}
+<div class="section-hdr">
+  <div class="section-title">Injured List</div>
+  <div class="section-rule"></div>
+</div>
+{% if team_il %}
+<div class="tbl-wrap">
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>Player</th>
+      <th>Pos</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for p in team_il %}
+    <tr>
+      <td class="main">{{ p.name }}</td>
+      <td>{{ p.position }}</td>
+      <td>
+        <span style="font-family:var(--mono);font-size:12px;
+          {% if p.status_code == '60D' %}color:var(--smoke-light)
+          {% elif p.status_code == 'BRV' %}color:var(--smoke)
+          {% else %}color:var(--parchment2){% endif %}">
+          {{ p.status }}
+        </span>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+{% else %}
+<div style="font-family:var(--mono);font-size:12px;color:var(--smoke);
+  font-style:italic;padding:10px 0;">
+  No injured list data available.
+</div>
+{% endif %}
+
 <footer>
   <div class="footer-name">Barrel Proof Baseball</div>
   <div class="footer-tag">RAW &nbsp;·&nbsp; UNFILTERED &nbsp;·&nbsp; BASEBALL &nbsp;·&nbsp; ENJOY RESPONSIBLY<br/>

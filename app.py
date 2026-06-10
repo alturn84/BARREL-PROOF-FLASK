@@ -913,6 +913,12 @@ def get_team_stats():
     data = load_json("team_stats.json", fallback={})
     return data.get("teams", {})
 
+
+def get_team_il():
+    """Returns dict keyed by team_abbr with list of IL player dicts."""
+    data = load_json("team_il.json", fallback={})
+    return data.get("teams", {})
+
 def get_scoreboard_stats():
     data = load_json("scoreboard.json", fallback={})
     return {
@@ -1612,6 +1618,10 @@ def team_detail(team_slug):
     lineup       = [p for p in roster if p.get("pos", "").upper() != "P"]
     starters, bullpen = classify_pitchers(all_pitchers, abbr, all_lookahead)
 
+    # Injured list
+    all_il  = get_team_il()
+    team_il = all_il.get(abbr, [])
+
     # Context note
     context_note = build_team_context_note(team, record, form)
 
@@ -1636,6 +1646,7 @@ def team_detail(team_slug):
         starters=starters,
         bullpen=bullpen,
         lineup=lineup,
+        team_il=team_il,
         context_note=context_note,
         page_title=f"{team.get('name')} — Barrel Proof",
         meta_description=f"{team.get('name')} scores, schedule, standings and roster — Barrel Proof Baseball.",
