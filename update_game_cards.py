@@ -594,6 +594,41 @@ def main():
     OUT_FILE.parent.mkdir(parents=True, exist_ok=True)
     OUT_FILE.write_text(json.dumps(output, indent=2, ensure_ascii=False), encoding='utf-8')
     print(f"  ✓ Written → {OUT_FILE}", flush=True)
+
+    # ── Write scoreboard.json ─────────────────────────────────────────
+    total_hr = sum(
+        int(b.get("hr", 0))
+        for g in games
+        for side in ("away_batting", "home_batting")
+        for b in g.get(side, [])
+    )
+    extra_inn = sum(1 for g in games if len(g.get("innings", [])) > 9)
+    shutouts  = sum(
+        1 for g in games
+        if int(g.get("away_runs") or 0) == 0 or int(g.get("home_runs") or 0) == 0
+    )
+    try:
+        dt_sb = datetime.strptime(date_str, "%Y-%m-%d")
+        sb_date = dt_sb.strftime("%B %-d, %Y").upper() + " EDITION"
+    except Exception:
+        sb_date = date_str.upper() + " EDITION"
+
+    scoreboard_data = {
+        "date":       date_str,
+        "games":      len(games),
+        "home_runs":  total_hr,
+        "extras":     extra_inn,
+        "shutouts":   shutouts,
+        "edition":    sb_date,
+        "updated":    datetime.now().strftime("%Y-%m-%d %H:%M"),
+    }
+    sb_file = Path("Site Data") / "scoreboard.json"
+    sb_file.write_text(
+        json.dumps(scoreboard_data, indent=2, ensure_ascii=False),
+        encoding="utf-8"
+    )
+    print(f"  ✓ scoreboard.json written → {sb_file}", flush=True)
+
     print(f"\n✓  Done. {datetime.now()}", flush=True)
 
 

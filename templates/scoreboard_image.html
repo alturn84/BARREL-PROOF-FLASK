@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Scoreboard — Barrel Proof</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;background:#120f0a}
+body{display:grid;place-items:center;min-height:100vh}
+.scoreboard{
+  position:relative;
+  width:min(100vw,1792px);
+  aspect-ratio:1792/1024;
+  background-image:url('/static/images/scoreboard-bg.jpg');
+  background-size:cover;
+  background-position:center;
+  overflow:hidden;
+}
+.score-number,.edition-date{
+  position:absolute;
+  z-index:2;
+  color:#d9b982;
+  font-family:Georgia,'Times New Roman',serif;
+  font-weight:900;
+  text-align:center;
+  line-height:1;
+  text-transform:uppercase;
+  pointer-events:none;
+  text-shadow:2px 2px 0 #1f170d,-1px -1px 0 #6d4d2c,0 0 6px rgba(0,0,0,0.7);
+}
+.score-number{font-size:clamp(32px,4.15vw,74px);letter-spacing:0.08em;top:68.3%}
+.edition-date{font-size:clamp(18px,2.1vw,38px);letter-spacing:0.08em;top:76.2%}
+.games    {left:20.35%;width:11.6%}
+.home-runs{left:36.25%;width:13.1%}
+.extras   {left:53.8%; width:10.5%}
+.shutouts {left:69.6%; width:12.4%}
+.edition-date{left:32.4%;width:35.2%}
+</style>
+</head>
+<body>
+<main class="scoreboard">
+  <div class="score-number games">{{ games }}</div>
+  <div class="score-number home-runs">{{ home_runs }}</div>
+  <div class="score-number extras">{{ extras }}</div>
+  <div class="score-number shutouts">{{ shutouts }}</div>
+  <div class="edition-date">{{ edition }}</div>
+</main>
+</body>
+</html>

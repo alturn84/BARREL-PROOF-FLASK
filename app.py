@@ -877,6 +877,17 @@ def get_dope_sheet_data():
         data.get("updated", ""),
     )
 
+def get_scoreboard_stats():
+    data = load_json("scoreboard.json", fallback={})
+    return {
+        "games":     data.get("games", "—"),
+        "home_runs": data.get("home_runs", "—"),
+        "extras":    data.get("extras", "—"),
+        "shutouts":  data.get("shutouts", "—"),
+        "edition":   data.get("edition", ""),
+        "updated":   data.get("updated", ""),
+    }
+
 @app.route("/dope-sheet")
 @app.route("/dope-sheet.html")
 def dope_sheet():
@@ -1166,6 +1177,12 @@ def scoreboard_game(game_slug):
         date=date_str,
         updated=data["updated"],
     )
+
+@app.route("/scoreboard-image")
+@app.route("/scoreboard-image/")
+def scoreboard_image():
+    stats = get_scoreboard_stats()
+    return render_template("scoreboard_image.html", **stats)
 
 # Aliases
 @app.route("/box-scores")
