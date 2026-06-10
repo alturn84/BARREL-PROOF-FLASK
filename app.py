@@ -1522,6 +1522,61 @@ def build_team_context_note(team, record, form):
     return note[0].upper() + note[1:] + "."
 
 
+def classify_pitchers(all_pitchers, abbr, lookahead_data):
+    """
+    Split a list of P-position players into starters and bullpen.
+
+    Strategy:
+      1. Cross-reference probable pitcher names from schedule_lookahead.
+         Any pitcher whose name matches a upcoming probable starter → Rotation.
+      2. If no lookahead matches (all TBD or no data), take the first 5
+         pitchers in roster order as Rotation, rest as Bullpen.
+      3. If 5 or fewer pitchers total, all go to Rotation.
+
+    Returns (starters, bullpen) — two lists.
+    """
+    if not all_pitchers:
+        return [], []
+
+    if len(all_pitchers) <= 5:
+        return all_pitchers, []
+
+    # Build set of confirmed starter names from schedule lookahead
+    probable_names = set()
+    team_games = lookahead_data.get(abbr, {}).get("next_games", [])
+    for game in team_games:
+        name = game.get("prob_pitcher_team", "").strip()
+        if name and name.upper() != "TBD":
+            probable_names.add(name.lower())
+
+    def is_probable_starter(player_name):
+        pn = player_name.lower().strip()
+        for sn in probable_names:
+            if pn == sn:
+                return True
+            # Last-name fallback: avoids false negatives on name format diffs
+            pn_last = pn.split()[-1] if pn.split() else ""
+            sn_last = sn.split()[-1] if sn.split() else ""
+            if len(pn_last) > 3 and pn_last == sn_last:
+                return True
+        return False
+
+    if probable_names:
+        starters = [p for p in all_pitchers if is_probable_starter(p["name"])]
+        bullpen  = [p for p in all_pitchers if not is_probable_starter(p["name"])]
+        # If schedule data returned fewer than 4 starters, backfill
+        # from the front of the unmatched list to reach 5
+        if len(starters) < 4:
+            remaining = [p for p in all_pitchers if p not in starters]
+            needed    = min(5 - len(starters), len(remaining))
+            starters  = starters + remaining[:needed]
+            bullpen   = remaining[needed:]
+        return starters, bullpen
+
+    # No lookahead data — heuristic fallback
+    return all_pitchers[:5], all_pitchers[5:]
+
+
 @app.route("/team/<team_slug>")
 def team_detail(team_slug):
     team = get_team_by_slug(team_slug)
@@ -1548,12 +1603,14 @@ def team_detail(team_slug):
     team_pitching = all_stats.get(abbr, {}).get("pitching", {})
 
     # Roster (grouped by role)
-    full_name = team.get("name", "")
-    roster    = load_roster_md(full_name)
-    starters  = [p for p in roster if p.get("pos", "").upper() in ("SP",)]
-    bullpen   = [p for p in roster if p.get("pos", "").upper() in ("RP", "CL", "MR", "SU", "CP")]
-    lineup    = [p for p in roster if p.get("pos", "").upper() not in
-                 ("SP", "RP", "CL", "MR", "SU", "CP")]
+    full_name    = team.get("name", "")
+    roster       = load_roster_md(full_name)
+    # All pitchers use Pos="P" in the markdown files — no SP/RP distinction exists.
+    # classify_pitchers() uses schedule_lookahead probable names to identify starters,
+    # then falls back to a first-5 heuristic.
+    all_pitchers = [p for p in roster if p.get("pos", "").upper() == "P"]
+    lineup       = [p for p in roster if p.get("pos", "").upper() != "P"]
+    starters, bullpen = classify_pitchers(all_pitchers, abbr, all_lookahead)
 
     # Context note
     context_note = build_team_context_note(team, record, form)
