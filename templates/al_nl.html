@@ -149,6 +149,21 @@ footer{border-top:.5px solid var(--rule-heavy);margin-top:48px;padding:24px 0;di
 }
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── TEAM PAGES CALLOUT ── */
+.team-pages-callout{margin:20px 0 8px;}
+.team-pages-link{display:flex;align-items:center;gap:20px;flex-wrap:wrap;
+  padding:14px 20px;border:.5px solid var(--rule-heavy);border-radius:2px;
+  background:var(--ink-card);transition:border-color .15s;}
+.team-pages-link:hover{border-color:var(--smoke-light);}
+.team-pages-label{font-family:var(--serif-sc);font-size:13px;letter-spacing:.16em;
+  color:var(--cream);white-space:nowrap;}
+.team-pages-desc{font-family:var(--mono);font-size:10px;letter-spacing:.08em;
+  color:var(--smoke);flex:1;}
+.team-pages-arrow{font-family:var(--mono);font-size:11px;letter-spacing:.10em;
+  color:var(--smoke-light);white-space:nowrap;transition:color .15s;}
+.team-pages-link:hover .team-pages-arrow{color:var(--parchment);}
+@media(max-width:540px){.team-pages-link{flex-direction:column;align-items:flex-start;gap:6px;}}
 </style>
 </head>
 <body>
@@ -163,6 +178,14 @@ footer{border-top:.5px solid var(--rule-heavy);margin-top:48px;padding:24px 0;di
 <div class="league-hub-header">
   <h1>American League &amp; National League</h1>
   <p>League standings and active rosters.</p>
+</div>
+
+<div class="team-pages-callout">
+  <a href="/teams" class="team-pages-link">
+    <span class="team-pages-label">Team Pages</span>
+    <span class="team-pages-desc">Scores · Schedule · Roster · Stats for all 30 clubs</span>
+    <span class="team-pages-arrow">Browse All Teams →</span>
+  </a>
 </div>
 
 {% if leagues %}
