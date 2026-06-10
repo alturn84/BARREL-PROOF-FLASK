@@ -59,6 +59,12 @@ ABBR_GAME_MAP = {
     "WSH": "WSH",  # Washington: both use WSH (WAS also remapped in update scripts)
 }
 
+# standings.json uses "Athletics" as city for team 133,
+# but teams.json has city="Oakland". This map normalizes the mismatch.
+CITY_IN_STANDINGS_MAP = {
+    "Oakland": "Athletics",
+}
+
 VALID_SOURCE_TYPES = {"ap", "getty", "mlb", "team", "manual", "illustrated"}
 MEDIA_DIR = BASE_DIR / "media" / "lead-images"
 
@@ -166,7 +172,8 @@ def get_team_record(team_abbr):
     # (standings.json stores city only, not abbr)
     teams_meta = {t["abbr"]: t for t in load_json("teams.json", fallback={}).get("teams", [])}
     meta = teams_meta.get(team_abbr, {})
-    expected_city   = meta.get("city", "")
+    raw_city = meta.get("city", "")
+    expected_city = CITY_IN_STANDINGS_MAP.get(raw_city, raw_city)
     expected_league = meta.get("division", "").split()[0]  # "AL East" -> "AL"
     for league in leagues:
         league_name = league.get("league", "")
@@ -1318,40 +1325,103 @@ def advance_scout():
 @app.route("/al-nl/")
 def al_nl():
     standings, standings_updated = get_standings()
+    teams_raw  = load_json("teams.json", fallback={}).get("teams", [])
+    form_data  = get_team_form()
+
+    # Build (standings_city, league) -> team metadata from teams.json
+    # Uses CITY_IN_STANDINGS_MAP for cities that differ between the two sources
+    city_league_to_meta = {}
+    for t in teams_raw:
+        raw_city       = t.get("city", "")
+        standings_city = CITY_IN_STANDINGS_MAP.get(raw_city, raw_city)
+        league         = t.get("league", "")
+        city_league_to_meta[(standings_city, league)] = t
+
     enriched = []
     for league in standings:
         league_code = league.get("league", "")
         enriched_divs = []
         for div in league.get("divisions", []):
             enriched_teams = []
-            for team in div.get("teams", []):
+            for idx, team in enumerate(div.get("teams", []), start=1):
                 city = team.get("city", "")
-                key = (city, league_code)
-                if key in CITY_LEAGUE_TO_TEAM:
-                    full_name = CITY_LEAGUE_TO_TEAM[key]
-                else:
-                    full_name = CITY_TO_TEAM.get(city, city)
-                roster = load_roster_md(full_name)
+                meta = city_league_to_meta.get((city, league_code))
+                abbr     = meta.get("abbr", "")     if meta else ""
+                slug     = meta.get("slug", "")     if meta else ""
+                nickname = meta.get("nickname", city) if meta else city
+                form     = form_data.get(abbr, {})  if abbr else {}
                 enriched_teams.append({
-                    "city": city,
-                    "full_name": full_name,
-                    "w": team.get("w", "—"),
-                    "l": team.get("l", "—"),
-                    "gb": team.get("gb", "—"),
-                    "roster": roster,
+                    "city":        city,
+                    "nickname":    nickname,
+                    "full_name":   meta.get("name", city) if meta else city,
+                    "abbr":        abbr,
+                    "slug":        slug,
+                    "w":           team.get("w", "—"),
+                    "l":           team.get("l", "—"),
+                    "gb":          team.get("gb", "—"),
+                    "position":    idx,
+                    "last_10":     form.get("last_10_record", ""),
+                    "streak":      form.get("current_streak", ""),
+                    "streak_type": form.get("streak_type", ""),
                 })
             enriched_divs.append({
-                "name": div.get("name", ""),
+                "name":  div.get("name", ""),
                 "teams": enriched_teams,
             })
         enriched.append({
-            "league": league_code,
-            "divisions": enriched_divs,
+            "league":      league_code,
+            "league_full": "American League" if league_code == "AL" else "National League",
+            "divisions":   enriched_divs,
         })
+
+    # Hot teams: 7+ wins in last 10. Cold: 3 or fewer.
+    hot_teams, cold_teams = [], []
+    for abbr, form in form_data.items():
+        wins = form.get("last_10_wins", 0) or 0
+        meta = next((t for t in teams_raw if t.get("abbr") == abbr), None)
+        if not meta:
+            continue
+        entry = {
+            "nickname":    meta.get("nickname", abbr),
+            "abbr":        abbr,
+            "slug":        meta.get("slug", ""),
+            "last_10":     form.get("last_10_record", ""),
+            "streak":      form.get("current_streak", ""),
+            "streak_type": form.get("streak_type", ""),
+        }
+        if wins >= 7:
+            hot_teams.append(entry)
+        elif wins <= 3:
+            cold_teams.append(entry)
+
+    hot_teams  = sorted(hot_teams,  key=lambda x: -(form_data.get(x["abbr"], {}).get("last_10_wins", 0) or 0))[:5]
+    cold_teams = sorted(cold_teams, key=lambda x:  (form_data.get(x["abbr"], {}).get("last_10_wins", 99) or 99))[:5]
+
+    # Closest races: divisions where 1st-to-2nd GB <= 2.5
+    closest_races = []
+    for league in enriched:
+        for div in league["divisions"]:
+            div_teams = div["teams"]
+            if len(div_teams) >= 2:
+                try:
+                    gb_str = div_teams[1].get("gb", "—")
+                    gb_val = float(gb_str) if gb_str not in ("—", "-", "") else 99.0
+                    if gb_val <= 2.5:
+                        closest_races.append({
+                            "label":    f"{league['league']} {div['name']}",
+                            "gb":       gb_str,
+                            "teams":    div_teams[:3],
+                        })
+                except (ValueError, TypeError):
+                    pass
+
     return render_template(
         "al_nl.html",
         leagues=enriched,
         standings_updated=standings_updated,
+        hot_teams=hot_teams,
+        cold_teams=cold_teams,
+        closest_races=closest_races,
     )
 
 @app.route("/archive/<year>/<month>/<day>")
@@ -1407,10 +1477,35 @@ def serve_lead_image(filename):
 @app.route("/teams")
 @app.route("/teams/")
 def teams_index():
-    teams = get_all_teams()
+    teams_raw  = get_all_teams()
+    form_data  = get_team_form()
+
+    enriched = []
+    for team in teams_raw:
+        abbr   = team.get("abbr", "")
+        record = get_team_record(abbr)
+        form   = form_data.get(abbr, {})
+        enriched.append({
+            "abbr":        abbr,
+            "name":        team.get("name", ""),
+            "nickname":    team.get("nickname", ""),
+            "city":        team.get("city", ""),
+            "league":      team.get("league", ""),
+            "division":    team.get("division", ""),
+            "slug":        team.get("slug", ""),
+            "w":           record.get("wins", "—")        if record else "—",
+            "l":           record.get("losses", "—")      if record else "—",
+            "record":      record.get("record", "—-—")    if record else "—",
+            "position":    record.get("position", 0)      if record else 0,
+            "gb":          record.get("games_back", "—")  if record else "—",
+            "last_10":     form.get("last_10_record", ""),
+            "streak":      form.get("current_streak", ""),
+            "streak_type": form.get("streak_type", ""),
+        })
+
     return render_template(
         "teams_index.html",
-        teams=teams,
+        teams=enriched,
         page_title="MLB Teams — Barrel Proof",
         meta_description="Browse MLB team pages for scores, schedules, standings and recent results from Barrel Proof."
     )
