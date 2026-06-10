@@ -1,8 +1,977 @@
 {
-  "date_display": "Tuesday, June 9, 2026",
-  "date_banner": "JUNE 9, 2026",
-  "updated": "2026-06-10T02:15:18.345461+00:00",
+  "date_display": "Wednesday, June 10, 2026",
+  "date_banner": "JUNE 10, 2026",
+  "updated": "2026-06-10T10:19:57.826780+00:00",
   "games": [
+    {
+      "away": "BOS",
+      "home": "TB",
+      "awayFull": "Boston Red Sox",
+      "homeFull": "Tampa Bay Rays",
+      "awayId": 111,
+      "homeId": 139,
+      "time": "1:10 PM ET",
+      "venue": "Tropicana Field",
+      "roof": "Dome",
+      "pitchers": {
+        "away": {
+          "name": "Jake Bennett",
+          "hand": "L",
+          "era": "4.35",
+          "whip": "1.45",
+          "k9": "3.5",
+          "bb9": "3.5",
+          "ip": "10.1",
+          "record": "1-1",
+          "lastStart": "—"
+        },
+        "home": {
+          "name": "Drew Rasmussen",
+          "hand": "R",
+          "era": "3.00",
+          "whip": "0.92",
+          "k9": "8.7",
+          "bb9": "1.6",
+          "ip": "66.0",
+          "record": "5-2",
+          "lastStart": "—"
+        }
+      },
+      "weather": {
+        "temp": "—",
+        "sky": "Fixed Dome",
+        "wind": "—",
+        "humidity": "—",
+        "precip": "—",
+        "roof": "Dome",
+        "source": "dome"
+      },
+      "umpire": {
+        "name": "TBD",
+        "calledKpct": "—",
+        "rpg": "—",
+        "note": ""
+      },
+      "broadcasts": {
+        "national_tv": [],
+        "away_tv": [
+          "NESN"
+        ],
+        "home_tv": [
+          "Rays.TV"
+        ],
+        "national_radio": [],
+        "away_radio": [
+          "WEEI 93.7"
+        ],
+        "home_radio": [
+          "WDAE 95.7 FM"
+        ]
+      },
+      "lineups": {
+        "away": [],
+        "home": []
+      },
+      "bullpen": {
+        "away": [
+          {
+            "name": "Connelly Early",
+            "role": "",
+            "usage": "used",
+            "rest": "2"
+          },
+          {
+            "name": "Garrett Whitlock",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Payton Tolle",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Tommy Kahnle",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Alec Gamboa",
+            "role": "",
+            "usage": "fresh",
+            "rest": "2"
+          },
+          {
+            "name": "Aroldis Chapman",
+            "role": "",
+            "usage": "fresh",
+            "rest": "5"
+          },
+          {
+            "name": "Danny Coulombe",
+            "role": "",
+            "usage": "fresh",
+            "rest": "2"
+          },
+          {
+            "name": "Greg Weissert",
+            "role": "",
+            "usage": "fresh",
+            "rest": "2"
+          }
+        ],
+        "home": [
+          {
+            "name": "Cam Booser",
+            "role": "",
+            "usage": "used",
+            "rest": "2"
+          },
+          {
+            "name": "Casey Legumina",
+            "role": "",
+            "usage": "used",
+            "rest": "2"
+          },
+          {
+            "name": "Garrett Cleavinger",
+            "role": "",
+            "usage": "used",
+            "rest": "2"
+          },
+          {
+            "name": "Ian Seymour",
+            "role": "",
+            "usage": "used",
+            "rest": "2"
+          },
+          {
+            "name": "Bryan Baker",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Kevin Kelly",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Nick Martinez",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Cole Sulser",
+            "role": "",
+            "usage": "fresh",
+            "rest": "3"
+          }
+        ]
+      },
+      "injuries": {
+        "away": [],
+        "home": []
+      },
+      "form": {
+        "away": {
+          "w": 4,
+          "l": 6,
+          "last10": "4-6",
+          "streak": "W2",
+          "rs": 40,
+          "ra": 34,
+          "form_pct": 0.4
+        },
+        "home": {
+          "w": 4,
+          "l": 6,
+          "last10": "4-6",
+          "streak": "L1",
+          "rs": 36,
+          "ra": 53,
+          "form_pct": 0.4
+        }
+      },
+      "batting": {
+        "away": {
+          "avg": "0.244",
+          "obp": "0.313",
+          "slg": "0.374",
+          "ops": "0.687",
+          "rpg": "3.89",
+          "hrpg": "0.75",
+          "hr": 49
+        },
+        "home": {
+          "avg": "0.256",
+          "obp": "0.335",
+          "slg": "0.383",
+          "ops": "0.718",
+          "rpg": "4.53",
+          "hrpg": "0.83",
+          "hr": 53
+        }
+      },
+      "pitching": {
+        "away": {
+          "era": "3.88",
+          "whip": "1.28",
+          "k9": "8.6",
+          "bb9": "3.2",
+          "savepct": "—",
+          "bp_era": "3.88"
+        },
+        "home": {
+          "era": "3.89",
+          "whip": "1.23",
+          "k9": "7.7",
+          "bb9": "3.0",
+          "savepct": "—",
+          "bp_era": "3.89"
+        }
+      },
+      "standings": {},
+      "props": {
+        "note": "",
+        "pitchers": [],
+        "batters": []
+      },
+      "why_matters": "",
+      "scouts_edge": ""
+    },
+    {
+      "away": "NYY",
+      "home": "CLE",
+      "awayFull": "New York Yankees",
+      "homeFull": "Cleveland Guardians",
+      "awayId": 147,
+      "homeId": 114,
+      "time": "1:10 PM ET",
+      "venue": "Progressive Field",
+      "roof": "No Roof",
+      "pitchers": {
+        "away": {
+          "name": "Carlos Rodón",
+          "hand": "L",
+          "era": "2.88",
+          "whip": "1.20",
+          "k9": "9.7",
+          "bb9": "5.8",
+          "ip": "25.0",
+          "record": "1-2",
+          "lastStart": "—"
+        },
+        "home": {
+          "name": "Parker Messick",
+          "hand": "L",
+          "era": "2.40",
+          "whip": "1.07",
+          "k9": "9.4",
+          "bb9": "2.6",
+          "ip": "75.0",
+          "record": "6-2",
+          "lastStart": "—"
+        }
+      },
+      "weather": {
+        "temp": "70°F",
+        "sky": "Light Rain",
+        "wind": "10 mph SSW",
+        "humidity": "94%",
+        "precip": "—",
+        "roof": "No Roof",
+        "source": "NWS"
+      },
+      "umpire": {
+        "name": "TBD",
+        "calledKpct": "—",
+        "rpg": "—",
+        "note": ""
+      },
+      "broadcasts": {
+        "national_tv": [],
+        "away_tv": [
+          "YES"
+        ],
+        "home_tv": [
+          "Guardians.TV Presented by Progressive"
+        ],
+        "national_radio": [],
+        "away_radio": [
+          "WFAN 660/101.9 FM"
+        ],
+        "home_radio": [
+          "WTAM 1100",
+          "Guardians Radio Network"
+        ]
+      },
+      "lineups": {
+        "away": [],
+        "home": []
+      },
+      "bullpen": {
+        "away": [
+          {
+            "name": "David Bednar",
+            "role": "",
+            "usage": "used",
+            "rest": "2"
+          },
+          {
+            "name": "Will Warren",
+            "role": "",
+            "usage": "used",
+            "rest": "2"
+          },
+          {
+            "name": "Camilo Doval",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Fernando Cruz",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Gerrit Cole",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Paul Blackburn",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Tim Hill",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Brent Headrick",
+            "role": "",
+            "usage": "fresh",
+            "rest": "2"
+          }
+        ],
+        "home": [
+          {
+            "name": "Gavin Williams",
+            "role": "",
+            "usage": "used",
+            "rest": "2"
+          },
+          {
+            "name": "Colin Holderman",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Matt Festa",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Shawn Armstrong",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Slade Cecconi",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Tim Herrin",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Cade Smith",
+            "role": "",
+            "usage": "fresh",
+            "rest": "2"
+          },
+          {
+            "name": "Codi Heuer",
+            "role": "",
+            "usage": "fresh",
+            "rest": "—"
+          }
+        ]
+      },
+      "injuries": {
+        "away": [],
+        "home": []
+      },
+      "form": {
+        "away": {
+          "w": 5,
+          "l": 5,
+          "last10": "5-5",
+          "streak": "L1",
+          "rs": 46,
+          "ra": 42,
+          "form_pct": 0.5
+        },
+        "home": {
+          "w": 3,
+          "l": 7,
+          "last10": "3-7",
+          "streak": "L2",
+          "rs": 35,
+          "ra": 51,
+          "form_pct": 0.3
+        }
+      },
+      "batting": {
+        "away": {
+          "avg": "0.242",
+          "obp": "0.329",
+          "slg": "0.433",
+          "ops": "0.762",
+          "rpg": "5.06",
+          "hrpg": "1.47",
+          "hr": 97
+        },
+        "home": {
+          "avg": "0.231",
+          "obp": "0.317",
+          "slg": "0.371",
+          "ops": "0.688",
+          "rpg": "4.04",
+          "hrpg": "0.93",
+          "hr": 64
+        }
+      },
+      "pitching": {
+        "away": {
+          "era": "3.25",
+          "whip": "1.17",
+          "k9": "8.7",
+          "bb9": "3.1",
+          "savepct": "—",
+          "bp_era": "3.25"
+        },
+        "home": {
+          "era": "3.77",
+          "whip": "1.26",
+          "k9": "9.3",
+          "bb9": "3.4",
+          "savepct": "—",
+          "bp_era": "3.77"
+        }
+      },
+      "standings": {},
+      "props": {
+        "note": "",
+        "pitchers": [],
+        "batters": []
+      },
+      "why_matters": "",
+      "scouts_edge": ""
+    },
+    {
+      "away": "WSH",
+      "home": "SF",
+      "awayFull": "Washington Nationals",
+      "homeFull": "San Francisco Giants",
+      "awayId": 120,
+      "homeId": 137,
+      "time": "3:45 PM ET",
+      "venue": "Oracle Park",
+      "roof": "No Roof",
+      "pitchers": {
+        "away": {
+          "name": "Foster Griffin",
+          "hand": "L",
+          "era": "3.63",
+          "whip": "1.10",
+          "k9": "8.6",
+          "bb9": "2.6",
+          "ip": "72.0",
+          "record": "7-2",
+          "lastStart": "—"
+        },
+        "home": {
+          "name": "Robbie Ray",
+          "hand": "L",
+          "era": "4.12",
+          "whip": "1.40",
+          "k9": "8.4",
+          "bb9": "4.8",
+          "ip": "67.2",
+          "record": "4-6",
+          "lastStart": "—"
+        }
+      },
+      "weather": {
+        "temp": "55°F",
+        "sky": "Clear",
+        "wind": "—",
+        "humidity": "77%",
+        "precip": "—",
+        "roof": "No Roof",
+        "source": "NWS"
+      },
+      "umpire": {
+        "name": "TBD",
+        "calledKpct": "—",
+        "rpg": "—",
+        "note": ""
+      },
+      "broadcasts": {
+        "national_tv": [],
+        "away_tv": [
+          "Nationals.TV"
+        ],
+        "home_tv": [
+          "NBCS BA"
+        ],
+        "national_radio": [],
+        "away_radio": [
+          "WJFK 106.7 The Fan"
+        ],
+        "home_radio": [
+          "KNBR 680"
+        ]
+      },
+      "lineups": {
+        "away": [],
+        "home": []
+      },
+      "bullpen": {
+        "away": [
+          {
+            "name": "Gus Varland",
+            "role": "",
+            "usage": "used",
+            "rest": "2"
+          },
+          {
+            "name": "Miles Mikolas",
+            "role": "",
+            "usage": "used",
+            "rest": "2"
+          },
+          {
+            "name": "Mitchell Parker",
+            "role": "",
+            "usage": "used",
+            "rest": "2"
+          },
+          {
+            "name": "Andrew Alvarez",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Brad Lord",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Clayton Beeter",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Orlando Ribalta",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Richard Lovelady",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          }
+        ],
+        "home": [
+          {
+            "name": "Logan Webb",
+            "role": "",
+            "usage": "used",
+            "rest": "2"
+          },
+          {
+            "name": "Adrian Houser",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Dylan Smith",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Erik Miller",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "JT Brubaker",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Tristan Beck",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Caleb Kilian",
+            "role": "",
+            "usage": "fresh",
+            "rest": "3"
+          },
+          {
+            "name": "Carson Seymour",
+            "role": "",
+            "usage": "fresh",
+            "rest": "5"
+          }
+        ]
+      },
+      "injuries": {
+        "away": [],
+        "home": []
+      },
+      "form": {
+        "away": {
+          "w": 6,
+          "l": 4,
+          "last10": "6-4",
+          "streak": "W2",
+          "rs": 51,
+          "ra": 37,
+          "form_pct": 0.6
+        },
+        "home": {
+          "w": 5,
+          "l": 5,
+          "last10": "5-5",
+          "streak": "W1",
+          "rs": 65,
+          "ra": 56,
+          "form_pct": 0.5
+        }
+      },
+      "batting": {
+        "away": {
+          "avg": "0.244",
+          "obp": "0.322",
+          "slg": "0.417",
+          "ops": "0.739",
+          "rpg": "5.32",
+          "hrpg": "1.28",
+          "hr": 87
+        },
+        "home": {
+          "avg": "0.258",
+          "obp": "0.307",
+          "slg": "0.414",
+          "ops": "0.721",
+          "rpg": "4.09",
+          "hrpg": "0.99",
+          "hr": 67
+        }
+      },
+      "pitching": {
+        "away": {
+          "era": "4.56",
+          "whip": "1.38",
+          "k9": "7.8",
+          "bb9": "3.6",
+          "savepct": "—",
+          "bp_era": "4.56"
+        },
+        "home": {
+          "era": "4.46",
+          "whip": "1.40",
+          "k9": "8.0",
+          "bb9": "4.1",
+          "savepct": "—",
+          "bp_era": "4.46"
+        }
+      },
+      "standings": {},
+      "props": {
+        "note": "",
+        "pitchers": [],
+        "batters": []
+      },
+      "why_matters": "",
+      "scouts_edge": ""
+    },
+    {
+      "away": "CIN",
+      "home": "SD",
+      "awayFull": "Cincinnati Reds",
+      "homeFull": "San Diego Padres",
+      "awayId": 113,
+      "homeId": 135,
+      "time": "4:10 PM ET",
+      "venue": "Petco Park",
+      "roof": "No Roof",
+      "pitchers": {
+        "away": {
+          "name": "Brady Singer",
+          "hand": "R",
+          "era": "5.89",
+          "whip": "1.69",
+          "k9": "6.9",
+          "bb9": "3.1",
+          "ip": "55.0",
+          "record": "2-6",
+          "lastStart": "—"
+        },
+        "home": {
+          "name": "Michael King",
+          "hand": "R",
+          "era": "3.41",
+          "whip": "1.12",
+          "k9": "8.4",
+          "bb9": "3.5",
+          "ip": "74.0",
+          "record": "4-5",
+          "lastStart": "—"
+        }
+      },
+      "weather": {
+        "temp": "66°F",
+        "sky": "Cloudy",
+        "wind": "3 mph W",
+        "humidity": "83%",
+        "precip": "—",
+        "roof": "No Roof",
+        "source": "NWS"
+      },
+      "umpire": {
+        "name": "TBD",
+        "calledKpct": "—",
+        "rpg": "—",
+        "note": ""
+      },
+      "broadcasts": {
+        "national_tv": [],
+        "away_tv": [
+          "Reds.TV"
+        ],
+        "home_tv": [
+          "Padres.TV Presented by UC San Diego Health"
+        ],
+        "national_radio": [],
+        "away_radio": [
+          "WLW 700"
+        ],
+        "home_radio": [
+          "KWFN 97.3"
+        ]
+      },
+      "lineups": {
+        "away": [],
+        "home": []
+      },
+      "bullpen": {
+        "away": [
+          {
+            "name": "Andrew Abbott",
+            "role": "",
+            "usage": "used",
+            "rest": "2"
+          },
+          {
+            "name": "Zach McCambley",
+            "role": "",
+            "usage": "used",
+            "rest": "2"
+          },
+          {
+            "name": "Brock Burke",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Caleb Ferguson",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Chase Burns",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Tejay Antone",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Tony Santillan",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Zach Maxwell",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          }
+        ],
+        "home": [
+          {
+            "name": "Walker Buehler",
+            "role": "",
+            "usage": "used",
+            "rest": "2"
+          },
+          {
+            "name": "Adrian Morejon",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Bradgley Rodriguez",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "David Morgan",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Jason Adam",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Lucas Giolito",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Mason Miller",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Yuki Matsui",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          }
+        ]
+      },
+      "injuries": {
+        "away": [],
+        "home": []
+      },
+      "form": {
+        "away": {
+          "w": 3,
+          "l": 7,
+          "last10": "3-7",
+          "streak": "L1",
+          "rs": 34,
+          "ra": 56,
+          "form_pct": 0.3
+        },
+        "home": {
+          "w": 2,
+          "l": 8,
+          "last10": "2-8",
+          "streak": "L6",
+          "rs": 29,
+          "ra": 46,
+          "form_pct": 0.2
+        }
+      },
+      "batting": {
+        "away": {
+          "avg": "0.230",
+          "obp": "0.313",
+          "slg": "0.393",
+          "ops": "0.706",
+          "rpg": "4.27",
+          "hrpg": "1.24",
+          "hr": 82
+        },
+        "home": {
+          "avg": "0.216",
+          "obp": "0.291",
+          "slg": "0.357",
+          "ops": "0.648",
+          "rpg": "3.79",
+          "hrpg": "1.00",
+          "hr": 66
+        }
+      },
+      "pitching": {
+        "away": {
+          "era": "4.78",
+          "whip": "1.47",
+          "k9": "7.9",
+          "bb9": "4.6",
+          "savepct": "—",
+          "bp_era": "4.78"
+        },
+        "home": {
+          "era": "3.89",
+          "whip": "1.28",
+          "k9": "8.6",
+          "bb9": "3.5",
+          "savepct": "—",
+          "bp_era": "3.89"
+        }
+      },
+      "standings": {},
+      "props": {
+        "note": "",
+        "pitchers": [],
+        "batters": []
+      },
+      "why_matters": "",
+      "scouts_edge": ""
+    },
     {
       "away": "SEA",
       "home": "BAL",
@@ -15,39 +984,39 @@
       "roof": "No Roof",
       "pitchers": {
         "away": {
-          "name": "Logan Gilbert",
+          "name": "George Kirby",
           "hand": "R",
-          "era": "3.62",
-          "whip": "1.08",
-          "k9": "9.3",
+          "era": "4.04",
+          "whip": "1.28",
+          "k9": "7.4",
           "bb9": "2.1",
-          "ip": "79.2",
-          "record": "4-4",
+          "ip": "78.0",
+          "record": "5-5",
           "lastStart": "—"
         },
         "home": {
-          "name": "Trevor Rogers",
-          "hand": "L",
-          "era": "6.15",
-          "whip": "1.48",
-          "k9": "6.6",
-          "bb9": "3.0",
-          "ip": "60.0",
-          "record": "3-6",
+          "name": "Brandon Young",
+          "hand": "R",
+          "era": "3.47",
+          "whip": "1.34",
+          "k9": "6.8",
+          "bb9": "3.1",
+          "ip": "49.1",
+          "record": "4-1",
           "lastStart": "—"
         }
       },
       "weather": {
-        "temp": "72°F",
+        "temp": "70°F",
         "sky": "Clear",
-        "wind": "6 mph SSE",
-        "humidity": "73%",
+        "wind": "0 mph N",
+        "humidity": "78%",
         "precip": "—",
         "roof": "No Roof",
         "source": "NWS"
       },
       "umpire": {
-        "name": "Doug Eddings",
+        "name": "TBD",
         "calledKpct": "—",
         "rpg": "—",
         "note": ""
@@ -70,179 +1039,105 @@
         ]
       },
       "lineups": {
-        "away": [
-          {
-            "name": "Victor Robles",
-            "pos": "RF"
-          },
-          {
-            "name": "Julio Rodríguez",
-            "pos": "CF"
-          },
-          {
-            "name": "Randy Arozarena",
-            "pos": "DH"
-          },
-          {
-            "name": "Josh Naylor",
-            "pos": "1B"
-          },
-          {
-            "name": "Rob Refsnyder",
-            "pos": "LF"
-          },
-          {
-            "name": "Patrick Wisdom",
-            "pos": "3B"
-          },
-          {
-            "name": "Mitch Garver",
-            "pos": "C"
-          },
-          {
-            "name": "Cole Young",
-            "pos": "SS"
-          },
-          {
-            "name": "Ryan Bliss",
-            "pos": "2B"
-          }
-        ],
-        "home": [
-          {
-            "name": "Taylor Ward",
-            "pos": "DH"
-          },
-          {
-            "name": "Gunnar Henderson",
-            "pos": "SS"
-          },
-          {
-            "name": "Pete Alonso",
-            "pos": "1B"
-          },
-          {
-            "name": "Colton Cowser",
-            "pos": "LF"
-          },
-          {
-            "name": "Leody Taveras",
-            "pos": "CF"
-          },
-          {
-            "name": "Coby Mayo",
-            "pos": "3B"
-          },
-          {
-            "name": "Jackson Holliday",
-            "pos": "2B"
-          },
-          {
-            "name": "Tyler O'Neill",
-            "pos": "RF"
-          },
-          {
-            "name": "Sam Huff",
-            "pos": "C"
-          }
-        ]
+        "away": [],
+        "home": []
       },
       "bullpen": {
         "away": [
           {
-            "name": "Alex Hoppe",
-            "role": "",
-            "usage": "used",
-            "rest": "0"
-          },
-          {
-            "name": "Gabe Speier",
-            "role": "",
-            "usage": "used",
-            "rest": "0"
-          },
-          {
-            "name": "José A. Ferrer",
-            "role": "",
-            "usage": "used",
-            "rest": "0"
-          },
-          {
-            "name": "Luis Castillo",
+            "name": "Eduard Bazardo",
             "role": "",
             "usage": "used",
             "rest": "2"
-          },
-          {
-            "name": "Nick Davila",
-            "role": "",
-            "usage": "used",
-            "rest": "0"
-          },
-          {
-            "name": "Andrés Muñoz",
-            "role": "",
-            "usage": "light",
-            "rest": "1"
-          },
-          {
-            "name": "Eduard Bazardo",
-            "role": "",
-            "usage": "light",
-            "rest": "1"
           },
           {
             "name": "Emerson Hancock",
             "role": "",
+            "usage": "used",
+            "rest": "2"
+          },
+          {
+            "name": "Alex Hoppe",
+            "role": "",
             "usage": "light",
             "rest": "1"
+          },
+          {
+            "name": "Gabe Speier",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "José A. Ferrer",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Logan Gilbert",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Nick Davila",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Andrés Muñoz",
+            "role": "",
+            "usage": "fresh",
+            "rest": "2"
           }
         ],
         "home": [
           {
-            "name": "Andrew Kittredge",
-            "role": "",
-            "usage": "used",
-            "rest": "0"
-          },
-          {
-            "name": "Keegan Akin",
-            "role": "",
-            "usage": "used",
-            "rest": "0"
-          },
-          {
-            "name": "Rico Garcia",
-            "role": "",
-            "usage": "used",
-            "rest": "0"
-          },
-          {
-            "name": "Shane Baz",
+            "name": "Albert Suárez",
             "role": "",
             "usage": "used",
             "rest": "2"
           },
           {
-            "name": "Tyler Wells",
-            "role": "",
-            "usage": "used",
-            "rest": "0"
-          },
-          {
-            "name": "Albert Suárez",
-            "role": "",
-            "usage": "light",
-            "rest": "1"
-          },
-          {
             "name": "Anthony Nunez",
             "role": "",
-            "usage": "light",
-            "rest": "1"
+            "usage": "used",
+            "rest": "2"
           },
           {
             "name": "Trey Gibson",
+            "role": "",
+            "usage": "used",
+            "rest": "2"
+          },
+          {
+            "name": "Andrew Kittredge",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Keegan Akin",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Rico Garcia",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Trevor Rogers",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Tyler Wells",
             "role": "",
             "usage": "light",
             "rest": "1"
@@ -332,39 +1227,39 @@
       "roof": "No Roof",
       "pitchers": {
         "away": {
-          "name": "Eric Lauer",
-          "hand": "L",
-          "era": "5.47",
-          "whip": "1.29",
-          "k9": "6.2",
-          "bb9": "3.1",
-          "ip": "52.2",
-          "record": "2-5",
+          "name": "Shohei Ohtani",
+          "hand": "R",
+          "era": "0.74",
+          "whip": "0.79",
+          "k9": "9.9",
+          "bb9": "2.7",
+          "ip": "61.0",
+          "record": "6-2",
           "lastStart": "—"
         },
         "home": {
-          "name": "Paul Skenes",
+          "name": "Jared Jones",
           "hand": "R",
-          "era": "2.84",
-          "whip": "0.93",
-          "k9": "10.5",
-          "bb9": "1.8",
-          "ip": "76.0",
-          "record": "6-5",
+          "era": "4.82",
+          "whip": "1.61",
+          "k9": "9.6",
+          "bb9": "3.9",
+          "ip": "9.1",
+          "record": "1-0",
           "lastStart": "—"
         }
       },
       "weather": {
         "temp": "73°F",
-        "sky": "Cloudy",
-        "wind": "8 mph S",
-        "humidity": "89%",
+        "sky": "Fog/Mist",
+        "wind": "6 mph S",
+        "humidity": "94%",
         "precip": "—",
         "roof": "No Roof",
         "source": "NWS"
       },
       "umpire": {
-        "name": "Brennan Miller",
+        "name": "TBD",
         "calledKpct": "—",
         "rpg": "—",
         "note": ""
@@ -386,173 +1281,87 @@
         ]
       },
       "lineups": {
-        "away": [
-          {
-            "name": "Shohei Ohtani",
-            "pos": "DH"
-          },
-          {
-            "name": "Andy Pages",
-            "pos": "CF"
-          },
-          {
-            "name": "Freddie Freeman",
-            "pos": "1B"
-          },
-          {
-            "name": "Mookie Betts",
-            "pos": "SS"
-          },
-          {
-            "name": "Max Muncy",
-            "pos": "3B"
-          },
-          {
-            "name": "Kyle Tucker",
-            "pos": "RF"
-          },
-          {
-            "name": "Ryan Ward",
-            "pos": "LF"
-          },
-          {
-            "name": "Dalton Rushing",
-            "pos": "C"
-          },
-          {
-            "name": "Alex Freeland",
-            "pos": "2B"
-          }
-        ],
-        "home": [
-          {
-            "name": "Nick Gonzales",
-            "pos": "3B"
-          },
-          {
-            "name": "Brandon Lowe",
-            "pos": "2B"
-          },
-          {
-            "name": "Bryan Reynolds",
-            "pos": "LF"
-          },
-          {
-            "name": "Ryan O'Hearn",
-            "pos": "RF"
-          },
-          {
-            "name": "Marcell Ozuna",
-            "pos": "DH"
-          },
-          {
-            "name": "Davis Wendzel",
-            "pos": "1B"
-          },
-          {
-            "name": "Jake Mangum",
-            "pos": "CF"
-          },
-          {
-            "name": "Jared Triolo",
-            "pos": "SS"
-          },
-          {
-            "name": "Henry Davis",
-            "pos": "C"
-          }
-        ]
+        "away": [],
+        "home": []
       },
       "bullpen": {
         "away": [
           {
             "name": "Blake Treinen",
             "role": "",
-            "usage": "used",
-            "rest": "0"
+            "usage": "light",
+            "rest": "1"
           },
           {
-            "name": "Edgardo Henriquez",
+            "name": "Eric Lauer",
             "role": "",
-            "usage": "used",
-            "rest": "2"
-          },
-          {
-            "name": "Jack Dreyer",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
-          },
-          {
-            "name": "Kyle Hurt",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
+            "usage": "light",
+            "rest": "1"
           },
           {
             "name": "Tanner Scott",
             "role": "",
-            "usage": "used",
-            "rest": "0"
+            "usage": "light",
+            "rest": "1"
           },
           {
             "name": "Will Klein",
             "role": "",
-            "usage": "used",
-            "rest": "0"
+            "usage": "light",
+            "rest": "1"
           },
           {
             "name": "Alex Vesia",
             "role": "",
             "usage": "fresh",
-            "rest": "2"
+            "rest": "3"
+          },
+          {
+            "name": "Edgardo Henriquez",
+            "role": "",
+            "usage": "fresh",
+            "rest": "3"
           },
           {
             "name": "Emmet Sheehan",
             "role": "",
             "usage": "fresh",
-            "rest": "2"
+            "rest": "3"
+          },
+          {
+            "name": "Jack Dreyer",
+            "role": "",
+            "usage": "fresh",
+            "rest": "3"
           }
         ],
         "home": [
           {
             "name": "Brandan Bidois",
             "role": "",
-            "usage": "used",
-            "rest": "0"
-          },
-          {
-            "name": "Bubba Chandler",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
+            "usage": "light",
+            "rest": "1"
           },
           {
             "name": "Dennis Santana",
             "role": "",
-            "usage": "used",
-            "rest": "0"
+            "usage": "light",
+            "rest": "1"
           },
           {
-            "name": "Evan Sisk",
+            "name": "Paul Skenes",
             "role": "",
-            "usage": "used",
-            "rest": "2"
-          },
-          {
-            "name": "Mason Montgomery",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
-          },
-          {
-            "name": "Wilber Dotel",
-            "role": "",
-            "usage": "used",
-            "rest": "0"
+            "usage": "light",
+            "rest": "1"
           },
           {
             "name": "Braxton Ashcraft",
+            "role": "",
+            "usage": "fresh",
+            "rest": "4"
+          },
+          {
+            "name": "Bubba Chandler",
             "role": "",
             "usage": "fresh",
             "rest": "3"
@@ -561,7 +1370,19 @@
             "name": "Carmen Mlodzinski",
             "role": "",
             "usage": "fresh",
-            "rest": "5"
+            "rest": "—"
+          },
+          {
+            "name": "Evan Sisk",
+            "role": "",
+            "usage": "fresh",
+            "rest": "3"
+          },
+          {
+            "name": "Gregory Soto",
+            "role": "",
+            "usage": "fresh",
+            "rest": "—"
           }
         ]
       },
@@ -637,322 +1458,6 @@
       "scouts_edge": ""
     },
     {
-      "away": "BOS",
-      "home": "TB",
-      "awayFull": "Boston Red Sox",
-      "homeFull": "Tampa Bay Rays",
-      "awayId": 111,
-      "homeId": 139,
-      "time": "6:40 PM ET",
-      "venue": "Tropicana Field",
-      "roof": "Dome",
-      "pitchers": {
-        "away": {
-          "name": "Payton Tolle",
-          "hand": "L",
-          "era": "2.70",
-          "whip": "1.05",
-          "k9": "9.1",
-          "bb9": "2.4",
-          "ip": "53.1",
-          "record": "3-3",
-          "lastStart": "—"
-        },
-        "home": {
-          "name": "Nick Martinez",
-          "hand": "R",
-          "era": "2.43",
-          "whip": "1.16",
-          "k9": "5.1",
-          "bb9": "1.5",
-          "ip": "77.2",
-          "record": "6-2",
-          "lastStart": "—"
-        }
-      },
-      "weather": {
-        "temp": "—",
-        "sky": "Fixed Dome",
-        "wind": "—",
-        "humidity": "—",
-        "precip": "—",
-        "roof": "Dome",
-        "source": "dome"
-      },
-      "umpire": {
-        "name": "Roberto Ortiz",
-        "calledKpct": "—",
-        "rpg": "—",
-        "note": ""
-      },
-      "broadcasts": {
-        "national_tv": [],
-        "away_tv": [
-          "NESN"
-        ],
-        "home_tv": [
-          "Rays.TV"
-        ],
-        "national_radio": [],
-        "away_radio": [
-          "WEEI 93.7"
-        ],
-        "home_radio": [
-          "WDAE 95.7 FM"
-        ]
-      },
-      "lineups": {
-        "away": [
-          {
-            "name": "Jarren Duran",
-            "pos": "LF"
-          },
-          {
-            "name": "Ceddanne Rafaela",
-            "pos": "CF"
-          },
-          {
-            "name": "Wilyer Abreu",
-            "pos": "RF"
-          },
-          {
-            "name": "Willson Contreras",
-            "pos": "1B"
-          },
-          {
-            "name": "Masataka Yoshida",
-            "pos": "DH"
-          },
-          {
-            "name": "Mickey Gasper",
-            "pos": "C"
-          },
-          {
-            "name": "Caleb Durbin",
-            "pos": "3B"
-          },
-          {
-            "name": "Isiah Kiner-Falefa",
-            "pos": "2B"
-          },
-          {
-            "name": "Marcelo Mayer",
-            "pos": "SS"
-          }
-        ],
-        "home": [
-          {
-            "name": "Yandy Díaz",
-            "pos": "DH"
-          },
-          {
-            "name": "Junior Caminero",
-            "pos": "3B"
-          },
-          {
-            "name": "Chandler Simpson",
-            "pos": "LF"
-          },
-          {
-            "name": "Ryan Vilade",
-            "pos": "1B"
-          },
-          {
-            "name": "Austin Slater",
-            "pos": "RF"
-          },
-          {
-            "name": "Cedric Mullins",
-            "pos": "CF"
-          },
-          {
-            "name": "Ben Williamson",
-            "pos": "SS"
-          },
-          {
-            "name": "Nick Fortes",
-            "pos": "C"
-          },
-          {
-            "name": "Richie Palacios",
-            "pos": "2B"
-          }
-        ]
-      },
-      "bullpen": {
-        "away": [
-          {
-            "name": "Garrett Whitlock",
-            "role": "",
-            "usage": "used",
-            "rest": "0"
-          },
-          {
-            "name": "Ranger Suarez",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
-          },
-          {
-            "name": "Tommy Kahnle",
-            "role": "",
-            "usage": "used",
-            "rest": "0"
-          },
-          {
-            "name": "Connelly Early",
-            "role": "",
-            "usage": "light",
-            "rest": "1"
-          },
-          {
-            "name": "Danny Coulombe",
-            "role": "",
-            "usage": "light",
-            "rest": "1"
-          },
-          {
-            "name": "Tyron Guerrero",
-            "role": "",
-            "usage": "light",
-            "rest": "1"
-          },
-          {
-            "name": "Alec Gamboa",
-            "role": "",
-            "usage": "fresh",
-            "rest": "1"
-          },
-          {
-            "name": "Aroldis Chapman",
-            "role": "",
-            "usage": "fresh",
-            "rest": "4"
-          }
-        ],
-        "home": [
-          {
-            "name": "Bryan Baker",
-            "role": "",
-            "usage": "used",
-            "rest": "0"
-          },
-          {
-            "name": "Cole Sulser",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
-          },
-          {
-            "name": "Griffin Jax",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
-          },
-          {
-            "name": "Kevin Kelly",
-            "role": "",
-            "usage": "used",
-            "rest": "0"
-          },
-          {
-            "name": "Cam Booser",
-            "role": "",
-            "usage": "light",
-            "rest": "1"
-          },
-          {
-            "name": "Casey Legumina",
-            "role": "",
-            "usage": "light",
-            "rest": "1"
-          },
-          {
-            "name": "Garrett Cleavinger",
-            "role": "",
-            "usage": "light",
-            "rest": "1"
-          },
-          {
-            "name": "Ian Seymour",
-            "role": "",
-            "usage": "light",
-            "rest": "1"
-          }
-        ]
-      },
-      "injuries": {
-        "away": [],
-        "home": []
-      },
-      "form": {
-        "away": {
-          "w": 4,
-          "l": 6,
-          "last10": "4-6",
-          "streak": "W2",
-          "rs": 40,
-          "ra": 34,
-          "form_pct": 0.4
-        },
-        "home": {
-          "w": 4,
-          "l": 6,
-          "last10": "4-6",
-          "streak": "L1",
-          "rs": 36,
-          "ra": 53,
-          "form_pct": 0.4
-        }
-      },
-      "batting": {
-        "away": {
-          "avg": "0.244",
-          "obp": "0.313",
-          "slg": "0.374",
-          "ops": "0.687",
-          "rpg": "3.89",
-          "hrpg": "0.75",
-          "hr": 49
-        },
-        "home": {
-          "avg": "0.256",
-          "obp": "0.335",
-          "slg": "0.383",
-          "ops": "0.718",
-          "rpg": "4.53",
-          "hrpg": "0.83",
-          "hr": 53
-        }
-      },
-      "pitching": {
-        "away": {
-          "era": "3.88",
-          "whip": "1.28",
-          "k9": "8.6",
-          "bb9": "3.2",
-          "savepct": "—",
-          "bp_era": "3.88"
-        },
-        "home": {
-          "era": "3.89",
-          "whip": "1.23",
-          "k9": "7.7",
-          "bb9": "3.0",
-          "savepct": "—",
-          "bp_era": "3.89"
-        }
-      },
-      "standings": {},
-      "props": {
-        "note": "",
-        "pitchers": [],
-        "batters": []
-      },
-      "why_matters": "",
-      "scouts_edge": ""
-    },
-    {
       "away": "MIN",
       "home": "DET",
       "awayFull": "Minnesota Twins",
@@ -964,39 +1469,39 @@
       "roof": "No Roof",
       "pitchers": {
         "away": {
-          "name": "Taj Bradley",
+          "name": "TBD",
           "hand": "R",
-          "era": "4.02",
-          "whip": "1.38",
-          "k9": "10.1",
-          "bb9": "4.0",
-          "ip": "65.0",
-          "record": "5-2",
+          "era": "—",
+          "whip": "—",
+          "k9": "—",
+          "bb9": "—",
+          "ip": "—",
+          "record": "—",
           "lastStart": "—"
         },
         "home": {
-          "name": "Troy Melton",
-          "hand": "R",
-          "era": "2.81",
-          "whip": "1.01",
-          "k9": "4.9",
-          "bb9": "2.1",
-          "ip": "25.2",
-          "record": "2-0",
+          "name": "Framber Valdez",
+          "hand": "L",
+          "era": "4.21",
+          "whip": "1.32",
+          "k9": "7.3",
+          "bb9": "3.3",
+          "ip": "72.2",
+          "record": "3-4",
           "lastStart": "—"
         }
       },
       "weather": {
-        "temp": "75°F",
-        "sky": "Mostly Cloudy",
-        "wind": "6 mph NNE",
-        "humidity": "90%",
+        "temp": "72°F",
+        "sky": "Cloudy",
+        "wind": "8 mph SSW",
+        "humidity": "94%",
         "precip": "—",
         "roof": "No Roof",
         "source": "NWS"
       },
       "umpire": {
-        "name": "Lance Barksdale",
+        "name": "TBD",
         "calledKpct": "—",
         "rpg": "—",
         "note": ""
@@ -1021,158 +1526,84 @@
         ]
       },
       "lineups": {
-        "away": [
-          {
-            "name": "Byron Buxton",
-            "pos": "CF"
-          },
-          {
-            "name": "Brooks Lee",
-            "pos": "3B"
-          },
-          {
-            "name": "Kody Clemens",
-            "pos": "RF"
-          },
-          {
-            "name": "Josh Bell",
-            "pos": "DH"
-          },
-          {
-            "name": "Trevor Larnach",
-            "pos": "LF"
-          },
-          {
-            "name": "Victor Caratini",
-            "pos": "C"
-          },
-          {
-            "name": "Royce Lewis",
-            "pos": "1B"
-          },
-          {
-            "name": "Luke Keaschall",
-            "pos": "2B"
-          },
-          {
-            "name": "Tristan Gray",
-            "pos": "SS"
-          }
-        ],
-        "home": [
-          {
-            "name": "Gleyber Torres",
-            "pos": "2B"
-          },
-          {
-            "name": "Kevin McGonigle",
-            "pos": "3B"
-          },
-          {
-            "name": "Dillon Dingler",
-            "pos": "C"
-          },
-          {
-            "name": "Kerry Carpenter",
-            "pos": "RF"
-          },
-          {
-            "name": "Riley Greene",
-            "pos": "LF"
-          },
-          {
-            "name": "Spencer Torkelson",
-            "pos": "1B"
-          },
-          {
-            "name": "Colt Keith",
-            "pos": "DH"
-          },
-          {
-            "name": "Matt Vierling",
-            "pos": "CF"
-          },
-          {
-            "name": "Zach McKinstry",
-            "pos": "SS"
-          }
-        ]
+        "away": [],
+        "home": []
       },
       "bullpen": {
         "away": [
           {
-            "name": "Andrew Morris",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
-          },
-          {
             "name": "Cody Laweryson",
             "role": "",
-            "usage": "used",
-            "rest": "2"
-          },
-          {
-            "name": "Connor Prielipp",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
+            "usage": "light",
+            "rest": "1"
           },
           {
             "name": "Eric Orze",
             "role": "",
-            "usage": "used",
-            "rest": "0"
+            "usage": "light",
+            "rest": "1"
           },
           {
-            "name": "Anthony Banda",
+            "name": "Justin Lawrence",
             "role": "",
-            "usage": "fresh",
-            "rest": "4"
+            "usage": "light",
+            "rest": "1"
           },
           {
-            "name": "Joe Ryan",
+            "name": "Taj Bradley",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Taylor Rogers",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Andrew Morris",
             "role": "",
             "usage": "fresh",
             "rest": "3"
           },
           {
-            "name": "Justin Lawrence",
-            "role": "",
-            "usage": "fresh",
-            "rest": "2"
-          },
-          {
-            "name": "Mike Paredes",
+            "name": "Anthony Banda",
             "role": "",
             "usage": "fresh",
             "rest": "5"
+          },
+          {
+            "name": "Connor Prielipp",
+            "role": "",
+            "usage": "fresh",
+            "rest": "3"
           }
         ],
         "home": [
           {
-            "name": "Brenan Hanifee",
-            "role": "",
-            "usage": "used",
-            "rest": "0"
-          },
-          {
             "name": "Drew Anderson",
             "role": "",
-            "usage": "used",
-            "rest": "2"
+            "usage": "light",
+            "rest": "1"
           },
           {
-            "name": "Jack Flaherty",
+            "name": "Enmanuel De Jesus",
             "role": "",
-            "usage": "used",
-            "rest": "2"
+            "usage": "light",
+            "rest": "1"
           },
           {
-            "name": "Will Vest",
+            "name": "Kyle Finnegan",
             "role": "",
-            "usage": "used",
-            "rest": "2"
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Troy Melton",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
           },
           {
             "name": "Beau Brieske",
@@ -1181,22 +1612,22 @@
             "rest": "—"
           },
           {
+            "name": "Brenan Hanifee",
+            "role": "",
+            "usage": "fresh",
+            "rest": "1"
+          },
+          {
             "name": "Drew Sommers",
             "role": "",
             "usage": "fresh",
-            "rest": "2"
+            "rest": "3"
           },
           {
-            "name": "Enmanuel De Jesus",
+            "name": "Jack Flaherty",
             "role": "",
             "usage": "fresh",
-            "rest": "—"
-          },
-          {
-            "name": "Framber Valdez",
-            "role": "",
-            "usage": "fresh",
-            "rest": "4"
+            "rest": "3"
           }
         ]
       },
@@ -1209,26 +1640,26 @@
           "w": 3,
           "l": 7,
           "last10": "3-7",
-          "streak": "L3",
-          "rs": 50,
-          "ra": 63,
+          "streak": "L2",
+          "rs": 49,
+          "ra": 67,
           "form_pct": 0.3
         },
         "home": {
-          "w": 5,
-          "l": 5,
-          "last10": "5-5",
-          "streak": "L4",
-          "rs": 43,
-          "ra": 42,
-          "form_pct": 0.5
+          "w": 6,
+          "l": 4,
+          "last10": "6-4",
+          "streak": "L3",
+          "rs": 52,
+          "ra": 39,
+          "form_pct": 0.6
         }
       },
       "batting": {
         "away": {
           "avg": "0.237",
-          "obp": "0.314",
-          "slg": "0.392",
+          "obp": "0.315",
+          "slg": "0.391",
           "ops": "0.706",
           "rpg": "4.59",
           "hrpg": "1.12",
@@ -1236,30 +1667,30 @@
         },
         "home": {
           "avg": "0.235",
-          "obp": "0.315",
-          "slg": "0.385",
-          "ops": "0.700",
-          "rpg": "3.96",
-          "hrpg": "1.00",
-          "hr": 67
+          "obp": "0.316",
+          "slg": "0.387",
+          "ops": "0.703",
+          "rpg": "4.03",
+          "hrpg": "1.01",
+          "hr": 68
         }
       },
       "pitching": {
         "away": {
-          "era": "4.64",
+          "era": "4.69",
           "whip": "1.38",
           "k9": "8.2",
           "bb9": "3.8",
           "savepct": "—",
-          "bp_era": "4.64"
+          "bp_era": "4.69"
         },
         "home": {
-          "era": "4.03",
+          "era": "4.00",
           "whip": "1.28",
           "k9": "8.3",
           "bb9": "3.4",
           "savepct": "—",
-          "bp_era": "4.03"
+          "bp_era": "4.00"
         }
       },
       "standings": {},
@@ -1283,25 +1714,25 @@
       "roof": "Dome",
       "pitchers": {
         "away": {
-          "name": "Zac Gallen",
+          "name": "Ryne Nelson",
           "hand": "R",
-          "era": "5.43",
-          "whip": "1.55",
-          "k9": "5.9",
-          "bb9": "2.7",
-          "ip": "69.2",
-          "record": "3-5",
+          "era": "4.60",
+          "whip": "1.18",
+          "k9": "6.8",
+          "bb9": "2.6",
+          "ip": "72.1",
+          "record": "2-4",
           "lastStart": "—"
         },
         "home": {
-          "name": "Max Meyer",
+          "name": "Ryan Gusto",
           "hand": "R",
-          "era": "2.85",
-          "whip": "1.09",
-          "k9": "9.8",
-          "bb9": "3.3",
-          "ip": "79.0",
-          "record": "6-0",
+          "era": "10.80",
+          "whip": "1.80",
+          "k9": "9.0",
+          "bb9": "1.8",
+          "ip": "5.0",
+          "record": "0-1",
           "lastStart": "—"
         }
       },
@@ -1315,7 +1746,7 @@
         "source": "dome"
       },
       "umpire": {
-        "name": "Edwin Jimenez",
+        "name": "TBD",
         "calledKpct": "—",
         "rpg": "—",
         "note": ""
@@ -1337,170 +1768,90 @@
         ]
       },
       "lineups": {
-        "away": [
-          {
-            "name": "Ketel Marte",
-            "pos": "2B"
-          },
-          {
-            "name": "Corbin Carroll",
-            "pos": "RF"
-          },
-          {
-            "name": "Gabriel Moreno",
-            "pos": "C"
-          },
-          {
-            "name": "Nolan Arenado",
-            "pos": "3B"
-          },
-          {
-            "name": "Pavin Smith",
-            "pos": "DH"
-          },
-          {
-            "name": "Geraldo Perdomo",
-            "pos": "SS"
-          },
-          {
-            "name": "Ryan Waldschmidt",
-            "pos": "CF"
-          },
-          {
-            "name": "LuJames Groover",
-            "pos": "1B"
-          },
-          {
-            "name": "Tommy Troy",
-            "pos": "LF"
-          }
-        ],
-        "home": [
-          {
-            "name": "Liam Hicks",
-            "pos": "DH"
-          },
-          {
-            "name": "Otto Lopez",
-            "pos": "SS"
-          },
-          {
-            "name": "Kyle Stowers",
-            "pos": "LF"
-          },
-          {
-            "name": "Xavier Edwards",
-            "pos": "2B"
-          },
-          {
-            "name": "Leo Jiménez",
-            "pos": "3B"
-          },
-          {
-            "name": "Owen Caissie",
-            "pos": "RF"
-          },
-          {
-            "name": "Jakob Marsee",
-            "pos": "CF"
-          },
-          {
-            "name": "Joe Mack",
-            "pos": "C"
-          },
-          {
-            "name": "Connor Norby",
-            "pos": "1B"
-          }
-        ]
+        "away": [],
+        "home": []
       },
       "bullpen": {
         "away": [
           {
-            "name": "Brandyn Garcia",
-            "role": "",
-            "usage": "used",
-            "rest": "0"
-          },
-          {
             "name": "Kevin Ginkel",
             "role": "",
-            "usage": "used",
-            "rest": "0"
-          },
-          {
-            "name": "Michael Soroka",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
+            "usage": "light",
+            "rest": "1"
           },
           {
             "name": "Ryan Thompson",
             "role": "",
-            "usage": "used",
-            "rest": "0"
+            "usage": "light",
+            "rest": "1"
           },
           {
             "name": "Taylor Clarke",
             "role": "",
-            "usage": "used",
-            "rest": "0"
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Zac Gallen",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Brandyn Garcia",
+            "role": "",
+            "usage": "fresh",
+            "rest": "1"
           },
           {
             "name": "Drey Jameson",
             "role": "",
             "usage": "fresh",
-            "rest": "3"
+            "rest": "4"
           },
           {
             "name": "Eduardo Rodriguez",
             "role": "",
             "usage": "fresh",
-            "rest": "3"
+            "rest": "4"
           },
           {
             "name": "Jonathan Loáisiga",
             "role": "",
             "usage": "fresh",
-            "rest": "3"
+            "rest": "4"
           }
         ],
         "home": [
           {
             "name": "Anthony Bender",
             "role": "",
-            "usage": "used",
-            "rest": "0"
+            "usage": "light",
+            "rest": "1"
           },
           {
             "name": "Calvin Faucher",
             "role": "",
-            "usage": "used",
-            "rest": "0"
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Max Meyer",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
           },
           {
             "name": "Michael Petersen",
             "role": "",
-            "usage": "used",
-            "rest": "0"
+            "usage": "light",
+            "rest": "1"
           },
           {
             "name": "Pete Fairbanks",
             "role": "",
-            "usage": "used",
-            "rest": "0"
-          },
-          {
-            "name": "Sandy Alcantara",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
-          },
-          {
-            "name": "Tyler Zuber",
-            "role": "",
-            "usage": "used",
-            "rest": "0"
+            "usage": "light",
+            "rest": "1"
           },
           {
             "name": "Cade Gibson",
@@ -1512,7 +1863,13 @@
             "name": "John King",
             "role": "",
             "usage": "fresh",
-            "rest": "3"
+            "rest": "4"
+          },
+          {
+            "name": "Lake Bachar",
+            "role": "",
+            "usage": "fresh",
+            "rest": "4"
           }
         ]
       },
@@ -1588,327 +1945,6 @@
       "scouts_edge": ""
     },
     {
-      "away": "NYY",
-      "home": "CLE",
-      "awayFull": "New York Yankees",
-      "homeFull": "Cleveland Guardians",
-      "awayId": 147,
-      "homeId": 114,
-      "time": "6:40 PM ET",
-      "venue": "Progressive Field",
-      "roof": "No Roof",
-      "pitchers": {
-        "away": {
-          "name": "Gerrit Cole",
-          "hand": "R",
-          "era": "2.45",
-          "whip": "1.05",
-          "k9": "7.4",
-          "bb9": "2.5",
-          "ip": "22.0",
-          "record": "1-1",
-          "lastStart": "—"
-        },
-        "home": {
-          "name": "Slade Cecconi",
-          "hand": "R",
-          "era": "4.83",
-          "whip": "1.44",
-          "k9": "7.6",
-          "bb9": "2.9",
-          "ip": "72.2",
-          "record": "3-5",
-          "lastStart": "—"
-        }
-      },
-      "weather": {
-        "temp": "80°F",
-        "sky": "Mostly Cloudy",
-        "wind": "10 mph S",
-        "humidity": "71%",
-        "precip": "—",
-        "roof": "No Roof",
-        "source": "NWS"
-      },
-      "umpire": {
-        "name": "Jacob Metz",
-        "calledKpct": "—",
-        "rpg": "—",
-        "note": ""
-      },
-      "broadcasts": {
-        "national_tv": [
-          "TBS"
-        ],
-        "away_tv": [
-          "Amazon Prime Video"
-        ],
-        "home_tv": [
-          "Guardians.TV Presented by Progressive",
-          "WKYC 3"
-        ],
-        "national_radio": [],
-        "away_radio": [
-          "WFAN 660/101.9 FM"
-        ],
-        "home_radio": [
-          "WTAM 1100",
-          "WMMS 100.7",
-          "Guardians Radio Network"
-        ]
-      },
-      "lineups": {
-        "away": [
-          {
-            "name": "Trent Grisham",
-            "pos": "CF"
-          },
-          {
-            "name": "Ben Rice",
-            "pos": "DH"
-          },
-          {
-            "name": "Paul Goldschmidt",
-            "pos": "1B"
-          },
-          {
-            "name": "Cody Bellinger",
-            "pos": "LF"
-          },
-          {
-            "name": "Jazz Chisholm Jr.",
-            "pos": "2B"
-          },
-          {
-            "name": "Spencer Jones",
-            "pos": "RF"
-          },
-          {
-            "name": "Anthony Volpe",
-            "pos": "SS"
-          },
-          {
-            "name": "Ryan McMahon",
-            "pos": "3B"
-          },
-          {
-            "name": "J.C. Escarra",
-            "pos": "C"
-          }
-        ],
-        "home": [
-          {
-            "name": "Travis Bazzana",
-            "pos": "2B"
-          },
-          {
-            "name": "José Ramírez",
-            "pos": "3B"
-          },
-          {
-            "name": "Chase DeLauter",
-            "pos": "RF"
-          },
-          {
-            "name": "Kyle Manzardo",
-            "pos": "1B"
-          },
-          {
-            "name": "Rhys Hoskins",
-            "pos": "DH"
-          },
-          {
-            "name": "Angel Martínez",
-            "pos": "LF"
-          },
-          {
-            "name": "Steven Kwan",
-            "pos": "CF"
-          },
-          {
-            "name": "Austin Hedges",
-            "pos": "C"
-          },
-          {
-            "name": "Brayan Rocchio",
-            "pos": "SS"
-          }
-        ]
-      },
-      "bullpen": {
-        "away": [
-          {
-            "name": "Cam Schlittler",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
-          },
-          {
-            "name": "Camilo Doval",
-            "role": "",
-            "usage": "used",
-            "rest": "0"
-          },
-          {
-            "name": "Fernando Cruz",
-            "role": "",
-            "usage": "used",
-            "rest": "0"
-          },
-          {
-            "name": "Jake Bird",
-            "role": "",
-            "usage": "used",
-            "rest": "0"
-          },
-          {
-            "name": "Paul Blackburn",
-            "role": "",
-            "usage": "used",
-            "rest": "0"
-          },
-          {
-            "name": "Tim Hill",
-            "role": "",
-            "usage": "used",
-            "rest": "0"
-          },
-          {
-            "name": "David Bednar",
-            "role": "",
-            "usage": "light",
-            "rest": "1"
-          },
-          {
-            "name": "Will Warren",
-            "role": "",
-            "usage": "light",
-            "rest": "1"
-          }
-        ],
-        "home": [
-          {
-            "name": "Colin Holderman",
-            "role": "",
-            "usage": "used",
-            "rest": "0"
-          },
-          {
-            "name": "Joey Cantillo",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
-          },
-          {
-            "name": "Matt Festa",
-            "role": "",
-            "usage": "used",
-            "rest": "0"
-          },
-          {
-            "name": "Shawn Armstrong",
-            "role": "",
-            "usage": "used",
-            "rest": "0"
-          },
-          {
-            "name": "Tim Herrin",
-            "role": "",
-            "usage": "used",
-            "rest": "0"
-          },
-          {
-            "name": "Will Dion",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
-          },
-          {
-            "name": "Cade Smith",
-            "role": "",
-            "usage": "light",
-            "rest": "1"
-          },
-          {
-            "name": "Gavin Williams",
-            "role": "",
-            "usage": "light",
-            "rest": "1"
-          }
-        ]
-      },
-      "injuries": {
-        "away": [],
-        "home": []
-      },
-      "form": {
-        "away": {
-          "w": 5,
-          "l": 5,
-          "last10": "5-5",
-          "streak": "L1",
-          "rs": 46,
-          "ra": 42,
-          "form_pct": 0.5
-        },
-        "home": {
-          "w": 3,
-          "l": 7,
-          "last10": "3-7",
-          "streak": "L2",
-          "rs": 35,
-          "ra": 51,
-          "form_pct": 0.3
-        }
-      },
-      "batting": {
-        "away": {
-          "avg": "0.242",
-          "obp": "0.329",
-          "slg": "0.433",
-          "ops": "0.762",
-          "rpg": "5.06",
-          "hrpg": "1.47",
-          "hr": 97
-        },
-        "home": {
-          "avg": "0.231",
-          "obp": "0.317",
-          "slg": "0.371",
-          "ops": "0.688",
-          "rpg": "4.04",
-          "hrpg": "0.93",
-          "hr": 64
-        }
-      },
-      "pitching": {
-        "away": {
-          "era": "3.25",
-          "whip": "1.17",
-          "k9": "8.7",
-          "bb9": "3.1",
-          "savepct": "—",
-          "bp_era": "3.25"
-        },
-        "home": {
-          "era": "3.77",
-          "whip": "1.26",
-          "k9": "9.3",
-          "bb9": "3.4",
-          "savepct": "—",
-          "bp_era": "3.77"
-        }
-      },
-      "standings": {},
-      "props": {
-        "note": "",
-        "pitchers": [],
-        "batters": []
-      },
-      "why_matters": "",
-      "scouts_edge": ""
-    },
-    {
       "away": "PHI",
       "home": "TOR",
       "awayFull": "Philadelphia Phillies",
@@ -1920,25 +1956,25 @@
       "roof": "Dome",
       "pitchers": {
         "away": {
-          "name": "Zack Wheeler",
-          "hand": "R",
-          "era": "2.22",
-          "whip": "0.85",
-          "k9": "8.4",
-          "bb9": "1.9",
-          "ip": "56.2",
-          "record": "5-1",
+          "name": "Jesús Luzardo",
+          "hand": "L",
+          "era": "4.56",
+          "whip": "1.33",
+          "k9": "9.9",
+          "bb9": "2.6",
+          "ip": "73.0",
+          "record": "4-4",
           "lastStart": "—"
         },
         "home": {
-          "name": "Dylan Cease",
+          "name": "Max Scherzer",
           "hand": "R",
-          "era": "2.91",
-          "whip": "1.16",
-          "k9": "13.6",
-          "bb9": "3.6",
-          "ip": "68.0",
-          "record": "3-3",
+          "era": "9.64",
+          "whip": "1.61",
+          "k9": "4.8",
+          "bb9": "3.9",
+          "ip": "18.2",
+          "record": "1-3",
           "lastStart": "—"
         }
       },
@@ -1952,7 +1988,7 @@
         "source": "dome"
       },
       "umpire": {
-        "name": "Alex Tosi",
+        "name": "TBD",
         "calledKpct": "—",
         "rpg": "—",
         "note": ""
@@ -1974,87 +2010,19 @@
         ]
       },
       "lineups": {
-        "away": [
-          {
-            "name": "Kyle Schwarber",
-            "pos": "DH"
-          },
-          {
-            "name": "Trea Turner",
-            "pos": "SS"
-          },
-          {
-            "name": "Bryce Harper",
-            "pos": "1B"
-          },
-          {
-            "name": "Brandon Marsh",
-            "pos": "LF"
-          },
-          {
-            "name": "Alec Bohm",
-            "pos": "3B"
-          },
-          {
-            "name": "Bryson Stott",
-            "pos": "2B"
-          },
-          {
-            "name": "J.T. Realmuto",
-            "pos": "C"
-          },
-          {
-            "name": "Adolis García",
-            "pos": "RF"
-          },
-          {
-            "name": "Justin Crawford",
-            "pos": "CF"
-          }
-        ],
-        "home": [
-          {
-            "name": "Vladimir Guerrero Jr.",
-            "pos": "DH"
-          },
-          {
-            "name": "Nathan Lukes",
-            "pos": "CF"
-          },
-          {
-            "name": "Ernie Clement",
-            "pos": "2B"
-          },
-          {
-            "name": "Jesús Sánchez",
-            "pos": "LF"
-          },
-          {
-            "name": "Yohendrick Piñango",
-            "pos": "RF"
-          },
-          {
-            "name": "Brandon Valenzuela",
-            "pos": "C"
-          },
-          {
-            "name": "Kazuma Okamoto",
-            "pos": "3B"
-          },
-          {
-            "name": "Andrés Giménez",
-            "pos": "SS"
-          },
-          {
-            "name": "Charles McAdoo",
-            "pos": "1B"
-          }
-        ]
+        "away": [],
+        "home": []
       },
       "bullpen": {
         "away": [
           {
-            "name": "Aaron Nola",
+            "name": "Brad Keller",
+            "role": "",
+            "usage": "used",
+            "rest": "2"
+          },
+          {
+            "name": "Cristopher Sánchez",
             "role": "",
             "usage": "used",
             "rest": "2"
@@ -2062,94 +2030,88 @@
           {
             "name": "Jhoan Duran",
             "role": "",
-            "usage": "used",
-            "rest": "0"
-          },
-          {
-            "name": "Jonathan Bowlan",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
+            "usage": "light",
+            "rest": "1"
           },
           {
             "name": "José Alvarado",
             "role": "",
-            "usage": "used",
-            "rest": "0"
+            "usage": "light",
+            "rest": "1"
           },
           {
             "name": "Orion Kerkering",
             "role": "",
-            "usage": "used",
-            "rest": "0"
+            "usage": "light",
+            "rest": "1"
           },
           {
-            "name": "Brad Keller",
+            "name": "Zack Wheeler",
             "role": "",
             "usage": "light",
             "rest": "1"
           },
           {
-            "name": "Cristopher Sánchez",
+            "name": "Aaron Nola",
             "role": "",
-            "usage": "light",
-            "rest": "1"
+            "usage": "fresh",
+            "rest": "3"
           },
           {
             "name": "Andrew Painter",
             "role": "",
             "usage": "fresh",
-            "rest": "3"
+            "rest": "4"
           }
         ],
         "home": [
           {
-            "name": "Jeff Hoffman",
-            "role": "",
-            "usage": "used",
-            "rest": "0"
-          },
-          {
-            "name": "Kevin Gausman",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
-          },
-          {
-            "name": "Louis Varland",
-            "role": "",
-            "usage": "used",
-            "rest": "0"
-          },
-          {
-            "name": "Mason Fluharty",
-            "role": "",
-            "usage": "used",
-            "rest": "0"
-          },
-          {
-            "name": "Tyler Rogers",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
-          },
-          {
             "name": "Patrick Corbin",
             "role": "",
-            "usage": "light",
-            "rest": "1"
+            "usage": "used",
+            "rest": "2"
           },
           {
             "name": "Simeon Woods Richardson",
             "role": "",
+            "usage": "used",
+            "rest": "2"
+          },
+          {
+            "name": "Dylan Cease",
+            "role": "",
             "usage": "light",
             "rest": "1"
           },
           {
-            "name": "Tommy Nance",
+            "name": "Jeff Hoffman",
             "role": "",
             "usage": "light",
             "rest": "1"
+          },
+          {
+            "name": "Louis Varland",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Mason Fluharty",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Braydon Fisher",
+            "role": "",
+            "usage": "fresh",
+            "rest": "4"
+          },
+          {
+            "name": "Connor Seabold",
+            "role": "",
+            "usage": "fresh",
+            "rest": "3"
           }
         ]
       },
@@ -2236,39 +2198,39 @@
       "roof": "No Roof",
       "pitchers": {
         "away": {
-          "name": "Dustin May",
+          "name": "Andre Pallante",
           "hand": "R",
-          "era": "4.21",
-          "whip": "1.25",
-          "k9": "8.2",
-          "bb9": "2.5",
-          "ip": "72.2",
-          "record": "4-6",
+          "era": "3.96",
+          "whip": "1.30",
+          "k9": "7.2",
+          "bb9": "3.2",
+          "ip": "63.2",
+          "record": "6-4",
           "lastStart": "—"
         },
         "home": {
-          "name": "Freddy Peralta",
+          "name": "Austin Warren",
           "hand": "R",
-          "era": "4.04",
-          "whip": "1.32",
-          "k9": "9.1",
-          "bb9": "3.7",
-          "ip": "78.0",
-          "record": "4-5",
+          "era": "2.01",
+          "whip": "1.12",
+          "k9": "9.3",
+          "bb9": "3.6",
+          "ip": "22.1",
+          "record": "1-2",
           "lastStart": "—"
         }
       },
       "weather": {
         "temp": "70°F",
-        "sky": "—",
-        "wind": "10 mph S",
-        "humidity": "69%",
+        "sky": "Clear",
+        "wind": "10 mph SSW",
+        "humidity": "64%",
         "precip": "—",
         "roof": "No Roof",
         "source": "NWS"
       },
       "umpire": {
-        "name": "Rob Drake",
+        "name": "TBD",
         "calledKpct": "—",
         "rpg": "—",
         "note": ""
@@ -2286,177 +2248,85 @@
           "KMOX 1120 AM/104.1 FM"
         ],
         "home_radio": [
-          "Audacy Mets Radio WHSQ 880AM"
+          "WEPN 1050AM"
         ]
       },
       "lineups": {
-        "away": [
-          {
-            "name": "JJ Wetherholt",
-            "pos": "2B"
-          },
-          {
-            "name": "Iván Herrera",
-            "pos": "DH"
-          },
-          {
-            "name": "Alec Burleson",
-            "pos": "1B"
-          },
-          {
-            "name": "Jordan Walker",
-            "pos": "RF"
-          },
-          {
-            "name": "Lars Nootbaar",
-            "pos": "LF"
-          },
-          {
-            "name": "Masyn Winn",
-            "pos": "SS"
-          },
-          {
-            "name": "Jimmy Crooks",
-            "pos": "C"
-          },
-          {
-            "name": "Nolan Gorman",
-            "pos": "3B"
-          },
-          {
-            "name": "Nathan Church",
-            "pos": "CF"
-          }
-        ],
-        "home": [
-          {
-            "name": "Carson Benge",
-            "pos": "RF"
-          },
-          {
-            "name": "Bo Bichette",
-            "pos": "SS"
-          },
-          {
-            "name": "Juan Soto",
-            "pos": "LF"
-          },
-          {
-            "name": "Jared Young",
-            "pos": "1B"
-          },
-          {
-            "name": "A.J. Ewing",
-            "pos": "CF"
-          },
-          {
-            "name": "Marcus Semien",
-            "pos": "2B"
-          },
-          {
-            "name": "Brett Baty",
-            "pos": "3B"
-          },
-          {
-            "name": "MJ Melendez",
-            "pos": "DH"
-          },
-          {
-            "name": "Francisco Alvarez",
-            "pos": "C"
-          }
-        ]
+        "away": [],
+        "home": []
       },
       "bullpen": {
         "away": [
           {
+            "name": "Dustin May",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
             "name": "Justin Bruihl",
             "role": "",
-            "usage": "used",
-            "rest": "0"
+            "usage": "light",
+            "rest": "1"
           },
           {
             "name": "Matt Svanson",
             "role": "",
-            "usage": "used",
-            "rest": "0"
-          },
-          {
-            "name": "Michael McGreevy",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
-          },
-          {
-            "name": "Riley O'Brien",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
-          },
-          {
-            "name": "Andre Pallante",
-            "role": "",
-            "usage": "fresh",
-            "rest": "—"
+            "usage": "light",
+            "rest": "1"
           },
           {
             "name": "George Soriano",
             "role": "",
             "usage": "fresh",
-            "rest": "2"
+            "rest": "3"
           },
           {
             "name": "Gordon Graceffo",
             "role": "",
             "usage": "fresh",
-            "rest": "3"
+            "rest": "4"
           },
           {
             "name": "Hunter Dobbins",
             "role": "",
             "usage": "fresh",
-            "rest": "4"
+            "rest": "5"
+          },
+          {
+            "name": "JoJo Romero",
+            "role": "",
+            "usage": "fresh",
+            "rest": "3"
+          },
+          {
+            "name": "Kyle Leahy",
+            "role": "",
+            "usage": "fresh",
+            "rest": "5"
           }
         ],
         "home": [
           {
-            "name": "A.J. Minter",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
-          },
-          {
             "name": "Cionel Pérez",
             "role": "",
-            "usage": "used",
-            "rest": "0"
+            "usage": "light",
+            "rest": "1"
           },
           {
-            "name": "Huascar Brazobán",
+            "name": "Freddy Peralta",
             "role": "",
-            "usage": "used",
-            "rest": "2"
+            "usage": "light",
+            "rest": "1"
           },
           {
             "name": "Joey Gerber",
             "role": "",
-            "usage": "used",
-            "rest": "0"
+            "usage": "light",
+            "rest": "1"
           },
           {
-            "name": "Luke Weaver",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
-          },
-          {
-            "name": "Sean Manaea",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
-          },
-          {
-            "name": "Austin Warren",
+            "name": "A.J. Minter",
             "role": "",
             "usage": "fresh",
             "rest": "3"
@@ -2465,7 +2335,25 @@
             "name": "Brooks Raley",
             "role": "",
             "usage": "fresh",
-            "rest": "2"
+            "rest": "3"
+          },
+          {
+            "name": "Christian Scott",
+            "role": "",
+            "usage": "fresh",
+            "rest": "5"
+          },
+          {
+            "name": "David Peterson",
+            "role": "",
+            "usage": "fresh",
+            "rest": "—"
+          },
+          {
+            "name": "Devin Williams",
+            "role": "",
+            "usage": "fresh",
+            "rest": "3"
           }
         ]
       },
@@ -2552,39 +2440,39 @@
       "roof": "No Roof",
       "pitchers": {
         "away": {
-          "name": "Nathan Eovaldi",
-          "hand": "R",
-          "era": "4.26",
-          "whip": "1.18",
-          "k9": "8.6",
-          "bb9": "2.2",
-          "ip": "80.1",
-          "record": "5-6",
+          "name": "MacKenzie Gore",
+          "hand": "L",
+          "era": "4.23",
+          "whip": "1.29",
+          "k9": "9.6",
+          "bb9": "4.1",
+          "ip": "66.0",
+          "record": "4-5",
           "lastStart": "—"
         },
         "home": {
-          "name": "Stephen Kolek",
+          "name": "Seth Lugo",
           "hand": "R",
-          "era": "3.14",
-          "whip": "1.07",
-          "k9": "6.3",
-          "bb9": "1.9",
-          "ip": "43.0",
-          "record": "3-1",
+          "era": "3.91",
+          "whip": "1.36",
+          "k9": "7.6",
+          "bb9": "2.8",
+          "ip": "76.0",
+          "record": "2-4",
           "lastStart": "—"
         }
       },
       "weather": {
-        "temp": "81°F",
-        "sky": "Mostly Clear",
-        "wind": "11 mph S",
-        "humidity": "69%",
+        "temp": "79°F",
+        "sky": "Clear",
+        "wind": "—",
+        "humidity": "74%",
         "precip": "—",
         "roof": "No Roof",
         "source": "NWS"
       },
       "umpire": {
-        "name": "James Jean",
+        "name": "TBD",
         "calledKpct": "—",
         "rpg": "—",
         "note": ""
@@ -2607,182 +2495,108 @@
         ]
       },
       "lineups": {
-        "away": [
-          {
-            "name": "Joc Pederson",
-            "pos": "DH"
-          },
-          {
-            "name": "Corey Seager",
-            "pos": "SS"
-          },
-          {
-            "name": "Josh Jung",
-            "pos": "3B"
-          },
-          {
-            "name": "Brandon Nimmo",
-            "pos": "RF"
-          },
-          {
-            "name": "Wyatt Langford",
-            "pos": "LF"
-          },
-          {
-            "name": "Ezequiel Duran",
-            "pos": "2B"
-          },
-          {
-            "name": "Jake Burger",
-            "pos": "1B"
-          },
-          {
-            "name": "Evan Carter",
-            "pos": "CF"
-          },
-          {
-            "name": "Kyle Higashioka",
-            "pos": "C"
-          }
-        ],
-        "home": [
-          {
-            "name": "Carter Jensen",
-            "pos": "C"
-          },
-          {
-            "name": "Bobby Witt Jr.",
-            "pos": "SS"
-          },
-          {
-            "name": "Maikel Garcia",
-            "pos": "3B"
-          },
-          {
-            "name": "Vinnie Pasquantino",
-            "pos": "1B"
-          },
-          {
-            "name": "Salvador Perez",
-            "pos": "DH"
-          },
-          {
-            "name": "Jac Caglianone",
-            "pos": "RF"
-          },
-          {
-            "name": "Michael Massey",
-            "pos": "2B"
-          },
-          {
-            "name": "Isaac Collins",
-            "pos": "LF"
-          },
-          {
-            "name": "Kyle Isbel",
-            "pos": "CF"
-          }
-        ]
+        "away": [],
+        "home": []
       },
       "bullpen": {
         "away": [
           {
-            "name": "Cole Winn",
+            "name": "Nathan Eovaldi",
             "role": "",
-            "usage": "used",
-            "rest": "0"
-          },
-          {
-            "name": "Jacob deGrom",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
-          },
-          {
-            "name": "Jalen Beeks",
-            "role": "",
-            "usage": "used",
-            "rest": "0"
-          },
-          {
-            "name": "Peyton Gray",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
+            "usage": "light",
+            "rest": "1"
           },
           {
             "name": "Robby Ahlstrom",
             "role": "",
-            "usage": "used",
-            "rest": "0"
+            "usage": "light",
+            "rest": "1"
           },
           {
             "name": "Cal Quantrill",
             "role": "",
             "usage": "fresh",
-            "rest": "3"
+            "rest": "4"
+          },
+          {
+            "name": "Cole Winn",
+            "role": "",
+            "usage": "fresh",
+            "rest": "1"
           },
           {
             "name": "Jack Leiter",
             "role": "",
             "usage": "fresh",
-            "rest": "3"
+            "rest": "4"
           },
           {
             "name": "Jacob Latz",
             "role": "",
             "usage": "fresh",
-            "rest": "4"
+            "rest": "5"
+          },
+          {
+            "name": "Jacob deGrom",
+            "role": "",
+            "usage": "fresh",
+            "rest": "3"
+          },
+          {
+            "name": "Jakob Junis",
+            "role": "",
+            "usage": "fresh",
+            "rest": "—"
           }
         ],
         "home": [
           {
             "name": "Alex Lange",
             "role": "",
-            "usage": "used",
-            "rest": "0"
+            "usage": "light",
+            "rest": "1"
           },
           {
             "name": "Daniel Lynch IV",
             "role": "",
-            "usage": "used",
-            "rest": "0"
+            "usage": "light",
+            "rest": "1"
           },
           {
             "name": "John Schreiber",
             "role": "",
-            "usage": "used",
-            "rest": "0"
+            "usage": "light",
+            "rest": "1"
           },
           {
-            "name": "Noah Cameron",
+            "name": "Stephen Kolek",
             "role": "",
-            "usage": "used",
-            "rest": "2"
+            "usage": "light",
+            "rest": "1"
           },
           {
             "name": "Steven Cruz",
             "role": "",
-            "usage": "used",
-            "rest": "0"
+            "usage": "light",
+            "rest": "1"
           },
           {
             "name": "Beck Way",
             "role": "",
             "usage": "fresh",
-            "rest": "2"
+            "rest": "3"
           },
           {
             "name": "Lucas Erceg",
             "role": "",
             "usage": "fresh",
-            "rest": "2"
+            "rest": "3"
           },
           {
             "name": "Luinder Avila",
             "role": "",
             "usage": "fresh",
-            "rest": "3"
+            "rest": "4"
           }
         ]
       },
@@ -2795,27 +2609,27 @@
           "w": 7,
           "l": 3,
           "last10": "7-3",
-          "streak": "L1",
-          "rs": 48,
+          "streak": "W5",
+          "rs": 50,
           "ra": 33,
           "form_pct": 0.7
         },
         "home": {
-          "w": 5,
-          "l": 5,
-          "last10": "5-5",
-          "streak": "L3",
-          "rs": 47,
-          "ra": 48,
-          "form_pct": 0.5
+          "w": 6,
+          "l": 4,
+          "last10": "6-4",
+          "streak": "L2",
+          "rs": 51,
+          "ra": 42,
+          "form_pct": 0.6
         }
       },
       "batting": {
         "away": {
           "avg": "0.236",
           "obp": "0.315",
-          "slg": "0.383",
-          "ops": "0.698",
+          "slg": "0.382",
+          "ops": "0.697",
           "rpg": "4.02",
           "hrpg": "1.00",
           "hr": 66
@@ -2869,25 +2683,25 @@
       "roof": "No Roof",
       "pitchers": {
         "away": {
-          "name": "Grant Holmes",
-          "hand": "R",
-          "era": "4.05",
-          "whip": "1.34",
-          "k9": "8.0",
-          "bb9": "3.9",
-          "ip": "66.2",
-          "record": "4-2",
+          "name": "Chris Sale",
+          "hand": "L",
+          "era": "2.23",
+          "whip": "1.03",
+          "k9": "10.7",
+          "bb9": "2.4",
+          "ip": "72.2",
+          "record": "8-4",
           "lastStart": "—"
         },
         "home": {
-          "name": "Brandon Eisert",
-          "hand": "L",
-          "era": "4.30",
-          "whip": "1.43",
-          "k9": "9.8",
-          "bb9": "3.7",
-          "ip": "14.2",
-          "record": "1-0",
+          "name": "TBD",
+          "hand": "R",
+          "era": "—",
+          "whip": "—",
+          "k9": "—",
+          "bb9": "—",
+          "ip": "—",
+          "record": "—",
           "lastStart": "—"
         }
       },
@@ -2901,7 +2715,7 @@
         "source": "unavailable"
       },
       "umpire": {
-        "name": "Jonathan Parra",
+        "name": "TBD",
         "calledKpct": "—",
         "rpg": "—",
         "note": ""
@@ -2909,8 +2723,7 @@
       "broadcasts": {
         "national_tv": [],
         "away_tv": [
-          "BravesVision",
-          "Gray TV"
+          "BravesVision"
         ],
         "home_tv": [
           "Chicago Sports Network"
@@ -2924,129 +2737,55 @@
         ]
       },
       "lineups": {
-        "away": [
-          {
-            "name": "Ronald Acuña Jr.",
-            "pos": "RF"
-          },
-          {
-            "name": "Michael Harris II",
-            "pos": "CF"
-          },
-          {
-            "name": "Matt Olson",
-            "pos": "1B"
-          },
-          {
-            "name": "Ozzie Albies",
-            "pos": "2B"
-          },
-          {
-            "name": "Mauricio Dubón",
-            "pos": "SS"
-          },
-          {
-            "name": "Dominic Smith",
-            "pos": "DH"
-          },
-          {
-            "name": "Austin Riley",
-            "pos": "3B"
-          },
-          {
-            "name": "Mike Yastrzemski",
-            "pos": "LF"
-          },
-          {
-            "name": "Austin Wynns",
-            "pos": "C"
-          }
-        ],
-        "home": [
-          {
-            "name": "Sam Antonacci",
-            "pos": "LF"
-          },
-          {
-            "name": "Miguel Vargas",
-            "pos": "3B"
-          },
-          {
-            "name": "Andrew Benintendi",
-            "pos": "DH"
-          },
-          {
-            "name": "Jacob Gonzalez",
-            "pos": "1B"
-          },
-          {
-            "name": "Chase Meidroth",
-            "pos": "2B"
-          },
-          {
-            "name": "Braden Montgomery",
-            "pos": "RF"
-          },
-          {
-            "name": "Tristan Peters",
-            "pos": "CF"
-          },
-          {
-            "name": "Luisangel Acuña",
-            "pos": "SS"
-          },
-          {
-            "name": "Drew Romo",
-            "pos": "C"
-          }
-        ]
+        "away": [],
+        "home": []
       },
       "bullpen": {
         "away": [
           {
-            "name": "Bryce Elder",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
-          },
-          {
             "name": "Carlos Carrasco",
             "role": "",
-            "usage": "used",
-            "rest": "0"
-          },
-          {
-            "name": "Didier Fuentes",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
+            "usage": "light",
+            "rest": "1"
           },
           {
             "name": "Dylan Dodd",
             "role": "",
-            "usage": "used",
-            "rest": "0"
+            "usage": "light",
+            "rest": "1"
           },
           {
-            "name": "Reynaldo López",
+            "name": "Grant Holmes",
             "role": "",
-            "usage": "used",
-            "rest": "2"
+            "usage": "light",
+            "rest": "1"
           },
           {
-            "name": "Chris Sale",
+            "name": "Raisel Iglesias",
             "role": "",
-            "usage": "fresh",
-            "rest": "5"
+            "usage": "light",
+            "rest": "1"
           },
           {
-            "name": "Dylan Lee",
+            "name": "Robert Suarez",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Bryce Elder",
             "role": "",
             "usage": "fresh",
             "rest": "3"
           },
           {
-            "name": "Martín Pérez",
+            "name": "Didier Fuentes",
+            "role": "",
+            "usage": "fresh",
+            "rest": "3"
+          },
+          {
+            "name": "Dylan Lee",
             "role": "",
             "usage": "fresh",
             "rest": "4"
@@ -3054,46 +2793,46 @@
         ],
         "home": [
           {
+            "name": "Brandon Eisert",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
             "name": "Erick Fedde",
             "role": "",
-            "usage": "used",
-            "rest": "0"
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Grant Taylor",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
           },
           {
             "name": "Seranthony Domínguez",
             "role": "",
-            "usage": "used",
-            "rest": "0"
-          },
-          {
-            "name": "Trevor Richards",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
+            "usage": "light",
+            "rest": "1"
           },
           {
             "name": "Tyler Davis",
             "role": "",
-            "usage": "used",
-            "rest": "0"
-          },
-          {
-            "name": "Tyler Gilbert",
-            "role": "",
-            "usage": "used",
-            "rest": "0"
+            "usage": "light",
+            "rest": "1"
           },
           {
             "name": "Anthony Kay",
             "role": "",
             "usage": "fresh",
-            "rest": "4"
+            "rest": "5"
           },
           {
             "name": "Bryan Hudson",
             "role": "",
             "usage": "fresh",
-            "rest": "2"
+            "rest": "3"
           },
           {
             "name": "Davis Martin",
@@ -3109,21 +2848,21 @@
       },
       "form": {
         "away": {
-          "w": 8,
-          "l": 2,
-          "last10": "8-2",
-          "streak": "W3",
-          "rs": 55,
-          "ra": 34,
-          "form_pct": 0.8
+          "w": 7,
+          "l": 3,
+          "last10": "7-3",
+          "streak": "W2",
+          "rs": 50,
+          "ra": 38,
+          "form_pct": 0.7
         },
         "home": {
           "w": 6,
           "l": 4,
           "last10": "6-4",
-          "streak": "W4",
+          "streak": "W3",
           "rs": 54,
-          "ra": 42,
+          "ra": 45,
           "form_pct": 0.6
         }
       },
@@ -3131,20 +2870,20 @@
         "away": {
           "avg": "0.257",
           "obp": "0.324",
-          "slg": "0.432",
-          "ops": "0.756",
-          "rpg": "5.19",
+          "slg": "0.431",
+          "ops": "0.755",
+          "rpg": "5.21",
           "hrpg": "1.37",
           "hr": 92
         },
         "home": {
-          "avg": "0.243",
-          "obp": "0.328",
-          "slg": "0.413",
+          "avg": "0.242",
+          "obp": "0.327",
+          "slg": "0.414",
           "ops": "0.741",
-          "rpg": "4.76",
-          "hrpg": "1.36",
-          "hr": 90
+          "rpg": "4.79",
+          "hrpg": "1.38",
+          "hr": 91
         }
       },
       "pitching": {
@@ -3157,12 +2896,12 @@
           "bp_era": "3.22"
         },
         "home": {
-          "era": "4.37",
+          "era": "4.35",
           "whip": "1.32",
           "k9": "8.2",
           "bb9": "3.9",
           "savepct": "—",
-          "bp_era": "4.37"
+          "bp_era": "4.35"
         }
       },
       "standings": {},
@@ -3186,39 +2925,39 @@
       "roof": "No Roof",
       "pitchers": {
         "away": {
-          "name": "Colin Rea",
-          "hand": "R",
-          "era": "5.19",
-          "whip": "1.43",
-          "k9": "7.0",
-          "bb9": "3.2",
-          "ip": "69.1",
-          "record": "5-3",
+          "name": "Shota Imanaga",
+          "hand": "L",
+          "era": "4.74",
+          "whip": "1.08",
+          "k9": "8.8",
+          "bb9": "2.2",
+          "ip": "76.0",
+          "record": "4-6",
           "lastStart": "—"
         },
         "home": {
-          "name": "Tomoyuki Sugano",
+          "name": "Michael Lorenzen",
           "hand": "R",
-          "era": "3.82",
-          "whip": "1.26",
-          "k9": "5.1",
-          "bb9": "2.6",
-          "ip": "68.1",
-          "record": "5-4",
+          "era": "8.01",
+          "whip": "1.99",
+          "k9": "7.1",
+          "bb9": "3.3",
+          "ip": "60.2",
+          "record": "2-8",
           "lastStart": "—"
         }
       },
       "weather": {
-        "temp": "80°F",
-        "sky": "Mostly Cloudy",
-        "wind": "8 mph N",
-        "humidity": "20%",
+        "temp": "—",
+        "sky": "Mostly Clear",
+        "wind": "10 mph SSE",
+        "humidity": "—",
         "precip": "—",
         "roof": "No Roof",
         "source": "NWS"
       },
       "umpire": {
-        "name": "David Rackley",
+        "name": "TBD",
         "calledKpct": "—",
         "rpg": "—",
         "note": ""
@@ -3240,117 +2979,49 @@
         ]
       },
       "lineups": {
-        "away": [
-          {
-            "name": "Pete Crow-Armstrong",
-            "pos": "CF"
-          },
-          {
-            "name": "Moisés Ballesteros",
-            "pos": "DH"
-          },
-          {
-            "name": "Michael Busch",
-            "pos": "1B"
-          },
-          {
-            "name": "Alex Bregman",
-            "pos": "3B"
-          },
-          {
-            "name": "Ian Happ",
-            "pos": "LF"
-          },
-          {
-            "name": "Seiya Suzuki",
-            "pos": "RF"
-          },
-          {
-            "name": "Nico Hoerner",
-            "pos": "2B"
-          },
-          {
-            "name": "Miguel Amaya",
-            "pos": "C"
-          },
-          {
-            "name": "Dansby Swanson",
-            "pos": "SS"
-          }
-        ],
-        "home": [
-          {
-            "name": "Jake McCarthy",
-            "pos": "LF"
-          },
-          {
-            "name": "Willi Castro",
-            "pos": "2B"
-          },
-          {
-            "name": "TJ Rumfield",
-            "pos": "1B"
-          },
-          {
-            "name": "Hunter Goodman",
-            "pos": "C"
-          },
-          {
-            "name": "Troy Johnston",
-            "pos": "RF"
-          },
-          {
-            "name": "Ezequiel Tovar",
-            "pos": "SS"
-          },
-          {
-            "name": "Cole Carrigg",
-            "pos": "CF"
-          },
-          {
-            "name": "Kyle Karros",
-            "pos": "3B"
-          },
-          {
-            "name": "Edouard Julien",
-            "pos": "DH"
-          }
-        ]
+        "away": [],
+        "home": []
       },
       "bullpen": {
         "away": [
           {
-            "name": "Daniel Palencia",
+            "name": "Colin Rea",
             "role": "",
-            "usage": "used",
-            "rest": "2"
+            "usage": "light",
+            "rest": "1"
           },
           {
-            "name": "Jacob Webb",
+            "name": "Ethan Roberts",
             "role": "",
-            "usage": "used",
-            "rest": "2"
+            "usage": "light",
+            "rest": "1"
           },
           {
-            "name": "Javier Assad",
+            "name": "Hoby Milner",
             "role": "",
-            "usage": "used",
-            "rest": "2"
+            "usage": "light",
+            "rest": "1"
           },
           {
             "name": "Ryan Rolison",
             "role": "",
-            "usage": "used",
-            "rest": "0"
+            "usage": "light",
+            "rest": "1"
           },
           {
             "name": "Ben Brown",
             "role": "",
             "usage": "fresh",
-            "rest": "3"
+            "rest": "4"
           },
           {
             "name": "Caleb Thielbar",
+            "role": "",
+            "usage": "fresh",
+            "rest": "4"
+          },
+          {
+            "name": "Daniel Palencia",
             "role": "",
             "usage": "fresh",
             "rest": "3"
@@ -3359,45 +3030,45 @@
             "name": "Edward Cabrera",
             "role": "",
             "usage": "fresh",
-            "rest": "4"
-          },
-          {
-            "name": "Ethan Roberts",
-            "role": "",
-            "usage": "fresh",
-            "rest": "4"
+            "rest": "5"
           }
         ],
         "home": [
           {
-            "name": "Kyle Freeland",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
-          },
-          {
             "name": "Antonio Senzatela",
             "role": "",
-            "usage": "fresh",
-            "rest": "4"
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Brennan Bernardino",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Jaden Hill",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Seth Halvorsen",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Tomoyuki Sugano",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
           },
           {
             "name": "Blas Castaño",
             "role": "",
             "usage": "fresh",
-            "rest": "3"
-          },
-          {
-            "name": "Brennan Bernardino",
-            "role": "",
-            "usage": "fresh",
-            "rest": "3"
-          },
-          {
-            "name": "Jaden Hill",
-            "role": "",
-            "usage": "fresh",
-            "rest": "2"
+            "rest": "4"
           },
           {
             "name": "Jeff Criswell",
@@ -3409,13 +3080,7 @@
             "name": "Juan Mejia",
             "role": "",
             "usage": "fresh",
-            "rest": "3"
-          },
-          {
-            "name": "Michael Lorenzen",
-            "role": "",
-            "usage": "fresh",
-            "rest": "—"
+            "rest": "4"
           }
         ]
       },
@@ -3425,22 +3090,22 @@
       },
       "form": {
         "away": {
-          "w": 4,
-          "l": 6,
-          "last10": "4-6",
-          "streak": "W1",
-          "rs": 38,
-          "ra": 49,
-          "form_pct": 0.4
+          "w": 3,
+          "l": 7,
+          "last10": "3-7",
+          "streak": "L1",
+          "rs": 34,
+          "ra": 54,
+          "form_pct": 0.3
         },
         "home": {
-          "w": 4,
-          "l": 6,
-          "last10": "4-6",
-          "streak": "L1",
-          "rs": 56,
-          "ra": 81,
-          "form_pct": 0.4
+          "w": 5,
+          "l": 5,
+          "last10": "5-5",
+          "streak": "W2",
+          "rs": 62,
+          "ra": 80,
+          "form_pct": 0.5
         }
       },
       "batting": {
@@ -3449,9 +3114,9 @@
           "obp": "0.333",
           "slg": "0.388",
           "ops": "0.721",
-          "rpg": "4.54",
-          "hrpg": "1.10",
-          "hr": 74
+          "rpg": "4.57",
+          "hrpg": "1.12",
+          "hr": 75
         },
         "home": {
           "avg": "0.247",
@@ -3465,20 +3130,263 @@
       },
       "pitching": {
         "away": {
-          "era": "4.36",
+          "era": "4.34",
           "whip": "1.24",
           "k9": "8.0",
-          "bb9": "3.0",
+          "bb9": "3.1",
           "savepct": "—",
-          "bp_era": "4.36"
+          "bp_era": "4.34"
         },
         "home": {
-          "era": "5.57",
+          "era": "5.56",
           "whip": "1.52",
           "k9": "7.3",
           "bb9": "3.4",
           "savepct": "—",
-          "bp_era": "5.57"
+          "bp_era": "5.56"
+        }
+      },
+      "standings": {},
+      "props": {
+        "note": "",
+        "pitchers": [],
+        "batters": []
+      },
+      "why_matters": "",
+      "scouts_edge": ""
+    },
+    {
+      "away": "MIL",
+      "home": "ATH",
+      "awayFull": "Milwaukee Brewers",
+      "homeFull": "Athletics",
+      "awayId": 158,
+      "homeId": 133,
+      "time": "9:05 PM ET",
+      "venue": "Las Vegas Ballpark",
+      "roof": "No Roof",
+      "pitchers": {
+        "away": {
+          "name": "Brandon Sproat",
+          "hand": "R",
+          "era": "6.17",
+          "whip": "1.56",
+          "k9": "9.0",
+          "bb9": "4.8",
+          "ip": "54.0",
+          "record": "1-4",
+          "lastStart": "—"
+        },
+        "home": {
+          "name": "Jack Perkins",
+          "hand": "R",
+          "era": "6.19",
+          "whip": "1.28",
+          "k9": "11.0",
+          "bb9": "2.5",
+          "ip": "32.0",
+          "record": "2-3",
+          "lastStart": "—"
+        }
+      },
+      "weather": {
+        "temp": "79°F",
+        "sky": "Clear",
+        "wind": "3 mph NNW",
+        "humidity": "20%",
+        "precip": "—",
+        "roof": "No Roof",
+        "source": "NWS"
+      },
+      "umpire": {
+        "name": "TBD",
+        "calledKpct": "—",
+        "rpg": "—",
+        "note": ""
+      },
+      "broadcasts": {
+        "national_tv": [],
+        "away_tv": [
+          "Brewers.TV"
+        ],
+        "home_tv": [
+          "NBCSCA"
+        ],
+        "national_radio": [],
+        "away_radio": [
+          "WTMJ 620"
+        ],
+        "home_radio": [
+          "Talk 650 KSTE",
+          "A's Cast"
+        ]
+      },
+      "lineups": {
+        "away": [],
+        "home": []
+      },
+      "bullpen": {
+        "away": [
+          {
+            "name": "Aaron Ashby",
+            "role": "",
+            "usage": "used",
+            "rest": "2"
+          },
+          {
+            "name": "Chad Patrick",
+            "role": "",
+            "usage": "used",
+            "rest": "2"
+          },
+          {
+            "name": "Drew Rom",
+            "role": "",
+            "usage": "used",
+            "rest": "2"
+          },
+          {
+            "name": "Grant Anderson",
+            "role": "",
+            "usage": "used",
+            "rest": "2"
+          },
+          {
+            "name": "Kyle Harrison",
+            "role": "",
+            "usage": "used",
+            "rest": "2"
+          },
+          {
+            "name": "Coleman Crow",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Joel Kuhnel",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Robert Gasser",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          }
+        ],
+        "home": [
+          {
+            "name": "Hogan Harris",
+            "role": "",
+            "usage": "used",
+            "rest": "2"
+          },
+          {
+            "name": "Jeffrey Springs",
+            "role": "",
+            "usage": "used",
+            "rest": "2"
+          },
+          {
+            "name": "José Suarez",
+            "role": "",
+            "usage": "used",
+            "rest": "2"
+          },
+          {
+            "name": "Elvis Alvarado",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "J.T. Ginn",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Mason Barnett",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Gage Jump",
+            "role": "",
+            "usage": "fresh",
+            "rest": "3"
+          },
+          {
+            "name": "Joey Estes",
+            "role": "",
+            "usage": "fresh",
+            "rest": "—"
+          }
+        ]
+      },
+      "injuries": {
+        "away": [],
+        "home": []
+      },
+      "form": {
+        "away": {
+          "w": 7,
+          "l": 3,
+          "last10": "7-3",
+          "streak": "W3",
+          "rs": 83,
+          "ra": 51,
+          "form_pct": 0.7
+        },
+        "home": {
+          "w": 5,
+          "l": 5,
+          "last10": "5-5",
+          "streak": "W1",
+          "rs": 56,
+          "ra": 67,
+          "form_pct": 0.5
+        }
+      },
+      "batting": {
+        "away": {
+          "avg": "0.253",
+          "obp": "0.340",
+          "slg": "0.387",
+          "ops": "0.727",
+          "rpg": "5.37",
+          "hrpg": "0.85",
+          "hr": 55
+        },
+        "home": {
+          "avg": "0.246",
+          "obp": "0.326",
+          "slg": "0.406",
+          "ops": "0.732",
+          "rpg": "4.39",
+          "hrpg": "1.25",
+          "hr": 84
+        }
+      },
+      "pitching": {
+        "away": {
+          "era": "3.46",
+          "whip": "1.22",
+          "k9": "9.8",
+          "bb9": "3.5",
+          "savepct": "—",
+          "bp_era": "3.46"
+        },
+        "home": {
+          "era": "4.65",
+          "whip": "1.42",
+          "k9": "8.3",
+          "bb9": "3.9",
+          "savepct": "—",
+          "bp_era": "4.65"
         }
       },
       "standings": {},
@@ -3502,39 +3410,39 @@
       "roof": "No Roof",
       "pitchers": {
         "away": {
-          "name": "Kai-Wei Teng",
+          "name": "Peter Lambert",
           "hand": "R",
-          "era": "3.00",
-          "whip": "1.19",
-          "k9": "8.6",
-          "bb9": "4.3",
-          "ip": "48.0",
-          "record": "3-4",
+          "era": "3.55",
+          "whip": "1.26",
+          "k9": "8.3",
+          "bb9": "4.4",
+          "ip": "50.2",
+          "record": "5-4",
           "lastStart": "—"
         },
         "home": {
-          "name": "Walbert Ureña",
-          "hand": "R",
-          "era": "2.61",
-          "whip": "1.37",
-          "k9": "9.1",
-          "bb9": "5.4",
-          "ip": "51.2",
-          "record": "3-4",
+          "name": "Reid Detmers",
+          "hand": "L",
+          "era": "4.26",
+          "whip": "1.14",
+          "k9": "10.7",
+          "bb9": "2.9",
+          "ip": "74.0",
+          "record": "2-5",
           "lastStart": "—"
         }
       },
       "weather": {
-        "temp": "70°F",
+        "temp": "64°F",
         "sky": "Clear",
-        "wind": "9 mph SW",
-        "humidity": "71%",
+        "wind": "0 mph N",
+        "humidity": "88%",
         "precip": "—",
         "roof": "No Roof",
         "source": "NWS"
       },
       "umpire": {
-        "name": "Dillon Wilson",
+        "name": "TBD",
         "calledKpct": "—",
         "rpg": "—",
         "note": ""
@@ -3556,129 +3464,55 @@
         ]
       },
       "lineups": {
-        "away": [
-          {
-            "name": "Jeremy Peña",
-            "pos": "SS"
-          },
-          {
-            "name": "Yordan Alvarez",
-            "pos": "DH"
-          },
-          {
-            "name": "Christian Walker",
-            "pos": "1B"
-          },
-          {
-            "name": "Isaac Paredes",
-            "pos": "3B"
-          },
-          {
-            "name": "Jose Altuve",
-            "pos": "2B"
-          },
-          {
-            "name": "Cam Smith",
-            "pos": "RF"
-          },
-          {
-            "name": "Joey Loperfido",
-            "pos": "LF"
-          },
-          {
-            "name": "Jake Meyers",
-            "pos": "CF"
-          },
-          {
-            "name": "Christian Vázquez",
-            "pos": "C"
-          }
-        ],
-        "home": [
-          {
-            "name": "Zach Neto",
-            "pos": "SS"
-          },
-          {
-            "name": "Mike Trout",
-            "pos": "CF"
-          },
-          {
-            "name": "Wade Meckler",
-            "pos": "LF"
-          },
-          {
-            "name": "Jo Adell",
-            "pos": "DH"
-          },
-          {
-            "name": "Nolan Schanuel",
-            "pos": "1B"
-          },
-          {
-            "name": "Oswald Peraza",
-            "pos": "2B"
-          },
-          {
-            "name": "Denzer Guzman",
-            "pos": "3B"
-          },
-          {
-            "name": "Jose Siri",
-            "pos": "RF"
-          },
-          {
-            "name": "Sebastián Rivero",
-            "pos": "C"
-          }
-        ]
+        "away": [],
+        "home": []
       },
       "bullpen": {
         "away": [
           {
-            "name": "Mike Burrows",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
-          },
-          {
-            "name": "Nate Pearson",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
-          },
-          {
-            "name": "Steven Okert",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
-          },
-          {
             "name": "Bryan Abreu",
             "role": "",
-            "usage": "light",
-            "rest": "1"
+            "usage": "used",
+            "rest": "2"
           },
           {
             "name": "Bryan King",
             "role": "",
-            "usage": "light",
-            "rest": "1"
+            "usage": "used",
+            "rest": "2"
           },
           {
             "name": "Enyel De Los Santos",
             "role": "",
-            "usage": "light",
-            "rest": "1"
+            "usage": "used",
+            "rest": "2"
           },
           {
             "name": "Josh Hader",
+            "role": "",
+            "usage": "used",
+            "rest": "2"
+          },
+          {
+            "name": "Spencer Arrighetti",
+            "role": "",
+            "usage": "used",
+            "rest": "2"
+          },
+          {
+            "name": "AJ Blubaugh",
             "role": "",
             "usage": "light",
             "rest": "1"
           },
           {
-            "name": "Spencer Arrighetti",
+            "name": "Alimber Santa",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Kai-Wei Teng",
             "role": "",
             "usage": "light",
             "rest": "1"
@@ -3686,19 +3520,31 @@
         ],
         "home": [
           {
-            "name": "Chase Silseth",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
-          },
-          {
-            "name": "José Soriano",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
-          },
-          {
             "name": "Grayson Rodriguez",
+            "role": "",
+            "usage": "used",
+            "rest": "2"
+          },
+          {
+            "name": "Ryan Zeferjahn",
+            "role": "",
+            "usage": "used",
+            "rest": "2"
+          },
+          {
+            "name": "Samy Natera Jr.",
+            "role": "",
+            "usage": "used",
+            "rest": "2"
+          },
+          {
+            "name": "Brent Suter",
+            "role": "",
+            "usage": "light",
+            "rest": "1"
+          },
+          {
+            "name": "Drew Pomeranz",
             "role": "",
             "usage": "light",
             "rest": "1"
@@ -3710,28 +3556,16 @@
             "rest": "1"
           },
           {
-            "name": "Ryan Zeferjahn",
+            "name": "Walbert Ureña",
             "role": "",
             "usage": "light",
             "rest": "1"
           },
           {
-            "name": "Sam Aldegheri",
+            "name": "Chase Silseth",
             "role": "",
-            "usage": "light",
-            "rest": "1"
-          },
-          {
-            "name": "Sam Bachman",
-            "role": "",
-            "usage": "light",
-            "rest": "1"
-          },
-          {
-            "name": "Samy Natera Jr.",
-            "role": "",
-            "usage": "light",
-            "rest": "1"
+            "usage": "fresh",
+            "rest": "3"
           }
         ]
       },
@@ -3744,1006 +3578,57 @@
           "w": 5,
           "l": 5,
           "last10": "5-5",
-          "streak": "L1",
-          "rs": 54,
-          "ra": 45,
+          "streak": "W1",
+          "rs": 51,
+          "ra": 50,
           "form_pct": 0.5
         },
         "home": {
-          "w": 3,
-          "l": 7,
-          "last10": "3-7",
-          "streak": "L1",
-          "rs": 61,
-          "ra": 57,
-          "form_pct": 0.3
+          "w": 4,
+          "l": 6,
+          "last10": "4-6",
+          "streak": "W1",
+          "rs": 66,
+          "ra": 50,
+          "form_pct": 0.4
         }
       },
       "batting": {
         "away": {
-          "avg": "0.245",
-          "obp": "0.321",
-          "slg": "0.411",
-          "ops": "0.732",
-          "rpg": "4.52",
+          "avg": "0.244",
+          "obp": "0.320",
+          "slg": "0.408",
+          "ops": "0.728",
+          "rpg": "4.54",
           "hrpg": "1.25",
           "hr": 86
         },
         "home": {
-          "avg": "0.232",
-          "obp": "0.315",
+          "avg": "0.233",
+          "obp": "0.316",
           "slg": "0.386",
-          "ops": "0.701",
-          "rpg": "4.37",
+          "ops": "0.702",
+          "rpg": "4.49",
           "hrpg": "1.13",
           "hr": 77
         }
       },
       "pitching": {
         "away": {
-          "era": "4.88",
+          "era": "4.90",
           "whip": "1.44",
           "k9": "8.6",
           "bb9": "4.8",
           "savepct": "—",
-          "bp_era": "4.88"
+          "bp_era": "4.90"
         },
         "home": {
-          "era": "4.78",
-          "whip": "1.46",
+          "era": "4.73",
+          "whip": "1.45",
           "k9": "9.0",
           "bb9": "4.9",
           "savepct": "—",
-          "bp_era": "4.78"
-        }
-      },
-      "standings": {},
-      "props": {
-        "note": "",
-        "pitchers": [],
-        "batters": []
-      },
-      "why_matters": "",
-      "scouts_edge": ""
-    },
-    {
-      "away": "CIN",
-      "home": "SD",
-      "awayFull": "Cincinnati Reds",
-      "homeFull": "San Diego Padres",
-      "awayId": 113,
-      "homeId": 135,
-      "time": "9:40 PM ET",
-      "venue": "Petco Park",
-      "roof": "No Roof",
-      "pitchers": {
-        "away": {
-          "name": "Chase Burns",
-          "hand": "R",
-          "era": "1.99",
-          "whip": "0.95",
-          "k9": "10.3",
-          "bb9": "2.7",
-          "ip": "72.1",
-          "record": "7-1",
-          "lastStart": "—"
-        },
-        "home": {
-          "name": "Lucas Giolito",
-          "hand": "R",
-          "era": "4.82",
-          "whip": "1.71",
-          "k9": "5.8",
-          "bb9": "7.2",
-          "ip": "18.2",
-          "record": "2-1",
-          "lastStart": "—"
-        }
-      },
-      "weather": {
-        "temp": "68°F",
-        "sky": "Clear",
-        "wind": "6 mph WNW",
-        "humidity": "78%",
-        "precip": "—",
-        "roof": "No Roof",
-        "source": "NWS"
-      },
-      "umpire": {
-        "name": "Malachi Moore",
-        "calledKpct": "—",
-        "rpg": "—",
-        "note": ""
-      },
-      "broadcasts": {
-        "national_tv": [],
-        "away_tv": [
-          "Reds.TV"
-        ],
-        "home_tv": [
-          "Padres.TV Presented by UC San Diego Health"
-        ],
-        "national_radio": [],
-        "away_radio": [
-          "WLW 700"
-        ],
-        "home_radio": [
-          "KWFN 97.3"
-        ]
-      },
-      "lineups": {
-        "away": [
-          {
-            "name": "Blake Dunn",
-            "pos": "CF"
-          },
-          {
-            "name": "JJ Bleday",
-            "pos": "LF"
-          },
-          {
-            "name": "Sal Stewart",
-            "pos": "3B"
-          },
-          {
-            "name": "Nathaniel Lowe",
-            "pos": "1B"
-          },
-          {
-            "name": "Spencer Steer",
-            "pos": "RF"
-          },
-          {
-            "name": "Eugenio Suárez",
-            "pos": "DH"
-          },
-          {
-            "name": "Matt McLain",
-            "pos": "SS"
-          },
-          {
-            "name": "Tyler Stephenson",
-            "pos": "C"
-          },
-          {
-            "name": "Edwin Arroyo",
-            "pos": "2B"
-          }
-        ],
-        "home": [
-          {
-            "name": "Fernando Tatis Jr.",
-            "pos": "2B"
-          },
-          {
-            "name": "Jackson Merrill",
-            "pos": "CF"
-          },
-          {
-            "name": "Manny Machado",
-            "pos": "3B"
-          },
-          {
-            "name": "Gavin Sheets",
-            "pos": "1B"
-          },
-          {
-            "name": "Will Wagner",
-            "pos": "DH"
-          },
-          {
-            "name": "Samad Taylor",
-            "pos": "LF"
-          },
-          {
-            "name": "Bryce Johnson",
-            "pos": "RF"
-          },
-          {
-            "name": "Freddy Fermin",
-            "pos": "C"
-          },
-          {
-            "name": "Sung-Mun Song",
-            "pos": "SS"
-          }
-        ]
-      },
-      "bullpen": {
-        "away": [
-          {
-            "name": "Brock Burke",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
-          },
-          {
-            "name": "Chris Paddack",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
-          },
-          {
-            "name": "Rhett Lowder",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
-          },
-          {
-            "name": "Andrew Abbott",
-            "role": "",
-            "usage": "light",
-            "rest": "1"
-          },
-          {
-            "name": "Tejay Antone",
-            "role": "",
-            "usage": "light",
-            "rest": "1"
-          },
-          {
-            "name": "Zach McCambley",
-            "role": "",
-            "usage": "light",
-            "rest": "1"
-          },
-          {
-            "name": "Brady Singer",
-            "role": "",
-            "usage": "fresh",
-            "rest": "4"
-          },
-          {
-            "name": "Caleb Ferguson",
-            "role": "",
-            "usage": "fresh",
-            "rest": "2"
-          }
-        ],
-        "home": [
-          {
-            "name": "Randy Vásquez",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
-          },
-          {
-            "name": "Ron Marinaccio",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
-          },
-          {
-            "name": "Wandy Peralta",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
-          },
-          {
-            "name": "Adrian Morejon",
-            "role": "",
-            "usage": "light",
-            "rest": "1"
-          },
-          {
-            "name": "Bradgley Rodriguez",
-            "role": "",
-            "usage": "light",
-            "rest": "1"
-          },
-          {
-            "name": "Jason Adam",
-            "role": "",
-            "usage": "light",
-            "rest": "1"
-          },
-          {
-            "name": "Mason Miller",
-            "role": "",
-            "usage": "light",
-            "rest": "1"
-          },
-          {
-            "name": "Walker Buehler",
-            "role": "",
-            "usage": "light",
-            "rest": "1"
-          }
-        ]
-      },
-      "injuries": {
-        "away": [],
-        "home": []
-      },
-      "form": {
-        "away": {
-          "w": 2,
-          "l": 8,
-          "last10": "2-8",
-          "streak": "L2",
-          "rs": 32,
-          "ra": 61,
-          "form_pct": 0.2
-        },
-        "home": {
-          "w": 3,
-          "l": 7,
-          "last10": "3-7",
-          "streak": "W1",
-          "rs": 33,
-          "ra": 46,
-          "form_pct": 0.3
-        }
-      },
-      "batting": {
-        "away": {
-          "avg": "0.231",
-          "obp": "0.312",
-          "slg": "0.394",
-          "ops": "0.706",
-          "rpg": "4.21",
-          "hrpg": "1.23",
-          "hr": 81
-        },
-        "home": {
-          "avg": "0.215",
-          "obp": "0.289",
-          "slg": "0.356",
-          "ops": "0.645",
-          "rpg": "3.74",
-          "hrpg": "1.00",
-          "hr": 66
-        }
-      },
-      "pitching": {
-        "away": {
-          "era": "4.82",
-          "whip": "1.47",
-          "k9": "7.9",
-          "bb9": "4.7",
-          "savepct": "—",
-          "bp_era": "4.82"
-        },
-        "home": {
-          "era": "3.94",
-          "whip": "1.27",
-          "k9": "8.5",
-          "bb9": "3.5",
-          "savepct": "—",
-          "bp_era": "3.94"
-        }
-      },
-      "standings": {},
-      "props": {
-        "note": "",
-        "pitchers": [],
-        "batters": []
-      },
-      "why_matters": "",
-      "scouts_edge": ""
-    },
-    {
-      "away": "WSH",
-      "home": "SF",
-      "awayFull": "Washington Nationals",
-      "homeFull": "San Francisco Giants",
-      "awayId": 120,
-      "homeId": 137,
-      "time": "9:45 PM ET",
-      "venue": "Oracle Park",
-      "roof": "No Roof",
-      "pitchers": {
-        "away": {
-          "name": "Andrew Alvarez",
-          "hand": "L",
-          "era": "3.32",
-          "whip": "1.20",
-          "k9": "10.4",
-          "bb9": "2.5",
-          "ip": "21.2",
-          "record": "1-0",
-          "lastStart": "—"
-        },
-        "home": {
-          "name": "Adrian Houser",
-          "hand": "R",
-          "era": "5.60",
-          "whip": "1.58",
-          "k9": "6.3",
-          "bb9": "3.5",
-          "ip": "62.2",
-          "record": "2-5",
-          "lastStart": "—"
-        }
-      },
-      "weather": {
-        "temp": "63°F",
-        "sky": "Mostly Clear",
-        "wind": "—",
-        "humidity": "68%",
-        "precip": "—",
-        "roof": "No Roof",
-        "source": "NWS"
-      },
-      "umpire": {
-        "name": "Jen Pawol",
-        "calledKpct": "—",
-        "rpg": "—",
-        "note": ""
-      },
-      "broadcasts": {
-        "national_tv": [],
-        "away_tv": [
-          "Nationals.TV"
-        ],
-        "home_tv": [
-          "NBCS BA"
-        ],
-        "national_radio": [],
-        "away_radio": [
-          "WJFK 106.7 The Fan"
-        ],
-        "home_radio": [
-          "KNBR 680"
-        ]
-      },
-      "lineups": {
-        "away": [
-          {
-            "name": "James Wood",
-            "pos": "RF"
-          },
-          {
-            "name": "Luis García Jr.",
-            "pos": "1B"
-          },
-          {
-            "name": "José Tena",
-            "pos": "DH"
-          },
-          {
-            "name": "CJ Abrams",
-            "pos": "SS"
-          },
-          {
-            "name": "Daylen Lile",
-            "pos": "LF"
-          },
-          {
-            "name": "Jorbit Vivas",
-            "pos": "3B"
-          },
-          {
-            "name": "Nasim Nuñez",
-            "pos": "2B"
-          },
-          {
-            "name": "Drew Millas",
-            "pos": "C"
-          },
-          {
-            "name": "Jacob Young",
-            "pos": "CF"
-          }
-        ],
-        "home": [
-          {
-            "name": "Casey Schmitt",
-            "pos": "LF"
-          },
-          {
-            "name": "Rafael Devers",
-            "pos": "1B"
-          },
-          {
-            "name": "Luis Arraez",
-            "pos": "2B"
-          },
-          {
-            "name": "Willy Adames",
-            "pos": "SS"
-          },
-          {
-            "name": "Jung Hoo Lee",
-            "pos": "RF"
-          },
-          {
-            "name": "Bryce Eldridge",
-            "pos": "DH"
-          },
-          {
-            "name": "Matt Chapman",
-            "pos": "3B"
-          },
-          {
-            "name": "Daniel Susac",
-            "pos": "C"
-          },
-          {
-            "name": "Jonah Cox",
-            "pos": "CF"
-          }
-        ]
-      },
-      "bullpen": {
-        "away": [
-          {
-            "name": "Cade Cavalli",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
-          },
-          {
-            "name": "Riley Cornelio",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
-          },
-          {
-            "name": "Clayton Beeter",
-            "role": "",
-            "usage": "light",
-            "rest": "1"
-          },
-          {
-            "name": "Gus Varland",
-            "role": "",
-            "usage": "light",
-            "rest": "1"
-          },
-          {
-            "name": "Miles Mikolas",
-            "role": "",
-            "usage": "light",
-            "rest": "1"
-          },
-          {
-            "name": "Mitchell Parker",
-            "role": "",
-            "usage": "light",
-            "rest": "1"
-          },
-          {
-            "name": "Richard Lovelady",
-            "role": "",
-            "usage": "light",
-            "rest": "1"
-          },
-          {
-            "name": "Brad Lord",
-            "role": "",
-            "usage": "fresh",
-            "rest": "3"
-          }
-        ],
-        "home": [
-          {
-            "name": "Caleb Kilian",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
-          },
-          {
-            "name": "JT Brubaker",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
-          },
-          {
-            "name": "Trevor McDonald",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
-          },
-          {
-            "name": "Dylan Smith",
-            "role": "",
-            "usage": "light",
-            "rest": "1"
-          },
-          {
-            "name": "Keaton Winn",
-            "role": "",
-            "usage": "light",
-            "rest": "1"
-          },
-          {
-            "name": "Logan Webb",
-            "role": "",
-            "usage": "light",
-            "rest": "1"
-          },
-          {
-            "name": "Carson Seymour",
-            "role": "",
-            "usage": "fresh",
-            "rest": "4"
-          },
-          {
-            "name": "Erik Miller",
-            "role": "",
-            "usage": "fresh",
-            "rest": "2"
-          }
-        ]
-      },
-      "injuries": {
-        "away": [],
-        "home": []
-      },
-      "form": {
-        "away": {
-          "w": 5,
-          "l": 5,
-          "last10": "5-5",
-          "streak": "L1",
-          "rs": 50,
-          "ra": 41,
-          "form_pct": 0.5
-        },
-        "home": {
-          "w": 5,
-          "l": 5,
-          "last10": "5-5",
-          "streak": "L1",
-          "rs": 65,
-          "ra": 58,
-          "form_pct": 0.5
-        }
-      },
-      "batting": {
-        "away": {
-          "avg": "0.244",
-          "obp": "0.322",
-          "slg": "0.418",
-          "ops": "0.740",
-          "rpg": "5.26",
-          "hrpg": "1.28",
-          "hr": 87
-        },
-        "home": {
-          "avg": "0.258",
-          "obp": "0.306",
-          "slg": "0.413",
-          "ops": "0.719",
-          "rpg": "4.04",
-          "hrpg": "0.97",
-          "hr": 66
-        }
-      },
-      "pitching": {
-        "away": {
-          "era": "4.58",
-          "whip": "1.37",
-          "k9": "7.8",
-          "bb9": "3.6",
-          "savepct": "—",
-          "bp_era": "4.57"
-        },
-        "home": {
-          "era": "4.46",
-          "whip": "1.40",
-          "k9": "8.0",
-          "bb9": "4.1",
-          "savepct": "—",
-          "bp_era": "4.46"
-        }
-      },
-      "standings": {},
-      "props": {
-        "note": "",
-        "pitchers": [],
-        "batters": []
-      },
-      "why_matters": "",
-      "scouts_edge": ""
-    },
-    {
-      "away": "MIL",
-      "home": "ATH",
-      "awayFull": "Milwaukee Brewers",
-      "homeFull": "Athletics",
-      "awayId": 158,
-      "homeId": 133,
-      "time": "10:05 PM ET",
-      "venue": "Las Vegas Ballpark",
-      "roof": "No Roof",
-      "pitchers": {
-        "away": {
-          "name": "Robert Gasser",
-          "hand": "L",
-          "era": "4.73",
-          "whip": "1.43",
-          "k9": "8.1",
-          "bb9": "4.7",
-          "ip": "13.1",
-          "record": "0-2",
-          "lastStart": "—"
-        },
-        "home": {
-          "name": "J.T. Ginn",
-          "hand": "R",
-          "era": "2.98",
-          "whip": "1.13",
-          "k9": "8.1",
-          "bb9": "3.8",
-          "ip": "66.1",
-          "record": "3-3",
-          "lastStart": "—"
-        }
-      },
-      "weather": {
-        "temp": "96°F",
-        "sky": "Clear",
-        "wind": "10 mph SSW",
-        "humidity": "12%",
-        "precip": "—",
-        "roof": "No Roof",
-        "source": "NWS"
-      },
-      "umpire": {
-        "name": "Adam Hamari",
-        "calledKpct": "—",
-        "rpg": "—",
-        "note": ""
-      },
-      "broadcasts": {
-        "national_tv": [],
-        "away_tv": [
-          "Brewers.TV"
-        ],
-        "home_tv": [
-          "NBCSCA"
-        ],
-        "national_radio": [],
-        "away_radio": [
-          "WTMJ 620"
-        ],
-        "home_radio": [
-          "Talk 650 KSTE",
-          "A's Cast"
-        ]
-      },
-      "lineups": {
-        "away": [
-          {
-            "name": "Christian Yelich",
-            "pos": "DH"
-          },
-          {
-            "name": "Jackson Chourio",
-            "pos": "LF"
-          },
-          {
-            "name": "Brice Turang",
-            "pos": "2B"
-          },
-          {
-            "name": "William Contreras",
-            "pos": "C"
-          },
-          {
-            "name": "Jake Bauers",
-            "pos": "1B"
-          },
-          {
-            "name": "Garrett Mitchell",
-            "pos": "CF"
-          },
-          {
-            "name": "Sal Frelick",
-            "pos": "RF"
-          },
-          {
-            "name": "Luis Rengifo",
-            "pos": "3B"
-          },
-          {
-            "name": "David Hamilton",
-            "pos": "SS"
-          }
-        ],
-        "home": [
-          {
-            "name": "Colby Thomas",
-            "pos": "RF"
-          },
-          {
-            "name": "Nick Kurtz",
-            "pos": "1B"
-          },
-          {
-            "name": "Shea Langeliers",
-            "pos": "DH"
-          },
-          {
-            "name": "Tyler Soderstrom",
-            "pos": "LF"
-          },
-          {
-            "name": "Max Muncy",
-            "pos": "3B"
-          },
-          {
-            "name": "Jonah Heim",
-            "pos": "C"
-          },
-          {
-            "name": "Henry Bolte",
-            "pos": "CF"
-          },
-          {
-            "name": "Zack Gelof",
-            "pos": "2B"
-          },
-          {
-            "name": "Alika Williams",
-            "pos": "SS"
-          }
-        ]
-      },
-      "bullpen": {
-        "away": [
-          {
-            "name": "Shane Drohan",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
-          },
-          {
-            "name": "Aaron Ashby",
-            "role": "",
-            "usage": "light",
-            "rest": "1"
-          },
-          {
-            "name": "Abner Uribe",
-            "role": "",
-            "usage": "light",
-            "rest": "1"
-          },
-          {
-            "name": "Chad Patrick",
-            "role": "",
-            "usage": "light",
-            "rest": "1"
-          },
-          {
-            "name": "Drew Rom",
-            "role": "",
-            "usage": "light",
-            "rest": "1"
-          },
-          {
-            "name": "Grant Anderson",
-            "role": "",
-            "usage": "light",
-            "rest": "1"
-          },
-          {
-            "name": "Joel Kuhnel",
-            "role": "",
-            "usage": "light",
-            "rest": "1"
-          },
-          {
-            "name": "Kyle Harrison",
-            "role": "",
-            "usage": "light",
-            "rest": "1"
-          }
-        ],
-        "home": [
-          {
-            "name": "Gage Jump",
-            "role": "",
-            "usage": "used",
-            "rest": "2"
-          },
-          {
-            "name": "Hogan Harris",
-            "role": "",
-            "usage": "light",
-            "rest": "1"
-          },
-          {
-            "name": "Jeffrey Springs",
-            "role": "",
-            "usage": "light",
-            "rest": "1"
-          },
-          {
-            "name": "José Suarez",
-            "role": "",
-            "usage": "light",
-            "rest": "1"
-          },
-          {
-            "name": "Luis Medina",
-            "role": "",
-            "usage": "light",
-            "rest": "1"
-          },
-          {
-            "name": "Mark Leiter Jr.",
-            "role": "",
-            "usage": "light",
-            "rest": "1"
-          },
-          {
-            "name": "Scott Barlow",
-            "role": "",
-            "usage": "light",
-            "rest": "1"
-          },
-          {
-            "name": "Elvis Alvarado",
-            "role": "",
-            "usage": "fresh",
-            "rest": "3"
-          }
-        ]
-      },
-      "injuries": {
-        "away": [],
-        "home": []
-      },
-      "form": {
-        "away": {
-          "w": 7,
-          "l": 3,
-          "last10": "7-3",
-          "streak": "L1",
-          "rs": 80,
-          "ra": 53,
-          "form_pct": 0.7
-        },
-        "home": {
-          "w": 4,
-          "l": 6,
-          "last10": "4-6",
-          "streak": "L1",
-          "rs": 51,
-          "ra": 70,
-          "form_pct": 0.4
-        }
-      },
-      "batting": {
-        "away": {
-          "avg": "0.254",
-          "obp": "0.341",
-          "slg": "0.389",
-          "ops": "0.730",
-          "rpg": "5.32",
-          "hrpg": "0.85",
-          "hr": 55
-        },
-        "home": {
-          "avg": "0.245",
-          "obp": "0.326",
-          "slg": "0.401",
-          "ops": "0.727",
-          "rpg": "4.28",
-          "hrpg": "1.18",
-          "hr": 79
-        }
-      },
-      "pitching": {
-        "away": {
-          "era": "3.39",
-          "whip": "1.21",
-          "k9": "9.8",
-          "bb9": "3.5",
-          "savepct": "—",
-          "bp_era": "3.39"
-        },
-        "home": {
-          "era": "4.67",
-          "whip": "1.43",
-          "k9": "8.2",
-          "bb9": "3.9",
-          "savepct": "—",
-          "bp_era": "4.67"
+          "bp_era": "4.73"
         }
       },
       "standings": {},
