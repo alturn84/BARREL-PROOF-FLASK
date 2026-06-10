@@ -52,6 +52,13 @@ CITY_LEAGUE_TO_TEAM = {
     ("New York", "NL"):    "New York Mets",
 }
 
+# Maps teams.json abbr → game data abbr (for game_cards.json / schedule.json matching)
+# Only entries that differ are listed.
+ABBR_GAME_MAP = {
+    "ARI": "AZ",   # Arizona: teams.json="ARI", game data="AZ"
+    "WSH": "WSH",  # Washington: both use WSH (WAS also remapped in update scripts)
+}
+
 VALID_SOURCE_TYPES = {"ap", "getty", "mlb", "team", "manual", "illustrated"}
 MEDIA_DIR = BASE_DIR / "media" / "lead-images"
 
@@ -189,12 +196,16 @@ def get_team_record(team_abbr):
     return None
 
 def team_in_game(game, team_abbr):
-    return team_abbr in [
-        game.get("away_abbr"),
-        game.get("home_abbr"),
-        game.get("away"),
-        game.get("home"),
-    ]
+    # Build a set of abbreviations to check — include any game-data alias
+    check_abbrs = {team_abbr}
+    if team_abbr in ABBR_GAME_MAP:
+        check_abbrs.add(ABBR_GAME_MAP[team_abbr])
+    return bool(
+        check_abbrs & {
+            game.get("away_abbr", ""),
+            game.get("home_abbr", ""),
+        }
+    )
 
 def is_game_postponed(game):
     """Helper to determine if a game is postponed based on its status."""
@@ -877,6 +888,24 @@ def get_dope_sheet_data():
         data.get("updated", ""),
     )
 
+
+def get_team_form():
+    """Returns dict keyed by team_abbr with last-10 form data."""
+    data = load_json("team_form.json", fallback={})
+    return data.get("teams", {})
+
+
+def get_schedule_lookahead():
+    """Returns dict keyed by team_abbr with next_games arrays."""
+    data = load_json("schedule_lookahead.json", fallback={})
+    return data.get("teams", {})
+
+
+def get_team_stats():
+    """Returns dict keyed by team_abbr with batting/pitching dicts."""
+    data = load_json("team_stats.json", fallback={})
+    return data.get("teams", {})
+
 def get_scoreboard_stats():
     data = load_json("scoreboard.json", fallback={})
     return {
@@ -1386,6 +1415,48 @@ def teams_index():
         meta_description="Browse MLB team pages for scores, schedules, standings and recent results from Barrel Proof."
     )
 
+def build_team_context_note(team, record, form):
+    """
+    Build a deterministic one-sentence context note from available data.
+    Returns empty string if insufficient data.
+    """
+    name   = team.get("nickname", team.get("name", ""))
+    league = team.get("league", "")
+    div    = ""
+    parts  = []
+
+    if record:
+        w   = record.get("wins", "—")
+        l   = record.get("losses", "—")
+        pos = record.get("position", 0)
+        gb  = record.get("games_back", "—")
+        div = record.get("division", "")
+        ordinals = {1: "first", 2: "second", 3: "third", 4: "fourth", 5: "fifth"}
+        pos_word = ordinals.get(pos, f"{pos}th")
+
+        if pos == 1:
+            parts.append(f"The {name} lead the {league} {div} at {w}-{l}")
+        else:
+            gb_str = f", {gb} GB" if gb and gb not in ("—", "-") else ""
+            parts.append(f"The {name} sit {pos_word} in the {league} {div} at {w}-{l}{gb_str}")
+
+    if form:
+        streak_type  = form.get("streak_type", "")
+        streak_count = form.get("streak_count", 0)
+        l10 = form.get("last_10_record", "")
+        if streak_count >= 3:
+            direction = "winning" if streak_type == "W" else "dropping"
+            parts.append(f"currently on a {streak_count}-game {direction} streak")
+        elif l10:
+            parts.append(f"going {l10} over their last ten games")
+
+    if not parts:
+        return ""
+
+    note = ", ".join(parts)
+    return note[0].upper() + note[1:] + "."
+
+
 @app.route("/team/<team_slug>")
 def team_detail(team_slug):
     team = get_team_by_slug(team_slug)
@@ -1393,20 +1464,59 @@ def team_detail(team_slug):
         abort(404)
 
     abbr = team.get("abbr")
-    record = get_team_record(abbr)
-    recent_games = get_team_recent_games(abbr)
-    upcoming_games = get_team_upcoming_games(abbr)
-    latest_box_score = get_latest_team_box_score(abbr)
+
+    record          = get_team_record(abbr)
+    recent_games    = get_team_recent_games(abbr)
+    upcoming_games  = get_team_upcoming_games(abbr)
+
+    # Team form (last 10)
+    all_form = get_team_form()
+    form     = all_form.get(abbr)
+
+    # Schedule lookahead (next 5 games)
+    all_lookahead = get_schedule_lookahead()
+    lookahead     = all_lookahead.get(abbr, {}).get("next_games", [])
+
+    # Team stats (batting + pitching)
+    all_stats     = get_team_stats()
+    team_batting  = all_stats.get(abbr, {}).get("batting", {})
+    team_pitching = all_stats.get(abbr, {}).get("pitching", {})
+
+    # Roster (grouped by role)
+    full_name = team.get("name", "")
+    roster    = load_roster_md(full_name)
+    starters  = [p for p in roster if p.get("pos", "").upper() in ("SP",)]
+    bullpen   = [p for p in roster if p.get("pos", "").upper() in ("RP", "CL", "MR", "SU", "CP")]
+    lineup    = [p for p in roster if p.get("pos", "").upper() not in
+                 ("SP", "RP", "CL", "MR", "SU", "CP")]
+
+    # Context note
+    context_note = build_team_context_note(team, record, form)
+
+    # Recent game slugs for linking to scoreboard pages
+    sc_data  = load_json("game_cards.json", fallback={})
+    sc_date  = sc_data.get("date", "")
+
+    def game_link(g):
+        return build_game_slug(g.get("away_abbr", ""), g.get("home_abbr", ""), sc_date)
 
     return render_template(
         "team_detail.html",
         team=team,
         record=record,
+        form=form,
+        lookahead=lookahead,
         recent_games=recent_games,
-        upcoming_games=upcoming_games,
-        latest_box_score=latest_box_score,
-        page_title=f"{team.get('name')} Scores, Schedule & Standings — Barrel Proof",
-        meta_description=f"{team.get('name')} scores, recent results, standings and upcoming schedule from Barrel Proof."
+        sc_date=sc_date,
+        game_link=game_link,
+        team_batting=team_batting,
+        team_pitching=team_pitching,
+        starters=starters,
+        bullpen=bullpen,
+        lineup=lineup,
+        context_note=context_note,
+        page_title=f"{team.get('name')} — Barrel Proof",
+        meta_description=f"{team.get('name')} scores, schedule, standings and roster — Barrel Proof Baseball.",
     )
 
 

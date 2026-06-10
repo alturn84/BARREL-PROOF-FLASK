@@ -9,11 +9,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Playfair+Display+SC:wght@400;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
-:root{
-  --ink:#1A1108;--parchment:#F0E6CC;--parchment2:#D8C9A8;
-  --cream:#EDE5D0;--cream-dim:#887C60;--cream-mid:#C8BC98;--smoke:#7A6A52;
-  --smoke-light:#A89070;--leather:#4E3A20;--rule:rgba(136,124,96,.25);
-  --rule-heavy:rgba(136,124,96,.65);
+:root {
+  --ink:#1A1108; --parchment:#F0E6CC; --parchment2:#D8C9A8;
+  --cream:#EDE5D0; --cream-dim:#887C60; --cream-mid:#C8BC98;
+  --smoke:#7A6A52; --smoke-light:#A89070; --leather:#4E3A20;
+  --rule:rgba(136,124,96,.25); --rule-heavy:rgba(136,124,96,.65);
   --serif-display:'Playfair Display',Georgia,serif;
   --serif-sc:'Playfair Display SC',Georgia,serif;
   --serif-body:'Source Serif 4',Georgia,serif;
@@ -23,100 +23,115 @@
 html{font-size:16px;}
 body{background:var(--ink);color:var(--parchment);font-family:var(--serif-body);line-height:1.6;min-height:100vh;-webkit-font-smoothing:antialiased;}
 a{color:inherit;text-decoration:none;}
-body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");opacity:.55;}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");opacity:.55;}
 .page{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:0 48px 60px;}
+
 /* ── Masthead ── */
 .masthead{padding:32px 0 0;border-bottom:2px solid var(--cream-dim);}
 .masthead-top{display:flex;justify-content:center;padding-bottom:8px;}
-.site-name{font-family:'Perpetua Titling MT','Perpetua','Book Antiqua','Palatino Linotype',Palatino,Georgia,serif;font-size:clamp(34px,5vw,64px);font-weight:400;letter-spacing:.18em;color:var(--parchment);line-height:1;text-align:center;text-transform:uppercase;white-space:nowrap;}
+.site-name{font-family:'Perpetua Titling MT','Perpetua','Book Antiqua','Palatino Linotype',Palatino,Georgia,serif;
+  font-size:clamp(34px,5vw,64px);font-weight:400;letter-spacing:.18em;color:var(--parchment);
+  line-height:1;text-align:center;text-transform:uppercase;white-space:nowrap;}
 .site-name span{color:var(--cream);}
 .tagline-bar{text-align:center;padding:8px 0 14px;border-top:.5px solid var(--rule);margin-top:6px;}
 .tagline-line{font-family:var(--serif-sc);font-size:18px;letter-spacing:.2em;color:var(--smoke-light);line-height:1.8;}
 .tagline-sub{font-size:15px;letter-spacing:.24em;color:var(--cream-dim);}
-/* ── Nav ── */
-nav.main-nav{display:flex;align-items:center;border-bottom:1px solid var(--rule-heavy);}
-.nav-barrel-btn{flex-shrink:0;width:52px;height:48px;cursor:pointer;border-right:.5px solid var(--rule-heavy);background:var(--ink) url('https://i.postimg.cc/pTNWxjb5/barrel-tab-logo-removebg-preview.png') center/40px auto no-repeat;transition:opacity .2s;}
-.nav-barrel-btn:hover{opacity:.75;}
-.nav-items-wrap{display:flex;align-items:center;overflow:hidden;max-width:0;transition:max-width .45s cubic-bezier(.4,0,.2,1);white-space:nowrap;}
-.nav-items-wrap.open{max-width:1400px;}
-.nav-item{font-family:var(--serif-sc);font-size:15px;letter-spacing:.14em;color:var(--smoke-light);padding:12px 18px;position:relative;cursor:pointer;transition:color .2s;white-space:nowrap;display:inline-block;}
+
+/* ── Nav (matches partial CSS) ── */
+nav.main-nav{display:flex;justify-content:center;align-items:center;
+  border-top:1px solid var(--rule-heavy);border-bottom:1px solid var(--rule-heavy);background:var(--ink);}
+.nav-items-wrap{display:flex;align-items:center;white-space:nowrap;}
+.nav-item{font-family:var(--serif-sc);font-size:15px;letter-spacing:.14em;color:var(--smoke-light);
+  padding:12px 18px;position:relative;cursor:pointer;transition:color .2s;white-space:nowrap;display:inline-block;}
 .nav-item:hover,.nav-item.active{color:var(--parchment);}
 .nav-item.active::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:2px;background:var(--cream);}
 .nav-item:not(:last-child)::before{content:'·';position:absolute;right:-2px;color:var(--rule-heavy);}
-/* ── Team header ── */
+
+/* ── Team banner ── */
 .team-banner{padding:20px 0 16px;border-bottom:2px solid var(--cream-dim);}
 .team-banner-back{font-family:var(--mono);font-size:9px;letter-spacing:.10em;color:var(--smoke);margin-bottom:10px;}
 .team-banner-back a:hover{color:var(--cream);}
 .team-banner-top{display:flex;align-items:baseline;gap:20px;flex-wrap:wrap;}
-.team-abbr-badge{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--cream-dim);border:.5px solid var(--rule-heavy);padding:3px 8px;border-radius:2px;}
+.team-abbr-badge{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--cream-dim);
+  border:.5px solid var(--rule-heavy);padding:3px 8px;border-radius:2px;}
 .team-full-name{font-family:var(--serif-sc);font-size:clamp(20px,2.8vw,32px);letter-spacing:.12em;color:var(--parchment);}
 .team-division-tag{font-family:var(--mono);font-size:9px;letter-spacing:.12em;color:var(--smoke);}
 .team-record-row{display:flex;align-items:baseline;gap:24px;margin-top:10px;flex-wrap:wrap;}
 .record-stat{display:flex;flex-direction:column;gap:2px;}
 .record-label{font-family:var(--mono);font-size:8px;letter-spacing:.14em;color:var(--smoke);text-transform:uppercase;}
 .record-value{font-family:var(--serif-sc);font-size:18px;letter-spacing:.06em;color:var(--cream);}
-.record-value.small{font-size:13px;color:var(--parchment2);}
+.record-value.sm{font-size:13px;color:var(--parchment2);}
+
 /* ── Section headers ── */
-.section-hdr{display:flex;align-items:baseline;gap:14px;padding:13px 0 9px;border-bottom:.5px solid var(--rule);}
+.section-hdr{display:flex;align-items:baseline;gap:14px;padding:18px 0 9px;border-bottom:.5px solid var(--rule);}
 .section-title{font-family:var(--serif-sc);font-size:10px;letter-spacing:.22em;color:var(--cream);white-space:nowrap;}
 .section-rule{flex:1;height:.5px;background:var(--rule);}
-/* ── Results table ── */
-.results-table{width:100%;border-collapse:collapse;margin-top:4px;}
-.results-table thead th{font-family:var(--mono);font-size:8px;letter-spacing:.12em;color:var(--smoke);text-align:left;padding:5px 8px 5px 0;border-bottom:.5px solid var(--rule-heavy);font-weight:400;}
-.results-table thead th.r{text-align:right;}
-.results-table tbody tr{border-bottom:.5px solid var(--rule);}
-.results-table tbody tr:last-child{border-bottom:none;}
-.results-table tbody tr:hover td{color:var(--parchment);}
-.results-table tbody td{font-family:var(--mono);font-size:10.5px;color:var(--smoke);padding:7px 8px 7px 0;vertical-align:middle;}
-.results-table tbody td.r{text-align:right;}
-.results-table tbody td.matchup{color:var(--parchment2);}
-.results-table tbody td.result-w{color:var(--cream);font-weight:500;}
-.results-table tbody td.result-l{color:var(--smoke);}
-.results-table tbody td.score{color:var(--parchment2);white-space:nowrap;}
-/* ── Upcoming table ── */
-.upcoming-table{width:100%;border-collapse:collapse;margin-top:4px;}
-.upcoming-table thead th{font-family:var(--mono);font-size:8px;letter-spacing:.12em;color:var(--smoke);text-align:left;padding:5px 8px 5px 0;border-bottom:.5px solid var(--rule-heavy);font-weight:400;}
-.upcoming-table tbody tr{border-bottom:.5px solid var(--rule);}
-.upcoming-table tbody tr:last-child{border-bottom:none;}
-.upcoming-table tbody td{font-family:var(--mono);font-size:10.5px;color:var(--smoke);padding:7px 8px 7px 0;}
-.upcoming-table tbody td.matchup{color:var(--parchment2);}
-.upcoming-table tbody td.time{color:var(--smoke);font-size:9.5px;}
-.upcoming-table tbody td.prob{color:var(--smoke);font-size:9px;}
-/* ── Box score ── */
-.box-section{margin-bottom:0;}
-.bx-meta{font-family:var(--mono);font-size:9px;color:var(--smoke);letter-spacing:.04em;margin-bottom:6px;line-height:1.5;}
-.bx-meta b{color:var(--parchment2);font-weight:500;}
-.bx-line-wrap{overflow-x:auto;margin-bottom:8px;}
-.bx-line{border-collapse:collapse;font-family:var(--mono);font-size:10.5px;white-space:nowrap;width:100%;}
-.bx-line thead th{font-weight:400;font-size:8.5px;letter-spacing:.09em;color:var(--smoke);text-align:center;padding:0 3px 3px;border-bottom:1px solid var(--rule-heavy);}
-.bx-line thead th.tn{text-align:left;padding-left:0;min-width:52px;}
-.bx-line thead th.sep{border-left:1px solid var(--rule-heavy);}
-.bx-line tbody td{text-align:center;padding:3px;color:var(--smoke);font-size:10px;}
-.bx-line tbody td.tn{text-align:left;padding-left:0;font-family:var(--serif-sc);font-size:10.5px;letter-spacing:.07em;color:var(--parchment2);}
-.bx-line tbody td.sep{border-left:1px solid var(--rule-heavy);}
-.bx-line tbody tr.w td{color:var(--parchment);}
-.bx-line tbody tr.w td.tn{color:var(--cream);}
-.bx-line tbody tr.w td.sep{font-weight:700;}
-.bx-dual{display:grid;grid-template-columns:1fr 1fr;gap:0 10px;}
-.bx-team-name{font-family:var(--serif-sc);font-size:9.5px;letter-spacing:.14em;color:var(--cream);padding:5px 0 3px;border-bottom:1px solid var(--cream-dim);}
-.bx-player-table{border-collapse:collapse;width:100%;font-family:var(--mono);font-size:9.5px;white-space:nowrap;}
-.bx-player-table thead th{font-weight:400;font-size:8px;letter-spacing:.07em;color:var(--smoke);text-align:right;padding:2px 3px 3px;border-bottom:1px solid var(--rule-heavy);}
-.bx-player-table thead th.pn{text-align:left;padding-left:0;}
-.bx-player-table tbody td{text-align:right;padding:2px 3px;color:var(--smoke);line-height:1.35;}
-.bx-player-table tbody td.pn{text-align:left;padding-left:0;color:var(--parchment2);}
-.bx-player-table tbody tr.pitch-hdr td{font-weight:400;font-size:8px;letter-spacing:.07em;color:var(--smoke);text-align:right;padding:6px 3px 3px;border-bottom:1px solid var(--rule-heavy);}
-.bx-player-table tbody tr.pitch-hdr td.pn{text-align:left;padding-left:0;font-family:var(--serif-sc);font-size:8.5px;letter-spacing:.12em;color:var(--cream-dim);}
-.bx-player-table tbody tr.pitcher-row td{color:var(--smoke-light);padding:2px 3px;text-align:right;}
-.bx-player-table tbody tr.pitcher-row td.pn{text-align:left;padding-left:0;color:var(--cream-mid);}
-.bx-divider{height:.5px;background:var(--rule);margin:6px 0;}
-/* ── Empty state ── */
-.empty-state{font-family:var(--mono);font-size:10px;color:var(--smoke);letter-spacing:.06em;padding:14px 0;}
+
+/* ── Form bar ── */
+.form-bar{display:flex;flex-wrap:wrap;gap:24px;padding:12px 0 6px;}
+.form-stat{display:flex;flex-direction:column;gap:3px;}
+.form-label{font-family:var(--mono);font-size:8px;letter-spacing:.14em;color:var(--smoke);text-transform:uppercase;}
+.form-value{font-family:var(--serif-sc);font-size:16px;letter-spacing:.04em;color:var(--cream);}
+.form-value.streak-w{color:var(--parchment);}
+.form-value.streak-l{color:var(--smoke-light);}
+
+/* ── Data tables (shared) ── */
+.data-table{width:100%;border-collapse:collapse;margin-top:4px;}
+.data-table thead th{font-family:var(--mono);font-size:8px;letter-spacing:.12em;color:var(--smoke);
+  text-align:left;padding:5px 8px 5px 0;border-bottom:.5px solid var(--rule-heavy);font-weight:400;}
+.data-table thead th.r{text-align:right;}
+.data-table tbody tr{border-bottom:.5px solid var(--rule);}
+.data-table tbody tr:last-child{border-bottom:none;}
+.data-table tbody tr:hover td{color:var(--parchment);}
+.data-table tbody td{font-family:var(--mono);font-size:10.5px;color:var(--smoke);padding:7px 8px 7px 0;vertical-align:middle;}
+.data-table tbody td.r{text-align:right;}
+.data-table tbody td.main{color:var(--parchment2);}
+.data-table tbody td.result-w{color:var(--cream);font-weight:500;}
+.data-table tbody td.result-l{color:var(--smoke);}
+.data-table tbody td.link-cell a{font-family:var(--mono);font-size:9px;letter-spacing:.06em;color:var(--smoke-light);}
+.data-table tbody td.link-cell a:hover{color:var(--cream);}
+.tbl-wrap{overflow-x:auto;}
+
+/* ── Team snapshot ── */
+.snapshot-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 32px;margin-top:8px;}
+.snapshot-col-hdr{font-family:var(--serif-sc);font-size:9px;letter-spacing:.18em;color:var(--cream-dim);
+  padding:6px 0 5px;border-bottom:.5px solid var(--rule-heavy);margin-bottom:2px;}
+.stat-row{display:flex;justify-content:space-between;align-items:baseline;
+  padding:6px 0;border-bottom:.5px solid var(--rule);}
+.stat-row:last-child{border-bottom:none;}
+.stat-name{font-family:var(--mono);font-size:9px;letter-spacing:.10em;color:var(--smoke);text-transform:uppercase;}
+.stat-value{font-family:var(--serif-sc);font-size:14px;letter-spacing:.04em;color:var(--cream);}
+
+/* ── Key players ── */
+.players-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0 24px;margin-top:8px;}
+.players-col-hdr{font-family:var(--serif-sc);font-size:9px;letter-spacing:.18em;color:var(--cream-dim);
+  padding:6px 0 5px;border-bottom:.5px solid var(--rule-heavy);margin-bottom:2px;}
+.player-row{font-family:var(--mono);font-size:10px;color:var(--smoke);
+  padding:5px 0;border-bottom:.5px solid var(--rule);display:flex;gap:8px;}
+.player-row:last-child{border-bottom:none;}
+.player-pos{color:var(--cream-dim);min-width:28px;flex-shrink:0;}
+.player-name{color:var(--parchment2);}
+.players-empty{font-family:var(--mono);font-size:10px;color:var(--smoke);padding:8px 0;}
+
+/* ── Context note ── */
+.context-note{font-family:var(--serif-body);font-style:italic;font-size:14px;
+  color:var(--parchment2);line-height:1.75;padding:12px 0 4px;border-left:3px solid var(--rule-heavy);
+  padding-left:16px;margin-top:6px;}
+
 /* ── Footer ── */
-footer{border-top:.5px solid var(--rule-heavy);margin-top:48px;padding:24px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
-.footer-name{font-family:var(--serif-sc);font-size:18px;color:var(--cream-dim);letter-spacing:.1em;}
-.footer-tag{font-family:var(--mono);font-size:10px;color:var(--smoke);letter-spacing:.12em;text-align:center;}
-.footer-legal{font-family:var(--mono);font-size:9.5px;color:var(--smoke);opacity:.7;text-align:right;line-height:1.7;}
-@media(max-width:700px){.bx-dual{grid-template-columns:1fr;}.page{padding:0 20px 40px;}.team-record-row{gap:16px;}}
+footer{border-top:.5px solid var(--rule-heavy);margin-top:48px;padding:24px 0;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer-name{font-family:var(--serif-sc);font-size:15px;color:var(--cream-dim);letter-spacing:.1em;}
+.footer-tag{font-family:var(--mono);font-size:9px;color:var(--smoke);letter-spacing:.1em;text-align:center;line-height:1.8;}
+.footer-legal{font-family:var(--mono);font-size:9px;color:var(--smoke);opacity:.7;text-align:right;line-height:1.7;}
+
+@media(max-width:700px){
+  .page{padding:0 20px 40px;}
+  .snapshot-grid{grid-template-columns:1fr;}
+  .players-grid{grid-template-columns:1fr;}
+  .team-record-row{gap:16px;}
+}
 @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 .masthead{animation:fadeUp .5s ease both;}
 .team-banner{animation:fadeUp .4s .05s ease both;}
@@ -125,6 +140,7 @@ footer{border-top:.5px solid var(--rule-heavy);margin-top:48px;padding:24px 0;di
 <body>
 <div class="page">
 
+{# ── Masthead ── #}
 <header class="masthead">
   <div class="masthead-top"><h1 class="site-name">BARREL <span>PROOF</span></h1></div>
   <div class="tagline-bar">
@@ -133,20 +149,13 @@ footer{border-top:.5px solid var(--rule-heavy);margin-top:48px;padding:24px 0;di
   </div>
 </header>
 
-<nav class="main-nav">
-  <div class="nav-barrel-btn" id="navToggle" onclick="toggleNav()" title="Menu"></div>
-  <div class="nav-items-wrap open" id="navItems">
-    <a class="nav-item" href="/">Page 1</a>
-    <a class="nav-item" href="/scoreboard">Scoreboard</a>
-    <a class="nav-item" href="/dope-sheet">Dope Sheet</a>
-    <a class="nav-item">Advance Scout</a>
-    <a class="nav-item active" href="/teams">Teams</a>
-    <a class="nav-item" href="/barrel-proof-american-league.html">American League</a>
-    <a class="nav-item" href="/barrel-proof-national-league.html">National League</a>
-  </div>
-</nav>
+{# ── Nav ── #}
+{% set active_page = 'teams' %}
+{% include 'partials/site_nav.html' %}
 
-{# ── Team header ── #}
+{# ══════════════════════════════════════════════ #}
+{# SECTION 1 — Team Header                        #}
+{# ══════════════════════════════════════════════ #}
 <div class="team-banner">
   <div class="team-banner-back"><a href="/teams">← All Teams</a></div>
   <div class="team-banner-top">
@@ -161,180 +170,266 @@ footer{border-top:.5px solid var(--rule-heavy);margin-top:48px;padding:24px 0;di
       <span class="record-value">{{ record.record }}</span>
     </div>
     <div class="record-stat">
-      <span class="record-label">Position</span>
-      <span class="record-value">{{ record.position }}{% if record.position == 1 %}st{% elif record.position == 2 %}nd{% elif record.position == 3 %}rd{% else %}th{% endif %}</span>
+      <span class="record-label">Div Rank</span>
+      <span class="record-value">
+        {{ record.position }}{% if record.position == 1 %}st{% elif record.position == 2 %}nd{% elif record.position == 3 %}rd{% else %}th{% endif %}
+      </span>
     </div>
     <div class="record-stat">
       <span class="record-label">Games Back</span>
-      <span class="record-value small">{{ record.games_back if record.games_back != '-' else '—' }}</span>
+      <span class="record-value sm">{{ record.games_back if record.games_back and record.games_back != '-' else '—' }}</span>
     </div>
     <div class="record-stat">
       <span class="record-label">Division</span>
-      <span class="record-value small">{{ record.division }}</span>
+      <span class="record-value sm">{{ record.division }}</span>
     </div>
   </div>
   {% endif %}
 </div>
 
-{# ── Recent Results ── #}
-<div class="section-hdr">
-  <div class="section-title">Recent Results</div>
-  <div class="section-rule"></div>
-</div>
-{% if recent_games %}
-<table class="results-table">
-  <thead>
-    <tr>
-      <th>Matchup</th>
-      <th class="r">Score</th>
-      <th class="r">Result</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for g in recent_games %}
-    {% set is_home = g.home_abbr == team.abbr %}
-    {% set opp_abbr = g.away_abbr if is_home else g.home_abbr %}
-    {% set opp_city = g.away_city if is_home else g.home_city %}
-    {% set team_runs = g.home_runs if is_home else g.away_runs %}
-    {% set opp_runs  = g.away_runs if is_home else g.home_runs %}
-    {% set won = g.winner == ('home' if is_home else 'away') %}
-    <tr>
-      <td class="matchup">{{ "vs." if is_home else "@" }} {{ opp_city }} ({{ opp_abbr }})</td>
-      <td class="score r">{{ team_runs }}–{{ opp_runs }}</td>
-      <td class="r {% if won %}result-w{% else %}result-l{% endif %}">{{ "W" if won else "L" }}</td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
-{% else %}
-<div class="empty-state">No recent games found.</div>
+{# ══════════════════════════════════════════════ #}
+{# SECTION 7 — Context Note (top, brief)          #}
+{# ══════════════════════════════════════════════ #}
+{% if context_note %}
+<div class="context-note">{{ context_note }}</div>
 {% endif %}
 
-{# ── Upcoming Games ── #}
+{# ══════════════════════════════════════════════ #}
+{# SECTION 2 — Recent Form                        #}
+{# ══════════════════════════════════════════════ #}
+{% if form %}
 <div class="section-hdr" style="margin-top:20px;">
-  <div class="section-title">Today's Schedule</div>
+  <div class="section-title">Recent Form</div>
   <div class="section-rule"></div>
 </div>
-{% if upcoming_games %}
-<table class="upcoming-table">
+<div class="form-bar">
+  {% if form.last_10_record %}
+  <div class="form-stat">
+    <span class="form-label">Last 10</span>
+    <span class="form-value">{{ form.last_10_record }}</span>
+  </div>
+  {% endif %}
+  {% if form.current_streak %}
+  <div class="form-stat">
+    <span class="form-label">Streak</span>
+    <span class="form-value {% if form.streak_type == 'W' %}streak-w{% else %}streak-l{% endif %}">
+      {{ form.current_streak }}
+    </span>
+  </div>
+  {% endif %}
+  {% if form.runs_scored_last_10 is not none %}
+  <div class="form-stat">
+    <span class="form-label">RS (L10)</span>
+    <span class="form-value">{{ form.runs_scored_last_10 }}</span>
+  </div>
+  {% endif %}
+  {% if form.runs_allowed_last_10 is not none %}
+  <div class="form-stat">
+    <span class="form-label">RA (L10)</span>
+    <span class="form-value">{{ form.runs_allowed_last_10 }}</span>
+  </div>
+  {% endif %}
+  {% if form.run_diff_last_10 is not none %}
+  <div class="form-stat">
+    <span class="form-label">Run Diff (L10)</span>
+    <span class="form-value {% if form.run_diff_last_10 >= 0 %}streak-w{% else %}streak-l{% endif %}">
+      {% if form.run_diff_last_10 >= 0 %}+{% endif %}{{ form.run_diff_last_10 }}
+    </span>
+  </div>
+  {% endif %}
+</div>
+{% endif %}
+
+{# ══════════════════════════════════════════════ #}
+{# SECTION 3 — Upcoming Schedule                  #}
+{# ══════════════════════════════════════════════ #}
+{% if lookahead %}
+<div class="section-hdr" style="margin-top:20px;">
+  <div class="section-title">Upcoming Schedule</div>
+  <div class="section-rule"></div>
+</div>
+<div class="tbl-wrap">
+<table class="data-table">
   <thead>
     <tr>
+      <th>Date</th>
       <th>Matchup</th>
       <th>Time</th>
       <th>Probable Pitchers</th>
     </tr>
   </thead>
   <tbody>
-    {% for g in upcoming_games %}
-    {% set is_home = g.home_abbr == team.abbr %}
-    {% set opp_city = g.away if is_home else g.home %}
-    {% set our_prob = g.home_prob if is_home else g.away_prob %}
-    {% set opp_prob = g.away_prob if is_home else g.home_prob %}
+    {% for g in lookahead[:5] %}
     <tr>
-      <td class="matchup">{{ "vs." if is_home else "@" }} {{ opp_city }}</td>
-      <td class="time">{{ g.time }}</td>
-      <td class="prob">{{ our_prob or "TBD" }} vs. {{ opp_prob or "TBD" }}</td>
+      <td class="main">{{ g.date_display }}</td>
+      <td class="main">{{ "vs." if g.home_away == "home" else "@" }} {{ g.opponent_city }} ({{ g.opponent_abbr }})</td>
+      <td>{{ g.game_time }}</td>
+      <td>{{ g.prob_pitcher_team or "TBD" }} vs. {{ g.prob_pitcher_opponent or "TBD" }}</td>
     </tr>
     {% endfor %}
   </tbody>
 </table>
-{% else %}
-<div class="empty-state">No games scheduled today.</div>
+</div>
 {% endif %}
 
-{# ── Latest Box Score ── #}
-{% if latest_box_score %}
-{% set g = latest_box_score %}
+{# ══════════════════════════════════════════════ #}
+{# SECTION 4 — Recent Results                     #}
+{# ══════════════════════════════════════════════ #}
+{% if recent_games %}
 <div class="section-hdr" style="margin-top:20px;">
-  <div class="section-title">Latest Box Score</div>
+  <div class="section-title">Recent Results</div>
   <div class="section-rule"></div>
 </div>
-<div class="box-section">
-  <div class="bx-meta">
-    {% if g.decisions %}
-      {% if g.decisions.W %}<b>W:</b> {{ g.decisions.W }}{% endif %}
-      {% if g.decisions.L %} &nbsp;<b>L:</b> {{ g.decisions.L }}{% endif %}
-      {% if g.decisions.SV %} &nbsp;<b>SV:</b> {{ g.decisions.SV }}{% endif %}
-      {% if g.venue %}&nbsp;·&nbsp;{% endif %}
-    {% endif %}
-    {% if g.venue %}<b>{{ g.venue }}</b>{% endif %}
-    {% if g.duration %} · {{ g.duration }}{% endif %}
-    {% if g.attendance %} · {{ g.attendance }}{% endif %}
-  </div>
+<div class="tbl-wrap">
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>Matchup</th>
+      <th class="r">Score</th>
+      <th class="r">Result</th>
+      <th class="r">Report</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for g in recent_games %}
+    {# Determine side — check both canonical and game-data abbr #}
+    {% set is_home = g.home_abbr == team.abbr or (team.abbr == 'ARI' and g.home_abbr == 'AZ') %}
+    {% set opp_city = g.away_city if is_home else g.home_city %}
+    {% set opp_abbr = g.away_abbr if is_home else g.home_abbr %}
+    {% set team_runs = g.home_runs if is_home else g.away_runs %}
+    {% set opp_runs  = g.away_runs if is_home else g.home_runs %}
+    {% set won = g.winner == ('home' if is_home else 'away') %}
+    <tr>
+      <td class="main">{{ "vs." if is_home else "@" }} {{ opp_city }} ({{ opp_abbr }})</td>
+      <td class="r">{{ team_runs }}–{{ opp_runs }}</td>
+      <td class="r {% if won %}result-w{% else %}result-l{% endif %}">{{ "W" if won else "L" }}</td>
+      <td class="r link-cell">
+        {% set slug = game_link(g) %}
+        {% if slug %}<a href="/scoreboard/{{ slug }}">→</a>{% else %}—{% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endif %}
 
-  {% if g.innings %}
-  <div class="bx-line-wrap">
-    <table class="bx-line">
-      <thead>
-        <tr>
-          <th class="tn"></th>
-          {% for inn in g.innings %}<th>{{ inn }}</th>{% endfor %}
-          <th class="sep">R</th><th>H</th><th>E</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="{% if g.winner == 'away' %}w{% endif %}">
-          <td class="tn">{{ g.away_abbr }}</td>
-          {% for r in g.away_line %}<td>{{ r }}</td>{% endfor %}
-          {% for v in g.away_rhe %}<td class="{% if loop.first %}sep{% endif %}">{{ v }}</td>{% endfor %}
-        </tr>
-        <tr class="{% if g.winner == 'home' %}w{% endif %}">
-          <td class="tn">{{ g.home_abbr }}</td>
-          {% for r in g.home_line %}<td>{{ r }}</td>{% endfor %}
-          {% for v in g.home_rhe %}<td class="{% if loop.first %}sep{% endif %}">{{ v }}</td>{% endfor %}
-        </tr>
-      </tbody>
-    </table>
+{# ══════════════════════════════════════════════ #}
+{# SECTION 5 — Team Snapshot                      #}
+{# ══════════════════════════════════════════════ #}
+{% if team_batting or team_pitching %}
+<div class="section-hdr" style="margin-top:20px;">
+  <div class="section-title">Team Snapshot</div>
+  <div class="section-rule"></div>
+</div>
+<div class="snapshot-grid">
+  {# Batting column #}
+  {% if team_batting %}
+  <div>
+    <div class="snapshot-col-hdr">Batting</div>
+    {% if team_batting.avg %}
+    <div class="stat-row"><span class="stat-name">AVG</span><span class="stat-value">{{ team_batting.avg }}</span></div>
+    {% endif %}
+    {% if team_batting.obp %}
+    <div class="stat-row"><span class="stat-name">OBP</span><span class="stat-value">{{ team_batting.obp }}</span></div>
+    {% endif %}
+    {% if team_batting.slg %}
+    <div class="stat-row"><span class="stat-name">SLG</span><span class="stat-value">{{ team_batting.slg }}</span></div>
+    {% endif %}
+    {% if team_batting.ops %}
+    <div class="stat-row"><span class="stat-name">OPS</span><span class="stat-value">{{ team_batting.ops }}</span></div>
+    {% endif %}
+    {% if team_batting.runs_per_game %}
+    <div class="stat-row"><span class="stat-name">R/G</span><span class="stat-value">{{ team_batting.runs_per_game }}</span></div>
+    {% endif %}
+    {% if team_batting.home_runs %}
+    <div class="stat-row"><span class="stat-name">HR</span><span class="stat-value">{{ team_batting.home_runs }}</span></div>
+    {% endif %}
   </div>
   {% endif %}
+  {# Pitching column #}
+  {% if team_pitching %}
+  <div>
+    <div class="snapshot-col-hdr">Pitching</div>
+    {% if team_pitching.era %}
+    <div class="stat-row"><span class="stat-name">ERA</span><span class="stat-value">{{ team_pitching.era }}</span></div>
+    {% endif %}
+    {% if team_pitching.whip %}
+    <div class="stat-row"><span class="stat-name">WHIP</span><span class="stat-value">{{ team_pitching.whip }}</span></div>
+    {% endif %}
+    {% if team_pitching.k9 %}
+    <div class="stat-row"><span class="stat-name">K/9</span><span class="stat-value">{{ team_pitching.k9 }}</span></div>
+    {% endif %}
+    {% if team_pitching.bb9 %}
+    <div class="stat-row"><span class="stat-name">BB/9</span><span class="stat-value">{{ team_pitching.bb9 }}</span></div>
+    {% endif %}
+  </div>
+  {% endif %}
+</div>
+{% endif %}
 
-  <div class="bx-divider"></div>
-
-  <div class="bx-dual">
-    <div>
-      <div class="bx-team-name">{{ g.away_abbr }}</div>
-      <table class="bx-player-table">
-        <thead><tr><th class="pn"></th><th>AB</th><th>R</th><th>H</th><th>RBI</th></tr></thead>
-        <tbody>
-          {% for b in g.away_batting[:9] %}
-          <tr><td class="pn">{{ b.name }}{% if b.pos %}, {{ b.pos }}{% endif %}</td><td>{{ b.ab }}</td><td>{{ b.r }}</td><td>{{ b.h }}</td><td>{{ b.rbi }}</td></tr>
-          {% endfor %}
-          {% if g.away_pitching %}
-          <tr class="pitch-hdr"><td class="pn">Pitching</td><td>IP</td><td>ER</td><td>K</td></tr>
-          {% for p in g.away_pitching[:4] %}
-          <tr class="pitcher-row"><td class="pn">{{ p.name }}</td><td>{{ p.ip }}</td><td>{{ p.er }}</td><td>{{ p.k }}</td></tr>
-          {% endfor %}
-          {% endif %}
-        </tbody>
-      </table>
-    </div>
-    <div>
-      <div class="bx-team-name">{{ g.home_abbr }}</div>
-      <table class="bx-player-table">
-        <thead><tr><th class="pn"></th><th>AB</th><th>R</th><th>H</th><th>RBI</th></tr></thead>
-        <tbody>
-          {% for b in g.home_batting[:9] %}
-          <tr><td class="pn">{{ b.name }}{% if b.pos %}, {{ b.pos }}{% endif %}</td><td>{{ b.ab }}</td><td>{{ b.r }}</td><td>{{ b.h }}</td><td>{{ b.rbi }}</td></tr>
-          {% endfor %}
-          {% if g.home_pitching %}
-          <tr class="pitch-hdr"><td class="pn">Pitching</td><td>IP</td><td>ER</td><td>K</td></tr>
-          {% for p in g.home_pitching[:4] %}
-          <tr class="pitcher-row"><td class="pn">{{ p.name }}</td><td>{{ p.ip }}</td><td>{{ p.er }}</td><td>{{ p.k }}</td></tr>
-          {% endfor %}
-          {% endif %}
-        </tbody>
-      </table>
-    </div>
+{# ══════════════════════════════════════════════ #}
+{# SECTION 6 — Key Players / Roster               #}
+{# ══════════════════════════════════════════════ #}
+{% if starters or bullpen or lineup %}
+<div class="section-hdr" style="margin-top:20px;">
+  <div class="section-title">Roster</div>
+  <div class="section-rule"></div>
+</div>
+<div class="players-grid">
+  {# Rotation #}
+  <div>
+    <div class="players-col-hdr">Rotation</div>
+    {% if starters %}
+      {% for p in starters %}
+      <div class="player-row">
+        <span class="player-pos">{{ p.pos }}</span>
+        <span class="player-name">{{ p.name }}</span>
+      </div>
+      {% endfor %}
+    {% else %}
+      <div class="players-empty">—</div>
+    {% endif %}
+  </div>
+  {# Bullpen #}
+  <div>
+    <div class="players-col-hdr">Bullpen</div>
+    {% if bullpen %}
+      {% for p in bullpen %}
+      <div class="player-row">
+        <span class="player-pos">{{ p.pos }}</span>
+        <span class="player-name">{{ p.name }}</span>
+      </div>
+      {% endfor %}
+    {% else %}
+      <div class="players-empty">—</div>
+    {% endif %}
+  </div>
+  {# Lineup / Position players #}
+  <div>
+    <div class="players-col-hdr">Position Players</div>
+    {% if lineup %}
+      {% for p in lineup %}
+      <div class="player-row">
+        <span class="player-pos">{{ p.pos }}</span>
+        <span class="player-name">{{ p.name }}</span>
+      </div>
+      {% endfor %}
+    {% else %}
+      <div class="players-empty">—</div>
+    {% endif %}
   </div>
 </div>
 {% endif %}
 
+{# ── Footer ── #}
 <footer>
   <div class="footer-name">Barrel Proof Baseball</div>
-  <div class="footer-tag">RAW &nbsp;·&nbsp; UNFILTERED &nbsp;·&nbsp; BASEBALL &nbsp;·&nbsp; ENJOY RESPONSIBLY<br/><span style="opacity:.5">Data: MLB Stats API · Statcast · Baseball Savant</span></div>
+  <div class="footer-tag">RAW &nbsp;·&nbsp; UNFILTERED &nbsp;·&nbsp; BASEBALL &nbsp;·&nbsp; ENJOY RESPONSIBLY<br/>
+    <span style="opacity:.5">MLB Stats API &nbsp;·&nbsp; statsapi.mlb.com</span></div>
   <div class="footer-legal">© 2026 Barrel Proof<br/>Please gamble responsibly. 21+</div>
 </footer>
+
 </div>
-<script>function toggleNav(){document.getElementById('navItems').classList.toggle('open');}</script>
 </body>
 </html>
