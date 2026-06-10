@@ -15,6 +15,7 @@ Schedule with cron (runs at 8:10 AM daily, after mlb_fetch.py):
 """
 
 import json
+import os
 import re
 import sys
 from datetime import datetime, timedelta
@@ -23,7 +24,7 @@ from pathlib import Path
 print(f"SCRIPT STARTED: {datetime.now()}", flush=True)
 
 VAULT    = Path(__file__).resolve().parent
-DAILY    = Path("/opt/data/workspace/barrel-proof/Daily")
+DAILY    = Path(os.environ["BARREL_PROOF_DAILY"]) if os.environ.get("BARREL_PROOF_DAILY") else VAULT / "Daily"
 OUT_FILE = Path("Site Data") / "game_cards.json"
 
 # ── Team abbreviation → full city name ────────────────────────────────────────
