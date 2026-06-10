@@ -126,6 +126,15 @@ nav.main-nav{display:flex;justify-content:center;align-items:center;border-top:1
 .ump-val{color:var(--parchment2);}
 .ump-note{font-family:var(--mono);font-size:11px;color:var(--smoke-light);margin-top:8px;line-height:1.8;border-top:.5px solid var(--rule);padding-top:6px;}
 .ump-tbd{font-family:var(--mono);font-size:11px;color:var(--smoke);font-style:italic;}
+.bcast-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.bcast-col-head{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:6px;}
+.bcast-row{display:flex;justify-content:space-between;align-items:center;padding:4px 0;border-bottom:.5px solid var(--rule);font-family:var(--mono);font-size:12px;}
+.bcast-row:last-child{border-bottom:none;}
+.bcast-lbl{color:var(--smoke);font-size:10px;letter-spacing:.08em;text-transform:uppercase;}
+.bcast-val{color:var(--parchment2);}
+.bcast-national{color:var(--gold);}
+.bcast-stream{color:var(--amber);}
+.bcast-none{font-family:var(--mono);font-size:11px;color:var(--smoke);font-style:italic;}
 .lines-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
 .line-item{text-align:center;padding:10px 8px;background:rgba(0,0,0,.2);border-radius:2px;}
 .line-lbl{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--smoke);margin-bottom:4px;text-transform:uppercase;}
@@ -500,6 +509,33 @@ function renderUmpire(g){
   </div>`;
 }
 
+function renderBroadcasts(g){
+  const bc=g.broadcasts||{};
+  const ntv=bc.national_tv||[],atv=bc.away_tv||[],htv=bc.home_tv||[];
+  const nrad=bc.national_radio||[],arad=bc.away_radio||[],hrad=bc.home_radio||[];
+  const STREAMING=['Apple TV+','Apple TV','Peacock','Prime Video','Amazon Prime'];
+  if(!ntv.length&&!atv.length&&!htv.length&&!nrad.length&&!arad.length&&!hrad.length){
+    return `<div class="detail-section"><div class="ds-title">On The Air</div><div class="bcast-none">Broadcast information not yet available.</div></div>`;
+  }
+  const tvRow=(lbl,ch,cls)=>`<div class="bcast-row"><span class="bcast-lbl">${lbl}</span><span class="bcast-val ${cls}">${ch}</span></div>`;
+  let tvHtml='';
+  ntv.forEach(ch=>tvHtml+=tvRow('National',ch,STREAMING.includes(ch)?'bcast-stream':'bcast-national'));
+  atv.forEach(ch=>tvHtml+=tvRow(`${g.away} TV`,ch,''));
+  htv.forEach(ch=>tvHtml+=tvRow(`${g.home} TV`,ch,''));
+  if(!ntv.length&&!atv.length&&!htv.length)tvHtml=`<div class="bcast-none">TV info unavailable</div>`;
+  let radHtml='';
+  nrad.forEach(ch=>radHtml+=tvRow('National',ch,'bcast-national'));
+  arad.forEach(ch=>radHtml+=tvRow(`${g.away} Radio`,ch,''));
+  hrad.forEach(ch=>radHtml+=tvRow(`${g.home} Radio`,ch,''));
+  if(!nrad.length&&!arad.length&&!hrad.length)radHtml=`<div class="bcast-none">Radio info unavailable</div>`;
+  return `<div class="detail-section"><div class="ds-title">On The Air</div>
+    <div class="bcast-grid">
+      <div><div class="bcast-col-head">Television</div>${tvHtml}</div>
+      <div><div class="bcast-col-head">Radio</div>${radHtml}</div>
+    </div>
+  </div>`;
+}
+
 function renderWhyMatters(g){
   const std=g.standings||{};const awayStd=std.away||{};const homeStd=std.home||{};
   const hasStd=awayStd.w!==undefined||homeStd.w!==undefined;
@@ -646,6 +682,7 @@ function render(games){
       renderLineups(g),
       renderBullpen(g),
       renderUmpire(g),
+      renderBroadcasts(g),
       renderWhyMatters(g),
       renderForm(g),
       renderScoutsEdge(g),

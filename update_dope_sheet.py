@@ -60,9 +60,18 @@ TEAM_ABB = {
     "Texas Rangers":"TEX","Toronto Blue Jays":"TOR","Washington Nationals":"WSH",
 }
 
-DOME_PARKS = {
-    "American Family Field","Rogers Centre","Tropicana Field",
-    "loanDepot park","Minute Maid Park","Globe Life Field","Chase Field",
+FIXED_DOMES = {
+    "Tropicana Field",
+    "loanDepot park",
+    "Rogers Centre",
+}
+
+RETRACTABLE_ROOF_PARKS = {
+    "American Family Field",
+    "Minute Maid Park",
+    "Globe Life Field",
+    "Chase Field",
+    "T-Mobile Park",
 }
 
 # NWS station per home venue (closest reliable station)
@@ -98,6 +107,8 @@ VENUE_STATION = {
     "loanDepot park":            "KMIA",
     "Tropicana Field":           "KTPA",
     "Rogers Centre":             "CYTZ",
+    "Nationals Park":            "KDCA",
+    "Las Vegas Ballpark":        "KVGT",
 }
 
 # ── UTILITIES ─────────────────────────────────────────────────────────────
@@ -143,12 +154,12 @@ def fmt_time_et(game_time_str):
 
 # ── WEATHER (NWS) ─────────────────────────────────────────────────────────
 def get_weather(venue, roof):
-    if roof == "Closed":
-        return {"temp":"—","sky":"Dome","wind":"—","humidity":"—","precip":"0%","roof":"Closed","source":"dome"}
+    if roof == "Dome":
+        return {"temp":"—","sky":"Fixed Dome","wind":"—","humidity":"—","precip":"—","roof":"Dome","source":"dome"}
 
     station = VENUE_STATION.get(venue)
     if not station:
-        return {"temp":"—","sky":"—","wind":"—","humidity":"—","precip":"—","roof":"Open","source":"unavailable"}
+        return {"temp":"—","sky":"—","wind":"—","humidity":"—","precip":"—","roof":roof,"source":"unavailable"}
 
     try:
         obs = fetch(f"{NWS_BASE}/stations/{station}/observations/latest", silent=True)
@@ -182,12 +193,12 @@ def get_weather(venue, roof):
             "wind": wind_str,
             "humidity": hum_str,
             "precip": "—",
-            "roof": "Open",
+            "roof": roof,
             "source": "NWS",
         }
     except Exception as e:
         print(f"    ⚠ Weather error for {venue}: {e}")
-        return {"temp":"—","sky":"—","wind":"—","humidity":"—","precip":"—","roof":"Open","source":"error"}
+        return {"temp":"—","sky":"—","wind":"—","humidity":"—","precip":"—","roof":roof,"source":"error"}
 
 # ── PROBABLE PITCHERS ─────────────────────────────────────────────────────
 def get_probable_pitcher(game, side):
@@ -234,7 +245,7 @@ def get_lineup_players(game, side):
     ]
 
 # ── BULLPEN AVAILABILITY ──────────────────────────────────────────────────
-def get_bullpen(team_id, date_str):
+def get_bullpen(team_id, date_str, starter_id=None):
     try:
         roster_data = fetch(f"{MLB_BASE}/teams/{team_id}/roster?rosterType=active")
         relievers = [
@@ -242,6 +253,8 @@ def get_bullpen(team_id, date_str):
             if p.get("position", {}).get("type") == "Pitcher"
             and p.get("position", {}).get("abbreviation") != "SP"
         ]
+        if starter_id:
+            relievers = [r for r in relievers if r.get("person", {}).get("id") != starter_id]
 
         date_dt = datetime.strptime(date_str, "%Y-%m-%d")
         cutoff  = (date_dt - timedelta(days=5)).strftime("%Y-%m-%d")
@@ -449,13 +462,65 @@ def get_standings_context(away_full, home_full, standings_data):
     return context
 
 # ── BUILD GAME ────────────────────────────────────────────────────────────
+def get_broadcasts(game):
+    """
+    Parse broadcast data from MLB Stats API game object.
+    Returns dict with tv and radio lists, each split by national/home/away.
+    """
+    raw = game.get("broadcasts", [])
+    result = {
+        "national_tv": [],
+        "away_tv": [],
+        "home_tv": [],
+        "national_radio": [],
+        "away_radio": [],
+        "home_radio": [],
+    }
+    STREAMING_SERVICES = {"Apple TV+", "Apple TV", "Peacock", "Prime Video", "Amazon Prime"}
+    for b in raw:
+        name      = b.get("name", "").strip()
+        btype     = b.get("type", "").upper()      # "TV" or "Radio"
+        home_away = b.get("homeAway", "").lower()  # "home", "away", "national", "internal"
+        lang      = b.get("language", "en").lower()
+        if not name or home_away == "internal":
+            continue
+        # Only English broadcasts
+        if lang not in ("en", "english", ""):
+            continue
+        if btype == "TV":
+            if home_away == "national" or b.get("isNational"):
+                if name not in result["national_tv"]:
+                    result["national_tv"].append(name)
+            elif home_away == "away":
+                if name not in result["away_tv"]:
+                    result["away_tv"].append(name)
+            elif home_away == "home":
+                if name not in result["home_tv"]:
+                    result["home_tv"].append(name)
+        elif btype in ("RADIO", "Radio"):
+            if home_away == "national" or b.get("isNational"):
+                if name not in result["national_radio"]:
+                    result["national_radio"].append(name)
+            elif home_away == "away":
+                if name not in result["away_radio"]:
+                    result["away_radio"].append(name)
+            elif home_away == "home":
+                if name not in result["home_radio"]:
+                    result["home_radio"].append(name)
+    return result
+
 def build_game(game, date_str, standings_data, season):
     away_name = game["teams"]["away"]["team"]["name"]
     home_name = game["teams"]["home"]["team"]["name"]
     away_id   = game["teams"]["away"]["team"]["id"]
     home_id   = game["teams"]["home"]["team"]["id"]
     venue     = game.get("venue", {}).get("name", "—")
-    roof      = "Closed" if venue in DOME_PARKS else "Open"
+    if venue in FIXED_DOMES:
+        roof = "Dome"
+    elif venue in RETRACTABLE_ROOF_PARKS:
+        roof = "Open"
+    else:
+        roof = "No Roof"
 
     print(f"  ├ {away_name} @ {home_name}")
 
@@ -472,8 +537,10 @@ def build_game(game, date_str, standings_data, season):
     print(f"✓ ({weather.get('source','?')})")
 
     print(f"  │  bullpen...", end=" ", flush=True)
-    away_bp = get_bullpen(away_id, date_str)
-    home_bp = get_bullpen(home_id, date_str)
+    away_starter_id = game.get("teams", {}).get("away", {}).get("probablePitcher", {}).get("id")
+    home_starter_id = game.get("teams", {}).get("home", {}).get("probablePitcher", {}).get("id")
+    away_bp = get_bullpen(away_id, date_str, away_starter_id)
+    home_bp = get_bullpen(home_id, date_str, home_starter_id)
     print(f"✓ ({len(away_bp)}+{len(home_bp)})")
 
     print(f"  │  form...", end=" ", flush=True)
@@ -497,6 +564,11 @@ def build_game(game, date_str, standings_data, season):
             ump_name = o.get("official", {}).get("fullName", "TBD")
             break
 
+    print(f"  │  broadcasts...", end=" ", flush=True)
+    broadcasts = get_broadcasts(game)
+    bcast_count = sum(len(v) for v in broadcasts.values())
+    print(f"✓ ({bcast_count} entries)")
+
     return {
         "away":     TEAM_ABB.get(away_name, away_name[:3].upper()),
         "home":     TEAM_ABB.get(home_name, home_name[:3].upper()),
@@ -510,6 +582,7 @@ def build_game(game, date_str, standings_data, season):
         "pitchers": {"away": away_p, "home": home_p},
         "weather":  weather,
         "umpire":   {"name": ump_name, "calledKpct": "—", "rpg": "—", "note": ""},
+        "broadcasts": broadcasts,
         "lineups":  {"away": away_lu, "home": home_lu},
         "bullpen":  {"away": away_bp, "home": home_bp},
         "injuries": {"away": [], "home": []},
@@ -532,7 +605,7 @@ def main():
 
     sched = fetch(
         f"{MLB_BASE}/schedule?sportId=1&date={date_str}"
-        f"&hydrate=lineups,probablePitcher,teams,venue,officials"
+        f"&hydrate=lineups,probablePitcher,teams,venue,officials,broadcasts"
     )
     dates = sched.get("dates", [])
     if not dates:
