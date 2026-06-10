@@ -497,7 +497,7 @@ def get_broadcasts(game):
             elif home_away == "home":
                 if name not in result["home_tv"]:
                     result["home_tv"].append(name)
-        elif btype in ("RADIO", "Radio"):
+        elif btype in ("RADIO", "AM", "FM"):
             if home_away == "national" or b.get("isNational"):
                 if name not in result["national_radio"]:
                     result["national_radio"].append(name)
