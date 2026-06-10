@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>{{ game.away_city }} {{ game.away_runs }}, {{ game.home_city }} {{ game.home_runs }} — {{ display_date }} — Barrel Proof</title>
+<title>{{ game.away_city }} vs. {{ game.home_city }} — {{ display_date }} — Barrel Proof</title>
 <meta name="description" content="{{ game.summary|default('Game recap from Barrel Proof Baseball.') }}"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -202,26 +202,18 @@ nav.main-nav {
   border-bottom:.5px solid var(--rule);}
 .box-tbl-wrap{overflow-x:auto;}
 .box-tbl{border-collapse:collapse;width:100%;font-family:var(--mono);
-  font-size:11px;white-space:nowrap;}
-.box-tbl th{color:var(--gold-dim);font-weight:400;font-size:9.5px;
-  text-align:center;padding:4px 7px;letter-spacing:.08em;
+  font-size:13px;white-space:nowrap;}
+.box-tbl th{color:var(--gold-dim);font-weight:400;font-size:11px;
+  text-align:center;padding:7px 10px;letter-spacing:.08em;
   border-bottom:.5px solid var(--rule-heavy);background:rgba(0,0,0,.2);}
 .box-tbl th.nl{text-align:left;}
-.box-tbl td{text-align:center;padding:4px 7px;color:var(--parchment2);
+.box-tbl td{text-align:center;padding:8px 10px;color:var(--parchment2);
   border-bottom:.5px solid var(--rule);}
-.box-tbl td.nl{text-align:left;min-width:130px;}
+.box-tbl td.nl{text-align:left;min-width:150px;}
 .box-tbl tr:last-child td{border-bottom:none;font-weight:500;
   background:rgba(0,0,0,.15);}
 .box-tbl tr:hover td{background:rgba(168,144,112,.05);}
 .hi{color:var(--parchment);font-weight:600;}
-
-/* ── PLACEHOLDER SECTIONS ── */
-.placeholder-section{padding:20px 24px;background:var(--ink-card);
-  border:.5px solid var(--rule);border-radius:2px;
-  font-family:var(--mono);font-size:11px;letter-spacing:.08em;
-  color:var(--gold-dim);text-align:center;margin-bottom:4px;}
-.placeholder-section span{display:block;font-size:10px;
-  color:var(--zero);margin-top:4px;letter-spacing:.12em;}
 
 /* ── BACK LINK ── */
 .back-link{font-family:var(--mono);font-size:11px;letter-spacing:.1em;
@@ -530,70 +522,6 @@ nav.main-nav {
   </div>
   {% endfor %}
   {% endif %}
-
-  <!-- PLACEHOLDER SECTIONS -->
-  <div class="section-hdr">
-    <div class="section-hdr-text">Why It Matters</div>
-    <div class="section-hdr-rule"></div>
-  </div>
-  <div class="placeholder-section">
-    Coming Soon
-    <span>SERIES &amp; STANDINGS CONTEXT</span>
-  </div>
-
-  <div class="section-hdr">
-    <div class="section-hdr-text">Statcast Snapshot</div>
-    <div class="section-hdr-rule"></div>
-  </div>
-  <div class="placeholder-section">
-    Coming Soon
-    <span>EXIT VELOCITY · LAUNCH ANGLE · SPIN RATE</span>
-  </div>
-
-  <div class="section-hdr">
-    <div class="section-hdr-text">Series Impact</div>
-    <div class="section-hdr-rule"></div>
-  </div>
-  <div class="placeholder-section">
-    Coming Soon
-    <span>SERIES RECORD · NEXT GAME</span>
-  </div>
-
-  <div class="section-hdr">
-    <div class="section-hdr-text">Streak Watch</div>
-    <div class="section-hdr-rule"></div>
-  </div>
-  <div class="placeholder-section">
-    Coming Soon
-    <span>WIN/LOSS STREAKS</span>
-  </div>
-
-  <div class="section-hdr">
-    <div class="section-hdr-text">Milestones</div>
-    <div class="section-hdr-rule"></div>
-  </div>
-  <div class="placeholder-section">
-    Coming Soon
-    <span>NOTABLE ACHIEVEMENTS FROM THIS GAME</span>
-  </div>
-
-  <div class="section-hdr">
-    <div class="section-hdr-text">Fantasy Impact</div>
-    <div class="section-hdr-rule"></div>
-  </div>
-  <div class="placeholder-section">
-    Coming Soon
-    <span>STOCK UP · STOCK DOWN · WAIVER WATCH</span>
-  </div>
-
-  <div class="section-hdr">
-    <div class="section-hdr-text">Betting Impact</div>
-    <div class="section-hdr-rule"></div>
-  </div>
-  <div class="placeholder-section">
-    Coming Soon
-    <span>MONEYLINE · RUN LINE · TOTAL · PROP NOTES</span>
-  </div>
 
   <!-- FOOTER -->
   <footer class="site-footer">
