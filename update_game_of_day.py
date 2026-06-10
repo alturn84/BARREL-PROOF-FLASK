@@ -30,7 +30,7 @@ from datetime import datetime, timedelta
 from dataclasses import dataclass, field
 from pathlib import Path
 
-GEMINI_MODEL = "gemini-3.5-flash"
+GEMINI_MODEL = "gemini-2.5-flash"
 
 def load_api_key():
     """Load GEMINI_API_KEY from environment or .env file."""
@@ -573,11 +573,10 @@ def editorial(gs, date_str):
         inn_str  = inn_flag.split("(")[-1].rstrip(")") if "(" in inn_flag else str(gs.innings)
         return {
             "headline":    f"{winner_name} Walks Off {loser_name} in Thrilling Extra-Inning Battle",
-            "subheadline": f"Pete Crow-Armstrong's Two-Homer Effort Powers Cubs to 10th-Inning Victory",
+            "subheadline": f"Dramatic Finish in the {inn_str}th Innings Lifts {winner_name}",
             "lead_angle":  (
                 f"In a captivating extra-innings affair, the {winner_name} clinched a dramatic {gs.home_runs}-{gs.away_runs} walk-off victory over the {loser_name} in the {inn_str}th inning. "
-                f"The contest, extended beyond nine frames, saw notable performances, including a two-homer effort from {winner_name}'s Pete Crow-Armstrong, providing crucial power. "
-                f"Additionally, the {winner_name} showcased aggressive baserunning with a three-stolen base spree, contributing to their relentless pressure. "
+                f"The contest, extended beyond nine frames, saw both sides battle fiercely before the decisive run was plated. "
                 f"This one-run decision delivered the kind of late-game tension that defines baseball's most memorable matchups."
             ),
             "reason": f"Extra-inning walk-off — the purest combination of tension and resolution the sport offers.",
