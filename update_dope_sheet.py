@@ -168,10 +168,10 @@ def get_weather(venue, roof):
         temp_c = props.get("temperature", {}).get("value")
         temp_f = f"{round(temp_c * 9/5 + 32)}°F" if temp_c is not None else "—"
 
-        wind_ms = props.get("windSpeed", {}).get("value")
+        wind_kmh = props.get("windSpeed", {}).get("value")
         wind_dir = props.get("windDirection", {}).get("value")
-        if wind_ms is not None:
-            wind_mph = round(wind_ms * 2.237)
+        if wind_kmh is not None:
+            wind_mph = round(wind_kmh * 0.621371)
             if wind_dir is not None:
                 dirs = ["N","NNE","NE","ENE","E","ESE","SE","SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"]
                 compass = dirs[round(wind_dir / 22.5) % 16]
