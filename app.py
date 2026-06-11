@@ -1277,14 +1277,8 @@ def homepage():
                 gotd_game = g
                 break
 
-    from datetime import date, datetime as _dt
-    # Derive edition date from game_cards.json so the masthead matches
-    # the actual content edition, not today's calendar date.
-    _gc_raw = load_json("game_cards.json", fallback={}).get("date", "")
-    try:
-        edition_date = _dt.strptime(_gc_raw, "%Y-%m-%d").strftime("%B %-d, %Y").upper() + " EDITION"
-    except Exception:
-        edition_date = date.today().strftime("%B %-d, %Y").upper() + " EDITION"
+    from datetime import date
+    edition_date = date.today().strftime("%B %-d, %Y").upper() + " EDITION"
 
     team_nicknames = get_team_nicknames()
 
