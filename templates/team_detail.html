@@ -10,18 +10,38 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Playfair+Display+SC:wght@400;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
 :root{
-  --ink:#1A1108;--ink-card:#1E1208;
-  --parchment:#F0E6CC;--parchment2:#D8C9A8;
-  --cream:#EDE5D0;--cream-dim:#887C60;--cream-mid:#C8BC98;
-  --smoke:#7A6A52;--smoke-light:#A89070;
-  --rule:rgba(136,124,96,.25);--rule-heavy:rgba(136,124,96,.65);
-  --serif-sc:'Playfair Display SC',Georgia,serif;
-  --serif-body:'Source Serif 4',Georgia,serif;
-  --mono:'IBM Plex Mono','Courier New',monospace;
+  /* === BARREL PROOF V1.0 NEWSPAPER PALETTE === */
+  --bp-bg: #efe3c7;
+  --bp-paper: #f7efd8;
+  --bp-paper-soft: #eadbb8;
+  --bp-ink: #17130d;
+  --bp-ink-soft: #33291d;
+  --bp-muted: #6b5a43;
+  --bp-rule: #b99a63;
+  --bp-rule-dark: #6f5732;
+  --bp-accent: #8b1e16;
+  --bp-accent-gold: #b4862f;
+  --bp-charcoal: #201b15;
+
+  /* === NEWSPAPER FONT STACKS === */
+  --display-font: "Bodoni 72 Smallcaps", "Bodoni 72", "Didot", "Baskerville", "Georgia", serif;
+  --headline-font: "Bodoni 72", "Didot", "Baskerville", "Georgia", serif;
+  --body-font: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", "Georgia", serif;
+  --typewriter-font: "American Typewriter", "Courier Prime", "Courier New", Courier, monospace;
+  --condensed-font: "Avenir Next Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+
+  --ink:#1A1108;--ink-card:#f7efd8;
+  --parchment:#17130D;--parchment2:#33291D;
+  --cream:#17130D;--cream-dim:#6B5A43;--cream-mid:#33291D;
+  --smoke:#6B5A43;--smoke-light:#6B5A43;
+  --rule:rgba(185,154,99,.35);--rule-heavy:rgba(111,87,50,.45);
+  --serif-sc:var(--display-font);
+  --serif-body:var(--body-font);
+  --mono:var(--typewriter-font);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{font-size:16px;}
-body{background:var(--ink);color:var(--parchment);font-family:var(--serif-body);
+body{background:radial-gradient(circle at 18% 12%, rgba(255,255,255,.22), transparent 24%),repeating-linear-gradient(0deg, rgba(23,19,13,.025) 0, rgba(23,19,13,.025) 1px, transparent 1px, transparent 4px),linear-gradient(180deg, var(--bp-bg), #e5d2a8);color:var(--parchment);font-family:var(--serif-body);
   line-height:1.6;min-height:100vh;-webkit-font-smoothing:antialiased;}
 a{color:inherit;text-decoration:none;}
 body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
@@ -48,11 +68,11 @@ nav.main-nav{display:flex;justify-content:center;align-items:center;
   border-top:1px solid var(--rule-heavy);border-bottom:1px solid var(--rule-heavy);background:var(--ink);}
 .nav-items-wrap{display:flex;align-items:center;white-space:nowrap;}
 .nav-item{font-family:var(--serif-sc);font-size:15px;letter-spacing:.14em;
-  color:var(--smoke-light);padding:12px 18px;position:relative;cursor:pointer;
+  color: var(--bp-paper);padding:12px 18px;position:relative;cursor:pointer;
   transition:color .2s;white-space:nowrap;display:inline-block;}
-.nav-item:hover,.nav-item.active{color:var(--parchment);}
+.nav-item:hover, .nav-item.active { color: var(--bp-paper); background: var(--bp-accent); }
 .nav-item.active::after{content:'';position:absolute;bottom:-1px;left:0;right:0;
-  height:2px;background:var(--cream);}
+  height:2px;background:var(--bp-accent-gold);}
 .nav-item:not(:last-child)::before{content:'·';position:absolute;right:-2px;color:var(--rule-heavy);}
 
 /* ── Team header ── */
