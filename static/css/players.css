@@ -325,6 +325,29 @@ nav.main-nav {
   min-width: 760px;
 }
 
+.luck-gap-table {
+  min-width: 620px;
+}
+
+.luck-gap-table .stat-label-cell,
+.leaderboard-table td:last-child {
+  text-align: left;
+  white-space: normal;
+}
+
+.leaderboard-table {
+  min-width: 820px;
+}
+
+.leaderboard-table th:nth-child(3),
+.leaderboard-table th:nth-child(4),
+.leaderboard-table th:nth-child(5),
+.leaderboard-table td:nth-child(3),
+.leaderboard-table td:nth-child(4),
+.leaderboard-table td:nth-child(5) {
+  text-align: right;
+}
+
 .empty-ledger h2 {
   font-family: var(--serif-sc);
   letter-spacing: .12em;

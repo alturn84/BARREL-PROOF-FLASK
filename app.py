@@ -152,6 +152,11 @@ def get_player_page_by_slug(slug):
     data = load_json(f"players/player_pages/{wanted}.json", fallback=None)
     return data if isinstance(data, dict) else None
 
+def load_hitter_luck_gap_cards():
+    data = load_json("players/hitter_luck_gap.json", fallback={})
+    players = data.get("players") if isinstance(data, dict) else {}
+    return players if isinstance(players, dict) else {}
+
 def resolve_player_name(name):
     if not name:
         return None
@@ -162,27 +167,39 @@ def resolve_player_name(name):
     players = load_player_index()
     by_slug = {p.get("slug"): p for p in players if p.get("slug")}
 
-    for player in players:
-        if query in {player.get("full_name"), player.get("display_name")}:
-            return player
-
     aliases = load_player_aliases()
+    normalized_query = player_lookup_key(query)
+    exact_matches = [
+        player for player in players
+        if normalized_query in {
+            player_lookup_key(player.get("full_name")),
+            player_lookup_key(player.get("display_name")),
+        }
+    ]
+    if len({player.get("slug") for player in exact_matches if player.get("slug")}) > 1:
+        return None
+    if len(exact_matches) == 1:
+        return exact_matches[0]
+
     alias_target = aliases.get(query)
     if alias_target:
         return by_slug.get(alias_target) or get_player_by_slug(alias_target)
 
-    normalized_query = player_lookup_key(query)
     for alias, target in aliases.items():
         if player_lookup_key(alias) == normalized_query:
             return by_slug.get(target) or get_player_by_slug(target)
 
+    fallback_matches = []
     for player in players:
         if normalized_query in {
             player_lookup_key(player.get("full_name")),
             player_lookup_key(player.get("display_name")),
             player_lookup_key(player.get("slug")),
         }:
-            return player
+            fallback_matches.append(player)
+
+    if len({player.get("slug") for player in fallback_matches if player.get("slug")}) == 1:
+        return fallback_matches[0]
 
     return None
 
@@ -197,7 +214,13 @@ def inject_player_helpers():
         if value is None or value == "" or value is False:
             return "—"
         return value
-    return dict(player_url=player_url, stat_value=stat_value)
+    def signed_stat_value(value):
+        if value is None or value == "" or value is False:
+            return "—"
+        if isinstance(value, (int, float)) and not isinstance(value, bool) and value > 0:
+            return f"+{value}"
+        return value
+    return dict(player_url=player_url, stat_value=stat_value, signed_stat_value=signed_stat_value)
 
 def get_team_nicknames():
     """Returns dict mapping abbr -> nickname, e.g. 'NYY' -> 'Yankees'"""
@@ -1607,13 +1630,35 @@ def player_detail(slug):
     player = get_player_page_by_slug(slug) or get_player_by_slug(slug)
     if not player:
         abort(404)
+    luck_gap_card = load_hitter_luck_gap_cards().get(str(slug or "").strip().lower())
     return render_template(
         "player_detail.html",
         player=player,
         hitter_card=player.get("hitter_card") if isinstance(player, dict) else None,
         pitcher_card=player.get("pitcher_card") if isinstance(player, dict) else None,
+        luck_gap_card=luck_gap_card,
         page_title=f"{player.get('display_name') or player.get('full_name')} — Barrel Proof Player Ledger",
         meta_description=f"{player.get('display_name') or player.get('full_name')} player ledger — Barrel Proof Baseball.",
+    )
+
+@app.route("/leaderboards/luck-gap")
+@app.route("/leaderboards/luck-gap/")
+def luck_gap_leaderboard():
+    cards = load_hitter_luck_gap_cards()
+    players = [card for card in cards.values() if isinstance(card, dict)]
+    players.sort(key=lambda card: (card.get("luck_gap_points") is None, -(card.get("luck_gap_points") or 0), card.get("full_name") or ""))
+    positive_players = [card for card in players if isinstance(card.get("luck_gap_points"), (int, float)) and card.get("luck_gap_points") > 0]
+    negative_players = sorted(
+        [card for card in players if isinstance(card.get("luck_gap_points"), (int, float)) and card.get("luck_gap_points") < 0],
+        key=lambda card: (card.get("luck_gap_points") or 0, card.get("full_name") or ""),
+    )
+    return render_template(
+        "luck_gap_leaderboard.html",
+        players=players,
+        positive_players=positive_players,
+        negative_players=negative_players,
+        page_title="Luck Gap Leaderboard — Barrel Proof",
+        meta_description="Barrel Proof Luck Gap leaderboard comparing xwOBA against calculated wOBA.",
     )
 
 def build_team_context_note(team, record, form):

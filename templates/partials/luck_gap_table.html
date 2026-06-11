@@ -1,0 +1,30 @@
+<div class="player-table-wrap leaderboard-table-wrap">
+  <table class="player-table leaderboard-table">
+    <thead>
+      <tr>
+        <th>Player</th>
+        <th>Team</th>
+        <th>BP wOBA</th>
+        <th>xwOBA</th>
+        <th>Luck Gap</th>
+        <th>Label</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for player in leaderboard_players %}
+      <tr>
+        <td><a href="/player/{{ player.get('slug') }}">{{ player.get('full_name') or '—' }}</a></td>
+        <td>{{ stat_value(player.get('team_abbr')) }}</td>
+        <td>{{ stat_value(player.get('calculated_woba')) }}</td>
+        <td>{{ stat_value(player.get('xwoba')) }}</td>
+        <td>{{ signed_stat_value(player.get('luck_gap_points')) }}</td>
+        <td>{{ stat_value(player.get('label')) }}</td>
+      </tr>
+      {% else %}
+      <tr>
+        <td colspan="6">—</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>

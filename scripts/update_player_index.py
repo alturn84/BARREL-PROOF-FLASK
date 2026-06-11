@@ -30,6 +30,7 @@ DEFAULT_OVERRIDES = {
     "player_ids": {},
     "slug_overrides": {},
     "aliases": {},
+    "manual_players": [],
 }
 
 POSITION_GROUPS = {
@@ -197,6 +198,16 @@ def source_rows():
     yield from json_roster_rows()
 
 
+def manual_rows(overrides):
+    for row in overrides.get("manual_players", []):
+        if isinstance(row, dict):
+            manual = dict(row)
+            manual.setdefault("source", "Site Data/players/player_manual_overrides.json")
+            manual.setdefault("status", "Active")
+            manual.setdefault("active", True)
+            yield manual
+
+
 def find_team(row, teams_by_abbr, teams_by_name, overrides):
     abbr = normalize_team_abbr(row.get("team_abbr") or row.get("abbr"), overrides)
     if abbr and abbr in teams_by_abbr:
@@ -215,7 +226,7 @@ def canonical_record(row, teams_by_abbr, teams_by_name, overrides):
     position = compact_ws(row.get("position") or row.get("pos") or "") or None
     mlbam_id = row.get("mlbam_id") or row.get("mlb_id") or row.get("id") or row.get("player_id")
     mlbam_id = str(mlbam_id) if mlbam_id not in (None, "") else None
-    base_slug = overrides.get("slug_overrides", {}).get(full_name) or slugify(full_name)
+    base_slug = compact_ws(row.get("slug")) or overrides.get("slug_overrides", {}).get(full_name) or slugify(full_name)
     player_id = overrides.get("player_ids", {}).get(full_name) or (f"mlbam-{mlbam_id}" if mlbam_id else base_slug)
     return {
         "player_id": player_id,
@@ -226,42 +237,66 @@ def canonical_record(row, teams_by_abbr, teams_by_name, overrides):
         "team_abbr": normalize_team_abbr(team.get("abbr"), overrides),
         "team_name": team.get("name"),
         "position": position,
-        "position_group": POSITION_GROUPS.get((position or "").upper()),
+        "position_group": compact_ws(row.get("position_group")) or POSITION_GROUPS.get((position or "").upper()),
         "status": compact_ws(row.get("status")) or ("Active" if row.get("active", True) else None),
         "bats": compact_ws(row.get("bats")) or None,
         "throws": compact_ws(row.get("throws")) or None,
         "active": bool(row.get("active", True)),
+        "_manual": "player_manual_overrides.json" in str(row.get("source") or ""),
     }
 
 
 def merge_records(records):
     merged = {}
+    name_team_keys = {}
     for rec in records:
         if not rec:
             continue
-        key = rec.get("mlbam_id") or f"{ascii_key(rec.get('full_name', ''))}|{rec.get('team_abbr') or ''}"
+        name_team_key = f"{ascii_key(rec.get('full_name', ''))}|{rec.get('team_abbr') or ''}"
+        key = rec.get("mlbam_id") or name_team_key
+        if rec.get("mlbam_id") and name_team_key in name_team_keys:
+            key = name_team_keys[name_team_key]
         existing = merged.get(key)
         if not existing:
             merged[key] = rec
+            name_team_keys[name_team_key] = key
             continue
+        is_manual = bool(rec.get("_manual"))
         for field, value in rec.items():
-            if existing.get(field) in (None, "") and value not in (None, ""):
+            if value in (None, ""):
+                continue
+            if is_manual and field in {"mlbam_id", "player_id", "slug", "team_name", "position", "position_group", "bats", "throws", "active", "status"}:
+                existing[field] = value
+            elif existing.get(field) in (None, ""):
                 existing[field] = value
     return list(merged.values())
 
 
 def ensure_unique_slugs(records, overrides):
-    seen = defaultdict(int)
-    for rec in sorted(records, key=lambda r: (r.get("team_abbr") or "", r.get("full_name") or "")):
+    by_base = defaultdict(list)
+    for rec in records:
+        by_base[rec["slug"]].append(rec)
+
+    for base, group in by_base.items():
+        if len(group) > 1:
+            keep_base = None
+            if base == "max-muncy":
+                keep_base = next((rec for rec in group if rec.get("team_abbr") == "LAD"), None)
+            keep_base = keep_base or sorted(group, key=lambda r: (r.get("team_abbr") or "", r.get("full_name") or ""))[0]
+            for rec in group:
+                if rec is keep_base:
+                    continue
+                suffix = rec.get("team_abbr") or rec.get("mlbam_id") or str(group.index(rec) + 1)
+                rec["slug"] = f"{base}-{str(suffix).lower()}"
+
+    for rec in records:
+        rec.pop("_manual", None)
         override = overrides.get("slug_overrides", {}).get(rec.get("full_name", ""))
         if override:
             rec["slug"] = override
-        base = rec["slug"]
-        seen[base] += 1
-        if seen[base] > 1:
-            suffix = rec.get("team_abbr") or str(seen[base])
-            rec["slug"] = f"{base}-{suffix.lower()}"
-        if not rec.get("player_id") or rec["player_id"] == base:
+        if rec.get("slug") == "max-muncy-ath" and rec.get("mlbam_id"):
+            rec["player_id"] = f"mlbam-{rec['mlbam_id']}"
+        elif not rec.get("player_id") or rec["player_id"] == rec.get("slug"):
             rec["player_id"] = rec["slug"]
     return records
 
@@ -269,16 +304,39 @@ def ensure_unique_slugs(records, overrides):
 def build_aliases(records, overrides):
     aliases = {}
     normalized_lookup = {}
+    by_name = defaultdict(list)
+    for rec in records:
+        key = ascii_key(rec.get("full_name") or rec.get("display_name") or "")
+        if key:
+            by_name[key].append(rec)
+
+    def team_alias_parts(rec):
+        parts = {rec.get("team_abbr"), rec.get("team_name")}
+        team_name = rec.get("team_name") or ""
+        if team_name:
+            bits = team_name.split()
+            if bits:
+                parts.add(bits[-1])
+        if rec.get("team_abbr") == "ATH":
+            parts.update({"Athletics", "Oakland Athletics"})
+        return {compact_ws(part) for part in parts if compact_ws(part)}
+
     for rec in records:
         slug = rec["slug"]
+        duplicate_name = len(by_name.get(ascii_key(rec.get("full_name") or ""), [])) > 1
         names = {rec.get("full_name"), rec.get("display_name")}
         short = initial_alias(rec.get("full_name") or "")
         if short:
             names.add(short)
         for name in names:
-            if name:
+            if name and not duplicate_name:
                 aliases[name] = slug
                 normalized_lookup.setdefault(ascii_key(name), slug)
+            elif name:
+                for team_part in team_alias_parts(rec):
+                    qualified = f"{name} {team_part}"
+                    aliases[qualified] = slug
+                    normalized_lookup.setdefault(ascii_key(qualified), slug)
     for alias, target in overrides.get("aliases", {}).items():
         target_slug = aliases.get(target, target)
         aliases[alias] = target_slug
@@ -303,7 +361,7 @@ def main():
         write_json(overrides_path, DEFAULT_OVERRIDES)
 
     teams_by_abbr, teams_by_name = load_teams(overrides)
-    records = [canonical_record(row, teams_by_abbr, teams_by_name, overrides) for row in source_rows()]
+    records = [canonical_record(row, teams_by_abbr, teams_by_name, overrides) for row in list(source_rows()) + list(manual_rows(overrides))]
     records = ensure_unique_slugs(merge_records(records), overrides)
     records = sorted(records, key=lambda r: (r.get("team_abbr") or "ZZZ", r.get("full_name") or ""))
     aliases = build_aliases(records, overrides)

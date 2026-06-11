@@ -142,6 +142,33 @@
     </section>
     {% endif %}
 
+    {% if luck_gap_card %}
+    <section class="ledger-card stats-card luck-gap-card">
+      <div class="section-label">LUCK GAP</div>
+      <p class="stats-note">Luck Gap compares expected production from tracking data against Barrel Proof’s calculated wOBA.</p>
+      <div class="stats-table-wrap">
+        <table class="stats-table luck-gap-table">
+          <thead>
+            <tr>
+              <th>BP wOBA</th>
+              <th>xwOBA</th>
+              <th>Luck Gap</th>
+              <th>Label</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ stat_value(luck_gap_card.get("calculated_woba")) }}</td>
+              <td>{{ stat_value(luck_gap_card.get("xwoba")) }}</td>
+              <td>{{ signed_stat_value(luck_gap_card.get("luck_gap_points")) }}</td>
+              <td class="stat-label-cell">{{ stat_value(luck_gap_card.get("label")) }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    {% endif %}
+
     {% set statcast_hitter_card = player.statcast_hitter_card %}
     {% if statcast_hitter_card %}
     <section class="ledger-card stats-card contact-quality-card">

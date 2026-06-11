@@ -257,7 +257,26 @@ def row_team(row):
     return None
 
 
+def row_player_id(row):
+    for key in ("mlbID", "mlbam_id", "player_id", "playerid", "batter"):
+        value = row.get(key)
+        if value not in (None, "", "—"):
+            try:
+                numeric = float(value)
+                if numeric.is_integer():
+                    return str(int(numeric))
+            except (TypeError, ValueError):
+                pass
+            return str(value)
+    return None
+
+
 def build_resolver(players, aliases):
+    by_mlbam = {
+        str(player.get("mlbam_id")): player
+        for player in players
+        if player.get("mlbam_id") not in (None, "")
+    }
     by_slug = {player.get("slug"): player for player in players if player.get("slug")}
     by_name_team = {}
     by_name = {}
@@ -280,7 +299,13 @@ def build_resolver(players, aliases):
                 unique[slug] = candidate
         return list(unique.values())
 
-    def resolve(name, team):
+    def resolve(row):
+        source_id = row_player_id(row)
+        if source_id and source_id in by_mlbam:
+            return by_mlbam[source_id], "mlbam_id", []
+
+        name = fix_name(row.get("Name") or row.get("name"))
+        team = row_team(row)
         key = lookup_key(name)
         if not key:
             return None, "unmatched", []
@@ -405,7 +430,7 @@ def merge_rows(rows, players, aliases, make_card, *card_args):
     for row in rows:
         name = fix_name(row.get("Name") or row.get("name"))
         team = row_team(row)
-        player, method, candidates = resolve(name, team)
+        player, method, candidates = resolve(row)
         if not player:
             problem_key = (lookup_key(name), str(row.get("Tm") or row.get("Team") or ""), team)
             if method == "ambiguous":
