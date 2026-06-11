@@ -31,12 +31,27 @@
     "so": null
   },
   "pitcher_card": null,
-  "generated_at": "2026-06-11T03:08:49Z",
+  "statcast_hitter_card": {
+    "player_id": "nathaniel-lowe",
+    "slug": "nathaniel-lowe",
+    "full_name": "Nathaniel Lowe",
+    "team_abbr": "CIN",
+    "avg_exit_velocity": 89.5,
+    "max_exit_velocity": 112.7,
+    "hard_hit_pct": null,
+    "barrel_pct": 13.3,
+    "sweet_spot_pct": null,
+    "xba": 0.272,
+    "xslg": 0.513,
+    "xwoba": 0.374
+  },
+  "generated_at": "2026-06-11T03:52:40Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
       "Site Data/game_cards.json",
-      "Site Data/dope-sheet-data.json"
+      "Site Data/dope-sheet-data.json",
+      "Site Data/players/statcast_hitter_cards.json"
     ]
   }
 }

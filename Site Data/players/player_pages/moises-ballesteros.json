@@ -31,12 +31,27 @@
     "so": null
   },
   "pitcher_card": null,
-  "generated_at": "2026-06-11T03:08:49Z",
+  "statcast_hitter_card": {
+    "player_id": "moises-ballesteros",
+    "slug": "moises-ballesteros",
+    "full_name": "Moisés Ballesteros",
+    "team_abbr": "CHC",
+    "avg_exit_velocity": 90.7,
+    "max_exit_velocity": 111.4,
+    "hard_hit_pct": null,
+    "barrel_pct": 9.9,
+    "sweet_spot_pct": null,
+    "xba": 0.242,
+    "xslg": 0.399,
+    "xwoba": 0.318
+  },
+  "generated_at": "2026-06-11T03:52:40Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
       "Site Data/game_cards.json",
-      "Site Data/dope-sheet-data.json"
+      "Site Data/dope-sheet-data.json",
+      "Site Data/players/statcast_hitter_cards.json"
     ]
   }
 }

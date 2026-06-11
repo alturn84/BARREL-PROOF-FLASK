@@ -25,6 +25,12 @@ PITCHER_FIELDS = [
     "games", "games_started", "wins", "losses", "saves", "era", "ip", "so", "bb", "whip",
 ]
 
+STATCAST_FIELDS = [
+    "player_id", "slug", "full_name", "team_abbr",
+    "avg_exit_velocity", "max_exit_velocity", "hard_hit_pct", "barrel_pct",
+    "sweet_spot_pct", "xba", "xslg", "xwoba",
+]
+
 
 def load_json(path: Path, fallback):
     try:
@@ -239,6 +245,20 @@ def strip_internal(card, fields):
     return cleaned
 
 
+def load_statcast_cards():
+    data = load_json(PLAYERS_DIR / "statcast_hitter_cards.json", {})
+    if not isinstance(data, dict):
+        return {}
+    players = data.get("players", {})
+    if not isinstance(players, dict):
+        return {}
+    cards = {}
+    for slug, card in players.items():
+        if isinstance(card, dict):
+            cards[slug] = {field: clean(card.get(field)) for field in STATCAST_FIELDS}
+    return cards
+
+
 def main():
     players = load_json(PLAYERS_DIR / "player_index.json", [])
     aliases = load_json(PLAYERS_DIR / "player_aliases.json", {})
@@ -280,6 +300,7 @@ def main():
 
     hitter_by_slug = {card["slug"]: card for card in hitter_output if card.get("slug")}
     pitcher_by_slug = {card["slug"]: card for card in pitcher_output if card.get("slug")}
+    statcast_by_slug = load_statcast_cards()
     generated_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 
     PLAYER_PAGES_DIR.mkdir(parents=True, exist_ok=True)
@@ -290,10 +311,15 @@ def main():
         page = dict(player)
         page["hitter_card"] = hitter_by_slug.get(slug)
         page["pitcher_card"] = pitcher_by_slug.get(slug)
+        page["statcast_hitter_card"] = statcast_by_slug.get(slug)
         page["generated_at"] = generated_at
         page["metadata"] = {
             "player_cards_version": "PLAYER-002",
-            "sources": ["Site Data/game_cards.json", "Site Data/dope-sheet-data.json"],
+            "sources": [
+                "Site Data/game_cards.json",
+                "Site Data/dope-sheet-data.json",
+                "Site Data/players/statcast_hitter_cards.json",
+            ],
         }
         write_json(PLAYER_PAGES_DIR / f"{slug}.json", page)
 

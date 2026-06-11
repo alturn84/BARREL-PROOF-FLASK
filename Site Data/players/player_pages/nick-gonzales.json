@@ -31,12 +31,27 @@
     "so": null
   },
   "pitcher_card": null,
-  "generated_at": "2026-06-11T03:08:49Z",
+  "statcast_hitter_card": {
+    "player_id": "nick-gonzales",
+    "slug": "nick-gonzales",
+    "full_name": "Nick Gonzales",
+    "team_abbr": "PIT",
+    "avg_exit_velocity": 85.8,
+    "max_exit_velocity": 109.7,
+    "hard_hit_pct": null,
+    "barrel_pct": 3.2,
+    "sweet_spot_pct": null,
+    "xba": 0.303,
+    "xslg": 0.409,
+    "xwoba": 0.336
+  },
+  "generated_at": "2026-06-11T03:52:40Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
       "Site Data/game_cards.json",
-      "Site Data/dope-sheet-data.json"
+      "Site Data/dope-sheet-data.json",
+      "Site Data/players/statcast_hitter_cards.json"
     ]
   }
 }

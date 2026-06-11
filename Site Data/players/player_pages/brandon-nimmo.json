@@ -31,12 +31,27 @@
     "so": null
   },
   "pitcher_card": null,
-  "generated_at": "2026-06-11T03:08:49Z",
+  "statcast_hitter_card": {
+    "player_id": "brandon-nimmo",
+    "slug": "brandon-nimmo",
+    "full_name": "Brandon Nimmo",
+    "team_abbr": "TEX",
+    "avg_exit_velocity": 91.9,
+    "max_exit_velocity": 109.0,
+    "hard_hit_pct": null,
+    "barrel_pct": 11.6,
+    "sweet_spot_pct": null,
+    "xba": 0.285,
+    "xslg": 0.508,
+    "xwoba": 0.377
+  },
+  "generated_at": "2026-06-11T03:52:40Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
       "Site Data/game_cards.json",
-      "Site Data/dope-sheet-data.json"
+      "Site Data/dope-sheet-data.json",
+      "Site Data/players/statcast_hitter_cards.json"
     ]
   }
 }

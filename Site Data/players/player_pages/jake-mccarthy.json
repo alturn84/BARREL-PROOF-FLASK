@@ -31,12 +31,27 @@
     "so": null
   },
   "pitcher_card": null,
-  "generated_at": "2026-06-11T03:08:49Z",
+  "statcast_hitter_card": {
+    "player_id": "jake-mccarthy",
+    "slug": "jake-mccarthy",
+    "full_name": "Jake McCarthy",
+    "team_abbr": "COL",
+    "avg_exit_velocity": 84.8,
+    "max_exit_velocity": 107.4,
+    "hard_hit_pct": null,
+    "barrel_pct": 5.6,
+    "sweet_spot_pct": null,
+    "xba": 0.259,
+    "xslg": 0.395,
+    "xwoba": 0.311
+  },
+  "generated_at": "2026-06-11T03:52:40Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
       "Site Data/game_cards.json",
-      "Site Data/dope-sheet-data.json"
+      "Site Data/dope-sheet-data.json",
+      "Site Data/players/statcast_hitter_cards.json"
     ]
   }
 }

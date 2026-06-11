@@ -11,6 +11,16 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parents[1]
 PLAYERS_DIR = BASE_DIR / "Site Data" / "players"
 PAGES_DIR = PLAYERS_DIR / "player_pages"
+STATCAST_NUMERIC_FIELDS = {
+    "avg_exit_velocity",
+    "max_exit_velocity",
+    "hard_hit_pct",
+    "barrel_pct",
+    "sweet_spot_pct",
+    "xba",
+    "xslg",
+    "xwoba",
+}
 
 
 def load_json(path: Path):
@@ -18,6 +28,12 @@ def load_json(path: Path):
         return json.loads(path.read_text(encoding="utf-8"))
     except Exception as exc:
         raise ValueError(f"{path.relative_to(BASE_DIR)} is missing or invalid JSON: {exc}") from exc
+
+
+def has_bad_scalar(value):
+    if isinstance(value, str) and value.strip().lower() in {"nan", "inf", "infinity", "none", "undefined"}:
+        return True
+    return False
 
 
 def main() -> int:
@@ -70,6 +86,17 @@ def main() -> int:
             slugs.append(slug)
         if not name:
             errors.append(f"{path.relative_to(BASE_DIR)} missing player name")
+        statcast_card = page.get("statcast_hitter_card")
+        if statcast_card is not None:
+            if not isinstance(statcast_card, dict):
+                errors.append(f"{path.relative_to(BASE_DIR)} statcast_hitter_card must be an object or null")
+            else:
+                for field in STATCAST_NUMERIC_FIELDS:
+                    value = statcast_card.get(field)
+                    if has_bad_scalar(value):
+                        errors.append(f"{path.relative_to(BASE_DIR)} statcast_hitter_card.{field} is invalid")
+                    elif value is not None and not isinstance(value, (int, float)):
+                        errors.append(f"{path.relative_to(BASE_DIR)} statcast_hitter_card.{field} must be number or null")
 
     duplicates = sorted({slug for slug in slugs if slugs.count(slug) > 1})
     if duplicates:

@@ -31,12 +31,27 @@
     "so": null
   },
   "pitcher_card": null,
-  "generated_at": "2026-06-11T03:08:49Z",
+  "statcast_hitter_card": {
+    "player_id": "ronald-acuna-jr",
+    "slug": "ronald-acuna-jr",
+    "full_name": "Ronald Acuña Jr.",
+    "team_abbr": "ATL",
+    "avg_exit_velocity": 90.1,
+    "max_exit_velocity": 113.3,
+    "hard_hit_pct": null,
+    "barrel_pct": 13.1,
+    "sweet_spot_pct": null,
+    "xba": 0.253,
+    "xslg": 0.489,
+    "xwoba": 0.379
+  },
+  "generated_at": "2026-06-11T03:52:40Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
       "Site Data/game_cards.json",
-      "Site Data/dope-sheet-data.json"
+      "Site Data/dope-sheet-data.json",
+      "Site Data/players/statcast_hitter_cards.json"
     ]
   }
 }

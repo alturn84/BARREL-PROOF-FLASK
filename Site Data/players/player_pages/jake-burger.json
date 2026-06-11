@@ -31,12 +31,27 @@
     "so": null
   },
   "pitcher_card": null,
-  "generated_at": "2026-06-11T03:08:49Z",
+  "statcast_hitter_card": {
+    "player_id": "jake-burger",
+    "slug": "jake-burger",
+    "full_name": "Jake Burger",
+    "team_abbr": "TEX",
+    "avg_exit_velocity": 90.3,
+    "max_exit_velocity": 113.6,
+    "hard_hit_pct": null,
+    "barrel_pct": 9.3,
+    "sweet_spot_pct": null,
+    "xba": 0.245,
+    "xslg": 0.404,
+    "xwoba": 0.307
+  },
+  "generated_at": "2026-06-11T03:52:40Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
       "Site Data/game_cards.json",
-      "Site Data/dope-sheet-data.json"
+      "Site Data/dope-sheet-data.json",
+      "Site Data/players/statcast_hitter_cards.json"
     ]
   }
 }

@@ -14,12 +14,27 @@
   "active": true,
   "hitter_card": null,
   "pitcher_card": null,
-  "generated_at": "2026-06-11T03:08:49Z",
+  "statcast_hitter_card": {
+    "player_id": "ildemaro-vargas",
+    "slug": "ildemaro-vargas",
+    "full_name": "Ildemaro Vargas",
+    "team_abbr": "ARI",
+    "avg_exit_velocity": 86.8,
+    "max_exit_velocity": 109.0,
+    "hard_hit_pct": null,
+    "barrel_pct": 4.1,
+    "sweet_spot_pct": null,
+    "xba": 0.287,
+    "xslg": 0.402,
+    "xwoba": 0.314
+  },
+  "generated_at": "2026-06-11T03:52:40Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
       "Site Data/game_cards.json",
-      "Site Data/dope-sheet-data.json"
+      "Site Data/dope-sheet-data.json",
+      "Site Data/players/statcast_hitter_cards.json"
     ]
   }
 }

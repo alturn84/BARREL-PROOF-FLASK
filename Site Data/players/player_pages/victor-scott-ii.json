@@ -14,12 +14,27 @@
   "active": true,
   "hitter_card": null,
   "pitcher_card": null,
-  "generated_at": "2026-06-11T03:08:49Z",
+  "statcast_hitter_card": {
+    "player_id": "victor-scott-ii",
+    "slug": "victor-scott-ii",
+    "full_name": "Victor Scott II",
+    "team_abbr": "STL",
+    "avg_exit_velocity": 86.7,
+    "max_exit_velocity": 105.4,
+    "hard_hit_pct": null,
+    "barrel_pct": 0.8,
+    "sweet_spot_pct": null,
+    "xba": 0.221,
+    "xslg": 0.293,
+    "xwoba": 0.273
+  },
+  "generated_at": "2026-06-11T03:52:40Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
       "Site Data/game_cards.json",
-      "Site Data/dope-sheet-data.json"
+      "Site Data/dope-sheet-data.json",
+      "Site Data/players/statcast_hitter_cards.json"
     ]
   }
 }

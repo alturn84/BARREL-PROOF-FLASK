@@ -31,12 +31,27 @@
     "so": null
   },
   "pitcher_card": null,
-  "generated_at": "2026-06-11T03:08:49Z",
+  "statcast_hitter_card": {
+    "player_id": "carson-kelly",
+    "slug": "carson-kelly",
+    "full_name": "Carson Kelly",
+    "team_abbr": "CHC",
+    "avg_exit_velocity": 89.1,
+    "max_exit_velocity": 108.4,
+    "hard_hit_pct": null,
+    "barrel_pct": 6.3,
+    "sweet_spot_pct": null,
+    "xba": 0.254,
+    "xslg": 0.38,
+    "xwoba": 0.316
+  },
+  "generated_at": "2026-06-11T03:52:40Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
       "Site Data/game_cards.json",
-      "Site Data/dope-sheet-data.json"
+      "Site Data/dope-sheet-data.json",
+      "Site Data/players/statcast_hitter_cards.json"
     ]
   }
 }

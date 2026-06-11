@@ -14,12 +14,27 @@
   "active": true,
   "hitter_card": null,
   "pitcher_card": null,
-  "generated_at": "2026-06-11T03:08:49Z",
+  "statcast_hitter_card": {
+    "player_id": "mickey-moniak",
+    "slug": "mickey-moniak",
+    "full_name": "Mickey Moniak",
+    "team_abbr": null,
+    "avg_exit_velocity": 89.7,
+    "max_exit_velocity": 109.1,
+    "hard_hit_pct": null,
+    "barrel_pct": 13.5,
+    "sweet_spot_pct": null,
+    "xba": 0.228,
+    "xslg": 0.47,
+    "xwoba": 0.324
+  },
+  "generated_at": "2026-06-11T03:52:40Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
       "Site Data/game_cards.json",
-      "Site Data/dope-sheet-data.json"
+      "Site Data/dope-sheet-data.json",
+      "Site Data/players/statcast_hitter_cards.json"
     ]
   }
 }

@@ -31,12 +31,27 @@
     "so": null
   },
   "pitcher_card": null,
-  "generated_at": "2026-06-11T03:08:49Z",
+  "statcast_hitter_card": {
+    "player_id": "nick-kurtz",
+    "slug": "nick-kurtz",
+    "full_name": "Nick Kurtz",
+    "team_abbr": "ATH",
+    "avg_exit_velocity": 94.4,
+    "max_exit_velocity": 115.9,
+    "hard_hit_pct": null,
+    "barrel_pct": 18.8,
+    "sweet_spot_pct": null,
+    "xba": 0.257,
+    "xslg": 0.517,
+    "xwoba": 0.4
+  },
+  "generated_at": "2026-06-11T03:52:40Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
       "Site Data/game_cards.json",
-      "Site Data/dope-sheet-data.json"
+      "Site Data/dope-sheet-data.json",
+      "Site Data/players/statcast_hitter_cards.json"
     ]
   }
 }

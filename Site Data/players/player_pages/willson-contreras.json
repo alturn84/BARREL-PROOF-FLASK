@@ -31,12 +31,27 @@
     "so": null
   },
   "pitcher_card": null,
-  "generated_at": "2026-06-11T03:08:49Z",
+  "statcast_hitter_card": {
+    "player_id": "willson-contreras",
+    "slug": "willson-contreras",
+    "full_name": "Willson Contreras",
+    "team_abbr": "BOS",
+    "avg_exit_velocity": 90.0,
+    "max_exit_velocity": 113.2,
+    "hard_hit_pct": null,
+    "barrel_pct": 15.0,
+    "sweet_spot_pct": null,
+    "xba": 0.271,
+    "xslg": 0.523,
+    "xwoba": 0.391
+  },
+  "generated_at": "2026-06-11T03:52:40Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
       "Site Data/game_cards.json",
-      "Site Data/dope-sheet-data.json"
+      "Site Data/dope-sheet-data.json",
+      "Site Data/players/statcast_hitter_cards.json"
     ]
   }
 }

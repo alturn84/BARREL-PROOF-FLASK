@@ -31,12 +31,27 @@
     "so": null
   },
   "pitcher_card": null,
-  "generated_at": "2026-06-11T03:08:49Z",
+  "statcast_hitter_card": {
+    "player_id": "kyle-isbel",
+    "slug": "kyle-isbel",
+    "full_name": "Kyle Isbel",
+    "team_abbr": "KC",
+    "avg_exit_velocity": 88.6,
+    "max_exit_velocity": 107.8,
+    "hard_hit_pct": null,
+    "barrel_pct": 3.1,
+    "sweet_spot_pct": null,
+    "xba": 0.237,
+    "xslg": 0.323,
+    "xwoba": 0.275
+  },
+  "generated_at": "2026-06-11T03:52:40Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
       "Site Data/game_cards.json",
-      "Site Data/dope-sheet-data.json"
+      "Site Data/dope-sheet-data.json",
+      "Site Data/players/statcast_hitter_cards.json"
     ]
   }
 }

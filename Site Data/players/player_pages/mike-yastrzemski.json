@@ -31,12 +31,27 @@
     "so": null
   },
   "pitcher_card": null,
-  "generated_at": "2026-06-11T03:08:49Z",
+  "statcast_hitter_card": {
+    "player_id": "mike-yastrzemski",
+    "slug": "mike-yastrzemski",
+    "full_name": "Mike Yastrzemski",
+    "team_abbr": "ATL",
+    "avg_exit_velocity": 90.7,
+    "max_exit_velocity": 106.2,
+    "hard_hit_pct": null,
+    "barrel_pct": 4.0,
+    "sweet_spot_pct": null,
+    "xba": 0.233,
+    "xslg": 0.327,
+    "xwoba": 0.295
+  },
+  "generated_at": "2026-06-11T03:52:40Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
       "Site Data/game_cards.json",
-      "Site Data/dope-sheet-data.json"
+      "Site Data/dope-sheet-data.json",
+      "Site Data/players/statcast_hitter_cards.json"
     ]
   }
 }

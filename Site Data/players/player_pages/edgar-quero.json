@@ -31,12 +31,27 @@
     "so": null
   },
   "pitcher_card": null,
-  "generated_at": "2026-06-11T03:08:49Z",
+  "statcast_hitter_card": {
+    "player_id": "edgar-quero",
+    "slug": "edgar-quero",
+    "full_name": "Edgar Quero",
+    "team_abbr": "CWS",
+    "avg_exit_velocity": 90.5,
+    "max_exit_velocity": 106.5,
+    "hard_hit_pct": null,
+    "barrel_pct": 2.1,
+    "sweet_spot_pct": null,
+    "xba": 0.202,
+    "xslg": 0.277,
+    "xwoba": 0.258
+  },
+  "generated_at": "2026-06-11T03:52:40Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
       "Site Data/game_cards.json",
-      "Site Data/dope-sheet-data.json"
+      "Site Data/dope-sheet-data.json",
+      "Site Data/players/statcast_hitter_cards.json"
     ]
   }
 }

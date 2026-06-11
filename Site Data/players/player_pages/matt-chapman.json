@@ -31,12 +31,27 @@
     "so": null
   },
   "pitcher_card": null,
-  "generated_at": "2026-06-11T03:08:49Z",
+  "statcast_hitter_card": {
+    "player_id": "matt-chapman",
+    "slug": "matt-chapman",
+    "full_name": "Matt Chapman",
+    "team_abbr": "SF",
+    "avg_exit_velocity": 87.9,
+    "max_exit_velocity": 113.0,
+    "hard_hit_pct": null,
+    "barrel_pct": 5.3,
+    "sweet_spot_pct": null,
+    "xba": 0.215,
+    "xslg": 0.315,
+    "xwoba": 0.285
+  },
+  "generated_at": "2026-06-11T03:52:40Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
       "Site Data/game_cards.json",
-      "Site Data/dope-sheet-data.json"
+      "Site Data/dope-sheet-data.json",
+      "Site Data/players/statcast_hitter_cards.json"
     ]
   }
 }

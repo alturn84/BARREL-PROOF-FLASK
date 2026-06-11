@@ -31,12 +31,27 @@
     "so": null
   },
   "pitcher_card": null,
-  "generated_at": "2026-06-11T03:08:49Z",
+  "statcast_hitter_card": {
+    "player_id": "bobby-witt-jr",
+    "slug": "bobby-witt-jr",
+    "full_name": "Bobby Witt Jr.",
+    "team_abbr": "KC",
+    "avg_exit_velocity": 93.2,
+    "max_exit_velocity": 115.6,
+    "hard_hit_pct": null,
+    "barrel_pct": 13.3,
+    "sweet_spot_pct": null,
+    "xba": 0.3,
+    "xslg": 0.516,
+    "xwoba": 0.385
+  },
+  "generated_at": "2026-06-11T03:52:40Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
       "Site Data/game_cards.json",
-      "Site Data/dope-sheet-data.json"
+      "Site Data/dope-sheet-data.json",
+      "Site Data/players/statcast_hitter_cards.json"
     ]
   }
 }

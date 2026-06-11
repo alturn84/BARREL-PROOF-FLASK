@@ -14,12 +14,27 @@
   "active": true,
   "hitter_card": null,
   "pitcher_card": null,
-  "generated_at": "2026-06-11T03:08:49Z",
+  "statcast_hitter_card": {
+    "player_id": "aaron-judge",
+    "slug": "aaron-judge",
+    "full_name": "Aaron Judge",
+    "team_abbr": null,
+    "avg_exit_velocity": 94.1,
+    "max_exit_velocity": 116.2,
+    "hard_hit_pct": null,
+    "barrel_pct": 21.7,
+    "sweet_spot_pct": null,
+    "xba": 0.27,
+    "xslg": 0.6,
+    "xwoba": 0.415
+  },
+  "generated_at": "2026-06-11T03:52:40Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
       "Site Data/game_cards.json",
-      "Site Data/dope-sheet-data.json"
+      "Site Data/dope-sheet-data.json",
+      "Site Data/players/statcast_hitter_cards.json"
     ]
   }
 }

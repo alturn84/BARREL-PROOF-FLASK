@@ -31,12 +31,27 @@
     "so": null
   },
   "pitcher_card": null,
-  "generated_at": "2026-06-11T03:08:49Z",
+  "statcast_hitter_card": {
+    "player_id": "fernando-tatis-jr",
+    "slug": "fernando-tatis-jr",
+    "full_name": "Fernando Tatis Jr.",
+    "team_abbr": "SD",
+    "avg_exit_velocity": 90.4,
+    "max_exit_velocity": 114.0,
+    "hard_hit_pct": null,
+    "barrel_pct": 10.3,
+    "sweet_spot_pct": null,
+    "xba": 0.289,
+    "xslg": 0.42,
+    "xwoba": 0.353
+  },
+  "generated_at": "2026-06-11T03:52:40Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
       "Site Data/game_cards.json",
-      "Site Data/dope-sheet-data.json"
+      "Site Data/dope-sheet-data.json",
+      "Site Data/players/statcast_hitter_cards.json"
     ]
   }
 }

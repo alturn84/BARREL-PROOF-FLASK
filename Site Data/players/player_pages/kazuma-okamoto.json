@@ -31,12 +31,27 @@
     "so": null
   },
   "pitcher_card": null,
-  "generated_at": "2026-06-11T03:08:49Z",
+  "statcast_hitter_card": {
+    "player_id": "kazuma-okamoto",
+    "slug": "kazuma-okamoto",
+    "full_name": "Kazuma Okamoto",
+    "team_abbr": "TOR",
+    "avg_exit_velocity": 92.4,
+    "max_exit_velocity": 112.6,
+    "hard_hit_pct": null,
+    "barrel_pct": 14.9,
+    "sweet_spot_pct": null,
+    "xba": 0.223,
+    "xslg": 0.439,
+    "xwoba": 0.325
+  },
+  "generated_at": "2026-06-11T03:52:40Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
       "Site Data/game_cards.json",
-      "Site Data/dope-sheet-data.json"
+      "Site Data/dope-sheet-data.json",
+      "Site Data/players/statcast_hitter_cards.json"
     ]
   }
 }

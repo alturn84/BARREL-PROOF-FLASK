@@ -31,12 +31,27 @@
     "so": null
   },
   "pitcher_card": null,
-  "generated_at": "2026-06-11T03:08:49Z",
+  "statcast_hitter_card": {
+    "player_id": "rafael-devers",
+    "slug": "rafael-devers",
+    "full_name": "Rafael Devers",
+    "team_abbr": "SF",
+    "avg_exit_velocity": 91.8,
+    "max_exit_velocity": 112.4,
+    "hard_hit_pct": null,
+    "barrel_pct": 10.1,
+    "sweet_spot_pct": null,
+    "xba": 0.217,
+    "xslg": 0.401,
+    "xwoba": 0.292
+  },
+  "generated_at": "2026-06-11T03:52:40Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
       "Site Data/game_cards.json",
-      "Site Data/dope-sheet-data.json"
+      "Site Data/dope-sheet-data.json",
+      "Site Data/players/statcast_hitter_cards.json"
     ]
   }
 }

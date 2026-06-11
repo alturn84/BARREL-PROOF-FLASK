@@ -31,12 +31,27 @@
     "so": null
   },
   "pitcher_card": null,
-  "generated_at": "2026-06-11T03:08:49Z",
+  "statcast_hitter_card": {
+    "player_id": "jackson-chourio",
+    "slug": "jackson-chourio",
+    "full_name": "Jackson Chourio",
+    "team_abbr": "MIL",
+    "avg_exit_velocity": 92.3,
+    "max_exit_velocity": 113.3,
+    "hard_hit_pct": null,
+    "barrel_pct": 15.8,
+    "sweet_spot_pct": null,
+    "xba": 0.248,
+    "xslg": 0.488,
+    "xwoba": 0.341
+  },
+  "generated_at": "2026-06-11T03:52:40Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
       "Site Data/game_cards.json",
-      "Site Data/dope-sheet-data.json"
+      "Site Data/dope-sheet-data.json",
+      "Site Data/players/statcast_hitter_cards.json"
     ]
   }
 }

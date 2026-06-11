@@ -31,12 +31,27 @@
     "so": null
   },
   "pitcher_card": null,
-  "generated_at": "2026-06-11T03:08:49Z",
+  "statcast_hitter_card": {
+    "player_id": "ozzie-albies",
+    "slug": "ozzie-albies",
+    "full_name": "Ozzie Albies",
+    "team_abbr": "ATL",
+    "avg_exit_velocity": 86.9,
+    "max_exit_velocity": 107.7,
+    "hard_hit_pct": null,
+    "barrel_pct": 4.4,
+    "sweet_spot_pct": null,
+    "xba": 0.254,
+    "xslg": 0.389,
+    "xwoba": 0.309
+  },
+  "generated_at": "2026-06-11T03:52:40Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
       "Site Data/game_cards.json",
-      "Site Data/dope-sheet-data.json"
+      "Site Data/dope-sheet-data.json",
+      "Site Data/players/statcast_hitter_cards.json"
     ]
   }
 }

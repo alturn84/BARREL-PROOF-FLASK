@@ -31,12 +31,27 @@
     "so": null
   },
   "pitcher_card": null,
-  "generated_at": "2026-06-11T03:08:49Z",
+  "statcast_hitter_card": {
+    "player_id": "jj-wetherholt",
+    "slug": "jj-wetherholt",
+    "full_name": "JJ Wetherholt",
+    "team_abbr": "STL",
+    "avg_exit_velocity": 90.7,
+    "max_exit_velocity": 108.7,
+    "hard_hit_pct": null,
+    "barrel_pct": 7.4,
+    "sweet_spot_pct": null,
+    "xba": 0.251,
+    "xslg": 0.444,
+    "xwoba": 0.357
+  },
+  "generated_at": "2026-06-11T03:52:40Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
       "Site Data/game_cards.json",
-      "Site Data/dope-sheet-data.json"
+      "Site Data/dope-sheet-data.json",
+      "Site Data/players/statcast_hitter_cards.json"
     ]
   }
 }

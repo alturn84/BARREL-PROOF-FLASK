@@ -142,6 +142,42 @@
     </section>
     {% endif %}
 
+    {% set statcast_hitter_card = player.statcast_hitter_card %}
+    {% if statcast_hitter_card %}
+    <section class="ledger-card stats-card contact-quality-card">
+      <div class="section-label">CONTACT QUALITY</div>
+      <p class="stats-note">Tracking data adds context to the box score by showing how hard and how often a hitter is doing damage.</p>
+      <div class="stats-table-wrap">
+        <table class="stats-table contact-quality-table">
+          <thead>
+            <tr>
+              <th>Avg EV</th>
+              <th>Max EV</th>
+              <th>Hard-Hit %</th>
+              <th>Barrel %</th>
+              <th>Sweet Spot %</th>
+              <th>xBA</th>
+              <th>xSLG</th>
+              <th>xwOBA</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ stat_value(statcast_hitter_card["avg_exit_velocity"]) }}</td>
+              <td>{{ stat_value(statcast_hitter_card["max_exit_velocity"]) }}</td>
+              <td>{{ stat_value(statcast_hitter_card["hard_hit_pct"]) }}</td>
+              <td>{{ stat_value(statcast_hitter_card["barrel_pct"]) }}</td>
+              <td>{{ stat_value(statcast_hitter_card["sweet_spot_pct"]) }}</td>
+              <td>{{ stat_value(statcast_hitter_card["xba"]) }}</td>
+              <td>{{ stat_value(statcast_hitter_card["xslg"]) }}</td>
+              <td>{{ stat_value(statcast_hitter_card["xwoba"]) }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    {% endif %}
+
     <section class="ledger-card placeholder-card">
       <div class="section-label">Player Intelligence</div>
       <p>Tracking and advanced player cards will appear here once the player intelligence pipeline is connected.</p>

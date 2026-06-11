@@ -31,12 +31,27 @@
     "so": null
   },
   "pitcher_card": null,
-  "generated_at": "2026-06-11T03:08:49Z",
+  "statcast_hitter_card": {
+    "player_id": "jackson-merrill",
+    "slug": "jackson-merrill",
+    "full_name": "Jackson Merrill",
+    "team_abbr": "SD",
+    "avg_exit_velocity": 89.5,
+    "max_exit_velocity": 109.7,
+    "hard_hit_pct": null,
+    "barrel_pct": 10.3,
+    "sweet_spot_pct": null,
+    "xba": 0.238,
+    "xslg": 0.423,
+    "xwoba": 0.315
+  },
+  "generated_at": "2026-06-11T03:52:40Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
       "Site Data/game_cards.json",
-      "Site Data/dope-sheet-data.json"
+      "Site Data/dope-sheet-data.json",
+      "Site Data/players/statcast_hitter_cards.json"
     ]
   }
 }

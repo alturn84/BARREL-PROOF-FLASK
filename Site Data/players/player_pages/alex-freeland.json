@@ -31,12 +31,27 @@
     "so": null
   },
   "pitcher_card": null,
-  "generated_at": "2026-06-11T03:08:49Z",
+  "statcast_hitter_card": {
+    "player_id": "alex-freeland",
+    "slug": "alex-freeland",
+    "full_name": "Alex Freeland",
+    "team_abbr": "LAD",
+    "avg_exit_velocity": 89.2,
+    "max_exit_velocity": 106.8,
+    "hard_hit_pct": null,
+    "barrel_pct": 7.7,
+    "sweet_spot_pct": null,
+    "xba": 0.227,
+    "xslg": 0.359,
+    "xwoba": 0.303
+  },
+  "generated_at": "2026-06-11T03:52:40Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
       "Site Data/game_cards.json",
-      "Site Data/dope-sheet-data.json"
+      "Site Data/dope-sheet-data.json",
+      "Site Data/players/statcast_hitter_cards.json"
     ]
   }
 }

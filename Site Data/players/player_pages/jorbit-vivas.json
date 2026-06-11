@@ -31,12 +31,27 @@
     "so": null
   },
   "pitcher_card": null,
-  "generated_at": "2026-06-11T03:08:49Z",
+  "statcast_hitter_card": {
+    "player_id": "jorbit-vivas",
+    "slug": "jorbit-vivas",
+    "full_name": "Jorbit Vivas",
+    "team_abbr": "WSH",
+    "avg_exit_velocity": 83.5,
+    "max_exit_velocity": 108.5,
+    "hard_hit_pct": null,
+    "barrel_pct": 3.8,
+    "sweet_spot_pct": null,
+    "xba": 0.23,
+    "xslg": 0.305,
+    "xwoba": 0.283
+  },
+  "generated_at": "2026-06-11T03:52:40Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
       "Site Data/game_cards.json",
-      "Site Data/dope-sheet-data.json"
+      "Site Data/dope-sheet-data.json",
+      "Site Data/players/statcast_hitter_cards.json"
     ]
   }
 }

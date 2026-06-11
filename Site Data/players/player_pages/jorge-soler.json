@@ -14,12 +14,27 @@
   "active": true,
   "hitter_card": null,
   "pitcher_card": null,
-  "generated_at": "2026-06-11T03:08:49Z",
+  "statcast_hitter_card": {
+    "player_id": "jorge-soler",
+    "slug": "jorge-soler",
+    "full_name": "Jorge Soler",
+    "team_abbr": null,
+    "avg_exit_velocity": 87.9,
+    "max_exit_velocity": 112.7,
+    "hard_hit_pct": null,
+    "barrel_pct": 11.3,
+    "sweet_spot_pct": null,
+    "xba": 0.221,
+    "xslg": 0.39,
+    "xwoba": 0.306
+  },
+  "generated_at": "2026-06-11T03:52:40Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
       "Site Data/game_cards.json",
-      "Site Data/dope-sheet-data.json"
+      "Site Data/dope-sheet-data.json",
+      "Site Data/players/statcast_hitter_cards.json"
     ]
   }
 }

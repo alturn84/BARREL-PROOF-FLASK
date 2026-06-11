@@ -31,12 +31,27 @@
     "so": null
   },
   "pitcher_card": null,
-  "generated_at": "2026-06-11T03:08:49Z",
+  "statcast_hitter_card": {
+    "player_id": "shea-langeliers",
+    "slug": "shea-langeliers",
+    "full_name": "Shea Langeliers",
+    "team_abbr": "ATH",
+    "avg_exit_velocity": 91.6,
+    "max_exit_velocity": 114.4,
+    "hard_hit_pct": null,
+    "barrel_pct": 15.0,
+    "sweet_spot_pct": null,
+    "xba": 0.284,
+    "xslg": 0.543,
+    "xwoba": 0.379
+  },
+  "generated_at": "2026-06-11T03:52:40Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
       "Site Data/game_cards.json",
-      "Site Data/dope-sheet-data.json"
+      "Site Data/dope-sheet-data.json",
+      "Site Data/players/statcast_hitter_cards.json"
     ]
   }
 }

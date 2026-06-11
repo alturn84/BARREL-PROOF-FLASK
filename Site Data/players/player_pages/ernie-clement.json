@@ -31,12 +31,27 @@
     "so": null
   },
   "pitcher_card": null,
-  "generated_at": "2026-06-11T03:08:49Z",
+  "statcast_hitter_card": {
+    "player_id": "ernie-clement",
+    "slug": "ernie-clement",
+    "full_name": "Ernie Clement",
+    "team_abbr": "TOR",
+    "avg_exit_velocity": 85.6,
+    "max_exit_velocity": 109.7,
+    "hard_hit_pct": null,
+    "barrel_pct": 3.0,
+    "sweet_spot_pct": null,
+    "xba": 0.258,
+    "xslg": 0.354,
+    "xwoba": 0.276
+  },
+  "generated_at": "2026-06-11T03:52:40Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
       "Site Data/game_cards.json",
-      "Site Data/dope-sheet-data.json"
+      "Site Data/dope-sheet-data.json",
+      "Site Data/players/statcast_hitter_cards.json"
     ]
   }
 }

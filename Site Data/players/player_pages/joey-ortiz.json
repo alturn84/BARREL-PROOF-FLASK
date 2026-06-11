@@ -14,12 +14,27 @@
   "active": true,
   "hitter_card": null,
   "pitcher_card": null,
-  "generated_at": "2026-06-11T03:08:49Z",
+  "statcast_hitter_card": {
+    "player_id": "joey-ortiz",
+    "slug": "joey-ortiz",
+    "full_name": "Joey Ortiz",
+    "team_abbr": "MIL",
+    "avg_exit_velocity": 86.9,
+    "max_exit_velocity": 110.8,
+    "hard_hit_pct": null,
+    "barrel_pct": 2.7,
+    "sweet_spot_pct": null,
+    "xba": 0.227,
+    "xslg": 0.296,
+    "xwoba": 0.3
+  },
+  "generated_at": "2026-06-11T03:52:40Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
       "Site Data/game_cards.json",
-      "Site Data/dope-sheet-data.json"
+      "Site Data/dope-sheet-data.json",
+      "Site Data/players/statcast_hitter_cards.json"
     ]
   }
 }

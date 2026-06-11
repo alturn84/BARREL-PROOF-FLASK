@@ -31,12 +31,27 @@
     "so": null
   },
   "pitcher_card": null,
-  "generated_at": "2026-06-11T03:08:49Z",
+  "statcast_hitter_card": {
+    "player_id": "victor-caratini",
+    "slug": "victor-caratini",
+    "full_name": "Victor Caratini",
+    "team_abbr": "MIN",
+    "avg_exit_velocity": 88.6,
+    "max_exit_velocity": 107.2,
+    "hard_hit_pct": null,
+    "barrel_pct": 6.5,
+    "sweet_spot_pct": null,
+    "xba": 0.246,
+    "xslg": 0.382,
+    "xwoba": 0.332
+  },
+  "generated_at": "2026-06-11T03:52:40Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
       "Site Data/game_cards.json",
-      "Site Data/dope-sheet-data.json"
+      "Site Data/dope-sheet-data.json",
+      "Site Data/players/statcast_hitter_cards.json"
     ]
   }
 }

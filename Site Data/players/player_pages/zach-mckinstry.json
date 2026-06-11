@@ -31,12 +31,27 @@
     "so": null
   },
   "pitcher_card": null,
-  "generated_at": "2026-06-11T03:08:49Z",
+  "statcast_hitter_card": {
+    "player_id": "zach-mckinstry",
+    "slug": "zach-mckinstry",
+    "full_name": "Zach McKinstry",
+    "team_abbr": "DET",
+    "avg_exit_velocity": 84.9,
+    "max_exit_velocity": 106.0,
+    "hard_hit_pct": null,
+    "barrel_pct": 3.0,
+    "sweet_spot_pct": null,
+    "xba": 0.202,
+    "xslg": 0.281,
+    "xwoba": 0.264
+  },
+  "generated_at": "2026-06-11T03:52:40Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
       "Site Data/game_cards.json",
-      "Site Data/dope-sheet-data.json"
+      "Site Data/dope-sheet-data.json",
+      "Site Data/players/statcast_hitter_cards.json"
     ]
   }
 }

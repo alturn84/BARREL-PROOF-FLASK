@@ -31,12 +31,27 @@
     "so": null
   },
   "pitcher_card": null,
-  "generated_at": "2026-06-11T03:08:49Z",
+  "statcast_hitter_card": {
+    "player_id": "luis-rengifo",
+    "slug": "luis-rengifo",
+    "full_name": "Luis Rengifo",
+    "team_abbr": "MIL",
+    "avg_exit_velocity": 87.5,
+    "max_exit_velocity": 109.2,
+    "hard_hit_pct": null,
+    "barrel_pct": 5.0,
+    "sweet_spot_pct": null,
+    "xba": 0.249,
+    "xslg": 0.338,
+    "xwoba": 0.297
+  },
+  "generated_at": "2026-06-11T03:52:40Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
       "Site Data/game_cards.json",
-      "Site Data/dope-sheet-data.json"
+      "Site Data/dope-sheet-data.json",
+      "Site Data/players/statcast_hitter_cards.json"
     ]
   }
 }

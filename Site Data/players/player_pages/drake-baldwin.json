@@ -14,12 +14,27 @@
   "active": true,
   "hitter_card": null,
   "pitcher_card": null,
-  "generated_at": "2026-06-11T03:08:49Z",
+  "statcast_hitter_card": {
+    "player_id": "drake-baldwin",
+    "slug": "drake-baldwin",
+    "full_name": "Drake Baldwin",
+    "team_abbr": null,
+    "avg_exit_velocity": 92.8,
+    "max_exit_velocity": 110.7,
+    "hard_hit_pct": null,
+    "barrel_pct": 18.6,
+    "sweet_spot_pct": null,
+    "xba": 0.305,
+    "xslg": 0.587,
+    "xwoba": 0.418
+  },
+  "generated_at": "2026-06-11T03:52:40Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
       "Site Data/game_cards.json",
-      "Site Data/dope-sheet-data.json"
+      "Site Data/dope-sheet-data.json",
+      "Site Data/players/statcast_hitter_cards.json"
     ]
   }
 }

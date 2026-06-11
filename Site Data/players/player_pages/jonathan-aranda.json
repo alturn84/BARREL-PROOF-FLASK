@@ -14,12 +14,27 @@
   "active": true,
   "hitter_card": null,
   "pitcher_card": null,
-  "generated_at": "2026-06-11T03:08:49Z",
+  "statcast_hitter_card": {
+    "player_id": "jonathan-aranda",
+    "slug": "jonathan-aranda",
+    "full_name": "Jonathan Aranda",
+    "team_abbr": "TB",
+    "avg_exit_velocity": 90.8,
+    "max_exit_velocity": 111.4,
+    "hard_hit_pct": null,
+    "barrel_pct": 12.2,
+    "sweet_spot_pct": null,
+    "xba": 0.262,
+    "xslg": 0.477,
+    "xwoba": 0.374
+  },
+  "generated_at": "2026-06-11T03:52:40Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
       "Site Data/game_cards.json",
-      "Site Data/dope-sheet-data.json"
+      "Site Data/dope-sheet-data.json",
+      "Site Data/players/statcast_hitter_cards.json"
     ]
   }
 }

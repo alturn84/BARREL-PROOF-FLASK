@@ -31,12 +31,27 @@
     "so": null
   },
   "pitcher_card": null,
-  "generated_at": "2026-06-11T03:08:49Z",
+  "statcast_hitter_card": {
+    "player_id": "evan-carter",
+    "slug": "evan-carter",
+    "full_name": "Evan Carter",
+    "team_abbr": "TEX",
+    "avg_exit_velocity": 87.8,
+    "max_exit_velocity": 108.2,
+    "hard_hit_pct": null,
+    "barrel_pct": 7.3,
+    "sweet_spot_pct": null,
+    "xba": 0.2,
+    "xslg": 0.338,
+    "xwoba": 0.294
+  },
+  "generated_at": "2026-06-11T03:52:40Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
       "Site Data/game_cards.json",
-      "Site Data/dope-sheet-data.json"
+      "Site Data/dope-sheet-data.json",
+      "Site Data/players/statcast_hitter_cards.json"
     ]
   }
 }

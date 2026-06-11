@@ -14,12 +14,27 @@
   "active": true,
   "hitter_card": null,
   "pitcher_card": null,
-  "generated_at": "2026-06-11T03:08:49Z",
+  "statcast_hitter_card": {
+    "player_id": "heliot-ramos",
+    "slug": "heliot-ramos",
+    "full_name": "Heliot Ramos",
+    "team_abbr": null,
+    "avg_exit_velocity": 92.0,
+    "max_exit_velocity": 111.5,
+    "hard_hit_pct": null,
+    "barrel_pct": 13.4,
+    "sweet_spot_pct": null,
+    "xba": 0.27,
+    "xslg": 0.448,
+    "xwoba": 0.326
+  },
+  "generated_at": "2026-06-11T03:52:40Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
       "Site Data/game_cards.json",
-      "Site Data/dope-sheet-data.json"
+      "Site Data/dope-sheet-data.json",
+      "Site Data/players/statcast_hitter_cards.json"
     ]
   }
 }

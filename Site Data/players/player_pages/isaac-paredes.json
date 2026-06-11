@@ -31,12 +31,27 @@
     "so": null
   },
   "pitcher_card": null,
-  "generated_at": "2026-06-11T03:08:49Z",
+  "statcast_hitter_card": {
+    "player_id": "isaac-paredes",
+    "slug": "isaac-paredes",
+    "full_name": "Isaac Paredes",
+    "team_abbr": "HOU",
+    "avg_exit_velocity": 87.2,
+    "max_exit_velocity": 106.0,
+    "hard_hit_pct": null,
+    "barrel_pct": 6.5,
+    "sweet_spot_pct": null,
+    "xba": 0.243,
+    "xslg": 0.375,
+    "xwoba": 0.322
+  },
+  "generated_at": "2026-06-11T03:52:40Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
       "Site Data/game_cards.json",
-      "Site Data/dope-sheet-data.json"
+      "Site Data/dope-sheet-data.json",
+      "Site Data/players/statcast_hitter_cards.json"
     ]
   }
 }

@@ -31,12 +31,27 @@
     "so": null
   },
   "pitcher_card": null,
-  "generated_at": "2026-06-11T03:08:49Z",
+  "statcast_hitter_card": {
+    "player_id": "drew-gilbert",
+    "slug": "drew-gilbert",
+    "full_name": "Drew Gilbert",
+    "team_abbr": "SF",
+    "avg_exit_velocity": 84.9,
+    "max_exit_velocity": 110.1,
+    "hard_hit_pct": null,
+    "barrel_pct": 2.9,
+    "sweet_spot_pct": null,
+    "xba": 0.225,
+    "xslg": 0.315,
+    "xwoba": 0.26
+  },
+  "generated_at": "2026-06-11T03:52:40Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
       "Site Data/game_cards.json",
-      "Site Data/dope-sheet-data.json"
+      "Site Data/dope-sheet-data.json",
+      "Site Data/players/statcast_hitter_cards.json"
     ]
   }
 }

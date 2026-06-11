@@ -31,12 +31,27 @@
     "so": null
   },
   "pitcher_card": null,
-  "generated_at": "2026-06-11T03:08:49Z",
+  "statcast_hitter_card": {
+    "player_id": "corbin-carroll",
+    "slug": "corbin-carroll",
+    "full_name": "Corbin Carroll",
+    "team_abbr": "ARI",
+    "avg_exit_velocity": 91.9,
+    "max_exit_velocity": 111.8,
+    "hard_hit_pct": null,
+    "barrel_pct": 13.1,
+    "sweet_spot_pct": null,
+    "xba": 0.27,
+    "xslg": 0.49,
+    "xwoba": 0.368
+  },
+  "generated_at": "2026-06-11T03:52:40Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
       "Site Data/game_cards.json",
-      "Site Data/dope-sheet-data.json"
+      "Site Data/dope-sheet-data.json",
+      "Site Data/players/statcast_hitter_cards.json"
     ]
   }
 }

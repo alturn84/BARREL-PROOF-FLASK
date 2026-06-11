@@ -31,12 +31,27 @@
     "so": null
   },
   "pitcher_card": null,
-  "generated_at": "2026-06-11T03:08:49Z",
+  "statcast_hitter_card": {
+    "player_id": "jazz-chisholm-jr",
+    "slug": "jazz-chisholm-jr",
+    "full_name": "Jazz Chisholm Jr.",
+    "team_abbr": "NYY",
+    "avg_exit_velocity": 89.7,
+    "max_exit_velocity": 110.9,
+    "hard_hit_pct": null,
+    "barrel_pct": 7.6,
+    "sweet_spot_pct": null,
+    "xba": 0.214,
+    "xslg": 0.364,
+    "xwoba": 0.293
+  },
+  "generated_at": "2026-06-11T03:52:40Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
       "Site Data/game_cards.json",
-      "Site Data/dope-sheet-data.json"
+      "Site Data/dope-sheet-data.json",
+      "Site Data/players/statcast_hitter_cards.json"
     ]
   }
 }
