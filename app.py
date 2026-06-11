@@ -1277,8 +1277,14 @@ def homepage():
                 gotd_game = g
                 break
 
-    from datetime import date
-    edition_date = date.today().strftime("%B %-d, %Y").upper() + " EDITION"
+    from datetime import datetime
+    try:
+        from zoneinfo import ZoneInfo
+        _today_et = datetime.now(ZoneInfo("America/New_York")).date()
+    except Exception:
+        from datetime import timezone, timedelta
+        _today_et = (datetime.now(timezone.utc) - timedelta(hours=4)).date()
+    edition_date = _today_et.strftime("%B %-d, %Y").upper() + " EDITION"
 
     team_nicknames = get_team_nicknames()
 
