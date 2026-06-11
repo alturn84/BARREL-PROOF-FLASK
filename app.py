@@ -14,6 +14,7 @@ BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = Path(os.environ.get("DATA_DIR", str(BASE_DIR / "Site Data")))
 PLAYER_DATA_DIR = DATA_DIR / "players"
 VAULT = Path(os.environ.get("VAULT_DIR", str(BASE_DIR)))
+MIN_HITTER_LEADERBOARD_PA = 150
 
 CITY_TO_TEAM = {
     "Arizona":       "Arizona Diamondbacks",
@@ -166,6 +167,37 @@ def load_hitter_contact_signal_cards():
     data = load_json("players/hitter_contact_signal.json", fallback={})
     players = data.get("players") if isinstance(data, dict) else {}
     return players if isinstance(players, dict) else {}
+
+def load_hitter_pa_by_slug():
+    data = load_json("players/season_hitter_stats.json", fallback={})
+    players = data.get("players") if isinstance(data, dict) else {}
+    if not isinstance(players, dict):
+        return {}
+    pa_by_slug = {}
+    for slug, card in players.items():
+        if not isinstance(card, dict):
+            continue
+        try:
+            pa = int(float(card.get("pa")))
+        except (TypeError, ValueError):
+            continue
+        pa_by_slug[str(slug).strip().lower()] = pa
+    return pa_by_slug
+
+def eligible_hitter_leaderboard_rows(cards, min_pa=MIN_HITTER_LEADERBOARD_PA):
+    pa_by_slug = load_hitter_pa_by_slug()
+    players = []
+    for card in cards.values():
+        if not isinstance(card, dict):
+            continue
+        slug = str(card.get("slug") or "").strip().lower()
+        pa = pa_by_slug.get(slug)
+        if pa is None or pa < min_pa:
+            continue
+        row = dict(card)
+        row["pa"] = pa
+        players.append(row)
+    return players
 
 def resolve_player_name(name):
     if not name:
@@ -1689,7 +1721,8 @@ def player_detail(slug):
 @app.route("/leaderboards/luck-gap/")
 def luck_gap_leaderboard():
     cards = load_hitter_luck_gap_cards()
-    players = [card for card in cards.values() if isinstance(card, dict)]
+    unfiltered_count = len([card for card in cards.values() if isinstance(card, dict)])
+    players = eligible_hitter_leaderboard_rows(cards)
     players.sort(key=lambda card: (card.get("luck_gap_points") is None, -(card.get("luck_gap_points") or 0), card.get("full_name") or ""))
     positive_players = [card for card in players if isinstance(card.get("luck_gap_points"), (int, float)) and card.get("luck_gap_points") > 0]
     negative_players = sorted(
@@ -1701,6 +1734,8 @@ def luck_gap_leaderboard():
         players=players,
         positive_players=positive_players,
         negative_players=negative_players,
+        min_pa=MIN_HITTER_LEADERBOARD_PA,
+        unfiltered_count=unfiltered_count,
         page_title="Luck Gap Leaderboard — Barrel Proof",
         meta_description="Barrel Proof Luck Gap leaderboard comparing xwOBA against calculated wOBA.",
     )
@@ -1709,11 +1744,14 @@ def luck_gap_leaderboard():
 @app.route("/leaderboards/power-signal/")
 def power_signal_leaderboard():
     cards = load_hitter_power_signal_cards()
-    players = [card for card in cards.values() if isinstance(card, dict)]
+    unfiltered_count = len([card for card in cards.values() if isinstance(card, dict)])
+    players = eligible_hitter_leaderboard_rows(cards)
     players.sort(key=lambda card: (card.get("power_signal") is None, -(card.get("power_signal") or 0), card.get("full_name") or ""))
     return render_template(
         "power_signal_leaderboard.html",
         players=players,
+        min_pa=MIN_HITTER_LEADERBOARD_PA,
+        unfiltered_count=unfiltered_count,
         page_title="Power Signal Leaderboard — Barrel Proof",
         meta_description="Barrel Proof Power Signal leaderboard showing hitter power supported by contact quality.",
     )
@@ -1722,11 +1760,14 @@ def power_signal_leaderboard():
 @app.route("/leaderboards/contact-signal/")
 def contact_signal_leaderboard():
     cards = load_hitter_contact_signal_cards()
-    players = [card for card in cards.values() if isinstance(card, dict)]
+    unfiltered_count = len([card for card in cards.values() if isinstance(card, dict)])
+    players = eligible_hitter_leaderboard_rows(cards)
     players.sort(key=lambda card: (card.get("contact_signal") is None, -(card.get("contact_signal") or 0), card.get("full_name") or ""))
     return render_template(
         "contact_signal_leaderboard.html",
         players=players,
+        min_pa=MIN_HITTER_LEADERBOARD_PA,
+        unfiltered_count=unfiltered_count,
         page_title="Contact Signal Leaderboard — Barrel Proof",
         meta_description="Barrel Proof Contact Signal leaderboard showing contact skill and plate discipline support.",
     )

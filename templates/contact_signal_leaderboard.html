@@ -23,6 +23,7 @@
     <div class="eyebrow">Barrel Proof Leaderboard</div>
     <h1>Contact Signal</h1>
     <p>Whether a hitter’s production is supported by contact skill and plate discipline.</p>
+    <div class="leaderboard-filter-note">Minimum {{ min_pa }} PA</div>
   </header>
 
   <main class="team-ledger-list leaderboard-ledger">
@@ -37,6 +38,7 @@
             <tr>
               <th>Player</th>
               <th>Team</th>
+              <th>PA</th>
               <th>Contact Signal</th>
               <th>Label</th>
               <th>Confidence</th>
@@ -53,6 +55,7 @@
             <tr>
               <td><a href="/player/{{ player.get('slug') }}">{{ player.get('full_name') or '—' }}</a></td>
               <td>{{ stat_value(player.get('team_abbr')) }}</td>
+              <td>{{ stat_value(player.get('pa')) }}</td>
               <td>{{ stat_value(player.get('contact_signal')) }}</td>
               <td>{{ stat_value(player.get('label')) }}</td>
               <td>{{ stat_value(player.get('confidence')) }}</td>
@@ -64,7 +67,7 @@
             </tr>
             {% else %}
             <tr>
-              <td colspan="10">—</td>
+              <td colspan="11">—</td>
             </tr>
             {% endfor %}
           </tbody>
