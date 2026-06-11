@@ -142,6 +142,16 @@ def get_player_by_slug(slug):
             return player
     return None
 
+def get_player_page_by_slug(slug):
+    wanted = str(slug or "").strip().lower()
+    if not wanted:
+        return None
+    page_path = PLAYER_DATA_DIR / "player_pages" / f"{wanted}.json"
+    if not page_path.exists():
+        return None
+    data = load_json(f"players/player_pages/{wanted}.json", fallback=None)
+    return data if isinstance(data, dict) else None
+
 def resolve_player_name(name):
     if not name:
         return None
@@ -183,7 +193,11 @@ def player_url(player):
 
 @app.context_processor
 def inject_player_helpers():
-    return dict(player_url=player_url)
+    def stat_value(value):
+        if value in (None, "", False):
+            return "—"
+        return value
+    return dict(player_url=player_url, stat_value=stat_value)
 
 def get_team_nicknames():
     """Returns dict mapping abbr -> nickname, e.g. 'NYY' -> 'Yankees'"""
@@ -1590,12 +1604,14 @@ def players_index():
 
 @app.route("/player/<slug>")
 def player_detail(slug):
-    player = get_player_by_slug(slug)
+    player = get_player_page_by_slug(slug) or get_player_by_slug(slug)
     if not player:
         abort(404)
     return render_template(
         "player_detail.html",
         player=player,
+        hitter_card=player.get("hitter_card") if isinstance(player, dict) else None,
+        pitcher_card=player.get("pitcher_card") if isinstance(player, dict) else None,
         page_title=f"{player.get('display_name') or player.get('full_name')} — Barrel Proof Player Ledger",
         meta_description=f"{player.get('display_name') or player.get('full_name')} player ledger — Barrel Proof Baseball.",
     )

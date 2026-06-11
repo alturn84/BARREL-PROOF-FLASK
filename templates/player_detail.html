@@ -64,6 +64,84 @@
       </dl>
     </section>
 
+    {% if hitter_card %}
+    <section class="ledger-card stats-card">
+      <div class="section-label">Hitter Card</div>
+      <div class="stats-table-wrap">
+        <table class="stats-table">
+          <thead>
+            <tr>
+              <th>G</th>
+              <th>AVG</th>
+              <th>OBP</th>
+              <th>SLG</th>
+              <th>OPS</th>
+              <th>HR</th>
+              <th>RBI</th>
+              <th>R</th>
+              <th>SB</th>
+              <th>BB</th>
+              <th>SO</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ stat_value(hitter_card["games"]) }}</td>
+              <td>{{ stat_value(hitter_card["avg"]) }}</td>
+              <td>{{ stat_value(hitter_card["obp"]) }}</td>
+              <td>{{ stat_value(hitter_card["slg"]) }}</td>
+              <td>{{ stat_value(hitter_card["ops"]) }}</td>
+              <td>{{ stat_value(hitter_card["hr"]) }}</td>
+              <td>{{ stat_value(hitter_card["rbi"]) }}</td>
+              <td>{{ stat_value(hitter_card["runs"]) }}</td>
+              <td>{{ stat_value(hitter_card["sb"]) }}</td>
+              <td>{{ stat_value(hitter_card["bb"]) }}</td>
+              <td>{{ stat_value(hitter_card["so"]) }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    {% endif %}
+
+    {% if pitcher_card %}
+    <section class="ledger-card stats-card">
+      <div class="section-label">Pitcher Card</div>
+      <div class="stats-table-wrap">
+        <table class="stats-table">
+          <thead>
+            <tr>
+              <th>G</th>
+              <th>GS</th>
+              <th>W</th>
+              <th>L</th>
+              <th>SV</th>
+              <th>ERA</th>
+              <th>IP</th>
+              <th>SO</th>
+              <th>BB</th>
+              <th>WHIP</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ stat_value(pitcher_card["games"]) }}</td>
+              <td>{{ stat_value(pitcher_card["games_started"]) }}</td>
+              <td>{{ stat_value(pitcher_card["wins"]) }}</td>
+              <td>{{ stat_value(pitcher_card["losses"]) }}</td>
+              <td>{{ stat_value(pitcher_card["saves"]) }}</td>
+              <td>{{ stat_value(pitcher_card["era"]) }}</td>
+              <td>{{ stat_value(pitcher_card["ip"]) }}</td>
+              <td>{{ stat_value(pitcher_card["so"]) }}</td>
+              <td>{{ stat_value(pitcher_card["bb"]) }}</td>
+              <td>{{ stat_value(pitcher_card["whip"]) }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    {% endif %}
+
     <section class="ledger-card placeholder-card">
       <div class="section-label">Player Intelligence</div>
       <p>Tracking and advanced player cards will appear here once the player intelligence pipeline is connected.</p>

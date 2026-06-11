@@ -281,6 +281,39 @@ nav.main-nav {
   max-width: 760px;
 }
 
+.stats-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.stats-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  min-width: 620px;
+}
+
+.stats-table th,
+.stats-table td {
+  font-family: var(--mono);
+  text-align: right;
+  border-bottom: .5px solid var(--rule);
+  padding: 8px 10px;
+  white-space: nowrap;
+}
+
+.stats-table th {
+  font-size: 10px;
+  letter-spacing: .14em;
+  color: var(--paper-muted);
+  font-weight: 400;
+}
+
+.stats-table td {
+  font-size: 15px;
+  color: var(--paper-soft);
+}
+
 .empty-ledger h2 {
   font-family: var(--serif-sc);
   letter-spacing: .12em;
