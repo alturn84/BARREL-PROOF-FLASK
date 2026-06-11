@@ -5,11 +5,14 @@ Barrel Proof Baseball — Flask Web Server
 
 import json
 import os
+import re
+import unicodedata
 from pathlib import Path
 from flask import Flask, render_template, abort, send_from_directory
 
 BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = Path(os.environ.get("DATA_DIR", str(BASE_DIR / "Site Data")))
+PLAYER_DATA_DIR = DATA_DIR / "players"
 VAULT = Path(os.environ.get("VAULT_DIR", str(BASE_DIR)))
 
 CITY_TO_TEAM = {
@@ -116,6 +119,71 @@ def get_all_teams():
     data = load_json("teams.json", fallback={})
     teams = data.get("teams", [])
     return sorted(teams, key=lambda t: (t.get("league", ""), t.get("division", ""), t.get("name", "")))
+
+def player_lookup_key(value):
+    text = unicodedata.normalize("NFKD", str(value or ""))
+    text = "".join(ch for ch in text if not unicodedata.combining(ch))
+    return re.sub(r"[^a-z0-9]+", " ", text.lower()).strip()
+
+def load_player_index():
+    data = load_json("players/player_index.json", fallback=[])
+    return data if isinstance(data, list) else []
+
+def load_player_aliases():
+    data = load_json("players/player_aliases.json", fallback={})
+    return data if isinstance(data, dict) else {}
+
+def get_player_by_slug(slug):
+    wanted = str(slug or "").strip().lower()
+    if not wanted:
+        return None
+    for player in load_player_index():
+        if str(player.get("slug", "")).lower() == wanted:
+            return player
+    return None
+
+def resolve_player_name(name):
+    if not name:
+        return None
+    query = str(name).strip()
+    if not query:
+        return None
+
+    players = load_player_index()
+    by_slug = {p.get("slug"): p for p in players if p.get("slug")}
+
+    for player in players:
+        if query in {player.get("full_name"), player.get("display_name")}:
+            return player
+
+    aliases = load_player_aliases()
+    alias_target = aliases.get(query)
+    if alias_target:
+        return by_slug.get(alias_target) or get_player_by_slug(alias_target)
+
+    normalized_query = player_lookup_key(query)
+    for alias, target in aliases.items():
+        if player_lookup_key(alias) == normalized_query:
+            return by_slug.get(target) or get_player_by_slug(target)
+
+    for player in players:
+        if normalized_query in {
+            player_lookup_key(player.get("full_name")),
+            player_lookup_key(player.get("display_name")),
+            player_lookup_key(player.get("slug")),
+        }:
+            return player
+
+    return None
+
+def player_url(player):
+    if not player or not player.get("slug"):
+        return None
+    return f"/player/{player['slug']}"
+
+@app.context_processor
+def inject_player_helpers():
+    return dict(player_url=player_url)
 
 def get_team_nicknames():
     """Returns dict mapping abbr -> nickname, e.g. 'NYY' -> 'Yankees'"""
@@ -1491,6 +1559,46 @@ def serve_lead_image(filename):
 def teams_index():
     from flask import redirect
     return redirect("/al-nl#team-directory", 302)
+
+@app.route("/players")
+@app.route("/players/")
+def players_index():
+    players = [p for p in load_player_index() if p.get("active", True)]
+    team_order = {team.get("abbr"): idx for idx, team in enumerate(get_all_teams())}
+    grouped = []
+    by_team = {}
+
+    for player in players:
+        abbr = player.get("team_abbr") or "FA"
+        by_team.setdefault(abbr, {
+            "abbr": abbr,
+            "name": player.get("team_name") or ("Free Agents" if abbr == "FA" else abbr),
+            "players": [],
+        })["players"].append(player)
+
+    for group in by_team.values():
+        group["players"].sort(key=lambda p: (p.get("position_group") or "", p.get("full_name") or ""))
+        grouped.append(group)
+
+    grouped.sort(key=lambda g: (team_order.get(g["abbr"], 999), g["name"]))
+
+    return render_template(
+        "players_index.html",
+        grouped_players=grouped,
+        player_count=len(players),
+    )
+
+@app.route("/player/<slug>")
+def player_detail(slug):
+    player = get_player_by_slug(slug)
+    if not player:
+        abort(404)
+    return render_template(
+        "player_detail.html",
+        player=player,
+        page_title=f"{player.get('display_name') or player.get('full_name')} — Barrel Proof Player Ledger",
+        meta_description=f"{player.get('display_name') or player.get('full_name')} player ledger — Barrel Proof Baseball.",
+    )
 
 def build_team_context_note(team, record, form):
     """

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>{{ page_title }}</title>
+<meta name="description" content="{{ meta_description }}"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Playfair+Display+SC:wght@400;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/static/css/players.css"/>
+</head>
+<body>
+{% set banner_src = '/static/images/banner.png' %}
+{% set banner_alt = 'Barrel Proof Baseball' %}
+{% include 'partials/site_banner.html' %}
+
+<div class="players-page player-detail-page">
+  {% set active_page = 'players' %}{% include 'partials/site_nav.html' %}
+
+  <header class="ledger-header detail-header">
+    <div class="back-link"><a href="/players">← Player Ledger</a></div>
+    <div class="eyebrow">{{ player.team_abbr or 'MLB' }}{% if player.position %} · {{ player.position }}{% endif %}</div>
+    <h1>{{ player.full_name or player.display_name }}</h1>
+    <p>{{ player.team_name or 'Team unavailable' }}</p>
+  </header>
+
+  <main class="player-ledger">
+    <section class="ledger-card identity-card">
+      <div class="section-label">Identity</div>
+      <dl class="identity-grid">
+        <div>
+          <dt>Display</dt>
+          <dd>{{ player.display_name or player.full_name or '—' }}</dd>
+        </div>
+        <div>
+          <dt>Team</dt>
+          <dd>{{ player.team_abbr or '—' }}{% if player.team_name %} · {{ player.team_name }}{% endif %}</dd>
+        </div>
+        <div>
+          <dt>Position</dt>
+          <dd>{{ player.position or '—' }}{% if player.position_group %} · {{ player.position_group }}{% endif %}</dd>
+        </div>
+        <div>
+          <dt>Bats / Throws</dt>
+          <dd>{{ player.bats or '—' }} / {{ player.throws or '—' }}</dd>
+        </div>
+        <div>
+          <dt>Status</dt>
+          <dd>{{ player.status or '—' }}</dd>
+        </div>
+        <div>
+          <dt>Player ID</dt>
+          <dd>{{ player.player_id or '—' }}</dd>
+        </div>
+        <div>
+          <dt>MLBAM ID</dt>
+          <dd>{{ player.mlbam_id or '—' }}</dd>
+        </div>
+        <div>
+          <dt>Slug</dt>
+          <dd>{{ player.slug or '—' }}</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="ledger-card placeholder-card">
+      <div class="section-label">Player Intelligence</div>
+      <p>Tracking and advanced player cards will appear here once the player intelligence pipeline is connected.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-name">BARREL PROOF</div>
+    <div class="footer-tag">Raw. Unfiltered. Baseball.<br/>Enjoy Responsibly.</div>
+    <div class="footer-legal">No logos. No likenesses.<br/>Player ledger foundation.</div>
+  </footer>
+</div>
+</body>
+</html>
