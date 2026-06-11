@@ -53,11 +53,25 @@ def tn(abbr):
     return name[0].upper() + name[1:] if name else abbr
 
 def short_name(full_name):
-    """'Aaron Judge' → 'A. Judge'"""
+    """
+    'Aaron Judge' → 'A. Judge'
+    'Luis García Jr.' → 'L. García Jr.'
+    Suffixes (Jr., Sr., II, III, IV) are preserved and never collapsed
+    onto the initial — e.g. never produces 'L.Jr.'.
+    """
+    SUFFIXES = {"Jr.", "Sr.", "II", "III", "IV", "V"}
     parts = full_name.strip().split()
-    if len(parts) >= 2:
-        return f"{parts[0][0]}. {parts[-1]}"
-    return full_name
+    if len(parts) < 2:
+        return full_name
+    # Strip any trailing suffix before taking last name
+    suffix = ""
+    if parts[-1] in SUFFIXES:
+        suffix = " " + parts[-1]
+        parts = parts[:-1]
+    if len(parts) < 2:
+        # Only one meaningful name part after stripping suffix
+        return full_name
+    return f"{parts[0][0]}. {parts[-1]}{suffix}"
 
 
 # ── Markdown parser ───────────────────────────────────────────────────────────

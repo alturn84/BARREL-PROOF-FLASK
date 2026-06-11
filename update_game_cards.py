@@ -43,6 +43,33 @@ TEAM_CITIES = {
 }
 
 
+def _num_words(n):
+    """Convert small integers to spelled-out words for editorial prose."""
+    _words = {
+        1: "one", 2: "two", 3: "three", 4: "four", 5: "five",
+        6: "six", 7: "seven", 8: "eight", 9: "nine", 10: "ten",
+    }
+    return _words.get(int(n), str(n))
+
+
+_MALFORMED_RE = re.compile(
+    r'\b[A-Z]\.(Jr\.|Sr\.|II|III|IV|V)\b'  # L.Jr., M.II, etc.
+    r'|\b[A-Z]\.[A-Z][a-z]'                # J.Suarez (initial run into last name)
+)
+
+def _safe_name(name):
+    """
+    Returns name if it looks like a valid human-readable player name.
+    Returns None if it matches a known malformed pattern.
+    Malformed names are never rendered in editorial text.
+    """
+    if not name or not name.strip():
+        return None
+    if _MALFORMED_RE.search(name):
+        return None
+    return name.strip()
+
+
 # ── Parse one game block from the markdown ────────────────────────────────────
 def parse_game(block):
     lines = block.strip().split('\n')
@@ -191,8 +218,6 @@ def parse_game(block):
             bm = re.match(r'(.+?)\s*\((\w+)\)', batter_pos)
             name = bm.group(1).strip() if bm else batter_pos
             pos  = bm.group(2).strip() if bm else ''
-            parts = name.split()
-            short = f"{parts[0][0]}.{parts[-1]}" if len(parts) > 1 else name
             try:
                 ab  = int(cells[2])
                 r   = int(cells[3])
@@ -204,7 +229,7 @@ def parse_game(block):
             except (ValueError, IndexError):
                 continue
             rows.append({
-                'name': short, 'pos': pos,
+                'name': name, 'pos': pos,
                 'ab': ab, 'r': r, 'h': h,
                 '2b': dbl, '3b': trp, 'hr': hr, 'rbi': rbi,
             })
@@ -225,8 +250,6 @@ def parse_game(block):
             if len(cells) < 4:
                 continue
             name  = cells[0].strip()
-            parts = name.split()
-            short = f"{parts[0][0]}.{parts[-1]}" if len(parts) > 1 else name
             try:
                 ip = cells[1]
                 h  = cells[2]
@@ -237,7 +260,7 @@ def parse_game(block):
             except IndexError:
                 continue
             rows.append({
-                'name': short, 'ip': ip,
+                'name': name, 'ip': ip,
                 'h': h, 'r': r, 'er': er, 'bb': bb, 'k': k,
             })
         return rows
@@ -328,11 +351,15 @@ def build_game_notes(game, standings_data=None):
             hr_val = int(b["hr"])
             parts.append(f"homered{' twice' if hr_val == 2 else ' three times' if hr_val >= 3 else ''}")
         if int(b.get("rbi", 0)) >= 2:
-            parts.append(f"drove in {b['rbi']} runs")
+            rbi_val = int(b["rbi"])
+            run_word = "run" if rbi_val == 1 else "runs"
+            parts.append(f"drove in {_num_words(rbi_val)} {run_word}")
         if int(b.get("h", 0)) >= 3 and not parts:
             parts.append(f"went {b['h']}-for-{b['ab']}")
         if parts:
-            standout = f"{b['name']} ({team}) {' and '.join(parts)}."
+            display = _safe_name(b['name'])
+            if display:
+                standout = f"{display} ({team}) {' and '.join(parts)}."
 
     if not standout:
         # Fall back to pitching gem
@@ -347,7 +374,9 @@ def build_game_notes(game, standings_data=None):
                 k  = int(p.get("k", 0) or 0)
                 if ip >= 6.0 and er <= 2:
                     k_str = f" with {k} strikeouts" if k >= 5 else ""
-                    standout = f"{p['name']} ({team}) threw {p['ip']} innings, allowing {er} earned runs{k_str}."
+                    display = _safe_name(p['name'])
+                    if display:
+                        standout = f"{display} ({team}) threw {p['ip']} innings, allowing {er} earned runs{k_str}."
                     break
             except (ValueError, TypeError):
                 pass
