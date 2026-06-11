@@ -1,0 +1,2496 @@
+{
+  "meta": {
+    "generated_at": "2026-06-11T12:45:39Z",
+    "season": 2026,
+    "source": "season_hitter_stats calculated_woba + statcast_hitter_cards",
+    "fetch_status": "success",
+    "matched_count": 248,
+    "unmatched_count": 0,
+    "ambiguous_count": 0,
+    "calculated_count": 248
+  },
+  "players": {
+    "aaron-judge": {
+      "slug": "aaron-judge",
+      "full_name": "Aaron Judge",
+      "team_abbr": null,
+      "calculated_woba": 0.388,
+      "xwoba": 0.415,
+      "luck_gap": 0.027,
+      "luck_gap_points": 27,
+      "label": "Expected production ahead of actual production"
+    },
+    "adley-rutschman": {
+      "slug": "adley-rutschman",
+      "full_name": "Adley Rutschman",
+      "team_abbr": "BAL",
+      "calculated_woba": 0.361,
+      "xwoba": 0.376,
+      "luck_gap": 0.015,
+      "luck_gap_points": 15,
+      "label": "Expected production ahead of actual production"
+    },
+    "adolis-garcia": {
+      "slug": "adolis-garcia",
+      "full_name": "Adolis García",
+      "team_abbr": "PHI",
+      "calculated_woba": 0.27,
+      "xwoba": 0.294,
+      "luck_gap": 0.024,
+      "luck_gap_points": 24,
+      "label": "Expected production ahead of actual production"
+    },
+    "alec-bohm": {
+      "slug": "alec-bohm",
+      "full_name": "Alec Bohm",
+      "team_abbr": "PHI",
+      "calculated_woba": 0.281,
+      "xwoba": 0.293,
+      "luck_gap": 0.012,
+      "luck_gap_points": 12,
+      "label": "Actual and expected production aligned"
+    },
+    "alec-burleson": {
+      "slug": "alec-burleson",
+      "full_name": "Alec Burleson",
+      "team_abbr": "STL",
+      "calculated_woba": 0.362,
+      "xwoba": 0.381,
+      "luck_gap": 0.019,
+      "luck_gap_points": 19,
+      "label": "Expected production ahead of actual production"
+    },
+    "alex-bregman": {
+      "slug": "alex-bregman",
+      "full_name": "Alex Bregman",
+      "team_abbr": "CHC",
+      "calculated_woba": 0.303,
+      "xwoba": 0.311,
+      "luck_gap": 0.008,
+      "luck_gap_points": 8,
+      "label": "Actual and expected production aligned"
+    },
+    "alex-freeland": {
+      "slug": "alex-freeland",
+      "full_name": "Alex Freeland",
+      "team_abbr": "LAD",
+      "calculated_woba": 0.312,
+      "xwoba": 0.303,
+      "luck_gap": -0.009,
+      "luck_gap_points": -9,
+      "label": "Actual and expected production aligned"
+    },
+    "andres-gimenez": {
+      "slug": "andres-gimenez",
+      "full_name": "Andrés Giménez",
+      "team_abbr": "TOR",
+      "calculated_woba": 0.276,
+      "xwoba": 0.262,
+      "luck_gap": -0.014,
+      "luck_gap_points": -14,
+      "label": "Actual and expected production aligned"
+    },
+    "andrew-benintendi": {
+      "slug": "andrew-benintendi",
+      "full_name": "Andrew Benintendi",
+      "team_abbr": "CWS",
+      "calculated_woba": 0.303,
+      "xwoba": 0.329,
+      "luck_gap": 0.026,
+      "luck_gap_points": 26,
+      "label": "Expected production ahead of actual production"
+    },
+    "andy-pages": {
+      "slug": "andy-pages",
+      "full_name": "Andy Pages",
+      "team_abbr": "LAD",
+      "calculated_woba": 0.366,
+      "xwoba": 0.351,
+      "luck_gap": -0.015,
+      "luck_gap_points": -15,
+      "label": "Actual production running ahead"
+    },
+    "angel-martinez": {
+      "slug": "angel-martinez",
+      "full_name": "Angel Martínez",
+      "team_abbr": "CLE",
+      "calculated_woba": 0.308,
+      "xwoba": 0.299,
+      "luck_gap": -0.009,
+      "luck_gap_points": -9,
+      "label": "Actual and expected production aligned"
+    },
+    "austin-martin": {
+      "slug": "austin-martin",
+      "full_name": "Austin Martin",
+      "team_abbr": "MIN",
+      "calculated_woba": 0.315,
+      "xwoba": 0.311,
+      "luck_gap": -0.004,
+      "luck_gap_points": -4,
+      "label": "Actual and expected production aligned"
+    },
+    "austin-riley": {
+      "slug": "austin-riley",
+      "full_name": "Austin Riley",
+      "team_abbr": "ATL",
+      "calculated_woba": 0.287,
+      "xwoba": 0.303,
+      "luck_gap": 0.016,
+      "luck_gap_points": 16,
+      "label": "Expected production ahead of actual production"
+    },
+    "austin-wells": {
+      "slug": "austin-wells",
+      "full_name": "Austin Wells",
+      "team_abbr": null,
+      "calculated_woba": 0.246,
+      "xwoba": 0.301,
+      "luck_gap": 0.055,
+      "luck_gap_points": 55,
+      "label": "Production lagging contact quality"
+    },
+    "ben-rice": {
+      "slug": "ben-rice",
+      "full_name": "Ben Rice",
+      "team_abbr": "NYY",
+      "calculated_woba": 0.43,
+      "xwoba": 0.396,
+      "luck_gap": -0.034,
+      "luck_gap_points": -34,
+      "label": "Actual production running ahead"
+    },
+    "ben-williamson": {
+      "slug": "ben-williamson",
+      "full_name": "Ben Williamson",
+      "team_abbr": "TB",
+      "calculated_woba": 0.306,
+      "xwoba": 0.302,
+      "luck_gap": -0.004,
+      "luck_gap_points": -4,
+      "label": "Actual and expected production aligned"
+    },
+    "blaze-alexander": {
+      "slug": "blaze-alexander",
+      "full_name": "Blaze Alexander",
+      "team_abbr": "BAL",
+      "calculated_woba": 0.326,
+      "xwoba": 0.348,
+      "luck_gap": 0.022,
+      "luck_gap_points": 22,
+      "label": "Expected production ahead of actual production"
+    },
+    "bo-bichette": {
+      "slug": "bo-bichette",
+      "full_name": "Bo Bichette",
+      "team_abbr": "NYM",
+      "calculated_woba": 0.271,
+      "xwoba": 0.328,
+      "luck_gap": 0.057,
+      "luck_gap_points": 57,
+      "label": "Production lagging contact quality"
+    },
+    "bobby-witt-jr": {
+      "slug": "bobby-witt-jr",
+      "full_name": "Bobby Witt Jr.",
+      "team_abbr": "KC",
+      "calculated_woba": 0.349,
+      "xwoba": 0.385,
+      "luck_gap": 0.036,
+      "luck_gap_points": 36,
+      "label": "Expected production ahead of actual production"
+    },
+    "brandon-lowe": {
+      "slug": "brandon-lowe",
+      "full_name": "Brandon Lowe",
+      "team_abbr": "PIT",
+      "calculated_woba": 0.366,
+      "xwoba": 0.359,
+      "luck_gap": -0.007,
+      "luck_gap_points": -7,
+      "label": "Actual and expected production aligned"
+    },
+    "brandon-marsh": {
+      "slug": "brandon-marsh",
+      "full_name": "Brandon Marsh",
+      "team_abbr": "PHI",
+      "calculated_woba": 0.379,
+      "xwoba": 0.341,
+      "luck_gap": -0.038,
+      "luck_gap_points": -38,
+      "label": "Actual production running ahead"
+    },
+    "brandon-nimmo": {
+      "slug": "brandon-nimmo",
+      "full_name": "Brandon Nimmo",
+      "team_abbr": "TEX",
+      "calculated_woba": 0.324,
+      "xwoba": 0.377,
+      "luck_gap": 0.053,
+      "luck_gap_points": 53,
+      "label": "Production lagging contact quality"
+    },
+    "brayan-rocchio": {
+      "slug": "brayan-rocchio",
+      "full_name": "Brayan Rocchio",
+      "team_abbr": "CLE",
+      "calculated_woba": 0.342,
+      "xwoba": 0.322,
+      "luck_gap": -0.02,
+      "luck_gap_points": -20,
+      "label": "Actual production running ahead"
+    },
+    "brent-rooker": {
+      "slug": "brent-rooker",
+      "full_name": "Brent Rooker",
+      "team_abbr": "ATH",
+      "calculated_woba": 0.295,
+      "xwoba": 0.315,
+      "luck_gap": 0.02,
+      "luck_gap_points": 20,
+      "label": "Expected production ahead of actual production"
+    },
+    "brett-baty": {
+      "slug": "brett-baty",
+      "full_name": "Brett Baty",
+      "team_abbr": "NYM",
+      "calculated_woba": 0.283,
+      "xwoba": 0.3,
+      "luck_gap": 0.017,
+      "luck_gap_points": 17,
+      "label": "Expected production ahead of actual production"
+    },
+    "brice-matthews": {
+      "slug": "brice-matthews",
+      "full_name": "Brice Matthews",
+      "team_abbr": "HOU",
+      "calculated_woba": 0.26,
+      "xwoba": 0.256,
+      "luck_gap": -0.004,
+      "luck_gap_points": -4,
+      "label": "Actual and expected production aligned"
+    },
+    "brice-turang": {
+      "slug": "brice-turang",
+      "full_name": "Brice Turang",
+      "team_abbr": "MIL",
+      "calculated_woba": 0.379,
+      "xwoba": 0.372,
+      "luck_gap": -0.007,
+      "luck_gap_points": -7,
+      "label": "Actual and expected production aligned"
+    },
+    "brooks-lee": {
+      "slug": "brooks-lee",
+      "full_name": "Brooks Lee",
+      "team_abbr": "MIN",
+      "calculated_woba": 0.313,
+      "xwoba": 0.273,
+      "luck_gap": -0.04,
+      "luck_gap_points": -40,
+      "label": "Regression warning"
+    },
+    "bryan-reynolds": {
+      "slug": "bryan-reynolds",
+      "full_name": "Bryan Reynolds",
+      "team_abbr": "PIT",
+      "calculated_woba": 0.366,
+      "xwoba": 0.367,
+      "luck_gap": 0.001,
+      "luck_gap_points": 1,
+      "label": "Actual and expected production aligned"
+    },
+    "bryce-harper": {
+      "slug": "bryce-harper",
+      "full_name": "Bryce Harper",
+      "team_abbr": "PHI",
+      "calculated_woba": 0.377,
+      "xwoba": 0.415,
+      "luck_gap": 0.038,
+      "luck_gap_points": 38,
+      "label": "Expected production ahead of actual production"
+    },
+    "bryson-stott": {
+      "slug": "bryson-stott",
+      "full_name": "Bryson Stott",
+      "team_abbr": "PHI",
+      "calculated_woba": 0.291,
+      "xwoba": 0.309,
+      "luck_gap": 0.018,
+      "luck_gap_points": 18,
+      "label": "Expected production ahead of actual production"
+    },
+    "byron-buxton": {
+      "slug": "byron-buxton",
+      "full_name": "Byron Buxton",
+      "team_abbr": "MIN",
+      "calculated_woba": 0.373,
+      "xwoba": 0.333,
+      "luck_gap": -0.04,
+      "luck_gap_points": -40,
+      "label": "Regression warning"
+    },
+    "cal-raleigh": {
+      "slug": "cal-raleigh",
+      "full_name": "Cal Raleigh",
+      "team_abbr": null,
+      "calculated_woba": 0.252,
+      "xwoba": 0.289,
+      "luck_gap": 0.037,
+      "luck_gap_points": 37,
+      "label": "Expected production ahead of actual production"
+    },
+    "caleb-durbin": {
+      "slug": "caleb-durbin",
+      "full_name": "Caleb Durbin",
+      "team_abbr": "BOS",
+      "calculated_woba": 0.245,
+      "xwoba": 0.272,
+      "luck_gap": 0.027,
+      "luck_gap_points": 27,
+      "label": "Expected production ahead of actual production"
+    },
+    "cam-smith": {
+      "slug": "cam-smith",
+      "full_name": "Cam Smith",
+      "team_abbr": "HOU",
+      "calculated_woba": 0.299,
+      "xwoba": 0.336,
+      "luck_gap": 0.037,
+      "luck_gap_points": 37,
+      "label": "Expected production ahead of actual production"
+    },
+    "carlos-cortes": {
+      "slug": "carlos-cortes",
+      "full_name": "Carlos Cortes",
+      "team_abbr": "ATH",
+      "calculated_woba": 0.387,
+      "xwoba": 0.376,
+      "luck_gap": -0.011,
+      "luck_gap_points": -11,
+      "label": "Actual and expected production aligned"
+    },
+    "carson-benge": {
+      "slug": "carson-benge",
+      "full_name": "Carson Benge",
+      "team_abbr": "NYM",
+      "calculated_woba": 0.324,
+      "xwoba": 0.353,
+      "luck_gap": 0.029,
+      "luck_gap_points": 29,
+      "label": "Expected production ahead of actual production"
+    },
+    "carson-kelly": {
+      "slug": "carson-kelly",
+      "full_name": "Carson Kelly",
+      "team_abbr": "CHC",
+      "calculated_woba": 0.325,
+      "xwoba": 0.316,
+      "luck_gap": -0.009,
+      "luck_gap_points": -9,
+      "label": "Actual and expected production aligned"
+    },
+    "carter-jensen": {
+      "slug": "carter-jensen",
+      "full_name": "Carter Jensen",
+      "team_abbr": "KC",
+      "calculated_woba": 0.292,
+      "xwoba": 0.27,
+      "luck_gap": -0.022,
+      "luck_gap_points": -22,
+      "label": "Actual production running ahead"
+    },
+    "casey-schmitt": {
+      "slug": "casey-schmitt",
+      "full_name": "Casey Schmitt",
+      "team_abbr": "SF",
+      "calculated_woba": 0.357,
+      "xwoba": 0.348,
+      "luck_gap": -0.009,
+      "luck_gap_points": -9,
+      "label": "Actual and expected production aligned"
+    },
+    "ceddanne-rafaela": {
+      "slug": "ceddanne-rafaela",
+      "full_name": "Ceddanne Rafaela",
+      "team_abbr": "BOS",
+      "calculated_woba": 0.337,
+      "xwoba": 0.297,
+      "luck_gap": -0.04,
+      "luck_gap_points": -40,
+      "label": "Regression warning"
+    },
+    "cedric-mullins": {
+      "slug": "cedric-mullins",
+      "full_name": "Cedric Mullins",
+      "team_abbr": "TB",
+      "calculated_woba": 0.262,
+      "xwoba": 0.258,
+      "luck_gap": -0.004,
+      "luck_gap_points": -4,
+      "label": "Actual and expected production aligned"
+    },
+    "chandler-simpson": {
+      "slug": "chandler-simpson",
+      "full_name": "Chandler Simpson",
+      "team_abbr": "TB",
+      "calculated_woba": 0.28,
+      "xwoba": 0.253,
+      "luck_gap": -0.027,
+      "luck_gap_points": -27,
+      "label": "Actual production running ahead"
+    },
+    "chase-delauter": {
+      "slug": "chase-delauter",
+      "full_name": "Chase DeLauter",
+      "team_abbr": "CLE",
+      "calculated_woba": 0.322,
+      "xwoba": 0.337,
+      "luck_gap": 0.015,
+      "luck_gap_points": 15,
+      "label": "Expected production ahead of actual production"
+    },
+    "chase-meidroth": {
+      "slug": "chase-meidroth",
+      "full_name": "Chase Meidroth",
+      "team_abbr": "CWS",
+      "calculated_woba": 0.327,
+      "xwoba": 0.293,
+      "luck_gap": -0.034,
+      "luck_gap_points": -34,
+      "label": "Actual production running ahead"
+    },
+    "christian-vazquez": {
+      "slug": "christian-vazquez",
+      "full_name": "Christian Vázquez",
+      "team_abbr": "HOU",
+      "calculated_woba": 0.293,
+      "xwoba": 0.24,
+      "luck_gap": -0.053,
+      "luck_gap_points": -53,
+      "label": "Regression warning"
+    },
+    "christian-walker": {
+      "slug": "christian-walker",
+      "full_name": "Christian Walker",
+      "team_abbr": "HOU",
+      "calculated_woba": 0.352,
+      "xwoba": 0.32,
+      "luck_gap": -0.032,
+      "luck_gap_points": -32,
+      "label": "Actual production running ahead"
+    },
+    "christian-yelich": {
+      "slug": "christian-yelich",
+      "full_name": "Christian Yelich",
+      "team_abbr": "MIL",
+      "calculated_woba": 0.344,
+      "xwoba": 0.293,
+      "luck_gap": -0.051,
+      "luck_gap_points": -51,
+      "label": "Regression warning"
+    },
+    "cj-abrams": {
+      "slug": "cj-abrams",
+      "full_name": "CJ Abrams",
+      "team_abbr": "WSH",
+      "calculated_woba": 0.387,
+      "xwoba": 0.362,
+      "luck_gap": -0.025,
+      "luck_gap_points": -25,
+      "label": "Actual production running ahead"
+    },
+    "coby-mayo": {
+      "slug": "coby-mayo",
+      "full_name": "Coby Mayo",
+      "team_abbr": "BAL",
+      "calculated_woba": 0.287,
+      "xwoba": 0.299,
+      "luck_gap": 0.012,
+      "luck_gap_points": 12,
+      "label": "Actual and expected production aligned"
+    },
+    "cody-bellinger": {
+      "slug": "cody-bellinger",
+      "full_name": "Cody Bellinger",
+      "team_abbr": "NYY",
+      "calculated_woba": 0.366,
+      "xwoba": 0.376,
+      "luck_gap": 0.01,
+      "luck_gap_points": 10,
+      "label": "Actual and expected production aligned"
+    },
+    "cole-young": {
+      "slug": "cole-young",
+      "full_name": "Cole Young",
+      "team_abbr": "SEA",
+      "calculated_woba": 0.298,
+      "xwoba": 0.328,
+      "luck_gap": 0.03,
+      "luck_gap_points": 30,
+      "label": "Expected production ahead of actual production"
+    },
+    "colson-montgomery": {
+      "slug": "colson-montgomery",
+      "full_name": "Colson Montgomery",
+      "team_abbr": "CWS",
+      "calculated_woba": 0.347,
+      "xwoba": 0.326,
+      "luck_gap": -0.021,
+      "luck_gap_points": -21,
+      "label": "Actual production running ahead"
+    },
+    "colt-keith": {
+      "slug": "colt-keith",
+      "full_name": "Colt Keith",
+      "team_abbr": "DET",
+      "calculated_woba": 0.283,
+      "xwoba": 0.301,
+      "luck_gap": 0.018,
+      "luck_gap_points": 18,
+      "label": "Expected production ahead of actual production"
+    },
+    "colton-cowser": {
+      "slug": "colton-cowser",
+      "full_name": "Colton Cowser",
+      "team_abbr": "BAL",
+      "calculated_woba": 0.312,
+      "xwoba": 0.323,
+      "luck_gap": 0.011,
+      "luck_gap_points": 11,
+      "label": "Actual and expected production aligned"
+    },
+    "connor-norby": {
+      "slug": "connor-norby",
+      "full_name": "Connor Norby",
+      "team_abbr": "MIA",
+      "calculated_woba": 0.304,
+      "xwoba": 0.296,
+      "luck_gap": -0.008,
+      "luck_gap_points": -8,
+      "label": "Actual and expected production aligned"
+    },
+    "corbin-carroll": {
+      "slug": "corbin-carroll",
+      "full_name": "Corbin Carroll",
+      "team_abbr": "ARI",
+      "calculated_woba": 0.397,
+      "xwoba": 0.368,
+      "luck_gap": -0.029,
+      "luck_gap_points": -29,
+      "label": "Actual production running ahead"
+    },
+    "corey-seager": {
+      "slug": "corey-seager",
+      "full_name": "Corey Seager",
+      "team_abbr": "TEX",
+      "calculated_woba": 0.285,
+      "xwoba": 0.332,
+      "luck_gap": 0.047,
+      "luck_gap_points": 47,
+      "label": "Production lagging contact quality"
+    },
+    "curtis-mead": {
+      "slug": "curtis-mead",
+      "full_name": "Curtis Mead",
+      "team_abbr": "WSH",
+      "calculated_woba": 0.36,
+      "xwoba": 0.37,
+      "luck_gap": 0.01,
+      "luck_gap_points": 10,
+      "label": "Actual and expected production aligned"
+    },
+    "daniel-schneemann": {
+      "slug": "daniel-schneemann",
+      "full_name": "Daniel Schneemann",
+      "team_abbr": "CLE",
+      "calculated_woba": 0.296,
+      "xwoba": 0.306,
+      "luck_gap": 0.01,
+      "luck_gap_points": 10,
+      "label": "Actual and expected production aligned"
+    },
+    "danny-jansen": {
+      "slug": "danny-jansen",
+      "full_name": "Danny Jansen",
+      "team_abbr": null,
+      "calculated_woba": 0.269,
+      "xwoba": 0.254,
+      "luck_gap": -0.015,
+      "luck_gap_points": -15,
+      "label": "Actual production running ahead"
+    },
+    "dansby-swanson": {
+      "slug": "dansby-swanson",
+      "full_name": "Dansby Swanson",
+      "team_abbr": "CHC",
+      "calculated_woba": 0.276,
+      "xwoba": 0.29,
+      "luck_gap": 0.014,
+      "luck_gap_points": 14,
+      "label": "Actual and expected production aligned"
+    },
+    "daulton-varsho": {
+      "slug": "daulton-varsho",
+      "full_name": "Daulton Varsho",
+      "team_abbr": "TOR",
+      "calculated_woba": 0.324,
+      "xwoba": 0.304,
+      "luck_gap": -0.02,
+      "luck_gap_points": -20,
+      "label": "Actual production running ahead"
+    },
+    "david-hamilton": {
+      "slug": "david-hamilton",
+      "full_name": "David Hamilton",
+      "team_abbr": "MIL",
+      "calculated_woba": 0.297,
+      "xwoba": 0.283,
+      "luck_gap": -0.014,
+      "luck_gap_points": -14,
+      "label": "Actual and expected production aligned"
+    },
+    "daylen-lile": {
+      "slug": "daylen-lile",
+      "full_name": "Daylen Lile",
+      "team_abbr": "WSH",
+      "calculated_woba": 0.32,
+      "xwoba": 0.328,
+      "luck_gap": 0.008,
+      "luck_gap_points": 8,
+      "label": "Actual and expected production aligned"
+    },
+    "dillon-dingler": {
+      "slug": "dillon-dingler",
+      "full_name": "Dillon Dingler",
+      "team_abbr": "DET",
+      "calculated_woba": 0.37,
+      "xwoba": 0.407,
+      "luck_gap": 0.037,
+      "luck_gap_points": 37,
+      "label": "Expected production ahead of actual production"
+    },
+    "dominic-canzone": {
+      "slug": "dominic-canzone",
+      "full_name": "Dominic Canzone",
+      "team_abbr": "SEA",
+      "calculated_woba": 0.376,
+      "xwoba": 0.381,
+      "luck_gap": 0.005,
+      "luck_gap_points": 5,
+      "label": "Actual and expected production aligned"
+    },
+    "dominic-smith": {
+      "slug": "dominic-smith",
+      "full_name": "Dominic Smith",
+      "team_abbr": "ATL",
+      "calculated_woba": 0.343,
+      "xwoba": 0.349,
+      "luck_gap": 0.006,
+      "luck_gap_points": 6,
+      "label": "Actual and expected production aligned"
+    },
+    "drake-baldwin": {
+      "slug": "drake-baldwin",
+      "full_name": "Drake Baldwin",
+      "team_abbr": null,
+      "calculated_woba": 0.404,
+      "xwoba": 0.418,
+      "luck_gap": 0.014,
+      "luck_gap_points": 14,
+      "label": "Actual and expected production aligned"
+    },
+    "drew-gilbert": {
+      "slug": "drew-gilbert",
+      "full_name": "Drew Gilbert",
+      "team_abbr": "SF",
+      "calculated_woba": 0.287,
+      "xwoba": 0.26,
+      "luck_gap": -0.027,
+      "luck_gap_points": -27,
+      "label": "Actual production running ahead"
+    },
+    "edgar-quero": {
+      "slug": "edgar-quero",
+      "full_name": "Edgar Quero",
+      "team_abbr": "CWS",
+      "calculated_woba": 0.237,
+      "xwoba": 0.258,
+      "luck_gap": 0.021,
+      "luck_gap_points": 21,
+      "label": "Expected production ahead of actual production"
+    },
+    "edouard-julien": {
+      "slug": "edouard-julien",
+      "full_name": "Edouard Julien",
+      "team_abbr": "COL",
+      "calculated_woba": 0.289,
+      "xwoba": 0.34,
+      "luck_gap": 0.051,
+      "luck_gap_points": 51,
+      "label": "Production lagging contact quality"
+    },
+    "elly-de-la-cruz": {
+      "slug": "elly-de-la-cruz",
+      "full_name": "Elly De La Cruz",
+      "team_abbr": null,
+      "calculated_woba": 0.371,
+      "xwoba": 0.362,
+      "luck_gap": -0.009,
+      "luck_gap_points": -9,
+      "label": "Actual and expected production aligned"
+    },
+    "ernie-clement": {
+      "slug": "ernie-clement",
+      "full_name": "Ernie Clement",
+      "team_abbr": "TOR",
+      "calculated_woba": 0.343,
+      "xwoba": 0.276,
+      "luck_gap": -0.067,
+      "luck_gap_points": -67,
+      "label": "Regression warning"
+    },
+    "eugenio-suarez": {
+      "slug": "eugenio-suarez",
+      "full_name": "Eugenio Suárez",
+      "team_abbr": "CIN",
+      "calculated_woba": 0.272,
+      "xwoba": 0.274,
+      "luck_gap": 0.002,
+      "luck_gap_points": 2,
+      "label": "Actual and expected production aligned"
+    },
+    "evan-carter": {
+      "slug": "evan-carter",
+      "full_name": "Evan Carter",
+      "team_abbr": "TEX",
+      "calculated_woba": 0.28,
+      "xwoba": 0.294,
+      "luck_gap": 0.014,
+      "luck_gap_points": 14,
+      "label": "Actual and expected production aligned"
+    },
+    "ezequiel-duran": {
+      "slug": "ezequiel-duran",
+      "full_name": "Ezequiel Duran",
+      "team_abbr": "TEX",
+      "calculated_woba": 0.349,
+      "xwoba": 0.318,
+      "luck_gap": -0.031,
+      "luck_gap_points": -31,
+      "label": "Actual production running ahead"
+    },
+    "ezequiel-tovar": {
+      "slug": "ezequiel-tovar",
+      "full_name": "Ezequiel Tovar",
+      "team_abbr": "COL",
+      "calculated_woba": 0.263,
+      "xwoba": 0.299,
+      "luck_gap": 0.036,
+      "luck_gap_points": 36,
+      "label": "Expected production ahead of actual production"
+    },
+    "fernando-tatis-jr": {
+      "slug": "fernando-tatis-jr",
+      "full_name": "Fernando Tatis Jr.",
+      "team_abbr": "SD",
+      "calculated_woba": 0.306,
+      "xwoba": 0.353,
+      "luck_gap": 0.047,
+      "luck_gap_points": 47,
+      "label": "Production lagging contact quality"
+    },
+    "freddie-freeman": {
+      "slug": "freddie-freeman",
+      "full_name": "Freddie Freeman",
+      "team_abbr": "LAD",
+      "calculated_woba": 0.368,
+      "xwoba": 0.372,
+      "luck_gap": 0.004,
+      "luck_gap_points": 4,
+      "label": "Actual and expected production aligned"
+    },
+    "gabriel-moreno": {
+      "slug": "gabriel-moreno",
+      "full_name": "Gabriel Moreno",
+      "team_abbr": "ARI",
+      "calculated_woba": 0.335,
+      "xwoba": 0.376,
+      "luck_gap": 0.041,
+      "luck_gap_points": 41,
+      "label": "Production lagging contact quality"
+    },
+    "garrett-mitchell": {
+      "slug": "garrett-mitchell",
+      "full_name": "Garrett Mitchell",
+      "team_abbr": "MIL",
+      "calculated_woba": 0.337,
+      "xwoba": 0.329,
+      "luck_gap": -0.008,
+      "luck_gap_points": -8,
+      "label": "Actual and expected production aligned"
+    },
+    "gavin-sheets": {
+      "slug": "gavin-sheets",
+      "full_name": "Gavin Sheets",
+      "team_abbr": "SD",
+      "calculated_woba": 0.333,
+      "xwoba": 0.328,
+      "luck_gap": -0.005,
+      "luck_gap_points": -5,
+      "label": "Actual and expected production aligned"
+    },
+    "george-springer": {
+      "slug": "george-springer",
+      "full_name": "George Springer",
+      "team_abbr": "TOR",
+      "calculated_woba": 0.282,
+      "xwoba": 0.295,
+      "luck_gap": 0.013,
+      "luck_gap_points": 13,
+      "label": "Actual and expected production aligned"
+    },
+    "geraldo-perdomo": {
+      "slug": "geraldo-perdomo",
+      "full_name": "Geraldo Perdomo",
+      "team_abbr": "ARI",
+      "calculated_woba": 0.316,
+      "xwoba": 0.334,
+      "luck_gap": 0.018,
+      "luck_gap_points": 18,
+      "label": "Expected production ahead of actual production"
+    },
+    "gleyber-torres": {
+      "slug": "gleyber-torres",
+      "full_name": "Gleyber Torres",
+      "team_abbr": "DET",
+      "calculated_woba": 0.339,
+      "xwoba": 0.33,
+      "luck_gap": -0.009,
+      "luck_gap_points": -9,
+      "label": "Actual and expected production aligned"
+    },
+    "gunnar-henderson": {
+      "slug": "gunnar-henderson",
+      "full_name": "Gunnar Henderson",
+      "team_abbr": "BAL",
+      "calculated_woba": 0.305,
+      "xwoba": 0.304,
+      "luck_gap": -0.001,
+      "luck_gap_points": -1,
+      "label": "Actual and expected production aligned"
+    },
+    "heliot-ramos": {
+      "slug": "heliot-ramos",
+      "full_name": "Heliot Ramos",
+      "team_abbr": null,
+      "calculated_woba": 0.317,
+      "xwoba": 0.326,
+      "luck_gap": 0.009,
+      "luck_gap_points": 9,
+      "label": "Actual and expected production aligned"
+    },
+    "henry-davis": {
+      "slug": "henry-davis",
+      "full_name": "Henry Davis",
+      "team_abbr": "PIT",
+      "calculated_woba": 0.242,
+      "xwoba": 0.294,
+      "luck_gap": 0.052,
+      "luck_gap_points": 52,
+      "label": "Production lagging contact quality"
+    },
+    "hunter-goodman": {
+      "slug": "hunter-goodman",
+      "full_name": "Hunter Goodman",
+      "team_abbr": "COL",
+      "calculated_woba": 0.363,
+      "xwoba": 0.325,
+      "luck_gap": -0.038,
+      "luck_gap_points": -38,
+      "label": "Actual production running ahead"
+    },
+    "ian-happ": {
+      "slug": "ian-happ",
+      "full_name": "Ian Happ",
+      "team_abbr": "CHC",
+      "calculated_woba": 0.36,
+      "xwoba": 0.344,
+      "luck_gap": -0.016,
+      "luck_gap_points": -16,
+      "label": "Actual production running ahead"
+    },
+    "ildemaro-vargas": {
+      "slug": "ildemaro-vargas",
+      "full_name": "Ildemaro Vargas",
+      "team_abbr": "ARI",
+      "calculated_woba": 0.326,
+      "xwoba": 0.314,
+      "luck_gap": -0.012,
+      "luck_gap_points": -12,
+      "label": "Actual and expected production aligned"
+    },
+    "isaac-collins": {
+      "slug": "isaac-collins",
+      "full_name": "Isaac Collins",
+      "team_abbr": "KC",
+      "calculated_woba": 0.296,
+      "xwoba": 0.303,
+      "luck_gap": 0.007,
+      "luck_gap_points": 7,
+      "label": "Actual and expected production aligned"
+    },
+    "isaac-paredes": {
+      "slug": "isaac-paredes",
+      "full_name": "Isaac Paredes",
+      "team_abbr": "HOU",
+      "calculated_woba": 0.334,
+      "xwoba": 0.322,
+      "luck_gap": -0.012,
+      "luck_gap_points": -12,
+      "label": "Actual and expected production aligned"
+    },
+    "ivan-herrera": {
+      "slug": "ivan-herrera",
+      "full_name": "Iván Herrera",
+      "team_abbr": "STL",
+      "calculated_woba": 0.357,
+      "xwoba": 0.361,
+      "luck_gap": 0.004,
+      "luck_gap_points": 4,
+      "label": "Actual and expected production aligned"
+    },
+    "jac-caglianone": {
+      "slug": "jac-caglianone",
+      "full_name": "Jac Caglianone",
+      "team_abbr": "KC",
+      "calculated_woba": 0.344,
+      "xwoba": 0.36,
+      "luck_gap": 0.016,
+      "luck_gap_points": 16,
+      "label": "Expected production ahead of actual production"
+    },
+    "jackson-chourio": {
+      "slug": "jackson-chourio",
+      "full_name": "Jackson Chourio",
+      "team_abbr": "MIL",
+      "calculated_woba": 0.371,
+      "xwoba": 0.341,
+      "luck_gap": -0.03,
+      "luck_gap_points": -30,
+      "label": "Actual production running ahead"
+    },
+    "jackson-merrill": {
+      "slug": "jackson-merrill",
+      "full_name": "Jackson Merrill",
+      "team_abbr": "SD",
+      "calculated_woba": 0.268,
+      "xwoba": 0.315,
+      "luck_gap": 0.047,
+      "luck_gap_points": 47,
+      "label": "Production lagging contact quality"
+    },
+    "jacob-wilson": {
+      "slug": "jacob-wilson",
+      "full_name": "Jacob Wilson",
+      "team_abbr": null,
+      "calculated_woba": 0.311,
+      "xwoba": 0.275,
+      "luck_gap": -0.036,
+      "luck_gap_points": -36,
+      "label": "Actual production running ahead"
+    },
+    "jacob-young": {
+      "slug": "jacob-young",
+      "full_name": "Jacob Young",
+      "team_abbr": "WSH",
+      "calculated_woba": 0.304,
+      "xwoba": 0.314,
+      "luck_gap": 0.01,
+      "luck_gap_points": 10,
+      "label": "Actual and expected production aligned"
+    },
+    "jake-bauers": {
+      "slug": "jake-bauers",
+      "full_name": "Jake Bauers",
+      "team_abbr": "MIL",
+      "calculated_woba": 0.392,
+      "xwoba": 0.374,
+      "luck_gap": -0.018,
+      "luck_gap_points": -18,
+      "label": "Actual production running ahead"
+    },
+    "jake-burger": {
+      "slug": "jake-burger",
+      "full_name": "Jake Burger",
+      "team_abbr": "TEX",
+      "calculated_woba": 0.311,
+      "xwoba": 0.307,
+      "luck_gap": -0.004,
+      "luck_gap_points": -4,
+      "label": "Actual and expected production aligned"
+    },
+    "jake-mccarthy": {
+      "slug": "jake-mccarthy",
+      "full_name": "Jake McCarthy",
+      "team_abbr": "COL",
+      "calculated_woba": 0.336,
+      "xwoba": 0.311,
+      "luck_gap": -0.025,
+      "luck_gap_points": -25,
+      "label": "Actual production running ahead"
+    },
+    "jakob-marsee": {
+      "slug": "jakob-marsee",
+      "full_name": "Jakob Marsee",
+      "team_abbr": "MIA",
+      "calculated_woba": 0.294,
+      "xwoba": 0.306,
+      "luck_gap": 0.012,
+      "luck_gap_points": 12,
+      "label": "Actual and expected production aligned"
+    },
+    "james-wood": {
+      "slug": "james-wood",
+      "full_name": "James Wood",
+      "team_abbr": "WSH",
+      "calculated_woba": 0.402,
+      "xwoba": 0.429,
+      "luck_gap": 0.027,
+      "luck_gap_points": 27,
+      "label": "Expected production ahead of actual production"
+    },
+    "jarren-duran": {
+      "slug": "jarren-duran",
+      "full_name": "Jarren Duran",
+      "team_abbr": "BOS",
+      "calculated_woba": 0.288,
+      "xwoba": 0.296,
+      "luck_gap": 0.008,
+      "luck_gap_points": 8,
+      "label": "Actual and expected production aligned"
+    },
+    "javier-sanoja": {
+      "slug": "javier-sanoja",
+      "full_name": "Javier Sanoja",
+      "team_abbr": "MIA",
+      "calculated_woba": 0.309,
+      "xwoba": 0.265,
+      "luck_gap": -0.044,
+      "luck_gap_points": -44,
+      "label": "Regression warning"
+    },
+    "jazz-chisholm-jr": {
+      "slug": "jazz-chisholm-jr",
+      "full_name": "Jazz Chisholm Jr.",
+      "team_abbr": "NYY",
+      "calculated_woba": 0.313,
+      "xwoba": 0.293,
+      "luck_gap": -0.02,
+      "luck_gap_points": -20,
+      "label": "Actual production running ahead"
+    },
+    "jeff-mcneil": {
+      "slug": "jeff-mcneil",
+      "full_name": "Jeff McNeil",
+      "team_abbr": "ATH",
+      "calculated_woba": 0.276,
+      "xwoba": 0.304,
+      "luck_gap": 0.028,
+      "luck_gap_points": 28,
+      "label": "Expected production ahead of actual production"
+    },
+    "jeremiah-jackson": {
+      "slug": "jeremiah-jackson",
+      "full_name": "Jeremiah Jackson",
+      "team_abbr": "BAL",
+      "calculated_woba": 0.292,
+      "xwoba": 0.295,
+      "luck_gap": 0.003,
+      "luck_gap_points": 3,
+      "label": "Actual and expected production aligned"
+    },
+    "jesus-sanchez": {
+      "slug": "jesus-sanchez",
+      "full_name": "Jesús Sánchez",
+      "team_abbr": "TOR",
+      "calculated_woba": 0.346,
+      "xwoba": 0.352,
+      "luck_gap": 0.006,
+      "luck_gap_points": 6,
+      "label": "Actual and expected production aligned"
+    },
+    "jj-bleday": {
+      "slug": "jj-bleday",
+      "full_name": "JJ Bleday",
+      "team_abbr": "CIN",
+      "calculated_woba": 0.388,
+      "xwoba": 0.38,
+      "luck_gap": -0.008,
+      "luck_gap_points": -8,
+      "label": "Actual and expected production aligned"
+    },
+    "jj-wetherholt": {
+      "slug": "jj-wetherholt",
+      "full_name": "JJ Wetherholt",
+      "team_abbr": "STL",
+      "calculated_woba": 0.334,
+      "xwoba": 0.357,
+      "luck_gap": 0.023,
+      "luck_gap_points": 23,
+      "label": "Expected production ahead of actual production"
+    },
+    "jo-adell": {
+      "slug": "jo-adell",
+      "full_name": "Jo Adell",
+      "team_abbr": "LAA",
+      "calculated_woba": 0.3,
+      "xwoba": 0.334,
+      "luck_gap": 0.034,
+      "luck_gap_points": 34,
+      "label": "Expected production ahead of actual production"
+    },
+    "joc-pederson": {
+      "slug": "joc-pederson",
+      "full_name": "Joc Pederson",
+      "team_abbr": "TEX",
+      "calculated_woba": 0.344,
+      "xwoba": 0.346,
+      "luck_gap": 0.002,
+      "luck_gap_points": 2,
+      "label": "Actual and expected production aligned"
+    },
+    "joey-ortiz": {
+      "slug": "joey-ortiz",
+      "full_name": "Joey Ortiz",
+      "team_abbr": "MIL",
+      "calculated_woba": 0.263,
+      "xwoba": 0.3,
+      "luck_gap": 0.037,
+      "luck_gap_points": 37,
+      "label": "Expected production ahead of actual production"
+    },
+    "jonathan-aranda": {
+      "slug": "jonathan-aranda",
+      "full_name": "Jonathan Aranda",
+      "team_abbr": "TB",
+      "calculated_woba": 0.363,
+      "xwoba": 0.374,
+      "luck_gap": 0.011,
+      "luck_gap_points": 11,
+      "label": "Actual and expected production aligned"
+    },
+    "jorbit-vivas": {
+      "slug": "jorbit-vivas",
+      "full_name": "Jorbit Vivas",
+      "team_abbr": "WSH",
+      "calculated_woba": 0.285,
+      "xwoba": 0.283,
+      "luck_gap": -0.002,
+      "luck_gap_points": -2,
+      "label": "Actual and expected production aligned"
+    },
+    "jordan-walker": {
+      "slug": "jordan-walker",
+      "full_name": "Jordan Walker",
+      "team_abbr": "STL",
+      "calculated_woba": 0.396,
+      "xwoba": 0.37,
+      "luck_gap": -0.026,
+      "luck_gap_points": -26,
+      "label": "Actual production running ahead"
+    },
+    "jorge-soler": {
+      "slug": "jorge-soler",
+      "full_name": "Jorge Soler",
+      "team_abbr": null,
+      "calculated_woba": 0.31,
+      "xwoba": 0.306,
+      "luck_gap": -0.004,
+      "luck_gap_points": -4,
+      "label": "Actual and expected production aligned"
+    },
+    "jose-altuve": {
+      "slug": "jose-altuve",
+      "full_name": "Jose Altuve",
+      "team_abbr": "HOU",
+      "calculated_woba": 0.31,
+      "xwoba": 0.304,
+      "luck_gap": -0.006,
+      "luck_gap_points": -6,
+      "label": "Actual and expected production aligned"
+    },
+    "jose-caballero": {
+      "slug": "jose-caballero",
+      "full_name": "José Caballero",
+      "team_abbr": "NYY",
+      "calculated_woba": 0.311,
+      "xwoba": 0.287,
+      "luck_gap": -0.024,
+      "luck_gap_points": -24,
+      "label": "Actual production running ahead"
+    },
+    "jose-ramirez": {
+      "slug": "jose-ramirez",
+      "full_name": "José Ramírez",
+      "team_abbr": "CLE",
+      "calculated_woba": 0.334,
+      "xwoba": 0.361,
+      "luck_gap": 0.027,
+      "luck_gap_points": 27,
+      "label": "Expected production ahead of actual production"
+    },
+    "josh-bell": {
+      "slug": "josh-bell",
+      "full_name": "Josh Bell",
+      "team_abbr": "MIN",
+      "calculated_woba": 0.289,
+      "xwoba": 0.301,
+      "luck_gap": 0.012,
+      "luck_gap_points": 12,
+      "label": "Actual and expected production aligned"
+    },
+    "josh-jung": {
+      "slug": "josh-jung",
+      "full_name": "Josh Jung",
+      "team_abbr": "TEX",
+      "calculated_woba": 0.374,
+      "xwoba": 0.358,
+      "luck_gap": -0.016,
+      "luck_gap_points": -16,
+      "label": "Actual production running ahead"
+    },
+    "josh-naylor": {
+      "slug": "josh-naylor",
+      "full_name": "Josh Naylor",
+      "team_abbr": "SEA",
+      "calculated_woba": 0.31,
+      "xwoba": 0.326,
+      "luck_gap": 0.016,
+      "luck_gap_points": 16,
+      "label": "Expected production ahead of actual production"
+    },
+    "jt-realmuto": {
+      "slug": "jt-realmuto",
+      "full_name": "J.T. Realmuto",
+      "team_abbr": "PHI",
+      "calculated_woba": 0.269,
+      "xwoba": 0.32,
+      "luck_gap": 0.051,
+      "luck_gap_points": 51,
+      "label": "Production lagging contact quality"
+    },
+    "juan-soto": {
+      "slug": "juan-soto",
+      "full_name": "Juan Soto",
+      "team_abbr": "NYM",
+      "calculated_woba": 0.381,
+      "xwoba": 0.404,
+      "luck_gap": 0.023,
+      "luck_gap_points": 23,
+      "label": "Expected production ahead of actual production"
+    },
+    "julio-rodriguez": {
+      "slug": "julio-rodriguez",
+      "full_name": "Julio Rodríguez",
+      "team_abbr": "SEA",
+      "calculated_woba": 0.332,
+      "xwoba": 0.343,
+      "luck_gap": 0.011,
+      "luck_gap_points": 11,
+      "label": "Actual and expected production aligned"
+    },
+    "jung-hoo-lee": {
+      "slug": "jung-hoo-lee",
+      "full_name": "Jung Hoo Lee",
+      "team_abbr": "SF",
+      "calculated_woba": 0.361,
+      "xwoba": 0.337,
+      "luck_gap": -0.024,
+      "luck_gap_points": -24,
+      "label": "Actual production running ahead"
+    },
+    "junior-caminero": {
+      "slug": "junior-caminero",
+      "full_name": "Junior Caminero",
+      "team_abbr": "TB",
+      "calculated_woba": 0.38,
+      "xwoba": 0.371,
+      "luck_gap": -0.009,
+      "luck_gap_points": -9,
+      "label": "Actual and expected production aligned"
+    },
+    "justin-crawford": {
+      "slug": "justin-crawford",
+      "full_name": "Justin Crawford",
+      "team_abbr": "PHI",
+      "calculated_woba": 0.281,
+      "xwoba": 0.27,
+      "luck_gap": -0.011,
+      "luck_gap_points": -11,
+      "label": "Actual and expected production aligned"
+    },
+    "kazuma-okamoto": {
+      "slug": "kazuma-okamoto",
+      "full_name": "Kazuma Okamoto",
+      "team_abbr": "TOR",
+      "calculated_woba": 0.326,
+      "xwoba": 0.325,
+      "luck_gap": -0.001,
+      "luck_gap_points": -1,
+      "label": "Actual and expected production aligned"
+    },
+    "kerry-carpenter": {
+      "slug": "kerry-carpenter",
+      "full_name": "Kerry Carpenter",
+      "team_abbr": "DET",
+      "calculated_woba": 0.343,
+      "xwoba": 0.287,
+      "luck_gap": -0.056,
+      "luck_gap_points": -56,
+      "label": "Regression warning"
+    },
+    "ketel-marte": {
+      "slug": "ketel-marte",
+      "full_name": "Ketel Marte",
+      "team_abbr": "ARI",
+      "calculated_woba": 0.328,
+      "xwoba": 0.372,
+      "luck_gap": 0.044,
+      "luck_gap_points": 44,
+      "label": "Production lagging contact quality"
+    },
+    "kevin-mcgonigle": {
+      "slug": "kevin-mcgonigle",
+      "full_name": "Kevin McGonigle",
+      "team_abbr": "DET",
+      "calculated_woba": 0.362,
+      "xwoba": 0.372,
+      "luck_gap": 0.01,
+      "luck_gap_points": 10,
+      "label": "Actual and expected production aligned"
+    },
+    "kody-clemens": {
+      "slug": "kody-clemens",
+      "full_name": "Kody Clemens",
+      "team_abbr": "MIN",
+      "calculated_woba": 0.346,
+      "xwoba": 0.336,
+      "luck_gap": -0.01,
+      "luck_gap_points": -10,
+      "label": "Actual and expected production aligned"
+    },
+    "konnor-griffin": {
+      "slug": "konnor-griffin",
+      "full_name": "Konnor Griffin",
+      "team_abbr": null,
+      "calculated_woba": 0.322,
+      "xwoba": 0.303,
+      "luck_gap": -0.019,
+      "luck_gap_points": -19,
+      "label": "Actual production running ahead"
+    },
+    "kyle-isbel": {
+      "slug": "kyle-isbel",
+      "full_name": "Kyle Isbel",
+      "team_abbr": "KC",
+      "calculated_woba": 0.29,
+      "xwoba": 0.275,
+      "luck_gap": -0.015,
+      "luck_gap_points": -15,
+      "label": "Actual production running ahead"
+    },
+    "kyle-karros": {
+      "slug": "kyle-karros",
+      "full_name": "Kyle Karros",
+      "team_abbr": "COL",
+      "calculated_woba": 0.308,
+      "xwoba": 0.336,
+      "luck_gap": 0.028,
+      "luck_gap_points": 28,
+      "label": "Expected production ahead of actual production"
+    },
+    "kyle-manzardo": {
+      "slug": "kyle-manzardo",
+      "full_name": "Kyle Manzardo",
+      "team_abbr": "CLE",
+      "calculated_woba": 0.323,
+      "xwoba": 0.321,
+      "luck_gap": -0.002,
+      "luck_gap_points": -2,
+      "label": "Actual and expected production aligned"
+    },
+    "kyle-schwarber": {
+      "slug": "kyle-schwarber",
+      "full_name": "Kyle Schwarber",
+      "team_abbr": "PHI",
+      "calculated_woba": 0.393,
+      "xwoba": 0.375,
+      "luck_gap": -0.018,
+      "luck_gap_points": -18,
+      "label": "Actual production running ahead"
+    },
+    "kyle-stowers": {
+      "slug": "kyle-stowers",
+      "full_name": "Kyle Stowers",
+      "team_abbr": "MIA",
+      "calculated_woba": 0.29,
+      "xwoba": 0.301,
+      "luck_gap": 0.011,
+      "luck_gap_points": 11,
+      "label": "Actual and expected production aligned"
+    },
+    "kyle-tucker": {
+      "slug": "kyle-tucker",
+      "full_name": "Kyle Tucker",
+      "team_abbr": "LAD",
+      "calculated_woba": 0.318,
+      "xwoba": 0.327,
+      "luck_gap": 0.009,
+      "luck_gap_points": 9,
+      "label": "Actual and expected production aligned"
+    },
+    "lane-thomas": {
+      "slug": "lane-thomas",
+      "full_name": "Lane Thomas",
+      "team_abbr": "KC",
+      "calculated_woba": 0.308,
+      "xwoba": 0.31,
+      "luck_gap": 0.002,
+      "luck_gap_points": 2,
+      "label": "Actual and expected production aligned"
+    },
+    "lawrence-butler": {
+      "slug": "lawrence-butler",
+      "full_name": "Lawrence Butler",
+      "team_abbr": "ATH",
+      "calculated_woba": 0.227,
+      "xwoba": 0.298,
+      "luck_gap": 0.071,
+      "luck_gap_points": 71,
+      "label": "Production lagging contact quality"
+    },
+    "leody-taveras": {
+      "slug": "leody-taveras",
+      "full_name": "Leody Taveras",
+      "team_abbr": "BAL",
+      "calculated_woba": 0.318,
+      "xwoba": 0.31,
+      "luck_gap": -0.008,
+      "luck_gap_points": -8,
+      "label": "Actual and expected production aligned"
+    },
+    "liam-hicks": {
+      "slug": "liam-hicks",
+      "full_name": "Liam Hicks",
+      "team_abbr": "MIA",
+      "calculated_woba": 0.349,
+      "xwoba": 0.319,
+      "luck_gap": -0.03,
+      "luck_gap_points": -30,
+      "label": "Actual production running ahead"
+    },
+    "logan-o-hoppe": {
+      "slug": "logan-o-hoppe",
+      "full_name": "Logan O'Hoppe",
+      "team_abbr": "LAA",
+      "calculated_woba": 0.26,
+      "xwoba": 0.275,
+      "luck_gap": 0.015,
+      "luck_gap_points": 15,
+      "label": "Expected production ahead of actual production"
+    },
+    "luis-arraez": {
+      "slug": "luis-arraez",
+      "full_name": "Luis Arraez",
+      "team_abbr": "SF",
+      "calculated_woba": 0.344,
+      "xwoba": 0.305,
+      "luck_gap": -0.039,
+      "luck_gap_points": -39,
+      "label": "Actual production running ahead"
+    },
+    "luis-garcia-jr": {
+      "slug": "luis-garcia-jr",
+      "full_name": "Luis García Jr.",
+      "team_abbr": "WSH",
+      "calculated_woba": 0.324,
+      "xwoba": 0.338,
+      "luck_gap": 0.014,
+      "luck_gap_points": 14,
+      "label": "Actual and expected production aligned"
+    },
+    "luis-rengifo": {
+      "slug": "luis-rengifo",
+      "full_name": "Luis Rengifo",
+      "team_abbr": "MIL",
+      "calculated_woba": 0.242,
+      "xwoba": 0.297,
+      "luck_gap": 0.055,
+      "luck_gap_points": 55,
+      "label": "Production lagging contact quality"
+    },
+    "luke-keaschall": {
+      "slug": "luke-keaschall",
+      "full_name": "Luke Keaschall",
+      "team_abbr": "MIN",
+      "calculated_woba": 0.289,
+      "xwoba": 0.285,
+      "luck_gap": -0.004,
+      "luck_gap_points": -4,
+      "label": "Actual and expected production aligned"
+    },
+    "luke-raley": {
+      "slug": "luke-raley",
+      "full_name": "Luke Raley",
+      "team_abbr": "SEA",
+      "calculated_woba": 0.36,
+      "xwoba": 0.369,
+      "luck_gap": 0.009,
+      "luck_gap_points": 9,
+      "label": "Actual and expected production aligned"
+    },
+    "maikel-garcia": {
+      "slug": "maikel-garcia",
+      "full_name": "Maikel Garcia",
+      "team_abbr": "KC",
+      "calculated_woba": 0.314,
+      "xwoba": 0.321,
+      "luck_gap": 0.007,
+      "luck_gap_points": 7,
+      "label": "Actual and expected production aligned"
+    },
+    "manny-machado": {
+      "slug": "manny-machado",
+      "full_name": "Manny Machado",
+      "team_abbr": "SD",
+      "calculated_woba": 0.263,
+      "xwoba": 0.299,
+      "luck_gap": 0.036,
+      "luck_gap_points": 36,
+      "label": "Expected production ahead of actual production"
+    },
+    "marcell-ozuna": {
+      "slug": "marcell-ozuna",
+      "full_name": "Marcell Ozuna",
+      "team_abbr": "PIT",
+      "calculated_woba": 0.263,
+      "xwoba": 0.308,
+      "luck_gap": 0.045,
+      "luck_gap_points": 45,
+      "label": "Production lagging contact quality"
+    },
+    "marcelo-mayer": {
+      "slug": "marcelo-mayer",
+      "full_name": "Marcelo Mayer",
+      "team_abbr": "BOS",
+      "calculated_woba": 0.269,
+      "xwoba": 0.26,
+      "luck_gap": -0.009,
+      "luck_gap_points": -9,
+      "label": "Actual and expected production aligned"
+    },
+    "marcus-semien": {
+      "slug": "marcus-semien",
+      "full_name": "Marcus Semien",
+      "team_abbr": "NYM",
+      "calculated_woba": 0.279,
+      "xwoba": 0.328,
+      "luck_gap": 0.049,
+      "luck_gap_points": 49,
+      "label": "Production lagging contact quality"
+    },
+    "mark-vientos": {
+      "slug": "mark-vientos",
+      "full_name": "Mark Vientos",
+      "team_abbr": "NYM",
+      "calculated_woba": 0.269,
+      "xwoba": 0.31,
+      "luck_gap": 0.041,
+      "luck_gap_points": 41,
+      "label": "Production lagging contact quality"
+    },
+    "masataka-yoshida": {
+      "slug": "masataka-yoshida",
+      "full_name": "Masataka Yoshida",
+      "team_abbr": "BOS",
+      "calculated_woba": 0.297,
+      "xwoba": 0.307,
+      "luck_gap": 0.01,
+      "luck_gap_points": 10,
+      "label": "Actual and expected production aligned"
+    },
+    "masyn-winn": {
+      "slug": "masyn-winn",
+      "full_name": "Masyn Winn",
+      "team_abbr": "STL",
+      "calculated_woba": 0.285,
+      "xwoba": 0.297,
+      "luck_gap": 0.012,
+      "luck_gap_points": 12,
+      "label": "Actual and expected production aligned"
+    },
+    "matt-chapman": {
+      "slug": "matt-chapman",
+      "full_name": "Matt Chapman",
+      "team_abbr": "SF",
+      "calculated_woba": 0.317,
+      "xwoba": 0.285,
+      "luck_gap": -0.032,
+      "luck_gap_points": -32,
+      "label": "Actual production running ahead"
+    },
+    "matt-mclain": {
+      "slug": "matt-mclain",
+      "full_name": "Matt McLain",
+      "team_abbr": "CIN",
+      "calculated_woba": 0.308,
+      "xwoba": 0.327,
+      "luck_gap": 0.019,
+      "luck_gap_points": 19,
+      "label": "Expected production ahead of actual production"
+    },
+    "matt-olson": {
+      "slug": "matt-olson",
+      "full_name": "Matt Olson",
+      "team_abbr": "ATL",
+      "calculated_woba": 0.385,
+      "xwoba": 0.379,
+      "luck_gap": -0.006,
+      "luck_gap_points": -6,
+      "label": "Actual and expected production aligned"
+    },
+    "matt-vierling": {
+      "slug": "matt-vierling",
+      "full_name": "Matt Vierling",
+      "team_abbr": "DET",
+      "calculated_woba": 0.274,
+      "xwoba": 0.306,
+      "luck_gap": 0.032,
+      "luck_gap_points": 32,
+      "label": "Expected production ahead of actual production"
+    },
+    "mauricio-dubon": {
+      "slug": "mauricio-dubon",
+      "full_name": "Mauricio Dubón",
+      "team_abbr": "ATL",
+      "calculated_woba": 0.324,
+      "xwoba": 0.312,
+      "luck_gap": -0.012,
+      "luck_gap_points": -12,
+      "label": "Actual and expected production aligned"
+    },
+    "max-muncy": {
+      "slug": "max-muncy",
+      "full_name": "Max Muncy",
+      "team_abbr": "LAD",
+      "calculated_woba": 0.301,
+      "xwoba": 0.391,
+      "luck_gap": 0.09,
+      "luck_gap_points": 90,
+      "label": "Production lagging contact quality"
+    },
+    "michael-busch": {
+      "slug": "michael-busch",
+      "full_name": "Michael Busch",
+      "team_abbr": "CHC",
+      "calculated_woba": 0.346,
+      "xwoba": 0.346,
+      "luck_gap": 0.0,
+      "luck_gap_points": 0,
+      "label": "Actual and expected production aligned"
+    },
+    "michael-harris-ii": {
+      "slug": "michael-harris-ii",
+      "full_name": "Michael Harris II",
+      "team_abbr": "ATL",
+      "calculated_woba": 0.378,
+      "xwoba": 0.388,
+      "luck_gap": 0.01,
+      "luck_gap_points": 10,
+      "label": "Actual and expected production aligned"
+    },
+    "michael-massey": {
+      "slug": "michael-massey",
+      "full_name": "Michael Massey",
+      "team_abbr": "KC",
+      "calculated_woba": 0.318,
+      "xwoba": 0.28,
+      "luck_gap": -0.038,
+      "luck_gap_points": -38,
+      "label": "Actual production running ahead"
+    },
+    "mickey-moniak": {
+      "slug": "mickey-moniak",
+      "full_name": "Mickey Moniak",
+      "team_abbr": null,
+      "calculated_woba": 0.401,
+      "xwoba": 0.324,
+      "luck_gap": -0.077,
+      "luck_gap_points": -77,
+      "label": "Regression warning"
+    },
+    "miguel-andujar": {
+      "slug": "miguel-andujar",
+      "full_name": "Miguel Andujar",
+      "team_abbr": "SD",
+      "calculated_woba": 0.306,
+      "xwoba": 0.286,
+      "luck_gap": -0.02,
+      "luck_gap_points": -20,
+      "label": "Actual production running ahead"
+    },
+    "miguel-vargas": {
+      "slug": "miguel-vargas",
+      "full_name": "Miguel Vargas",
+      "team_abbr": "CWS",
+      "calculated_woba": 0.379,
+      "xwoba": 0.397,
+      "luck_gap": 0.018,
+      "luck_gap_points": 18,
+      "label": "Expected production ahead of actual production"
+    },
+    "mike-trout": {
+      "slug": "mike-trout",
+      "full_name": "Mike Trout",
+      "team_abbr": "LAA",
+      "calculated_woba": 0.366,
+      "xwoba": 0.413,
+      "luck_gap": 0.047,
+      "luck_gap_points": 47,
+      "label": "Production lagging contact quality"
+    },
+    "mike-yastrzemski": {
+      "slug": "mike-yastrzemski",
+      "full_name": "Mike Yastrzemski",
+      "team_abbr": "ATL",
+      "calculated_woba": 0.306,
+      "xwoba": 0.295,
+      "luck_gap": -0.011,
+      "luck_gap_points": -11,
+      "label": "Actual and expected production aligned"
+    },
+    "moises-ballesteros": {
+      "slug": "moises-ballesteros",
+      "full_name": "Moisés Ballesteros",
+      "team_abbr": "CHC",
+      "calculated_woba": 0.317,
+      "xwoba": 0.318,
+      "luck_gap": 0.001,
+      "luck_gap_points": 1,
+      "label": "Actual and expected production aligned"
+    },
+    "munetaka-murakami": {
+      "slug": "munetaka-murakami",
+      "full_name": "Munetaka Murakami",
+      "team_abbr": null,
+      "calculated_woba": 0.4,
+      "xwoba": 0.38,
+      "luck_gap": -0.02,
+      "luck_gap_points": -20,
+      "label": "Actual production running ahead"
+    },
+    "nasim-nunez": {
+      "slug": "nasim-nunez",
+      "full_name": "Nasim Nuñez",
+      "team_abbr": "WSH",
+      "calculated_woba": 0.243,
+      "xwoba": 0.269,
+      "luck_gap": 0.026,
+      "luck_gap_points": 26,
+      "label": "Expected production ahead of actual production"
+    },
+    "nathaniel-lowe": {
+      "slug": "nathaniel-lowe",
+      "full_name": "Nathaniel Lowe",
+      "team_abbr": "CIN",
+      "calculated_woba": 0.363,
+      "xwoba": 0.374,
+      "luck_gap": 0.011,
+      "luck_gap_points": 11,
+      "label": "Actual and expected production aligned"
+    },
+    "nick-fortes": {
+      "slug": "nick-fortes",
+      "full_name": "Nick Fortes",
+      "team_abbr": "TB",
+      "calculated_woba": 0.277,
+      "xwoba": 0.275,
+      "luck_gap": -0.002,
+      "luck_gap_points": -2,
+      "label": "Actual and expected production aligned"
+    },
+    "nick-gonzales": {
+      "slug": "nick-gonzales",
+      "full_name": "Nick Gonzales",
+      "team_abbr": "PIT",
+      "calculated_woba": 0.327,
+      "xwoba": 0.336,
+      "luck_gap": 0.009,
+      "luck_gap_points": 9,
+      "label": "Actual and expected production aligned"
+    },
+    "nick-kurtz": {
+      "slug": "nick-kurtz",
+      "full_name": "Nick Kurtz",
+      "team_abbr": "ATH",
+      "calculated_woba": 0.417,
+      "xwoba": 0.4,
+      "luck_gap": -0.017,
+      "luck_gap_points": -17,
+      "label": "Actual production running ahead"
+    },
+    "nico-hoerner": {
+      "slug": "nico-hoerner",
+      "full_name": "Nico Hoerner",
+      "team_abbr": "CHC",
+      "calculated_woba": 0.305,
+      "xwoba": 0.339,
+      "luck_gap": 0.034,
+      "luck_gap_points": 34,
+      "label": "Expected production ahead of actual production"
+    },
+    "nolan-arenado": {
+      "slug": "nolan-arenado",
+      "full_name": "Nolan Arenado",
+      "team_abbr": "ARI",
+      "calculated_woba": 0.339,
+      "xwoba": 0.322,
+      "luck_gap": -0.017,
+      "luck_gap_points": -17,
+      "label": "Actual production running ahead"
+    },
+    "nolan-gorman": {
+      "slug": "nolan-gorman",
+      "full_name": "Nolan Gorman",
+      "team_abbr": "STL",
+      "calculated_woba": 0.27,
+      "xwoba": 0.281,
+      "luck_gap": 0.011,
+      "luck_gap_points": 11,
+      "label": "Actual and expected production aligned"
+    },
+    "nolan-schanuel": {
+      "slug": "nolan-schanuel",
+      "full_name": "Nolan Schanuel",
+      "team_abbr": "LAA",
+      "calculated_woba": 0.306,
+      "xwoba": 0.311,
+      "luck_gap": 0.005,
+      "luck_gap_points": 5,
+      "label": "Actual and expected production aligned"
+    },
+    "oneil-cruz": {
+      "slug": "oneil-cruz",
+      "full_name": "Oneil Cruz",
+      "team_abbr": "PIT",
+      "calculated_woba": 0.359,
+      "xwoba": 0.358,
+      "luck_gap": -0.001,
+      "luck_gap_points": -1,
+      "label": "Actual and expected production aligned"
+    },
+    "oswald-peraza": {
+      "slug": "oswald-peraza",
+      "full_name": "Oswald Peraza",
+      "team_abbr": "LAA",
+      "calculated_woba": 0.334,
+      "xwoba": 0.322,
+      "luck_gap": -0.012,
+      "luck_gap_points": -12,
+      "label": "Actual and expected production aligned"
+    },
+    "otto-lopez": {
+      "slug": "otto-lopez",
+      "full_name": "Otto Lopez",
+      "team_abbr": "MIA",
+      "calculated_woba": 0.373,
+      "xwoba": 0.34,
+      "luck_gap": -0.033,
+      "luck_gap_points": -33,
+      "label": "Actual production running ahead"
+    },
+    "owen-caissie": {
+      "slug": "owen-caissie",
+      "full_name": "Owen Caissie",
+      "team_abbr": "MIA",
+      "calculated_woba": 0.286,
+      "xwoba": 0.281,
+      "luck_gap": -0.005,
+      "luck_gap_points": -5,
+      "label": "Actual and expected production aligned"
+    },
+    "ozzie-albies": {
+      "slug": "ozzie-albies",
+      "full_name": "Ozzie Albies",
+      "team_abbr": "ATL",
+      "calculated_woba": 0.342,
+      "xwoba": 0.309,
+      "luck_gap": -0.033,
+      "luck_gap_points": -33,
+      "label": "Actual production running ahead"
+    },
+    "paul-goldschmidt": {
+      "slug": "paul-goldschmidt",
+      "full_name": "Paul Goldschmidt",
+      "team_abbr": "NYY",
+      "calculated_woba": 0.384,
+      "xwoba": 0.375,
+      "luck_gap": -0.009,
+      "luck_gap_points": -9,
+      "label": "Actual and expected production aligned"
+    },
+    "pete-alonso": {
+      "slug": "pete-alonso",
+      "full_name": "Pete Alonso",
+      "team_abbr": "BAL",
+      "calculated_woba": 0.331,
+      "xwoba": 0.366,
+      "luck_gap": 0.035,
+      "luck_gap_points": 35,
+      "label": "Expected production ahead of actual production"
+    },
+    "pete-crow-armstrong": {
+      "slug": "pete-crow-armstrong",
+      "full_name": "Pete Crow-Armstrong",
+      "team_abbr": "CHC",
+      "calculated_woba": 0.341,
+      "xwoba": 0.354,
+      "luck_gap": 0.013,
+      "luck_gap_points": 13,
+      "label": "Actual and expected production aligned"
+    },
+    "rafael-devers": {
+      "slug": "rafael-devers",
+      "full_name": "Rafael Devers",
+      "team_abbr": "SF",
+      "calculated_woba": 0.302,
+      "xwoba": 0.292,
+      "luck_gap": -0.01,
+      "luck_gap_points": -10,
+      "label": "Actual and expected production aligned"
+    },
+    "ramon-laureano": {
+      "slug": "ramon-laureano",
+      "full_name": "Ramón Laureano",
+      "team_abbr": null,
+      "calculated_woba": 0.293,
+      "xwoba": 0.312,
+      "luck_gap": 0.019,
+      "luck_gap_points": 19,
+      "label": "Expected production ahead of actual production"
+    },
+    "randy-arozarena": {
+      "slug": "randy-arozarena",
+      "full_name": "Randy Arozarena",
+      "team_abbr": "SEA",
+      "calculated_woba": 0.373,
+      "xwoba": 0.358,
+      "luck_gap": -0.015,
+      "luck_gap_points": -15,
+      "label": "Actual production running ahead"
+    },
+    "rhys-hoskins": {
+      "slug": "rhys-hoskins",
+      "full_name": "Rhys Hoskins",
+      "team_abbr": "CLE",
+      "calculated_woba": 0.329,
+      "xwoba": 0.31,
+      "luck_gap": -0.019,
+      "luck_gap_points": -19,
+      "label": "Actual production running ahead"
+    },
+    "richie-palacios": {
+      "slug": "richie-palacios",
+      "full_name": "Richie Palacios",
+      "team_abbr": "TB",
+      "calculated_woba": 0.306,
+      "xwoba": 0.3,
+      "luck_gap": -0.006,
+      "luck_gap_points": -6,
+      "label": "Actual and expected production aligned"
+    },
+    "riley-greene": {
+      "slug": "riley-greene",
+      "full_name": "Riley Greene",
+      "team_abbr": "DET",
+      "calculated_woba": 0.379,
+      "xwoba": 0.368,
+      "luck_gap": -0.011,
+      "luck_gap_points": -11,
+      "label": "Actual and expected production aligned"
+    },
+    "ronald-acuna-jr": {
+      "slug": "ronald-acuna-jr",
+      "full_name": "Ronald Acuña Jr.",
+      "team_abbr": "ATL",
+      "calculated_woba": 0.352,
+      "xwoba": 0.379,
+      "luck_gap": 0.027,
+      "luck_gap_points": 27,
+      "label": "Expected production ahead of actual production"
+    },
+    "ryan-jeffers": {
+      "slug": "ryan-jeffers",
+      "full_name": "Ryan Jeffers",
+      "team_abbr": null,
+      "calculated_woba": 0.411,
+      "xwoba": 0.389,
+      "luck_gap": -0.022,
+      "luck_gap_points": -22,
+      "label": "Actual production running ahead"
+    },
+    "ryan-mcmahon": {
+      "slug": "ryan-mcmahon",
+      "full_name": "Ryan McMahon",
+      "team_abbr": "NYY",
+      "calculated_woba": 0.288,
+      "xwoba": 0.294,
+      "luck_gap": 0.006,
+      "luck_gap_points": 6,
+      "label": "Actual and expected production aligned"
+    },
+    "ryan-o-hearn": {
+      "slug": "ryan-o-hearn",
+      "full_name": "Ryan O'Hearn",
+      "team_abbr": "PIT",
+      "calculated_woba": 0.364,
+      "xwoba": 0.339,
+      "luck_gap": -0.025,
+      "luck_gap_points": -25,
+      "label": "Actual production running ahead"
+    },
+    "sal-frelick": {
+      "slug": "sal-frelick",
+      "full_name": "Sal Frelick",
+      "team_abbr": "MIL",
+      "calculated_woba": 0.271,
+      "xwoba": 0.281,
+      "luck_gap": 0.01,
+      "luck_gap_points": 10,
+      "label": "Actual and expected production aligned"
+    },
+    "sal-stewart": {
+      "slug": "sal-stewart",
+      "full_name": "Sal Stewart",
+      "team_abbr": "CIN",
+      "calculated_woba": 0.354,
+      "xwoba": 0.364,
+      "luck_gap": 0.01,
+      "luck_gap_points": 10,
+      "label": "Actual and expected production aligned"
+    },
+    "salvador-perez": {
+      "slug": "salvador-perez",
+      "full_name": "Salvador Perez",
+      "team_abbr": "KC",
+      "calculated_woba": 0.259,
+      "xwoba": 0.289,
+      "luck_gap": 0.03,
+      "luck_gap_points": 30,
+      "label": "Expected production ahead of actual production"
+    },
+    "sam-antonacci": {
+      "slug": "sam-antonacci",
+      "full_name": "Sam Antonacci",
+      "team_abbr": "CWS",
+      "calculated_woba": 0.347,
+      "xwoba": 0.374,
+      "luck_gap": 0.027,
+      "luck_gap_points": 27,
+      "label": "Expected production ahead of actual production"
+    },
+    "samuel-basallo": {
+      "slug": "samuel-basallo",
+      "full_name": "Samuel Basallo",
+      "team_abbr": "BAL",
+      "calculated_woba": 0.346,
+      "xwoba": 0.357,
+      "luck_gap": 0.011,
+      "luck_gap_points": 11,
+      "label": "Actual and expected production aligned"
+    },
+    "seiya-suzuki": {
+      "slug": "seiya-suzuki",
+      "full_name": "Seiya Suzuki",
+      "team_abbr": "CHC",
+      "calculated_woba": 0.328,
+      "xwoba": 0.329,
+      "luck_gap": 0.001,
+      "luck_gap_points": 1,
+      "label": "Actual and expected production aligned"
+    },
+    "shea-langeliers": {
+      "slug": "shea-langeliers",
+      "full_name": "Shea Langeliers",
+      "team_abbr": "ATH",
+      "calculated_woba": 0.381,
+      "xwoba": 0.379,
+      "luck_gap": -0.002,
+      "luck_gap_points": -2,
+      "label": "Actual and expected production aligned"
+    },
+    "shohei-ohtani": {
+      "slug": "shohei-ohtani",
+      "full_name": "Shohei Ohtani",
+      "team_abbr": "LAD",
+      "calculated_woba": 0.401,
+      "xwoba": 0.409,
+      "luck_gap": 0.008,
+      "luck_gap_points": 8,
+      "label": "Actual and expected production aligned"
+    },
+    "spencer-horwitz": {
+      "slug": "spencer-horwitz",
+      "full_name": "Spencer Horwitz",
+      "team_abbr": "PIT",
+      "calculated_woba": 0.372,
+      "xwoba": 0.334,
+      "luck_gap": -0.038,
+      "luck_gap_points": -38,
+      "label": "Actual production running ahead"
+    },
+    "spencer-steer": {
+      "slug": "spencer-steer",
+      "full_name": "Spencer Steer",
+      "team_abbr": "CIN",
+      "calculated_woba": 0.339,
+      "xwoba": 0.364,
+      "luck_gap": 0.025,
+      "luck_gap_points": 25,
+      "label": "Expected production ahead of actual production"
+    },
+    "spencer-torkelson": {
+      "slug": "spencer-torkelson",
+      "full_name": "Spencer Torkelson",
+      "team_abbr": "DET",
+      "calculated_woba": 0.317,
+      "xwoba": 0.319,
+      "luck_gap": 0.002,
+      "luck_gap_points": 2,
+      "label": "Actual and expected production aligned"
+    },
+    "steven-kwan": {
+      "slug": "steven-kwan",
+      "full_name": "Steven Kwan",
+      "team_abbr": "CLE",
+      "calculated_woba": 0.274,
+      "xwoba": 0.3,
+      "luck_gap": 0.026,
+      "luck_gap_points": 26,
+      "label": "Expected production ahead of actual production"
+    },
+    "taylor-walls": {
+      "slug": "taylor-walls",
+      "full_name": "Taylor Walls",
+      "team_abbr": "TB",
+      "calculated_woba": 0.271,
+      "xwoba": 0.24,
+      "luck_gap": -0.031,
+      "luck_gap_points": -31,
+      "label": "Actual production running ahead"
+    },
+    "taylor-ward": {
+      "slug": "taylor-ward",
+      "full_name": "Taylor Ward",
+      "team_abbr": "BAL",
+      "calculated_woba": 0.35,
+      "xwoba": 0.355,
+      "luck_gap": 0.005,
+      "luck_gap_points": 5,
+      "label": "Actual and expected production aligned"
+    },
+    "teoscar-hernandez": {
+      "slug": "teoscar-hernandez",
+      "full_name": "Teoscar Hernández",
+      "team_abbr": null,
+      "calculated_woba": 0.344,
+      "xwoba": 0.339,
+      "luck_gap": -0.005,
+      "luck_gap_points": -5,
+      "label": "Actual and expected production aligned"
+    },
+    "tj-rumfield": {
+      "slug": "tj-rumfield",
+      "full_name": "TJ Rumfield",
+      "team_abbr": "COL",
+      "calculated_woba": 0.337,
+      "xwoba": 0.331,
+      "luck_gap": -0.006,
+      "luck_gap_points": -6,
+      "label": "Actual and expected production aligned"
+    },
+    "travis-bazzana": {
+      "slug": "travis-bazzana",
+      "full_name": "Travis Bazzana",
+      "team_abbr": "CLE",
+      "calculated_woba": 0.337,
+      "xwoba": 0.313,
+      "luck_gap": -0.024,
+      "luck_gap_points": -24,
+      "label": "Actual production running ahead"
+    },
+    "trea-turner": {
+      "slug": "trea-turner",
+      "full_name": "Trea Turner",
+      "team_abbr": "PHI",
+      "calculated_woba": 0.277,
+      "xwoba": 0.288,
+      "luck_gap": 0.011,
+      "luck_gap_points": 11,
+      "label": "Actual and expected production aligned"
+    },
+    "trent-grisham": {
+      "slug": "trent-grisham",
+      "full_name": "Trent Grisham",
+      "team_abbr": "NYY",
+      "calculated_woba": 0.328,
+      "xwoba": 0.358,
+      "luck_gap": 0.03,
+      "luck_gap_points": 30,
+      "label": "Expected production ahead of actual production"
+    },
+    "trevor-larnach": {
+      "slug": "trevor-larnach",
+      "full_name": "Trevor Larnach",
+      "team_abbr": "MIN",
+      "calculated_woba": 0.338,
+      "xwoba": 0.318,
+      "luck_gap": -0.02,
+      "luck_gap_points": -20,
+      "label": "Actual production running ahead"
+    },
+    "trevor-story": {
+      "slug": "trevor-story",
+      "full_name": "Trevor Story",
+      "team_abbr": null,
+      "calculated_woba": 0.243,
+      "xwoba": 0.248,
+      "luck_gap": 0.005,
+      "luck_gap_points": 5,
+      "label": "Actual and expected production aligned"
+    },
+    "tristan-peters": {
+      "slug": "tristan-peters",
+      "full_name": "Tristan Peters",
+      "team_abbr": "CWS",
+      "calculated_woba": 0.354,
+      "xwoba": 0.296,
+      "luck_gap": -0.058,
+      "luck_gap_points": -58,
+      "label": "Regression warning"
+    },
+    "troy-johnston": {
+      "slug": "troy-johnston",
+      "full_name": "Troy Johnston",
+      "team_abbr": "COL",
+      "calculated_woba": 0.352,
+      "xwoba": 0.327,
+      "luck_gap": -0.025,
+      "luck_gap_points": -25,
+      "label": "Actual production running ahead"
+    },
+    "tyler-soderstrom": {
+      "slug": "tyler-soderstrom",
+      "full_name": "Tyler Soderstrom",
+      "team_abbr": "ATH",
+      "calculated_woba": 0.348,
+      "xwoba": 0.337,
+      "luck_gap": -0.011,
+      "luck_gap_points": -11,
+      "label": "Actual and expected production aligned"
+    },
+    "tyler-stephenson": {
+      "slug": "tyler-stephenson",
+      "full_name": "Tyler Stephenson",
+      "team_abbr": "CIN",
+      "calculated_woba": 0.295,
+      "xwoba": 0.331,
+      "luck_gap": 0.036,
+      "luck_gap_points": 36,
+      "label": "Expected production ahead of actual production"
+    },
+    "vaughn-grissom": {
+      "slug": "vaughn-grissom",
+      "full_name": "Vaughn Grissom",
+      "team_abbr": null,
+      "calculated_woba": 0.324,
+      "xwoba": 0.35,
+      "luck_gap": 0.026,
+      "luck_gap_points": 26,
+      "label": "Expected production ahead of actual production"
+    },
+    "victor-caratini": {
+      "slug": "victor-caratini",
+      "full_name": "Victor Caratini",
+      "team_abbr": "MIN",
+      "calculated_woba": 0.274,
+      "xwoba": 0.332,
+      "luck_gap": 0.058,
+      "luck_gap_points": 58,
+      "label": "Production lagging contact quality"
+    },
+    "victor-scott-ii": {
+      "slug": "victor-scott-ii",
+      "full_name": "Victor Scott II",
+      "team_abbr": "STL",
+      "calculated_woba": 0.248,
+      "xwoba": 0.273,
+      "luck_gap": 0.025,
+      "luck_gap_points": 25,
+      "label": "Expected production ahead of actual production"
+    },
+    "vinnie-pasquantino": {
+      "slug": "vinnie-pasquantino",
+      "full_name": "Vinnie Pasquantino",
+      "team_abbr": "KC",
+      "calculated_woba": 0.292,
+      "xwoba": 0.318,
+      "luck_gap": 0.026,
+      "luck_gap_points": 26,
+      "label": "Expected production ahead of actual production"
+    },
+    "vladimir-guerrero-jr": {
+      "slug": "vladimir-guerrero-jr",
+      "full_name": "Vladimir Guerrero Jr.",
+      "team_abbr": "TOR",
+      "calculated_woba": 0.326,
+      "xwoba": 0.356,
+      "luck_gap": 0.03,
+      "luck_gap_points": 30,
+      "label": "Expected production ahead of actual production"
+    },
+    "wenceel-perez": {
+      "slug": "wenceel-perez",
+      "full_name": "Wenceel Pérez",
+      "team_abbr": "DET",
+      "calculated_woba": 0.256,
+      "xwoba": 0.271,
+      "luck_gap": 0.015,
+      "luck_gap_points": 15,
+      "label": "Expected production ahead of actual production"
+    },
+    "will-smith": {
+      "slug": "will-smith",
+      "full_name": "Will Smith",
+      "team_abbr": "LAD",
+      "calculated_woba": 0.322,
+      "xwoba": 0.386,
+      "luck_gap": 0.064,
+      "luck_gap_points": 64,
+      "label": "Production lagging contact quality"
+    },
+    "willi-castro": {
+      "slug": "willi-castro",
+      "full_name": "Willi Castro",
+      "team_abbr": "COL",
+      "calculated_woba": 0.323,
+      "xwoba": 0.293,
+      "luck_gap": -0.03,
+      "luck_gap_points": -30,
+      "label": "Actual production running ahead"
+    },
+    "william-contreras": {
+      "slug": "william-contreras",
+      "full_name": "William Contreras",
+      "team_abbr": "MIL",
+      "calculated_woba": 0.327,
+      "xwoba": 0.336,
+      "luck_gap": 0.009,
+      "luck_gap_points": 9,
+      "label": "Actual and expected production aligned"
+    },
+    "willson-contreras": {
+      "slug": "willson-contreras",
+      "full_name": "Willson Contreras",
+      "team_abbr": "BOS",
+      "calculated_woba": 0.392,
+      "xwoba": 0.391,
+      "luck_gap": -0.001,
+      "luck_gap_points": -1,
+      "label": "Actual and expected production aligned"
+    },
+    "willy-adames": {
+      "slug": "willy-adames",
+      "full_name": "Willy Adames",
+      "team_abbr": "SF",
+      "calculated_woba": 0.31,
+      "xwoba": 0.297,
+      "luck_gap": -0.013,
+      "luck_gap_points": -13,
+      "label": "Actual and expected production aligned"
+    },
+    "wilyer-abreu": {
+      "slug": "wilyer-abreu",
+      "full_name": "Wilyer Abreu",
+      "team_abbr": "BOS",
+      "calculated_woba": 0.334,
+      "xwoba": 0.345,
+      "luck_gap": 0.011,
+      "luck_gap_points": 11,
+      "label": "Actual and expected production aligned"
+    },
+    "xavier-edwards": {
+      "slug": "xavier-edwards",
+      "full_name": "Xavier Edwards",
+      "team_abbr": "MIA",
+      "calculated_woba": 0.37,
+      "xwoba": 0.346,
+      "luck_gap": -0.024,
+      "luck_gap_points": -24,
+      "label": "Actual production running ahead"
+    },
+    "yandy-diaz": {
+      "slug": "yandy-diaz",
+      "full_name": "Yandy Díaz",
+      "team_abbr": "TB",
+      "calculated_woba": 0.404,
+      "xwoba": 0.378,
+      "luck_gap": -0.026,
+      "luck_gap_points": -26,
+      "label": "Actual production running ahead"
+    },
+    "yordan-alvarez": {
+      "slug": "yordan-alvarez",
+      "full_name": "Yordan Alvarez",
+      "team_abbr": "HOU",
+      "calculated_woba": 0.45,
+      "xwoba": 0.492,
+      "luck_gap": 0.042,
+      "luck_gap_points": 42,
+      "label": "Production lagging contact quality"
+    },
+    "zach-mckinstry": {
+      "slug": "zach-mckinstry",
+      "full_name": "Zach McKinstry",
+      "team_abbr": "DET",
+      "calculated_woba": 0.239,
+      "xwoba": 0.264,
+      "luck_gap": 0.025,
+      "luck_gap_points": 25,
+      "label": "Expected production ahead of actual production"
+    },
+    "zach-neto": {
+      "slug": "zach-neto",
+      "full_name": "Zach Neto",
+      "team_abbr": "LAA",
+      "calculated_woba": 0.348,
+      "xwoba": 0.324,
+      "luck_gap": -0.024,
+      "luck_gap_points": -24,
+      "label": "Actual production running ahead"
+    },
+    "zack-gelof": {
+      "slug": "zack-gelof",
+      "full_name": "Zack Gelof",
+      "team_abbr": "ATH",
+      "calculated_woba": 0.339,
+      "xwoba": 0.289,
+      "luck_gap": -0.05,
+      "luck_gap_points": -50,
+      "label": "Regression warning"
+    }
+  },
+  "unmatched": [],
+  "ambiguous": []
+}

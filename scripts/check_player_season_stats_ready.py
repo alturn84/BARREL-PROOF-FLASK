@@ -18,8 +18,12 @@ SEASON_FILES = [
 
 HITTER_STRING_FIELDS = {"avg", "obp", "slg", "ops"}
 PITCHER_STRING_FIELDS = {"ip"}
-COUNT_FIELDS = {"games", "hr", "rbi", "runs", "sb", "bb", "so", "games_started", "wins", "losses", "saves"}
-FLOAT_FIELDS = {"era", "whip"}
+COUNT_FIELDS = {
+    "games", "pa", "ab", "h", "singles", "doubles", "triples", "hr",
+    "rbi", "runs", "sb", "bb", "ibb", "hbp", "sf", "so",
+    "games_started", "wins", "losses", "saves",
+}
+FLOAT_FIELDS = {"era", "whip", "calculated_woba"}
 BAD_STRINGS = {"nan", "inf", "infinity", "-inf", "-infinity", "none", "undefined"}
 RATE_RE = re.compile(r"^(?:\d+)?\.\d{1,3}$")
 IP_RE = re.compile(r"^\d+(?:\.[012])?$")
@@ -113,6 +117,10 @@ def validate_file(path: Path, errors: list[str]) -> None:
                     errors.append(f"{path.relative_to(BASE_DIR)} player {slug}.{field} must be rate string/number or null")
             elif field in COUNT_FIELDS | FLOAT_FIELDS and not valid_number_or_null(value):
                 errors.append(f"{path.relative_to(BASE_DIR)} player {slug}.{field} must be number or null")
+
+        singles = record.get("singles")
+        if singles is not None and isinstance(singles, (int, float)) and singles < 0:
+            errors.append(f"{path.relative_to(BASE_DIR)} player {slug}.singles must not be negative")
 
     duplicates = sorted({slug for slug in slugs if slugs.count(slug) > 1})
     if duplicates:

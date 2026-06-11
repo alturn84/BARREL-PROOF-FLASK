@@ -18,6 +18,7 @@ SEASON = int(sys.argv[1]) if len(sys.argv) > 1 else datetime.now().year
 
 HITTER_OUT = PLAYERS_DIR / "season_hitter_stats.json"
 PITCHER_OUT = PLAYERS_DIR / "season_pitcher_stats.json"
+WOBA_CONSTANTS_PATH = PLAYERS_DIR / "woba_constants.json"
 
 TEAM_ABBR_OVERRIDES = {
     "CHW": "CWS",
@@ -95,7 +96,20 @@ TEAM_NAME_TO_ABBR = {
     "washington nationals": "WSH",
 }
 
-HITTER_FIELDS = ["games", "avg", "obp", "slg", "ops", "hr", "rbi", "runs", "sb", "bb", "so"]
+DEFAULT_WOBA_WEIGHTS = {
+    "wBB": 0.69,
+    "wHBP": 0.72,
+    "w1B": 0.89,
+    "w2B": 1.27,
+    "w3B": 1.62,
+    "wHR": 2.10,
+}
+
+HITTER_FIELDS = [
+    "games", "pa", "ab", "h", "singles", "doubles", "triples", "hr",
+    "bb", "ibb", "hbp", "sf", "avg", "obp", "slg", "ops", "rbi", "runs", "sb", "so",
+    "calculated_woba",
+]
 PITCHER_FIELDS = ["games", "games_started", "wins", "losses", "saves", "era", "ip", "so", "bb", "whip"]
 RATE_FIELDS = {"avg", "obp", "slg", "ops"}
 
@@ -166,6 +180,48 @@ def clean_rate(value):
         return None
     text = f"{number:.3f}"
     return text[1:] if text.startswith("0") else text
+
+
+def load_woba_weights():
+    data = load_json(WOBA_CONSTANTS_PATH, {})
+    weights = data.get("weights", {}) if isinstance(data, dict) else {}
+    loaded = {}
+    for key, fallback in DEFAULT_WOBA_WEIGHTS.items():
+        value = clean_number(weights.get(key))
+        loaded[key] = fallback if value is None else value
+    return loaded
+
+
+def calculate_woba(row, weights):
+    ab = clean_int(row.get("AB"))
+    h = clean_int(row.get("H"))
+    doubles = clean_int(row.get("2B"))
+    triples = clean_int(row.get("3B"))
+    hr = clean_int(row.get("HR"))
+    bb = clean_int(row.get("BB"))
+    ibb = clean_int(row.get("IBB"))
+    hbp = clean_int(row.get("HBP"))
+    sf = clean_int(row.get("SF"))
+    required = (ab, h, doubles, triples, hr, bb, hbp, sf)
+    if any(value is None for value in required):
+        return None, None
+    ibb = ibb or 0
+    singles = h - doubles - triples - hr
+    if singles < 0:
+        return singles, None
+    ubb = bb - ibb
+    denominator = ab + bb - ibb + sf + hbp
+    if denominator <= 0:
+        return singles, None
+    numerator = (
+        weights["wBB"] * ubb
+        + weights["wHBP"] * hbp
+        + weights["w1B"] * singles
+        + weights["w2B"] * doubles
+        + weights["w3B"] * triples
+        + weights["wHR"] * hr
+    )
+    return singles, round(numerator / denominator, 3)
 
 
 def clean_ip(value):
@@ -292,12 +348,20 @@ def finish_output(output):
     return output
 
 
-def hitter_card(player, row):
+def hitter_card(player, row, weights=None):
+    weights = weights or DEFAULT_WOBA_WEIGHTS
+    singles, calculated_woba = calculate_woba(row, weights)
     return {
         "slug": player.get("slug"),
         "full_name": player.get("full_name") or player.get("display_name"),
         "team_abbr": player.get("team_abbr"),
         "games": clean_int(row.get("G")),
+        "pa": clean_int(row.get("PA")),
+        "ab": clean_int(row.get("AB")),
+        "h": clean_int(row.get("H")),
+        "singles": singles,
+        "doubles": clean_int(row.get("2B")),
+        "triples": clean_int(row.get("3B")),
         "avg": clean_rate(row.get("BA")),
         "obp": clean_rate(row.get("OBP")),
         "slg": clean_rate(row.get("SLG")),
@@ -307,7 +371,11 @@ def hitter_card(player, row):
         "runs": clean_int(row.get("R")),
         "sb": clean_int(row.get("SB")),
         "bb": clean_int(row.get("BB")),
+        "ibb": clean_int(row.get("IBB")),
+        "hbp": clean_int(row.get("HBP")),
+        "sf": clean_int(row.get("SF")),
         "so": clean_int(row.get("SO")),
+        "calculated_woba": calculated_woba,
     }
 
 
@@ -329,7 +397,7 @@ def pitcher_card(player, row):
     }
 
 
-def merge_rows(rows, players, aliases, make_card):
+def merge_rows(rows, players, aliases, make_card, *card_args):
     resolve = build_resolver(players, aliases)
     output = base_output()
     seen_unmatched = set()
@@ -351,7 +419,7 @@ def merge_rows(rows, players, aliases, make_card):
         slug = player.get("slug")
         if not slug:
             continue
-        card = make_card(player, row)
+        card = make_card(player, row, *card_args)
         output["players"][slug] = card
     return finish_output(output)
 
@@ -387,7 +455,8 @@ def main() -> int:
         print(f"PLAYER SEASON STATS FETCH FAILED: {exc}")
         return 0
 
-    hitter_output = merge_rows(batting_rows, players, aliases, hitter_card)
+    woba_weights = load_woba_weights()
+    hitter_output = merge_rows(batting_rows, players, aliases, hitter_card, woba_weights)
     pitcher_output = merge_rows(pitching_rows, players, aliases, pitcher_card)
     write_json(HITTER_OUT, hitter_output)
     write_json(PITCHER_OUT, pitcher_output)
