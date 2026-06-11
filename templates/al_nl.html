@@ -49,22 +49,43 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
 
 /* ── Shell ── */
 .site-banner{width:100%;margin:0;padding:0;line-height:0;display:block;overflow:hidden;}
-.site-banner img{width:100%;height:clamp(160px,20vw,300px);object-fit:cover;
+.site-banner img{width:100%;height:clamp(220px,28vw,420px);object-fit:cover;
   object-position:center 45%;display:block;}
 .page{position:relative;z-index:1;max-width:1200px;margin:0 auto;
   padding:0 clamp(18px,5vw,80px) 60px;}
 
 /* ── Nav ── */
-nav.main-nav{display:flex;justify-content:center;align-items:center;
-  border-top:1px solid var(--rule-heavy);border-bottom:1px solid var(--rule-heavy);background:var(--ink);}
+nav.main-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid var(--bp-rule);
+  border-bottom: 1px solid var(--bp-rule);
+  background: var(--bp-charcoal);
+}
 .nav-items-wrap{display:flex;align-items:center;white-space:nowrap;}
-.nav-item{font-family:var(--serif-sc);font-size:15px;letter-spacing:.14em;
-  color: var(--bp-paper);padding:12px 18px;position:relative;cursor:pointer;
-  transition:color .2s;white-space:nowrap;display:inline-block;}
+.nav-item {
+  font-family: var(--typewriter-font);
+  font-size: 13px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--bp-paper);
+  padding: 12px 18px;
+  position: relative;
+  cursor: pointer;
+  transition: color .2s, background .2s;
+  white-space: nowrap;
+  display: inline-block;
+}
 .nav-item:hover, .nav-item.active { color: var(--bp-paper); background: var(--bp-accent); }
 .nav-item.active::after{content:'';position:absolute;bottom:-1px;left:0;right:0;
   height:2px;background:var(--bp-accent-gold);}
-.nav-item:not(:last-child)::before{content:'·';position:absolute;right:-2px;color:var(--rule-heavy);}
+.nav-item:not(:last-child)::before {
+  content: '·';
+  position: absolute;
+  right: -2px;
+  color: rgba(247,239,216,.3);
+}
 
 /* ── Page header ── */
 .page-hdr{padding:24px 0 18px;border-bottom:2px solid var(--cream-dim);}

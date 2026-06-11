@@ -46,22 +46,46 @@
 html{font-size:16px;}
 body{background:radial-gradient(circle at 18% 12%, rgba(255,255,255,.22), transparent 24%),repeating-linear-gradient(0deg, rgba(23,19,13,.025) 0, rgba(23,19,13,.025) 1px, transparent 1px, transparent 4px),linear-gradient(180deg, var(--bp-bg), #e5d2a8);color:var(--parchment);font-family:var(--serif-body);-webkit-font-smoothing:antialiased;min-height:100vh;}
 a{color:inherit;text-decoration:none;}
-.ticker-bar{background:var(--leather);border-bottom:1px solid var(--gold-dim);padding:5px 0;overflow:hidden;}
+.ticker-bar{background:var(--leather);border-bottom:1px solid var(--cream-dim);padding:6px 0;overflow:hidden;margin-left:calc(-1 * clamp(24px,8vw,120px));margin-right:calc(-1 * clamp(24px,8vw,120px));}
 .ticker-inner{display:flex;align-items:center;white-space:nowrap;animation:ticker 60s linear infinite;}
 .ticker-inner:hover{animation-play-state:paused;}
 @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.ti{font-family:var(--mono);font-size:13px;letter-spacing:.04em;color:var(--bp-paper);padding:0 20px;display:inline-flex;align-items:center;gap:7px;}
+.ti{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--bp-paper);padding:0 28px;display:inline-flex;align-items:center;gap:10px;}
 .ti .sep{color:var(--bp-rule);opacity:.6;}
 .page{max-width:1600px;margin:0 auto;padding:0 clamp(24px,8vw,120px) 60px;}
 .site-banner{width:100%;margin:0;padding:0;line-height:0;display:block;overflow:hidden;}
 .site-banner img{width:100%;height:clamp(220px,28vw,420px);object-fit:cover;object-position:center 45%;display:block;}
 .site-banner.dope-sheet-banner img{object-fit:contain;object-position:center top;background:#1A1108;}
-nav.main-nav{display:flex;justify-content:center;align-items:center;border-top:1px solid var(--rule-heavy);border-bottom:1px solid var(--rule-heavy);background:var(--ink);}
+nav.main-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid var(--bp-rule);
+  border-bottom: 1px solid var(--bp-rule);
+  background: var(--bp-charcoal);
+}
 .nav-items-wrap{display:flex;align-items:center;white-space:nowrap;}
-.nav-item{font-family:var(--serif-sc);font-size:15px;letter-spacing:.14em;color: var(--bp-paper);padding:12px 18px;position:relative;cursor:pointer;transition:color .2s;white-space:nowrap;display:inline-block;}
+.nav-item {
+  font-family: var(--typewriter-font);
+  font-size: 13px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--bp-paper);
+  padding: 12px 18px;
+  position: relative;
+  cursor: pointer;
+  transition: color .2s, background .2s;
+  white-space: nowrap;
+  display: inline-block;
+}
 .nav-item:hover, .nav-item.active { color: var(--bp-paper); background: var(--bp-accent); }
 .nav-item.active::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:2px;background:var(--bp-accent-gold);}
-.nav-item:not(:last-child)::before{content:'·';position:absolute;right:-2px;color:var(--rule-heavy);}
+.nav-item:not(:last-child)::before {
+  content: '·';
+  position: absolute;
+  right: -2px;
+  color: rgba(247,239,216,.3);
+}
 .date-banner{display:flex;align-items:center;gap:14px;padding:13px 0 11px;border-bottom:.5px solid var(--rule);}
 .dbl{flex:1;height:.5px;background:var(--rule);}
 .dbt{font-family:var(--serif-sc);font-size:18px;letter-spacing:.16em;color:var(--cream-mid);white-space:nowrap;}
@@ -331,12 +355,12 @@ footer{border-top:.5px solid var(--rule-heavy);margin-top:40px;padding:20px 0;di
 </div>
 </div>
 
+<div class="page">
+{% set active_page = 'dope-sheet' %}{% include 'partials/site_nav.html' %}
+
 <div class="ticker-bar">
   <div class="ticker-inner" id="tickerInner"></div>
 </div>
-
-<div class="page">
-{% set active_page = 'dope-sheet' %}{% include 'partials/site_nav.html' %}
 
 <div class="date-banner">
   <div class="dbl"></div>
