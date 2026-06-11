@@ -1,69 +1,153 @@
 {
-  "date": "2026-06-09",
-  "date_display": "Tuesday, June 9, 2026",
-  "updated": "2026-06-10 10:27",
+  "date": "2026-06-10",
+  "date_display": "Wednesday, June 10, 2026",
+  "updated": "2026-06-11 10:15",
   "game": {
-    "away": "ATL",
-    "home": "CWS",
-    "away_runs": 5,
-    "home_runs": 6,
-    "innings": 10,
-    "raw_score": 103.0,
+    "away": "WSH",
+    "home": "SF",
+    "away_runs": 10,
+    "home_runs": 11,
+    "innings": 9,
+    "raw_score": 130.0,
     "flags": [
       "WALK-OFF WIN",
-      "EXTRA INNINGS (10)",
+      "COMEBACK (trailed 8)",
       "ONE-RUN GAME",
-      "PLAYOFF IMPLICATIONS",
-      "MULTI-HR: Matt Olson (2 HR)"
+      "MULTI-HR: Matt Chapman (2 HR)",
+      "SB SPREE (6)",
+      "SF HOME GAME",
+      "HIGH-SCORING (21 runs)"
     ],
-    "winner": "CWS",
-    "loser": "ATL",
+    "winner": "SF",
+    "loser": "WSH",
     "margin": 1,
-    "total_runs": 11
+    "total_runs": 21
   },
   "editorial": {
-    "headline": "Chicago White Sox Walks Off Atlanta Braves in Thrilling Extra-Inning Battle",
-    "subheadline": "Dramatic Finish in the 10th Innings Lifts Chicago White Sox",
-    "lead_angle": "In a captivating extra-innings affair, the Chicago White Sox clinched a dramatic 6-5 walk-off victory over the Atlanta Braves in the 10th inning. The contest, extended beyond nine frames, saw both sides battle fiercely before the decisive run was plated. This one-run decision delivered the kind of late-game tension that defines baseball's most memorable matchups.",
-    "reason": "Extra-inning walk-off — the purest combination of tension and resolution the sport offers."
+    "headline": "San Francisco Storms Back to Walk Off Washington Nationals",
+    "subheadline": "WSH 10, SF 11. San Francisco Giants completes the comeback.",
+    "lead_angle": "A five-run outburst in the bottom of the ninth propelled the San Francisco Giants to an improbable 11-10 walk-off victory over the Washington Nationals at Oracle Park. The decisive rally capped a remarkable comeback, as the Giants had trailed by eight runs earlier in the game, entering the final frame with a four-run deficit. Reiver Sanmartin earned the win for San Francisco, while Mitchell Parker was charged with the loss for the visitors.\n\nWashington had built a seemingly insurmountable 9-1 lead through seven innings, fueled by a four-run sixth and a three-run seventh. But San Francisco clawed back in the eighth, sending five men across the plate, cutting the deficit to 9-6. This set the stage for the dramatic final inning, where the home team completed their stunning turnaround.\n\nMatt Chapman stood out in the Giants' lineup, going 4-for-5 with two home runs and three runs batted in, providing much of the offensive spark. His bat helped ignite the team's rally and keep their playoff aspirations in contention. The high-scoring, one-run thriller marked a crucial victory for the Giants at home, providing a significant jolt of momentum as the season progresses.",
+    "reason": "Walk-off comeback from 8 runs — drama stacked on drama."
   },
   "all_games": [
     {
       "rank": 1,
-      "away": "ATL",
-      "home": "CWS",
-      "away_runs": 5,
-      "home_runs": 6,
-      "innings": 10,
-      "raw_score": 103.0,
+      "away": "WSH",
+      "home": "SF",
+      "away_runs": 10,
+      "home_runs": 11,
+      "innings": 9,
+      "raw_score": 130.0,
       "flags": [
         "WALK-OFF WIN",
-        "EXTRA INNINGS (10)",
+        "COMEBACK (trailed 8)",
         "ONE-RUN GAME",
-        "PLAYOFF IMPLICATIONS",
-        "MULTI-HR: Matt Olson (2 HR)"
+        "MULTI-HR: Matt Chapman (2 HR)",
+        "SB SPREE (6)",
+        "SF HOME GAME",
+        "HIGH-SCORING (21 runs)"
       ],
       "selected": true
     },
     {
       "rank": 2,
-      "away": "BOS",
-      "home": "TB",
-      "away_runs": 3,
-      "home_runs": 4,
-      "innings": 9,
-      "raw_score": 55.0,
+      "away": "HOU",
+      "home": "LAA",
+      "away_runs": 2,
+      "home_runs": 3,
+      "innings": 10,
+      "raw_score": 105.0,
       "flags": [
+        "WALK-OFF WIN",
+        "EXTRA INNINGS (10)",
         "ONE-RUN GAME",
-        "PLAYOFF IMPLICATIONS",
-        "DIVISION MATCHUP"
+        "DIVISION MATCHUP",
+        "DOMINANT START: Reid Detmers (7.0 IP, 1 ER, 9 K)",
+        "SB SPREE (3)"
       ],
       "selected": false
     },
     {
       "rank": 3,
-      "away": "PHI",
-      "home": "TOR",
+      "away": "LAD",
+      "home": "PIT",
+      "away_runs": 8,
+      "home_runs": 9,
+      "innings": 9,
+      "raw_score": 89.0,
+      "flags": [
+        "COMEBACK (trailed 5)",
+        "ONE-RUN GAME",
+        "PLAYOFF IMPLICATIONS",
+        "MULTI-HR: Tyler Callihan (2 HR)",
+        "HIGH-SCORING (17 runs)"
+      ],
+      "selected": false
+    },
+    {
+      "rank": 4,
+      "away": "BOS",
+      "home": "TB",
+      "away_runs": 5,
+      "home_runs": 7,
+      "innings": 9,
+      "raw_score": 78.0,
+      "flags": [
+        "PLAYOFF IMPLICATIONS",
+        "DIVISION MATCHUP",
+        "MULTI-HR: Caleb Durbin (2 HR)",
+        "DOMINANT START: Drew Rasmussen (7.0 IP, 0 ER, 13 K)"
+      ],
+      "selected": false
+    },
+    {
+      "rank": 5,
+      "away": "ATL",
+      "home": "CWS",
+      "away_runs": 1,
+      "home_runs": 2,
+      "innings": 9,
+      "raw_score": 65.0,
+      "flags": [
+        "ONE-RUN GAME",
+        "FIRST-PLACE CLASH",
+        "PLAYOFF IMPLICATIONS"
+      ],
+      "selected": false
+    },
+    {
+      "rank": 6,
+      "away": "MIL",
+      "home": "ATH",
+      "away_runs": 3,
+      "home_runs": 4,
+      "innings": 9,
+      "raw_score": 49.0,
+      "flags": [
+        "COMEBACK (trailed 3)",
+        "ONE-RUN GAME",
+        "PLAYOFF IMPLICATIONS"
+      ],
+      "selected": false
+    },
+    {
+      "rank": 7,
+      "away": "CIN",
+      "home": "SD",
+      "away_runs": 4,
+      "home_runs": 5,
+      "innings": 9,
+      "raw_score": 45.0,
+      "flags": [
+        "WALK-OFF WIN",
+        "ONE-RUN GAME"
+      ],
+      "selected": false
+    },
+    {
+      "rank": 8,
+      "away": "CHC",
+      "home": "COL",
       "away_runs": 2,
       "home_runs": 3,
       "innings": 9,
@@ -75,108 +159,53 @@
       "selected": false
     },
     {
-      "rank": 4,
-      "away": "SEA",
-      "home": "BAL",
-      "away_runs": 6,
-      "home_runs": 5,
-      "innings": 10,
-      "raw_score": 43.0,
-      "flags": [
-        "EXTRA INNINGS (10)",
-        "ONE-RUN GAME",
-        "PLAYOFF IMPLICATIONS"
-      ],
-      "selected": false
-    },
-    {
-      "rank": 5,
-      "away": "MIN",
-      "home": "DET",
-      "away_runs": 4,
-      "home_runs": 10,
-      "innings": 9,
-      "raw_score": 38.0,
-      "flags": [
-        "DIVISION MATCHUP",
-        "MULTI-HR: Dillon Dingler (2 HR)"
-      ],
-      "selected": false
-    },
-    {
-      "rank": 6,
+      "rank": 9,
       "away": "NYY",
       "home": "CLE",
-      "away_runs": 3,
-      "home_runs": 2,
+      "away_runs": 8,
+      "home_runs": 4,
       "innings": 9,
-      "raw_score": 37.0,
+      "raw_score": 30.0,
       "flags": [
-        "ONE-RUN GAME",
-        "PLAYOFF IMPLICATIONS"
-      ],
-      "selected": false
-    },
-    {
-      "rank": 7,
-      "away": "TEX",
-      "home": "KC",
-      "away_runs": 3,
-      "home_runs": 5,
-      "innings": 9,
-      "raw_score": 28.0,
-      "flags": [
-        "MULTI-HR: Jac Caglianone (2 HR)",
-        "SB SPREE (3)"
-      ],
-      "selected": false
-    },
-    {
-      "rank": 8,
-      "away": "LAD",
-      "home": "PIT",
-      "away_runs": 12,
-      "home_runs": 3,
-      "innings": 9,
-      "raw_score": 22.0,
-      "flags": [
-        "PLAYOFF IMPLICATIONS"
-      ],
-      "selected": false
-    },
-    {
-      "rank": 9,
-      "away": "MIL",
-      "home": "ATH",
-      "away_runs": 5,
-      "home_runs": 7,
-      "innings": 9,
-      "raw_score": 22.0,
-      "flags": [
-        "PLAYOFF IMPLICATIONS"
+        "PLAYOFF IMPLICATIONS",
+        "SB SPREE (4)"
       ],
       "selected": false
     },
     {
       "rank": 10,
-      "away": "CIN",
-      "home": "SD",
-      "away_runs": 5,
-      "home_runs": 3,
-      "innings": 11,
-      "raw_score": 20.0,
+      "away": "SEA",
+      "home": "BAL",
+      "away_runs": 2,
+      "home_runs": 7,
+      "innings": 9,
+      "raw_score": 30.0,
       "flags": [
-        "EXTRA INNINGS (11)",
-        "SB SPREE (9)"
+        "PLAYOFF IMPLICATIONS",
+        "SB SPREE (3)"
       ],
       "selected": false
     },
     {
       "rank": 11,
-      "away": "HOU",
-      "home": "LAA",
-      "away_runs": 1,
-      "home_runs": 10,
+      "away": "TEX",
+      "home": "KC",
+      "away_runs": 6,
+      "home_runs": 4,
+      "innings": 10,
+      "raw_score": 28.0,
+      "flags": [
+        "EXTRA INNINGS (10)",
+        "PLAYOFF IMPLICATIONS"
+      ],
+      "selected": false
+    },
+    {
+      "rank": 12,
+      "away": "MIN",
+      "home": "DET",
+      "away_runs": 6,
+      "home_runs": 4,
       "innings": 9,
       "raw_score": 18.0,
       "flags": [
@@ -185,11 +214,11 @@
       "selected": false
     },
     {
-      "rank": 12,
+      "rank": 13,
       "away": "STL",
       "home": "NYM",
-      "away_runs": 7,
-      "home_runs": 0,
+      "away_runs": 9,
+      "home_runs": 2,
       "innings": 9,
       "raw_score": 12.0,
       "flags": [
@@ -198,37 +227,22 @@
       "selected": false
     },
     {
-      "rank": 13,
-      "away": "WSH",
-      "home": "SF",
-      "away_runs": 6,
-      "home_runs": 3,
-      "innings": 9,
-      "raw_score": 12.0,
-      "flags": [
-        "SF HOME GAME"
-      ],
-      "selected": false
-    },
-    {
       "rank": 14,
       "away": "AZ",
       "home": "MIA",
-      "away_runs": 6,
-      "home_runs": 10,
+      "away_runs": 0,
+      "home_runs": 8,
       "innings": 9,
-      "raw_score": 10.0,
-      "flags": [
-        "HIGH-SCORING (16 runs)"
-      ],
+      "raw_score": 0.0,
+      "flags": [],
       "selected": false
     },
     {
       "rank": 15,
-      "away": "CHC",
-      "home": "COL",
-      "away_runs": 3,
-      "home_runs": 7,
+      "away": "PHI",
+      "home": "TOR",
+      "away_runs": 7,
+      "home_runs": 4,
       "innings": 9,
       "raw_score": 0.0,
       "flags": [],
