@@ -1424,7 +1424,36 @@ def archive_index():
         index_data = json.loads(index_path.read_text(encoding="utf-8"))
     except Exception:
         index_data = {}
-    return render_template("archive_index.html", index=index_data)
+
+    months = []
+    for year_entry in index_data.get("years", []):
+        year = year_entry.get("year")
+        year_index_path = DATA_DIR / "archive" / str(year) / "index.json"
+        try:
+            year_index = json.loads(year_index_path.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        for month_entry in year_index.get("months", []):
+            month_num = month_entry.get("month")
+            month_file = DATA_DIR / "archive" / str(year) / month_entry.get("index_path", "")
+            first_day = "01"
+            try:
+                month_data = json.loads(month_file.read_text(encoding="utf-8"))
+                dates = month_data.get("dates", [])
+                if dates:
+                    first_day = dates[0].get("date", "")[-2:] or "01"
+            except Exception:
+                pass
+            months.append({
+                "year": year,
+                "month_num": f"{month_num:02d}",
+                "month_label": month_entry.get("month_name"),
+                "count": month_entry.get("date_count"),
+                "first_day": first_day,
+            })
+
+    months.sort(key=lambda m: (m["year"], m["month_num"]), reverse=True)
+    return render_template("archive_index.html", index=index_data, months=months)
 
 @app.route("/advance-scout")
 @app.route("/advance-scout/")

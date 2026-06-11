@@ -205,10 +205,12 @@
     </section>
     {% endif %}
 
+    {% if not luck_gap_card and not statcast_hitter_card %}
     <section class="ledger-card placeholder-card">
-      <div class="section-label">Player Intelligence</div>
-      <p>Tracking and advanced player cards will appear here once the player intelligence pipeline is connected.</p>
+      <div class="section-label">Tracking Data</div>
+      <p class="tracking-note">Additional tracking data is not available for this player yet.</p>
     </section>
+    {% endif %}
   </main>
 
   <footer>
