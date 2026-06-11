@@ -390,7 +390,12 @@ nav.main-nav {
   min-width: 620px;
 }
 
+.power-signal-table {
+  min-width: 780px;
+}
+
 .luck-gap-table .stat-label-cell,
+.power-signal-table .stat-label-cell,
 .leaderboard-table td:last-child {
   text-align: left;
   white-space: normal;
@@ -398,6 +403,10 @@ nav.main-nav {
 
 .leaderboard-table {
   min-width: 820px;
+}
+
+.power-leaderboard-table {
+  min-width: 980px;
 }
 
 .leaderboard-table th:nth-child(3),
@@ -427,6 +436,17 @@ nav.main-nav {
   font-size: 22px;
   font-weight: 700;
   color: var(--bp-ink);
+}
+
+/* ── POWER SIGNAL ── */
+.power-signal-card {
+  background: var(--bp-paper);
+  border-color: var(--bp-rule-dark);
+}
+
+.power-signal-card .section-label {
+  color: var(--bp-accent);
+  letter-spacing: .22em;
 }
 
 /* ── CONTACT QUALITY — visually distinct from basic stat card ── */

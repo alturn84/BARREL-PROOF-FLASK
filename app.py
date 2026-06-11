@@ -157,6 +157,11 @@ def load_hitter_luck_gap_cards():
     players = data.get("players") if isinstance(data, dict) else {}
     return players if isinstance(players, dict) else {}
 
+def load_hitter_power_signal_cards():
+    data = load_json("players/hitter_power_signal.json", fallback={})
+    players = data.get("players") if isinstance(data, dict) else {}
+    return players if isinstance(players, dict) else {}
+
 def resolve_player_name(name):
     if not name:
         return None
@@ -1659,13 +1664,16 @@ def player_detail(slug):
     player = get_player_page_by_slug(slug) or get_player_by_slug(slug)
     if not player:
         abort(404)
-    luck_gap_card = load_hitter_luck_gap_cards().get(str(slug or "").strip().lower())
+    normalized_slug = str(slug or "").strip().lower()
+    luck_gap_card = load_hitter_luck_gap_cards().get(normalized_slug)
+    power_signal_card = load_hitter_power_signal_cards().get(normalized_slug)
     return render_template(
         "player_detail.html",
         player=player,
         hitter_card=player.get("hitter_card") if isinstance(player, dict) else None,
         pitcher_card=player.get("pitcher_card") if isinstance(player, dict) else None,
         luck_gap_card=luck_gap_card,
+        power_signal_card=power_signal_card,
         page_title=f"{player.get('display_name') or player.get('full_name')} — Barrel Proof Player Ledger",
         meta_description=f"{player.get('display_name') or player.get('full_name')} player ledger — Barrel Proof Baseball.",
     )
@@ -1688,6 +1696,19 @@ def luck_gap_leaderboard():
         negative_players=negative_players,
         page_title="Luck Gap Leaderboard — Barrel Proof",
         meta_description="Barrel Proof Luck Gap leaderboard comparing xwOBA against calculated wOBA.",
+    )
+
+@app.route("/leaderboards/power-signal")
+@app.route("/leaderboards/power-signal/")
+def power_signal_leaderboard():
+    cards = load_hitter_power_signal_cards()
+    players = [card for card in cards.values() if isinstance(card, dict)]
+    players.sort(key=lambda card: (card.get("power_signal") is None, -(card.get("power_signal") or 0), card.get("full_name") or ""))
+    return render_template(
+        "power_signal_leaderboard.html",
+        players=players,
+        page_title="Power Signal Leaderboard — Barrel Proof",
+        meta_description="Barrel Proof Power Signal leaderboard showing hitter power supported by contact quality.",
     )
 
 def build_team_context_note(team, record, form):

@@ -169,6 +169,40 @@
     </section>
     {% endif %}
 
+    {% if power_signal_card %}
+    {% set power_inputs = power_signal_card.get("inputs") or {} %}
+    <section class="ledger-card stats-card power-signal-card">
+      <div class="section-label">POWER SIGNAL</div>
+      <p class="stats-note">Power Signal measures whether a hitter’s power is supported by contact quality.</p>
+      <div class="stats-table-wrap">
+        <table class="stats-table power-signal-table">
+          <thead>
+            <tr>
+              <th>Signal</th>
+              <th>Label</th>
+              <th>Confidence</th>
+              <th>Barrel %</th>
+              <th>Avg EV</th>
+              <th>Max EV</th>
+              <th>xSLG</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ stat_value(power_signal_card.get("power_signal")) }}</td>
+              <td class="stat-label-cell">{{ stat_value(power_signal_card.get("label")) }}</td>
+              <td>{{ stat_value(power_signal_card.get("confidence")) }}</td>
+              <td>{{ stat_value(power_inputs.get("barrel_pct")) }}</td>
+              <td>{{ stat_value(power_inputs.get("avg_exit_velocity")) }}</td>
+              <td>{{ stat_value(power_inputs.get("max_exit_velocity")) }}</td>
+              <td>{{ stat_value(power_inputs.get("xslg")) }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    {% endif %}
+
     {% set statcast_hitter_card = player.statcast_hitter_card %}
     {% if statcast_hitter_card %}
     <section class="ledger-card stats-card contact-quality-card">
@@ -205,7 +239,7 @@
     </section>
     {% endif %}
 
-    {% if not luck_gap_card and not statcast_hitter_card %}
+    {% if not luck_gap_card and not power_signal_card and not statcast_hitter_card %}
     <section class="ledger-card placeholder-card">
       <div class="section-label">Tracking Data</div>
       <p class="tracking-note">Additional tracking data is not available for this player yet.</p>
