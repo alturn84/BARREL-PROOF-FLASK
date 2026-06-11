@@ -18,17 +18,17 @@
     "full_name": "Iván Herrera",
     "team_abbr": "STL",
     "position": "DH",
-    "games": 1,
-    "avg": null,
-    "obp": null,
-    "slg": null,
-    "ops": null,
-    "hr": 0,
-    "rbi": 0,
-    "runs": 3,
-    "sb": null,
-    "bb": null,
-    "so": null
+    "games": 64,
+    "avg": ".264",
+    "obp": ".388",
+    "slg": ".414",
+    "ops": ".803",
+    "hr": 7,
+    "rbi": 28,
+    "runs": 41,
+    "sb": 2,
+    "bb": 35,
+    "so": 48
   },
   "pitcher_card": null,
   "statcast_hitter_card": {
@@ -45,10 +45,12 @@
     "xslg": 0.416,
     "xwoba": 0.361
   },
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"

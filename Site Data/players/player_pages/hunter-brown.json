@@ -13,12 +13,30 @@
   "throws": null,
   "active": true,
   "hitter_card": null,
-  "pitcher_card": null,
+  "pitcher_card": {
+    "player_id": "hunter-brown",
+    "slug": "hunter-brown",
+    "full_name": "Hunter Brown",
+    "team_abbr": null,
+    "position": "P",
+    "games": 2,
+    "games_started": 2,
+    "wins": 1,
+    "losses": null,
+    "saves": null,
+    "era": 0.84,
+    "ip": "10.2",
+    "so": 17,
+    "bb": 6,
+    "whip": 1.031
+  },
   "statcast_hitter_card": null,
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"

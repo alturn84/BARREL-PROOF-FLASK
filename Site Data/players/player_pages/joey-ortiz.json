@@ -12,7 +12,24 @@
   "bats": "R",
   "throws": "R",
   "active": true,
-  "hitter_card": null,
+  "hitter_card": {
+    "player_id": "joey-ortiz",
+    "slug": "joey-ortiz",
+    "full_name": "Joey Ortiz",
+    "team_abbr": "MIL",
+    "position": "SS",
+    "games": 56,
+    "avg": ".205",
+    "obp": ".305",
+    "slg": ".258",
+    "ops": ".563",
+    "hr": 1,
+    "rbi": 14,
+    "runs": 17,
+    "sb": 4,
+    "bb": 20,
+    "so": 26
+  },
   "pitcher_card": null,
   "statcast_hitter_card": {
     "player_id": "joey-ortiz",
@@ -28,10 +45,12 @@
     "xslg": 0.296,
     "xwoba": 0.3
   },
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"

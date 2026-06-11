@@ -13,12 +13,30 @@
   "throws": "R",
   "active": true,
   "hitter_card": null,
-  "pitcher_card": null,
+  "pitcher_card": {
+    "player_id": "javier-assad",
+    "slug": "javier-assad",
+    "full_name": "Javier Assad",
+    "team_abbr": "CHC",
+    "position": "P",
+    "games": 9,
+    "games_started": 3,
+    "wins": 3,
+    "losses": 1,
+    "saves": null,
+    "era": 4.73,
+    "ip": "32.1",
+    "so": 19,
+    "bb": 8,
+    "whip": 1.082
+  },
   "statcast_hitter_card": null,
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"

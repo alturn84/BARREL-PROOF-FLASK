@@ -12,8 +12,41 @@
   "bats": "L",
   "throws": "S",
   "active": true,
-  "hitter_card": null,
-  "pitcher_card": null,
+  "hitter_card": {
+    "player_id": "carlos-cortes",
+    "slug": "carlos-cortes",
+    "full_name": "Carlos Cortes",
+    "team_abbr": "ATH",
+    "position": "RF",
+    "games": 53,
+    "avg": ".312",
+    "obp": ".399",
+    "slg": ".481",
+    "ops": ".879",
+    "hr": 5,
+    "rbi": 17,
+    "runs": 15,
+    "sb": 1,
+    "bb": 21,
+    "so": 17
+  },
+  "pitcher_card": {
+    "player_id": "carlos-cortes",
+    "slug": "carlos-cortes",
+    "full_name": "Carlos Cortes",
+    "team_abbr": "ATH",
+    "position": "RF",
+    "games": 2,
+    "games_started": 0,
+    "wins": null,
+    "losses": null,
+    "saves": null,
+    "era": 0.0,
+    "ip": "2.0",
+    "so": 0,
+    "bb": 2,
+    "whip": 1.5
+  },
   "statcast_hitter_card": {
     "player_id": "carlos-cortes",
     "slug": "carlos-cortes",
@@ -28,10 +61,12 @@
     "xslg": 0.461,
     "xwoba": 0.376
   },
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"

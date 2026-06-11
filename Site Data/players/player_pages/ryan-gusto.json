@@ -19,22 +19,24 @@
     "full_name": "Ryan Gusto",
     "team_abbr": "MIA",
     "position": "P",
-    "games": null,
-    "games_started": null,
-    "wins": 0,
+    "games": 3,
+    "games_started": 1,
+    "wins": null,
     "losses": 1,
     "saves": null,
-    "era": "10.80",
+    "era": 10.8,
     "ip": "5.0",
-    "so": null,
-    "bb": null,
-    "whip": "1.80"
+    "so": 5,
+    "bb": 1,
+    "whip": 1.8
   },
   "statcast_hitter_card": null,
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"

@@ -13,12 +13,30 @@
   "throws": "R",
   "active": true,
   "hitter_card": null,
-  "pitcher_card": null,
+  "pitcher_card": {
+    "player_id": "casey-legumina",
+    "slug": "casey-legumina",
+    "full_name": "Casey Legumina",
+    "team_abbr": "TB",
+    "position": "P",
+    "games": 21,
+    "games_started": 0,
+    "wins": 2,
+    "losses": 1,
+    "saves": null,
+    "era": 3.1,
+    "ip": "29.0",
+    "so": 22,
+    "bb": 6,
+    "whip": 1.276
+  },
   "statcast_hitter_card": null,
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"

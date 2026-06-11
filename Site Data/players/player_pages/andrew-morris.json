@@ -13,12 +13,30 @@
   "throws": "R",
   "active": true,
   "hitter_card": null,
-  "pitcher_card": null,
+  "pitcher_card": {
+    "player_id": "andrew-morris",
+    "slug": "andrew-morris",
+    "full_name": "Andrew Morris",
+    "team_abbr": "MIN",
+    "position": "P",
+    "games": 19,
+    "games_started": 2,
+    "wins": 1,
+    "losses": 2,
+    "saves": 1,
+    "era": 5.14,
+    "ip": "28.0",
+    "so": 28,
+    "bb": 10,
+    "whip": 1.643
+  },
   "statcast_hitter_card": null,
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"

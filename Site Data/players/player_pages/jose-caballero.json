@@ -12,7 +12,24 @@
   "bats": "R",
   "throws": "R",
   "active": true,
-  "hitter_card": null,
+  "hitter_card": {
+    "player_id": "jose-caballero",
+    "slug": "jose-caballero",
+    "full_name": "José Caballero",
+    "team_abbr": "NYY",
+    "position": "SS",
+    "games": 55,
+    "avg": ".253",
+    "obp": ".311",
+    "slg": ".388",
+    "ops": ".699",
+    "hr": 5,
+    "rbi": 16,
+    "runs": 23,
+    "sb": 15,
+    "bb": 11,
+    "so": 36
+  },
   "pitcher_card": null,
   "statcast_hitter_card": {
     "player_id": "jose-caballero",
@@ -28,10 +45,12 @@
     "xslg": 0.341,
     "xwoba": 0.287
   },
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"

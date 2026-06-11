@@ -13,12 +13,30 @@
   "throws": null,
   "active": true,
   "hitter_card": null,
-  "pitcher_card": null,
+  "pitcher_card": {
+    "player_id": "nick-mears",
+    "slug": "nick-mears",
+    "full_name": "Nick Mears",
+    "team_abbr": null,
+    "position": "P",
+    "games": 21,
+    "games_started": 0,
+    "wins": 2,
+    "losses": 3,
+    "saves": null,
+    "era": 5.12,
+    "ip": "19.1",
+    "so": 15,
+    "bb": 11,
+    "whip": 1.5
+  },
   "statcast_hitter_card": null,
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"

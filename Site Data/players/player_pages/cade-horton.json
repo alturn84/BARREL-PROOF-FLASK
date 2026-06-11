@@ -13,12 +13,30 @@
   "throws": null,
   "active": true,
   "hitter_card": null,
-  "pitcher_card": null,
+  "pitcher_card": {
+    "player_id": "cade-horton",
+    "slug": "cade-horton",
+    "full_name": "Cade Horton",
+    "team_abbr": null,
+    "position": "P",
+    "games": 2,
+    "games_started": 2,
+    "wins": 1,
+    "losses": null,
+    "saves": null,
+    "era": 2.45,
+    "ip": "7.1",
+    "so": 4,
+    "bb": 2,
+    "whip": 0.818
+  },
   "statcast_hitter_card": null,
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"

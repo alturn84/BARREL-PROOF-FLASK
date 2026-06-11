@@ -13,12 +13,30 @@
   "throws": "R",
   "active": true,
   "hitter_card": null,
-  "pitcher_card": null,
+  "pitcher_card": {
+    "player_id": "chad-patrick",
+    "slug": "chad-patrick",
+    "full_name": "Chad Patrick",
+    "team_abbr": "MIL",
+    "position": "P",
+    "games": 17,
+    "games_started": 6,
+    "wins": 3,
+    "losses": 2,
+    "saves": 3,
+    "era": 2.22,
+    "ip": "52.2",
+    "so": 41,
+    "bb": 21,
+    "whip": 1.177
+  },
   "statcast_hitter_card": null,
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"

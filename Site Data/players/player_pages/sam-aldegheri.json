@@ -13,12 +13,30 @@
   "throws": "L",
   "active": true,
   "hitter_card": null,
-  "pitcher_card": null,
+  "pitcher_card": {
+    "player_id": "sam-aldegheri",
+    "slug": "sam-aldegheri",
+    "full_name": "Sam Aldegheri",
+    "team_abbr": "LAA",
+    "position": "P",
+    "games": 4,
+    "games_started": 1,
+    "wins": 1,
+    "losses": 1,
+    "saves": null,
+    "era": 2.25,
+    "ip": "12.0",
+    "so": 8,
+    "bb": 5,
+    "whip": 1.333
+  },
   "statcast_hitter_card": null,
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"

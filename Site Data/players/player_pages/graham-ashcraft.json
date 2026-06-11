@@ -13,12 +13,30 @@
   "throws": null,
   "active": true,
   "hitter_card": null,
-  "pitcher_card": null,
+  "pitcher_card": {
+    "player_id": "graham-ashcraft",
+    "slug": "graham-ashcraft",
+    "full_name": "Graham Ashcraft",
+    "team_abbr": null,
+    "position": "P",
+    "games": 26,
+    "games_started": 0,
+    "wins": 1,
+    "losses": 1,
+    "saves": 1,
+    "era": 3.33,
+    "ip": "27.0",
+    "so": 32,
+    "bb": 16,
+    "whip": 1.222
+  },
   "statcast_hitter_card": null,
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"

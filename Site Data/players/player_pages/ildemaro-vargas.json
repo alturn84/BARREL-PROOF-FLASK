@@ -12,7 +12,24 @@
   "bats": "S",
   "throws": "R",
   "active": true,
-  "hitter_card": null,
+  "hitter_card": {
+    "player_id": "ildemaro-vargas",
+    "slug": "ildemaro-vargas",
+    "full_name": "Ildemaro Vargas",
+    "team_abbr": "ARI",
+    "position": "1B",
+    "games": 58,
+    "avg": ".280",
+    "obp": ".311",
+    "slg": ".439",
+    "ops": ".750",
+    "hr": 7,
+    "rbi": 37,
+    "runs": 30,
+    "sb": 1,
+    "bb": 8,
+    "so": 21
+  },
   "pitcher_card": null,
   "statcast_hitter_card": {
     "player_id": "ildemaro-vargas",
@@ -28,10 +45,12 @@
     "xslg": 0.402,
     "xwoba": 0.314
   },
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"

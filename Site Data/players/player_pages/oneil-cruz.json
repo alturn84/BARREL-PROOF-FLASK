@@ -12,7 +12,24 @@
   "bats": "L",
   "throws": "R",
   "active": true,
-  "hitter_card": null,
+  "hitter_card": {
+    "player_id": "oneil-cruz",
+    "slug": "oneil-cruz",
+    "full_name": "Oneil Cruz",
+    "team_abbr": "PIT",
+    "position": "CF",
+    "games": 64,
+    "avg": ".264",
+    "obp": ".350",
+    "slg": ".472",
+    "ops": ".822",
+    "hr": 14,
+    "rbi": 44,
+    "runs": 45,
+    "sb": 21,
+    "bb": 30,
+    "so": 98
+  },
   "pitcher_card": null,
   "statcast_hitter_card": {
     "player_id": "oneil-cruz",
@@ -28,10 +45,12 @@
     "xslg": 0.49,
     "xwoba": 0.358
   },
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"

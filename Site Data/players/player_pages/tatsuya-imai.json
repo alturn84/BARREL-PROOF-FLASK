@@ -13,12 +13,30 @@
   "throws": "R",
   "active": true,
   "hitter_card": null,
-  "pitcher_card": null,
+  "pitcher_card": {
+    "player_id": "tatsuya-imai",
+    "slug": "tatsuya-imai",
+    "full_name": "Tatsuya Imai",
+    "team_abbr": "HOU",
+    "position": "P",
+    "games": 8,
+    "games_started": 8,
+    "wins": 3,
+    "losses": 3,
+    "saves": null,
+    "era": 5.24,
+    "ip": "34.1",
+    "so": 36,
+    "bb": 23,
+    "whip": 1.398
+  },
   "statcast_hitter_card": null,
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"

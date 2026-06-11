@@ -18,17 +18,17 @@
     "full_name": "Manny Machado",
     "team_abbr": "SD",
     "position": "3B",
-    "games": 1,
-    "avg": null,
-    "obp": null,
-    "slg": null,
-    "ops": null,
-    "hr": 0,
-    "rbi": 1,
-    "runs": 0,
-    "sb": null,
-    "bb": null,
-    "so": null
+    "games": 64,
+    "avg": ".171",
+    "obp": ".253",
+    "slg": ".342",
+    "ops": ".595",
+    "hr": 11,
+    "rbi": 33,
+    "runs": 29,
+    "sb": 1,
+    "bb": 27,
+    "so": 61
   },
   "pitcher_card": null,
   "statcast_hitter_card": {
@@ -45,10 +45,12 @@
     "xslg": 0.382,
     "xwoba": 0.299
   },
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"

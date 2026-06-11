@@ -13,12 +13,30 @@
   "throws": "L",
   "active": true,
   "hitter_card": null,
-  "pitcher_card": null,
+  "pitcher_card": {
+    "player_id": "aj-minter",
+    "slug": "aj-minter",
+    "full_name": "A.J. Minter",
+    "team_abbr": "NYM",
+    "position": "P",
+    "games": 6,
+    "games_started": 0,
+    "wins": null,
+    "losses": 1,
+    "saves": null,
+    "era": 0.0,
+    "ip": "5.1",
+    "so": 6,
+    "bb": 1,
+    "whip": 0.938
+  },
   "statcast_hitter_card": null,
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"

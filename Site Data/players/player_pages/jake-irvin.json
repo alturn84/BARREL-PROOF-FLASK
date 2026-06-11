@@ -13,12 +13,30 @@
   "throws": null,
   "active": true,
   "hitter_card": null,
-  "pitcher_card": null,
+  "pitcher_card": {
+    "player_id": "jake-irvin",
+    "slug": "jake-irvin",
+    "full_name": "Jake Irvin",
+    "team_abbr": null,
+    "position": "P",
+    "games": 11,
+    "games_started": 11,
+    "wins": 2,
+    "losses": 4,
+    "saves": null,
+    "era": 5.23,
+    "ip": "51.2",
+    "so": 58,
+    "bb": 22,
+    "whip": 1.355
+  },
   "statcast_hitter_card": null,
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"

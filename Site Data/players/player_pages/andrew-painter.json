@@ -13,12 +13,30 @@
   "throws": "R",
   "active": true,
   "hitter_card": null,
-  "pitcher_card": null,
+  "pitcher_card": {
+    "player_id": "andrew-painter",
+    "slug": "andrew-painter",
+    "full_name": "Andrew Painter",
+    "team_abbr": "PHI",
+    "position": "P",
+    "games": 12,
+    "games_started": 11,
+    "wins": 1,
+    "losses": 7,
+    "saves": null,
+    "era": 6.21,
+    "ip": "58.0",
+    "so": 47,
+    "bb": 19,
+    "whip": 1.569
+  },
   "statcast_hitter_card": null,
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"

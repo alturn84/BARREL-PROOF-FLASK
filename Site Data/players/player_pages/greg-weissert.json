@@ -13,12 +13,30 @@
   "throws": "R",
   "active": true,
   "hitter_card": null,
-  "pitcher_card": null,
+  "pitcher_card": {
+    "player_id": "greg-weissert",
+    "slug": "greg-weissert",
+    "full_name": "Greg Weissert",
+    "team_abbr": "BOS",
+    "position": "P",
+    "games": 27,
+    "games_started": 0,
+    "wins": null,
+    "losses": 1,
+    "saves": null,
+    "era": 3.91,
+    "ip": "25.1",
+    "so": 26,
+    "bb": 9,
+    "whip": 1.382
+  },
   "statcast_hitter_card": null,
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"

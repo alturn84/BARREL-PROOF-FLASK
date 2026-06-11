@@ -12,7 +12,24 @@
   "bats": null,
   "throws": null,
   "active": true,
-  "hitter_card": null,
+  "hitter_card": {
+    "player_id": "jorge-soler",
+    "slug": "jorge-soler",
+    "full_name": "Jorge Soler",
+    "team_abbr": null,
+    "position": "DH",
+    "games": 58,
+    "avg": ".220",
+    "obp": ".300",
+    "slg": ".402",
+    "ops": ".702",
+    "hr": 9,
+    "rbi": 33,
+    "runs": 28,
+    "sb": 0,
+    "bb": 22,
+    "so": 76
+  },
   "pitcher_card": null,
   "statcast_hitter_card": {
     "player_id": "jorge-soler",
@@ -28,10 +45,12 @@
     "xslg": 0.39,
     "xwoba": 0.306
   },
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"

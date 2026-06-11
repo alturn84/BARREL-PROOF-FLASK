@@ -12,7 +12,24 @@
   "bats": null,
   "throws": null,
   "active": true,
-  "hitter_card": null,
+  "hitter_card": {
+    "player_id": "mickey-moniak",
+    "slug": "mickey-moniak",
+    "full_name": "Mickey Moniak",
+    "team_abbr": null,
+    "position": "LF",
+    "games": 43,
+    "avg": ".280",
+    "obp": ".335",
+    "slg": ".607",
+    "ops": ".942",
+    "hr": 12,
+    "rbi": 28,
+    "runs": 21,
+    "sb": 1,
+    "bb": 10,
+    "so": 40
+  },
   "pitcher_card": null,
   "statcast_hitter_card": {
     "player_id": "mickey-moniak",
@@ -28,10 +45,12 @@
     "xslg": 0.47,
     "xwoba": 0.324
   },
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"

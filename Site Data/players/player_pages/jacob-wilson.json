@@ -12,7 +12,24 @@
   "bats": null,
   "throws": null,
   "active": true,
-  "hitter_card": null,
+  "hitter_card": {
+    "player_id": "jacob-wilson",
+    "slug": "jacob-wilson",
+    "full_name": "Jacob Wilson",
+    "team_abbr": null,
+    "position": "SS",
+    "games": 39,
+    "avg": ".292",
+    "obp": ".311",
+    "slg": ".398",
+    "ops": ".709",
+    "hr": 3,
+    "rbi": 19,
+    "runs": 18,
+    "sb": 2,
+    "bb": 5,
+    "so": 20
+  },
   "pitcher_card": null,
   "statcast_hitter_card": {
     "player_id": "jacob-wilson",
@@ -28,10 +45,12 @@
     "xslg": 0.339,
     "xwoba": 0.275
   },
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"

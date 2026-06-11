@@ -18,17 +18,17 @@
     "full_name": "Chandler Simpson",
     "team_abbr": "TB",
     "position": "LF",
-    "games": 1,
-    "avg": null,
-    "obp": null,
-    "slg": null,
-    "ops": null,
+    "games": 62,
+    "avg": ".271",
+    "obp": ".307",
+    "slg": ".322",
+    "ops": ".629",
     "hr": 0,
-    "rbi": 0,
-    "runs": 0,
-    "sb": null,
-    "bb": null,
-    "so": null
+    "rbi": 12,
+    "runs": 30,
+    "sb": 14,
+    "bb": 13,
+    "so": 29
   },
   "pitcher_card": null,
   "statcast_hitter_card": {
@@ -45,10 +45,12 @@
     "xslg": 0.281,
     "xwoba": 0.253
   },
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"

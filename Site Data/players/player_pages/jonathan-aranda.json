@@ -12,7 +12,24 @@
   "bats": "L",
   "throws": "R",
   "active": true,
-  "hitter_card": null,
+  "hitter_card": {
+    "player_id": "jonathan-aranda",
+    "slug": "jonathan-aranda",
+    "full_name": "Jonathan Aranda",
+    "team_abbr": "TB",
+    "position": "1B",
+    "games": 63,
+    "avg": ".270",
+    "obp": ".378",
+    "slg": ".456",
+    "ops": ".834",
+    "hr": 11,
+    "rbi": 45,
+    "runs": 34,
+    "sb": 0,
+    "bb": 40,
+    "so": 68
+  },
   "pitcher_card": null,
   "statcast_hitter_card": {
     "player_id": "jonathan-aranda",
@@ -28,10 +45,12 @@
     "xslg": 0.477,
     "xwoba": 0.374
   },
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"

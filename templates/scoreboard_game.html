@@ -195,8 +195,8 @@ nav.main-nav {
 /* ── SECTION HEADERS ── */
 .section-hdr{display:flex;align-items:center;gap:14px;
   padding:36px 0 16px;}
-.section-hdr-text{font-family:var(--serif-sc);font-size:13px;letter-spacing:.26em;
-  color:var(--parchment);text-transform:uppercase;white-space:nowrap;font-weight:700;}
+.section-hdr-text{font-family:var(--typewriter-font);font-size:13px;letter-spacing:.26em;
+  color:var(--bp-accent);text-transform:uppercase;white-space:nowrap;font-weight:800;}
 .section-hdr-rule{flex:1;height:1px;background:rgba(168,144,112,.5);}
 
 /* ── GAME STORY ── */
@@ -213,9 +213,9 @@ nav.main-nav {
 /* ── LINE SCORE ── */
 .ls-wrap{overflow-x:auto;border-top:1px solid rgba(168,144,112,.6);
   border-bottom:1px solid rgba(168,144,112,.6);padding:20px 0 18px;margin-bottom:4px;}
-.ls-hdr{font-family:var(--mono);font-size:11px;line-height:2;
-  white-space:nowrap;display:block;color:var(--smoke-light);
-  letter-spacing:.06em;margin-bottom:4px;border-bottom:.5px solid var(--rule);
+.ls-hdr{font-family:var(--typewriter-font);font-size:11px;line-height:2;
+  white-space:nowrap;display:block;color:var(--bp-accent);text-transform:uppercase;font-weight:800;
+  letter-spacing:.06em;margin-bottom:4px;border-bottom:2px solid var(--bp-rule-dark);
   padding-bottom:4px;}
 .ls-row{font-family:var(--mono);font-size:18px;line-height:3;
   white-space:nowrap;display:block;}
@@ -282,14 +282,14 @@ nav.main-nav {
 .back-link:hover{color:var(--parchment);}
 
 /* ── FOOTER ── */
-.site-footer{border-top:.5px solid var(--rule-heavy);margin-top:52px;
+.site-footer{border-top:2px solid var(--bp-rule);background:var(--bp-charcoal);color:var(--bp-paper);margin-top:52px;
   padding:22px 0;display:flex;justify-content:space-between;
   align-items:center;flex-wrap:wrap;gap:10px;}
 .footer-name{font-family:var(--serif-sc);font-size:15px;
-  color:var(--parchment3);letter-spacing:.1em;}
-.footer-tag{font-family:var(--mono);font-size:9px;color:var(--gold-dim);
+  color:var(--bp-paper);letter-spacing:.1em;}
+.footer-tag{font-family:var(--mono);font-size:9px;color:var(--bp-rule);
   letter-spacing:.1em;text-align:center;line-height:1.8;}
-.footer-legal{font-family:var(--mono);font-size:9px;color:var(--gold-dim);
+.footer-legal{font-family:var(--mono);font-size:9px;color:var(--bp-rule);
   opacity:.6;text-align:right;line-height:1.7;}
 
 @media(max-width:860px){.page{padding:0 24px 60px;}}

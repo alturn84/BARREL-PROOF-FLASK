@@ -13,12 +13,30 @@
   "throws": null,
   "active": true,
   "hitter_card": null,
-  "pitcher_card": null,
+  "pitcher_card": {
+    "player_id": "lance-mccullers-jr",
+    "slug": "lance-mccullers-jr",
+    "full_name": "Lance McCullers Jr.",
+    "team_abbr": null,
+    "position": "P",
+    "games": 8,
+    "games_started": 8,
+    "wins": 2,
+    "losses": 3,
+    "saves": null,
+    "era": 6.86,
+    "ip": "39.1",
+    "so": 43,
+    "bb": 22,
+    "whip": 1.525
+  },
   "statcast_hitter_card": null,
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"

@@ -13,12 +13,30 @@
   "throws": null,
   "active": true,
   "hitter_card": null,
-  "pitcher_card": null,
+  "pitcher_card": {
+    "player_id": "ben-casparius",
+    "slug": "ben-casparius",
+    "full_name": "Ben Casparius",
+    "team_abbr": null,
+    "position": "P",
+    "games": 5,
+    "games_started": 0,
+    "wins": null,
+    "losses": 1,
+    "saves": null,
+    "era": 9.64,
+    "ip": "4.2",
+    "so": 4,
+    "bb": 4,
+    "whip": 2.143
+  },
   "statcast_hitter_card": null,
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"

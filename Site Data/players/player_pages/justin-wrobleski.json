@@ -13,12 +13,30 @@
   "throws": "L",
   "active": true,
   "hitter_card": null,
-  "pitcher_card": null,
+  "pitcher_card": {
+    "player_id": "justin-wrobleski",
+    "slug": "justin-wrobleski",
+    "full_name": "Justin Wrobleski",
+    "team_abbr": "LAD",
+    "position": "P",
+    "games": 11,
+    "games_started": 10,
+    "wins": 7,
+    "losses": 2,
+    "saves": null,
+    "era": 2.62,
+    "ip": "68.2",
+    "so": 44,
+    "bb": 14,
+    "whip": 1.005
+  },
   "statcast_hitter_card": null,
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"

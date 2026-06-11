@@ -259,6 +259,34 @@ def load_statcast_cards():
     return cards
 
 
+def load_season_cards(path_name, fields, players):
+    data = load_json(PLAYERS_DIR / path_name, {})
+    if not isinstance(data, dict):
+        return {}
+    records = data.get("players", {})
+    if not isinstance(records, dict):
+        return {}
+
+    players_by_slug = {player.get("slug"): player for player in players if player.get("slug")}
+    cards = {}
+    for slug, record in records.items():
+        if not isinstance(record, dict):
+            continue
+        player = players_by_slug.get(slug, {})
+        card = {
+            "player_id": player.get("player_id") or record.get("player_id") or slug,
+            "slug": slug,
+            "full_name": record.get("full_name") or player.get("full_name") or player.get("display_name"),
+            "team_abbr": record.get("team_abbr") or player.get("team_abbr"),
+            "position": player.get("position") or record.get("position"),
+        }
+        for field in fields:
+            if field not in card:
+                card[field] = clean(record.get(field))
+        cards[slug] = card
+    return cards
+
+
 def main():
     players = load_json(PLAYERS_DIR / "player_index.json", [])
     aliases = load_json(PLAYERS_DIR / "player_aliases.json", {})
@@ -289,17 +317,29 @@ def main():
 
     apply_dope_pitchers(pitcher_cards, resolve)
 
-    hitter_output = [
-        strip_internal(card, HITTER_FIELDS)
-        for card in sorted(hitter_cards.values(), key=lambda c: (c.get("team_abbr") or "", c.get("full_name") or ""))
-    ]
-    pitcher_output = [
-        strip_internal(card, PITCHER_FIELDS)
-        for card in sorted(pitcher_cards.values(), key=lambda c: (c.get("team_abbr") or "", c.get("full_name") or ""))
-    ]
+    season_hitters = load_season_cards("season_hitter_stats.json", HITTER_FIELDS, players)
+    season_pitchers = load_season_cards("season_pitcher_stats.json", PITCHER_FIELDS, players)
 
-    hitter_by_slug = {card["slug"]: card for card in hitter_output if card.get("slug")}
-    pitcher_by_slug = {card["slug"]: card for card in pitcher_output if card.get("slug")}
+    hitter_by_slug = {
+        slug: strip_internal(card, HITTER_FIELDS)
+        for slug, card in hitter_cards.items()
+    }
+    pitcher_by_slug = {
+        slug: strip_internal(card, PITCHER_FIELDS)
+        for slug, card in pitcher_cards.items()
+    }
+    hitter_by_slug.update({
+        slug: strip_internal(card, HITTER_FIELDS)
+        for slug, card in season_hitters.items()
+    })
+    pitcher_by_slug.update({
+        slug: strip_internal(card, PITCHER_FIELDS)
+        for slug, card in season_pitchers.items()
+    })
+
+    hitter_output = sorted(hitter_by_slug.values(), key=lambda c: (c.get("team_abbr") or "", c.get("full_name") or ""))
+    pitcher_output = sorted(pitcher_by_slug.values(), key=lambda c: (c.get("team_abbr") or "", c.get("full_name") or ""))
+
     statcast_by_slug = load_statcast_cards()
     generated_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 
@@ -316,6 +356,8 @@ def main():
         page["metadata"] = {
             "player_cards_version": "PLAYER-002",
             "sources": [
+                "Site Data/players/season_hitter_stats.json",
+                "Site Data/players/season_pitcher_stats.json",
                 "Site Data/game_cards.json",
                 "Site Data/dope-sheet-data.json",
                 "Site Data/players/statcast_hitter_cards.json",

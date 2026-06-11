@@ -13,12 +13,30 @@
   "throws": "R",
   "active": true,
   "hitter_card": null,
-  "pitcher_card": null,
+  "pitcher_card": {
+    "player_id": "kyle-hurt",
+    "slug": "kyle-hurt",
+    "full_name": "Kyle Hurt",
+    "team_abbr": "LAD",
+    "position": "P",
+    "games": 21,
+    "games_started": 0,
+    "wins": 1,
+    "losses": null,
+    "saves": 1,
+    "era": 2.57,
+    "ip": "21.0",
+    "so": 27,
+    "bb": 7,
+    "whip": 1.0
+  },
   "statcast_hitter_card": null,
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"

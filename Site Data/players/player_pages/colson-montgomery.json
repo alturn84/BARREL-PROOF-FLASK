@@ -12,7 +12,24 @@
   "bats": "L",
   "throws": "R",
   "active": true,
-  "hitter_card": null,
+  "hitter_card": {
+    "player_id": "colson-montgomery",
+    "slug": "colson-montgomery",
+    "full_name": "Colson Montgomery",
+    "team_abbr": "CWS",
+    "position": "SS",
+    "games": 64,
+    "avg": ".225",
+    "obp": ".322",
+    "slg": ".479",
+    "ops": ".801",
+    "hr": 16,
+    "rbi": 38,
+    "runs": 31,
+    "sb": 1,
+    "bb": 25,
+    "so": 83
+  },
   "pitcher_card": null,
   "statcast_hitter_card": {
     "player_id": "colson-montgomery",
@@ -28,10 +45,12 @@
     "xslg": 0.438,
     "xwoba": 0.326
   },
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"

@@ -12,7 +12,24 @@
   "bats": "R",
   "throws": "R",
   "active": true,
-  "hitter_card": null,
+  "hitter_card": {
+    "player_id": "brent-rooker",
+    "slug": "brent-rooker",
+    "full_name": "Brent Rooker",
+    "team_abbr": "ATH",
+    "position": "DH",
+    "games": 48,
+    "avg": ".200",
+    "obp": ".281",
+    "slg": ".389",
+    "ops": ".670",
+    "hr": 10,
+    "rbi": 29,
+    "runs": 20,
+    "sb": 2,
+    "bb": 19,
+    "so": 65
+  },
   "pitcher_card": null,
   "statcast_hitter_card": {
     "player_id": "brent-rooker",
@@ -28,10 +45,12 @@
     "xslg": 0.435,
     "xwoba": 0.315
   },
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"

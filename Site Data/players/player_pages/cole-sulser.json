@@ -13,12 +13,30 @@
   "throws": "R",
   "active": true,
   "hitter_card": null,
-  "pitcher_card": null,
+  "pitcher_card": {
+    "player_id": "cole-sulser",
+    "slug": "cole-sulser",
+    "full_name": "Cole Sulser",
+    "team_abbr": "TB",
+    "position": "P",
+    "games": 22,
+    "games_started": 1,
+    "wins": 1,
+    "losses": null,
+    "saves": 2,
+    "era": 4.62,
+    "ip": "25.1",
+    "so": 22,
+    "bb": 10,
+    "whip": 1.539
+  },
   "statcast_hitter_card": null,
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"

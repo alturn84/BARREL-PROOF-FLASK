@@ -194,7 +194,7 @@ def player_url(player):
 @app.context_processor
 def inject_player_helpers():
     def stat_value(value):
-        if value in (None, "", False):
+        if value is None or value == "" or value is False:
             return "—"
         return value
     return dict(player_url=player_url, stat_value=stat_value)

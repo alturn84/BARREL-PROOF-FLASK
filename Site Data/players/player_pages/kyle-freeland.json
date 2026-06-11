@@ -13,12 +13,30 @@
   "throws": "L",
   "active": true,
   "hitter_card": null,
-  "pitcher_card": null,
+  "pitcher_card": {
+    "player_id": "kyle-freeland",
+    "slug": "kyle-freeland",
+    "full_name": "Kyle Freeland",
+    "team_abbr": "COL",
+    "position": "P",
+    "games": 11,
+    "games_started": 11,
+    "wins": 1,
+    "losses": 6,
+    "saves": null,
+    "era": 7.81,
+    "ip": "53.0",
+    "so": 45,
+    "bb": 16,
+    "whip": 1.698
+  },
   "statcast_hitter_card": null,
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"

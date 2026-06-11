@@ -13,12 +13,30 @@
   "throws": "R",
   "active": true,
   "hitter_card": null,
-  "pitcher_card": null,
+  "pitcher_card": {
+    "player_id": "randy-vasquez",
+    "slug": "randy-vasquez",
+    "full_name": "Randy Vásquez",
+    "team_abbr": "SD",
+    "position": "P",
+    "games": 13,
+    "games_started": 13,
+    "wins": 5,
+    "losses": 4,
+    "saves": null,
+    "era": 3.63,
+    "ip": "69.1",
+    "so": 53,
+    "bb": 20,
+    "whip": 1.298
+  },
   "statcast_hitter_card": null,
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"

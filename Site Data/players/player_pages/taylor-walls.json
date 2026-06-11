@@ -12,7 +12,24 @@
   "bats": "S",
   "throws": "R",
   "active": true,
-  "hitter_card": null,
+  "hitter_card": {
+    "player_id": "taylor-walls",
+    "slug": "taylor-walls",
+    "full_name": "Taylor Walls",
+    "team_abbr": "TB",
+    "position": "SS",
+    "games": 49,
+    "avg": ".203",
+    "obp": ".309",
+    "slg": ".273",
+    "ops": ".582",
+    "hr": 0,
+    "rbi": 14,
+    "runs": 22,
+    "sb": 8,
+    "bb": 20,
+    "so": 44
+  },
   "pitcher_card": null,
   "statcast_hitter_card": {
     "player_id": "taylor-walls",
@@ -28,10 +45,12 @@
     "xslg": 0.219,
     "xwoba": 0.24
   },
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"

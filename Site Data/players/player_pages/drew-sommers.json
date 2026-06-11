@@ -13,12 +13,30 @@
   "throws": "L",
   "active": true,
   "hitter_card": null,
-  "pitcher_card": null,
+  "pitcher_card": {
+    "player_id": "drew-sommers",
+    "slug": "drew-sommers",
+    "full_name": "Drew Sommers",
+    "team_abbr": "DET",
+    "position": "P",
+    "games": 4,
+    "games_started": 0,
+    "wins": null,
+    "losses": null,
+    "saves": null,
+    "era": 0.0,
+    "ip": "3.0",
+    "so": 5,
+    "bb": 2,
+    "whip": 0.667
+  },
   "statcast_hitter_card": null,
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"

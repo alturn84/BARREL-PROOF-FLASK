@@ -13,12 +13,30 @@
   "throws": "R",
   "active": true,
   "hitter_card": null,
-  "pitcher_card": null,
+  "pitcher_card": {
+    "player_id": "braxton-ashcraft",
+    "slug": "braxton-ashcraft",
+    "full_name": "Braxton Ashcraft",
+    "team_abbr": "PIT",
+    "position": "P",
+    "games": 13,
+    "games_started": 13,
+    "wins": 5,
+    "losses": 3,
+    "saves": null,
+    "era": 3.28,
+    "ip": "79.2",
+    "so": 86,
+    "bb": 17,
+    "whip": 1.079
+  },
   "statcast_hitter_card": null,
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"

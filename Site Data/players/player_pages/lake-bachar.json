@@ -13,12 +13,30 @@
   "throws": "R",
   "active": true,
   "hitter_card": null,
-  "pitcher_card": null,
+  "pitcher_card": {
+    "player_id": "lake-bachar",
+    "slug": "lake-bachar",
+    "full_name": "Lake Bachar",
+    "team_abbr": "MIA",
+    "position": "P",
+    "games": 20,
+    "games_started": 2,
+    "wins": null,
+    "losses": null,
+    "saves": null,
+    "era": 3.15,
+    "ip": "34.1",
+    "so": 38,
+    "bb": 11,
+    "whip": 0.874
+  },
   "statcast_hitter_card": null,
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"

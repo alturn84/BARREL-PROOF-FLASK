@@ -13,12 +13,30 @@
   "throws": "R",
   "active": true,
   "hitter_card": null,
-  "pitcher_card": null,
+  "pitcher_card": {
+    "player_id": "chris-paddack",
+    "slug": "chris-paddack",
+    "full_name": "Chris Paddack",
+    "team_abbr": "CIN",
+    "position": "P",
+    "games": 11,
+    "games_started": 9,
+    "wins": null,
+    "losses": 7,
+    "saves": null,
+    "era": 7.17,
+    "ip": "47.2",
+    "so": 37,
+    "bb": 17,
+    "whip": 1.699
+  },
   "statcast_hitter_card": null,
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"

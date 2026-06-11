@@ -12,7 +12,24 @@
   "bats": null,
   "throws": null,
   "active": true,
-  "hitter_card": null,
+  "hitter_card": {
+    "player_id": "elly-de-la-cruz",
+    "slug": "elly-de-la-cruz",
+    "full_name": "Elly De La Cruz",
+    "team_abbr": null,
+    "position": "SS",
+    "games": 58,
+    "avg": ".280",
+    "obp": ".346",
+    "slg": ".509",
+    "ops": ".855",
+    "hr": 12,
+    "rbi": 37,
+    "runs": 40,
+    "sb": 10,
+    "bb": 22,
+    "so": 76
+  },
   "pitcher_card": null,
   "statcast_hitter_card": {
     "player_id": "elly-de-la-cruz",
@@ -28,10 +45,12 @@
     "xslg": 0.493,
     "xwoba": 0.362
   },
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"

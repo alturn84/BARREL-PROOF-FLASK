@@ -12,7 +12,24 @@
   "bats": "S",
   "throws": "R",
   "active": true,
-  "hitter_card": null,
+  "hitter_card": {
+    "player_id": "adley-rutschman",
+    "slug": "adley-rutschman",
+    "full_name": "Adley Rutschman",
+    "team_abbr": "BAL",
+    "position": "C",
+    "games": 48,
+    "avg": ".267",
+    "obp": ".343",
+    "slg": ".489",
+    "ops": ".832",
+    "hr": 8,
+    "rbi": 36,
+    "runs": 25,
+    "sb": 0,
+    "bb": 21,
+    "so": 28
+  },
   "pitcher_card": null,
   "statcast_hitter_card": {
     "player_id": "adley-rutschman",
@@ -28,10 +45,12 @@
     "xslg": 0.487,
     "xwoba": 0.376
   },
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"

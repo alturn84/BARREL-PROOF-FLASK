@@ -13,12 +13,30 @@
   "throws": "R",
   "active": true,
   "hitter_card": null,
-  "pitcher_card": null,
+  "pitcher_card": {
+    "player_id": "sean-burke",
+    "slug": "sean-burke",
+    "full_name": "Sean Burke",
+    "team_abbr": "CWS",
+    "position": "P",
+    "games": 13,
+    "games_started": 10,
+    "wins": 3,
+    "losses": 3,
+    "saves": null,
+    "era": 3.88,
+    "ip": "69.2",
+    "so": 67,
+    "bb": 23,
+    "whip": 1.177
+  },
   "statcast_hitter_card": null,
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"

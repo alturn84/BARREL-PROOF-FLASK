@@ -12,7 +12,24 @@
   "bats": "L",
   "throws": "R",
   "active": true,
-  "hitter_card": null,
+  "hitter_card": {
+    "player_id": "jeff-mcneil",
+    "slug": "jeff-mcneil",
+    "full_name": "Jeff McNeil",
+    "team_abbr": "ATH",
+    "position": "2B",
+    "games": 62,
+    "avg": ".234",
+    "obp": ".304",
+    "slg": ".308",
+    "ops": ".612",
+    "hr": 2,
+    "rbi": 15,
+    "runs": 15,
+    "sb": 1,
+    "bb": 18,
+    "so": 32
+  },
   "pitcher_card": null,
   "statcast_hitter_card": {
     "player_id": "jeff-mcneil",
@@ -28,10 +45,12 @@
     "xslg": 0.344,
     "xwoba": 0.304
   },
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"

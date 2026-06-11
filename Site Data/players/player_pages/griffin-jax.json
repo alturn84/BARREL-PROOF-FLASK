@@ -13,12 +13,30 @@
   "throws": "R",
   "active": true,
   "hitter_card": null,
-  "pitcher_card": null,
+  "pitcher_card": {
+    "player_id": "griffin-jax",
+    "slug": "griffin-jax",
+    "full_name": "Griffin Jax",
+    "team_abbr": "TB",
+    "position": "P",
+    "games": 19,
+    "games_started": 8,
+    "wins": 1,
+    "losses": 4,
+    "saves": null,
+    "era": 4.15,
+    "ip": "39.0",
+    "so": 36,
+    "bb": 18,
+    "whip": 1.41
+  },
   "statcast_hitter_card": null,
-  "generated_at": "2026-06-11T03:52:40Z",
+  "generated_at": "2026-06-11T04:17:02Z",
   "metadata": {
     "player_cards_version": "PLAYER-002",
     "sources": [
+      "Site Data/players/season_hitter_stats.json",
+      "Site Data/players/season_pitcher_stats.json",
       "Site Data/game_cards.json",
       "Site Data/dope-sheet-data.json",
       "Site Data/players/statcast_hitter_cards.json"
