@@ -203,6 +203,42 @@
     </section>
     {% endif %}
 
+    {% if contact_signal_card %}
+    {% set contact_inputs = contact_signal_card.get("inputs") or {} %}
+    <section class="ledger-card stats-card contact-signal-card">
+      <div class="section-label">CONTACT SIGNAL</div>
+      <p class="stats-note">Contact Signal measures whether a hitter’s production is supported by contact skill and plate discipline.</p>
+      <div class="stats-table-wrap">
+        <table class="stats-table contact-signal-table">
+          <thead>
+            <tr>
+              <th>Signal</th>
+              <th>Label</th>
+              <th>Confidence</th>
+              <th>xBA</th>
+              <th>OBP</th>
+              <th>K%</th>
+              <th>BB%</th>
+              <th>BP wOBA</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ stat_value(contact_signal_card.get("contact_signal")) }}</td>
+              <td class="stat-label-cell">{{ stat_value(contact_signal_card.get("label")) }}</td>
+              <td>{{ stat_value(contact_signal_card.get("confidence")) }}</td>
+              <td>{{ stat_value(contact_inputs.get("xba")) }}</td>
+              <td>{{ stat_value(contact_inputs.get("obp")) }}</td>
+              <td>{{ stat_value(contact_inputs.get("k_pct")) }}</td>
+              <td>{{ stat_value(contact_inputs.get("bb_pct")) }}</td>
+              <td>{{ stat_value(contact_inputs.get("calculated_woba")) }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    {% endif %}
+
     {% set statcast_hitter_card = player.statcast_hitter_card %}
     {% if statcast_hitter_card %}
     <section class="ledger-card stats-card contact-quality-card">
@@ -239,7 +275,7 @@
     </section>
     {% endif %}
 
-    {% if not luck_gap_card and not power_signal_card and not statcast_hitter_card %}
+    {% if not luck_gap_card and not power_signal_card and not contact_signal_card and not statcast_hitter_card %}
     <section class="ledger-card placeholder-card">
       <div class="section-label">Tracking Data</div>
       <p class="tracking-note">Additional tracking data is not available for this player yet.</p>

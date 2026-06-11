@@ -394,8 +394,13 @@ nav.main-nav {
   min-width: 780px;
 }
 
+.contact-signal-table {
+  min-width: 860px;
+}
+
 .luck-gap-table .stat-label-cell,
 .power-signal-table .stat-label-cell,
+.contact-signal-table .stat-label-cell,
 .leaderboard-table td:last-child {
   text-align: left;
   white-space: normal;
@@ -407,6 +412,10 @@ nav.main-nav {
 
 .power-leaderboard-table {
   min-width: 980px;
+}
+
+.contact-leaderboard-table {
+  min-width: 1080px;
 }
 
 .leaderboard-table th:nth-child(3),
@@ -445,6 +454,17 @@ nav.main-nav {
 }
 
 .power-signal-card .section-label {
+  color: var(--bp-accent);
+  letter-spacing: .22em;
+}
+
+/* ── CONTACT SIGNAL ── */
+.contact-signal-card {
+  background: var(--bp-paper-soft);
+  border-color: var(--bp-rule);
+}
+
+.contact-signal-card .section-label {
   color: var(--bp-accent);
   letter-spacing: .22em;
 }

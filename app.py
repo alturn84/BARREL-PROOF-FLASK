@@ -162,6 +162,11 @@ def load_hitter_power_signal_cards():
     players = data.get("players") if isinstance(data, dict) else {}
     return players if isinstance(players, dict) else {}
 
+def load_hitter_contact_signal_cards():
+    data = load_json("players/hitter_contact_signal.json", fallback={})
+    players = data.get("players") if isinstance(data, dict) else {}
+    return players if isinstance(players, dict) else {}
+
 def resolve_player_name(name):
     if not name:
         return None
@@ -1667,6 +1672,7 @@ def player_detail(slug):
     normalized_slug = str(slug or "").strip().lower()
     luck_gap_card = load_hitter_luck_gap_cards().get(normalized_slug)
     power_signal_card = load_hitter_power_signal_cards().get(normalized_slug)
+    contact_signal_card = load_hitter_contact_signal_cards().get(normalized_slug)
     return render_template(
         "player_detail.html",
         player=player,
@@ -1674,6 +1680,7 @@ def player_detail(slug):
         pitcher_card=player.get("pitcher_card") if isinstance(player, dict) else None,
         luck_gap_card=luck_gap_card,
         power_signal_card=power_signal_card,
+        contact_signal_card=contact_signal_card,
         page_title=f"{player.get('display_name') or player.get('full_name')} — Barrel Proof Player Ledger",
         meta_description=f"{player.get('display_name') or player.get('full_name')} player ledger — Barrel Proof Baseball.",
     )
@@ -1709,6 +1716,19 @@ def power_signal_leaderboard():
         players=players,
         page_title="Power Signal Leaderboard — Barrel Proof",
         meta_description="Barrel Proof Power Signal leaderboard showing hitter power supported by contact quality.",
+    )
+
+@app.route("/leaderboards/contact-signal")
+@app.route("/leaderboards/contact-signal/")
+def contact_signal_leaderboard():
+    cards = load_hitter_contact_signal_cards()
+    players = [card for card in cards.values() if isinstance(card, dict)]
+    players.sort(key=lambda card: (card.get("contact_signal") is None, -(card.get("contact_signal") or 0), card.get("full_name") or ""))
+    return render_template(
+        "contact_signal_leaderboard.html",
+        players=players,
+        page_title="Contact Signal Leaderboard — Barrel Proof",
+        meta_description="Barrel Proof Contact Signal leaderboard showing contact skill and plate discipline support.",
     )
 
 def build_team_context_note(team, record, form):
