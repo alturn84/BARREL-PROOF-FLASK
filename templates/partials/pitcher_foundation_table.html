@@ -1,0 +1,38 @@
+<div class="player-table-wrap leaderboard-table-wrap">
+  <table class="player-table leaderboard-table">
+    <thead>
+      <tr>
+        <th>Player</th>
+        <th>Team</th>
+        <th>IP</th>
+        <th>Foundation Signal</th>
+        <th>Profile</th>
+        <th>Confidence</th>
+        <th>ERA</th>
+        <th>WHIP</th>
+        <th>K/9</th>
+        <th>BB/9</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for player in leaderboard_players %}
+      <tr>
+        <td><a href="/player/{{ player.get('slug') }}">{{ player.get('full_name') or '—' }}</a></td>
+        <td>{{ stat_value(player.get('team_abbr')) }}</td>
+        <td>{{ stat_value(player.get('ip')) }}</td>
+        <td>{{ stat_value(player.get('pitcher_foundation_signal')) }}</td>
+        <td>{{ stat_value(player.get('profile_type')) }}</td>
+        <td>{{ stat_value(player.get('confidence')) }}</td>
+        <td>{{ stat_value(player.get('era')) }}</td>
+        <td>{{ stat_value(player.get('whip')) }}</td>
+        <td>{{ stat_value(player.get('k9')) }}</td>
+        <td>{{ stat_value(player.get('bb9')) }}</td>
+      </tr>
+      {% else %}
+      <tr>
+        <td colspan="10">—</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>

@@ -15,6 +15,7 @@ DATA_DIR = Path(os.environ.get("DATA_DIR", str(BASE_DIR / "Site Data")))
 PLAYER_DATA_DIR = DATA_DIR / "players"
 VAULT = Path(os.environ.get("VAULT_DIR", str(BASE_DIR)))
 MIN_HITTER_LEADERBOARD_PA = 150
+MIN_PITCHER_FOUNDATION_LEADERBOARD_IP = 25
 
 CITY_TO_TEAM = {
     "Arizona":       "Arizona Diamondbacks",
@@ -198,6 +199,28 @@ def load_hitter_pa_by_slug():
             continue
         pa_by_slug[str(slug).strip().lower()] = pa
     return pa_by_slug
+
+def eligible_pitcher_foundation_leaderboard_rows(min_ip=MIN_PITCHER_FOUNDATION_LEADERBOARD_IP):
+    cards = load_pitcher_foundation_signals()
+    profiles = load_pitcher_profile_summaries()
+    rows = []
+    for card in cards.values():
+        if not isinstance(card, dict):
+            continue
+        if card.get("pitcher_foundation_signal") is None:
+            continue
+        if card.get("confidence") == "INSUFFICIENT":
+            continue
+        ip = card.get("ip")
+        if not isinstance(ip, (int, float)) or isinstance(ip, bool):
+            continue
+        if ip < min_ip:
+            continue
+        row = dict(card)
+        profile = profiles.get(str(card.get("slug") or "").strip().lower())
+        row["profile_type"] = profile.get("profile_type") if isinstance(profile, dict) else None
+        rows.append(row)
+    return rows
 
 def eligible_hitter_leaderboard_rows(cards, min_pa=MIN_HITTER_LEADERBOARD_PA):
     pa_by_slug = load_hitter_pa_by_slug()
@@ -1771,6 +1794,22 @@ def luck_gap_leaderboard():
         unfiltered_count=unfiltered_count,
         page_title="Luck Gap Leaderboard — Barrel Proof",
         meta_description="Barrel Proof Luck Gap leaderboard comparing xwOBA against calculated wOBA.",
+    )
+
+@app.route("/leaderboards/pitcher-foundation")
+@app.route("/leaderboards/pitcher-foundation/")
+def pitcher_foundation_leaderboard():
+    cards = load_pitcher_foundation_signals()
+    unfiltered_count = len([card for card in cards.values() if isinstance(card, dict)])
+    players = eligible_pitcher_foundation_leaderboard_rows()
+    players.sort(key=lambda card: (-(card.get("pitcher_foundation_signal") or 0), card.get("full_name") or ""))
+    return render_template(
+        "pitcher_foundation_leaderboard.html",
+        players=players,
+        min_ip=MIN_PITCHER_FOUNDATION_LEADERBOARD_IP,
+        unfiltered_count=unfiltered_count,
+        page_title="Pitcher Foundation Leaderboard — Barrel Proof",
+        meta_description="Barrel Proof Pitcher Foundation leaderboard ranking pitchers by foundation signal with workload context.",
     )
 
 @app.route("/leaderboards/power-signal")
