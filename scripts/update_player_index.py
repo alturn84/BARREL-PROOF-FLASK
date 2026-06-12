@@ -249,17 +249,23 @@ def canonical_record(row, teams_by_abbr, teams_by_name, overrides):
 def merge_records(records):
     merged = {}
     name_team_keys = {}
+    player_id_keys = {}
     for rec in records:
         if not rec:
             continue
         name_team_key = f"{ascii_key(rec.get('full_name', ''))}|{rec.get('team_abbr') or ''}"
-        key = rec.get("mlbam_id") or name_team_key
+        player_id = rec.get("player_id")
+        key = rec.get("mlbam_id") or player_id or name_team_key
+        if player_id and player_id in player_id_keys:
+            key = player_id_keys[player_id]
         if rec.get("mlbam_id") and name_team_key in name_team_keys:
             key = name_team_keys[name_team_key]
         existing = merged.get(key)
         if not existing:
             merged[key] = rec
             name_team_keys[name_team_key] = key
+            if player_id:
+                player_id_keys[player_id] = key
             continue
         is_manual = bool(rec.get("_manual"))
         for field, value in rec.items():
@@ -305,10 +311,14 @@ def build_aliases(records, overrides):
     aliases = {}
     normalized_lookup = {}
     by_name = defaultdict(list)
+    by_short_alias = defaultdict(list)
     for rec in records:
         key = ascii_key(rec.get("full_name") or rec.get("display_name") or "")
         if key:
             by_name[key].append(rec)
+        short = initial_alias(rec.get("full_name") or "")
+        if short:
+            by_short_alias[ascii_key(short)].append(rec)
 
     def team_alias_parts(rec):
         parts = {rec.get("team_abbr"), rec.get("team_name")}
@@ -327,7 +337,15 @@ def build_aliases(records, overrides):
         names = {rec.get("full_name"), rec.get("display_name")}
         short = initial_alias(rec.get("full_name") or "")
         if short:
-            names.add(short)
+            short_matches = by_short_alias.get(ascii_key(short), [])
+            duplicate_short = len({match.get("slug") for match in short_matches if match.get("slug")}) > 1
+            if duplicate_short:
+                for team_part in team_alias_parts(rec):
+                    qualified = f"{short} {team_part}"
+                    aliases[qualified] = slug
+                    normalized_lookup.setdefault(ascii_key(qualified), slug)
+            else:
+                names.add(short)
         for name in names:
             if name and not duplicate_name:
                 aliases[name] = slug
