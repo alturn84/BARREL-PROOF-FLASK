@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Players — Barrel Proof</title>
+<title>The Player Ledger — Barrel Proof</title>
 <meta name="description" content="Active MLB player ledger index for Barrel Proof Baseball."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -20,11 +20,53 @@
 
   <header class="ledger-header">
     <div class="eyebrow">Barrel Proof Baseball</div>
-    <h1>Player Ledger</h1>
-    <p>{{ player_count }} active players indexed from the current roster files.</p>
+    <h1>THE PLAYER LEDGER</h1>
+    <p>Search the Barrel Proof player index, browse team rosters, and jump into the signal leaderboards.</p>
   </header>
 
-  <main class="team-ledger-list">
+  <section class="leaderboard-shortcuts">
+    <a class="leaderboard-shortcut-card" href="/leaderboards/luck-gap">
+      <h3>Luck Gap</h3>
+      <p>Expected production vs. current results</p>
+    </a>
+    <a class="leaderboard-shortcut-card" href="/leaderboards/power-signal">
+      <h3>Power Signal</h3>
+      <p>Power backed by contact quality</p>
+    </a>
+    <a class="leaderboard-shortcut-card" href="/leaderboards/contact-signal">
+      <h3>Contact Signal</h3>
+      <p>Contact skill and plate-discipline foundation</p>
+    </a>
+    <a class="leaderboard-shortcut-card" href="/leaderboards/pitcher-foundation">
+      <h3>Pitcher Foundation</h3>
+      <p>Run prevention, command, and strikeout base</p>
+    </a>
+  </section>
+
+  <section class="player-filter-bar">
+    <input type="search" id="player-search" class="player-filter-input" placeholder="Search players by name…" aria-label="Search players by name"/>
+    <select id="player-team-filter" class="player-filter-select" aria-label="Filter by team">
+      <option value="">All Teams</option>
+      {% for abbr, name in team_options %}
+      <option value="{{ abbr }}">{{ name }} ({{ abbr }})</option>
+      {% endfor %}
+    </select>
+    <select id="player-position-filter" class="player-filter-select" aria-label="Filter by position">
+      <option value="">All Positions</option>
+      {% for pos in position_options %}
+      <option value="{{ pos }}">{{ pos }}</option>
+      {% endfor %}
+    </select>
+    <select id="player-type-filter" class="player-filter-select" aria-label="Filter by hitter or pitcher">
+      <option value="">Hitters &amp; Pitchers</option>
+      <option value="pitcher">Pitchers</option>
+      <option value="hitter">Hitters</option>
+    </select>
+  </section>
+
+  <p class="player-count-note" id="player-count-note">Showing {{ "{:,}".format(player_count) }} players</p>
+
+  <main class="team-ledger-list" id="player-ledger-list">
     {% for group in grouped_players %}
     <section class="team-ledger" data-team="{{ group.abbr }}">
       <div class="team-ledger-header">
@@ -42,8 +84,8 @@
           </thead>
           <tbody>
             {% for player in group.players %}
-            <tr data-player-name="{{ player.full_name or player.display_name }}" data-position="{{ player.position or '' }}">
-              <td><a href="{{ player_url(player) }}">{{ player.full_name or player.display_name }}</a></td>
+            <tr data-player-name="{{ (player.full_name or player.display_name or '')|lower }}" data-team="{{ group.abbr }}" data-position="{{ player.position or '' }}" data-type="{{ 'pitcher' if player.position_group == 'Pitcher' else 'hitter' }}">
+              <td><a href="{{ player_url(player) }}">{{ player.full_name or player.display_name or '—' }}</a></td>
               <td>{{ player.position or '—' }}</td>
               <td>{{ player.team_abbr or '—' }}</td>
             </tr>
@@ -58,6 +100,7 @@
       <p>Run the player index update script to build the ledger.</p>
     </section>
     {% endfor %}
+    <p class="player-no-results" id="player-no-results" hidden>No players match your search/filters.</p>
   </main>
 
   <footer>
@@ -66,5 +109,55 @@
     <div class="footer-legal">No logos. No likenesses.<br/>Player identity foundation.</div>
   </footer>
 </div>
+
+<script>
+(function () {
+  var searchInput = document.getElementById('player-search');
+  var teamFilter = document.getElementById('player-team-filter');
+  var positionFilter = document.getElementById('player-position-filter');
+  var typeFilter = document.getElementById('player-type-filter');
+  var countNote = document.getElementById('player-count-note');
+  var noResults = document.getElementById('player-no-results');
+  var sections = document.querySelectorAll('#player-ledger-list .team-ledger');
+
+  if (!searchInput || !sections.length) return;
+
+  function applyFilters() {
+    var query = searchInput.value.trim().toLowerCase();
+    var team = teamFilter.value;
+    var position = positionFilter.value;
+    var type = typeFilter.value;
+    var visibleCount = 0;
+
+    sections.forEach(function (section) {
+      var rows = section.querySelectorAll('tbody tr');
+      var sectionVisible = 0;
+
+      rows.forEach(function (row) {
+        var matchesQuery = !query || row.getAttribute('data-player-name').indexOf(query) !== -1;
+        var matchesTeam = !team || row.getAttribute('data-team') === team;
+        var matchesPosition = !position || row.getAttribute('data-position') === position;
+        var matchesType = !type || row.getAttribute('data-type') === type;
+        var visible = matchesQuery && matchesTeam && matchesPosition && matchesType;
+        row.hidden = !visible;
+        if (visible) {
+          sectionVisible++;
+          visibleCount++;
+        }
+      });
+
+      section.hidden = sectionVisible === 0;
+    });
+
+    countNote.textContent = 'Showing ' + visibleCount.toLocaleString() + ' players';
+    noResults.hidden = visibleCount !== 0;
+  }
+
+  searchInput.addEventListener('input', applyFilters);
+  teamFilter.addEventListener('change', applyFilters);
+  positionFilter.addEventListener('change', applyFilters);
+  typeFilter.addEventListener('change', applyFilters);
+})();
+</script>
 </body>
 </html>

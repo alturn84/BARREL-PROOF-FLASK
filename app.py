@@ -1728,10 +1728,18 @@ def players_index():
 
     grouped.sort(key=lambda g: (team_order.get(g["abbr"], 999), g["name"]))
 
+    team_options = sorted(
+        {(g["abbr"], g["name"]) for g in grouped},
+        key=lambda t: (team_order.get(t[0], 999), t[1]),
+    )
+    position_options = sorted({p.get("position") for p in players if p.get("position")})
+
     return render_template(
         "players_index.html",
         grouped_players=grouped,
         player_count=len(players),
+        team_options=team_options,
+        position_options=position_options,
     )
 
 @app.route("/player/<slug>")

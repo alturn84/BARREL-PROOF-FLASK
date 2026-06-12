@@ -177,6 +177,81 @@ nav.main-nav {
   font-size: clamp(16px, 1.8vw, 20px);
 }
 
+/* ── PLAYER HUB: LEADERBOARD SHORTCUTS ── */
+.leaderboard-shortcuts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.leaderboard-shortcut-card {
+  display: block;
+  border: 1px solid var(--bp-rule);
+  background: var(--bp-paper);
+  padding: 12px 14px;
+  text-decoration: none;
+  color: var(--bp-ink);
+}
+
+.leaderboard-shortcut-card:hover {
+  border-color: var(--bp-ink);
+}
+
+.leaderboard-shortcut-card h3 {
+  font-family: var(--headline-font);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+
+.leaderboard-shortcut-card p {
+  margin-top: 4px;
+  color: var(--bp-muted);
+  font-size: 13px;
+}
+
+/* ── PLAYER HUB: SEARCH / FILTER BAR ── */
+.player-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.player-filter-input,
+.player-filter-select {
+  border: 1px solid var(--bp-rule);
+  background: var(--bp-paper);
+  color: var(--bp-ink);
+  font-family: var(--typewriter-font);
+  font-size: 13px;
+  padding: 8px 10px;
+}
+
+.player-filter-input {
+  flex: 1 1 220px;
+}
+
+.player-filter-select {
+  flex: 1 1 160px;
+}
+
+.player-count-note {
+  margin-top: 14px;
+  color: var(--bp-muted);
+  font-family: var(--typewriter-font);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.player-no-results {
+  color: var(--bp-muted);
+  padding-top: 14px;
+}
+
 .leaderboard-filter-note {
   display: inline-block;
   margin-top: 14px;
