@@ -168,6 +168,11 @@ def load_hitter_contact_signal_cards():
     players = data.get("players") if isinstance(data, dict) else {}
     return players if isinstance(players, dict) else {}
 
+def load_hitter_profile_summaries():
+    data = load_json("players/hitter_profile_summary.json", fallback={})
+    players = data.get("players") if isinstance(data, dict) else {}
+    return players if isinstance(players, dict) else {}
+
 def load_hitter_pa_by_slug():
     data = load_json("players/season_hitter_stats.json", fallback={})
     players = data.get("players") if isinstance(data, dict) else {}
@@ -1705,6 +1710,9 @@ def player_detail(slug):
     luck_gap_card = load_hitter_luck_gap_cards().get(normalized_slug)
     power_signal_card = load_hitter_power_signal_cards().get(normalized_slug)
     contact_signal_card = load_hitter_contact_signal_cards().get(normalized_slug)
+    hitter_profile = load_hitter_profile_summaries().get(normalized_slug)
+    if hitter_profile and hitter_profile.get("profile_type") == "Insufficient Data":
+        hitter_profile = None
     return render_template(
         "player_detail.html",
         player=player,
@@ -1713,6 +1721,7 @@ def player_detail(slug):
         luck_gap_card=luck_gap_card,
         power_signal_card=power_signal_card,
         contact_signal_card=contact_signal_card,
+        hitter_profile=hitter_profile,
         page_title=f"{player.get('display_name') or player.get('full_name')} — Barrel Proof Player Ledger",
         meta_description=f"{player.get('display_name') or player.get('full_name')} player ledger — Barrel Proof Baseball.",
     )

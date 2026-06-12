@@ -142,6 +142,29 @@
     </section>
     {% endif %}
 
+    {% if hitter_profile %}
+    <section class="ledger-card hitter-profile-card">
+      <div class="section-label">BARREL PROOF READ</div>
+      <div class="profile-read-head">
+        <h2>{{ stat_value(hitter_profile.get("profile_type")) }}</h2>
+        <span>Confidence: {{ stat_value(hitter_profile.get("confidence")) }}</span>
+      </div>
+      <p class="profile-summary">{{ stat_value(hitter_profile.get("summary_label")) }}</p>
+      <div class="profile-signal-row">
+        <span>Power {{ stat_value(hitter_profile.get("power_signal")) }}</span>
+        <span>Contact {{ stat_value(hitter_profile.get("contact_signal")) }}</span>
+        <span>Luck Gap {{ signed_stat_value(hitter_profile.get("luck_gap_points")) }}</span>
+      </div>
+      {% if hitter_profile.get("supporting_notes") %}
+      <ul class="profile-notes">
+        {% for note in hitter_profile.get("supporting_notes") %}
+        <li>{{ note }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </section>
+    {% endif %}
+
     {% if luck_gap_card %}
     <section class="ledger-card stats-card luck-gap-card">
       <div class="section-label">LUCK GAP</div>
@@ -275,7 +298,7 @@
     </section>
     {% endif %}
 
-    {% if not luck_gap_card and not power_signal_card and not contact_signal_card and not statcast_hitter_card %}
+    {% if not hitter_profile and not luck_gap_card and not power_signal_card and not contact_signal_card and not statcast_hitter_card %}
     <section class="ledger-card placeholder-card">
       <div class="section-label">Tracking Data</div>
       <p class="tracking-note">Additional tracking data is not available for this player yet.</p>
