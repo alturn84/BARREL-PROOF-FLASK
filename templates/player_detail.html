@@ -175,6 +175,32 @@
     </section>
     {% endif %}
 
+    {% if pitcher_profile %}
+    <section class="ledger-card hitter-profile-card pitching-read-card">
+      <div class="section-label">BARREL PROOF PITCHING READ</div>
+      <div class="profile-read-head">
+        <h2>{{ stat_value(pitcher_profile.get("profile_type")) }}</h2>
+        <span>Confidence: {{ stat_value(pitcher_profile.get("confidence")) }}</span>
+      </div>
+      <p class="profile-summary">{{ stat_value(pitcher_profile.get("summary_label")) }}</p>
+      <div class="profile-signal-row">
+        <span>Foundation {{ stat_value(pitcher_profile.get("pitcher_foundation_signal")) }}</span>
+        <span>ERA {{ stat_value(pitcher_profile.get("era")) }}</span>
+        <span>WHIP {{ stat_value(pitcher_profile.get("whip")) }}</span>
+        <span>K/9 {{ stat_value(pitcher_profile.get("k9")) }}</span>
+        <span>BB/9 {{ stat_value(pitcher_profile.get("bb9")) }}</span>
+        <span>IP {{ stat_value(pitcher_profile.get("ip")) }}</span>
+      </div>
+      {% if pitcher_profile.get("supporting_notes") %}
+      <ul class="profile-notes">
+        {% for note in pitcher_profile.get("supporting_notes") %}
+        <li>{{ note }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </section>
+    {% endif %}
+
     {% if hitter_profile %}
     <section class="ledger-card hitter-profile-card">
       <div class="section-label">BARREL PROOF READ</div>
@@ -331,7 +357,7 @@
     </section>
     {% endif %}
 
-    {% if not pitcher_foundation and not hitter_profile and not luck_gap_card and not power_signal_card and not contact_signal_card and not statcast_hitter_card %}
+    {% if not pitcher_foundation and not pitcher_profile and not hitter_profile and not luck_gap_card and not power_signal_card and not contact_signal_card and not statcast_hitter_card %}
     <section class="ledger-card placeholder-card">
       <div class="section-label">Tracking Data</div>
       <p class="tracking-note">Additional tracking data is not available for this player yet.</p>
