@@ -190,6 +190,33 @@ nav.main-nav {
   text-transform: uppercase;
 }
 
+.leaderboard-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--bp-rule);
+}
+
+.leaderboard-nav-item {
+  padding: 5px 10px;
+  border: 1px solid var(--bp-rule);
+  color: var(--bp-muted);
+  font-family: var(--typewriter-font);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.leaderboard-nav-item.active {
+  color: var(--bp-ink);
+  border-color: var(--bp-ink);
+  background: var(--bp-rule);
+}
+
 /* ── TEAM LEDGER LIST ── */
 .team-ledger-list {
   display: grid;

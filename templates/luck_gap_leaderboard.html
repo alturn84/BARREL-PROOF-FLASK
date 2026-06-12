@@ -26,6 +26,8 @@
     <div class="leaderboard-filter-note">Minimum {{ min_pa }} PA</div>
   </header>
 
+  {% set active_leaderboard = 'luck-gap' %}{% include 'partials/player_leaderboard_nav.html' %}
+
   <main class="team-ledger-list leaderboard-ledger">
     <section class="team-ledger">
       <div class="team-ledger-header">
