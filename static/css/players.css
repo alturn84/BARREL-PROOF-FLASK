@@ -452,12 +452,26 @@ nav.main-nav {
   margin-top: 4px;
 }
 
+.foundation-signal {
+  font-family: var(--typewriter-font);
+  color: var(--bp-ink);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  margin: 10px 0 14px;
+  text-transform: uppercase;
+}
+
 .contact-quality-table {
   min-width: 760px;
 }
 
 .luck-gap-table {
   min-width: 620px;
+}
+
+.pitcher-foundation-table {
+  min-width: 560px;
 }
 
 .power-signal-table {
@@ -535,6 +549,17 @@ nav.main-nav {
 }
 
 .contact-signal-card .section-label {
+  color: var(--bp-accent);
+  letter-spacing: .22em;
+}
+
+/* ── PITCHER FOUNDATION ── */
+.pitcher-foundation-card {
+  background: var(--bp-paper);
+  border-color: var(--bp-rule-dark);
+}
+
+.pitcher-foundation-card .section-label {
   color: var(--bp-accent);
   letter-spacing: .22em;
 }

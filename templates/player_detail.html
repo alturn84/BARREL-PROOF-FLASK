@@ -142,6 +142,39 @@
     </section>
     {% endif %}
 
+    {% if pitcher_foundation %}
+    <section class="ledger-card stats-card pitcher-foundation-card">
+      <div class="section-label">PITCHER FOUNDATION</div>
+      <div class="profile-read-head">
+        <h2>{{ stat_value(pitcher_foundation.get("label")) }}</h2>
+        <span>Confidence: {{ stat_value(pitcher_foundation.get("confidence")) }}</span>
+      </div>
+      <p class="foundation-signal">Foundation Signal: {{ stat_value(pitcher_foundation.get("pitcher_foundation_signal")) }}</p>
+      <div class="stats-table-wrap">
+        <table class="stats-table pitcher-foundation-table">
+          <thead>
+            <tr>
+              <th>ERA</th>
+              <th>WHIP</th>
+              <th>K/9</th>
+              <th>BB/9</th>
+              <th>IP</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ stat_value(pitcher_foundation.get("era")) }}</td>
+              <td>{{ stat_value(pitcher_foundation.get("whip")) }}</td>
+              <td>{{ stat_value(pitcher_foundation.get("k9")) }}</td>
+              <td>{{ stat_value(pitcher_foundation.get("bb9")) }}</td>
+              <td>{{ stat_value(pitcher_foundation.get("ip")) }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    {% endif %}
+
     {% if hitter_profile %}
     <section class="ledger-card hitter-profile-card">
       <div class="section-label">BARREL PROOF READ</div>
@@ -298,7 +331,7 @@
     </section>
     {% endif %}
 
-    {% if not hitter_profile and not luck_gap_card and not power_signal_card and not contact_signal_card and not statcast_hitter_card %}
+    {% if not pitcher_foundation and not hitter_profile and not luck_gap_card and not power_signal_card and not contact_signal_card and not statcast_hitter_card %}
     <section class="ledger-card placeholder-card">
       <div class="section-label">Tracking Data</div>
       <p class="tracking-note">Additional tracking data is not available for this player yet.</p>
