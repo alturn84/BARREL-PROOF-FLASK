@@ -1115,12 +1115,15 @@ def get_scoreboard_stats():
         "updated":   data.get("updated", ""),
     }
 
-def get_dope_player_matchups():
-    """Display-only: compact, capped view of dope_player_matchups.json for /dope-sheet."""
+def get_dope_player_matchups_lookup(sched_date):
+    """Display-only: date-guarded, capped matchup-intelligence views keyed by (away_team, home_team) and game_id."""
     data = load_json("dope_player_matchups.json", fallback={})
     games = data.get("games") if isinstance(data, dict) else None
+    meta = data.get("meta") if isinstance(data, dict) else {}
     if not isinstance(games, list):
-        return []
+        return {}
+    if not sched_date or (meta or {}).get("date") != sched_date:
+        return {}
 
     def bat_view(bat):
         if not isinstance(bat, dict):
@@ -1156,7 +1159,7 @@ def get_dope_player_matchups():
             "edge_type": edge.get("edge_type"),
         }
 
-    views = []
+    lookup = {}
     for game in games:
         if not isinstance(game, dict):
             continue
@@ -1174,9 +1177,13 @@ def get_dope_player_matchups():
 
         fantasy_watch = [note for note in (game.get("fantasy_watch") or [])[:4] if note]
 
-        views.append({
-            "away_team": game.get("away_team") or "—",
-            "home_team": game.get("home_team") or "—",
+        away_team = game.get("away_team")
+        home_team = game.get("home_team")
+        game_date = game.get("game_date")
+
+        view = {
+            "away_team": away_team or "—",
+            "home_team": home_team or "—",
             "away_pitcher": away_pitcher,
             "home_pitcher": home_pitcher,
             "away_pressure": away_pressure,
@@ -1186,9 +1193,15 @@ def get_dope_player_matchups():
             "pitcher_edges": pitcher_edges,
             "fantasy_watch": fantasy_watch,
             "lineup_source": game.get("lineup_source"),
-        })
+        }
 
-    return views
+        game_id = game.get("game_id")
+        if game_id is not None:
+            lookup[("id", game_id)] = view
+        if away_team and home_team and game_date:
+            lookup[("teams", game_date, away_team, home_team)] = view
+
+    return lookup
 
 
 @app.route("/dope-sheet")
@@ -1209,6 +1222,17 @@ def dope_sheet():
 
     ds_games, date_display, date_banner, ds_updated = get_dope_sheet_data()
     odds_games, odds_updated = get_odds()
+
+    matchup_lookup = get_dope_player_matchups_lookup(sched_date)
+    for g in ds_games:
+        match = None
+        gid = g.get("game_id") or g.get("gameId")
+        if gid is not None:
+            match = matchup_lookup.get(("id", gid))
+        if match is None:
+            match = matchup_lookup.get(("teams", sched_date, g.get("away"), g.get("home")))
+        if match is not None:
+            g["playerMatchup"] = match
 
     if date_display != expected_display:
         import sys
@@ -1387,7 +1411,6 @@ def dope_sheet():
         date_banner=date_banner,
         ds_updated=ds_updated,
         odds_updated=odds_updated,
-        player_matchups=get_dope_player_matchups(),
     )
 
 

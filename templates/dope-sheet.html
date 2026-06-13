@@ -342,44 +342,19 @@ footer{border-top:.5px solid var(--rule-heavy);margin-top:40px;padding:20px 0;di
   line-height: 1.3;
 }
 
-.matchup-intel-section {
-  margin: 18px 0;
-}
-
-.matchup-intel-header {
-  border-bottom: 2px solid var(--bp-rule-dark);
-  margin-bottom: 12px;
-  padding-bottom: 6px;
+.matchup-intel-block {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--bp-rule);
 }
 
 .matchup-intel-title {
   font-family: 'Playfair Display SC', Georgia, serif;
-  letter-spacing: .12em;
-  font-size: 20px;
-  margin: 0;
+  letter-spacing: .1em;
+  font-size: 13px;
+  margin: 0 0 6px;
   color: var(--bp-ink);
-}
-
-.matchup-intel-note {
-  font-family: var(--typewriter-font, 'IBM Plex Mono', monospace);
-  font-size: 12px;
-  color: var(--bp-muted);
-  margin: 4px 0 0;
-}
-
-.matchup-card {
-  border: 1px solid var(--bp-rule);
-  background: var(--bp-paper);
-  padding: 14px 16px;
-  margin-bottom: 14px;
-}
-
-.matchup-card-title {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-weight: 700;
-  font-size: 17px;
-  margin-bottom: 8px;
-  color: var(--bp-ink);
+  text-transform: uppercase;
 }
 
 .matchup-subsection {
@@ -464,99 +439,6 @@ footer{border-top:.5px solid var(--rule-heavy);margin-top:40px;padding:20px 0;di
   <span class="odds-updated">Odds: The Odds API · {{ odds_updated[:16] | replace('T',' ') }} UTC</span>
   {% endif %}
 </div>
-
-{% if player_matchups %}
-<div class="matchup-intel-section">
-  <div class="matchup-intel-header">
-    <h2 class="matchup-intel-title">MATCHUP INTELLIGENCE</h2>
-    <p class="matchup-intel-note">Built from Barrel Proof player signals and current roster/probable-pitcher data.</p>
-  </div>
-  {% for g in player_matchups %}
-  <div class="matchup-card">
-    <div class="matchup-card-title">{{ g.away_team }} @ {{ g.home_team }}</div>
-
-    {% if g.away_pitcher or g.home_pitcher %}
-    <div class="matchup-subsection">
-      <div class="matchup-subhead">Probable Pitchers</div>
-      {% if g.away_pitcher %}
-      <div class="matchup-line">
-        {{ g.away_team }}:
-        {% if g.away_pitcher.name %}
-          {% if g.away_pitcher.slug %}<a href="/player/{{ g.away_pitcher.slug }}">{{ g.away_pitcher.name }}</a>{% else %}{{ g.away_pitcher.name }}{% endif %}
-          {% if g.away_pitcher.profile_type %} — {{ g.away_pitcher.profile_type }}{% endif %}
-        {% else %}Probable pitcher unavailable{% endif %}
-      </div>
-      {% endif %}
-      {% if g.home_pitcher %}
-      <div class="matchup-line">
-        {{ g.home_team }}:
-        {% if g.home_pitcher.name %}
-          {% if g.home_pitcher.slug %}<a href="/player/{{ g.home_pitcher.slug }}">{{ g.home_pitcher.name }}</a>{% else %}{{ g.home_pitcher.name }}{% endif %}
-          {% if g.home_pitcher.profile_type %} — {{ g.home_pitcher.profile_type }}{% endif %}
-        {% else %}Probable pitcher unavailable{% endif %}
-      </div>
-      {% endif %}
-    </div>
-    {% endif %}
-
-    {% if g.away_pressure or g.home_pressure %}
-    <div class="matchup-subsection">
-      <div class="matchup-subhead">Lineup Pressure</div>
-      {% if g.away_pressure %}<div class="matchup-line">{{ g.away_team }}: {{ g.away_pressure }}</div>{% endif %}
-      {% if g.home_pressure %}<div class="matchup-line">{{ g.home_team }}: {{ g.home_pressure }}</div>{% endif %}
-      {% if g.lineup_source == "roster_signals" %}
-      <div class="matchup-line matchup-disclaimer">Based on current roster signals, not a confirmed lineup.</div>
-      {% endif %}
-    </div>
-    {% endif %}
-
-    {% if g.away_bats or g.home_bats %}
-    <div class="matchup-subsection">
-      <div class="matchup-subhead">Bats to Watch</div>
-      {% if g.away_bats %}
-      <div class="matchup-team-label">{{ g.away_team }}</div>
-      <ul class="matchup-list">
-        {% for bat in g.away_bats %}
-        <li>{% if bat.slug %}<a href="/player/{{ bat.slug }}">{{ bat.name }}</a>{% else %}{{ bat.name }}{% endif %}{% if bat.tags %} — {{ bat.tags | join(" / ") }}{% endif %}</li>
-        {% endfor %}
-      </ul>
-      {% endif %}
-      {% if g.home_bats %}
-      <div class="matchup-team-label">{{ g.home_team }}</div>
-      <ul class="matchup-list">
-        {% for bat in g.home_bats %}
-        <li>{% if bat.slug %}<a href="/player/{{ bat.slug }}">{{ bat.name }}</a>{% else %}{{ bat.name }}{% endif %}{% if bat.tags %} — {{ bat.tags | join(" / ") }}{% endif %}</li>
-        {% endfor %}
-      </ul>
-      {% endif %}
-    </div>
-    {% endif %}
-
-    {% if g.pitcher_edges %}
-    <div class="matchup-subsection">
-      <div class="matchup-subhead">Pitcher Edge</div>
-      <ul class="matchup-list">
-        {% for edge in g.pitcher_edges %}
-        <li>{% if edge.slug %}<a href="/player/{{ edge.slug }}">{{ edge.name }}</a>{% else %}{{ edge.name }}{% endif %}{% if edge.edge_type %} — {{ edge.edge_type }}{% endif %}</li>
-        {% endfor %}
-      </ul>
-    </div>
-    {% endif %}
-
-    {% if g.fantasy_watch %}
-    <div class="matchup-subsection">
-      <div class="matchup-subhead">Fantasy / DFS Watch</div>
-      <ul class="matchup-list">
-        {% for note in g.fantasy_watch %}
-        <li>{{ note }}</li>
-        {% endfor %}
-      </ul>
-    </div>
-    {% endif %}
-  </div>
-  {% endfor %}
-</div>
-{% endif %}
 
 <div id="gamesContainer"></div>
 
@@ -864,6 +746,66 @@ function renderPitching(g){
   </div></div>`;
 }
 
+function renderMatchupIntel(g){
+  const m=g.playerMatchup;
+  if(!m)return'';
+  const v=x=>x!==null&&x!==undefined&&x!=='None'&&x!=='null'&&!(typeof x==='number'&&isNaN(x))&&x!==''?x:null;
+  const playerLink=p=>{
+    const name=v(p&&p.name);
+    if(!name)return null;
+    const extra=v(p&&p.profile_type)?` — ${p.profile_type}`:'';
+    return (p.slug?`<a href="/player/${p.slug}">${name}</a>`:name)+extra;
+  };
+  const sub=[];
+
+  const aPit=playerLink(m.away_pitcher),hPit=playerLink(m.home_pitcher);
+  if(aPit||hPit){
+    sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Probable Pitchers</div>
+      ${aPit?`<div class="matchup-line">${m.away_team}: ${aPit}</div>`:''}
+      ${hPit?`<div class="matchup-line">${m.home_team}: ${hPit}</div>`:''}</div>`);
+  }
+
+  const aPress=v(m.away_pressure),hPress=v(m.home_pressure);
+  if(aPress||hPress){
+    sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Lineup Pressure</div>
+      ${aPress?`<div class="matchup-line">${m.away_team}: ${aPress}</div>`:''}
+      ${hPress?`<div class="matchup-line">${m.home_team}: ${hPress}</div>`:''}
+      ${m.lineup_source==='roster_signals'?`<div class="matchup-line matchup-disclaimer">Roster-signal read, not a confirmed lineup.</div>`:''}</div>`);
+  }
+
+  const bats=team=>(m[`${team}_bats`]||[]).map(b=>{
+    const name=v(b&&b.name);
+    if(!name)return null;
+    const link=b.slug?`<a href="/player/${b.slug}">${name}</a>`:name;
+    const tags=(b.tags||[]).filter(v).join(' / ');
+    return `<li>${link}${tags?` — ${tags}`:''}</li>`;
+  }).filter(Boolean);
+  const aBats=bats('away'),hBats=bats('home');
+  if(aBats.length||hBats.length){
+    sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Bats to Watch</div>
+      ${aBats.length?`<div class="matchup-team-label">${m.away_team}</div><ul class="matchup-list">${aBats.join('')}</ul>`:''}
+      ${hBats.length?`<div class="matchup-team-label">${m.home_team}</div><ul class="matchup-list">${hBats.join('')}</ul>`:''}</div>`);
+  }
+
+  const edges=(m.pitcher_edges||[]).map(e=>{
+    const name=v(e&&e.name);
+    if(!name)return null;
+    const link=e.slug?`<a href="/player/${e.slug}">${name}</a>`:name;
+    return `<li>${link}${v(e.edge_type)?` — ${e.edge_type}`:''}</li>`;
+  }).filter(Boolean);
+  if(edges.length){
+    sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Pitcher Edge</div><ul class="matchup-list">${edges.join('')}</ul></div>`);
+  }
+
+  const notes=(m.fantasy_watch||[]).filter(v);
+  if(notes.length){
+    sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Fantasy / DFS Watch</div><ul class="matchup-list">${notes.map(n=>`<li>${n}</li>`).join('')}</ul></div>`);
+  }
+
+  if(!sub.length)return'';
+  return `<div class="detail-section full matchup-intel-block"><div class="matchup-intel-title">Matchup Intelligence</div>${sub.join('')}</div>`;
+}
+
 function renderProps(g){
   const p=g.props;
   if(!p||(!p.pitchers?.length&&!p.batters?.length))return'';
@@ -926,6 +868,7 @@ function render(games){
       renderPitching(g),
       renderInjuries(g),
       renderProps(g),
+      renderMatchupIntel(g),
     ].filter(s=>s&&s.trim()).join('');
     return`<div class="game-row${g.oddsLive?' live-game':''}" id="gr-${idx}">
       <div class="game-row-header" onclick="toggle(${idx})">
