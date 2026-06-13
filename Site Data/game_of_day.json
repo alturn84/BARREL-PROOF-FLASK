@@ -1,63 +1,172 @@
 {
-  "date": "2026-06-11",
-  "date_display": "Thursday, June 11, 2026",
-  "updated": "2026-06-12 10:15",
+  "date": "2026-06-12",
+  "date_display": "Friday, June 12, 2026",
+  "updated": "2026-06-13 10:15",
   "game": {
-    "away": "CHC",
-    "home": "COL",
-    "away_runs": 9,
-    "home_runs": 3,
+    "away": "ATL",
+    "home": "NYM",
+    "away_runs": 5,
+    "home_runs": 7,
     "innings": 9,
-    "raw_score": 28.0,
+    "raw_score": 106.0,
     "flags": [
-      "MULTI-HR: Brett Sullivan (2 HR)",
-      "SB SPREE (5)"
+      "PLAYOFF IMPLICATIONS",
+      "DIVISION MATCHUP",
+      "MULTI-HR: Bo Bichette (2 HR)",
+      "BIG RBI GAME: Bo Bichette (6 RBI)",
+      "NYM HOME GAME",
+      "RIVALRY GAME"
     ],
-    "winner": "CHC",
-    "loser": "COL",
-    "margin": 6,
+    "winner": "NYM",
+    "loser": "ATL",
+    "margin": 2,
     "total_runs": 12
   },
   "editorial": {
-    "headline": "Sullivan's Two Homers Ignite Chicago Rout in Colorado",
-    "subheadline": "CHC 9, COL 3. The long ball carries CHC.",
-    "lead_angle": "Brett Sullivan launched a pair of home runs and the Chicago Cubs piled up five long balls overall to beat the Colorado Rockies 9 to 3 at Coors Field. Sullivan’s first blast came in the pivotal fourth inning, a two-run shot off Ryan Feltner that broke open a tight contest. Edward Cabrera earned the win for the Cubs, stifling the Rockies after an early stumble. Feltner took the loss.\n\nThe scoreboard read 1 to 0 for the Rockies entering the fourth, a lead they had held since Troy Johnston singled home a run in the third. But the Cubs erupted for four runs in the top of the fourth, taking control for good. After Michael Busch singled and Pete Crow-Armstrong walked, Sullivan drilled his first homer to right. Seiya Suzuki then followed with a towering two-run shot to left field, making it 4 to 1 and chasing Feltner from the mound.\n\nSullivan's bat made the biggest noise, clouting his second home run in the seventh inning, a solo shot. He finished the afternoon with the two homers, driving in three runs. Alex Bregman and Carson Kelly also connected for solo blasts, adding to the power display. This road victory provides the Cubs with valuable momentum, pushing their record further above .500 as they aim for a strong push in the summer months.",
+    "headline": "Bichette's Two Homers Power New York Past Atlanta Braves",
+    "subheadline": "ATL 5, NYM 7. The long ball carries NYM.",
+    "lead_angle": "Bo Bichette crushed a pair of home runs and drove in six runs, powering the New York Mets to a 7-5 victory over the Atlanta Braves at Citi Field. Bichette's second two-run blast in the second inning pushed the Mets’ lead to 4-2, establishing a margin the Braves would chase the rest of the night. Cionel Pérez earned the win in relief, while Spencer Strider took the loss for Atlanta.\n\nThe Mets opened the scoring in the first with a two-run shot from Juan Soto off Strider. Atlanta responded in the second when Ozzie Albies singled home a run and Matt Olson followed with an RBI groundout. But Bichette answered immediately, launching his first two-run homer to restore the Mets’ advantage. He added a solo shot in the fourth, extending New York’s lead to 5-2. The Braves chipped away, with a fifth-inning run and two more in the eighth, but could not close the gap.\n\nBichette’s explosive bat, going 2-for-3 with two round-trippers and six runs batted in, proved instrumental in a tight divisional contest. His power surge was the difference, securing a crucial win for the New York Mets, who now look to gain ground in the National League East standings. Devin Williams closed it out for the save, stifling Atlanta’s late comeback attempt.",
     "reason": "A multi-home-run game by a single player gives the day a clear protagonist."
   },
   "all_games": [
     {
       "rank": 1,
-      "away": "CHC",
-      "home": "COL",
-      "away_runs": 9,
-      "home_runs": 3,
+      "away": "ATL",
+      "home": "NYM",
+      "away_runs": 5,
+      "home_runs": 7,
       "innings": 9,
-      "raw_score": 28.0,
+      "raw_score": 106.0,
       "flags": [
-        "MULTI-HR: Brett Sullivan (2 HR)",
-        "SB SPREE (5)"
+        "PLAYOFF IMPLICATIONS",
+        "DIVISION MATCHUP",
+        "MULTI-HR: Bo Bichette (2 HR)",
+        "BIG RBI GAME: Bo Bichette (6 RBI)",
+        "NYM HOME GAME",
+        "RIVALRY GAME"
       ],
       "selected": true
     },
     {
       "rank": 2,
-      "away": "STL",
-      "home": "NYM",
-      "away_runs": 4,
-      "home_runs": 5,
+      "away": "PHI",
+      "home": "MIL",
+      "away_runs": 0,
+      "home_runs": 6,
       "innings": 9,
-      "raw_score": 27.0,
+      "raw_score": 65.0,
       "flags": [
-        "ONE-RUN GAME",
-        "NYM HOME GAME"
+        "PLAYOFF IMPLICATIONS",
+        "DOMINANT START: Jacob Misiorowski (9.0 IP, 0 ER, 15 K)",
+        "15+ K: Jacob Misiorowski (15 K)"
       ],
       "selected": false
     },
     {
       "rank": 3,
-      "away": "TEX",
+      "away": "DET",
+      "home": "CLE",
+      "away_runs": 2,
+      "home_runs": 3,
+      "innings": 9,
+      "raw_score": 55.0,
+      "flags": [
+        "ONE-RUN GAME",
+        "PLAYOFF IMPLICATIONS",
+        "DIVISION MATCHUP"
+      ],
+      "selected": false
+    },
+    {
+      "rank": 4,
+      "away": "LAD",
+      "home": "CWS",
+      "away_runs": 2,
+      "home_runs": 8,
+      "innings": 9,
+      "raw_score": 50.0,
+      "flags": [
+        "FIRST-PLACE CLASH",
+        "PLAYOFF IMPLICATIONS"
+      ],
+      "selected": false
+    },
+    {
+      "rank": 5,
+      "away": "HOU",
       "home": "KC",
-      "away_runs": 4,
+      "away_runs": 10,
+      "home_runs": 8,
+      "innings": 9,
+      "raw_score": 44.0,
+      "flags": [
+        "MULTI-HR: Yordan Alvarez (2 HR)",
+        "BIG RBI GAME: Yordan Alvarez (6 RBI)",
+        "HIGH-SCORING (18 runs)"
+      ],
+      "selected": false
+    },
+    {
+      "rank": 6,
+      "away": "NYY",
+      "home": "TOR",
+      "away_runs": 5,
+      "home_runs": 8,
+      "innings": 9,
+      "raw_score": 40.0,
+      "flags": [
+        "PLAYOFF IMPLICATIONS",
+        "DIVISION MATCHUP"
+      ],
+      "selected": false
+    },
+    {
+      "rank": 7,
+      "away": "TB",
+      "home": "LAA",
+      "away_runs": 3,
+      "home_runs": 4,
+      "innings": 9,
+      "raw_score": 37.0,
+      "flags": [
+        "ONE-RUN GAME",
+        "PLAYOFF IMPLICATIONS"
+      ],
+      "selected": false
+    },
+    {
+      "rank": 8,
+      "away": "TEX",
+      "home": "BOS",
+      "away_runs": 1,
+      "home_runs": 10,
+      "innings": 9,
+      "raw_score": 34.0,
+      "flags": [
+        "PLAYOFF IMPLICATIONS",
+        "BOS HOME GAME"
+      ],
+      "selected": false
+    },
+    {
+      "rank": 9,
+      "away": "STL",
+      "home": "MIN",
+      "away_runs": 8,
+      "home_runs": 9,
+      "innings": 9,
+      "raw_score": 25.0,
+      "flags": [
+        "ONE-RUN GAME",
+        "HIGH-SCORING (17 runs)"
+      ],
+      "selected": false
+    },
+    {
+      "rank": 10,
+      "away": "SEA",
+      "home": "WSH",
+      "away_runs": 10,
       "home_runs": 2,
       "innings": 9,
       "raw_score": 22.0,
@@ -67,10 +176,10 @@
       "selected": false
     },
     {
-      "rank": 4,
-      "away": "LAD",
-      "home": "PIT",
-      "away_runs": 8,
+      "rank": 11,
+      "away": "COL",
+      "home": "ATH",
+      "away_runs": 4,
       "home_runs": 6,
       "innings": 9,
       "raw_score": 22.0,
@@ -80,42 +189,51 @@
       "selected": false
     },
     {
-      "rank": 5,
-      "away": "SEA",
-      "home": "BAL",
+      "rank": 12,
+      "away": "CHC",
+      "home": "SF",
       "away_runs": 5,
-      "home_runs": 7,
+      "home_runs": 1,
       "innings": 9,
-      "raw_score": 22.0,
+      "raw_score": 12.0,
       "flags": [
-        "PLAYOFF IMPLICATIONS"
+        "SF HOME GAME"
       ],
       "selected": false
     },
     {
-      "rank": 6,
-      "away": "MIN",
-      "home": "DET",
-      "away_runs": 0,
-      "home_runs": 11,
-      "innings": 9,
-      "raw_score": 18.0,
-      "flags": [
-        "DIVISION MATCHUP"
-      ],
-      "selected": false
-    },
-    {
-      "rank": 7,
+      "rank": 13,
       "away": "AZ",
-      "home": "MIA",
-      "away_runs": 0,
+      "home": "CIN",
+      "away_runs": 5,
       "home_runs": 2,
       "innings": 9,
       "raw_score": 8.0,
       "flags": [
-        "SB SPREE (3)"
+        "SB SPREE (6)"
       ],
+      "selected": false
+    },
+    {
+      "rank": 14,
+      "away": "MIA",
+      "home": "PIT",
+      "away_runs": 8,
+      "home_runs": 3,
+      "innings": 9,
+      "raw_score": 0.0,
+      "flags": [],
+      "selected": false
+    },
+    {
+      "rank": 15,
+      "away": "SD",
+      "home": "BAL",
+      "away_runs": 3,
+      "home_runs": 7,
+      "innings": 9,
+      "raw_score": 0.0,
+      "flags": [],
       "selected": false
     }
   ]
