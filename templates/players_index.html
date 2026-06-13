@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>The Player Ledger — Barrel Proof</title>
-<meta name="description" content="Active MLB player ledger index for Barrel Proof Baseball."/>
+<title>{{ page_title or 'PROOFDEX — Barrel Proof' }}</title>
+<meta name="description" content="{{ meta_description }}"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Playfair+Display+SC:wght@400;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
@@ -15,20 +15,16 @@
 {% set banner_alt = 'Barrel Proof Baseball' %}
 {% include 'partials/site_banner.html' %}
 
-<div class="players-page">
+<div class="players-page proofdex-page">
   {% set active_page = 'players' %}{% include 'partials/site_nav.html' %}
 
   <header class="ledger-header">
     <div class="eyebrow">Barrel Proof Baseball</div>
-    <h1>THE PLAYER LEDGER</h1>
-    <p>Search the Barrel Proof player index, browse team rosters, and jump into the signal leaderboards.</p>
+    <h1>PROOFDEX</h1>
+    <p>Barrel Proof&rsquo;s player intelligence index &mdash; power, contact, luck, and pitching foundation signals built for the Dope Sheet and Advanced Scout.</p>
   </header>
 
   <section class="leaderboard-shortcuts">
-    <a class="leaderboard-shortcut-card" href="/leaderboards/luck-gap">
-      <h3>Luck Gap</h3>
-      <p>Expected production vs. current results</p>
-    </a>
     <a class="leaderboard-shortcut-card" href="/leaderboards/power-signal">
       <h3>Power Signal</h3>
       <p>Power backed by contact quality</p>
@@ -37,71 +33,202 @@
       <h3>Contact Signal</h3>
       <p>Contact skill and plate-discipline foundation</p>
     </a>
+    <a class="leaderboard-shortcut-card" href="/leaderboards/luck-gap">
+      <h3>Luck Gap</h3>
+      <p>Expected production vs. current results</p>
+    </a>
     <a class="leaderboard-shortcut-card" href="/leaderboards/pitcher-foundation">
       <h3>Pitcher Foundation</h3>
       <p>Run prevention, command, and strikeout base</p>
     </a>
   </section>
 
-  <section class="player-filter-bar">
-    <input type="search" id="player-search" class="player-filter-input" placeholder="Search players by name…" aria-label="Search players by name"/>
-    <select id="player-team-filter" class="player-filter-select" aria-label="Filter by team">
-      <option value="">All Teams</option>
-      {% for abbr, name in team_options %}
-      <option value="{{ abbr }}">{{ name }} ({{ abbr }})</option>
-      {% endfor %}
-    </select>
-    <select id="player-position-filter" class="player-filter-select" aria-label="Filter by position">
-      <option value="">All Positions</option>
-      {% for pos in position_options %}
-      <option value="{{ pos }}">{{ pos }}</option>
-      {% endfor %}
-    </select>
-    <select id="player-type-filter" class="player-filter-select" aria-label="Filter by hitter or pitcher">
-      <option value="">Hitters &amp; Pitchers</option>
-      <option value="pitcher">Pitchers</option>
-      <option value="hitter">Hitters</option>
-    </select>
+  <section class="signal-preview-section signal-preview-featured">
+    <div class="signal-preview-header">
+      <h2>POWER SIGNAL</h2>
+      <a class="signal-preview-link" href="/leaderboards/power-signal">View full leaderboard &rarr;</a>
+    </div>
+    <div class="player-table-wrap">
+      <table class="player-table leaderboard-table">
+        <thead>
+          <tr>
+            <th>Player</th>
+            <th>Team</th>
+            <th>Power Signal</th>
+            <th>Label</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for player in signal_previews.power_signal %}
+          <tr>
+            <td><a href="{{ player_url(player) }}">{{ player.get('full_name') or '—' }}</a></td>
+            <td>{{ stat_value(player.get('team_abbr')) }}</td>
+            <td>{{ stat_value(player.get('power_signal')) }}</td>
+            <td>{{ stat_value(player.get('label')) }}</td>
+          </tr>
+          {% else %}
+          <tr><td colspan="4">—</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
   </section>
 
-  <p class="player-count-note" id="player-count-note">Showing {{ "{:,}".format(player_count) }} players</p>
+  <section class="signal-preview-section">
+    <div class="signal-preview-header">
+      <h2>Contact Signal</h2>
+      <a class="signal-preview-link" href="/leaderboards/contact-signal">View full leaderboard &rarr;</a>
+    </div>
+    <div class="player-table-wrap">
+      <table class="player-table leaderboard-table">
+        <thead>
+          <tr>
+            <th>Player</th>
+            <th>Team</th>
+            <th>Contact Signal</th>
+            <th>Label</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for player in signal_previews.contact_signal %}
+          <tr>
+            <td><a href="{{ player_url(player) }}">{{ player.get('full_name') or '—' }}</a></td>
+            <td>{{ stat_value(player.get('team_abbr')) }}</td>
+            <td>{{ stat_value(player.get('contact_signal')) }}</td>
+            <td>{{ stat_value(player.get('label')) }}</td>
+          </tr>
+          {% else %}
+          <tr><td colspan="4">—</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
 
-  <main class="team-ledger-list" id="player-ledger-list">
-    {% for group in grouped_players %}
-    <section class="team-ledger" data-team="{{ group.abbr }}">
-      <div class="team-ledger-header">
-        <h2>{{ group.name }}</h2>
-        <span>{{ group.abbr }} · {{ group.players|length }}</span>
-      </div>
-      <div class="player-table-wrap">
-        <table class="player-table">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Pos</th>
-              <th>Team</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for player in group.players %}
-            <tr data-player-name="{{ (player.full_name or player.display_name or '')|lower }}" data-team="{{ group.abbr }}" data-position="{{ player.position or '' }}" data-type="{{ 'pitcher' if player.position_group == 'Pitcher' else 'hitter' }}">
-              <td><a href="{{ player_url(player) }}">{{ player.full_name or player.display_name or '—' }}</a></td>
-              <td>{{ player.position or '—' }}</td>
-              <td>{{ player.team_abbr or '—' }}</td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
+  <section class="signal-preview-section">
+    <div class="signal-preview-header">
+      <h2>Luck Gap</h2>
+      <a class="signal-preview-link" href="/leaderboards/luck-gap">View full leaderboard &rarr;</a>
+    </div>
+    <div class="player-table-wrap">
+      <table class="player-table leaderboard-table">
+        <thead>
+          <tr>
+            <th>Player</th>
+            <th>Team</th>
+            <th>Luck Gap</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for player in signal_previews.luck_gap %}
+          <tr>
+            <td><a href="{{ player_url(player) }}">{{ player.get('full_name') or '—' }}</a></td>
+            <td>{{ stat_value(player.get('team_abbr')) }}</td>
+            <td>{{ signed_stat_value(player.get('luck_gap_points')) }}</td>
+          </tr>
+          {% else %}
+          <tr><td colspan="3">—</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="signal-preview-section">
+    <div class="signal-preview-header">
+      <h2>Pitcher Foundation</h2>
+      <a class="signal-preview-link" href="/leaderboards/pitcher-foundation">View full leaderboard &rarr;</a>
+    </div>
+    <div class="player-table-wrap">
+      <table class="player-table leaderboard-table">
+        <thead>
+          <tr>
+            <th>Player</th>
+            <th>Team</th>
+            <th>Pitcher Foundation</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for player in signal_previews.pitcher_foundation %}
+          <tr>
+            <td><a href="{{ player_url(player) }}">{{ player.get('full_name') or '—' }}</a></td>
+            <td>{{ stat_value(player.get('team_abbr')) }}</td>
+            <td>{{ stat_value(player.get('pitcher_foundation_signal')) }}</td>
+          </tr>
+          {% else %}
+          <tr><td colspan="3">—</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="player-directory-section">
+    <header class="ledger-header directory-header">
+      <h2>PLAYER DIRECTORY</h2>
+      <p>Search the full Barrel Proof player index and browse team rosters.</p>
+    </header>
+
+    <section class="player-filter-bar">
+      <input type="search" id="player-search" class="player-filter-input" placeholder="Search players by name…" aria-label="Search players by name"/>
+      <select id="player-team-filter" class="player-filter-select" aria-label="Filter by team">
+        <option value="">All Teams</option>
+        {% for abbr, name in team_options %}
+        <option value="{{ abbr }}">{{ name }} ({{ abbr }})</option>
+        {% endfor %}
+      </select>
+      <select id="player-position-filter" class="player-filter-select" aria-label="Filter by position">
+        <option value="">All Positions</option>
+        {% for pos in position_options %}
+        <option value="{{ pos }}">{{ pos }}</option>
+        {% endfor %}
+      </select>
+      <select id="player-type-filter" class="player-filter-select" aria-label="Filter by hitter or pitcher">
+        <option value="">Hitters &amp; Pitchers</option>
+        <option value="pitcher">Pitchers</option>
+        <option value="hitter">Hitters</option>
+      </select>
     </section>
-    {% else %}
-    <section class="empty-ledger">
-      <h2>No Players Indexed</h2>
-      <p>Run the player index update script to build the ledger.</p>
-    </section>
-    {% endfor %}
-    <p class="player-no-results" id="player-no-results" hidden>No players match your search/filters.</p>
-  </main>
+
+    <p class="player-count-note" id="player-count-note">Showing {{ "{:,}".format(player_count) }} players</p>
+
+    <main class="team-ledger-list" id="player-ledger-list">
+      {% for group in grouped_players %}
+      <section class="team-ledger" data-team="{{ group.abbr }}">
+        <div class="team-ledger-header">
+          <h2>{{ group.name }}</h2>
+          <span>{{ group.abbr }} · {{ group.players|length }}</span>
+        </div>
+        <div class="player-table-wrap">
+          <table class="player-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Pos</th>
+                <th>Team</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for player in group.players %}
+              <tr data-player-name="{{ (player.full_name or player.display_name or '')|lower }}" data-team="{{ group.abbr }}" data-position="{{ player.position or '' }}" data-type="{{ 'pitcher' if player.position_group == 'Pitcher' else 'hitter' }}">
+                <td><a href="{{ player_url(player) }}">{{ player.full_name or player.display_name or '—' }}</a></td>
+                <td>{{ player.position or '—' }}</td>
+                <td>{{ player.team_abbr or '—' }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </section>
+      {% else %}
+      <section class="empty-ledger">
+        <h2>No Players Indexed</h2>
+        <p>Run the player index update script to build the ledger.</p>
+      </section>
+      {% endfor %}
+      <p class="player-no-results" id="player-no-results" hidden>No players match your search/filters.</p>
+    </main>
+  </section>
 
   <footer>
     <div class="footer-name">BARREL PROOF</div>

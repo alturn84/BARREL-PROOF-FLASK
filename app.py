@@ -1706,8 +1706,32 @@ def teams_index():
     from flask import redirect
     return redirect("/al-nl#team-directory", 302)
 
+def get_proofdex_signal_previews(limit=5):
+    """Small display-only helper: top N rows for each signal leaderboard preview."""
+    power_players = eligible_hitter_leaderboard_rows(load_hitter_power_signal_cards())
+    power_players.sort(key=lambda card: (card.get("power_signal") is None, -(card.get("power_signal") or 0), card.get("full_name") or ""))
+
+    contact_players = eligible_hitter_leaderboard_rows(load_hitter_contact_signal_cards())
+    contact_players.sort(key=lambda card: (card.get("contact_signal") is None, -(card.get("contact_signal") or 0), card.get("full_name") or ""))
+
+    luck_players = eligible_hitter_leaderboard_rows(load_hitter_luck_gap_cards())
+    luck_players.sort(key=lambda card: (card.get("luck_gap_points") is None, -(card.get("luck_gap_points") or 0), card.get("full_name") or ""))
+
+    pitcher_players = eligible_pitcher_foundation_leaderboard_rows()
+    pitcher_players.sort(key=lambda card: (-(card.get("pitcher_foundation_signal") or 0), card.get("full_name") or ""))
+
+    return {
+        "power_signal": power_players[:limit],
+        "contact_signal": contact_players[:limit],
+        "luck_gap": luck_players[:limit],
+        "pitcher_foundation": pitcher_players[:limit],
+    }
+
+
 @app.route("/players")
 @app.route("/players/")
+@app.route("/proofdex")
+@app.route("/proofdex/")
 def players_index():
     players = [p for p in load_player_index() if p.get("active", True)]
     team_order = {team.get("abbr"): idx for idx, team in enumerate(get_all_teams())}
@@ -1733,6 +1757,7 @@ def players_index():
         key=lambda t: (team_order.get(t[0], 999), t[1]),
     )
     position_options = sorted({p.get("position") for p in players if p.get("position")})
+    signal_previews = get_proofdex_signal_previews()
 
     return render_template(
         "players_index.html",
@@ -1740,6 +1765,9 @@ def players_index():
         player_count=len(players),
         team_options=team_options,
         position_options=position_options,
+        signal_previews=signal_previews,
+        page_title="PROOFDEX — Barrel Proof",
+        meta_description="Barrel Proof's player intelligence index — power, contact, luck, and pitching foundation signals built for the Dope Sheet and Advanced Scout.",
     )
 
 @app.route("/player/<slug>")
