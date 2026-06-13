@@ -181,8 +181,30 @@ def walk_for_players(value, inherited=None):
             yield from walk_for_players(child, inherited)
 
 
+def team_il_rows():
+    data = load_json(DATA_DIR / "team_il.json", None)
+    if not data:
+        return
+    for team_abbr, players in (data.get("teams") or {}).items():
+        if not isinstance(players, list):
+            continue
+        for player in players:
+            if not isinstance(player, dict):
+                continue
+            name = player.get("name") or player.get("full_name")
+            position = player.get("position")
+            if not name or not position:
+                continue
+            row = dict(player)
+            row["full_name"] = name
+            row["position"] = position
+            row["team_abbr"] = team_abbr
+            row["source"] = "Site Data/team_il.json"
+            yield row
+
+
 def json_roster_rows():
-    for rel in ("mlb_rosters.json", "team_stats.json", "team_il.json"):
+    for rel in ("mlb_rosters.json", "team_stats.json"):
         path = DATA_DIR / rel
         data = load_json(path, None)
         if data is None:
@@ -190,6 +212,7 @@ def json_roster_rows():
         for row in walk_for_players(data):
             row.setdefault("source", f"Site Data/{rel}")
             yield row
+    yield from team_il_rows()
 
 
 def source_rows():
