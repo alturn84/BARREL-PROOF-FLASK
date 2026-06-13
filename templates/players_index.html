@@ -163,71 +163,18 @@
     </div>
   </section>
 
-  <section class="player-directory-section">
+  <section class="player-search-section">
     <header class="ledger-header directory-header">
-      <h2>PLAYER DIRECTORY</h2>
-      <p>Search the full Barrel Proof player index and browse team rosters.</p>
+      <h2>Find a Player</h2>
+      <p>Search the Barrel Proof player index by name.</p>
     </header>
 
     <section class="player-filter-bar">
       <input type="search" id="player-search" class="player-filter-input" placeholder="Search players by name…" aria-label="Search players by name"/>
-      <select id="player-team-filter" class="player-filter-select" aria-label="Filter by team">
-        <option value="">All Teams</option>
-        {% for abbr, name in team_options %}
-        <option value="{{ abbr }}">{{ name }} ({{ abbr }})</option>
-        {% endfor %}
-      </select>
-      <select id="player-position-filter" class="player-filter-select" aria-label="Filter by position">
-        <option value="">All Positions</option>
-        {% for pos in position_options %}
-        <option value="{{ pos }}">{{ pos }}</option>
-        {% endfor %}
-      </select>
-      <select id="player-type-filter" class="player-filter-select" aria-label="Filter by hitter or pitcher">
-        <option value="">Hitters &amp; Pitchers</option>
-        <option value="pitcher">Pitchers</option>
-        <option value="hitter">Hitters</option>
-      </select>
     </section>
 
-    <p class="player-count-note" id="player-count-note">Showing {{ "{:,}".format(player_count) }} players</p>
-
-    <main class="team-ledger-list" id="player-ledger-list">
-      {% for group in grouped_players %}
-      <section class="team-ledger" data-team="{{ group.abbr }}">
-        <div class="team-ledger-header">
-          <h2>{{ group.name }}</h2>
-          <span>{{ group.abbr }} · {{ group.players|length }}</span>
-        </div>
-        <div class="player-table-wrap">
-          <table class="player-table">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Pos</th>
-                <th>Team</th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for player in group.players %}
-              <tr data-player-name="{{ (player.full_name or player.display_name or '')|lower }}" data-team="{{ group.abbr }}" data-position="{{ player.position or '' }}" data-type="{{ 'pitcher' if player.position_group == 'Pitcher' else 'hitter' }}">
-                <td><a href="{{ player_url(player) }}">{{ player.full_name or player.display_name or '—' }}</a></td>
-                <td>{{ player.position or '—' }}</td>
-                <td>{{ player.team_abbr or '—' }}</td>
-              </tr>
-              {% endfor %}
-            </tbody>
-          </table>
-        </div>
-      </section>
-      {% else %}
-      <section class="empty-ledger">
-        <h2>No Players Indexed</h2>
-        <p>Run the player index update script to build the ledger.</p>
-      </section>
-      {% endfor %}
-      <p class="player-no-results" id="player-no-results" hidden>No players match your search/filters.</p>
-    </main>
+    <ul class="player-search-results" id="player-search-results" hidden></ul>
+    <p class="player-no-results" id="player-no-results" hidden>No players match your search.</p>
   </section>
 
   <footer>
@@ -240,50 +187,41 @@
 <script>
 (function () {
   var searchInput = document.getElementById('player-search');
-  var teamFilter = document.getElementById('player-team-filter');
-  var positionFilter = document.getElementById('player-position-filter');
-  var typeFilter = document.getElementById('player-type-filter');
-  var countNote = document.getElementById('player-count-note');
+  var resultsList = document.getElementById('player-search-results');
   var noResults = document.getElementById('player-no-results');
-  var sections = document.querySelectorAll('#player-ledger-list .team-ledger');
+  var players = {{ search_players|tojson }};
 
-  if (!searchInput || !sections.length) return;
+  if (!searchInput || !resultsList) return;
 
-  function applyFilters() {
+  function applySearch() {
     var query = searchInput.value.trim().toLowerCase();
-    var team = teamFilter.value;
-    var position = positionFilter.value;
-    var type = typeFilter.value;
-    var visibleCount = 0;
 
-    sections.forEach(function (section) {
-      var rows = section.querySelectorAll('tbody tr');
-      var sectionVisible = 0;
+    if (!query) {
+      resultsList.hidden = true;
+      resultsList.innerHTML = '';
+      noResults.hidden = true;
+      return;
+    }
 
-      rows.forEach(function (row) {
-        var matchesQuery = !query || row.getAttribute('data-player-name').indexOf(query) !== -1;
-        var matchesTeam = !team || row.getAttribute('data-team') === team;
-        var matchesPosition = !position || row.getAttribute('data-position') === position;
-        var matchesType = !type || row.getAttribute('data-type') === type;
-        var visible = matchesQuery && matchesTeam && matchesPosition && matchesType;
-        row.hidden = !visible;
-        if (visible) {
-          sectionVisible++;
-          visibleCount++;
-        }
-      });
+    var matches = players.filter(function (player) {
+      return player.full_name.toLowerCase().indexOf(query) !== -1;
+    }).slice(0, 10);
 
-      section.hidden = sectionVisible === 0;
+    resultsList.innerHTML = '';
+    matches.forEach(function (player) {
+      var item = document.createElement('li');
+      var link = document.createElement('a');
+      link.href = '/player/' + player.slug;
+      link.textContent = player.full_name + (player.team_abbr ? ' (' + player.team_abbr + ')' : '');
+      item.appendChild(link);
+      resultsList.appendChild(item);
     });
 
-    countNote.textContent = 'Showing ' + visibleCount.toLocaleString() + ' players';
-    noResults.hidden = visibleCount !== 0;
+    resultsList.hidden = matches.length === 0;
+    noResults.hidden = matches.length !== 0;
   }
 
-  searchInput.addEventListener('input', applyFilters);
-  teamFilter.addEventListener('change', applyFilters);
-  positionFilter.addEventListener('change', applyFilters);
-  typeFilter.addEventListener('change', applyFilters);
+  searchInput.addEventListener('input', applySearch);
 })();
 </script>
 </body>

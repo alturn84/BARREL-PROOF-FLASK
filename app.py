@@ -1754,37 +1754,20 @@ def get_proofdex_signal_previews(limit=5):
 @app.route("/proofdex/")
 def players_index():
     players = [p for p in load_player_index() if p.get("active", True)]
-    team_order = {team.get("abbr"): idx for idx, team in enumerate(get_all_teams())}
-    grouped = []
-    by_team = {}
-
-    for player in players:
-        abbr = player.get("team_abbr") or "FA"
-        by_team.setdefault(abbr, {
-            "abbr": abbr,
-            "name": player.get("team_name") or ("Free Agents" if abbr == "FA" else abbr),
-            "players": [],
-        })["players"].append(player)
-
-    for group in by_team.values():
-        group["players"].sort(key=lambda p: (p.get("position_group") or "", p.get("full_name") or ""))
-        grouped.append(group)
-
-    grouped.sort(key=lambda g: (team_order.get(g["abbr"], 999), g["name"]))
-
-    team_options = sorted(
-        {(g["abbr"], g["name"]) for g in grouped},
-        key=lambda t: (team_order.get(t[0], 999), t[1]),
-    )
-    position_options = sorted({p.get("position") for p in players if p.get("position")})
+    search_players = [
+        {
+            "full_name": p.get("full_name") or p.get("display_name") or "",
+            "slug": p.get("slug"),
+            "team_abbr": p.get("team_abbr") or "",
+        }
+        for p in players
+        if p.get("slug")
+    ]
     signal_previews = get_proofdex_signal_previews()
 
     return render_template(
         "players_index.html",
-        grouped_players=grouped,
-        player_count=len(players),
-        team_options=team_options,
-        position_options=position_options,
+        search_players=search_players,
         signal_previews=signal_previews,
         page_title="PROOFDEX — Barrel Proof",
         meta_description="Barrel Proof's player intelligence index — power, contact, luck, and pitching foundation signals built for the Dope Sheet and Advanced Scout.",
