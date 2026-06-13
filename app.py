@@ -1819,6 +1819,7 @@ def luck_gap_leaderboard():
     unfiltered_count = len([card for card in cards.values() if isinstance(card, dict)])
     players = eligible_hitter_leaderboard_rows(cards)
     players.sort(key=lambda card: (card.get("luck_gap_points") is None, -(card.get("luck_gap_points") or 0), card.get("full_name") or ""))
+    players = apply_player_index_team_fallback(players)
     positive_players = [card for card in players if isinstance(card.get("luck_gap_points"), (int, float)) and card.get("luck_gap_points") > 0]
     negative_players = sorted(
         [card for card in players if isinstance(card.get("luck_gap_points"), (int, float)) and card.get("luck_gap_points") < 0],
@@ -1842,6 +1843,7 @@ def pitcher_foundation_leaderboard():
     unfiltered_count = len([card for card in cards.values() if isinstance(card, dict)])
     players = eligible_pitcher_foundation_leaderboard_rows()
     players.sort(key=lambda card: (-(card.get("pitcher_foundation_signal") or 0), card.get("full_name") or ""))
+    players = apply_player_index_team_fallback(players)
     return render_template(
         "pitcher_foundation_leaderboard.html",
         players=players,
@@ -1858,6 +1860,7 @@ def power_signal_leaderboard():
     unfiltered_count = len([card for card in cards.values() if isinstance(card, dict)])
     players = eligible_hitter_leaderboard_rows(cards)
     players.sort(key=lambda card: (card.get("power_signal") is None, -(card.get("power_signal") or 0), card.get("full_name") or ""))
+    players = apply_player_index_team_fallback(players)
     return render_template(
         "power_signal_leaderboard.html",
         players=players,
@@ -1874,6 +1877,7 @@ def contact_signal_leaderboard():
     unfiltered_count = len([card for card in cards.values() if isinstance(card, dict)])
     players = eligible_hitter_leaderboard_rows(cards)
     players.sort(key=lambda card: (card.get("contact_signal") is None, -(card.get("contact_signal") or 0), card.get("full_name") or ""))
+    players = apply_player_index_team_fallback(players)
     return render_template(
         "contact_signal_leaderboard.html",
         players=players,
