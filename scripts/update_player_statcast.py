@@ -31,9 +31,9 @@ STAT_FIELDS = [
 EXITVELO_COLUMNS = {
     "avg_exit_velocity": ["avg_hit_speed", "avg_exit_velocity", "avg_ev", "ev"],
     "max_exit_velocity": ["max_hit_speed", "max_exit_velocity", "max_ev"],
-    "hard_hit_pct": ["hard_hit_percent", "hard_hit_pct", "hardhit_percent", "hardhit_pct"],
+    "hard_hit_pct": ["ev95percent", "hard_hit_percent", "hard_hit_pct", "hardhit_percent", "hardhit_pct"],
     "barrel_pct": ["brl_percent", "barrel_pct", "barrel_percent"],
-    "sweet_spot_pct": ["sweet_spot_percent", "sweet_spot_pct"],
+    "sweet_spot_pct": ["anglesweetspotpercent", "sweet_spot_percent", "sweet_spot_pct"],
 }
 
 EXPECTED_COLUMNS = {
