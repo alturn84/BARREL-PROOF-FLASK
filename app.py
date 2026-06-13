@@ -1706,6 +1706,26 @@ def teams_index():
     from flask import redirect
     return redirect("/al-nl#team-directory", 302)
 
+def apply_player_index_team_fallback(rows):
+    """Display-only: fill missing team_abbr/team_name from player_index.json via slug lookup."""
+    index_by_slug = {
+        str(player.get("slug", "")).lower(): player
+        for player in load_player_index()
+        if player.get("slug")
+    }
+    for row in rows:
+        if row.get("team_abbr"):
+            continue
+        slug = str(row.get("slug") or "").lower()
+        indexed = index_by_slug.get(slug)
+        if indexed:
+            if indexed.get("team_abbr"):
+                row["team_abbr"] = indexed.get("team_abbr")
+            if indexed.get("team_name") and not row.get("team_name"):
+                row["team_name"] = indexed.get("team_name")
+    return rows
+
+
 def get_proofdex_signal_previews(limit=5):
     """Small display-only helper: top N rows for each signal leaderboard preview."""
     power_players = eligible_hitter_leaderboard_rows(load_hitter_power_signal_cards())
@@ -1721,10 +1741,10 @@ def get_proofdex_signal_previews(limit=5):
     pitcher_players.sort(key=lambda card: (-(card.get("pitcher_foundation_signal") or 0), card.get("full_name") or ""))
 
     return {
-        "power_signal": power_players[:limit],
-        "contact_signal": contact_players[:limit],
-        "luck_gap": luck_players[:limit],
-        "pitcher_foundation": pitcher_players[:limit],
+        "power_signal": apply_player_index_team_fallback(power_players[:limit]),
+        "contact_signal": apply_player_index_team_fallback(contact_players[:limit]),
+        "luck_gap": apply_player_index_team_fallback(luck_players[:limit]),
+        "pitcher_foundation": apply_player_index_team_fallback(pitcher_players[:limit]),
     }
 
 
