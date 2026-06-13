@@ -1115,6 +1115,82 @@ def get_scoreboard_stats():
         "updated":   data.get("updated", ""),
     }
 
+def get_dope_player_matchups():
+    """Display-only: compact, capped view of dope_player_matchups.json for /dope-sheet."""
+    data = load_json("dope_player_matchups.json", fallback={})
+    games = data.get("games") if isinstance(data, dict) else None
+    if not isinstance(games, list):
+        return []
+
+    def bat_view(bat):
+        if not isinstance(bat, dict):
+            return None
+        name = bat.get("full_name")
+        if not name:
+            return None
+        return {
+            "name": name,
+            "slug": bat.get("slug"),
+            "tags": [t for t in (bat.get("tags") or []) if t],
+        }
+
+    def pitcher_view(pitcher):
+        if not isinstance(pitcher, dict):
+            return None
+        return {
+            "name": pitcher.get("full_name"),
+            "slug": pitcher.get("slug"),
+            "profile_type": pitcher.get("profile_type"),
+            "team_abbr": pitcher.get("team_abbr"),
+        }
+
+    def edge_view(edge):
+        if not isinstance(edge, dict):
+            return None
+        name = edge.get("pitcher_name")
+        if not name:
+            return None
+        return {
+            "name": name,
+            "slug": edge.get("pitcher_slug"),
+            "edge_type": edge.get("edge_type"),
+        }
+
+    views = []
+    for game in games:
+        if not isinstance(game, dict):
+            continue
+        probable = game.get("probable_pitchers") or {}
+        away_pitcher = pitcher_view(probable.get("away"))
+        home_pitcher = pitcher_view(probable.get("home"))
+
+        away_pressure = (game.get("away_lineup_pressure") or {}).get("profile")
+        home_pressure = (game.get("home_lineup_pressure") or {}).get("profile")
+
+        away_bats = [b for b in (bat_view(b) for b in (game.get("away_bats_to_watch") or [])[:3]) if b]
+        home_bats = [b for b in (bat_view(b) for b in (game.get("home_bats_to_watch") or [])[:3]) if b]
+
+        pitcher_edges = [e for e in (edge_view(e) for e in (game.get("pitcher_edges") or [])[:2]) if e]
+
+        fantasy_watch = [note for note in (game.get("fantasy_watch") or [])[:4] if note]
+
+        views.append({
+            "away_team": game.get("away_team") or "—",
+            "home_team": game.get("home_team") or "—",
+            "away_pitcher": away_pitcher,
+            "home_pitcher": home_pitcher,
+            "away_pressure": away_pressure,
+            "home_pressure": home_pressure,
+            "away_bats": away_bats,
+            "home_bats": home_bats,
+            "pitcher_edges": pitcher_edges,
+            "fantasy_watch": fantasy_watch,
+            "lineup_source": game.get("lineup_source"),
+        })
+
+    return views
+
+
 @app.route("/dope-sheet")
 @app.route("/dope-sheet.html")
 def dope_sheet():
@@ -1311,6 +1387,7 @@ def dope_sheet():
         date_banner=date_banner,
         ds_updated=ds_updated,
         odds_updated=odds_updated,
+        player_matchups=get_dope_player_matchups(),
     )
 
 
