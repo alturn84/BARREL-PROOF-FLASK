@@ -15,6 +15,7 @@ DATA_DIR = BASE_DIR / "Site Data"
 PLAYER_DIR = DATA_DIR / "players"
 
 SCHEDULE_PATH = DATA_DIR / "schedule.json"
+DOPE_SHEET_DATA_PATH = DATA_DIR / "dope-sheet-data.json"
 TEAMS_PATH = DATA_DIR / "teams.json"
 PLAYER_INDEX_PATH = PLAYER_DIR / "player_index.json"
 POWER_SIGNAL_PATH = PLAYER_DIR / "hitter_power_signal.json"
@@ -122,9 +123,17 @@ def build_probable_pitcher_block(slug, foundation, profiles):
     }
 
 
-def build_bats_to_watch(team_abbr, player_index, power_signal, contact_signal, luck_gap, hitter_profile):
+def lineup_name_key(name):
+    return str(name or "").strip().lower()
+
+
+def build_bats_to_watch(team_abbr, player_index, power_signal, contact_signal, luck_gap, hitter_profile, confirmed_names=None):
     if not team_abbr:
         return []
+
+    confirmed_keys = None
+    if confirmed_names:
+        confirmed_keys = {lineup_name_key(n) for n in confirmed_names}
 
     candidates = []
     for p in player_index:
@@ -135,6 +144,11 @@ def build_bats_to_watch(team_abbr, player_index, power_signal, contact_signal, l
         slug = p.get("slug")
         if not slug:
             continue
+        if confirmed_keys is not None:
+            full_name = lineup_name_key(p.get("full_name"))
+            display_name = lineup_name_key(p.get("display_name"))
+            if full_name not in confirmed_keys and display_name not in confirmed_keys:
+                continue
 
         power = power_signal.get(slug)
         contact = contact_signal.get(slug)
@@ -362,6 +376,16 @@ def main():
 
     team_names = build_team_name_lookup()
 
+    dope_sheet_data = load_json(DOPE_SHEET_DATA_PATH, fallback={})
+    lineups_by_matchup = {}
+    for g in (dope_sheet_data.get("games") or []):
+        away_lineup = (g.get("lineups") or {}).get("away") or []
+        home_lineup = (g.get("lineups") or {}).get("home") or []
+        lineups_by_matchup[(g.get("away"), g.get("home"))] = {
+            "away": [p.get("name") for p in away_lineup if p.get("name")],
+            "home": [p.get("name") for p in home_lineup if p.get("name")],
+        }
+
     player_index_data = load_json(PLAYER_INDEX_PATH, fallback=[])
     player_index = player_index_data if isinstance(player_index_data, list) else []
     by_slug, by_name_team = build_player_index_lookups(player_index)
@@ -393,8 +417,14 @@ def main():
         if home_pitcher_block:
             pitchers_matched += 1
 
-        away_bats = build_bats_to_watch(away_abbr, player_index, power_signal, contact_signal, luck_gap, hitter_profile)
-        home_bats = build_bats_to_watch(home_abbr, player_index, power_signal, contact_signal, luck_gap, hitter_profile)
+        lineups = lineups_by_matchup.get((away_abbr_raw, home_abbr_raw), {})
+        away_confirmed = lineups.get("away") or None
+        home_confirmed = lineups.get("home") or None
+        away_lineup_source = "confirmed_lineup" if away_confirmed else "roster_signals"
+        home_lineup_source = "confirmed_lineup" if home_confirmed else "roster_signals"
+
+        away_bats = build_bats_to_watch(away_abbr, player_index, power_signal, contact_signal, luck_gap, hitter_profile, confirmed_names=away_confirmed)
+        home_bats = build_bats_to_watch(home_abbr, player_index, power_signal, contact_signal, luck_gap, hitter_profile, confirmed_names=home_confirmed)
         if away_bats or home_bats:
             games_with_bats += 1
 
@@ -422,7 +452,11 @@ def main():
             "away_team_name": team_names.get(away_abbr),
             "home_team_name": team_names.get(home_abbr),
             "venue": game.get("venue"),
-            "lineup_source": "roster_signals",
+            "lineup_source": "confirmed_lineup" if (away_confirmed and home_confirmed) else (
+                "roster_signals" if not (away_confirmed or home_confirmed) else "mixed"
+            ),
+            "away_lineup_source": away_lineup_source,
+            "home_lineup_source": home_lineup_source,
             "probable_pitchers": {
                 "away": away_pitcher_block,
                 "home": home_pitcher_block,

@@ -770,7 +770,10 @@ function renderMatchupIntel(g){
     sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Lineup Pressure</div>
       ${aPress?`<div class="matchup-line">${m.away_team}: ${aPress}</div>`:''}
       ${hPress?`<div class="matchup-line">${m.home_team}: ${hPress}</div>`:''}
-      ${m.lineup_source==='roster_signals'?`<div class="matchup-line matchup-disclaimer">Roster-signal read, not a confirmed lineup.</div>`:''}</div>`);
+      ${(()=>{const a=m.away_lineup_source==='roster_signals',h=m.home_lineup_source==='roster_signals';
+        if(a&&h)return `<div class="matchup-line matchup-disclaimer">Roster-signal read, not a confirmed lineup.</div>`;
+        if(a||h)return `<div class="matchup-line matchup-disclaimer">Some reads are roster-signal based, not confirmed lineup based.</div>`;
+        return '';})()}</div>`);
   }
 
   const bats=team=>(m[`${team}_bats`]||[]).map(b=>{

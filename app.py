@@ -1193,6 +1193,8 @@ def get_dope_player_matchups_lookup(sched_date):
             "pitcher_edges": pitcher_edges,
             "fantasy_watch": fantasy_watch,
             "lineup_source": game.get("lineup_source"),
+            "away_lineup_source": game.get("away_lineup_source"),
+            "home_lineup_source": game.get("home_lineup_source"),
         }
 
         game_id = game.get("game_id")
