@@ -60,6 +60,99 @@ TEAM_ABB = {
     "Texas Rangers":"TEX","Toronto Blue Jays":"TOR","Washington Nationals":"WSH",
 }
 
+PLAYER_DIR = DATA_DIR / "players"
+PROJ_TEAM_ABBR_ALIASES = {"AZ": "ARI"}
+PROJ_POSITION_ORDER = ["C", "1B", "2B", "3B", "SS", "LF", "CF", "RF", "DH"]
+
+_player_index_cache = None
+_power_signal_cache = None
+_contact_signal_cache = None
+
+def _load_json_safe(path, fallback):
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return fallback
+
+def _get_player_index():
+    global _player_index_cache
+    if _player_index_cache is None:
+        data = _load_json_safe(PLAYER_DIR / "player_index.json", [])
+        _player_index_cache = data if isinstance(data, list) else []
+    return _player_index_cache
+
+def _get_signal_map(filename, cache_attr):
+    data = _load_json_safe(PLAYER_DIR / filename, {})
+    players = data.get("players") if isinstance(data, dict) else None
+    return players if isinstance(players, dict) else {}
+
+def _get_power_signal():
+    global _power_signal_cache
+    if _power_signal_cache is None:
+        _power_signal_cache = _get_signal_map("hitter_power_signal.json", "_power_signal_cache")
+    return _power_signal_cache
+
+def _get_contact_signal():
+    global _contact_signal_cache
+    if _contact_signal_cache is None:
+        _contact_signal_cache = _get_signal_map("hitter_contact_signal.json", "_contact_signal_cache")
+    return _contact_signal_cache
+
+def build_projected_lineup(team_abbr):
+    """Build a projected starting lineup from active roster + signal data
+    when no confirmed MLB lineup is available yet."""
+    mapped_abbr = PROJ_TEAM_ABBR_ALIASES.get(team_abbr, team_abbr)
+    player_index = _get_player_index()
+    power_signal = _get_power_signal()
+    contact_signal = _get_contact_signal()
+
+    candidates = []
+    for p in player_index:
+        if p.get("team_abbr") != mapped_abbr:
+            continue
+        if p.get("position_group") == "Pitcher":
+            continue
+        if not p.get("active", True):
+            continue
+        status = (p.get("status") or "")
+        if "IL" in status:
+            continue
+        slug = p.get("slug")
+        power = power_signal.get(slug, {}).get("power_signal") if slug else None
+        contact = contact_signal.get(slug, {}).get("contact_signal") if slug else None
+        score = (power or 0) + (contact or 0)
+        candidates.append({
+            "name": p.get("full_name", ""),
+            "pos": p.get("position", ""),
+            "slug": slug,
+            "_score": score,
+        })
+
+    used_slugs = set()
+    lineup = []
+
+    for pos in PROJ_POSITION_ORDER:
+        pos_candidates = [c for c in candidates if c["pos"] == pos and c["slug"] not in used_slugs]
+        pos_candidates.sort(key=lambda c: -c["_score"])
+        if pos_candidates:
+            pick = pos_candidates[0]
+            used_slugs.add(pick["slug"])
+            lineup.append(pick)
+
+    if len(lineup) < 9:
+        leftovers = [c for c in candidates if c["slug"] not in used_slugs]
+        leftovers.sort(key=lambda c: -c["_score"])
+        for c in leftovers:
+            if len(lineup) >= 9:
+                break
+            used_slugs.add(c["slug"])
+            lineup.append(c)
+
+    return [
+        {"name": c["name"], "pos": c["pos"], "slug": c["slug"], "batting_order": i + 1}
+        for i, c in enumerate(lineup)
+    ]
+
 FIXED_DOMES = {
     "Tropicana Field",
     "loanDepot park",
@@ -236,13 +329,21 @@ def empty_pitcher():
     return {"name":"TBD","hand":"R","era":"—","whip":"—","k9":"—","bb9":"—","ip":"—","record":"—","lastStart":"—"}
 
 # ── LINEUPS ───────────────────────────────────────────────────────────────
-def get_lineup_players(game, side):
+def get_lineup_players(game, side, team_abbr):
     key = "awayPlayers" if side == "away" else "homePlayers"
     players = game.get("lineups", {}).get(key, [])
-    return [
-        {"name": p.get("fullName",""), "pos": p.get("primaryPosition",{}).get("abbreviation","")}
-        for p in players
+    confirmed = [
+        {"name": p.get("fullName",""), "pos": p.get("primaryPosition",{}).get("abbreviation",""), "batting_order": i + 1}
+        for i, p in enumerate(players)
     ]
+    if confirmed:
+        return confirmed, "confirmed_lineup"
+
+    projected = build_projected_lineup(team_abbr)
+    if projected:
+        return projected, "projected_lineup"
+
+    return [], "roster_projection"
 
 # ── BULLPEN AVAILABILITY ──────────────────────────────────────────────────
 def get_bullpen(team_id, date_str, starter_id=None):
@@ -529,8 +630,10 @@ def build_game(game, date_str, standings_data, season):
     home_p = get_probable_pitcher(game, "home")
     print("✓")
 
-    away_lu = get_lineup_players(game, "away")
-    home_lu = get_lineup_players(game, "home")
+    away_abbr_for_lu = TEAM_ABB.get(away_name, away_name[:3].upper())
+    home_abbr_for_lu = TEAM_ABB.get(home_name, home_name[:3].upper())
+    away_lu, away_lu_source = get_lineup_players(game, "away", away_abbr_for_lu)
+    home_lu, home_lu_source = get_lineup_players(game, "home", home_abbr_for_lu)
 
     print(f"  │  weather...", end=" ", flush=True)
     weather = get_weather(venue, roof)
@@ -584,6 +687,7 @@ def build_game(game, date_str, standings_data, season):
         "umpire":   {"name": ump_name, "calledKpct": "—", "rpg": "—", "note": ""},
         "broadcasts": broadcasts,
         "lineups":  {"away": away_lu, "home": home_lu},
+        "lineup_sources": {"away": away_lu_source, "home": home_lu_source},
         "bullpen":  {"away": away_bp, "home": home_bp},
         "injuries": {"away": [], "home": []},
         "form":     {"away": away_form, "home": home_form},

@@ -579,8 +579,9 @@ function renderWeather(g){
 
 function renderLineups(g){
   const awayLu=g.lineups?.away||[];const homeLu=g.lineups?.home||[];
-  const confirmed=awayLu.length>=8||homeLu.length>=8;
-  const badge=confirmed?`<span class="lu-status confirmed">CONFIRMED</span>`:`<span class="lu-status projected">PROJECTED</span>`;
+  const srcs=g.lineup_sources||{};
+  const confirmed=srcs.away==='confirmed_lineup'||srcs.home==='confirmed_lineup';
+  const badge=confirmed?`<span class="lu-status confirmed">CONFIRMED LINEUP</span>`:`<span class="lu-status projected">PROJECTED LINEUP</span>`;
   const row=(p,i)=>`<div class="lu-player"><span class="lu-num">${i+1}</span><span class="lu-pos">${p.pos||'—'}</span><span class="lu-name">${p.name||p.n||'—'}</span></div>`;
   const awayOut=awayLu.length?awayLu.map(row).join(''):`<div class="lu-pending">Lineups typically released 3–4 hours before first pitch. Check back closer to game time.</div>`;
   const homeOut=homeLu.length?homeLu.map(row).join(''):`<div class="lu-pending">Lineups typically released 3–4 hours before first pitch. Check back closer to game time.</div>`;
@@ -770,9 +771,13 @@ function renderMatchupIntel(g){
     sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Lineup Pressure</div>
       ${aPress?`<div class="matchup-line">${m.away_team}: ${aPress}</div>`:''}
       ${hPress?`<div class="matchup-line">${m.home_team}: ${hPress}</div>`:''}
-      ${(()=>{const a=m.away_lineup_source==='roster_signals',h=m.home_lineup_source==='roster_signals';
-        if(a&&h)return `<div class="matchup-line matchup-disclaimer">Roster-signal read, not a confirmed lineup.</div>`;
-        if(a||h)return `<div class="matchup-line matchup-disclaimer">Some reads are roster-signal based, not confirmed lineup based.</div>`;
+      ${(()=>{const proj=new Set(['projected_lineup','roster_projection']);
+        const a=m.away_lineup_source,h=m.home_lineup_source;
+        const aRS=a==='roster_signals',hRS=h==='roster_signals';
+        const aProj=proj.has(a),hProj=proj.has(h);
+        if(aRS&&hRS)return `<div class="matchup-line matchup-disclaimer">Roster-signal read, not a projected or confirmed lineup.</div>`;
+        if(aRS||hRS)return `<div class="matchup-line matchup-disclaimer">Some reads are roster-signal based, not a projected or confirmed lineup.</div>`;
+        if(aProj||hProj)return `<div class="matchup-line matchup-disclaimer">Projected lineup read, subject to change.</div>`;
         return '';})()}</div>`);
   }
 

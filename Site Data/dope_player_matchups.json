@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-06-15T12:50:11Z",
+    "generated_at": "2026-06-15T13:05:49Z",
     "date": "2026-06-15",
     "season": 2026,
     "source": "Barrel Proof player signal stack",
@@ -16,9 +16,9 @@
       "away_team_name": "Tampa Bay Rays",
       "home_team_name": "Los Angeles Dodgers",
       "venue": null,
-      "lineup_source": "roster_signals",
-      "away_lineup_source": "roster_signals",
-      "home_lineup_source": "roster_signals",
+      "lineup_source": "projected_lineup",
+      "away_lineup_source": "projected_lineup",
+      "home_lineup_source": "projected_lineup",
       "probable_pitchers": {
         "away": {
           "slug": "nick-martinez",
@@ -239,9 +239,9 @@
       "away_team_name": "Miami Marlins",
       "home_team_name": "Philadelphia Phillies",
       "venue": null,
-      "lineup_source": "roster_signals",
-      "away_lineup_source": "roster_signals",
-      "home_lineup_source": "roster_signals",
+      "lineup_source": "projected_lineup",
+      "away_lineup_source": "projected_lineup",
+      "home_lineup_source": "projected_lineup",
       "probable_pitchers": {
         "away": {
           "slug": "ryan-gusto",
@@ -402,9 +402,9 @@
       "away_team_name": "Kansas City Royals",
       "home_team_name": "Washington Nationals",
       "venue": null,
-      "lineup_source": "roster_signals",
-      "away_lineup_source": "roster_signals",
-      "home_lineup_source": "roster_signals",
+      "lineup_source": "projected_lineup",
+      "away_lineup_source": "projected_lineup",
+      "home_lineup_source": "projected_lineup",
       "probable_pitchers": {
         "away": null,
         "home": {
@@ -539,9 +539,9 @@
       "away_team_name": "New York Mets",
       "home_team_name": "Cincinnati Reds",
       "venue": null,
-      "lineup_source": "roster_signals",
-      "away_lineup_source": "roster_signals",
-      "home_lineup_source": "roster_signals",
+      "lineup_source": "projected_lineup",
+      "away_lineup_source": "projected_lineup",
+      "home_lineup_source": "projected_lineup",
       "probable_pitchers": {
         "away": null,
         "home": {
@@ -680,23 +680,6 @@
           "note": "Sal Stewart brings strong power indicators."
         },
         {
-          "slug": "elly-de-la-cruz",
-          "full_name": "Elly De La Cruz",
-          "team_abbr": "CIN",
-          "position": "SS",
-          "bats": null,
-          "power_signal": 91,
-          "contact_signal": 57,
-          "luck_gap_points": -9,
-          "hitter_profile_type": "Real Power Bat",
-          "confidence": "HIGH",
-          "tags": [
-            "Power Watch",
-            "DFS Watch"
-          ],
-          "note": "Elly De La Cruz brings strong power indicators."
-        },
-        {
           "slug": "nathaniel-lowe",
           "full_name": "Nathaniel Lowe",
           "team_abbr": "CIN",
@@ -739,12 +722,10 @@
         ]
       },
       "home_lineup_pressure": {
-        "power_score": 77,
-        "contact_score": 61,
-        "profile": "Power-heavy pressure",
-        "notes": [
-          "Multiple high-signal bats are clustered in this lineup: Elly De La Cruz, Tyler Stephenson."
-        ]
+        "power_score": 74,
+        "contact_score": 62,
+        "profile": "Moderate lineup pressure",
+        "notes": []
       },
       "pitcher_edges": [
         {
@@ -791,9 +772,9 @@
       "away_team_name": "San Diego Padres",
       "home_team_name": "St. Louis Cardinals",
       "venue": null,
-      "lineup_source": "roster_signals",
-      "away_lineup_source": "roster_signals",
-      "home_lineup_source": "roster_signals",
+      "lineup_source": "projected_lineup",
+      "away_lineup_source": "projected_lineup",
+      "home_lineup_source": "projected_lineup",
       "probable_pitchers": {
         "away": null,
         "home": {
@@ -942,9 +923,9 @@
       "away_team_name": "Colorado Rockies",
       "home_team_name": "Chicago Cubs",
       "venue": null,
-      "lineup_source": "roster_signals",
-      "away_lineup_source": "roster_signals",
-      "home_lineup_source": "roster_signals",
+      "lineup_source": "projected_lineup",
+      "away_lineup_source": "projected_lineup",
+      "home_lineup_source": "projected_lineup",
       "probable_pitchers": {
         "away": {
           "slug": "michael-lorenzen",
@@ -1104,9 +1085,9 @@
       "away_team_name": "Minnesota Twins",
       "home_team_name": "Texas Rangers",
       "venue": null,
-      "lineup_source": "roster_signals",
-      "away_lineup_source": "roster_signals",
-      "home_lineup_source": "roster_signals",
+      "lineup_source": "projected_lineup",
+      "away_lineup_source": "projected_lineup",
+      "home_lineup_source": "projected_lineup",
       "probable_pitchers": {
         "away": null,
         "home": {
@@ -1124,24 +1105,6 @@
         }
       },
       "away_bats_to_watch": [
-        {
-          "slug": "ryan-jeffers",
-          "full_name": "Ryan Jeffers",
-          "team_abbr": "MIN",
-          "position": "C",
-          "bats": null,
-          "power_signal": 88,
-          "contact_signal": 84,
-          "luck_gap_points": -22,
-          "hitter_profile_type": "Real Power Bat",
-          "confidence": "HIGH",
-          "tags": [
-            "Power Watch",
-            "Contact Edge",
-            "DFS Watch"
-          ],
-          "note": "Ryan Jeffers brings strong power indicators, and backed by a stable contact profile."
-        },
         {
           "slug": "byron-buxton",
           "full_name": "Byron Buxton",
@@ -1262,12 +1225,10 @@
         }
       ],
       "away_lineup_pressure": {
-        "power_score": 70,
-        "contact_score": 52,
+        "power_score": 64,
+        "contact_score": 41,
         "profile": "Moderate lineup pressure",
-        "notes": [
-          "Multiple high-signal bats are clustered in this lineup: Ryan Jeffers, Victor Caratini."
-        ]
+        "notes": []
       },
       "home_lineup_pressure": {
         "power_score": 66,
@@ -1279,7 +1240,7 @@
       },
       "pitcher_edges": [],
       "fantasy_watch": [
-        "Power Watch: Ryan Jeffers brings elite power indicators into today's matchup.",
+        "Power Watch: Byron Buxton brings elite power indicators into today's matchup.",
         "Power Watch: Corey Seager brings elite power indicators into today's matchup.",
         "Buy-Low Bat: Brandon Nimmo's expected production is running ahead of current results."
       ],
@@ -1293,9 +1254,9 @@
       "away_team_name": "Detroit Tigers",
       "home_team_name": "Houston Astros",
       "venue": null,
-      "lineup_source": "roster_signals",
-      "away_lineup_source": "roster_signals",
-      "home_lineup_source": "roster_signals",
+      "lineup_source": "projected_lineup",
+      "away_lineup_source": "projected_lineup",
+      "home_lineup_source": "projected_lineup",
       "probable_pitchers": {
         "away": {
           "slug": "troy-melton",
@@ -1466,9 +1427,9 @@
       "away_team_name": "Los Angeles Angels",
       "home_team_name": "Arizona Diamondbacks",
       "venue": null,
-      "lineup_source": "roster_signals",
-      "away_lineup_source": "roster_signals",
-      "home_lineup_source": "roster_signals",
+      "lineup_source": "projected_lineup",
+      "away_lineup_source": "projected_lineup",
+      "home_lineup_source": "projected_lineup",
       "probable_pitchers": {
         "away": {
           "slug": "walbert-urena",
@@ -1624,9 +1585,9 @@
       "away_team_name": "Pittsburgh Pirates",
       "home_team_name": "Oakland Athletics",
       "venue": null,
-      "lineup_source": "roster_signals",
-      "away_lineup_source": "roster_signals",
-      "home_lineup_source": "roster_signals",
+      "lineup_source": "projected_lineup",
+      "away_lineup_source": "projected_lineup",
+      "home_lineup_source": "projected_lineup",
       "probable_pitchers": {
         "away": {
           "slug": "jared-jones",
@@ -1774,22 +1735,6 @@
             "Balanced Producer"
           ],
           "note": "Tyler Soderstrom profile flagged for today's matchup."
-        },
-        {
-          "slug": "lawrence-butler",
-          "full_name": "Lawrence Butler",
-          "team_abbr": "ATH",
-          "position": "RF",
-          "bats": "L",
-          "power_signal": 43,
-          "contact_signal": 27,
-          "luck_gap_points": 73,
-          "hitter_profile_type": "Watch List",
-          "confidence": "HIGH",
-          "tags": [
-            "DFS Watch"
-          ],
-          "note": "Lawrence Butler expected production is running ahead of current results."
         }
       ],
       "away_lineup_pressure": {
@@ -1801,9 +1746,9 @@
         ]
       },
       "home_lineup_pressure": {
-        "power_score": 72,
-        "contact_score": 64,
-        "profile": "Moderate lineup pressure",
+        "power_score": 79,
+        "contact_score": 73,
+        "profile": "Heavy lineup pressure",
         "notes": [
           "Multiple high-signal bats are clustered in this lineup: Nick Kurtz, Shea Langeliers, Carlos Cortes."
         ]
@@ -1811,7 +1756,8 @@
       "pitcher_edges": [],
       "fantasy_watch": [
         "Power Watch: Oneil Cruz brings elite power indicators into today's matchup.",
-        "Power Watch: Nick Kurtz brings elite power indicators into today's matchup."
+        "Power Watch: Nick Kurtz brings elite power indicators into today's matchup.",
+        "Stack Watch: Multiple high-signal bats are clustered in this lineup: Nick Kurtz, Shea Langeliers, Carlos Cortes."
       ],
       "matchup_notes": [
         "Jared Jones (Insufficient Data) faces J.T. Ginn (Volatile Arm)."

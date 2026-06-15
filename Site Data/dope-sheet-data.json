@@ -1,7 +1,7 @@
 {
   "date_display": "Monday, June 15, 2026",
   "date_banner": "JUNE 15, 2026",
-  "updated": "2026-06-15T12:50:11.439016+00:00",
+  "updated": "2026-06-15T13:05:43.664444+00:00",
   "games": [
     {
       "away": "MIA",
@@ -39,8 +39,8 @@
       },
       "weather": {
         "temp": "72°F",
-        "sky": "Mostly Cloudy",
-        "wind": "16 mph NW",
+        "sky": "Partly Cloudy",
+        "wind": "15 mph NNW",
         "humidity": "60%",
         "precip": "—",
         "roof": "No Roof",
@@ -69,8 +69,122 @@
         ]
       },
       "lineups": {
-        "away": [],
-        "home": []
+        "away": [
+          {
+            "name": "Liam Hicks",
+            "pos": "C",
+            "slug": "liam-hicks",
+            "batting_order": 1
+          },
+          {
+            "name": "Connor Norby",
+            "pos": "1B",
+            "slug": "connor-norby",
+            "batting_order": 2
+          },
+          {
+            "name": "Xavier Edwards",
+            "pos": "2B",
+            "slug": "xavier-edwards",
+            "batting_order": 3
+          },
+          {
+            "name": "Javier Sanoja",
+            "pos": "3B",
+            "slug": "javier-sanoja",
+            "batting_order": 4
+          },
+          {
+            "name": "Otto Lopez",
+            "pos": "SS",
+            "slug": "otto-lopez",
+            "batting_order": 5
+          },
+          {
+            "name": "Kyle Stowers",
+            "pos": "LF",
+            "slug": "kyle-stowers",
+            "batting_order": 6
+          },
+          {
+            "name": "Jakob Marsee",
+            "pos": "CF",
+            "slug": "jakob-marsee",
+            "batting_order": 7
+          },
+          {
+            "name": "Owen Caissie",
+            "pos": "RF",
+            "slug": "owen-caissie",
+            "batting_order": 8
+          },
+          {
+            "name": "Christopher Morel",
+            "pos": "1B",
+            "slug": "christopher-morel",
+            "batting_order": 9
+          }
+        ],
+        "home": [
+          {
+            "name": "J.T. Realmuto",
+            "pos": "C",
+            "slug": "jt-realmuto",
+            "batting_order": 1
+          },
+          {
+            "name": "Bryce Harper",
+            "pos": "1B",
+            "slug": "bryce-harper",
+            "batting_order": 2
+          },
+          {
+            "name": "Bryson Stott",
+            "pos": "2B",
+            "slug": "bryson-stott",
+            "batting_order": 3
+          },
+          {
+            "name": "Alec Bohm",
+            "pos": "3B",
+            "slug": "alec-bohm",
+            "batting_order": 4
+          },
+          {
+            "name": "Trea Turner",
+            "pos": "SS",
+            "slug": "trea-turner",
+            "batting_order": 5
+          },
+          {
+            "name": "Brandon Marsh",
+            "pos": "LF",
+            "slug": "brandon-marsh",
+            "batting_order": 6
+          },
+          {
+            "name": "Justin Crawford",
+            "pos": "CF",
+            "slug": "justin-crawford",
+            "batting_order": 7
+          },
+          {
+            "name": "Adolis García",
+            "pos": "RF",
+            "slug": "adolis-garcia",
+            "batting_order": 8
+          },
+          {
+            "name": "Kyle Schwarber",
+            "pos": "DH",
+            "slug": "kyle-schwarber",
+            "batting_order": 9
+          }
+        ]
+      },
+      "lineup_sources": {
+        "away": "projected_lineup",
+        "home": "projected_lineup"
       },
       "bullpen": {
         "away": [
@@ -282,7 +396,7 @@
       "weather": {
         "temp": "72°F",
         "sky": "Clear",
-        "wind": "—",
+        "wind": "13 mph NW",
         "humidity": "53%",
         "precip": "—",
         "roof": "No Roof",
@@ -312,8 +426,122 @@
         ]
       },
       "lineups": {
-        "away": [],
-        "home": []
+        "away": [
+          {
+            "name": "Carter Jensen",
+            "pos": "C",
+            "slug": "carter-jensen",
+            "batting_order": 1
+          },
+          {
+            "name": "Vinnie Pasquantino",
+            "pos": "1B",
+            "slug": "vinnie-pasquantino",
+            "batting_order": 2
+          },
+          {
+            "name": "Michael Massey",
+            "pos": "2B",
+            "slug": "michael-massey",
+            "batting_order": 3
+          },
+          {
+            "name": "Maikel Garcia",
+            "pos": "3B",
+            "slug": "maikel-garcia",
+            "batting_order": 4
+          },
+          {
+            "name": "Bobby Witt Jr.",
+            "pos": "SS",
+            "slug": "bobby-witt-jr",
+            "batting_order": 5
+          },
+          {
+            "name": "Isaac Collins",
+            "pos": "LF",
+            "slug": "isaac-collins",
+            "batting_order": 6
+          },
+          {
+            "name": "Lane Thomas",
+            "pos": "CF",
+            "slug": "lane-thomas",
+            "batting_order": 7
+          },
+          {
+            "name": "Jac Caglianone",
+            "pos": "RF",
+            "slug": "jac-caglianone",
+            "batting_order": 8
+          },
+          {
+            "name": "Salvador Perez",
+            "pos": "C",
+            "slug": "salvador-perez",
+            "batting_order": 9
+          }
+        ],
+        "home": [
+          {
+            "name": "Drew Millas",
+            "pos": "C",
+            "slug": "drew-millas",
+            "batting_order": 1
+          },
+          {
+            "name": "Curtis Mead",
+            "pos": "1B",
+            "slug": "curtis-mead",
+            "batting_order": 2
+          },
+          {
+            "name": "Nasim Nuñez",
+            "pos": "2B",
+            "slug": "nasim-nunez",
+            "batting_order": 3
+          },
+          {
+            "name": "Jorbit Vivas",
+            "pos": "3B",
+            "slug": "jorbit-vivas",
+            "batting_order": 4
+          },
+          {
+            "name": "CJ Abrams",
+            "pos": "SS",
+            "slug": "cj-abrams",
+            "batting_order": 5
+          },
+          {
+            "name": "Daylen Lile",
+            "pos": "LF",
+            "slug": "daylen-lile",
+            "batting_order": 6
+          },
+          {
+            "name": "Jacob Young",
+            "pos": "CF",
+            "slug": "jacob-young",
+            "batting_order": 7
+          },
+          {
+            "name": "James Wood",
+            "pos": "RF",
+            "slug": "james-wood",
+            "batting_order": 8
+          },
+          {
+            "name": "José Tena",
+            "pos": "DH",
+            "slug": "jose-tena",
+            "batting_order": 9
+          }
+        ]
+      },
+      "lineup_sources": {
+        "away": "projected_lineup",
+        "home": "projected_lineup"
       },
       "bullpen": {
         "away": [
@@ -524,9 +752,9 @@
       },
       "weather": {
         "temp": "61°F",
-        "sky": "Mostly Cloudy",
+        "sky": "Partly Cloudy",
         "wind": "5 mph N",
-        "humidity": "72%",
+        "humidity": "68%",
         "precip": "—",
         "roof": "No Roof",
         "source": "NWS"
@@ -556,8 +784,122 @@
         ]
       },
       "lineups": {
-        "away": [],
-        "home": []
+        "away": [
+          {
+            "name": "Hayden Senger",
+            "pos": "C",
+            "slug": "hayden-senger",
+            "batting_order": 1
+          },
+          {
+            "name": "Mark Vientos",
+            "pos": "1B",
+            "slug": "mark-vientos",
+            "batting_order": 2
+          },
+          {
+            "name": "Marcus Semien",
+            "pos": "2B",
+            "slug": "marcus-semien",
+            "batting_order": 3
+          },
+          {
+            "name": "Bo Bichette",
+            "pos": "3B",
+            "slug": "bo-bichette",
+            "batting_order": 4
+          },
+          {
+            "name": "Vidal Bruján",
+            "pos": "SS",
+            "slug": "vidal-brujan",
+            "batting_order": 5
+          },
+          {
+            "name": "Juan Soto",
+            "pos": "LF",
+            "slug": "juan-soto",
+            "batting_order": 6
+          },
+          {
+            "name": "A.J. Ewing",
+            "pos": "CF",
+            "slug": "aj-ewing",
+            "batting_order": 7
+          },
+          {
+            "name": "Carson Benge",
+            "pos": "RF",
+            "slug": "carson-benge",
+            "batting_order": 8
+          },
+          {
+            "name": "MJ Melendez",
+            "pos": "DH",
+            "slug": "mj-melendez",
+            "batting_order": 9
+          }
+        ],
+        "home": [
+          {
+            "name": "Tyler Stephenson",
+            "pos": "C",
+            "slug": "tyler-stephenson",
+            "batting_order": 1
+          },
+          {
+            "name": "Sal Stewart",
+            "pos": "1B",
+            "slug": "sal-stewart",
+            "batting_order": 2
+          },
+          {
+            "name": "Matt McLain",
+            "pos": "2B",
+            "slug": "matt-mclain",
+            "batting_order": 3
+          },
+          {
+            "name": "Edwin Arroyo",
+            "pos": "SS",
+            "slug": "edwin-arroyo",
+            "batting_order": 4
+          },
+          {
+            "name": "JJ Bleday",
+            "pos": "LF",
+            "slug": "jj-bleday",
+            "batting_order": 5
+          },
+          {
+            "name": "Dane Myers",
+            "pos": "CF",
+            "slug": "dane-myers",
+            "batting_order": 6
+          },
+          {
+            "name": "Blake Dunn",
+            "pos": "RF",
+            "slug": "blake-dunn",
+            "batting_order": 7
+          },
+          {
+            "name": "Nathaniel Lowe",
+            "pos": "DH",
+            "slug": "nathaniel-lowe",
+            "batting_order": 8
+          },
+          {
+            "name": "Spencer Steer",
+            "pos": "LF",
+            "slug": "spencer-steer",
+            "batting_order": 9
+          }
+        ]
+      },
+      "lineup_sources": {
+        "away": "projected_lineup",
+        "home": "projected_lineup"
       },
       "bullpen": {
         "away": [
@@ -768,7 +1110,7 @@
       },
       "weather": {
         "temp": "64°F",
-        "sky": "Clear",
+        "sky": "Mostly Clear",
         "wind": "3 mph WNW",
         "humidity": "73%",
         "precip": "—",
@@ -798,8 +1140,122 @@
         ]
       },
       "lineups": {
-        "away": [],
-        "home": []
+        "away": [
+          {
+            "name": "Freddy Fermin",
+            "pos": "C",
+            "slug": "freddy-fermin",
+            "batting_order": 1
+          },
+          {
+            "name": "Gavin Sheets",
+            "pos": "1B",
+            "slug": "gavin-sheets",
+            "batting_order": 2
+          },
+          {
+            "name": "Jake Cronenworth",
+            "pos": "2B",
+            "slug": "jake-cronenworth",
+            "batting_order": 3
+          },
+          {
+            "name": "Manny Machado",
+            "pos": "3B",
+            "slug": "manny-machado",
+            "batting_order": 4
+          },
+          {
+            "name": "Xander Bogaerts",
+            "pos": "SS",
+            "slug": "xander-bogaerts",
+            "batting_order": 5
+          },
+          {
+            "name": "Jackson Merrill",
+            "pos": "CF",
+            "slug": "jackson-merrill",
+            "batting_order": 6
+          },
+          {
+            "name": "Fernando Tatis Jr.",
+            "pos": "RF",
+            "slug": "fernando-tatis-jr",
+            "batting_order": 7
+          },
+          {
+            "name": "Miguel Andujar",
+            "pos": "DH",
+            "slug": "miguel-andujar",
+            "batting_order": 8
+          },
+          {
+            "name": "Bryce Johnson",
+            "pos": "RF",
+            "slug": "bryce-johnson",
+            "batting_order": 9
+          }
+        ],
+        "home": [
+          {
+            "name": "Jimmy Crooks",
+            "pos": "C",
+            "slug": "jimmy-crooks",
+            "batting_order": 1
+          },
+          {
+            "name": "Alec Burleson",
+            "pos": "1B",
+            "slug": "alec-burleson",
+            "batting_order": 2
+          },
+          {
+            "name": "JJ Wetherholt",
+            "pos": "2B",
+            "slug": "jj-wetherholt",
+            "batting_order": 3
+          },
+          {
+            "name": "Nolan Gorman",
+            "pos": "3B",
+            "slug": "nolan-gorman",
+            "batting_order": 4
+          },
+          {
+            "name": "Masyn Winn",
+            "pos": "SS",
+            "slug": "masyn-winn",
+            "batting_order": 5
+          },
+          {
+            "name": "Bryan Torres",
+            "pos": "LF",
+            "slug": "bryan-torres",
+            "batting_order": 6
+          },
+          {
+            "name": "Victor Scott II",
+            "pos": "CF",
+            "slug": "victor-scott-ii",
+            "batting_order": 7
+          },
+          {
+            "name": "Jordan Walker",
+            "pos": "RF",
+            "slug": "jordan-walker",
+            "batting_order": 8
+          },
+          {
+            "name": "Iván Herrera",
+            "pos": "DH",
+            "slug": "ivan-herrera",
+            "batting_order": 9
+          }
+        ]
+      },
+      "lineup_sources": {
+        "away": "projected_lineup",
+        "home": "projected_lineup"
       },
       "bullpen": {
         "away": [
@@ -1011,8 +1467,8 @@
       "weather": {
         "temp": "61°F",
         "sky": "—",
-        "wind": "9 mph SW",
-        "humidity": "59%",
+        "wind": "10 mph SW",
+        "humidity": "63%",
         "precip": "—",
         "roof": "No Roof",
         "source": "NWS"
@@ -1040,8 +1496,122 @@
         ]
       },
       "lineups": {
-        "away": [],
-        "home": []
+        "away": [
+          {
+            "name": "Hunter Goodman",
+            "pos": "C",
+            "slug": "hunter-goodman",
+            "batting_order": 1
+          },
+          {
+            "name": "TJ Rumfield",
+            "pos": "1B",
+            "slug": "tj-rumfield",
+            "batting_order": 2
+          },
+          {
+            "name": "Edouard Julien",
+            "pos": "2B",
+            "slug": "edouard-julien",
+            "batting_order": 3
+          },
+          {
+            "name": "Kyle Karros",
+            "pos": "3B",
+            "slug": "kyle-karros",
+            "batting_order": 4
+          },
+          {
+            "name": "Ezequiel Tovar",
+            "pos": "SS",
+            "slug": "ezequiel-tovar",
+            "batting_order": 5
+          },
+          {
+            "name": "Jake McCarthy",
+            "pos": "CF",
+            "slug": "jake-mccarthy",
+            "batting_order": 6
+          },
+          {
+            "name": "Troy Johnston",
+            "pos": "RF",
+            "slug": "troy-johnston",
+            "batting_order": 7
+          },
+          {
+            "name": "Tyler Freeman",
+            "pos": "RF",
+            "slug": "tyler-freeman",
+            "batting_order": 8
+          },
+          {
+            "name": "Willi Castro",
+            "pos": "2B",
+            "slug": "willi-castro",
+            "batting_order": 9
+          }
+        ],
+        "home": [
+          {
+            "name": "Carson Kelly",
+            "pos": "C",
+            "slug": "carson-kelly",
+            "batting_order": 1
+          },
+          {
+            "name": "Michael Busch",
+            "pos": "1B",
+            "slug": "michael-busch",
+            "batting_order": 2
+          },
+          {
+            "name": "Nico Hoerner",
+            "pos": "2B",
+            "slug": "nico-hoerner",
+            "batting_order": 3
+          },
+          {
+            "name": "Alex Bregman",
+            "pos": "3B",
+            "slug": "alex-bregman",
+            "batting_order": 4
+          },
+          {
+            "name": "Dansby Swanson",
+            "pos": "SS",
+            "slug": "dansby-swanson",
+            "batting_order": 5
+          },
+          {
+            "name": "Ian Happ",
+            "pos": "LF",
+            "slug": "ian-happ",
+            "batting_order": 6
+          },
+          {
+            "name": "Pete Crow-Armstrong",
+            "pos": "CF",
+            "slug": "pete-crow-armstrong",
+            "batting_order": 7
+          },
+          {
+            "name": "Seiya Suzuki",
+            "pos": "RF",
+            "slug": "seiya-suzuki",
+            "batting_order": 8
+          },
+          {
+            "name": "Moisés Ballesteros",
+            "pos": "DH",
+            "slug": "moises-ballesteros",
+            "batting_order": 9
+          }
+        ]
+      },
+      "lineup_sources": {
+        "away": "projected_lineup",
+        "home": "projected_lineup"
       },
       "bullpen": {
         "away": [
@@ -1253,7 +1823,7 @@
       "weather": {
         "temp": "75°F",
         "sky": "Cloudy",
-        "wind": "5 mph NNE",
+        "wind": "8 mph NNE",
         "humidity": "83%",
         "precip": "—",
         "roof": "Open",
@@ -1285,8 +1855,122 @@
         ]
       },
       "lineups": {
-        "away": [],
-        "home": []
+        "away": [
+          {
+            "name": "Victor Caratini",
+            "pos": "C",
+            "slug": "victor-caratini",
+            "batting_order": 1
+          },
+          {
+            "name": "Kody Clemens",
+            "pos": "1B",
+            "slug": "kody-clemens",
+            "batting_order": 2
+          },
+          {
+            "name": "Luke Keaschall",
+            "pos": "2B",
+            "slug": "luke-keaschall",
+            "batting_order": 3
+          },
+          {
+            "name": "Royce Lewis",
+            "pos": "3B",
+            "slug": "royce-lewis",
+            "batting_order": 4
+          },
+          {
+            "name": "Brooks Lee",
+            "pos": "SS",
+            "slug": "brooks-lee",
+            "batting_order": 5
+          },
+          {
+            "name": "Trevor Larnach",
+            "pos": "LF",
+            "slug": "trevor-larnach",
+            "batting_order": 6
+          },
+          {
+            "name": "Byron Buxton",
+            "pos": "CF",
+            "slug": "byron-buxton",
+            "batting_order": 7
+          },
+          {
+            "name": "Austin Martin",
+            "pos": "RF",
+            "slug": "austin-martin",
+            "batting_order": 8
+          },
+          {
+            "name": "Josh Bell",
+            "pos": "DH",
+            "slug": "josh-bell",
+            "batting_order": 9
+          }
+        ],
+        "home": [
+          {
+            "name": "Elias Díaz",
+            "pos": "C",
+            "slug": "elias-diaz",
+            "batting_order": 1
+          },
+          {
+            "name": "Jake Burger",
+            "pos": "1B",
+            "slug": "jake-burger",
+            "batting_order": 2
+          },
+          {
+            "name": "Ezequiel Duran",
+            "pos": "2B",
+            "slug": "ezequiel-duran",
+            "batting_order": 3
+          },
+          {
+            "name": "Josh Jung",
+            "pos": "3B",
+            "slug": "josh-jung",
+            "batting_order": 4
+          },
+          {
+            "name": "Corey Seager",
+            "pos": "SS",
+            "slug": "corey-seager",
+            "batting_order": 5
+          },
+          {
+            "name": "Wyatt Langford",
+            "pos": "LF",
+            "slug": "wyatt-langford",
+            "batting_order": 6
+          },
+          {
+            "name": "Evan Carter",
+            "pos": "CF",
+            "slug": "evan-carter",
+            "batting_order": 7
+          },
+          {
+            "name": "Brandon Nimmo",
+            "pos": "RF",
+            "slug": "brandon-nimmo",
+            "batting_order": 8
+          },
+          {
+            "name": "Joc Pederson",
+            "pos": "DH",
+            "slug": "joc-pederson",
+            "batting_order": 9
+          }
+        ]
+      },
+      "lineup_sources": {
+        "away": "projected_lineup",
+        "home": "projected_lineup"
       },
       "bullpen": {
         "away": [
@@ -1527,8 +2211,122 @@
         ]
       },
       "lineups": {
-        "away": [],
-        "home": []
+        "away": [
+          {
+            "name": "Dillon Dingler",
+            "pos": "C",
+            "slug": "dillon-dingler",
+            "batting_order": 1
+          },
+          {
+            "name": "Spencer Torkelson",
+            "pos": "1B",
+            "slug": "spencer-torkelson",
+            "batting_order": 2
+          },
+          {
+            "name": "Gleyber Torres",
+            "pos": "2B",
+            "slug": "gleyber-torres",
+            "batting_order": 3
+          },
+          {
+            "name": "Colt Keith",
+            "pos": "3B",
+            "slug": "colt-keith",
+            "batting_order": 4
+          },
+          {
+            "name": "Kevin McGonigle",
+            "pos": "SS",
+            "slug": "kevin-mcgonigle",
+            "batting_order": 5
+          },
+          {
+            "name": "Riley Greene",
+            "pos": "LF",
+            "slug": "riley-greene",
+            "batting_order": 6
+          },
+          {
+            "name": "Matt Vierling",
+            "pos": "CF",
+            "slug": "matt-vierling",
+            "batting_order": 7
+          },
+          {
+            "name": "Kerry Carpenter",
+            "pos": "RF",
+            "slug": "kerry-carpenter",
+            "batting_order": 8
+          },
+          {
+            "name": "Jahmai Jones",
+            "pos": "DH",
+            "slug": "jahmai-jones",
+            "batting_order": 9
+          }
+        ],
+        "home": [
+          {
+            "name": "Christian Vázquez",
+            "pos": "C",
+            "slug": "christian-vazquez",
+            "batting_order": 1
+          },
+          {
+            "name": "Christian Walker",
+            "pos": "1B",
+            "slug": "christian-walker",
+            "batting_order": 2
+          },
+          {
+            "name": "Jose Altuve",
+            "pos": "2B",
+            "slug": "jose-altuve",
+            "batting_order": 3
+          },
+          {
+            "name": "Isaac Paredes",
+            "pos": "3B",
+            "slug": "isaac-paredes",
+            "batting_order": 4
+          },
+          {
+            "name": "Jeremy Peña",
+            "pos": "SS",
+            "slug": "jeremy-pena",
+            "batting_order": 5
+          },
+          {
+            "name": "Brice Matthews",
+            "pos": "CF",
+            "slug": "brice-matthews",
+            "batting_order": 6
+          },
+          {
+            "name": "Cam Smith",
+            "pos": "RF",
+            "slug": "cam-smith",
+            "batting_order": 7
+          },
+          {
+            "name": "Yordan Alvarez",
+            "pos": "DH",
+            "slug": "yordan-alvarez",
+            "batting_order": 8
+          },
+          {
+            "name": "Collin Price",
+            "pos": "C",
+            "slug": "collin-price",
+            "batting_order": 9
+          }
+        ]
+      },
+      "lineup_sources": {
+        "away": "projected_lineup",
+        "home": "projected_lineup"
       },
       "bullpen": {
         "away": [
@@ -1740,7 +2538,7 @@
       "weather": {
         "temp": "88°F",
         "sky": "—",
-        "wind": "7 mph SSE",
+        "wind": "7 mph SE",
         "humidity": "40%",
         "precip": "—",
         "roof": "Open",
@@ -1769,8 +2567,122 @@
         ]
       },
       "lineups": {
-        "away": [],
-        "home": []
+        "away": [
+          {
+            "name": "Logan O'Hoppe",
+            "pos": "C",
+            "slug": "logan-o-hoppe",
+            "batting_order": 1
+          },
+          {
+            "name": "Nolan Schanuel",
+            "pos": "1B",
+            "slug": "nolan-schanuel",
+            "batting_order": 2
+          },
+          {
+            "name": "Vaughn Grissom",
+            "pos": "2B",
+            "slug": "vaughn-grissom",
+            "batting_order": 3
+          },
+          {
+            "name": "Donovan Walton",
+            "pos": "3B",
+            "slug": "donovan-walton",
+            "batting_order": 4
+          },
+          {
+            "name": "Zach Neto",
+            "pos": "SS",
+            "slug": "zach-neto",
+            "batting_order": 5
+          },
+          {
+            "name": "Jose Siri",
+            "pos": "LF",
+            "slug": "jose-siri",
+            "batting_order": 6
+          },
+          {
+            "name": "Mike Trout",
+            "pos": "CF",
+            "slug": "mike-trout",
+            "batting_order": 7
+          },
+          {
+            "name": "Jo Adell",
+            "pos": "RF",
+            "slug": "jo-adell",
+            "batting_order": 8
+          },
+          {
+            "name": "Oswald Peraza",
+            "pos": "2B",
+            "slug": "oswald-peraza",
+            "batting_order": 9
+          }
+        ],
+        "home": [
+          {
+            "name": "Gabriel Moreno",
+            "pos": "C",
+            "slug": "gabriel-moreno",
+            "batting_order": 1
+          },
+          {
+            "name": "Ildemaro Vargas",
+            "pos": "1B",
+            "slug": "ildemaro-vargas",
+            "batting_order": 2
+          },
+          {
+            "name": "Ketel Marte",
+            "pos": "2B",
+            "slug": "ketel-marte",
+            "batting_order": 3
+          },
+          {
+            "name": "Nolan Arenado",
+            "pos": "3B",
+            "slug": "nolan-arenado",
+            "batting_order": 4
+          },
+          {
+            "name": "Geraldo Perdomo",
+            "pos": "SS",
+            "slug": "geraldo-perdomo",
+            "batting_order": 5
+          },
+          {
+            "name": "Tommy Troy",
+            "pos": "LF",
+            "slug": "tommy-troy",
+            "batting_order": 6
+          },
+          {
+            "name": "Jorge Barrosa",
+            "pos": "CF",
+            "slug": "jorge-barrosa",
+            "batting_order": 7
+          },
+          {
+            "name": "Corbin Carroll",
+            "pos": "RF",
+            "slug": "corbin-carroll",
+            "batting_order": 8
+          },
+          {
+            "name": "Adrian Del Castillo",
+            "pos": "DH",
+            "slug": "adrian-del-castillo",
+            "batting_order": 9
+          }
+        ]
+      },
+      "lineup_sources": {
+        "away": "projected_lineup",
+        "home": "projected_lineup"
       },
       "bullpen": {
         "away": [
@@ -1980,10 +2892,10 @@
         }
       },
       "weather": {
-        "temp": "61°F",
+        "temp": "59°F",
         "sky": "Clear",
         "wind": "6 mph S",
-        "humidity": "77%",
+        "humidity": "82%",
         "precip": "—",
         "roof": "No Roof",
         "source": "NWS"
@@ -2012,8 +2924,122 @@
         ]
       },
       "lineups": {
-        "away": [],
-        "home": []
+        "away": [
+          {
+            "name": "Endy Rodríguez",
+            "pos": "C",
+            "slug": "endy-rodriguez",
+            "batting_order": 1
+          },
+          {
+            "name": "Spencer Horwitz",
+            "pos": "1B",
+            "slug": "spencer-horwitz",
+            "batting_order": 2
+          },
+          {
+            "name": "Brandon Lowe",
+            "pos": "2B",
+            "slug": "brandon-lowe",
+            "batting_order": 3
+          },
+          {
+            "name": "Nick Gonzales",
+            "pos": "3B",
+            "slug": "nick-gonzales",
+            "batting_order": 4
+          },
+          {
+            "name": "Jared Triolo",
+            "pos": "SS",
+            "slug": "jared-triolo",
+            "batting_order": 5
+          },
+          {
+            "name": "Bryan Reynolds",
+            "pos": "LF",
+            "slug": "bryan-reynolds",
+            "batting_order": 6
+          },
+          {
+            "name": "Oneil Cruz",
+            "pos": "CF",
+            "slug": "oneil-cruz",
+            "batting_order": 7
+          },
+          {
+            "name": "Ryan O'Hearn",
+            "pos": "RF",
+            "slug": "ryan-o-hearn",
+            "batting_order": 8
+          },
+          {
+            "name": "Marcell Ozuna",
+            "pos": "DH",
+            "slug": "marcell-ozuna",
+            "batting_order": 9
+          }
+        ],
+        "home": [
+          {
+            "name": "Shea Langeliers",
+            "pos": "C",
+            "slug": "shea-langeliers",
+            "batting_order": 1
+          },
+          {
+            "name": "Nick Kurtz",
+            "pos": "1B",
+            "slug": "nick-kurtz",
+            "batting_order": 2
+          },
+          {
+            "name": "Jeff McNeil",
+            "pos": "2B",
+            "slug": "jeff-mcneil",
+            "batting_order": 3
+          },
+          {
+            "name": "Zack Gelof",
+            "pos": "3B",
+            "slug": "zack-gelof",
+            "batting_order": 4
+          },
+          {
+            "name": "Darell Hernaiz",
+            "pos": "SS",
+            "slug": "darell-hernaiz",
+            "batting_order": 5
+          },
+          {
+            "name": "Tyler Soderstrom",
+            "pos": "LF",
+            "slug": "tyler-soderstrom",
+            "batting_order": 6
+          },
+          {
+            "name": "Henry Bolte",
+            "pos": "CF",
+            "slug": "henry-bolte",
+            "batting_order": 7
+          },
+          {
+            "name": "Carlos Cortes",
+            "pos": "RF",
+            "slug": "carlos-cortes",
+            "batting_order": 8
+          },
+          {
+            "name": "Brent Rooker",
+            "pos": "DH",
+            "slug": "brent-rooker",
+            "batting_order": 9
+          }
+        ]
+      },
+      "lineup_sources": {
+        "away": "projected_lineup",
+        "home": "projected_lineup"
       },
       "bullpen": {
         "away": [
@@ -2025,6 +3051,12 @@
           },
           {
             "name": "Gregory Soto",
+            "role": "",
+            "usage": "used",
+            "rest": "2"
+          },
+          {
+            "name": "Yohan Ramírez",
             "role": "",
             "usage": "used",
             "rest": "2"
@@ -2058,12 +3090,6 @@
             "role": "",
             "usage": "fresh",
             "rest": "3"
-          },
-          {
-            "name": "Carmen Mlodzinski",
-            "role": "",
-            "usage": "fresh",
-            "rest": "5"
           }
         ],
         "home": [
@@ -2252,8 +3278,122 @@
         ]
       },
       "lineups": {
-        "away": [],
-        "home": []
+        "away": [
+          {
+            "name": "Nick Fortes",
+            "pos": "C",
+            "slug": "nick-fortes",
+            "batting_order": 1
+          },
+          {
+            "name": "Jonathan Aranda",
+            "pos": "1B",
+            "slug": "jonathan-aranda",
+            "batting_order": 2
+          },
+          {
+            "name": "Ben Williamson",
+            "pos": "2B",
+            "slug": "ben-williamson",
+            "batting_order": 3
+          },
+          {
+            "name": "Junior Caminero",
+            "pos": "3B",
+            "slug": "junior-caminero",
+            "batting_order": 4
+          },
+          {
+            "name": "Taylor Walls",
+            "pos": "SS",
+            "slug": "taylor-walls",
+            "batting_order": 5
+          },
+          {
+            "name": "Chandler Simpson",
+            "pos": "LF",
+            "slug": "chandler-simpson",
+            "batting_order": 6
+          },
+          {
+            "name": "Cedric Mullins",
+            "pos": "CF",
+            "slug": "cedric-mullins",
+            "batting_order": 7
+          },
+          {
+            "name": "Ryan Vilade",
+            "pos": "RF",
+            "slug": "ryan-vilade",
+            "batting_order": 8
+          },
+          {
+            "name": "Yandy Díaz",
+            "pos": "DH",
+            "slug": "yandy-diaz",
+            "batting_order": 9
+          }
+        ],
+        "home": [
+          {
+            "name": "Will Smith",
+            "pos": "C",
+            "slug": "will-smith",
+            "batting_order": 1
+          },
+          {
+            "name": "Freddie Freeman",
+            "pos": "1B",
+            "slug": "freddie-freeman",
+            "batting_order": 2
+          },
+          {
+            "name": "Alex Freeland",
+            "pos": "2B",
+            "slug": "alex-freeland",
+            "batting_order": 3
+          },
+          {
+            "name": "Max Muncy",
+            "pos": "3B",
+            "slug": "max-muncy",
+            "batting_order": 4
+          },
+          {
+            "name": "Mookie Betts",
+            "pos": "SS",
+            "slug": "mookie-betts",
+            "batting_order": 5
+          },
+          {
+            "name": "Alex Call",
+            "pos": "LF",
+            "slug": "alex-call",
+            "batting_order": 6
+          },
+          {
+            "name": "Andy Pages",
+            "pos": "CF",
+            "slug": "andy-pages",
+            "batting_order": 7
+          },
+          {
+            "name": "Kyle Tucker",
+            "pos": "RF",
+            "slug": "kyle-tucker",
+            "batting_order": 8
+          },
+          {
+            "name": "Shohei Ohtani",
+            "pos": "TWP",
+            "slug": "shohei-ohtani",
+            "batting_order": 9
+          }
+        ]
+      },
+      "lineup_sources": {
+        "away": "projected_lineup",
+        "home": "projected_lineup"
       },
       "bullpen": {
         "away": [
