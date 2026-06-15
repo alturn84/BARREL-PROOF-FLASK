@@ -1206,6 +1206,29 @@ def get_dope_player_matchups_lookup(sched_date):
     return lookup
 
 
+def get_dope_pitcher_matchups_lookup(sched_date):
+    """Display-only: date-guarded pitcher matchup reads keyed by (away_team, home_team) and game_date."""
+    data = load_json("dope_pitcher_matchups.json", fallback={})
+    games = data.get("games") if isinstance(data, dict) else None
+    meta = data.get("meta") if isinstance(data, dict) else {}
+    if not isinstance(games, list):
+        return {}
+    if not sched_date or (meta or {}).get("date") != sched_date:
+        return {}
+
+    lookup = {}
+    for game in games:
+        if not isinstance(game, dict):
+            continue
+        away_team = game.get("away_team")
+        home_team = game.get("home_team")
+        game_date = game.get("game_date")
+        if away_team and home_team and game_date:
+            lookup[("teams", game_date, away_team, home_team)] = game
+
+    return lookup
+
+
 @app.route("/dope-sheet")
 @app.route("/dope-sheet.html")
 def dope_sheet():
@@ -1235,6 +1258,12 @@ def dope_sheet():
             match = matchup_lookup.get(("teams", sched_date, g.get("away"), g.get("home")))
         if match is not None:
             g["playerMatchup"] = match
+
+    pitcher_matchup_lookup = get_dope_pitcher_matchups_lookup(sched_date)
+    for g in ds_games:
+        pmatch = pitcher_matchup_lookup.get(("teams", sched_date, g.get("away"), g.get("home")))
+        if pmatch is not None:
+            g["pitcherMatchup"] = pmatch
 
     if date_display != expected_display:
         import sys

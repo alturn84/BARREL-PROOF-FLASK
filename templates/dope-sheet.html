@@ -814,6 +814,63 @@ function renderMatchupIntel(g){
   return `<div class="detail-section full matchup-intel-block"><div class="matchup-intel-title">Matchup Intelligence</div>${sub.join('')}</div>`;
 }
 
+function renderPitchingRead(g){
+  const m=g.pitcherMatchup;
+  if(!m)return'';
+  const v=x=>x!==null&&x!==undefined&&x!=='None'&&x!=='null'&&!(typeof x==='number'&&isNaN(x))&&x!==''?x:null;
+  const sub=[];
+
+  const pitcherLine=(team,p)=>{
+    if(!p)return null;
+    const name=v(p.name);
+    if(!name)return `<div class="matchup-line">${team}: Probable starter unavailable.</div>`;
+    const link=p.slug?`<a href="/player/${p.slug}">${name}</a>`:name;
+    const reads=[v(p.strikeout_read),v(p.power_risk||p.contact_risk),v(p.stability)].filter(Boolean);
+    return `<div class="matchup-line">${team}: ${link}${reads.length?` — ${reads.slice(0,2).join(' / ')}`:''}</div>`;
+  };
+  const aLine=pitcherLine(m.away_team,m.away_pitcher),hLine=pitcherLine(m.home_team,m.home_pitcher);
+  if(aLine||hLine){
+    sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Probable Starters</div>${aLine||''}${hLine||''}</div>`);
+  }
+
+  const riskLine=p=>{
+    if(!p)return null;
+    const name=v(p.name),summary=v(p.summary);
+    if(!name||!summary)return null;
+    const link=p.slug?`<a href="/player/${p.slug}">${name}</a>`:name;
+    return `<div class="matchup-line">${link}: ${summary}</div>`;
+  };
+  const aRisk=riskLine(m.away_pitcher),hRisk=riskLine(m.home_pitcher);
+  if(aRisk||hRisk){
+    sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Starter Risk</div>${aRisk||''}${hRisk||''}</div>`);
+  }
+
+  const pressureLine=(label,opp)=>{
+    if(!opp)return null;
+    const read=v(opp.pressure_read);
+    if(!read)return null;
+    const bats=(opp.danger_bats||[]).slice(0,2).map(b=>{
+      const name=v(b&&b.name);
+      if(!name)return null;
+      return b.slug?`<a href="/player/${b.slug}">${name}</a>`:name;
+    }).filter(Boolean);
+    return `<div class="matchup-line">${label}: ${read}${bats.length?` — watch ${bats.join(', ')}`:''}</div>`;
+  };
+  const aPressure=pressureLine(`${m.away_team} vs ${v(m.home_pitcher&&m.home_pitcher.name)||m.home_team}`,m.away_lineup_vs_home_pitcher);
+  const hPressure=pressureLine(`${m.home_team} vs ${v(m.away_pitcher&&m.away_pitcher.name)||m.away_team}`,m.home_lineup_vs_away_pitcher);
+  if(aPressure||hPressure){
+    sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Lineup Pressure</div>${aPressure||''}${hPressure||''}</div>`);
+  }
+
+  const reads=(m.game_pitching_read||[]).filter(v).slice(0,3);
+  if(reads.length){
+    sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Barrel Proof Read</div><ul class="matchup-list">${reads.map(r=>`<li>${r}</li>`).join('')}</ul></div>`);
+  }
+
+  if(!sub.length)return'';
+  return `<div class="detail-section full matchup-intel-block"><div class="matchup-intel-title">Pitching Read</div>${sub.join('')}</div>`;
+}
+
 function renderProps(g){
   const p=g.props;
   if(!p||(!p.pitchers?.length&&!p.batters?.length))return'';
@@ -877,6 +934,7 @@ function render(games){
       renderInjuries(g),
       renderProps(g),
       renderMatchupIntel(g),
+      renderPitchingRead(g),
     ].filter(s=>s&&s.trim()).join('');
     return`<div class="game-row${g.oddsLive?' live-game':''}" id="gr-${idx}">
       <div class="game-row-header" onclick="toggle(${idx})">
