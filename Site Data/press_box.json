@@ -1,6 +1,38 @@
 {
   "date": "2026-06-14",
-  "generated_at": "2026-06-15 10:16",
-  "passed_validation": false,
-  "error": "API error: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}"
+  "date_display": "Sunday, June 14, 2026",
+  "generated_at": "2026-06-15 10:17",
+  "model": "hermes-editor-at-large-v1",
+  "passed_validation": true,
+  "column": {
+    "text": "• Cleveland Guardians placed third baseman José Ramírez on the 10-day injured list with a left hamate fracture.\n• Kansas City Royals placed first baseman Vinnie Pasquantino on the 10-day injured list with a right hamate fracture.\n• Cleveland Guardians designated left fielder George Valera for assignment.\n• San Diego Padres designated right-handed pitcher Ty Adcock for assignment.\n• Philadelphia Phillies signed free agent second baseman Luke Ritter to a minor league contract.\n• Texas Rangers recalled left fielder Alejandro Osuna from Triple-A Round Rock Express.\n• San Francisco Giants sent right-handed pitcher Tyler Mahle on a rehab assignment to Triple-A Sacramento River Cats.\n• Cleveland Guardians activated shortstop Gabriel Arias from the 60-day injured list.",
+    "worth_watching": "",
+    "word_count": 116
+  },
+  "x_article": {
+    "title": "MLB Daily Recap",
+    "subtitle": "",
+    "body": "• Cleveland Guardians placed third baseman José Ramírez on the 10-day injured list with a left hamate fracture.\n• Kansas City Royals placed first baseman Vinnie Pasquantino on the 10-day injured list with a right hamate fracture.\n• Cleveland Guardians designated left fielder George Valera for assignment.\n• San Diego Padres designated right-handed pitcher Ty Adcock for assignment.\n• Philadelphia Phillies signed free agent second baseman Luke Ritter to a minor league contract.\n• Texas Rangers recalled left fielder Alejandro Osuna from Triple-A Round Rock Express.\n• San Francisco Giants sent right-handed pitcher Tyler Mahle on a rehab assignment to Triple-A Sacramento River Cats.\n• Cleveland Guardians activated shortstop Gabriel Arias from the 60-day injured list.",
+    "word_count": 116
+  },
+  "x_teaser": {
+    "text": "• Cleveland Guardians placed third baseman José Ramírez on the 10-day injured list with a left hamate fracture.",
+    "char_count": 111,
+    "included": true
+  },
+  "validation": {
+    "column_word_count_ok": true,
+    "article_word_count_ok": true,
+    "article_title_present": true,
+    "article_subtitle_present": true,
+    "teaser_char_count": true,
+    "teaser_no_hashtags": true,
+    "teaser_not_truncation": true
+  },
+  "input_summary": {
+    "games_processed": 14,
+    "gotd": "ATL @ NYM",
+    "atl_item_count": 8,
+    "days_of_context": 0
+  }
 }
