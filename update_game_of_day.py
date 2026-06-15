@@ -941,7 +941,7 @@ Write the raw headline text only. Do not include any other words, explanations, 
 
         try:
             hl_response = client.models.generate_content(
-                model=GEMINI_MODEL,
+                model="gemini-2.5-flash",
                 contents=headline_prompt,
                 config=types.GenerateContentConfig(
                     max_output_tokens=512,
