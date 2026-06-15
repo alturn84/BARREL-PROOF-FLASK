@@ -20,6 +20,8 @@ SCRIPTS=(
     "scripts/check_dope_player_matchups_ready.py"
     "scripts/update_dope_pitcher_matchups.py"
     "scripts/check_dope_pitcher_matchups_ready.py"
+    "scripts/update_dope_game_intelligence.py"
+    "scripts/check_dope_game_intelligence_ready.py"
     "update_game_of_day.py"
     "update_around_the_league.py"
     "update_game_to_watch.py"

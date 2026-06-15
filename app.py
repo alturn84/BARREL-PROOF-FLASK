@@ -1229,6 +1229,27 @@ def get_dope_pitcher_matchups_lookup(sched_date):
     return lookup
 
 
+def get_dope_game_intelligence_lookup(sched_date):
+    """Display-only: date-guarded unified game-intelligence reads keyed by (away_team, home_team)."""
+    data = load_json("dope_game_intelligence.json", fallback={})
+    games = data.get("games") if isinstance(data, dict) else None
+    meta = data.get("meta") if isinstance(data, dict) else {}
+    if not isinstance(games, dict):
+        return {}
+    if not sched_date or (meta or {}).get("date") != sched_date:
+        return {}
+
+    lookup = {}
+    for game_id, g in games.items():
+        if not isinstance(g, dict):
+            continue
+        away_team = g.get("away_team")
+        home_team = g.get("home_team")
+        if away_team and home_team:
+            lookup[(away_team, home_team)] = g
+    return lookup
+
+
 @app.route("/dope-sheet")
 @app.route("/dope-sheet.html")
 def dope_sheet():
@@ -1264,6 +1285,12 @@ def dope_sheet():
         pmatch = pitcher_matchup_lookup.get(("teams", sched_date, g.get("away"), g.get("home")))
         if pmatch is not None:
             g["pitcherMatchup"] = pmatch
+
+    game_intel_lookup = get_dope_game_intelligence_lookup(sched_date)
+    for g in ds_games:
+        intel = game_intel_lookup.get((g.get("away"), g.get("home")))
+        if intel is not None:
+            g["gameIntel"] = intel
 
     if date_display != expected_display:
         import sys

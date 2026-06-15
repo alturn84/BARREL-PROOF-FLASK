@@ -16,6 +16,8 @@ SCRIPTS=(
     "scripts/check_dope_player_matchups_ready.py"
     "scripts/update_dope_pitcher_matchups.py"
     "scripts/check_dope_pitcher_matchups_ready.py"
+    "scripts/update_dope_game_intelligence.py"
+    "scripts/check_dope_game_intelligence_ready.py"
 )
 
 # Loop through the scripts and execute them

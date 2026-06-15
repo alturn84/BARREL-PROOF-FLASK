@@ -756,6 +756,79 @@ function renderPitching(g){
   </div></div>`;
 }
 
+function renderGameIntelligence(g){
+  const gi=g.gameIntel;
+  if(!gi)return'';
+  const v=x=>x!==null&&x!==undefined&&x!=='None'&&x!=='null'&&!(typeof x==='number'&&isNaN(x))&&x!==''?x:null;
+  const playerLink=(name,slug)=>name?(slug?`<a href="/player/${slug}">${name}</a>`:name):null;
+  const sub=[];
+
+  if(v(gi.game_read)){
+    sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Game Read</div><div class="matchup-line">${gi.game_read}</div></div>`);
+  }
+
+  const lr=gi.lineup_read||{};
+  const sideBlock=(label,side)=>{
+    if(!side)return'';
+    const bats=(side.key_bats||[]).map(b=>playerLink(v(b.name),b.slug)).filter(Boolean);
+    return `<div class="matchup-line"><strong>${label}</strong>: ${v(side.summary)||''}${bats.length?` — Key bats: ${bats.join(', ')}`:''}</div>`;
+  };
+  if(lr.away||lr.home){
+    sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Lineup Read${v(lr.matchup_shape)?` — ${lr.matchup_shape}`:''}</div>
+      ${sideBlock(g.awayFull||gi.away_team,lr.away)}
+      ${sideBlock(g.homeFull||gi.home_team,lr.home)}</div>`);
+  }
+
+  const pr=gi.pitching_read||{};
+  const starterBlock=(label,starter)=>{
+    if(!starter)return'';
+    return `<div class="matchup-line"><strong>${label}</strong>: ${v(starter.summary)||''} ${v(starter.watch)||''}</div>`;
+  };
+  if(pr.away_starter||pr.home_starter){
+    sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Pitching Path${v(pr.game_pitching_shape)?` — ${pr.game_pitching_shape}`:''}</div>
+      ${starterBlock(g.awayFull||gi.away_team,pr.away_starter)}
+      ${starterBlock(g.homeFull||gi.home_team,pr.home_starter)}
+      ${v(pr.starter_edge)?`<div class="matchup-line">${pr.starter_edge}</div>`:''}</div>`);
+  }
+
+  const bp=gi.bullpen_read||{};
+  if(v(bp.summary)){
+    sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Bullpen Read</div><div class="matchup-line">${bp.summary}</div>${v(bp.leverage_note)?`<div class="matchup-line">${bp.leverage_note}</div>`:''}</div>`);
+  }
+
+  const er=gi.environment_read||{};
+  if(v(er.summary)){
+    sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Game Environment${v(er.run_environment)?` — ${er.run_environment}`:''}</div><div class="matchup-line">${er.summary}</div></div>`);
+  }
+
+  const tilts=(gi.players_who_tilt_game||[]).map(p=>{
+    const link=playerLink(v(p.name),p.slug);
+    if(!link)return null;
+    return `${link} (${p.tag}) — ${p.reason}`;
+  }).filter(Boolean);
+  if(tilts.length){
+    sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Players Who Tilt the Game</div><ul class="matchup-list">${tilts.map(t=>`<li>${t}</li>`).join('')}</ul></div>`);
+  }
+
+  const dfs=(gi.fantasy_dfs_watch||[]).filter(v);
+  if(dfs.length){
+    sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Fantasy / DFS Watch</div><ul class="matchup-list">${dfs.map(n=>`<li>${n}</li>`).join('')}</ul></div>`);
+  }
+
+  const props=(gi.betting_props_watch||[]).filter(v);
+  if(props.length){
+    sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Betting / Props Watch</div><ul class="matchup-list">${props.map(n=>`<li>${n}</li>`).join('')}</ul></div>`);
+  }
+
+  const basis=(gi.data_basis||[]).filter(v);
+  if(basis.length){
+    sub.push(`<div class="matchup-subsection"><div class="matchup-line matchup-disclaimer">${basis.join(' · ')}</div></div>`);
+  }
+
+  if(!sub.length)return'';
+  return `<div class="detail-section full matchup-intel-block"><div class="matchup-intel-title">Game Intelligence</div>${sub.join('')}</div>`;
+}
+
 function renderUnifiedMatchupIntel(g){
   const pm=g.playerMatchup, ptm=g.pitcherMatchup;
   if(!pm&&!ptm)return'';
@@ -952,7 +1025,7 @@ function render(games){
       renderPitching(g),
       renderInjuries(g),
       renderProps(g),
-      renderUnifiedMatchupIntel(g),
+      g.gameIntel ? renderGameIntelligence(g) : renderUnifiedMatchupIntel(g),
     ].filter(s=>s&&s.trim()).join('');
     return`<div class="game-row${g.oddsLive?' live-game':''}" id="gr-${idx}">
       <div class="game-row-header" onclick="toggle(${idx})">
