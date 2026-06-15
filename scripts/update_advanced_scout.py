@@ -49,6 +49,26 @@ TEAM_NAMES = {
 # (matches player_index.json / team_stats.json / team_il.json, which use ARI for Arizona)
 TEAM_ABBR_ALIASES = {"AZ": "ARI"}
 
+TEAM_ABBR_TO_CITY = {
+    "ARI": "Arizona", "ATL": "Atlanta", "BAL": "Baltimore", "BOS": "Boston",
+    "CHC": "Chicago", "CWS": "Chicago", "CIN": "Cincinnati", "CLE": "Cleveland",
+    "COL": "Colorado", "DET": "Detroit", "HOU": "Houston", "KC": "Kansas City",
+    "LAA": "Los Angeles", "LAD": "Los Angeles", "MIA": "Miami", "MIL": "Milwaukee",
+    "MIN": "Minnesota", "NYM": "New York", "NYY": "New York", "ATH": "Athletics",
+    "PHI": "Philadelphia", "PIT": "Pittsburgh", "SD": "San Diego", "SF": "San Francisco",
+    "SEA": "Seattle", "STL": "St. Louis", "TB": "Tampa Bay", "TEX": "Texas",
+    "TOR": "Toronto", "WSH": "Washington",
+}
+
+TEAM_ABBR_TO_LEAGUE = {
+    "BAL": "AL", "BOS": "AL", "NYY": "AL", "TB": "AL", "TOR": "AL",
+    "CWS": "AL", "CLE": "AL", "DET": "AL", "KC": "AL", "MIN": "AL",
+    "ATH": "AL", "HOU": "AL", "LAA": "AL", "SEA": "AL", "TEX": "AL",
+    "ATL": "NL", "MIA": "NL", "NYM": "NL", "PHI": "NL", "WSH": "NL",
+    "CHC": "NL", "CIN": "NL", "MIL": "NL", "PIT": "NL", "STL": "NL",
+    "ARI": "NL", "COL": "NL", "LAD": "NL", "SD": "NL", "SF": "NL",
+}
+
 WINDOW_DATES = ["2026-06-18", "2026-06-19", "2026-06-20", "2026-06-21"]
 WEEKEND_DATES = {"2026-06-19", "2026-06-20", "2026-06-21"}
 EDITION_DATE = "2026-06-17"
@@ -122,18 +142,20 @@ def group_into_series(all_games):
 
 
 def get_standings_records():
-    """Returns city name -> 'W-L (GB)' string."""
+    """Returns (city, league) -> {display, w, l, gb} where gb is a float (0.0 = first place)."""
     data = load_json_safe(DATA_DIR / "standings.json", {})
     out = {}
-    for league in data.get("leagues", []):
-        for div in league.get("divisions", []):
+    for league_block in data.get("leagues", []):
+        league = league_block.get("league")
+        for div in league_block.get("divisions", []):
             for t in div.get("teams", []):
                 city = t.get("city")
                 w, l, gb = t.get("w"), t.get("l"), t.get("gb")
                 if city is None or w is None or l is None:
                     continue
-                gb_str = "1st place" if gb in (None, "-", "0.0") else f"{gb} GB"
-                out[city] = f"{w}-{l}, {gb_str}"
+                gb_num = 0.0 if gb in (None, "-", "0.0", "0") else float(gb)
+                gb_str = "1st place" if gb_num == 0.0 else f"{gb} GB"
+                out[(city, league)] = {"display": f"{w}-{l}, {gb_str}", "w": w, "l": l, "gb": gb_num}
     return out
 
 
@@ -156,6 +178,7 @@ def build_lookups():
     contact = load_json_safe(PLAYER_DIR / "hitter_contact_signal.json", {}).get("players", {})
     foundation = load_json_safe(PLAYER_DIR / "pitcher_foundation_signal.json", {}).get("players", {})
     profile = load_json_safe(PLAYER_DIR / "pitcher_profile_summary.json", {}).get("players", {})
+    luck_gap = load_json_safe(PLAYER_DIR / "hitter_luck_gap.json", {}).get("players", {})
     il_data = load_json_safe(DATA_DIR / "team_il.json", {}).get("teams", {})
 
     return {
@@ -165,6 +188,7 @@ def build_lookups():
         "contact": contact,
         "foundation": foundation,
         "profile": profile,
+        "luck_gap": luck_gap,
         "il": il_data,
     }
 
@@ -198,6 +222,42 @@ def pitcher_signal(pitcher_name, lookups):
     return lookups["foundation"].get(slug), lookups["profile"].get(slug), slug
 
 
+def top_pitcher_signal(team_abbr, lookups):
+    """Best pitcher_foundation_signal entry for a team, or None."""
+    il_names = il_names_for_team(team_abbr, lookups)
+    candidates = []
+    for p in lookups["team_to_players"].get(team_abbr, []):
+        if p.get("position_group") != "Pitcher":
+            continue
+        if p.get("full_name") in il_names:
+            continue
+        slug = p.get("slug")
+        sig = lookups["foundation"].get(slug)
+        if not sig:
+            continue
+        candidates.append(sig)
+    candidates.sort(key=lambda s: s.get("pitcher_foundation_signal", 0) or 0, reverse=True)
+    return candidates[0] if candidates else None
+
+
+def luck_gap_standout(team_abbr, lookups):
+    """Hitter with the largest |luck_gap_points| on a team, excluding IL."""
+    il_names = il_names_for_team(team_abbr, lookups)
+    candidates = []
+    for p in lookups["team_to_players"].get(team_abbr, []):
+        if p.get("position_group") == "Pitcher":
+            continue
+        if p.get("full_name") in il_names:
+            continue
+        slug = p.get("slug")
+        lg = lookups["luck_gap"].get(slug)
+        if not lg or lg.get("luck_gap_points") is None:
+            continue
+        candidates.append(lg)
+    candidates.sort(key=lambda s: abs(s.get("luck_gap_points", 0)), reverse=True)
+    return candidates[0] if candidates else None
+
+
 def build_series_entry(away, home, games, away_name, home_name, lookups, standings):
     start_date = games[0]["date"]
     end_date = games[-1]["date"]
@@ -207,13 +267,42 @@ def build_series_entry(away, home, games, away_name, home_name, lookups, standin
 
     series_id = f"{away.lower()}-{home.lower()}-{start_date}"
 
-    # ── Series context ──────────────────────────────────────────────
-    away_record = standings.get(away_name)
-    home_record = standings.get(home_name)
-    if away_record or home_record:
-        standings_angle = f"{away_name} ({away_record or 'record unavailable'}) at {home_name} ({home_record or 'record unavailable'})."
+    # ── Series pressure ──────────────────────────────────────────────
+    away_rec = standings.get((TEAM_ABBR_TO_CITY.get(away), TEAM_ABBR_TO_LEAGUE.get(away)))
+    home_rec = standings.get((TEAM_ABBR_TO_CITY.get(home), TEAM_ABBR_TO_LEAGUE.get(home)))
+    if away_rec and home_rec:
+        away_gb, home_gb = away_rec["gb"], home_rec["gb"]
+        hi_gb, lo_gb = max(away_gb, home_gb), min(away_gb, home_gb)
+        if hi_gb <= 4.0:
+            pressure_label = "Division Pressure"
+            pressure_summary = (f"{away_name} ({away_rec['display']}) and {home_name} ({home_rec['display']}) "
+                                 f"are both within range of the top of their division, so every game here carries standings weight.")
+        elif hi_gb <= 8.0 and lo_gb <= 4.0:
+            pressure_label = "Wildcard Pressure"
+            pressure_summary = (f"{away_name} ({away_rec['display']}) and {home_name} ({home_rec['display']}) "
+                                 f"sit close enough to the wildcard picture that this series adds to the margin either way.")
+        elif lo_gb <= 2.0 and hi_gb >= 10.0:
+            pressure_label = "Trap Series"
+            leader_name = away_name if away_gb < home_gb else home_name
+            leader_rec = away_rec if away_gb < home_gb else home_rec
+            pressure_summary = (f"{leader_name} ({leader_rec['display']}) is fighting for position while the other side has more breathing room — "
+                                 f"the kind of series that can quietly slip away from the favorite.")
+        elif lo_gb >= 10.0:
+            pressure_label = "Development Series"
+            pressure_summary = (f"Both {away_name} and {home_name} sit well off the lead ({away_rec['display']} / {home_rec['display']}), "
+                                 f"so the series is more about individual performance and roles than the standings.")
+        else:
+            pressure_label = "Limited Standings Pressure"
+            pressure_summary = f"{away_name} ({away_rec['display']}) at {home_name} ({home_rec['display']}) — neither club is in immediate standings pressure this weekend."
     else:
-        standings_angle = "Limited current form data"
+        pressure_label = "Limited Standings Pressure"
+        pressure_summary = "Current standings context is limited for this series."
+
+    series_pressure = {"label": pressure_label, "summary": pressure_summary}
+
+    # ── Series context ──────────────────────────────────────────────
+    standings_angle = (f"{away_name} ({away_rec['display']}) at {home_name} ({home_rec['display']})."
+                        if away_rec and home_rec else "Limited current form data")
 
     away_il = lookups["il"].get(away, [])
     home_il = lookups["il"].get(home, [])
@@ -232,101 +321,261 @@ def build_series_entry(away, home, games, away_name, home_name, lookups, standin
 
     # ── Pitching path ────────────────────────────────────────────────
     away_probables, home_probables = [], []
-    best_signal = None
+    away_sigs, home_sigs = [], []
     for g in games:
         ap, hp = g["probable_away_pitcher"], g["probable_home_pitcher"]
         away_probables.append(ap if ap else "Probable starter TBD")
         home_probables.append(hp if hp else "Probable starter TBD")
-        for name, side in ((ap, away_name), (hp, home_name)):
-            if not name or name == "TBD":
-                continue
-            sig = pitcher_signal(name, lookups)
+        if ap and ap != "TBD":
+            sig = pitcher_signal(ap, lookups)
             if sig and sig[0]:
-                score = sig[0].get("pitcher_foundation_signal", 0)
-                if best_signal is None or score > best_signal[0]:
-                    best_signal = (score, name, side, sig[0].get("label"))
+                away_sigs.append((sig[0], ap, sig[2]))
+        if hp and hp != "TBD":
+            sig = pitcher_signal(hp, lookups)
+            if sig and sig[0]:
+                home_sigs.append((sig[0], hp, sig[2]))
 
-    if best_signal:
-        rotation_edge = f"{best_signal[1]} ({best_signal[2]}) shows the steadier pitching profile in this series: {best_signal[3]}."
+    all_sigs = [(s, n, side, slug) for (s, n, slug) in away_sigs for side in (away_name,)] + \
+               [(s, n, side, slug) for (s, n, slug) in home_sigs for side in (home_name,)]
+    all_sigs.sort(key=lambda t: t[0].get("pitcher_foundation_signal", 0) or 0, reverse=True)
+
+    pitcher_watchlist = []
+    for sig, name, side, slug in all_sigs[:3]:
+        score = sig.get("pitcher_foundation_signal", 0)
+        if score >= 65:
+            tag = "Stable Starter"
+        elif score <= 40:
+            tag = "Volatile Starter"
+        else:
+            tag = "Mid-Profile Starter"
+        pitcher_watchlist.append({
+            "name": name, "team": side, "slug": slug, "tag": tag,
+            "label": sig.get("label", ""),
+        })
+
+    away_avg = sum(s[0].get("pitcher_foundation_signal", 0) for s in away_sigs) / len(away_sigs) if away_sigs else None
+    home_avg = sum(s[0].get("pitcher_foundation_signal", 0) for s in home_sigs) / len(home_sigs) if home_sigs else None
+
+    if away_avg is not None and home_avg is not None:
+        if away_avg > home_avg + 5:
+            rotation_edge = f"{away_name} carries the cleaner pitching path into this series, with its probable starters reading more stable than {home_name}'s."
+        elif home_avg > away_avg + 5:
+            rotation_edge = f"{home_name} carries the cleaner pitching path into this series, with its probable starters reading more stable than {away_name}'s."
+        else:
+            rotation_edge = f"{away_name} and {home_name} bring comparable starter profiles, so the pitching path looks close to even on paper."
+    elif all_sigs:
+        sig, name, side, slug = all_sigs[0]
+        rotation_edge = f"{name} gives {side} the steadier arm on paper, but the rest of the rotation picture is still filling in."
     else:
-        rotation_edge = "Probable starter signals limited for this series."
+        rotation_edge = "Probable starter signals are limited for this series, so the pitching path is still developing."
 
     tbd_count = sum(1 for g in games if g["probable_away_pitcher"] == "TBD" or g["probable_home_pitcher"] == "TBD")
-    if tbd_count:
-        volatility_note = f"{tbd_count} of {game_count} game(s) still have a probable starter TBD, adding rotation uncertainty."
+    if tbd_count == 0:
+        probable_confidence = "Confirmed"
+        volatility_note = "All probable starters are listed for this series as of the edition date."
+    elif tbd_count < game_count * 2:
+        probable_confidence = "Partial"
+        volatility_note = f"{tbd_count} of {game_count * 2} starting assignments are still TBD, so the back half of the series can swing the pitching path."
     else:
-        volatility_note = "All probable starters listed for this series as of the edition date."
+        probable_confidence = "TBD"
+        volatility_note = "Probable starters are not yet posted for this series; the pitching path will sharpen closer to first pitch."
 
     pitching_path = {
         "away_probables": away_probables,
         "home_probables": home_probables,
         "rotation_edge": rotation_edge,
         "volatility_note": volatility_note,
+        "probable_confidence": probable_confidence,
+        "pitcher_watchlist": pitcher_watchlist,
     }
 
     # ── Lineup matchup ───────────────────────────────────────────────
-    away_power = top_signal_bats(away, lookups["power"], lookups)
-    home_power = top_signal_bats(home, lookups["power"], lookups)
-    away_contact = top_signal_bats(away, lookups["contact"], lookups)
-    home_contact = top_signal_bats(home, lookups["contact"], lookups)
+    away_power = top_signal_bats(away, lookups["power"], lookups, n=2)
+    home_power = top_signal_bats(home, lookups["power"], lookups, n=2)
+    away_contact = top_signal_bats(away, lookups["contact"], lookups, n=2)
+    home_contact = top_signal_bats(home, lookups["contact"], lookups, n=2)
 
-    away_pressure = (f"{away_power[0]['full_name']} headlines the {away_name} power threat ({away_power[0]['label']})."
+    away_pressure = (f"{away_power[0]['full_name']} is the power-pocket bat for {away_name} — {away_power[0]['label'].lower()}."
                       if away_power else "Limited current form data")
-    home_pressure = (f"{home_power[0]['full_name']} headlines the {home_name} power threat ({home_power[0]['label']})."
+    home_pressure = (f"{home_power[0]['full_name']} is the power-pocket bat for {home_name} — {home_power[0]['label'].lower()}."
                       if home_power else "Limited current form data")
 
     power_bats = [s["full_name"] for s in (away_power[:1] + home_power[:1])]
     contact_bats = [s["full_name"] for s in (away_contact[:1] + home_contact[:1])]
 
+    avg_power = sum(s.get("power_signal", 0) or 0 for s in (away_power + home_power)) / len(away_power + home_power) if (away_power + home_power) else 0
+    avg_contact = sum(s.get("contact_signal", 0) or 0 for s in (away_contact + home_contact)) / len(away_contact + home_contact) if (away_contact + home_contact) else 0
+
+    if not (away_power or home_power or away_contact or home_contact):
+        matchup_shape = "Pitching-Controlled Series"
+        shape_summary = "Hitter signal data is limited for this series, so the read leans on the pitching path instead of the lineups."
+    elif avg_power >= avg_contact + 8:
+        matchup_shape = "Power Series"
+        shape_summary = f"Both lineups carry more thump than traffic here — {away_name} and {home_name} project as a series where one mistake to a power pocket can be the separator."
+    elif avg_contact >= avg_power + 8:
+        matchup_shape = "Contact Pressure Series"
+        shape_summary = f"This leans on traffic over thunder — {away_name} and {home_name} both project to work counts and string at-bats together rather than rely on one swing."
+    else:
+        matchup_shape = "Balanced Offensive Series"
+        shape_summary = f"{away_name} and {home_name} both bring a mix of power and contact pressure, so the series can tilt on either kind of mistake."
+
+    def dedupe_bats(power_list, contact_list):
+        names = [s["full_name"] for s in power_list[:1]]
+        for s in contact_list:
+            if s["full_name"] not in names:
+                names.append(s["full_name"])
+                break
+        return names
+
+    key_bats_by_team = {
+        away: dedupe_bats(away_power, away_contact),
+        home: dedupe_bats(home_power, home_contact),
+    }
+
     lineup_matchup = {
         "away_pressure": away_pressure,
         "home_pressure": home_pressure,
+        "matchup_shape": matchup_shape,
+        "key_bats_by_team": key_bats_by_team,
+        "summary": shape_summary,
         "power_bats": power_bats,
         "contact_bats": contact_bats,
     }
 
     # ── Bullpen leverage ─────────────────────────────────────────────
     bullpen_leverage = {
-        "away_read": "Limited bullpen data available for V1.",
-        "home_read": "Limited bullpen data available for V1.",
+        "away_read": "Limited current bullpen data; watch early starter length.",
+        "home_read": "Limited current bullpen data; watch early starter length.",
         "edge": "Limited current form data",
+        "data_quality": "limited",
     }
 
-    # ── Players who tilt series ─────────────────────────────────────
+    # ── Players who tilt series ──────────────────────────────────────
     tilt = []
-    if best_signal:
-        _, name, side, label = best_signal
-        sig = pitcher_signal(name, lookups)
-        slug = sig[2] if sig else None
-        tilt.append({"name": name, "team": side, "slug": slug, "tag": "Strikeout Arm" if sig and sig[0] and sig[0].get("k9", 0) >= 9 else "Stable Starter"})
-    for s, team in ((away_power[:1], away), (home_power[:1], home)):
-        for sig in s:
-            tilt.append({"name": sig["full_name"], "team": team, "slug": sig.get("slug"), "tag": "Power Pressure"})
-    for s, team in ((away_contact[:1], away), (home_contact[:1], home)):
-        for sig in s:
-            if any(t["name"] == sig["full_name"] for t in tilt):
-                continue
-            tilt.append({"name": sig["full_name"], "team": team, "slug": sig.get("slug"), "tag": "Contact Table-Setter"})
-    tilt = tilt[:4]
+    seen_names = set()
 
-    # ── Fantasy/DFS watch ────────────────────────────────────────────
+    def add_tilt(name, team, slug, tag, reason):
+        if name in seen_names:
+            return
+        seen_names.add(name)
+        tilt.append({"name": name, "team": team, "slug": slug, "tag": tag, "reason": reason})
+
+    # Top power bat from each side
+    for s, team, side_name in ((away_power[:1], away, away_name), (home_power[:1], home, home_name)):
+        for sig in s:
+            add_tilt(sig["full_name"], team, sig.get("slug"), "Power Pressure",
+                     f"{sig['full_name']} is the clearest power-pocket bat for {side_name} — {sig['label'].lower()}.")
+
+    # Top contact bat from each side
+    for s, team, side_name in ((away_contact[:1], away, away_name), (home_contact[:1], home, home_name)):
+        for sig in s:
+            add_tilt(sig["full_name"], team, sig.get("slug"), "Contact Table-Setter",
+                     f"{sig['full_name']} sets the table for {side_name} with a contact profile that keeps traffic on the bases.")
+
+    # Best pitcher signal overall
+    if all_sigs:
+        sig, name, side, slug = all_sigs[0]
+        score = sig.get("pitcher_foundation_signal", 0)
+        if score >= 65:
+            tag, reason = "Run Prevention Anchor", f"{name} gives {side} a run-prevention anchor — {sig.get('label','').lower()}."
+        elif score <= 40:
+            tag, reason = "Volatile Starter", f"{name} brings volatility to {side}'s pitching path — {sig.get('label','').lower()}."
+        else:
+            tag, reason = "Run Prevention Anchor", f"{name} is the steadiest probable arm in this series for {side}."
+        add_tilt(name, away if side == away_name else home, slug, tag, reason)
+
+    # Luck-gap / breakout signal from each side
+    for team, side_name in ((away, away_name), (home, home_name)):
+        lg = luck_gap_standout(team, lookups)
+        if lg and abs(lg.get("luck_gap_points", 0)) >= 15:
+            tag = "Buy-Low Signal" if lg["luck_gap_points"] > 0 else "Series Swing Bat"
+            reason = (f"{lg['full_name']} has been {'unlucky' if lg['luck_gap_points'] > 0 else 'running hot'} relative to expected production "
+                      f"({lg['label'].lower()}), making {side_name} a buy-low watch this series." if lg["luck_gap_points"] > 0 else
+                      f"{lg['full_name']} is outperforming the underlying numbers for {side_name} ({lg['label'].lower()}), a swing factor if it continues.")
+            add_tilt(lg["full_name"], team, lg.get("slug"), tag, reason)
+
+    tilt = tilt[:5]
+    if len(tilt) < 3:
+        # backfill from remaining power/contact pool to reach a useful minimum
+        for s, team, side_name in ((away_power[1:], away, away_name), (home_power[1:], home, home_name),
+                                    (away_contact[1:], away, away_name), (home_contact[1:], home, home_name)):
+            for sig in s:
+                if len(tilt) >= 3:
+                    break
+                add_tilt(sig["full_name"], team, sig.get("slug"), "DFS Watch",
+                         f"{sig['full_name']} adds depth to the {side_name} lineup pressure picture.")
+
+    # ── Fantasy/DFS watch ──────────────────────────────────────────────
     fantasy_dfs_watch = []
     for t in tilt:
         if t["tag"] == "Power Pressure":
-            fantasy_dfs_watch.append(f"{t['name']} ({t['team']}) is a power-pressure watch for DFS builds in this series.")
-        elif t["tag"] == "Strikeout Arm":
-            fantasy_dfs_watch.append(f"{t['name']} ({t['team']}) profiles as a strikeout-arm lean for DFS pitching pools.")
+            fantasy_dfs_watch.append(f"Power Watch: {t['name']} ({t['team']}) is a power-pressure angle worth tracking for DFS builds in this series.")
+        elif t["tag"] == "Contact Table-Setter":
+            fantasy_dfs_watch.append(f"Contact/OBP Watch: {t['name']} ({t['team']}) profiles as a table-setter lean if confirmed near the top of the order.")
+        elif t["tag"] in ("Run Prevention Anchor", "Volatile Starter"):
+            fantasy_dfs_watch.append(f"Pitcher {'Stability' if t['tag']=='Run Prevention Anchor' else 'Risk'}: {t['name']} ({t['team']}) is worth a profile check before finalizing pitching builds.")
+        elif t["tag"] in ("Buy-Low Signal", "Series Swing Bat"):
+            fantasy_dfs_watch.append(f"Value Angle: {t['name']} ({t['team']}) is a {'buy-low' if t['tag']=='Buy-Low Signal' else 'form'} lean based on recent luck-gap signals.")
+        else:
+            fantasy_dfs_watch.append(f"DFS Pool: {t['name']} ({t['team']}) is worth tracking as the series develops.")
+
+    if tbd_count:
+        fantasy_dfs_watch.append("Lineup Confirmation: Several probable starters are still TBD — confirm lineups and pitching matchups before finalizing builds.")
+
+    fantasy_dfs_watch = fantasy_dfs_watch[:5]
     if not fantasy_dfs_watch:
         fantasy_dfs_watch = ["Limited current form data for DFS watch."]
 
-    # ── Barrel proof read ────────────────────────────────────────────
-    read_parts = [f"{away_name} visit {home_name} for a {game_count}-game series ({start_date} to {end_date})."]
-    if best_signal:
-        read_parts.append(f"{best_signal[1]} gives {best_signal[2]} the steadier arm on paper.")
+    # ── Betting / props series watch (analysis framing only) ──────────
+    betting_props_watch = []
+    if all_sigs:
+        sig, name, side, slug = all_sigs[0]
+        if sig.get("k9", 0) and sig["k9"] >= 9:
+            betting_props_watch.append(f"Strikeout Angle: {name}'s profile ({sig.get('k9')} K/9) makes the strikeout market worth checking once lineups are confirmed.")
+        elif sig.get("pitcher_foundation_signal", 0) <= 40:
+            betting_props_watch.append(f"Run Environment: {side}'s probable starter profile reads volatile, so the run environment here is worth checking once lineups are confirmed.")
     if away_power or home_power:
-        bat = (away_power or home_power)[0]
-        read_parts.append(f"Watch {bat['full_name']} as a power-pressure presence in this matchup.")
-    barrel_proof_read = " ".join(read_parts)
+        bat = (away_power + home_power)[0]
+        betting_props_watch.append(f"Power Risk: {bat['full_name']}'s power profile is worth watching against this series' probable starters.")
+    if tbd_count >= game_count:
+        betting_props_watch.append("Starter Risk: With probable pitchers still unsettled, props tied to specific starters carry more uncertainty until lineups firm up.")
+
+    # ── Data transparency ───────────────────────────────────────────────
+    data_basis = {
+        "lineup_basis": "player signal pool" if (away_power or home_power or away_contact or home_contact) else "limited",
+        "probable_pitcher_basis": probable_confidence.lower(),
+        "bullpen_basis": "limited",
+    }
+
+    # ── Barrel proof read ───────────────────────────────────────────────
+    read_parts = []
+    if matchup_shape == "Power Series":
+        read_parts.append(f"{away_name} at {home_name} reads as a power series — both lineups carry pockets that can turn one mistake into the separator.")
+    elif matchup_shape == "Contact Pressure Series":
+        read_parts.append(f"{away_name} at {home_name} leans on contact pressure over power — traffic and at-bat quality matter more than one swing here.")
+    elif matchup_shape == "Pitching-Controlled Series":
+        read_parts.append(f"{away_name} at {home_name} looks like a series the pitching path controls, with the lineups offering a more limited read.")
+    else:
+        read_parts.append(f"{away_name} at {home_name} is a balanced series — neither lineup has a clean power or contact edge over the other.")
+
+    if away_avg is not None and home_avg is not None and abs(away_avg - home_avg) > 5:
+        leader = away_name if away_avg > home_avg else home_name
+        trailer = home_name if away_avg > home_avg else away_name
+        read_parts.append(f"{leader} has the cleaner pitching path, and {trailer} needs its lineup to create traffic early rather than wait on one swing to even things out.")
+    elif all_sigs:
+        sig, name, side, slug = all_sigs[0]
+        read_parts.append(f"{name} gives {side} the steadier arm on paper, which puts pressure on the opposing lineup to find traffic in the middle innings.")
+    else:
+        read_parts.append("Probable starters are still unsettled, so the pitching path is the swing factor to track as the week develops.")
+
+    if tilt:
+        top = tilt[0]
+        if top["tag"] == "Power Pressure":
+            read_parts.append(f"If {top['team']} gets into the middle innings with a lead, {top['name']} turns this into a bullpen-stress series for the other side.")
+        elif top["tag"] in ("Run Prevention Anchor",):
+            read_parts.append(f"Watch {top['name']}'s start as the early signal for which way the series tilts.")
+
+    barrel_proof_read = " ".join(read_parts[:4])
 
     return {
         "series_id": series_id,
@@ -340,12 +589,15 @@ def build_series_entry(away, home, games, away_name, home_name, lookups, standin
         "is_four_game_series": is_four_game,
         "is_thursday_start": is_thursday_start,
         "games": games,
+        "series_pressure": series_pressure,
         "series_context": series_context,
         "pitching_path": pitching_path,
         "lineup_matchup": lineup_matchup,
         "bullpen_leverage": bullpen_leverage,
         "players_who_tilt_series": tilt,
         "fantasy_dfs_watch": fantasy_dfs_watch,
+        "betting_props_watch": betting_props_watch,
+        "data_basis": data_basis,
         "barrel_proof_read": barrel_proof_read,
     }
 

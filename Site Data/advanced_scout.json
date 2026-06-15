@@ -10,7 +10,7 @@
       "2026-06-18",
       "2026-06-21"
     ],
-    "generated_at": "2026-06-15T21:03:08Z",
+    "generated_at": "2026-06-15T22:03:24Z",
     "series_count": 15
   },
   "series": [
@@ -67,8 +67,12 @@
           "probable_home_pitcher": "TBD"
         }
       ],
+      "series_pressure": {
+        "label": "Wildcard Pressure",
+        "summary": "Los Angeles Angels (29-43, 7.5 GB) and Athletics (35-36, 1.0 GB) sit close enough to the wildcard picture that this series adds to the margin either way."
+      },
       "series_context": {
-        "standings_angle": "Los Angeles Angels (record unavailable) at Athletics (35-36, 1.0 GB).",
+        "standings_angle": "Los Angeles Angels (29-43, 7.5 GB) at Athletics (35-36, 1.0 GB).",
         "form_angle": "Limited current form data",
         "injury_angle": "Los Angeles Angels IL list includes 11 player(s). Athletics IL list includes 6 player(s)."
       },
@@ -85,12 +89,26 @@
           "TBD",
           "TBD"
         ],
-        "rotation_edge": "Probable starter signals limited for this series.",
-        "volatility_note": "4 of 4 game(s) still have a probable starter TBD, adding rotation uncertainty."
+        "rotation_edge": "Probable starter signals are limited for this series, so the pitching path is still developing.",
+        "volatility_note": "4 of 8 starting assignments are still TBD, so the back half of the series can swing the pitching path.",
+        "probable_confidence": "Partial",
+        "pitcher_watchlist": []
       },
       "lineup_matchup": {
-        "away_pressure": "Mike Trout headlines the Los Angeles Angels power threat (Elite power foundation).",
-        "home_pressure": "Nick Kurtz headlines the Athletics power threat (Elite power foundation).",
+        "away_pressure": "Mike Trout is the power-pocket bat for Los Angeles Angels \u2014 elite power foundation.",
+        "home_pressure": "Nick Kurtz is the power-pocket bat for Athletics \u2014 elite power foundation.",
+        "matchup_shape": "Power Series",
+        "key_bats_by_team": {
+          "LAA": [
+            "Mike Trout",
+            "Nolan Schanuel"
+          ],
+          "ATH": [
+            "Nick Kurtz",
+            "Carlos Cortes"
+          ]
+        },
+        "summary": "Both lineups carry more thump than traffic here \u2014 Los Angeles Angels and Athletics project as a series where one mistake to a power pocket can be the separator.",
         "power_bats": [
           "Mike Trout",
           "Nick Kurtz"
@@ -101,35 +119,58 @@
         ]
       },
       "bullpen_leverage": {
-        "away_read": "Limited bullpen data available for V1.",
-        "home_read": "Limited bullpen data available for V1.",
-        "edge": "Limited current form data"
+        "away_read": "Limited current bullpen data; watch early starter length.",
+        "home_read": "Limited current bullpen data; watch early starter length.",
+        "edge": "Limited current form data",
+        "data_quality": "limited"
       },
       "players_who_tilt_series": [
         {
           "name": "Mike Trout",
           "team": "LAA",
           "slug": "mike-trout",
-          "tag": "Power Pressure"
+          "tag": "Power Pressure",
+          "reason": "Mike Trout is the clearest power-pocket bat for Los Angeles Angels \u2014 elite power foundation."
         },
         {
           "name": "Nick Kurtz",
           "team": "ATH",
           "slug": "nick-kurtz",
-          "tag": "Power Pressure"
+          "tag": "Power Pressure",
+          "reason": "Nick Kurtz is the clearest power-pocket bat for Athletics \u2014 elite power foundation."
         },
         {
           "name": "Carlos Cortes",
           "team": "ATH",
           "slug": "carlos-cortes",
-          "tag": "Contact Table-Setter"
+          "tag": "Contact Table-Setter",
+          "reason": "Carlos Cortes sets the table for Athletics with a contact profile that keeps traffic on the bases."
+        },
+        {
+          "name": "Lawrence Butler",
+          "team": "ATH",
+          "slug": "lawrence-butler",
+          "tag": "Buy-Low Signal",
+          "reason": "Lawrence Butler has been unlucky relative to expected production (production lagging contact quality), making Athletics a buy-low watch this series."
         }
       ],
       "fantasy_dfs_watch": [
-        "Mike Trout (LAA) is a power-pressure watch for DFS builds in this series.",
-        "Nick Kurtz (ATH) is a power-pressure watch for DFS builds in this series."
+        "Power Watch: Mike Trout (LAA) is a power-pressure angle worth tracking for DFS builds in this series.",
+        "Power Watch: Nick Kurtz (ATH) is a power-pressure angle worth tracking for DFS builds in this series.",
+        "Contact/OBP Watch: Carlos Cortes (ATH) profiles as a table-setter lean if confirmed near the top of the order.",
+        "Value Angle: Lawrence Butler (ATH) is a buy-low lean based on recent luck-gap signals.",
+        "Lineup Confirmation: Several probable starters are still TBD \u2014 confirm lineups and pitching matchups before finalizing builds."
       ],
-      "barrel_proof_read": "Los Angeles Angels visit Athletics for a 4-game series (2026-06-18 to 2026-06-21). Watch Mike Trout as a power-pressure presence in this matchup."
+      "betting_props_watch": [
+        "Power Risk: Mike Trout's power profile is worth watching against this series' probable starters.",
+        "Starter Risk: With probable pitchers still unsettled, props tied to specific starters carry more uncertainty until lineups firm up."
+      ],
+      "data_basis": {
+        "lineup_basis": "player signal pool",
+        "probable_pitcher_basis": "partial",
+        "bullpen_basis": "limited"
+      },
+      "barrel_proof_read": "Los Angeles Angels at Athletics reads as a power series \u2014 both lineups carry pockets that can turn one mistake into the separator. Probable starters are still unsettled, so the pitching path is the swing factor to track as the week develops. If LAA gets into the middle innings with a lead, Mike Trout turns this into a bullpen-stress series for the other side."
     },
     {
       "series_id": "nym-phi-2026-06-18",
@@ -174,8 +215,12 @@
           "probable_home_pitcher": "TBD"
         }
       ],
+      "series_pressure": {
+        "label": "Limited Standings Pressure",
+        "summary": "New York Mets (32-39, 14.0 GB) at Philadelphia Phillies (38-33, 8.0 GB) \u2014 neither club is in immediate standings pressure this weekend."
+      },
       "series_context": {
-        "standings_angle": "Limited current form data",
+        "standings_angle": "New York Mets (32-39, 14.0 GB) at Philadelphia Phillies (38-33, 8.0 GB).",
         "form_angle": "Limited current form data",
         "injury_angle": "New York Mets IL list includes 11 player(s). Philadelphia Phillies IL list includes 1 player(s)."
       },
@@ -190,12 +235,26 @@
           "TBD",
           "TBD"
         ],
-        "rotation_edge": "Probable starter signals limited for this series.",
-        "volatility_note": "3 of 3 game(s) still have a probable starter TBD, adding rotation uncertainty."
+        "rotation_edge": "Probable starter signals are limited for this series, so the pitching path is still developing.",
+        "volatility_note": "3 of 6 starting assignments are still TBD, so the back half of the series can swing the pitching path.",
+        "probable_confidence": "Partial",
+        "pitcher_watchlist": []
       },
       "lineup_matchup": {
-        "away_pressure": "Juan Soto headlines the New York Mets power threat (Elite power foundation).",
-        "home_pressure": "Kyle Schwarber headlines the Philadelphia Phillies power threat (Elite power foundation).",
+        "away_pressure": "Juan Soto is the power-pocket bat for New York Mets \u2014 elite power foundation.",
+        "home_pressure": "Kyle Schwarber is the power-pocket bat for Philadelphia Phillies \u2014 elite power foundation.",
+        "matchup_shape": "Power Series",
+        "key_bats_by_team": {
+          "NYM": [
+            "Juan Soto",
+            "Carson Benge"
+          ],
+          "PHI": [
+            "Kyle Schwarber",
+            "Bryce Harper"
+          ]
+        },
+        "summary": "Both lineups carry more thump than traffic here \u2014 New York Mets and Philadelphia Phillies project as a series where one mistake to a power pocket can be the separator.",
         "power_bats": [
           "Juan Soto",
           "Kyle Schwarber"
@@ -206,35 +265,65 @@
         ]
       },
       "bullpen_leverage": {
-        "away_read": "Limited bullpen data available for V1.",
-        "home_read": "Limited bullpen data available for V1.",
-        "edge": "Limited current form data"
+        "away_read": "Limited current bullpen data; watch early starter length.",
+        "home_read": "Limited current bullpen data; watch early starter length.",
+        "edge": "Limited current form data",
+        "data_quality": "limited"
       },
       "players_who_tilt_series": [
         {
           "name": "Juan Soto",
           "team": "NYM",
           "slug": "juan-soto",
-          "tag": "Power Pressure"
+          "tag": "Power Pressure",
+          "reason": "Juan Soto is the clearest power-pocket bat for New York Mets \u2014 elite power foundation."
         },
         {
           "name": "Kyle Schwarber",
           "team": "PHI",
           "slug": "kyle-schwarber",
-          "tag": "Power Pressure"
+          "tag": "Power Pressure",
+          "reason": "Kyle Schwarber is the clearest power-pocket bat for Philadelphia Phillies \u2014 elite power foundation."
         },
         {
           "name": "Bryce Harper",
           "team": "PHI",
           "slug": "bryce-harper",
-          "tag": "Contact Table-Setter"
+          "tag": "Contact Table-Setter",
+          "reason": "Bryce Harper sets the table for Philadelphia Phillies with a contact profile that keeps traffic on the bases."
+        },
+        {
+          "name": "Bo Bichette",
+          "team": "NYM",
+          "slug": "bo-bichette",
+          "tag": "Buy-Low Signal",
+          "reason": "Bo Bichette has been unlucky relative to expected production (production lagging contact quality), making New York Mets a buy-low watch this series."
+        },
+        {
+          "name": "J.T. Realmuto",
+          "team": "PHI",
+          "slug": "jt-realmuto",
+          "tag": "Buy-Low Signal",
+          "reason": "J.T. Realmuto has been unlucky relative to expected production (production lagging contact quality), making Philadelphia Phillies a buy-low watch this series."
         }
       ],
       "fantasy_dfs_watch": [
-        "Juan Soto (NYM) is a power-pressure watch for DFS builds in this series.",
-        "Kyle Schwarber (PHI) is a power-pressure watch for DFS builds in this series."
+        "Power Watch: Juan Soto (NYM) is a power-pressure angle worth tracking for DFS builds in this series.",
+        "Power Watch: Kyle Schwarber (PHI) is a power-pressure angle worth tracking for DFS builds in this series.",
+        "Contact/OBP Watch: Bryce Harper (PHI) profiles as a table-setter lean if confirmed near the top of the order.",
+        "Value Angle: Bo Bichette (NYM) is a buy-low lean based on recent luck-gap signals.",
+        "Value Angle: J.T. Realmuto (PHI) is a buy-low lean based on recent luck-gap signals."
       ],
-      "barrel_proof_read": "New York Mets visit Philadelphia Phillies for a 3-game series (2026-06-18 to 2026-06-21). Watch Juan Soto as a power-pressure presence in this matchup."
+      "betting_props_watch": [
+        "Power Risk: Juan Soto's power profile is worth watching against this series' probable starters.",
+        "Starter Risk: With probable pitchers still unsettled, props tied to specific starters carry more uncertainty until lineups firm up."
+      ],
+      "data_basis": {
+        "lineup_basis": "player signal pool",
+        "probable_pitcher_basis": "partial",
+        "bullpen_basis": "limited"
+      },
+      "barrel_proof_read": "New York Mets at Philadelphia Phillies reads as a power series \u2014 both lineups carry pockets that can turn one mistake into the separator. Probable starters are still unsettled, so the pitching path is the swing factor to track as the week develops. If NYM gets into the middle innings with a lead, Juan Soto turns this into a bullpen-stress series for the other side."
     },
     {
       "series_id": "stl-kc-2026-06-18",
@@ -279,8 +368,12 @@
           "probable_home_pitcher": "TBD"
         }
       ],
+      "series_pressure": {
+        "label": "Limited Standings Pressure",
+        "summary": "St. Louis Cardinals (38-31, 5.0 GB) at Kansas City Royals (29-43, 10.0 GB) \u2014 neither club is in immediate standings pressure this weekend."
+      },
       "series_context": {
-        "standings_angle": "Limited current form data",
+        "standings_angle": "St. Louis Cardinals (38-31, 5.0 GB) at Kansas City Royals (29-43, 10.0 GB).",
         "form_angle": "Limited current form data",
         "injury_angle": "St. Louis Cardinals IL list includes 2 player(s). Kansas City Royals IL list includes 7 player(s)."
       },
@@ -295,12 +388,41 @@
           "TBD",
           "TBD"
         ],
-        "rotation_edge": "Michael McGreevy (St. Louis Cardinals) shows the steadier pitching profile in this series: Volatile pitching profile.",
-        "volatility_note": "3 of 3 game(s) still have a probable starter TBD, adding rotation uncertainty."
+        "rotation_edge": "Michael McGreevy gives St. Louis Cardinals the steadier arm on paper, but the rest of the rotation picture is still filling in.",
+        "volatility_note": "3 of 6 starting assignments are still TBD, so the back half of the series can swing the pitching path.",
+        "probable_confidence": "Partial",
+        "pitcher_watchlist": [
+          {
+            "name": "Michael McGreevy",
+            "team": "St. Louis Cardinals",
+            "slug": "michael-mcgreevy",
+            "tag": "Mid-Profile Starter",
+            "label": "Volatile pitching profile"
+          },
+          {
+            "name": "Matthew Liberatore",
+            "team": "St. Louis Cardinals",
+            "slug": "matthew-liberatore",
+            "tag": "Volatile Starter",
+            "label": "Pitching risk"
+          }
+        ]
       },
       "lineup_matchup": {
-        "away_pressure": "Jordan Walker headlines the St. Louis Cardinals power threat (Elite power foundation).",
-        "home_pressure": "Jac Caglianone headlines the Kansas City Royals power threat (Elite power foundation).",
+        "away_pressure": "Jordan Walker is the power-pocket bat for St. Louis Cardinals \u2014 elite power foundation.",
+        "home_pressure": "Jac Caglianone is the power-pocket bat for Kansas City Royals \u2014 elite power foundation.",
+        "matchup_shape": "Power Series",
+        "key_bats_by_team": {
+          "STL": [
+            "Jordan Walker",
+            "Iv\u00e1n Herrera"
+          ],
+          "KC": [
+            "Jac Caglianone",
+            "Bobby Witt Jr."
+          ]
+        },
+        "summary": "Both lineups carry more thump than traffic here \u2014 St. Louis Cardinals and Kansas City Royals project as a series where one mistake to a power pocket can be the separator.",
         "power_bats": [
           "Jordan Walker",
           "Jac Caglianone"
@@ -311,41 +433,65 @@
         ]
       },
       "bullpen_leverage": {
-        "away_read": "Limited bullpen data available for V1.",
-        "home_read": "Limited bullpen data available for V1.",
-        "edge": "Limited current form data"
+        "away_read": "Limited current bullpen data; watch early starter length.",
+        "home_read": "Limited current bullpen data; watch early starter length.",
+        "edge": "Limited current form data",
+        "data_quality": "limited"
       },
       "players_who_tilt_series": [
-        {
-          "name": "Michael McGreevy",
-          "team": "St. Louis Cardinals",
-          "slug": "michael-mcgreevy",
-          "tag": "Stable Starter"
-        },
         {
           "name": "Jordan Walker",
           "team": "STL",
           "slug": "jordan-walker",
-          "tag": "Power Pressure"
+          "tag": "Power Pressure",
+          "reason": "Jordan Walker is the clearest power-pocket bat for St. Louis Cardinals \u2014 elite power foundation."
         },
         {
           "name": "Jac Caglianone",
           "team": "KC",
           "slug": "jac-caglianone",
-          "tag": "Power Pressure"
+          "tag": "Power Pressure",
+          "reason": "Jac Caglianone is the clearest power-pocket bat for Kansas City Royals \u2014 elite power foundation."
         },
         {
           "name": "Iv\u00e1n Herrera",
           "team": "STL",
           "slug": "ivan-herrera",
-          "tag": "Contact Table-Setter"
+          "tag": "Contact Table-Setter",
+          "reason": "Iv\u00e1n Herrera sets the table for St. Louis Cardinals with a contact profile that keeps traffic on the bases."
+        },
+        {
+          "name": "Bobby Witt Jr.",
+          "team": "KC",
+          "slug": "bobby-witt-jr",
+          "tag": "Contact Table-Setter",
+          "reason": "Bobby Witt Jr. sets the table for Kansas City Royals with a contact profile that keeps traffic on the bases."
+        },
+        {
+          "name": "Michael McGreevy",
+          "team": "STL",
+          "slug": "michael-mcgreevy",
+          "tag": "Run Prevention Anchor",
+          "reason": "Michael McGreevy is the steadiest probable arm in this series for St. Louis Cardinals."
         }
       ],
       "fantasy_dfs_watch": [
-        "Jordan Walker (STL) is a power-pressure watch for DFS builds in this series.",
-        "Jac Caglianone (KC) is a power-pressure watch for DFS builds in this series."
+        "Power Watch: Jordan Walker (STL) is a power-pressure angle worth tracking for DFS builds in this series.",
+        "Power Watch: Jac Caglianone (KC) is a power-pressure angle worth tracking for DFS builds in this series.",
+        "Contact/OBP Watch: Iv\u00e1n Herrera (STL) profiles as a table-setter lean if confirmed near the top of the order.",
+        "Contact/OBP Watch: Bobby Witt Jr. (KC) profiles as a table-setter lean if confirmed near the top of the order.",
+        "Pitcher Stability: Michael McGreevy (STL) is worth a profile check before finalizing pitching builds."
       ],
-      "barrel_proof_read": "St. Louis Cardinals visit Kansas City Royals for a 3-game series (2026-06-18 to 2026-06-21). Michael McGreevy gives St. Louis Cardinals the steadier arm on paper. Watch Jordan Walker as a power-pressure presence in this matchup."
+      "betting_props_watch": [
+        "Power Risk: Jordan Walker's power profile is worth watching against this series' probable starters.",
+        "Starter Risk: With probable pitchers still unsettled, props tied to specific starters carry more uncertainty until lineups firm up."
+      ],
+      "data_basis": {
+        "lineup_basis": "player signal pool",
+        "probable_pitcher_basis": "partial",
+        "bullpen_basis": "limited"
+      },
+      "barrel_proof_read": "St. Louis Cardinals at Kansas City Royals reads as a power series \u2014 both lineups carry pockets that can turn one mistake into the separator. Michael McGreevy gives St. Louis Cardinals the steadier arm on paper, which puts pressure on the opposing lineup to find traffic in the middle innings. If STL gets into the middle innings with a lead, Jordan Walker turns this into a bullpen-stress series for the other side."
     },
     {
       "series_id": "bal-lad-2026-06-19",
@@ -390,8 +536,12 @@
           "probable_home_pitcher": "TBD"
         }
       ],
+      "series_pressure": {
+        "label": "Trap Series",
+        "summary": "Los Angeles Dodgers (45-27, 1st place) is fighting for position while the other side has more breathing room \u2014 the kind of series that can quietly slip away from the favorite."
+      },
       "series_context": {
-        "standings_angle": "Limited current form data",
+        "standings_angle": "Baltimore Orioles (34-39, 10.5 GB) at Los Angeles Dodgers (45-27, 1st place).",
         "form_angle": "Limited current form data",
         "injury_angle": "Baltimore Orioles IL list includes 11 player(s). Los Angeles Dodgers IL list includes 14 player(s)."
       },
@@ -406,12 +556,26 @@
           "TBD",
           "TBD"
         ],
-        "rotation_edge": "Probable starter signals limited for this series.",
-        "volatility_note": "3 of 3 game(s) still have a probable starter TBD, adding rotation uncertainty."
+        "rotation_edge": "Probable starter signals are limited for this series, so the pitching path is still developing.",
+        "volatility_note": "3 of 6 starting assignments are still TBD, so the back half of the series can swing the pitching path.",
+        "probable_confidence": "Partial",
+        "pitcher_watchlist": []
       },
       "lineup_matchup": {
-        "away_pressure": "Pete Alonso headlines the Baltimore Orioles power threat (Strong power indicators).",
-        "home_pressure": "Shohei Ohtani headlines the Los Angeles Dodgers power threat (Elite power foundation).",
+        "away_pressure": "Pete Alonso is the power-pocket bat for Baltimore Orioles \u2014 strong power indicators.",
+        "home_pressure": "Shohei Ohtani is the power-pocket bat for Los Angeles Dodgers \u2014 elite power foundation.",
+        "matchup_shape": "Balanced Offensive Series",
+        "key_bats_by_team": {
+          "BAL": [
+            "Pete Alonso",
+            "Adley Rutschman"
+          ],
+          "LAD": [
+            "Shohei Ohtani",
+            "Freddie Freeman"
+          ]
+        },
+        "summary": "Baltimore Orioles and Los Angeles Dodgers both bring a mix of power and contact pressure, so the series can tilt on either kind of mistake.",
         "power_bats": [
           "Pete Alonso",
           "Shohei Ohtani"
@@ -422,35 +586,58 @@
         ]
       },
       "bullpen_leverage": {
-        "away_read": "Limited bullpen data available for V1.",
-        "home_read": "Limited bullpen data available for V1.",
-        "edge": "Limited current form data"
+        "away_read": "Limited current bullpen data; watch early starter length.",
+        "home_read": "Limited current bullpen data; watch early starter length.",
+        "edge": "Limited current form data",
+        "data_quality": "limited"
       },
       "players_who_tilt_series": [
         {
           "name": "Pete Alonso",
           "team": "BAL",
           "slug": "pete-alonso",
-          "tag": "Power Pressure"
+          "tag": "Power Pressure",
+          "reason": "Pete Alonso is the clearest power-pocket bat for Baltimore Orioles \u2014 strong power indicators."
         },
         {
           "name": "Shohei Ohtani",
           "team": "LAD",
           "slug": "shohei-ohtani",
-          "tag": "Power Pressure"
+          "tag": "Power Pressure",
+          "reason": "Shohei Ohtani is the clearest power-pocket bat for Los Angeles Dodgers \u2014 elite power foundation."
         },
         {
           "name": "Adley Rutschman",
           "team": "BAL",
           "slug": "adley-rutschman",
-          "tag": "Contact Table-Setter"
+          "tag": "Contact Table-Setter",
+          "reason": "Adley Rutschman sets the table for Baltimore Orioles with a contact profile that keeps traffic on the bases."
+        },
+        {
+          "name": "Will Smith",
+          "team": "LAD",
+          "slug": "will-smith",
+          "tag": "Buy-Low Signal",
+          "reason": "Will Smith has been unlucky relative to expected production (production lagging contact quality), making Los Angeles Dodgers a buy-low watch this series."
         }
       ],
       "fantasy_dfs_watch": [
-        "Pete Alonso (BAL) is a power-pressure watch for DFS builds in this series.",
-        "Shohei Ohtani (LAD) is a power-pressure watch for DFS builds in this series."
+        "Power Watch: Pete Alonso (BAL) is a power-pressure angle worth tracking for DFS builds in this series.",
+        "Power Watch: Shohei Ohtani (LAD) is a power-pressure angle worth tracking for DFS builds in this series.",
+        "Contact/OBP Watch: Adley Rutschman (BAL) profiles as a table-setter lean if confirmed near the top of the order.",
+        "Value Angle: Will Smith (LAD) is a buy-low lean based on recent luck-gap signals.",
+        "Lineup Confirmation: Several probable starters are still TBD \u2014 confirm lineups and pitching matchups before finalizing builds."
       ],
-      "barrel_proof_read": "Baltimore Orioles visit Los Angeles Dodgers for a 3-game series (2026-06-19 to 2026-06-21). Watch Pete Alonso as a power-pressure presence in this matchup."
+      "betting_props_watch": [
+        "Power Risk: Pete Alonso's power profile is worth watching against this series' probable starters.",
+        "Starter Risk: With probable pitchers still unsettled, props tied to specific starters carry more uncertainty until lineups firm up."
+      ],
+      "data_basis": {
+        "lineup_basis": "player signal pool",
+        "probable_pitcher_basis": "partial",
+        "bullpen_basis": "limited"
+      },
+      "barrel_proof_read": "Baltimore Orioles at Los Angeles Dodgers is a balanced series \u2014 neither lineup has a clean power or contact edge over the other. Probable starters are still unsettled, so the pitching path is the swing factor to track as the week develops. If BAL gets into the middle innings with a lead, Pete Alonso turns this into a bullpen-stress series for the other side."
     },
     {
       "series_id": "bos-sea-2026-06-19",
@@ -495,8 +682,12 @@
           "probable_home_pitcher": "TBD"
         }
       ],
+      "series_pressure": {
+        "label": "Trap Series",
+        "summary": "Seattle Mariners (37-36, 1st place) is fighting for position while the other side has more breathing room \u2014 the kind of series that can quietly slip away from the favorite."
+      },
       "series_context": {
-        "standings_angle": "Limited current form data",
+        "standings_angle": "Boston Red Sox (29-40, 13.5 GB) at Seattle Mariners (37-36, 1st place).",
         "form_angle": "Limited current form data",
         "injury_angle": "Boston Red Sox IL list includes 11 player(s). Seattle Mariners IL list includes 8 player(s)."
       },
@@ -511,12 +702,26 @@
           "TBD",
           "TBD"
         ],
-        "rotation_edge": "Probable starter signals limited for this series.",
-        "volatility_note": "3 of 3 game(s) still have a probable starter TBD, adding rotation uncertainty."
+        "rotation_edge": "Probable starter signals are limited for this series, so the pitching path is still developing.",
+        "volatility_note": "3 of 6 starting assignments are still TBD, so the back half of the series can swing the pitching path.",
+        "probable_confidence": "Partial",
+        "pitcher_watchlist": []
       },
       "lineup_matchup": {
-        "away_pressure": "Willson Contreras headlines the Boston Red Sox power threat (Strong power indicators).",
-        "home_pressure": "Dominic Canzone headlines the Seattle Mariners power threat (Elite power foundation).",
+        "away_pressure": "Willson Contreras is the power-pocket bat for Boston Red Sox \u2014 strong power indicators.",
+        "home_pressure": "Dominic Canzone is the power-pocket bat for Seattle Mariners \u2014 elite power foundation.",
+        "matchup_shape": "Power Series",
+        "key_bats_by_team": {
+          "BOS": [
+            "Willson Contreras",
+            "Wilyer Abreu"
+          ],
+          "SEA": [
+            "Dominic Canzone",
+            "Randy Arozarena"
+          ]
+        },
+        "summary": "Both lineups carry more thump than traffic here \u2014 Boston Red Sox and Seattle Mariners project as a series where one mistake to a power pocket can be the separator.",
         "power_bats": [
           "Willson Contreras",
           "Dominic Canzone"
@@ -527,35 +732,65 @@
         ]
       },
       "bullpen_leverage": {
-        "away_read": "Limited bullpen data available for V1.",
-        "home_read": "Limited bullpen data available for V1.",
-        "edge": "Limited current form data"
+        "away_read": "Limited current bullpen data; watch early starter length.",
+        "home_read": "Limited current bullpen data; watch early starter length.",
+        "edge": "Limited current form data",
+        "data_quality": "limited"
       },
       "players_who_tilt_series": [
         {
           "name": "Willson Contreras",
           "team": "BOS",
           "slug": "willson-contreras",
-          "tag": "Power Pressure"
+          "tag": "Power Pressure",
+          "reason": "Willson Contreras is the clearest power-pocket bat for Boston Red Sox \u2014 strong power indicators."
         },
         {
           "name": "Dominic Canzone",
           "team": "SEA",
           "slug": "dominic-canzone",
-          "tag": "Power Pressure"
+          "tag": "Power Pressure",
+          "reason": "Dominic Canzone is the clearest power-pocket bat for Seattle Mariners \u2014 elite power foundation."
         },
         {
           "name": "Randy Arozarena",
           "team": "SEA",
           "slug": "randy-arozarena",
-          "tag": "Contact Table-Setter"
+          "tag": "Contact Table-Setter",
+          "reason": "Randy Arozarena sets the table for Seattle Mariners with a contact profile that keeps traffic on the bases."
+        },
+        {
+          "name": "Ceddanne Rafaela",
+          "team": "BOS",
+          "slug": "ceddanne-rafaela",
+          "tag": "Series Swing Bat",
+          "reason": "Ceddanne Rafaela is outperforming the underlying numbers for Boston Red Sox (regression warning), a swing factor if it continues."
+        },
+        {
+          "name": "Cole Young",
+          "team": "SEA",
+          "slug": "cole-young",
+          "tag": "Buy-Low Signal",
+          "reason": "Cole Young has been unlucky relative to expected production (expected production ahead of actual production), making Seattle Mariners a buy-low watch this series."
         }
       ],
       "fantasy_dfs_watch": [
-        "Willson Contreras (BOS) is a power-pressure watch for DFS builds in this series.",
-        "Dominic Canzone (SEA) is a power-pressure watch for DFS builds in this series."
+        "Power Watch: Willson Contreras (BOS) is a power-pressure angle worth tracking for DFS builds in this series.",
+        "Power Watch: Dominic Canzone (SEA) is a power-pressure angle worth tracking for DFS builds in this series.",
+        "Contact/OBP Watch: Randy Arozarena (SEA) profiles as a table-setter lean if confirmed near the top of the order.",
+        "Value Angle: Ceddanne Rafaela (BOS) is a form lean based on recent luck-gap signals.",
+        "Value Angle: Cole Young (SEA) is a buy-low lean based on recent luck-gap signals."
       ],
-      "barrel_proof_read": "Boston Red Sox visit Seattle Mariners for a 3-game series (2026-06-19 to 2026-06-21). Watch Willson Contreras as a power-pressure presence in this matchup."
+      "betting_props_watch": [
+        "Power Risk: Willson Contreras's power profile is worth watching against this series' probable starters.",
+        "Starter Risk: With probable pitchers still unsettled, props tied to specific starters carry more uncertainty until lineups firm up."
+      ],
+      "data_basis": {
+        "lineup_basis": "player signal pool",
+        "probable_pitcher_basis": "partial",
+        "bullpen_basis": "limited"
+      },
+      "barrel_proof_read": "Boston Red Sox at Seattle Mariners reads as a power series \u2014 both lineups carry pockets that can turn one mistake into the separator. Probable starters are still unsettled, so the pitching path is the swing factor to track as the week develops. If BOS gets into the middle innings with a lead, Willson Contreras turns this into a bullpen-stress series for the other side."
     },
     {
       "series_id": "cin-nyy-2026-06-19",
@@ -600,8 +835,12 @@
           "probable_home_pitcher": "TBD"
         }
       ],
+      "series_pressure": {
+        "label": "Trap Series",
+        "summary": "New York Yankees (43-27, 1st place) is fighting for position while the other side has more breathing room \u2014 the kind of series that can quietly slip away from the favorite."
+      },
       "series_context": {
-        "standings_angle": "Limited current form data",
+        "standings_angle": "Cincinnati Reds (33-37, 10.5 GB) at New York Yankees (43-27, 1st place).",
         "form_angle": "Limited current form data",
         "injury_angle": "Cincinnati Reds IL list includes 8 player(s). New York Yankees IL list includes 7 player(s)."
       },
@@ -616,12 +855,34 @@
           "TBD",
           "TBD"
         ],
-        "rotation_edge": "Rhett Lowder (Cincinnati Reds) shows the steadier pitching profile in this series: Pitching risk.",
-        "volatility_note": "3 of 3 game(s) still have a probable starter TBD, adding rotation uncertainty."
+        "rotation_edge": "Rhett Lowder gives Cincinnati Reds the steadier arm on paper, but the rest of the rotation picture is still filling in.",
+        "volatility_note": "3 of 6 starting assignments are still TBD, so the back half of the series can swing the pitching path.",
+        "probable_confidence": "Partial",
+        "pitcher_watchlist": [
+          {
+            "name": "Rhett Lowder",
+            "team": "Cincinnati Reds",
+            "slug": "rhett-lowder",
+            "tag": "Volatile Starter",
+            "label": "Pitching risk"
+          }
+        ]
       },
       "lineup_matchup": {
-        "away_pressure": "Sal Stewart headlines the Cincinnati Reds power threat (Strong power indicators).",
-        "home_pressure": "Ben Rice headlines the New York Yankees power threat (Strong power indicators).",
+        "away_pressure": "Sal Stewart is the power-pocket bat for Cincinnati Reds \u2014 strong power indicators.",
+        "home_pressure": "Ben Rice is the power-pocket bat for New York Yankees \u2014 strong power indicators.",
+        "matchup_shape": "Balanced Offensive Series",
+        "key_bats_by_team": {
+          "CIN": [
+            "Sal Stewart",
+            "JJ Bleday"
+          ],
+          "NYY": [
+            "Ben Rice",
+            "Cody Bellinger"
+          ]
+        },
+        "summary": "Cincinnati Reds and New York Yankees both bring a mix of power and contact pressure, so the series can tilt on either kind of mistake.",
         "power_bats": [
           "Sal Stewart",
           "Ben Rice"
@@ -632,41 +893,66 @@
         ]
       },
       "bullpen_leverage": {
-        "away_read": "Limited bullpen data available for V1.",
-        "home_read": "Limited bullpen data available for V1.",
-        "edge": "Limited current form data"
+        "away_read": "Limited current bullpen data; watch early starter length.",
+        "home_read": "Limited current bullpen data; watch early starter length.",
+        "edge": "Limited current form data",
+        "data_quality": "limited"
       },
       "players_who_tilt_series": [
-        {
-          "name": "Rhett Lowder",
-          "team": "Cincinnati Reds",
-          "slug": "rhett-lowder",
-          "tag": "Stable Starter"
-        },
         {
           "name": "Sal Stewart",
           "team": "CIN",
           "slug": "sal-stewart",
-          "tag": "Power Pressure"
+          "tag": "Power Pressure",
+          "reason": "Sal Stewart is the clearest power-pocket bat for Cincinnati Reds \u2014 strong power indicators."
         },
         {
           "name": "Ben Rice",
           "team": "NYY",
           "slug": "ben-rice",
-          "tag": "Power Pressure"
+          "tag": "Power Pressure",
+          "reason": "Ben Rice is the clearest power-pocket bat for New York Yankees \u2014 strong power indicators."
         },
         {
           "name": "JJ Bleday",
           "team": "CIN",
           "slug": "jj-bleday",
-          "tag": "Contact Table-Setter"
+          "tag": "Contact Table-Setter",
+          "reason": "JJ Bleday sets the table for Cincinnati Reds with a contact profile that keeps traffic on the bases."
+        },
+        {
+          "name": "Cody Bellinger",
+          "team": "NYY",
+          "slug": "cody-bellinger",
+          "tag": "Contact Table-Setter",
+          "reason": "Cody Bellinger sets the table for New York Yankees with a contact profile that keeps traffic on the bases."
+        },
+        {
+          "name": "Rhett Lowder",
+          "team": "CIN",
+          "slug": "rhett-lowder",
+          "tag": "Volatile Starter",
+          "reason": "Rhett Lowder brings volatility to Cincinnati Reds's pitching path \u2014 pitching risk."
         }
       ],
       "fantasy_dfs_watch": [
-        "Sal Stewart (CIN) is a power-pressure watch for DFS builds in this series.",
-        "Ben Rice (NYY) is a power-pressure watch for DFS builds in this series."
+        "Power Watch: Sal Stewart (CIN) is a power-pressure angle worth tracking for DFS builds in this series.",
+        "Power Watch: Ben Rice (NYY) is a power-pressure angle worth tracking for DFS builds in this series.",
+        "Contact/OBP Watch: JJ Bleday (CIN) profiles as a table-setter lean if confirmed near the top of the order.",
+        "Contact/OBP Watch: Cody Bellinger (NYY) profiles as a table-setter lean if confirmed near the top of the order.",
+        "Pitcher Risk: Rhett Lowder (CIN) is worth a profile check before finalizing pitching builds."
       ],
-      "barrel_proof_read": "Cincinnati Reds visit New York Yankees for a 3-game series (2026-06-19 to 2026-06-21). Rhett Lowder gives Cincinnati Reds the steadier arm on paper. Watch Sal Stewart as a power-pressure presence in this matchup."
+      "betting_props_watch": [
+        "Run Environment: Cincinnati Reds's probable starter profile reads volatile, so the run environment here is worth checking once lineups are confirmed.",
+        "Power Risk: Sal Stewart's power profile is worth watching against this series' probable starters.",
+        "Starter Risk: With probable pitchers still unsettled, props tied to specific starters carry more uncertainty until lineups firm up."
+      ],
+      "data_basis": {
+        "lineup_basis": "player signal pool",
+        "probable_pitcher_basis": "partial",
+        "bullpen_basis": "limited"
+      },
+      "barrel_proof_read": "Cincinnati Reds at New York Yankees is a balanced series \u2014 neither lineup has a clean power or contact edge over the other. Rhett Lowder gives Cincinnati Reds the steadier arm on paper, which puts pressure on the opposing lineup to find traffic in the middle innings. If CIN gets into the middle innings with a lead, Sal Stewart turns this into a bullpen-stress series for the other side."
     },
     {
       "series_id": "cle-hou-2026-06-19",
@@ -711,8 +997,12 @@
           "probable_home_pitcher": "TBD"
         }
       ],
+      "series_pressure": {
+        "label": "Division Pressure",
+        "summary": "Cleveland Guardians (39-33, 1st place) and Houston Astros (33-40, 4.0 GB) are both within range of the top of their division, so every game here carries standings weight."
+      },
       "series_context": {
-        "standings_angle": "Limited current form data",
+        "standings_angle": "Cleveland Guardians (39-33, 1st place) at Houston Astros (33-40, 4.0 GB).",
         "form_angle": "Limited current form data",
         "injury_angle": "Cleveland Guardians IL list includes 2 player(s). Houston Astros IL list includes 12 player(s)."
       },
@@ -727,12 +1017,34 @@
           "TBD",
           "TBD"
         ],
-        "rotation_edge": "Tanner Bibee (Cleveland Guardians) shows the steadier pitching profile in this series: Volatile pitching profile.",
-        "volatility_note": "3 of 3 game(s) still have a probable starter TBD, adding rotation uncertainty."
+        "rotation_edge": "Tanner Bibee gives Cleveland Guardians the steadier arm on paper, but the rest of the rotation picture is still filling in.",
+        "volatility_note": "3 of 6 starting assignments are still TBD, so the back half of the series can swing the pitching path.",
+        "probable_confidence": "Partial",
+        "pitcher_watchlist": [
+          {
+            "name": "Tanner Bibee",
+            "team": "Cleveland Guardians",
+            "slug": "tanner-bibee",
+            "tag": "Mid-Profile Starter",
+            "label": "Volatile pitching profile"
+          }
+        ]
       },
       "lineup_matchup": {
-        "away_pressure": "Jos\u00e9 Ram\u00edrez headlines the Cleveland Guardians power threat (Ordinary power profile).",
-        "home_pressure": "Yordan Alvarez headlines the Houston Astros power threat (Elite power foundation).",
+        "away_pressure": "Jos\u00e9 Ram\u00edrez is the power-pocket bat for Cleveland Guardians \u2014 ordinary power profile.",
+        "home_pressure": "Yordan Alvarez is the power-pocket bat for Houston Astros \u2014 elite power foundation.",
+        "matchup_shape": "Balanced Offensive Series",
+        "key_bats_by_team": {
+          "CLE": [
+            "Jos\u00e9 Ram\u00edrez",
+            "Brayan Rocchio"
+          ],
+          "HOU": [
+            "Yordan Alvarez",
+            "Isaac Paredes"
+          ]
+        },
+        "summary": "Cleveland Guardians and Houston Astros both bring a mix of power and contact pressure, so the series can tilt on either kind of mistake.",
         "power_bats": [
           "Jos\u00e9 Ram\u00edrez",
           "Yordan Alvarez"
@@ -743,35 +1055,65 @@
         ]
       },
       "bullpen_leverage": {
-        "away_read": "Limited bullpen data available for V1.",
-        "home_read": "Limited bullpen data available for V1.",
-        "edge": "Limited current form data"
+        "away_read": "Limited current bullpen data; watch early starter length.",
+        "home_read": "Limited current bullpen data; watch early starter length.",
+        "edge": "Limited current form data",
+        "data_quality": "limited"
       },
       "players_who_tilt_series": [
-        {
-          "name": "Tanner Bibee",
-          "team": "Cleveland Guardians",
-          "slug": "tanner-bibee",
-          "tag": "Stable Starter"
-        },
         {
           "name": "Jos\u00e9 Ram\u00edrez",
           "team": "CLE",
           "slug": "jose-ramirez",
-          "tag": "Power Pressure"
+          "tag": "Power Pressure",
+          "reason": "Jos\u00e9 Ram\u00edrez is the clearest power-pocket bat for Cleveland Guardians \u2014 ordinary power profile."
         },
         {
           "name": "Yordan Alvarez",
           "team": "HOU",
           "slug": "yordan-alvarez",
-          "tag": "Power Pressure"
+          "tag": "Power Pressure",
+          "reason": "Yordan Alvarez is the clearest power-pocket bat for Houston Astros \u2014 elite power foundation."
+        },
+        {
+          "name": "Tanner Bibee",
+          "team": "CLE",
+          "slug": "tanner-bibee",
+          "tag": "Run Prevention Anchor",
+          "reason": "Tanner Bibee is the steadiest probable arm in this series for Cleveland Guardians."
+        },
+        {
+          "name": "Steven Kwan",
+          "team": "CLE",
+          "slug": "steven-kwan",
+          "tag": "Buy-Low Signal",
+          "reason": "Steven Kwan has been unlucky relative to expected production (expected production ahead of actual production), making Cleveland Guardians a buy-low watch this series."
+        },
+        {
+          "name": "Christian V\u00e1zquez",
+          "team": "HOU",
+          "slug": "christian-vazquez",
+          "tag": "Series Swing Bat",
+          "reason": "Christian V\u00e1zquez is outperforming the underlying numbers for Houston Astros (regression warning), a swing factor if it continues."
         }
       ],
       "fantasy_dfs_watch": [
-        "Jos\u00e9 Ram\u00edrez (CLE) is a power-pressure watch for DFS builds in this series.",
-        "Yordan Alvarez (HOU) is a power-pressure watch for DFS builds in this series."
+        "Power Watch: Jos\u00e9 Ram\u00edrez (CLE) is a power-pressure angle worth tracking for DFS builds in this series.",
+        "Power Watch: Yordan Alvarez (HOU) is a power-pressure angle worth tracking for DFS builds in this series.",
+        "Pitcher Stability: Tanner Bibee (CLE) is worth a profile check before finalizing pitching builds.",
+        "Value Angle: Steven Kwan (CLE) is a buy-low lean based on recent luck-gap signals.",
+        "Value Angle: Christian V\u00e1zquez (HOU) is a form lean based on recent luck-gap signals."
       ],
-      "barrel_proof_read": "Cleveland Guardians visit Houston Astros for a 3-game series (2026-06-19 to 2026-06-21). Tanner Bibee gives Cleveland Guardians the steadier arm on paper. Watch Jos\u00e9 Ram\u00edrez as a power-pressure presence in this matchup."
+      "betting_props_watch": [
+        "Power Risk: Jos\u00e9 Ram\u00edrez's power profile is worth watching against this series' probable starters.",
+        "Starter Risk: With probable pitchers still unsettled, props tied to specific starters carry more uncertainty until lineups firm up."
+      ],
+      "data_basis": {
+        "lineup_basis": "player signal pool",
+        "probable_pitcher_basis": "partial",
+        "bullpen_basis": "limited"
+      },
+      "barrel_proof_read": "Cleveland Guardians at Houston Astros is a balanced series \u2014 neither lineup has a clean power or contact edge over the other. Tanner Bibee gives Cleveland Guardians the steadier arm on paper, which puts pressure on the opposing lineup to find traffic in the middle innings. If CLE gets into the middle innings with a lead, Jos\u00e9 Ram\u00edrez turns this into a bullpen-stress series for the other side."
     },
     {
       "series_id": "cws-det-2026-06-19",
@@ -816,8 +1158,12 @@
           "probable_home_pitcher": "TBD"
         }
       ],
+      "series_pressure": {
+        "label": "Limited Standings Pressure",
+        "summary": "Chicago White Sox (38-32, 1st place) at Detroit Tigers (29-42, 9.5 GB) \u2014 neither club is in immediate standings pressure this weekend."
+      },
       "series_context": {
-        "standings_angle": "Limited current form data",
+        "standings_angle": "Chicago White Sox (38-32, 1st place) at Detroit Tigers (29-42, 9.5 GB).",
         "form_angle": "Limited current form data",
         "injury_angle": "Chicago White Sox IL list includes 13 player(s). Detroit Tigers IL list includes 12 player(s)."
       },
@@ -832,12 +1178,34 @@
           "TBD",
           "TBD"
         ],
-        "rotation_edge": "Tarik Skubal (Detroit Tigers) shows the steadier pitching profile in this series: Strong pitching foundation.",
-        "volatility_note": "3 of 3 game(s) still have a probable starter TBD, adding rotation uncertainty."
+        "rotation_edge": "Tarik Skubal gives Detroit Tigers the steadier arm on paper, but the rest of the rotation picture is still filling in.",
+        "volatility_note": "3 of 6 starting assignments are still TBD, so the back half of the series can swing the pitching path.",
+        "probable_confidence": "Partial",
+        "pitcher_watchlist": [
+          {
+            "name": "Tarik Skubal",
+            "team": "Detroit Tigers",
+            "slug": "tarik-skubal",
+            "tag": "Stable Starter",
+            "label": "Strong pitching foundation"
+          }
+        ]
       },
       "lineup_matchup": {
-        "away_pressure": "Miguel Vargas headlines the Chicago White Sox power threat (Strong power indicators).",
-        "home_pressure": "Dillon Dingler headlines the Detroit Tigers power threat (Strong power indicators).",
+        "away_pressure": "Miguel Vargas is the power-pocket bat for Chicago White Sox \u2014 strong power indicators.",
+        "home_pressure": "Dillon Dingler is the power-pocket bat for Detroit Tigers \u2014 strong power indicators.",
+        "matchup_shape": "Balanced Offensive Series",
+        "key_bats_by_team": {
+          "CWS": [
+            "Miguel Vargas",
+            "Sam Antonacci"
+          ],
+          "DET": [
+            "Dillon Dingler",
+            "Kevin McGonigle"
+          ]
+        },
+        "summary": "Chicago White Sox and Detroit Tigers both bring a mix of power and contact pressure, so the series can tilt on either kind of mistake.",
         "power_bats": [
           "Miguel Vargas",
           "Dillon Dingler"
@@ -848,42 +1216,66 @@
         ]
       },
       "bullpen_leverage": {
-        "away_read": "Limited bullpen data available for V1.",
-        "home_read": "Limited bullpen data available for V1.",
-        "edge": "Limited current form data"
+        "away_read": "Limited current bullpen data; watch early starter length.",
+        "home_read": "Limited current bullpen data; watch early starter length.",
+        "edge": "Limited current form data",
+        "data_quality": "limited"
       },
       "players_who_tilt_series": [
-        {
-          "name": "Tarik Skubal",
-          "team": "Detroit Tigers",
-          "slug": "tarik-skubal",
-          "tag": "Strikeout Arm"
-        },
         {
           "name": "Miguel Vargas",
           "team": "CWS",
           "slug": "miguel-vargas",
-          "tag": "Power Pressure"
+          "tag": "Power Pressure",
+          "reason": "Miguel Vargas is the clearest power-pocket bat for Chicago White Sox \u2014 strong power indicators."
         },
         {
           "name": "Dillon Dingler",
           "team": "DET",
           "slug": "dillon-dingler",
-          "tag": "Power Pressure"
+          "tag": "Power Pressure",
+          "reason": "Dillon Dingler is the clearest power-pocket bat for Detroit Tigers \u2014 strong power indicators."
         },
         {
           "name": "Kevin McGonigle",
           "team": "DET",
           "slug": "kevin-mcgonigle",
-          "tag": "Contact Table-Setter"
+          "tag": "Contact Table-Setter",
+          "reason": "Kevin McGonigle sets the table for Detroit Tigers with a contact profile that keeps traffic on the bases."
+        },
+        {
+          "name": "Tarik Skubal",
+          "team": "DET",
+          "slug": "tarik-skubal",
+          "tag": "Run Prevention Anchor",
+          "reason": "Tarik Skubal gives Detroit Tigers a run-prevention anchor \u2014 strong pitching foundation."
+        },
+        {
+          "name": "Tristan Peters",
+          "team": "CWS",
+          "slug": "tristan-peters",
+          "tag": "Series Swing Bat",
+          "reason": "Tristan Peters is outperforming the underlying numbers for Chicago White Sox (regression warning), a swing factor if it continues."
         }
       ],
       "fantasy_dfs_watch": [
-        "Tarik Skubal (Detroit Tigers) profiles as a strikeout-arm lean for DFS pitching pools.",
-        "Miguel Vargas (CWS) is a power-pressure watch for DFS builds in this series.",
-        "Dillon Dingler (DET) is a power-pressure watch for DFS builds in this series."
+        "Power Watch: Miguel Vargas (CWS) is a power-pressure angle worth tracking for DFS builds in this series.",
+        "Power Watch: Dillon Dingler (DET) is a power-pressure angle worth tracking for DFS builds in this series.",
+        "Contact/OBP Watch: Kevin McGonigle (DET) profiles as a table-setter lean if confirmed near the top of the order.",
+        "Pitcher Stability: Tarik Skubal (DET) is worth a profile check before finalizing pitching builds.",
+        "Value Angle: Tristan Peters (CWS) is a form lean based on recent luck-gap signals."
       ],
-      "barrel_proof_read": "Chicago White Sox visit Detroit Tigers for a 3-game series (2026-06-19 to 2026-06-21). Tarik Skubal gives Detroit Tigers the steadier arm on paper. Watch Miguel Vargas as a power-pressure presence in this matchup."
+      "betting_props_watch": [
+        "Strikeout Angle: Tarik Skubal's profile (9.35 K/9) makes the strikeout market worth checking once lineups are confirmed.",
+        "Power Risk: Miguel Vargas's power profile is worth watching against this series' probable starters.",
+        "Starter Risk: With probable pitchers still unsettled, props tied to specific starters carry more uncertainty until lineups firm up."
+      ],
+      "data_basis": {
+        "lineup_basis": "player signal pool",
+        "probable_pitcher_basis": "partial",
+        "bullpen_basis": "limited"
+      },
+      "barrel_proof_read": "Chicago White Sox at Detroit Tigers is a balanced series \u2014 neither lineup has a clean power or contact edge over the other. Tarik Skubal gives Detroit Tigers the steadier arm on paper, which puts pressure on the opposing lineup to find traffic in the middle innings. If CWS gets into the middle innings with a lead, Miguel Vargas turns this into a bullpen-stress series for the other side."
     },
     {
       "series_id": "mil-atl-2026-06-19",
@@ -928,8 +1320,12 @@
           "probable_home_pitcher": "TBD"
         }
       ],
+      "series_pressure": {
+        "label": "Division Pressure",
+        "summary": "Milwaukee Brewers (43-26, 1st place) and Atlanta Braves (46-25, 1st place) are both within range of the top of their division, so every game here carries standings weight."
+      },
       "series_context": {
-        "standings_angle": "Limited current form data",
+        "standings_angle": "Milwaukee Brewers (43-26, 1st place) at Atlanta Braves (46-25, 1st place).",
         "form_angle": "Limited current form data",
         "injury_angle": "Milwaukee Brewers IL list includes 10 player(s). Atlanta Braves IL list includes 9 player(s)."
       },
@@ -944,12 +1340,26 @@
           "TBD",
           "TBD"
         ],
-        "rotation_edge": "Probable starter signals limited for this series.",
-        "volatility_note": "3 of 3 game(s) still have a probable starter TBD, adding rotation uncertainty."
+        "rotation_edge": "Probable starter signals are limited for this series, so the pitching path is still developing.",
+        "volatility_note": "3 of 6 starting assignments are still TBD, so the back half of the series can swing the pitching path.",
+        "probable_confidence": "Partial",
+        "pitcher_watchlist": []
       },
       "lineup_matchup": {
-        "away_pressure": "Jackson Chourio headlines the Milwaukee Brewers power threat (Strong power indicators).",
-        "home_pressure": "Michael Harris II headlines the Atlanta Braves power threat (Elite power foundation).",
+        "away_pressure": "Jackson Chourio is the power-pocket bat for Milwaukee Brewers \u2014 strong power indicators.",
+        "home_pressure": "Michael Harris II is the power-pocket bat for Atlanta Braves \u2014 elite power foundation.",
+        "matchup_shape": "Power Series",
+        "key_bats_by_team": {
+          "MIL": [
+            "Jackson Chourio",
+            "Jake Bauers"
+          ],
+          "ATL": [
+            "Michael Harris II",
+            "Dominic Smith"
+          ]
+        },
+        "summary": "Both lineups carry more thump than traffic here \u2014 Milwaukee Brewers and Atlanta Braves project as a series where one mistake to a power pocket can be the separator.",
         "power_bats": [
           "Jackson Chourio",
           "Michael Harris II"
@@ -960,35 +1370,65 @@
         ]
       },
       "bullpen_leverage": {
-        "away_read": "Limited bullpen data available for V1.",
-        "home_read": "Limited bullpen data available for V1.",
-        "edge": "Limited current form data"
+        "away_read": "Limited current bullpen data; watch early starter length.",
+        "home_read": "Limited current bullpen data; watch early starter length.",
+        "edge": "Limited current form data",
+        "data_quality": "limited"
       },
       "players_who_tilt_series": [
         {
           "name": "Jackson Chourio",
           "team": "MIL",
           "slug": "jackson-chourio",
-          "tag": "Power Pressure"
+          "tag": "Power Pressure",
+          "reason": "Jackson Chourio is the clearest power-pocket bat for Milwaukee Brewers \u2014 strong power indicators."
         },
         {
           "name": "Michael Harris II",
           "team": "ATL",
           "slug": "michael-harris-ii",
-          "tag": "Power Pressure"
+          "tag": "Power Pressure",
+          "reason": "Michael Harris II is the clearest power-pocket bat for Atlanta Braves \u2014 elite power foundation."
         },
         {
           "name": "Jake Bauers",
           "team": "MIL",
           "slug": "jake-bauers",
-          "tag": "Contact Table-Setter"
+          "tag": "Contact Table-Setter",
+          "reason": "Jake Bauers sets the table for Milwaukee Brewers with a contact profile that keeps traffic on the bases."
+        },
+        {
+          "name": "Christian Yelich",
+          "team": "MIL",
+          "slug": "christian-yelich",
+          "tag": "Series Swing Bat",
+          "reason": "Christian Yelich is outperforming the underlying numbers for Milwaukee Brewers (regression warning), a swing factor if it continues."
+        },
+        {
+          "name": "Ozzie Albies",
+          "team": "ATL",
+          "slug": "ozzie-albies",
+          "tag": "Series Swing Bat",
+          "reason": "Ozzie Albies is outperforming the underlying numbers for Atlanta Braves (actual production running ahead), a swing factor if it continues."
         }
       ],
       "fantasy_dfs_watch": [
-        "Jackson Chourio (MIL) is a power-pressure watch for DFS builds in this series.",
-        "Michael Harris II (ATL) is a power-pressure watch for DFS builds in this series."
+        "Power Watch: Jackson Chourio (MIL) is a power-pressure angle worth tracking for DFS builds in this series.",
+        "Power Watch: Michael Harris II (ATL) is a power-pressure angle worth tracking for DFS builds in this series.",
+        "Contact/OBP Watch: Jake Bauers (MIL) profiles as a table-setter lean if confirmed near the top of the order.",
+        "Value Angle: Christian Yelich (MIL) is a form lean based on recent luck-gap signals.",
+        "Value Angle: Ozzie Albies (ATL) is a form lean based on recent luck-gap signals."
       ],
-      "barrel_proof_read": "Milwaukee Brewers visit Atlanta Braves for a 3-game series (2026-06-19 to 2026-06-21). Watch Jackson Chourio as a power-pressure presence in this matchup."
+      "betting_props_watch": [
+        "Power Risk: Jackson Chourio's power profile is worth watching against this series' probable starters.",
+        "Starter Risk: With probable pitchers still unsettled, props tied to specific starters carry more uncertainty until lineups firm up."
+      ],
+      "data_basis": {
+        "lineup_basis": "player signal pool",
+        "probable_pitcher_basis": "partial",
+        "bullpen_basis": "limited"
+      },
+      "barrel_proof_read": "Milwaukee Brewers at Atlanta Braves reads as a power series \u2014 both lineups carry pockets that can turn one mistake into the separator. Probable starters are still unsettled, so the pitching path is the swing factor to track as the week develops. If MIL gets into the middle innings with a lead, Jackson Chourio turns this into a bullpen-stress series for the other side."
     },
     {
       "series_id": "min-ari-2026-06-19",
@@ -1033,8 +1473,12 @@
           "probable_home_pitcher": "TBD"
         }
       ],
+      "series_pressure": {
+        "label": "Limited Standings Pressure",
+        "summary": "Minnesota Twins (33-40, 6.5 GB) at Arizona Diamondbacks (36-35, 8.5 GB) \u2014 neither club is in immediate standings pressure this weekend."
+      },
       "series_context": {
-        "standings_angle": "Limited current form data",
+        "standings_angle": "Minnesota Twins (33-40, 6.5 GB) at Arizona Diamondbacks (36-35, 8.5 GB).",
         "form_angle": "Limited current form data",
         "injury_angle": "Minnesota Twins IL list includes 8 player(s). Arizona Diamondbacks IL list includes 10 player(s)."
       },
@@ -1049,12 +1493,26 @@
           "TBD",
           "TBD"
         ],
-        "rotation_edge": "Probable starter signals limited for this series.",
-        "volatility_note": "3 of 3 game(s) still have a probable starter TBD, adding rotation uncertainty."
+        "rotation_edge": "Probable starter signals are limited for this series, so the pitching path is still developing.",
+        "volatility_note": "3 of 6 starting assignments are still TBD, so the back half of the series can swing the pitching path.",
+        "probable_confidence": "Partial",
+        "pitcher_watchlist": []
       },
       "lineup_matchup": {
-        "away_pressure": "Byron Buxton headlines the Minnesota Twins power threat (Strong power indicators).",
-        "home_pressure": "Corbin Carroll headlines the Arizona Diamondbacks power threat (Strong power indicators).",
+        "away_pressure": "Byron Buxton is the power-pocket bat for Minnesota Twins \u2014 strong power indicators.",
+        "home_pressure": "Corbin Carroll is the power-pocket bat for Arizona Diamondbacks \u2014 strong power indicators.",
+        "matchup_shape": "Power Series",
+        "key_bats_by_team": {
+          "MIN": [
+            "Byron Buxton",
+            "Austin Martin"
+          ],
+          "ARI": [
+            "Corbin Carroll",
+            "Geraldo Perdomo"
+          ]
+        },
+        "summary": "Both lineups carry more thump than traffic here \u2014 Minnesota Twins and Arizona Diamondbacks project as a series where one mistake to a power pocket can be the separator.",
         "power_bats": [
           "Byron Buxton",
           "Corbin Carroll"
@@ -1065,35 +1523,65 @@
         ]
       },
       "bullpen_leverage": {
-        "away_read": "Limited bullpen data available for V1.",
-        "home_read": "Limited bullpen data available for V1.",
-        "edge": "Limited current form data"
+        "away_read": "Limited current bullpen data; watch early starter length.",
+        "home_read": "Limited current bullpen data; watch early starter length.",
+        "edge": "Limited current form data",
+        "data_quality": "limited"
       },
       "players_who_tilt_series": [
         {
           "name": "Byron Buxton",
           "team": "MIN",
           "slug": "byron-buxton",
-          "tag": "Power Pressure"
+          "tag": "Power Pressure",
+          "reason": "Byron Buxton is the clearest power-pocket bat for Minnesota Twins \u2014 strong power indicators."
         },
         {
           "name": "Corbin Carroll",
           "team": "ARI",
           "slug": "corbin-carroll",
-          "tag": "Power Pressure"
+          "tag": "Power Pressure",
+          "reason": "Corbin Carroll is the clearest power-pocket bat for Arizona Diamondbacks \u2014 strong power indicators."
         },
         {
           "name": "Austin Martin",
           "team": "MIN",
           "slug": "austin-martin",
-          "tag": "Contact Table-Setter"
+          "tag": "Contact Table-Setter",
+          "reason": "Austin Martin sets the table for Minnesota Twins with a contact profile that keeps traffic on the bases."
+        },
+        {
+          "name": "Victor Caratini",
+          "team": "MIN",
+          "slug": "victor-caratini",
+          "tag": "Buy-Low Signal",
+          "reason": "Victor Caratini has been unlucky relative to expected production (production lagging contact quality), making Minnesota Twins a buy-low watch this series."
+        },
+        {
+          "name": "Ketel Marte",
+          "team": "ARI",
+          "slug": "ketel-marte",
+          "tag": "Buy-Low Signal",
+          "reason": "Ketel Marte has been unlucky relative to expected production (production lagging contact quality), making Arizona Diamondbacks a buy-low watch this series."
         }
       ],
       "fantasy_dfs_watch": [
-        "Byron Buxton (MIN) is a power-pressure watch for DFS builds in this series.",
-        "Corbin Carroll (ARI) is a power-pressure watch for DFS builds in this series."
+        "Power Watch: Byron Buxton (MIN) is a power-pressure angle worth tracking for DFS builds in this series.",
+        "Power Watch: Corbin Carroll (ARI) is a power-pressure angle worth tracking for DFS builds in this series.",
+        "Contact/OBP Watch: Austin Martin (MIN) profiles as a table-setter lean if confirmed near the top of the order.",
+        "Value Angle: Victor Caratini (MIN) is a buy-low lean based on recent luck-gap signals.",
+        "Value Angle: Ketel Marte (ARI) is a buy-low lean based on recent luck-gap signals."
       ],
-      "barrel_proof_read": "Minnesota Twins visit Arizona Diamondbacks for a 3-game series (2026-06-19 to 2026-06-21). Watch Byron Buxton as a power-pressure presence in this matchup."
+      "betting_props_watch": [
+        "Power Risk: Byron Buxton's power profile is worth watching against this series' probable starters.",
+        "Starter Risk: With probable pitchers still unsettled, props tied to specific starters carry more uncertainty until lineups firm up."
+      ],
+      "data_basis": {
+        "lineup_basis": "player signal pool",
+        "probable_pitcher_basis": "partial",
+        "bullpen_basis": "limited"
+      },
+      "barrel_proof_read": "Minnesota Twins at Arizona Diamondbacks reads as a power series \u2014 both lineups carry pockets that can turn one mistake into the separator. Probable starters are still unsettled, so the pitching path is the swing factor to track as the week develops. If MIN gets into the middle innings with a lead, Byron Buxton turns this into a bullpen-stress series for the other side."
     },
     {
       "series_id": "pit-col-2026-06-19",
@@ -1138,8 +1626,12 @@
           "probable_home_pitcher": "TBD"
         }
       ],
+      "series_pressure": {
+        "label": "Limited Standings Pressure",
+        "summary": "Pittsburgh Pirates (36-36, 8.5 GB) at Colorado Rockies (27-45, 18.0 GB) \u2014 neither club is in immediate standings pressure this weekend."
+      },
       "series_context": {
-        "standings_angle": "Limited current form data",
+        "standings_angle": "Pittsburgh Pirates (36-36, 8.5 GB) at Colorado Rockies (27-45, 18.0 GB).",
         "form_angle": "Limited current form data",
         "injury_angle": "Pittsburgh Pirates IL list includes 3 player(s). Colorado Rockies IL list includes 13 player(s)."
       },
@@ -1154,12 +1646,26 @@
           "TBD",
           "TBD"
         ],
-        "rotation_edge": "Probable starter signals limited for this series.",
-        "volatility_note": "3 of 3 game(s) still have a probable starter TBD, adding rotation uncertainty."
+        "rotation_edge": "Probable starter signals are limited for this series, so the pitching path is still developing.",
+        "volatility_note": "3 of 6 starting assignments are still TBD, so the back half of the series can swing the pitching path.",
+        "probable_confidence": "Partial",
+        "pitcher_watchlist": []
       },
       "lineup_matchup": {
-        "away_pressure": "Oneil Cruz headlines the Pittsburgh Pirates power threat (Elite power foundation).",
-        "home_pressure": "Hunter Goodman headlines the Colorado Rockies power threat (Strong power indicators).",
+        "away_pressure": "Oneil Cruz is the power-pocket bat for Pittsburgh Pirates \u2014 elite power foundation.",
+        "home_pressure": "Hunter Goodman is the power-pocket bat for Colorado Rockies \u2014 strong power indicators.",
+        "matchup_shape": "Balanced Offensive Series",
+        "key_bats_by_team": {
+          "PIT": [
+            "Oneil Cruz",
+            "Bryan Reynolds"
+          ],
+          "COL": [
+            "Hunter Goodman",
+            "Troy Johnston"
+          ]
+        },
+        "summary": "Pittsburgh Pirates and Colorado Rockies both bring a mix of power and contact pressure, so the series can tilt on either kind of mistake.",
         "power_bats": [
           "Oneil Cruz",
           "Hunter Goodman"
@@ -1170,41 +1676,65 @@
         ]
       },
       "bullpen_leverage": {
-        "away_read": "Limited bullpen data available for V1.",
-        "home_read": "Limited bullpen data available for V1.",
-        "edge": "Limited current form data"
+        "away_read": "Limited current bullpen data; watch early starter length.",
+        "home_read": "Limited current bullpen data; watch early starter length.",
+        "edge": "Limited current form data",
+        "data_quality": "limited"
       },
       "players_who_tilt_series": [
         {
           "name": "Oneil Cruz",
           "team": "PIT",
           "slug": "oneil-cruz",
-          "tag": "Power Pressure"
+          "tag": "Power Pressure",
+          "reason": "Oneil Cruz is the clearest power-pocket bat for Pittsburgh Pirates \u2014 elite power foundation."
         },
         {
           "name": "Hunter Goodman",
           "team": "COL",
           "slug": "hunter-goodman",
-          "tag": "Power Pressure"
+          "tag": "Power Pressure",
+          "reason": "Hunter Goodman is the clearest power-pocket bat for Colorado Rockies \u2014 strong power indicators."
         },
         {
           "name": "Bryan Reynolds",
           "team": "PIT",
           "slug": "bryan-reynolds",
-          "tag": "Contact Table-Setter"
+          "tag": "Contact Table-Setter",
+          "reason": "Bryan Reynolds sets the table for Pittsburgh Pirates with a contact profile that keeps traffic on the bases."
         },
         {
           "name": "Troy Johnston",
           "team": "COL",
           "slug": "troy-johnston",
-          "tag": "Contact Table-Setter"
+          "tag": "Contact Table-Setter",
+          "reason": "Troy Johnston sets the table for Colorado Rockies with a contact profile that keeps traffic on the bases."
+        },
+        {
+          "name": "Marcell Ozuna",
+          "team": "PIT",
+          "slug": "marcell-ozuna",
+          "tag": "Buy-Low Signal",
+          "reason": "Marcell Ozuna has been unlucky relative to expected production (production lagging contact quality), making Pittsburgh Pirates a buy-low watch this series."
         }
       ],
       "fantasy_dfs_watch": [
-        "Oneil Cruz (PIT) is a power-pressure watch for DFS builds in this series.",
-        "Hunter Goodman (COL) is a power-pressure watch for DFS builds in this series."
+        "Power Watch: Oneil Cruz (PIT) is a power-pressure angle worth tracking for DFS builds in this series.",
+        "Power Watch: Hunter Goodman (COL) is a power-pressure angle worth tracking for DFS builds in this series.",
+        "Contact/OBP Watch: Bryan Reynolds (PIT) profiles as a table-setter lean if confirmed near the top of the order.",
+        "Contact/OBP Watch: Troy Johnston (COL) profiles as a table-setter lean if confirmed near the top of the order.",
+        "Value Angle: Marcell Ozuna (PIT) is a buy-low lean based on recent luck-gap signals."
       ],
-      "barrel_proof_read": "Pittsburgh Pirates visit Colorado Rockies for a 3-game series (2026-06-19 to 2026-06-21). Watch Oneil Cruz as a power-pressure presence in this matchup."
+      "betting_props_watch": [
+        "Power Risk: Oneil Cruz's power profile is worth watching against this series' probable starters.",
+        "Starter Risk: With probable pitchers still unsettled, props tied to specific starters carry more uncertainty until lineups firm up."
+      ],
+      "data_basis": {
+        "lineup_basis": "player signal pool",
+        "probable_pitcher_basis": "partial",
+        "bullpen_basis": "limited"
+      },
+      "barrel_proof_read": "Pittsburgh Pirates at Colorado Rockies is a balanced series \u2014 neither lineup has a clean power or contact edge over the other. Probable starters are still unsettled, so the pitching path is the swing factor to track as the week develops. If PIT gets into the middle innings with a lead, Oneil Cruz turns this into a bullpen-stress series for the other side."
     },
     {
       "series_id": "sd-tex-2026-06-19",
@@ -1249,8 +1779,12 @@
           "probable_home_pitcher": "TBD"
         }
       ],
+      "series_pressure": {
+        "label": "Wildcard Pressure",
+        "summary": "San Diego Padres (37-33, 7.0 GB) and Texas Rangers (35-36, 1.0 GB) sit close enough to the wildcard picture that this series adds to the margin either way."
+      },
       "series_context": {
-        "standings_angle": "Limited current form data",
+        "standings_angle": "San Diego Padres (37-33, 7.0 GB) at Texas Rangers (35-36, 1.0 GB).",
         "form_angle": "Limited current form data",
         "injury_angle": "San Diego Padres IL list includes 10 player(s). Texas Rangers IL list includes 7 player(s)."
       },
@@ -1265,12 +1799,26 @@
           "TBD",
           "TBD"
         ],
-        "rotation_edge": "Probable starter signals limited for this series.",
-        "volatility_note": "3 of 3 game(s) still have a probable starter TBD, adding rotation uncertainty."
+        "rotation_edge": "Probable starter signals are limited for this series, so the pitching path is still developing.",
+        "volatility_note": "3 of 6 starting assignments are still TBD, so the back half of the series can swing the pitching path.",
+        "probable_confidence": "Partial",
+        "pitcher_watchlist": []
       },
       "lineup_matchup": {
-        "away_pressure": "Fernando Tatis Jr. headlines the San Diego Padres power threat (Usable power profile).",
-        "home_pressure": "Corey Seager headlines the Texas Rangers power threat (Strong power indicators).",
+        "away_pressure": "Fernando Tatis Jr. is the power-pocket bat for San Diego Padres \u2014 usable power profile.",
+        "home_pressure": "Corey Seager is the power-pocket bat for Texas Rangers \u2014 strong power indicators.",
+        "matchup_shape": "Balanced Offensive Series",
+        "key_bats_by_team": {
+          "SD": [
+            "Fernando Tatis Jr.",
+            "Gavin Sheets"
+          ],
+          "TEX": [
+            "Corey Seager",
+            "Josh Jung"
+          ]
+        },
+        "summary": "San Diego Padres and Texas Rangers both bring a mix of power and contact pressure, so the series can tilt on either kind of mistake.",
         "power_bats": [
           "Fernando Tatis Jr.",
           "Corey Seager"
@@ -1281,35 +1829,65 @@
         ]
       },
       "bullpen_leverage": {
-        "away_read": "Limited bullpen data available for V1.",
-        "home_read": "Limited bullpen data available for V1.",
-        "edge": "Limited current form data"
+        "away_read": "Limited current bullpen data; watch early starter length.",
+        "home_read": "Limited current bullpen data; watch early starter length.",
+        "edge": "Limited current form data",
+        "data_quality": "limited"
       },
       "players_who_tilt_series": [
         {
           "name": "Fernando Tatis Jr.",
           "team": "SD",
           "slug": "fernando-tatis-jr",
-          "tag": "Power Pressure"
+          "tag": "Power Pressure",
+          "reason": "Fernando Tatis Jr. is the clearest power-pocket bat for San Diego Padres \u2014 usable power profile."
         },
         {
           "name": "Corey Seager",
           "team": "TEX",
           "slug": "corey-seager",
-          "tag": "Power Pressure"
+          "tag": "Power Pressure",
+          "reason": "Corey Seager is the clearest power-pocket bat for Texas Rangers \u2014 strong power indicators."
         },
         {
           "name": "Josh Jung",
           "team": "TEX",
           "slug": "josh-jung",
-          "tag": "Contact Table-Setter"
+          "tag": "Contact Table-Setter",
+          "reason": "Josh Jung sets the table for Texas Rangers with a contact profile that keeps traffic on the bases."
+        },
+        {
+          "name": "Jackson Merrill",
+          "team": "SD",
+          "slug": "jackson-merrill",
+          "tag": "Buy-Low Signal",
+          "reason": "Jackson Merrill has been unlucky relative to expected production (production lagging contact quality), making San Diego Padres a buy-low watch this series."
+        },
+        {
+          "name": "Brandon Nimmo",
+          "team": "TEX",
+          "slug": "brandon-nimmo",
+          "tag": "Buy-Low Signal",
+          "reason": "Brandon Nimmo has been unlucky relative to expected production (production lagging contact quality), making Texas Rangers a buy-low watch this series."
         }
       ],
       "fantasy_dfs_watch": [
-        "Fernando Tatis Jr. (SD) is a power-pressure watch for DFS builds in this series.",
-        "Corey Seager (TEX) is a power-pressure watch for DFS builds in this series."
+        "Power Watch: Fernando Tatis Jr. (SD) is a power-pressure angle worth tracking for DFS builds in this series.",
+        "Power Watch: Corey Seager (TEX) is a power-pressure angle worth tracking for DFS builds in this series.",
+        "Contact/OBP Watch: Josh Jung (TEX) profiles as a table-setter lean if confirmed near the top of the order.",
+        "Value Angle: Jackson Merrill (SD) is a buy-low lean based on recent luck-gap signals.",
+        "Value Angle: Brandon Nimmo (TEX) is a buy-low lean based on recent luck-gap signals."
       ],
-      "barrel_proof_read": "San Diego Padres visit Texas Rangers for a 3-game series (2026-06-19 to 2026-06-21). Watch Fernando Tatis Jr. as a power-pressure presence in this matchup."
+      "betting_props_watch": [
+        "Power Risk: Fernando Tatis Jr.'s power profile is worth watching against this series' probable starters.",
+        "Starter Risk: With probable pitchers still unsettled, props tied to specific starters carry more uncertainty until lineups firm up."
+      ],
+      "data_basis": {
+        "lineup_basis": "player signal pool",
+        "probable_pitcher_basis": "partial",
+        "bullpen_basis": "limited"
+      },
+      "barrel_proof_read": "San Diego Padres at Texas Rangers is a balanced series \u2014 neither lineup has a clean power or contact edge over the other. Probable starters are still unsettled, so the pitching path is the swing factor to track as the week develops. If SD gets into the middle innings with a lead, Fernando Tatis Jr. turns this into a bullpen-stress series for the other side."
     },
     {
       "series_id": "sf-mia-2026-06-19",
@@ -1354,8 +1932,12 @@
           "probable_home_pitcher": "TBD"
         }
       ],
+      "series_pressure": {
+        "label": "Development Series",
+        "summary": "Both San Francisco Giants and Miami Marlins sit well off the lead (29-43, 16.0 GB / 36-36, 10.5 GB), so the series is more about individual performance and roles than the standings."
+      },
       "series_context": {
-        "standings_angle": "Limited current form data",
+        "standings_angle": "San Francisco Giants (29-43, 16.0 GB) at Miami Marlins (36-36, 10.5 GB).",
         "form_angle": "Limited current form data",
         "injury_angle": "San Francisco Giants IL list includes 12 player(s). Miami Marlins IL list includes 8 player(s)."
       },
@@ -1370,12 +1952,26 @@
           "TBD",
           "TBD"
         ],
-        "rotation_edge": "Probable starter signals limited for this series.",
-        "volatility_note": "3 of 3 game(s) still have a probable starter TBD, adding rotation uncertainty."
+        "rotation_edge": "Probable starter signals are limited for this series, so the pitching path is still developing.",
+        "volatility_note": "3 of 6 starting assignments are still TBD, so the back half of the series can swing the pitching path.",
+        "probable_confidence": "Partial",
+        "pitcher_watchlist": []
       },
       "lineup_matchup": {
-        "away_pressure": "Casey Schmitt headlines the San Francisco Giants power threat (Usable power profile).",
-        "home_pressure": "Owen Caissie headlines the Miami Marlins power threat (Usable power profile).",
+        "away_pressure": "Casey Schmitt is the power-pocket bat for San Francisco Giants \u2014 usable power profile.",
+        "home_pressure": "Owen Caissie is the power-pocket bat for Miami Marlins \u2014 usable power profile.",
+        "matchup_shape": "Contact Pressure Series",
+        "key_bats_by_team": {
+          "SF": [
+            "Casey Schmitt",
+            "Jung Hoo Lee"
+          ],
+          "MIA": [
+            "Owen Caissie",
+            "Xavier Edwards"
+          ]
+        },
+        "summary": "This leans on traffic over thunder \u2014 San Francisco Giants and Miami Marlins both project to work counts and string at-bats together rather than rely on one swing.",
         "power_bats": [
           "Casey Schmitt",
           "Owen Caissie"
@@ -1386,41 +1982,65 @@
         ]
       },
       "bullpen_leverage": {
-        "away_read": "Limited bullpen data available for V1.",
-        "home_read": "Limited bullpen data available for V1.",
-        "edge": "Limited current form data"
+        "away_read": "Limited current bullpen data; watch early starter length.",
+        "home_read": "Limited current bullpen data; watch early starter length.",
+        "edge": "Limited current form data",
+        "data_quality": "limited"
       },
       "players_who_tilt_series": [
         {
           "name": "Casey Schmitt",
           "team": "SF",
           "slug": "casey-schmitt",
-          "tag": "Power Pressure"
+          "tag": "Power Pressure",
+          "reason": "Casey Schmitt is the clearest power-pocket bat for San Francisco Giants \u2014 usable power profile."
         },
         {
           "name": "Owen Caissie",
           "team": "MIA",
           "slug": "owen-caissie",
-          "tag": "Power Pressure"
+          "tag": "Power Pressure",
+          "reason": "Owen Caissie is the clearest power-pocket bat for Miami Marlins \u2014 usable power profile."
         },
         {
           "name": "Jung Hoo Lee",
           "team": "SF",
           "slug": "jung-hoo-lee",
-          "tag": "Contact Table-Setter"
+          "tag": "Contact Table-Setter",
+          "reason": "Jung Hoo Lee sets the table for San Francisco Giants with a contact profile that keeps traffic on the bases."
         },
         {
           "name": "Xavier Edwards",
           "team": "MIA",
           "slug": "xavier-edwards",
-          "tag": "Contact Table-Setter"
+          "tag": "Contact Table-Setter",
+          "reason": "Xavier Edwards sets the table for Miami Marlins with a contact profile that keeps traffic on the bases."
+        },
+        {
+          "name": "Luis Arraez",
+          "team": "SF",
+          "slug": "luis-arraez",
+          "tag": "Series Swing Bat",
+          "reason": "Luis Arraez is outperforming the underlying numbers for San Francisco Giants (regression warning), a swing factor if it continues."
         }
       ],
       "fantasy_dfs_watch": [
-        "Casey Schmitt (SF) is a power-pressure watch for DFS builds in this series.",
-        "Owen Caissie (MIA) is a power-pressure watch for DFS builds in this series."
+        "Power Watch: Casey Schmitt (SF) is a power-pressure angle worth tracking for DFS builds in this series.",
+        "Power Watch: Owen Caissie (MIA) is a power-pressure angle worth tracking for DFS builds in this series.",
+        "Contact/OBP Watch: Jung Hoo Lee (SF) profiles as a table-setter lean if confirmed near the top of the order.",
+        "Contact/OBP Watch: Xavier Edwards (MIA) profiles as a table-setter lean if confirmed near the top of the order.",
+        "Value Angle: Luis Arraez (SF) is a form lean based on recent luck-gap signals."
       ],
-      "barrel_proof_read": "San Francisco Giants visit Miami Marlins for a 3-game series (2026-06-19 to 2026-06-21). Watch Casey Schmitt as a power-pressure presence in this matchup."
+      "betting_props_watch": [
+        "Power Risk: Casey Schmitt's power profile is worth watching against this series' probable starters.",
+        "Starter Risk: With probable pitchers still unsettled, props tied to specific starters carry more uncertainty until lineups firm up."
+      ],
+      "data_basis": {
+        "lineup_basis": "player signal pool",
+        "probable_pitcher_basis": "partial",
+        "bullpen_basis": "limited"
+      },
+      "barrel_proof_read": "San Francisco Giants at Miami Marlins leans on contact pressure over power \u2014 traffic and at-bat quality matter more than one swing here. Probable starters are still unsettled, so the pitching path is the swing factor to track as the week develops. If SF gets into the middle innings with a lead, Casey Schmitt turns this into a bullpen-stress series for the other side."
     },
     {
       "series_id": "tor-chc-2026-06-19",
@@ -1465,8 +2085,12 @@
           "probable_home_pitcher": "TBD"
         }
       ],
+      "series_pressure": {
+        "label": "Limited Standings Pressure",
+        "summary": "Toronto Blue Jays (34-38, 10.0 GB) at Chicago Cubs (37-35, 7.5 GB) \u2014 neither club is in immediate standings pressure this weekend."
+      },
       "series_context": {
-        "standings_angle": "Limited current form data",
+        "standings_angle": "Toronto Blue Jays (34-38, 10.0 GB) at Chicago Cubs (37-35, 7.5 GB).",
         "form_angle": "Limited current form data",
         "injury_angle": "Toronto Blue Jays IL list includes 12 player(s). Chicago Cubs IL list includes 10 player(s)."
       },
@@ -1481,12 +2105,26 @@
           "TBD",
           "TBD"
         ],
-        "rotation_edge": "Probable starter signals limited for this series.",
-        "volatility_note": "3 of 3 game(s) still have a probable starter TBD, adding rotation uncertainty."
+        "rotation_edge": "Probable starter signals are limited for this series, so the pitching path is still developing.",
+        "volatility_note": "3 of 6 starting assignments are still TBD, so the back half of the series can swing the pitching path.",
+        "probable_confidence": "Partial",
+        "pitcher_watchlist": []
       },
       "lineup_matchup": {
-        "away_pressure": "Kazuma Okamoto headlines the Toronto Blue Jays power threat (Strong power indicators).",
-        "home_pressure": "Ian Happ headlines the Chicago Cubs power threat (Strong power indicators).",
+        "away_pressure": "Kazuma Okamoto is the power-pocket bat for Toronto Blue Jays \u2014 strong power indicators.",
+        "home_pressure": "Ian Happ is the power-pocket bat for Chicago Cubs \u2014 strong power indicators.",
+        "matchup_shape": "Power Series",
+        "key_bats_by_team": {
+          "TOR": [
+            "Kazuma Okamoto",
+            "Vladimir Guerrero Jr."
+          ],
+          "CHC": [
+            "Ian Happ",
+            "Nico Hoerner"
+          ]
+        },
+        "summary": "Both lineups carry more thump than traffic here \u2014 Toronto Blue Jays and Chicago Cubs project as a series where one mistake to a power pocket can be the separator.",
         "power_bats": [
           "Kazuma Okamoto",
           "Ian Happ"
@@ -1497,41 +2135,65 @@
         ]
       },
       "bullpen_leverage": {
-        "away_read": "Limited bullpen data available for V1.",
-        "home_read": "Limited bullpen data available for V1.",
-        "edge": "Limited current form data"
+        "away_read": "Limited current bullpen data; watch early starter length.",
+        "home_read": "Limited current bullpen data; watch early starter length.",
+        "edge": "Limited current form data",
+        "data_quality": "limited"
       },
       "players_who_tilt_series": [
         {
           "name": "Kazuma Okamoto",
           "team": "TOR",
           "slug": "kazuma-okamoto",
-          "tag": "Power Pressure"
+          "tag": "Power Pressure",
+          "reason": "Kazuma Okamoto is the clearest power-pocket bat for Toronto Blue Jays \u2014 strong power indicators."
         },
         {
           "name": "Ian Happ",
           "team": "CHC",
           "slug": "ian-happ",
-          "tag": "Power Pressure"
+          "tag": "Power Pressure",
+          "reason": "Ian Happ is the clearest power-pocket bat for Chicago Cubs \u2014 strong power indicators."
         },
         {
           "name": "Vladimir Guerrero Jr.",
           "team": "TOR",
           "slug": "vladimir-guerrero-jr",
-          "tag": "Contact Table-Setter"
+          "tag": "Contact Table-Setter",
+          "reason": "Vladimir Guerrero Jr. sets the table for Toronto Blue Jays with a contact profile that keeps traffic on the bases."
         },
         {
           "name": "Nico Hoerner",
           "team": "CHC",
           "slug": "nico-hoerner",
-          "tag": "Contact Table-Setter"
+          "tag": "Contact Table-Setter",
+          "reason": "Nico Hoerner sets the table for Chicago Cubs with a contact profile that keeps traffic on the bases."
+        },
+        {
+          "name": "Ernie Clement",
+          "team": "TOR",
+          "slug": "ernie-clement",
+          "tag": "Series Swing Bat",
+          "reason": "Ernie Clement is outperforming the underlying numbers for Toronto Blue Jays (regression warning), a swing factor if it continues."
         }
       ],
       "fantasy_dfs_watch": [
-        "Kazuma Okamoto (TOR) is a power-pressure watch for DFS builds in this series.",
-        "Ian Happ (CHC) is a power-pressure watch for DFS builds in this series."
+        "Power Watch: Kazuma Okamoto (TOR) is a power-pressure angle worth tracking for DFS builds in this series.",
+        "Power Watch: Ian Happ (CHC) is a power-pressure angle worth tracking for DFS builds in this series.",
+        "Contact/OBP Watch: Vladimir Guerrero Jr. (TOR) profiles as a table-setter lean if confirmed near the top of the order.",
+        "Contact/OBP Watch: Nico Hoerner (CHC) profiles as a table-setter lean if confirmed near the top of the order.",
+        "Value Angle: Ernie Clement (TOR) is a form lean based on recent luck-gap signals."
       ],
-      "barrel_proof_read": "Toronto Blue Jays visit Chicago Cubs for a 3-game series (2026-06-19 to 2026-06-21). Watch Kazuma Okamoto as a power-pressure presence in this matchup."
+      "betting_props_watch": [
+        "Power Risk: Kazuma Okamoto's power profile is worth watching against this series' probable starters.",
+        "Starter Risk: With probable pitchers still unsettled, props tied to specific starters carry more uncertainty until lineups firm up."
+      ],
+      "data_basis": {
+        "lineup_basis": "player signal pool",
+        "probable_pitcher_basis": "partial",
+        "bullpen_basis": "limited"
+      },
+      "barrel_proof_read": "Toronto Blue Jays at Chicago Cubs reads as a power series \u2014 both lineups carry pockets that can turn one mistake into the separator. Probable starters are still unsettled, so the pitching path is the swing factor to track as the week develops. If TOR gets into the middle innings with a lead, Kazuma Okamoto turns this into a bullpen-stress series for the other side."
     },
     {
       "series_id": "wsh-tb-2026-06-19",
@@ -1576,8 +2238,12 @@
           "probable_home_pitcher": "TBD"
         }
       ],
+      "series_pressure": {
+        "label": "Limited Standings Pressure",
+        "summary": "Washington Nationals (37-35, 9.5 GB) at Tampa Bay Rays (41-27, 1.0 GB) \u2014 neither club is in immediate standings pressure this weekend."
+      },
       "series_context": {
-        "standings_angle": "Limited current form data",
+        "standings_angle": "Washington Nationals (37-35, 9.5 GB) at Tampa Bay Rays (41-27, 1.0 GB).",
         "form_angle": "Limited current form data",
         "injury_angle": "Washington Nationals IL list includes 6 player(s). Tampa Bay Rays IL list includes 11 player(s)."
       },
@@ -1592,12 +2258,26 @@
           "TBD",
           "TBD"
         ],
-        "rotation_edge": "Probable starter signals limited for this series.",
-        "volatility_note": "3 of 3 game(s) still have a probable starter TBD, adding rotation uncertainty."
+        "rotation_edge": "Probable starter signals are limited for this series, so the pitching path is still developing.",
+        "volatility_note": "3 of 6 starting assignments are still TBD, so the back half of the series can swing the pitching path.",
+        "probable_confidence": "Partial",
+        "pitcher_watchlist": []
       },
       "lineup_matchup": {
-        "away_pressure": "James Wood headlines the Washington Nationals power threat (Elite power foundation).",
-        "home_pressure": "Junior Caminero headlines the Tampa Bay Rays power threat (Strong power indicators).",
+        "away_pressure": "James Wood is the power-pocket bat for Washington Nationals \u2014 elite power foundation.",
+        "home_pressure": "Junior Caminero is the power-pocket bat for Tampa Bay Rays \u2014 strong power indicators.",
+        "matchup_shape": "Balanced Offensive Series",
+        "key_bats_by_team": {
+          "WSH": [
+            "James Wood",
+            "Curtis Mead"
+          ],
+          "TB": [
+            "Junior Caminero",
+            "Yandy D\u00edaz"
+          ]
+        },
+        "summary": "Washington Nationals and Tampa Bay Rays both bring a mix of power and contact pressure, so the series can tilt on either kind of mistake.",
         "power_bats": [
           "James Wood",
           "Junior Caminero"
@@ -1608,35 +2288,58 @@
         ]
       },
       "bullpen_leverage": {
-        "away_read": "Limited bullpen data available for V1.",
-        "home_read": "Limited bullpen data available for V1.",
-        "edge": "Limited current form data"
+        "away_read": "Limited current bullpen data; watch early starter length.",
+        "home_read": "Limited current bullpen data; watch early starter length.",
+        "edge": "Limited current form data",
+        "data_quality": "limited"
       },
       "players_who_tilt_series": [
         {
           "name": "James Wood",
           "team": "WSH",
           "slug": "james-wood",
-          "tag": "Power Pressure"
+          "tag": "Power Pressure",
+          "reason": "James Wood is the clearest power-pocket bat for Washington Nationals \u2014 elite power foundation."
         },
         {
           "name": "Junior Caminero",
           "team": "TB",
           "slug": "junior-caminero",
-          "tag": "Power Pressure"
+          "tag": "Power Pressure",
+          "reason": "Junior Caminero is the clearest power-pocket bat for Tampa Bay Rays \u2014 strong power indicators."
         },
         {
           "name": "Yandy D\u00edaz",
           "team": "TB",
           "slug": "yandy-diaz",
-          "tag": "Contact Table-Setter"
+          "tag": "Contact Table-Setter",
+          "reason": "Yandy D\u00edaz sets the table for Tampa Bay Rays with a contact profile that keeps traffic on the bases."
+        },
+        {
+          "name": "CJ Abrams",
+          "team": "WSH",
+          "slug": "cj-abrams",
+          "tag": "Series Swing Bat",
+          "reason": "CJ Abrams is outperforming the underlying numbers for Washington Nationals (actual production running ahead), a swing factor if it continues."
         }
       ],
       "fantasy_dfs_watch": [
-        "James Wood (WSH) is a power-pressure watch for DFS builds in this series.",
-        "Junior Caminero (TB) is a power-pressure watch for DFS builds in this series."
+        "Power Watch: James Wood (WSH) is a power-pressure angle worth tracking for DFS builds in this series.",
+        "Power Watch: Junior Caminero (TB) is a power-pressure angle worth tracking for DFS builds in this series.",
+        "Contact/OBP Watch: Yandy D\u00edaz (TB) profiles as a table-setter lean if confirmed near the top of the order.",
+        "Value Angle: CJ Abrams (WSH) is a form lean based on recent luck-gap signals.",
+        "Lineup Confirmation: Several probable starters are still TBD \u2014 confirm lineups and pitching matchups before finalizing builds."
       ],
-      "barrel_proof_read": "Washington Nationals visit Tampa Bay Rays for a 3-game series (2026-06-19 to 2026-06-21). Watch James Wood as a power-pressure presence in this matchup."
+      "betting_props_watch": [
+        "Power Risk: James Wood's power profile is worth watching against this series' probable starters.",
+        "Starter Risk: With probable pitchers still unsettled, props tied to specific starters carry more uncertainty until lineups firm up."
+      ],
+      "data_basis": {
+        "lineup_basis": "player signal pool",
+        "probable_pitcher_basis": "partial",
+        "bullpen_basis": "limited"
+      },
+      "barrel_proof_read": "Washington Nationals at Tampa Bay Rays is a balanced series \u2014 neither lineup has a clean power or contact edge over the other. Probable starters are still unsettled, so the pitching path is the swing factor to track as the week develops. If WSH gets into the middle innings with a lead, James Wood turns this into a bullpen-stress series for the other side."
     }
   ]
 }
