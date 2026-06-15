@@ -338,7 +338,8 @@ def get_last_start(pid):
         ip = stat.get("inningsPitched")
         er = stat.get("earnedRuns")
         so = stat.get("strikeOuts")
-        opp = (last.get("opponent") or {}).get("abbreviation")
+        opp_name = (last.get("opponent") or {}).get("name")
+        opp = TEAM_ABB.get(opp_name, opp_name)
         if ip is None or er is None or so is None:
             return "—"
         line = f"{ip} IP, {er} ER, {so} K"
