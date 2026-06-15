@@ -309,13 +309,22 @@ footer{border-top:.5px solid var(--rule-heavy);margin-top:40px;padding:20px 0;di
   .snap-full{grid-template-columns:repeat(3,1fr);}
 }
 @media(max-width:580px){
-  .page{padding:0 12px 40px;}
+  .page{padding:0 12px 40px;overflow-x:hidden;}
   .game-row-header{grid-template-columns:1fr 28px;}
   .gr-pitchers,.gr-weather{display:none;}
   .detail-grid{grid-template-columns:1fr;}
   .detail-section.two-col{grid-column:1/-1;}
   .snap-full{grid-template-columns:repeat(2,1fr);}
+  .pitcher-grid,.lineup-grid,.bp-grid,.bcast-grid,.form-grid,.snap-grid,.inj-grid,.why-records,.lines-grid{grid-template-columns:1fr;}
+  .pc-stats{grid-template-columns:repeat(3,1fr);}
+  .pf-shell{grid-template-columns:1fr;}
+  .pf-verdict{border-right:none;border-bottom:.5px solid var(--rule);min-width:0;padding:12px;}
+  .pf-body{padding:10px 0 0;}
+  .pf-indices{grid-template-columns:1fr 1fr;}
+  .pf-bar-lbl{width:48px;}
+  .matchup-line,.matchup-list,.pf-summary,.props-note,.ump-note,.scout-body,.why-body{overflow-wrap:anywhere;word-break:break-word;}
 }
+.matchup-intel-block,.matchup-line,.matchup-list,.matchup-subsection{min-width:0;overflow-wrap:anywhere;}
 .banner-wrap {
   position: relative;
   line-height: 0;
@@ -821,7 +830,8 @@ function renderUnifiedMatchupIntel(g){
     for(const p of [ptm.away_pitcher,ptm.home_pitcher]){
       if(p&&v(p.name)&&v(p.summary)&&p.stability==='Limited Sample'&&(p.power_risk==='Power Risk'||p.contact_risk==='Contact Pressure Risk')){
         const link=playerLink(p.name,p.slug);
-        dfsNotes.push(`Pitching Watch: ${link} ${p.summary.replace(/^[^ ]+ /,'').replace(/\.$/,'')}, worth tracking in DFS builds.`);
+        const summaryRest=(p.summary.startsWith(p.name)?p.summary.slice(p.name.length):p.summary).replace(/^\s+/,'').replace(/\.$/,'');
+        dfsNotes.push(`Pitching Watch: ${link} ${summaryRest}, worth tracking in DFS builds.`);
       }
     }
   }
