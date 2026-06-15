@@ -127,15 +127,31 @@ nav.main-nav {
 }
 
 /* ── GAME NAV STRIP ── */
-.game-nav-strip{overflow-x:auto;border-bottom:1px solid var(--rule-heavy);
-  padding:8px 0;background:var(--ink-card);-webkit-overflow-scrolling:touch;}
-.game-nav-inner{display:flex;gap:4px;padding:0 4px;min-width:max-content;}
-.game-nav-btn{font-family:var(--mono);font-size:11px;letter-spacing:.04em;
-  padding:6px 12px;border:.5px solid var(--rule);border-radius:2px;
-  cursor:pointer;white-space:nowrap;transition:all .15s;color:var(--gold);
-  background:transparent;text-decoration:none;display:inline-block;}
-.game-nav-btn:hover{border-color:var(--gold);color:var(--parchment);}
-.game-nav-winner{color:var(--parchment);}
+.game-nav-strip{border-bottom:1px solid var(--rule-heavy);
+  padding:16px 0;background:var(--ink-card);}
+.game-nav-inner{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:12px;}
+.game-nav-btn{font-family:var(--mono);letter-spacing:.04em;
+  padding:14px 16px;border:1px solid var(--rule);border-radius:4px;
+  cursor:pointer;transition:all .15s;color:var(--gold);
+  background:transparent;text-decoration:none;display:flex;
+  flex-direction:column;justify-content:center;gap:6px;
+  min-height:120px;font-size:18px;line-height:1.3;}
+.game-nav-btn:hover,.game-nav-btn:focus{border-color:var(--gold);
+  color:var(--parchment);outline:none;box-shadow:0 0 0 1px var(--gold);}
+.game-nav-row{display:flex;align-items:baseline;justify-content:space-between;}
+.game-nav-status{font-size:12px;letter-spacing:.12em;color:var(--gold-dim);
+  text-align:center;margin:2px 0;}
+.game-nav-winner{color:var(--parchment);font-weight:700;}
+
+@media (max-width:900px){
+  .game-nav-inner{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));}
+  .game-nav-btn{min-height:100px;font-size:16px;}
+}
+@media (max-width:480px){
+  .game-nav-inner{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));}
+  .game-nav-btn{min-height:96px;font-size:15px;padding:10px 12px;}
+}
 
 /* ── DATE BANNER ── */
 .date-banner{display:flex;align-items:center;gap:16px;
@@ -298,22 +314,29 @@ article.bs-game:last-child{border-bottom:none;}
       {% for s in all_slugs %}
       <a class="game-nav-btn" href="/scoreboard/{{ s.slug }}">
         {% if is_game_postponed(s) %}
-          <span>{{ s.away_abbr }} at {{ s.home_abbr }} — POSTPONED</span>
+          <div class="game-nav-row"><span>{{ s.away_abbr }}</span><span>{{ s.home_abbr }}</span></div>
+          <div class="game-nav-status">POSTPONED</div>
         {% elif s.game_status == "SUSPENDED" %}
-          <span>{{ s.away_abbr }} at {{ s.home_abbr }} — SUSPENDED</span>
+          <div class="game-nav-row">
+            <span>{{ s.away_abbr }} {{ s.away_runs }}</span>
+            <span>{{ s.home_abbr }} {{ s.home_runs }}</span>
+          </div>
+          <div class="game-nav-status">SUSPENDED</div>
         {% elif s.game_status == "DELAYED" %}
-          <span>{{ s.away_abbr }} at {{ s.home_abbr }} — DELAYED</span>
-        {% elif s.away_runs > s.home_runs %}
-          <span class="game-nav-winner">{{ s.away_abbr }} {{ s.away_runs }}</span>
-          <span style="color:var(--gold-dim);"> – </span>
-          <span>{{ s.home_abbr }} {{ s.home_runs }}</span>
+          <div class="game-nav-row">
+            <span>{{ s.away_abbr }} {{ s.away_runs }}</span>
+            <span>{{ s.home_abbr }} {{ s.home_runs }}</span>
+          </div>
+          <div class="game-nav-status">DELAYED</div>
+        {% elif s.innings and s.innings > 0 %}
+          <div class="game-nav-row">
+            <span {% if s.away_runs > s.home_runs %}class="game-nav-winner"{% endif %}>{{ s.away_abbr }} {{ s.away_runs }}</span>
+            <span {% if s.home_runs > s.away_runs %}class="game-nav-winner"{% endif %}>{{ s.home_abbr }} {{ s.home_runs }}</span>
+          </div>
+          <div class="game-nav-status">{% if s.innings > 9 %}F/{{ s.innings }}{% else %}F{% endif %}</div>
         {% else %}
-          <span>{{ s.away_abbr }} {{ s.away_runs }}</span>
-          <span style="color:var(--gold-dim);"> – </span>
-          <span class="game-nav-winner">{{ s.home_abbr }} {{ s.home_runs }}</span>
-        {% endif %}
-        {% if s.innings > 9 %}
-          <span style="color:var(--gold-dim);font-size:9px;"> F/{{ s.innings }}</span>
+          <div class="game-nav-row"><span>{{ s.away_abbr }}</span><span>{{ s.home_abbr }}</span></div>
+          <div class="game-nav-status">UPCOMING</div>
         {% endif %}
       </a>
       {% endfor %}
