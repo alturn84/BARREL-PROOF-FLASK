@@ -100,10 +100,15 @@ Check after each scheduled run:
 
 **Steps run by this script (in order):**
 1. `update_dope_sheet.py` — refreshes Dope Sheet game cards, including lineups
-2. `scripts/update_dope_player_matchups.py` — regenerates Matchup Intelligence from the refreshed Dope Sheet data
-3. `scripts/check_dope_player_matchups_ready.py` — validates the regenerated matchup file
+2. `update_odds.py` — if already part of the server wrapper, refreshes odds before matchup regeneration
+3. `scripts/update_dope_player_matchups.py` — regenerates Matchup Intelligence from the refreshed Dope Sheet data
+4. `scripts/check_dope_player_matchups_ready.py` — validates the regenerated player matchup file
+5. `scripts/update_dope_pitcher_matchups.py` — regenerates Pitcher Matchup Intelligence (Starter Edge, Lineup Pressure, Fantasy/DFS Watch) from the refreshed Dope Sheet and lineup data
+6. `scripts/check_dope_pitcher_matchups_ready.py` — validates the regenerated pitcher matchup file
 
 This is a focused refresh only — it does not run the full morning pipeline (no MLB fetch, standings, odds, player stats, content generation, etc.).
+
+> **Server wrapper note:** The active Hostinger cron wrapper (`/opt/data/scripts/run_dope_sheet_refresh.sh`, outside this repo) must be kept in sync with `run_dope_sheet_refresh_with_venv.sh`. If/when that external wrapper is updated, it must also run `scripts/update_dope_pitcher_matchups.py` followed by `scripts/check_dope_pitcher_matchups_ready.py` immediately after `scripts/check_dope_player_matchups_ready.py`. This repo cannot modify that external wrapper directly — confirm with Hermes/Hostinger automation that it has been updated to match.
 
 ---
 
