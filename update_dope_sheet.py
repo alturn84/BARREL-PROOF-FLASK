@@ -319,11 +319,36 @@ def get_probable_pitcher(game, side):
             "bb9":  fmt_stat(stats.get("walksPer9Inn"), 1),
             "ip":   fmt_stat(stats.get("inningsPitched"), 1),
             "record": record,
-            "lastStart": "—",
+            "lastStart": get_last_start(pid),
         }
     except Exception as e:
         print(f"    ⚠ Pitcher error: {e}")
         return empty_pitcher()
+
+def get_last_start(pid):
+    """Most recent MLB start for a pitcher, formatted like '6.0 IP, 2 ER, 7 K vs ATL'."""
+    try:
+        data = fetch(f"{MLB_BASE}/people/{pid}/stats?stats=gameLog&group=pitching&season={datetime.now().year}")
+        splits = (data.get("stats") or [{}])[0].get("splits", [])
+        starts = [s for s in splits if (s.get("stat") or {}).get("gamesStarted")]
+        if not starts:
+            return "—"
+        last = starts[-1]
+        stat = last.get("stat", {})
+        ip = stat.get("inningsPitched")
+        er = stat.get("earnedRuns")
+        so = stat.get("strikeOuts")
+        opp = (last.get("opponent") or {}).get("abbreviation")
+        if ip is None or er is None or so is None:
+            return "—"
+        line = f"{ip} IP, {er} ER, {so} K"
+        if opp:
+            line += f" vs {opp}"
+        return line
+    except Exception as e:
+        print(f"    ⚠ Last start error: {e}")
+        return "—"
+
 
 def empty_pitcher():
     return {"name":"TBD","hand":"R","era":"—","whip":"—","k9":"—","bb9":"—","ip":"—","record":"—","lastStart":"—"}

@@ -747,128 +747,137 @@ function renderPitching(g){
   </div></div>`;
 }
 
-function renderMatchupIntel(g){
-  const m=g.playerMatchup;
-  if(!m)return'';
+function renderUnifiedMatchupIntel(g){
+  const pm=g.playerMatchup, ptm=g.pitcherMatchup;
+  if(!pm&&!ptm)return'';
   const v=x=>x!==null&&x!==undefined&&x!=='None'&&x!=='null'&&!(typeof x==='number'&&isNaN(x))&&x!==''?x:null;
-  const playerLink=p=>{
-    const name=v(p&&p.name);
-    if(!name)return null;
-    const extra=v(p&&p.profile_type)?` — ${p.profile_type}`:'';
-    return (p.slug?`<a href="/player/${p.slug}">${name}</a>`:name)+extra;
-  };
+  const playerLink=(name,slug)=>name?(slug?`<a href="/player/${slug}">${name}</a>`:name):null;
+  const awayTeam=(ptm&&ptm.away_team)||(pm&&pm.away_team);
+  const homeTeam=(ptm&&ptm.home_team)||(pm&&pm.home_team);
   const sub=[];
 
-  const aPit=playerLink(m.away_pitcher),hPit=playerLink(m.home_pitcher);
-  if(aPit||hPit){
-    sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Probable Pitchers</div>
-      ${aPit?`<div class="matchup-line">${m.away_team}: ${aPit}</div>`:''}
-      ${hPit?`<div class="matchup-line">${m.home_team}: ${hPit}</div>`:''}</div>`);
+  // ── Barrel Proof Read ──────────────────────────────────────────────
+  const headlineReads=ptm?(ptm.game_pitching_read||[]).filter(v):[];
+  if(headlineReads.length){
+    sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Barrel Proof Read</div><div class="matchup-line">${headlineReads.slice(0,2).join(' ')}</div></div>`);
   }
 
-  const aPress=v(m.away_pressure),hPress=v(m.home_pressure);
-  if(aPress||hPress){
-    sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Lineup Pressure</div>
-      ${aPress?`<div class="matchup-line">${m.away_team}: ${aPress}</div>`:''}
-      ${hPress?`<div class="matchup-line">${m.home_team}: ${hPress}</div>`:''}
-      ${(()=>{const proj=new Set(['projected_lineup','roster_projection']);
-        const a=m.away_lineup_source,h=m.home_lineup_source;
-        const aRS=a==='roster_signals',hRS=h==='roster_signals';
-        const aProj=proj.has(a),hProj=proj.has(h);
-        if(aRS&&hRS)return `<div class="matchup-line matchup-disclaimer">Roster-signal read, not a projected or confirmed lineup.</div>`;
-        if(aRS||hRS)return `<div class="matchup-line matchup-disclaimer">Some reads are roster-signal based, not a projected or confirmed lineup.</div>`;
-        if(aProj||hProj)return `<div class="matchup-line matchup-disclaimer">Projected lineup read, subject to change.</div>`;
-        return '';})()}</div>`);
-  }
-
-  const bats=team=>(m[`${team}_bats`]||[]).map(b=>{
-    const name=v(b&&b.name);
-    if(!name)return null;
-    const link=b.slug?`<a href="/player/${b.slug}">${name}</a>`:name;
-    const tags=(b.tags||[]).filter(v).join(' / ');
-    return `<li>${link}${tags?` — ${tags}`:''}</li>`;
-  }).filter(Boolean);
-  const aBats=bats('away'),hBats=bats('home');
-  if(aBats.length||hBats.length){
-    sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Bats to Watch</div>
-      ${aBats.length?`<div class="matchup-team-label">${m.away_team}</div><ul class="matchup-list">${aBats.join('')}</ul>`:''}
-      ${hBats.length?`<div class="matchup-team-label">${m.home_team}</div><ul class="matchup-list">${hBats.join('')}</ul>`:''}</div>`);
-  }
-
-  const edges=(m.pitcher_edges||[]).map(e=>{
-    const name=v(e&&e.name);
-    if(!name)return null;
-    const link=e.slug?`<a href="/player/${e.slug}">${name}</a>`:name;
-    return `<li>${link}${v(e.edge_type)?` — ${e.edge_type}`:''}</li>`;
-  }).filter(Boolean);
-  if(edges.length){
-    sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Pitcher Edge</div><ul class="matchup-list">${edges.join('')}</ul></div>`);
-  }
-
-  const notes=(m.fantasy_watch||[]).filter(v);
-  if(notes.length){
-    sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Fantasy / DFS Watch</div><ul class="matchup-list">${notes.map(n=>`<li>${n}</li>`).join('')}</ul></div>`);
-  }
-
-  if(!sub.length)return'';
-  return `<div class="detail-section full matchup-intel-block"><div class="matchup-intel-title">Matchup Intelligence</div>${sub.join('')}</div>`;
-}
-
-function renderPitchingRead(g){
-  const m=g.pitcherMatchup;
-  if(!m)return'';
-  const v=x=>x!==null&&x!==undefined&&x!=='None'&&x!=='null'&&!(typeof x==='number'&&isNaN(x))&&x!==''?x:null;
-  const sub=[];
-
-  const pitcherLine=(team,p)=>{
+  // ── Starter Edge ────────────────────────────────────────────────────
+  const starterLine=(team,p)=>{
     if(!p)return null;
     const name=v(p.name);
     if(!name)return `<div class="matchup-line">${team}: Probable starter unavailable.</div>`;
-    const link=p.slug?`<a href="/player/${p.slug}">${name}</a>`:name;
-    const reads=[v(p.strikeout_read),v(p.power_risk||p.contact_risk),v(p.stability)].filter(Boolean);
+    const link=playerLink(name,p.slug);
+    const reads=[v(p.strikeout_read),v(p.power_risk&&p.power_risk!=='Neutral Power Risk'?p.power_risk:p.contact_risk),v(p.stability)].filter(Boolean);
     return `<div class="matchup-line">${team}: ${link}${reads.length?` — ${reads.slice(0,2).join(' / ')}`:''}</div>`;
   };
-  const aLine=pitcherLine(m.away_team,m.away_pitcher),hLine=pitcherLine(m.home_team,m.home_pitcher);
-  if(aLine||hLine){
-    sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Probable Starters</div>${aLine||''}${hLine||''}</div>`);
+  if(ptm){
+    const aLine=starterLine(awayTeam,ptm.away_pitcher),hLine=starterLine(homeTeam,ptm.home_pitcher);
+    if(aLine||hLine){
+      sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Starter Edge</div>${aLine||''}${hLine||''}</div>`);
+    }
   }
 
-  const riskLine=p=>{
-    if(!p)return null;
-    const name=v(p.name),summary=v(p.summary);
-    if(!name||!summary)return null;
-    const link=p.slug?`<a href="/player/${p.slug}">${name}</a>`:name;
-    return `<div class="matchup-line">${link}: ${summary}</div>`;
-  };
-  const aRisk=riskLine(m.away_pitcher),hRisk=riskLine(m.home_pitcher);
-  if(aRisk||hRisk){
-    sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Starter Risk</div>${aRisk||''}${hRisk||''}</div>`);
-  }
-
+  // ── Lineup Pressure ─────────────────────────────────────────────────
   const pressureLine=(label,opp)=>{
     if(!opp)return null;
     const read=v(opp.pressure_read);
     if(!read)return null;
-    const bats=(opp.danger_bats||[]).slice(0,2).map(b=>{
-      const name=v(b&&b.name);
-      if(!name)return null;
-      return b.slug?`<a href="/player/${b.slug}">${name}</a>`:name;
-    }).filter(Boolean);
+    const bats=(opp.danger_bats||[]).slice(0,2).map(b=>playerLink(v(b&&b.name),b&&b.slug)).filter(Boolean);
     return `<div class="matchup-line">${label}: ${read}${bats.length?` — watch ${bats.join(', ')}`:''}</div>`;
   };
-  const aPressure=pressureLine(`${m.away_team} vs ${v(m.home_pitcher&&m.home_pitcher.name)||m.home_team}`,m.away_lineup_vs_home_pitcher);
-  const hPressure=pressureLine(`${m.home_team} vs ${v(m.away_pitcher&&m.away_pitcher.name)||m.away_team}`,m.home_lineup_vs_away_pitcher);
-  if(aPressure||hPressure){
-    sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Lineup Pressure</div>${aPressure||''}${hPressure||''}</div>`);
+  if(ptm){
+    const aPressure=pressureLine(`${awayTeam} vs ${v(ptm.home_pitcher&&ptm.home_pitcher.name)||homeTeam}`,ptm.away_lineup_vs_home_pitcher);
+    const hPressure=pressureLine(`${homeTeam} vs ${v(ptm.away_pitcher&&ptm.away_pitcher.name)||awayTeam}`,ptm.home_lineup_vs_away_pitcher);
+    if(aPressure||hPressure){
+      sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Lineup Pressure</div>${aPressure||''}${hPressure||''}</div>`);
+    }
   }
 
-  const reads=(m.game_pitching_read||[]).filter(v).slice(0,3);
-  if(reads.length){
-    sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Barrel Proof Read</div><ul class="matchup-list">${reads.map(r=>`<li>${r}</li>`).join('')}</ul></div>`);
+  // ── Bats to Watch ───────────────────────────────────────────────────
+  let aBats=[],hBats=[];
+  if(pm){
+    const bats=team=>(pm[`${team}_bats`]||[]).slice(0,2).map(b=>{
+      const name=v(b&&b.name);
+      if(!name)return null;
+      const link=playerLink(name,b.slug);
+      const tags=(b.tags||[]).filter(v).join(' / ');
+      return `${link}${tags?` — ${tags}`:''}`;
+    }).filter(Boolean);
+    aBats=bats('away');hBats=bats('home');
+  }
+  if(aBats.length||hBats.length){
+    sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Bats to Watch</div>
+      ${aBats.length?`<div class="matchup-line">${awayTeam}: ${aBats.join('; ')}</div>`:''}
+      ${hBats.length?`<div class="matchup-line">${homeTeam}: ${hBats.join('; ')}</div>`:''}</div>`);
+  }
+
+  // ── Fantasy / DFS Watch ─────────────────────────────────────────────
+  const dfsNotes=[];
+  if(pm){
+    for(const note of (pm.fantasy_watch||[]).filter(v)) dfsNotes.push(note);
+  }
+  if(ptm){
+    for(const p of [ptm.away_pitcher,ptm.home_pitcher]){
+      if(p&&v(p.name)&&v(p.summary)&&p.stability==='Limited Sample'&&(p.power_risk==='Power Risk'||p.contact_risk==='Contact Pressure Risk')){
+        const link=playerLink(p.name,p.slug);
+        dfsNotes.push(`Pitching Watch: ${link} ${p.summary.replace(/^[^ ]+ /,'').replace(/\.$/,'')}, worth tracking in DFS builds.`);
+      }
+    }
+  }
+  const dedupedDfs=[...new Set(dfsNotes)].slice(0,4);
+  if(dedupedDfs.length){
+    sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Fantasy / DFS Watch</div><ul class="matchup-list">${dedupedDfs.map(n=>`<li>${n}</li>`).join('')}</ul></div>`);
+  }
+
+  // ── Betting / Props Lean ────────────────────────────────────────────
+  const leanNotes=[];
+  if(ptm){
+    const aP=ptm.away_pitcher,hP=ptm.home_pitcher;
+    const cleanerArm=[aP,hP].find(p=>p&&(p.power_risk==='Suppresses Power'||p.contact_risk==='Contact Suppression'));
+    if(cleanerArm&&v(cleanerArm.name)){
+      const opp=cleanerArm===aP?homeTeam:awayTeam;
+      leanNotes.push(`Run Suppression Angle: ${playerLink(cleanerArm.name,cleanerArm.slug)} grades as the cleaner profile, a lean against a ${opp} scoring outburst unless lineup traffic builds.`);
+    }
+    const kEdge=[aP,hP].find(p=>p&&p.strikeout_read==='Strikeout Edge');
+    if(kEdge&&v(kEdge.name)){
+      leanNotes.push(`Strikeout Angle: ${playerLink(kEdge.name,kEdge.slug)} carries a strikeout-edge profile — worth checking K props once the lineup is confirmed.`);
+    }
+    const riskArm=[aP,hP].find(p=>p&&p.power_risk==='Power Risk');
+    if(riskArm&&v(riskArm.name)){
+      const opp=riskArm===aP?homeTeam:awayTeam;
+      leanNotes.push(`Power Risk: ${playerLink(riskArm.name,riskArm.slug)}'s limited-sample power-risk profile makes ${opp} power worth watching.`);
+    }
+    if(!leanNotes.length){
+      const pressures=[ptm.away_lineup_vs_home_pitcher,ptm.home_lineup_vs_away_pitcher].map(o=>o&&o.pressure_read).filter(v);
+      if(pressures.every(p=>p==='Balanced Pressure')&&pressures.length){
+        leanNotes.push(`Run Environment: Both lineups grade closer to balanced than explosive — neutral unless bullpens get involved.`);
+      }
+    }
+  }
+  const dedupedLean=[...new Set(leanNotes)].slice(0,3);
+  if(dedupedLean.length){
+    sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Betting / Props Lean</div><ul class="matchup-list">${dedupedLean.map(n=>`<li>${n}</li>`).join('')}</ul></div>`);
+  }
+
+  // ── Lineup source disclaimer ───────────────────────────────────────
+  if(pm){
+    const proj=new Set(['projected_lineup','roster_projection']);
+    const a=pm.away_lineup_source,h=pm.home_lineup_source;
+    const aRS=a==='roster_signals',hRS=h==='roster_signals';
+    const aProj=proj.has(a),hProj=proj.has(h);
+    let disclaimer='';
+    if(aRS&&hRS)disclaimer='Roster-signal read, not a projected or confirmed lineup.';
+    else if((aRS||hRS)&&(aProj||hProj))disclaimer='Some reads are projected or roster-signal based and subject to change.';
+    else if(aRS||hRS)disclaimer='Some reads are roster-signal based, not a projected or confirmed lineup.';
+    else if(aProj||hProj)disclaimer='Projected lineup read, subject to change.';
+    if(disclaimer){
+      sub.push(`<div class="matchup-subsection"><div class="matchup-line matchup-disclaimer">${disclaimer}</div></div>`);
+    }
   }
 
   if(!sub.length)return'';
-  return `<div class="detail-section full matchup-intel-block"><div class="matchup-intel-title">Pitching Read</div>${sub.join('')}</div>`;
+  return `<div class="detail-section full matchup-intel-block"><div class="matchup-intel-title">Matchup Intelligence</div>${sub.join('')}</div>`;
 }
 
 function renderProps(g){
@@ -909,7 +918,7 @@ function render(games){
     const favOdds=awayN<homeN?awayML:homeML,dogOdds=awayN<homeN?homeML:awayML;
     const noOdds=!g.oddsAvailable;
     const isLive=g.oddsLive?`<span class="live-badge">LIVE</span>`:'';
-    const pcCard=(abb,p)=>`<div class="pitcher-card"><div class="pc-team">${abb}</div><div class="pc-name">${p?.name||'TBD'} (${p?.hand||'R'}) <span style="font-size:11px;color:var(--smoke-light);">${p?.record&&p.record!=='—'?'· '+p.record:''}</span></div><div class="pc-stats"><div class="pc-stat"><span class="pc-val">${p?.era||'—'}</span><span class="pc-lbl">ERA</span></div><div class="pc-stat"><span class="pc-val">${p?.whip||'—'}</span><span class="pc-lbl">WHIP</span></div><div class="pc-stat"><span class="pc-val">${p?.k9||'—'}</span><span class="pc-lbl">K/9</span></div><div class="pc-stat"><span class="pc-val">${p?.bb9||'—'}</span><span class="pc-lbl">BB/9</span></div><div class="pc-stat"><span class="pc-val">${p?.ip||'—'}</span><span class="pc-lbl">IP</span></div></div><div class="pc-last">Last start: <span>${p?.lastStart||'—'}</span></div></div>`;
+    const pcCard=(abb,p)=>`<div class="pitcher-card"><div class="pc-team">${abb}</div><div class="pc-name">${p?.name||'TBD'} (${p?.hand||'R'}) <span style="font-size:11px;color:var(--smoke-light);">${p?.record&&p.record!=='—'?'· '+p.record:''}</span></div><div class="pc-stats"><div class="pc-stat"><span class="pc-val">${p?.era||'—'}</span><span class="pc-lbl">ERA</span></div><div class="pc-stat"><span class="pc-val">${p?.whip||'—'}</span><span class="pc-lbl">WHIP</span></div><div class="pc-stat"><span class="pc-val">${p?.k9||'—'}</span><span class="pc-lbl">K/9</span></div><div class="pc-stat"><span class="pc-val">${p?.bb9||'—'}</span><span class="pc-lbl">BB/9</span></div><div class="pc-stat"><span class="pc-val">${p?.ip||'—'}</span><span class="pc-lbl">IP</span></div></div><div class="pc-last">${p?.lastStart&&p.lastStart!=='—'?`Last Start: <span>${p.lastStart}</span>`:`<span>Last start unavailable</span>`}</div></div>`;
     const sections=[
       renderParkFactor(g),
       (()=>{
@@ -933,8 +942,7 @@ function render(games){
       renderPitching(g),
       renderInjuries(g),
       renderProps(g),
-      renderMatchupIntel(g),
-      renderPitchingRead(g),
+      renderUnifiedMatchupIntel(g),
     ].filter(s=>s&&s.trim()).join('');
     return`<div class="game-row${g.oddsLive?' live-game':''}" id="gr-${idx}">
       <div class="game-row-header" onclick="toggle(${idx})">
