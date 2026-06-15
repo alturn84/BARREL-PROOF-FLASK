@@ -87,6 +87,26 @@ Check after each scheduled run:
 
 ---
 
+## Recommended Additional Cron Job — Dope Sheet Afternoon Refresh (DOPE-PLAYER-001H, not yet active)
+
+| Field | Value |
+|-------|-------|
+| Purpose | Refresh `Site Data/dope-sheet-data.json` and `Site Data/dope_player_matchups.json` after MLB lineups are typically posted |
+| Reason | The 6:00 AM ET morning run is too early — most MLB lineups have not posted yet, so projected/confirmed lineups and confirmed-lineup-filtered Matchup Intelligence cannot populate |
+| Script | `/opt/data/workspace/barrel-proof/run_dope_sheet_refresh_with_venv.sh` |
+| Recommended command | `/bin/bash /opt/data/workspace/barrel-proof/run_dope_sheet_refresh_with_venv.sh` |
+| Recommended schedule | 3:30 PM ET daily (primary); optional second run at 5:30 PM ET |
+| Status | Not active — script exists in repo, but the cron entry itself must be installed by Hermes/Hostinger automation outside this repo |
+
+**Steps run by this script (in order):**
+1. `update_dope_sheet.py` — refreshes Dope Sheet game cards, including lineups
+2. `scripts/update_dope_player_matchups.py` — regenerates Matchup Intelligence from the refreshed Dope Sheet data
+3. `scripts/check_dope_player_matchups_ready.py` — validates the regenerated matchup file
+
+This is a focused refresh only — it does not run the full morning pipeline (no MLB fetch, standings, odds, player stats, content generation, etc.).
+
+---
+
 ## Failure Handling
 
 See `03-RUNBOOKS/Cron Failure Recovery.md` for step-by-step recovery procedures.
