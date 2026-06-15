@@ -1,0 +1,668 @@
+{
+  "meta": {
+    "date": "2026-06-15",
+    "generated_at": "2026-06-15T15:56:46Z",
+    "source": "Barrel Proof pitcher/player signals",
+    "game_count": 10
+  },
+  "games": [
+    {
+      "game_date": "2026-06-15",
+      "away_team": "MIA",
+      "home_team": "PHI",
+      "away_pitcher": {
+        "name": "Ryan Gusto",
+        "slug": "ryan-gusto",
+        "team": "MIA",
+        "throws": "R",
+        "role": "probable_starter",
+        "strikeout_read": "Neutral K Profile",
+        "power_risk": "Small Sample",
+        "contact_risk": "Neutral Contact Profile",
+        "stability": "Limited Sample",
+        "summary": "Ryan Gusto is a small-sample read today."
+      },
+      "home_pitcher": {
+        "name": "Zack Wheeler",
+        "slug": "zack-wheeler",
+        "team": "PHI",
+        "throws": "R",
+        "role": "probable_starter",
+        "strikeout_read": "Neutral K Profile",
+        "power_risk": "Suppresses Power",
+        "contact_risk": "Contact Suppression",
+        "stability": "Limited Sample",
+        "summary": "Zack Wheeler suppresses power, limits contact quality."
+      },
+      "away_lineup_vs_home_pitcher": {
+        "lineup_source": "projected_lineup",
+        "pressure_read": "Balanced Pressure",
+        "danger_bats": [
+          {
+            "name": "Xavier Edwards",
+            "slug": "xavier-edwards",
+            "tag": "Contact Threat"
+          },
+          {
+            "name": "Otto Lopez",
+            "slug": "otto-lopez",
+            "tag": "Contact Threat"
+          }
+        ],
+        "summary": "Balanced Pressure \u2014 watch for Xavier Edwards, Otto Lopez."
+      },
+      "home_lineup_vs_away_pitcher": {
+        "lineup_source": "projected_lineup",
+        "pressure_read": "Balanced Pressure",
+        "danger_bats": [
+          {
+            "name": "Bryce Harper",
+            "slug": "bryce-harper",
+            "tag": "Power Threat"
+          },
+          {
+            "name": "Kyle Schwarber",
+            "slug": "kyle-schwarber",
+            "tag": "Power Threat"
+          }
+        ],
+        "summary": "Balanced Pressure \u2014 watch for Bryce Harper, Kyle Schwarber."
+      },
+      "game_pitching_read": [
+        "PHI projected lineup creates balanced pressure.",
+        "MIA projected lineup creates balanced pressure."
+      ]
+    },
+    {
+      "game_date": "2026-06-15",
+      "away_team": "KC",
+      "home_team": "WSH",
+      "away_pitcher": {
+        "name": "Mitch Spence",
+        "slug": null,
+        "team": "KC",
+        "throws": "R",
+        "role": "probable_starter",
+        "strikeout_read": "Small Sample",
+        "power_risk": "Small Sample",
+        "contact_risk": "Small Sample",
+        "stability": "Limited Sample",
+        "summary": "Mitch Spence signal data unavailable \u2014 limited sample."
+      },
+      "home_pitcher": {
+        "name": "Andrew Alvarez",
+        "slug": "andrew-alvarez",
+        "team": "WSH",
+        "throws": "L",
+        "role": "probable_starter",
+        "strikeout_read": "Small Sample",
+        "power_risk": "Small Sample",
+        "contact_risk": "Small Sample",
+        "stability": "Volatile Arm",
+        "summary": "Andrew Alvarez has been volatile."
+      },
+      "away_lineup_vs_home_pitcher": {
+        "lineup_source": "projected_lineup",
+        "pressure_read": "Balanced Pressure",
+        "danger_bats": [
+          {
+            "name": "Bobby Witt Jr.",
+            "slug": "bobby-witt-jr",
+            "tag": "Power Threat"
+          },
+          {
+            "name": "Jac Caglianone",
+            "slug": "jac-caglianone",
+            "tag": "Power Threat"
+          }
+        ],
+        "summary": "Balanced Pressure \u2014 watch for Bobby Witt Jr., Jac Caglianone."
+      },
+      "home_lineup_vs_away_pitcher": {
+        "lineup_source": "projected_lineup",
+        "pressure_read": "Balanced Pressure",
+        "danger_bats": [
+          {
+            "name": "Curtis Mead",
+            "slug": "curtis-mead",
+            "tag": "Contact Threat"
+          },
+          {
+            "name": "James Wood",
+            "slug": "james-wood",
+            "tag": "Power Threat"
+          }
+        ],
+        "summary": "Balanced Pressure \u2014 watch for Curtis Mead, James Wood."
+      },
+      "game_pitching_read": [
+        "KC projected lineup creates balanced pressure."
+      ]
+    },
+    {
+      "game_date": "2026-06-15",
+      "away_team": "NYM",
+      "home_team": "CIN",
+      "away_pitcher": {
+        "name": "Tobias Myers",
+        "slug": null,
+        "team": "NYM",
+        "throws": "R",
+        "role": "probable_starter",
+        "strikeout_read": "Small Sample",
+        "power_risk": "Small Sample",
+        "contact_risk": "Small Sample",
+        "stability": "Limited Sample",
+        "summary": "Tobias Myers signal data unavailable \u2014 limited sample."
+      },
+      "home_pitcher": {
+        "name": "Chase Burns",
+        "slug": "chase-burns",
+        "team": "CIN",
+        "throws": "R",
+        "role": "probable_starter",
+        "strikeout_read": "Strikeout Edge",
+        "power_risk": "Suppresses Power",
+        "contact_risk": "Contact Suppression",
+        "stability": "Limited Sample",
+        "summary": "Chase Burns misses bats, suppresses power, limits contact quality."
+      },
+      "away_lineup_vs_home_pitcher": {
+        "lineup_source": "projected_lineup",
+        "pressure_read": "Balanced Pressure",
+        "danger_bats": [
+          {
+            "name": "Juan Soto",
+            "slug": "juan-soto",
+            "tag": "Power Threat"
+          }
+        ],
+        "summary": "Balanced Pressure \u2014 watch for Juan Soto."
+      },
+      "home_lineup_vs_away_pitcher": {
+        "lineup_source": "projected_lineup",
+        "pressure_read": "Balanced Pressure",
+        "danger_bats": [
+          {
+            "name": "Sal Stewart",
+            "slug": "sal-stewart",
+            "tag": "Power Threat"
+          },
+          {
+            "name": "JJ Bleday",
+            "slug": "jj-bleday",
+            "tag": "Power Threat"
+          }
+        ],
+        "summary": "Balanced Pressure \u2014 watch for Sal Stewart, JJ Bleday."
+      },
+      "game_pitching_read": [
+        "CIN starter has strikeout upside.",
+        "NYM projected lineup creates balanced pressure."
+      ]
+    },
+    {
+      "game_date": "2026-06-15",
+      "away_team": "SD",
+      "home_team": "STL",
+      "away_pitcher": {
+        "name": "TBD",
+        "slug": null,
+        "team": "SD",
+        "throws": "R",
+        "role": "probable_starter",
+        "strikeout_read": "Small Sample",
+        "power_risk": "Small Sample",
+        "contact_risk": "Small Sample",
+        "stability": "Limited Sample",
+        "summary": "TBD signal data unavailable \u2014 limited sample."
+      },
+      "home_pitcher": {
+        "name": "Dustin May",
+        "slug": "dustin-may",
+        "team": "STL",
+        "throws": "R",
+        "role": "probable_starter",
+        "strikeout_read": "Neutral K Profile",
+        "power_risk": "Neutral Power Risk",
+        "contact_risk": "Neutral Contact Profile",
+        "stability": "Volatile Arm",
+        "summary": "Dustin May has been volatile."
+      },
+      "away_lineup_vs_home_pitcher": {
+        "lineup_source": "projected_lineup",
+        "pressure_read": "Balanced Pressure",
+        "danger_bats": [],
+        "summary": "Balanced Pressure lineup with no standout individual threats."
+      },
+      "home_lineup_vs_away_pitcher": {
+        "lineup_source": "projected_lineup",
+        "pressure_read": "Balanced Pressure",
+        "danger_bats": [
+          {
+            "name": "Alec Burleson",
+            "slug": "alec-burleson",
+            "tag": "Power Threat"
+          },
+          {
+            "name": "Jordan Walker",
+            "slug": "jordan-walker",
+            "tag": "Power Threat"
+          },
+          {
+            "name": "Iv\u00e1n Herrera",
+            "slug": "ivan-herrera",
+            "tag": "Contact Threat"
+          }
+        ],
+        "summary": "Balanced Pressure \u2014 watch for Alec Burleson, Jordan Walker, Iv\u00e1n Herrera."
+      },
+      "game_pitching_read": []
+    },
+    {
+      "game_date": "2026-06-15",
+      "away_team": "COL",
+      "home_team": "CHC",
+      "away_pitcher": {
+        "name": "Michael Lorenzen",
+        "slug": "michael-lorenzen",
+        "team": "COL",
+        "throws": "R",
+        "role": "probable_starter",
+        "strikeout_read": "Neutral K Profile",
+        "power_risk": "Power Risk",
+        "contact_risk": "Contact Pressure Risk",
+        "stability": "Limited Sample",
+        "summary": "Michael Lorenzen carries power risk, vulnerable to contact pressure."
+      },
+      "home_pitcher": {
+        "name": "Shota Imanaga",
+        "slug": "shota-imanaga",
+        "team": "CHC",
+        "throws": "L",
+        "role": "probable_starter",
+        "strikeout_read": "Neutral K Profile",
+        "power_risk": "Neutral Power Risk",
+        "contact_risk": "Contact Suppression",
+        "stability": "Volatile Arm",
+        "summary": "Shota Imanaga limits contact quality, has been volatile."
+      },
+      "away_lineup_vs_home_pitcher": {
+        "lineup_source": "projected_lineup",
+        "pressure_read": "Balanced Pressure",
+        "danger_bats": [
+          {
+            "name": "Hunter Goodman",
+            "slug": "hunter-goodman",
+            "tag": "Power Threat"
+          }
+        ],
+        "summary": "Balanced Pressure \u2014 watch for Hunter Goodman."
+      },
+      "home_lineup_vs_away_pitcher": {
+        "lineup_source": "projected_lineup",
+        "pressure_read": "Balanced Pressure",
+        "danger_bats": [
+          {
+            "name": "Ian Happ",
+            "slug": "ian-happ",
+            "tag": "Power Threat"
+          },
+          {
+            "name": "Pete Crow-Armstrong",
+            "slug": "pete-crow-armstrong",
+            "tag": "Power Threat"
+          }
+        ],
+        "summary": "Balanced Pressure \u2014 watch for Ian Happ, Pete Crow-Armstrong."
+      },
+      "game_pitching_read": [
+        "COL starter has power risk but contact risk.",
+        "CHC projected lineup creates balanced pressure.",
+        "COL projected lineup creates balanced pressure."
+      ]
+    },
+    {
+      "game_date": "2026-06-15",
+      "away_team": "MIN",
+      "home_team": "TEX",
+      "away_pitcher": {
+        "name": "TBD",
+        "slug": null,
+        "team": "MIN",
+        "throws": "R",
+        "role": "probable_starter",
+        "strikeout_read": "Small Sample",
+        "power_risk": "Small Sample",
+        "contact_risk": "Small Sample",
+        "stability": "Limited Sample",
+        "summary": "TBD signal data unavailable \u2014 limited sample."
+      },
+      "home_pitcher": {
+        "name": "MacKenzie Gore",
+        "slug": "mackenzie-gore",
+        "team": "TEX",
+        "throws": "L",
+        "role": "probable_starter",
+        "strikeout_read": "Strikeout Edge",
+        "power_risk": "Neutral Power Risk",
+        "contact_risk": "Neutral Contact Profile",
+        "stability": "Volatile Arm",
+        "summary": "MacKenzie Gore misses bats, has been volatile."
+      },
+      "away_lineup_vs_home_pitcher": {
+        "lineup_source": "projected_lineup",
+        "pressure_read": "Balanced Pressure",
+        "danger_bats": [
+          {
+            "name": "Kody Clemens",
+            "slug": "kody-clemens",
+            "tag": "Power Threat"
+          },
+          {
+            "name": "Byron Buxton",
+            "slug": "byron-buxton",
+            "tag": "Power Threat"
+          }
+        ],
+        "summary": "Balanced Pressure \u2014 watch for Kody Clemens, Byron Buxton."
+      },
+      "home_lineup_vs_away_pitcher": {
+        "lineup_source": "projected_lineup",
+        "pressure_read": "Balanced Pressure",
+        "danger_bats": [
+          {
+            "name": "Josh Jung",
+            "slug": "josh-jung",
+            "tag": "Contact Threat"
+          },
+          {
+            "name": "Corey Seager",
+            "slug": "corey-seager",
+            "tag": "Power Threat"
+          }
+        ],
+        "summary": "Balanced Pressure \u2014 watch for Josh Jung, Corey Seager."
+      },
+      "game_pitching_read": [
+        "TEX starter has strikeout upside.",
+        "MIN projected lineup creates balanced pressure."
+      ]
+    },
+    {
+      "game_date": "2026-06-15",
+      "away_team": "DET",
+      "home_team": "HOU",
+      "away_pitcher": {
+        "name": "Troy Melton",
+        "slug": "troy-melton",
+        "team": "DET",
+        "throws": "R",
+        "role": "probable_starter",
+        "strikeout_read": "Low K Ceiling",
+        "power_risk": "Neutral Power Risk",
+        "contact_risk": "Contact Suppression",
+        "stability": "Volatile Arm",
+        "summary": "Troy Melton low strikeout ceiling, limits contact quality, has been volatile."
+      },
+      "home_pitcher": {
+        "name": "Kai-Wei Teng",
+        "slug": "kai-wei-teng",
+        "team": "HOU",
+        "throws": "R",
+        "role": "probable_starter",
+        "strikeout_read": "Neutral K Profile",
+        "power_risk": "Neutral Power Risk",
+        "contact_risk": "Neutral Contact Profile",
+        "stability": "Volatile Arm",
+        "summary": "Kai-Wei Teng has been volatile."
+      },
+      "away_lineup_vs_home_pitcher": {
+        "lineup_source": "projected_lineup",
+        "pressure_read": "Balanced Pressure",
+        "danger_bats": [
+          {
+            "name": "Dillon Dingler",
+            "slug": "dillon-dingler",
+            "tag": "Power Threat"
+          },
+          {
+            "name": "Kevin McGonigle",
+            "slug": "kevin-mcgonigle",
+            "tag": "Contact Threat"
+          },
+          {
+            "name": "Riley Greene",
+            "slug": "riley-greene",
+            "tag": "Power Threat"
+          }
+        ],
+        "summary": "Balanced Pressure \u2014 watch for Dillon Dingler, Kevin McGonigle, Riley Greene."
+      },
+      "home_lineup_vs_away_pitcher": {
+        "lineup_source": "projected_lineup",
+        "pressure_read": "Balanced Pressure",
+        "danger_bats": [
+          {
+            "name": "Yordan Alvarez",
+            "slug": "yordan-alvarez",
+            "tag": "Power Threat"
+          }
+        ],
+        "summary": "Balanced Pressure \u2014 watch for Yordan Alvarez."
+      },
+      "game_pitching_read": [
+        "HOU projected lineup creates balanced pressure.",
+        "DET projected lineup creates balanced pressure."
+      ]
+    },
+    {
+      "game_date": "2026-06-15",
+      "away_team": "LAA",
+      "home_team": "AZ",
+      "away_pitcher": {
+        "name": "Walbert Ure\u00f1a",
+        "slug": "walbert-urena",
+        "team": "LAA",
+        "throws": "R",
+        "role": "probable_starter",
+        "strikeout_read": "Neutral K Profile",
+        "power_risk": "Neutral Power Risk",
+        "contact_risk": "Neutral Contact Profile",
+        "stability": "Volatile Arm",
+        "summary": "Walbert Ure\u00f1a has been volatile."
+      },
+      "home_pitcher": {
+        "name": "Ryne Nelson",
+        "slug": "ryne-nelson",
+        "team": "AZ",
+        "throws": "R",
+        "role": "probable_starter",
+        "strikeout_read": "Neutral K Profile",
+        "power_risk": "Neutral Power Risk",
+        "contact_risk": "Neutral Contact Profile",
+        "stability": "Volatile Arm",
+        "summary": "Ryne Nelson has been volatile."
+      },
+      "away_lineup_vs_home_pitcher": {
+        "lineup_source": "projected_lineup",
+        "pressure_read": "Balanced Pressure",
+        "danger_bats": [
+          {
+            "name": "Mike Trout",
+            "slug": "mike-trout",
+            "tag": "Power Threat"
+          }
+        ],
+        "summary": "Balanced Pressure \u2014 watch for Mike Trout."
+      },
+      "home_lineup_vs_away_pitcher": {
+        "lineup_source": "projected_lineup",
+        "pressure_read": "Balanced Pressure",
+        "danger_bats": [
+          {
+            "name": "Ketel Marte",
+            "slug": "ketel-marte",
+            "tag": "Power Threat"
+          },
+          {
+            "name": "Corbin Carroll",
+            "slug": "corbin-carroll",
+            "tag": "Power Threat"
+          }
+        ],
+        "summary": "Balanced Pressure \u2014 watch for Ketel Marte, Corbin Carroll."
+      },
+      "game_pitching_read": [
+        "AZ projected lineup creates balanced pressure.",
+        "LAA projected lineup creates balanced pressure."
+      ]
+    },
+    {
+      "game_date": "2026-06-15",
+      "away_team": "PIT",
+      "home_team": "ATH",
+      "away_pitcher": {
+        "name": "Jared Jones",
+        "slug": "jared-jones",
+        "team": "PIT",
+        "throws": "R",
+        "role": "probable_starter",
+        "strikeout_read": "Strikeout Edge",
+        "power_risk": "Small Sample",
+        "contact_risk": "Neutral Contact Profile",
+        "stability": "Limited Sample",
+        "summary": "Jared Jones misses bats."
+      },
+      "home_pitcher": {
+        "name": "J.T. Ginn",
+        "slug": "jt-ginn",
+        "team": "ATH",
+        "throws": "R",
+        "role": "probable_starter",
+        "strikeout_read": "Neutral K Profile",
+        "power_risk": "Neutral Power Risk",
+        "contact_risk": "Neutral Contact Profile",
+        "stability": "Volatile Arm",
+        "summary": "J.T. Ginn has been volatile."
+      },
+      "away_lineup_vs_home_pitcher": {
+        "lineup_source": "projected_lineup",
+        "pressure_read": "Balanced Pressure",
+        "danger_bats": [
+          {
+            "name": "Oneil Cruz",
+            "slug": "oneil-cruz",
+            "tag": "Power Threat"
+          }
+        ],
+        "summary": "Balanced Pressure \u2014 watch for Oneil Cruz."
+      },
+      "home_lineup_vs_away_pitcher": {
+        "lineup_source": "projected_lineup",
+        "pressure_read": "Balanced Pressure",
+        "danger_bats": [
+          {
+            "name": "Shea Langeliers",
+            "slug": "shea-langeliers",
+            "tag": "Power Threat"
+          },
+          {
+            "name": "Nick Kurtz",
+            "slug": "nick-kurtz",
+            "tag": "Power Threat"
+          },
+          {
+            "name": "Carlos Cortes",
+            "slug": "carlos-cortes",
+            "tag": "Contact Threat"
+          }
+        ],
+        "summary": "Balanced Pressure \u2014 watch for Shea Langeliers, Nick Kurtz, Carlos Cortes."
+      },
+      "game_pitching_read": [
+        "PIT starter has strikeout upside.",
+        "ATH projected lineup creates balanced pressure.",
+        "PIT projected lineup creates balanced pressure."
+      ]
+    },
+    {
+      "game_date": "2026-06-15",
+      "away_team": "TB",
+      "home_team": "LAD",
+      "away_pitcher": {
+        "name": "Nick Martinez",
+        "slug": "nick-martinez",
+        "team": "TB",
+        "throws": "R",
+        "role": "probable_starter",
+        "strikeout_read": "Low K Ceiling",
+        "power_risk": "Neutral Power Risk",
+        "contact_risk": "Neutral Contact Profile",
+        "stability": "Volatile Arm",
+        "summary": "Nick Martinez low strikeout ceiling, has been volatile."
+      },
+      "home_pitcher": {
+        "name": "Eric Lauer",
+        "slug": "eric-lauer",
+        "team": "LAD",
+        "throws": "L",
+        "role": "probable_starter",
+        "strikeout_read": "Low K Ceiling",
+        "power_risk": "Power Risk",
+        "contact_risk": "Neutral Contact Profile",
+        "stability": "Limited Sample",
+        "summary": "Eric Lauer low strikeout ceiling, carries power risk."
+      },
+      "away_lineup_vs_home_pitcher": {
+        "lineup_source": "projected_lineup",
+        "pressure_read": "Balanced Pressure",
+        "danger_bats": [
+          {
+            "name": "Jonathan Aranda",
+            "slug": "jonathan-aranda",
+            "tag": "Power Threat"
+          },
+          {
+            "name": "Junior Caminero",
+            "slug": "junior-caminero",
+            "tag": "Power Threat"
+          },
+          {
+            "name": "Yandy D\u00edaz",
+            "slug": "yandy-diaz",
+            "tag": "Contact Threat"
+          }
+        ],
+        "summary": "Balanced Pressure \u2014 watch for Jonathan Aranda, Junior Caminero, Yandy D\u00edaz."
+      },
+      "home_lineup_vs_away_pitcher": {
+        "lineup_source": "projected_lineup",
+        "pressure_read": "Balanced Pressure",
+        "danger_bats": [
+          {
+            "name": "Will Smith",
+            "slug": "will-smith",
+            "tag": "Power Threat"
+          },
+          {
+            "name": "Freddie Freeman",
+            "slug": "freddie-freeman",
+            "tag": "Power Threat"
+          },
+          {
+            "name": "Max Muncy",
+            "slug": "max-muncy",
+            "tag": "Power Threat"
+          }
+        ],
+        "summary": "Balanced Pressure \u2014 watch for Will Smith, Freddie Freeman, Max Muncy."
+      },
+      "game_pitching_read": [
+        "LAD projected lineup creates balanced pressure.",
+        "LAD starter has power risk.",
+        "TB projected lineup creates balanced pressure."
+      ]
+    }
+  ]
+}
