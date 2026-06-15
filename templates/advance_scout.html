@@ -120,6 +120,48 @@ nav.main-nav {
 .scout-body{max-width:680px;padding:40px 0;}
 .scout-subhead{font-family:var(--typewriter-font);font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:var(--bp-accent);margin-bottom:20px;border-bottom:2px solid var(--bp-rule-dark);padding-bottom:6px;}
 .scout-text{font-family:var(--serif-body);font-size:17px;line-height:1.78;color:var(--smoke-light);font-style:italic;}
+
+/* ── Advance Scout series cards ─────────────────────────────────────── */
+.scout-edition{padding:28px 0 4px;}
+.scout-edition-title{font-family:var(--display-font);font-size:clamp(28px,4vw,44px);color:var(--parchment);letter-spacing:.04em;}
+.scout-edition-sub{font-family:var(--typewriter-font);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--bp-accent);margin-top:8px;}
+.scout-edition-note{font-family:var(--serif-body);font-style:italic;font-size:14px;color:var(--smoke);margin-top:6px;}
+
+.scout-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:28px 0 40px;}
+@media(max-width:880px){.scout-grid{grid-template-columns:1fr;}}
+
+.scout-card{border:1px solid var(--rule-heavy);background:rgba(247,239,216,.04);padding:20px 22px;min-width:0;}
+.scout-card-hdr{border-bottom:2px solid var(--bp-rule-dark);padding-bottom:10px;margin-bottom:12px;}
+.scout-card-title{font-family:var(--headline-font);font-size:24px;color:var(--parchment);letter-spacing:.02em;}
+.scout-card-sub{font-family:var(--typewriter-font);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--smoke);margin-top:6px;}
+
+.scout-badges{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;}
+.scout-badge{font-family:var(--typewriter-font);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--bp-accent-gold);border:1px solid var(--bp-rule-dark);padding:3px 8px;}
+
+.scout-section{margin-top:14px;}
+.scout-section-title{font-family:var(--typewriter-font);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:800;color:var(--bp-accent);margin-bottom:6px;}
+.scout-read{font-family:var(--serif-body);font-style:italic;font-size:15.5px;line-height:1.65;color:var(--smoke-light);}
+
+.scout-games{font-family:var(--mono);font-size:12.5px;line-height:1.9;color:var(--smoke-light);}
+.scout-games div{overflow-wrap:anywhere;}
+
+.scout-text-line{font-family:var(--serif-body);font-size:14.5px;line-height:1.7;color:var(--smoke-light);}
+.scout-text-line + .scout-text-line{margin-top:6px;}
+
+.scout-tilt{display:flex;flex-wrap:wrap;gap:8px;}
+.scout-tilt-item{font-family:var(--typewriter-font);font-size:11.5px;letter-spacing:.06em;border:1px solid var(--rule);padding:4px 8px;color:var(--smoke-light);}
+.scout-tilt-item a{color:var(--bp-accent-gold);text-decoration:underline;}
+.scout-tilt-tag{color:var(--smoke);font-style:italic;}
+
+.scout-dfs{font-family:var(--serif-body);font-size:14px;line-height:1.7;color:var(--smoke-light);padding-left:18px;}
+.scout-dfs li{margin-bottom:4px;overflow-wrap:anywhere;}
+
+.scout-empty{font-family:var(--serif-body);font-style:italic;font-size:16px;color:var(--smoke-light);padding:40px 0;}
+
+@media(max-width:540px){
+  .scout-card{padding:16px;overflow-wrap:anywhere;}
+  .scout-grid{gap:16px;}
+}
 footer{border-top:2px solid var(--bp-rule);background:var(--bp-charcoal);color:var(--bp-paper);margin-top:48px;padding:24px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
 .footer-name{font-family:var(--serif-sc);font-size:18px;color:var(--bp-paper);letter-spacing:.1em;}
 .footer-tag{font-family:var(--mono);font-size:10px;color:var(--bp-rule);letter-spacing:.12em;text-align:center;}
@@ -142,10 +184,108 @@ footer{border-top:2px solid var(--bp-rule);background:var(--bp-charcoal);color:v
   <div class="section-rule"></div>
 </div>
 
+{% if scout_meta and scout_series %}
+<div class="scout-edition">
+  <div class="scout-edition-title">Advanced Scout</div>
+  <div class="scout-edition-sub">Wednesday Edition · Weekend Series{% if scout_meta.covered_display %}: {{ scout_meta.covered_display }}{% endif %}</div>
+  {% if scout_series | selectattr('is_thursday_start') | list %}
+  <div class="scout-edition-note">Some series begin Thursday and carry into the weekend slate.</div>
+  {% endif %}
+</div>
+
+<div class="scout-grid">
+  {% for s in scout_series %}
+  <div class="scout-card">
+    <div class="scout-card-hdr">
+      <div class="scout-card-title">{{ s.away_team_name }} @ {{ s.home_team_name }}</div>
+      <div class="scout-card-sub">
+        {{ s.date_range_display }} · {{ s.game_count }} game{{ 's' if s.game_count != 1 else '' }}
+        {% if s.is_four_game_series %} · Thursday–Sunday series
+        {% elif s.is_thursday_start %} · Thursday start
+        {% endif %}
+      </div>
+      {% if s.badges %}
+      <div class="scout-badges">
+        {% for b in s.badges %}<div class="scout-badge">{{ b }}</div>{% endfor %}
+      </div>
+      {% endif %}
+    </div>
+
+    {% if s.barrel_proof_read %}
+    <div class="scout-section">
+      <div class="scout-section-title">Barrel Proof Read</div>
+      <div class="scout-read">{{ s.barrel_proof_read }}</div>
+    </div>
+    {% endif %}
+
+    <div class="scout-section">
+      <div class="scout-section-title">Game Schedule</div>
+      <div class="scout-games">
+        {% for g in s.games %}
+        <div>{{ g.date_display }} — {{ g.away_team }} @ {{ g.home_team }} —
+          {% set ap = g.probable_away_pitcher %}{% set hp = g.probable_home_pitcher %}
+          {% if ap and ap != 'TBD' and hp and hp != 'TBD' %}{{ ap }} vs {{ hp }}
+          {% elif ap and ap != 'TBD' %}{{ ap }} probable
+          {% elif hp and hp != 'TBD' %}{{ hp }} probable
+          {% else %}Probables TBD{% endif %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% set pp = s.pitching_path %}
+    <div class="scout-section">
+      <div class="scout-section-title">Pitching Path</div>
+      {% if pp and (pp.rotation_edge or pp.volatility_note) %}
+        {% if pp.rotation_edge %}<div class="scout-text-line">{{ pp.rotation_edge }}</div>{% endif %}
+        {% if pp.volatility_note %}<div class="scout-text-line">{{ pp.volatility_note }}</div>{% endif %}
+      {% else %}
+        <div class="scout-text-line">Pitching path still developing.</div>
+      {% endif %}
+    </div>
+
+    {% set lm = s.lineup_matchup %}
+    {% if lm and (lm.away_pressure or lm.home_pressure or lm.power_bats or lm.contact_bats) %}
+    <div class="scout-section">
+      <div class="scout-section-title">Lineup Matchup</div>
+      {% if lm.away_pressure %}<div class="scout-text-line">{{ lm.away_pressure }}</div>{% endif %}
+      {% if lm.home_pressure %}<div class="scout-text-line">{{ lm.home_pressure }}</div>{% endif %}
+      {% if lm.power_bats %}<div class="scout-text-line">Power bats: {{ lm.power_bats | join(', ') }}</div>{% endif %}
+      {% if lm.contact_bats %}<div class="scout-text-line">Contact bats: {{ lm.contact_bats | join(', ') }}</div>{% endif %}
+    </div>
+    {% endif %}
+
+    {% if s.players_who_tilt_series %}
+    <div class="scout-section">
+      <div class="scout-section-title">Players Who Tilt This Series</div>
+      <div class="scout-tilt">
+        {% for p in s.players_who_tilt_series %}
+        <div class="scout-tilt-item">
+          {% if p.slug %}<a href="/player/{{ p.slug }}">{{ p.name }}</a>{% else %}{{ p.name }}{% endif %}
+          <span class="scout-tilt-tag"> · {{ p.tag }}</span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+    {% if s.fantasy_dfs_watch %}
+    <div class="scout-section">
+      <div class="scout-section-title">Fantasy / DFS Series Watch</div>
+      <ul class="scout-dfs">
+        {% for note in s.fantasy_dfs_watch %}<li>{{ note }}</li>{% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+  </div>
+  {% endfor %}
+</div>
+{% else %}
 <div class="scout-body">
   <div class="scout-subhead">Series previews. Pitching matchups. Scout notebook.</div>
-  <p class="scout-text">Advance Scout editions publish Sunday and Wednesday. The next edition is in preparation.</p>
+  <p class="scout-empty">Advanced Scout data is not available yet.</p>
 </div>
+{% endif %}
 
 <footer>
   <div class="footer-name">Barrel Proof</div>

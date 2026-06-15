@@ -1673,9 +1673,55 @@ def archive_index():
 def advance_scout():
     from datetime import datetime
     edition_date = datetime.now().strftime("%-B %-d, %Y EDITION").upper()
+
+    scout_data = load_json("advanced_scout.json", fallback=None)
+    scout_meta = None
+    scout_series = []
+    if scout_data and isinstance(scout_data, dict):
+        scout_meta = scout_data.get("meta")
+        scout_series = scout_data.get("series", []) or []
+
+        for s in scout_series:
+            for g in s.get("games", []):
+                try:
+                    g["date_display"] = datetime.strptime(g["date"], "%Y-%m-%d").strftime("%a %b %-d")
+                except Exception:
+                    g["date_display"] = g.get("date", "")
+
+            badges = []
+            if s.get("is_four_game_series"):
+                badges.append("4-Game Series")
+            if s.get("is_thursday_start"):
+                badges.append("Thursday Start")
+            dates = [g.get("date") for g in s.get("games", [])]
+            if len(set(dates)) != len(dates) or (dates and (max(dates) != s.get("end_date") or min(dates) != s.get("start_date"))):
+                badges.append("Irregular Schedule")
+            probables = [g.get("probable_away_pitcher") for g in s.get("games", [])] + [g.get("probable_home_pitcher") for g in s.get("games", [])]
+            if probables and all(p in (None, "TBD", "") for p in probables):
+                badges.append("Limited Probables")
+            s["badges"] = badges
+
+            try:
+                start_disp = datetime.strptime(s["start_date"], "%Y-%m-%d").strftime("%b %-d")
+                end_disp = datetime.strptime(s["end_date"], "%Y-%m-%d").strftime("%-d")
+                s["date_range_display"] = f"{start_disp}–{end_disp}"
+            except Exception:
+                s["date_range_display"] = f"{s.get('start_date','')} – {s.get('end_date','')}"
+
+        if scout_meta and scout_meta.get("covered_dates"):
+            try:
+                cov = scout_meta["covered_dates"]
+                start_disp = datetime.strptime(cov[0], "%Y-%m-%d").strftime("%B %-d")
+                end_disp = datetime.strptime(cov[-1], "%Y-%m-%d").strftime("%-d, %Y")
+                scout_meta["covered_display"] = f"{start_disp}–{end_disp}"
+            except Exception:
+                scout_meta["covered_display"] = ""
+
     return render_template("advance_scout.html",
         edition_date=edition_date,
         scout_notes=[],
+        scout_meta=scout_meta,
+        scout_series=scout_series,
     )
 
 @app.route("/al-nl")
