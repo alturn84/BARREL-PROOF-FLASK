@@ -941,15 +941,30 @@ Write the raw headline text only. Do not include any other words, explanations, 
 
         try:
             hl_response = client.models.generate_content(
-                model="gemini-2.5-flash",
+                model=GEMINI_MODEL,
                 contents=headline_prompt,
                 config=types.GenerateContentConfig(
                     max_output_tokens=512,
                 ),
             )
-            headline = hl_response.text.strip().strip('"').strip("'")
-            print(f"  DEBUG headline raw: {repr(headline[:200])}", flush=True)
-            if 3 <= len(headline.split()) <= 12 and len(headline) <= 80:
+            raw_text = hl_response.text or ""
+            print(f"  DEBUG headline raw: {repr(raw_text[:300])}", flush=True)
+            lines = [line.strip().strip('"').strip("'").strip() for line in raw_text.split("\n") if line.strip()]
+            good_lines = []
+            for line in lines:
+                lower_line = line.lower()
+                if any(x in lower_line for x in ["idea", "word", "comment", "tight", "count", "*", "headline:"]):
+                    continue
+                words = line.split()
+                if 3 <= len(words) <= 15:
+                    good_lines.append(line)
+            if good_lines:
+                headline = good_lines[0]
+            else:
+                headline = lines[0] if lines else ""
+                
+            headline = headline.strip('"').strip("'")
+            if 3 <= len(headline.split()) <= 15 and len(headline) <= 100:
                 print(f"  ✓ Generated headline: {headline}", flush=True)
                 return expanded, headline
             else:
