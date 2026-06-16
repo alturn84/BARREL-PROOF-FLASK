@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-06-15T22:25:15Z",
+    "generated_at": "2026-06-16T01:02:22Z",
     "date": "2026-06-15",
     "season": 2026,
     "source": "Barrel Proof player signal stack",
@@ -16,8 +16,8 @@
       "away_team_name": "Tampa Bay Rays",
       "home_team_name": "Los Angeles Dodgers",
       "venue": null,
-      "lineup_source": "mixed",
-      "away_lineup_source": "projected_lineup",
+      "lineup_source": "confirmed_lineup",
+      "away_lineup_source": "confirmed_lineup",
       "home_lineup_source": "confirmed_lineup",
       "probable_pitchers": {
         "away": {
@@ -1477,8 +1477,8 @@
       "away_team_name": "Pittsburgh Pirates",
       "home_team_name": "Oakland Athletics",
       "venue": null,
-      "lineup_source": "mixed",
-      "away_lineup_source": "projected_lineup",
+      "lineup_source": "confirmed_lineup",
+      "away_lineup_source": "confirmed_lineup",
       "home_lineup_source": "confirmed_lineup",
       "probable_pitchers": {
         "away": {
@@ -1524,39 +1524,6 @@
             "Balanced Producer"
           ],
           "note": "Bryan Reynolds profile flagged for today's matchup."
-        },
-        {
-          "slug": "oneil-cruz",
-          "full_name": "Oneil Cruz",
-          "team_abbr": "PIT",
-          "position": "CF",
-          "bats": "L",
-          "power_signal": 95,
-          "contact_signal": 53,
-          "luck_gap_points": -1,
-          "hitter_profile_type": "Volatile Slugger",
-          "confidence": "HIGH",
-          "tags": [
-            "Power Watch",
-            "DFS Watch"
-          ],
-          "note": "Oneil Cruz brings strong power indicators."
-        },
-        {
-          "slug": "marcell-ozuna",
-          "full_name": "Marcell Ozuna",
-          "team_abbr": "PIT",
-          "position": "DH",
-          "bats": "R",
-          "power_signal": 50,
-          "contact_signal": 20,
-          "luck_gap_points": 45,
-          "hitter_profile_type": "Watch List",
-          "confidence": "HIGH",
-          "tags": [
-            "DFS Watch"
-          ],
-          "note": "Marcell Ozuna expected production is running ahead of current results."
         }
       ],
       "home_bats_to_watch": [
@@ -1646,12 +1613,10 @@
         }
       ],
       "away_lineup_pressure": {
-        "power_score": 71,
-        "contact_score": 49,
+        "power_score": 68,
+        "contact_score": 73,
         "profile": "Moderate lineup pressure",
-        "notes": [
-          "Multiple high-signal bats are clustered in this lineup: Oneil Cruz, Marcell Ozuna."
-        ]
+        "notes": []
       },
       "home_lineup_pressure": {
         "power_score": 72,
@@ -1663,7 +1628,6 @@
       },
       "pitcher_edges": [],
       "fantasy_watch": [
-        "Power Watch: Oneil Cruz brings elite power indicators into today's matchup.",
         "Power Watch: Nick Kurtz brings elite power indicators into today's matchup."
       ],
       "matchup_notes": [

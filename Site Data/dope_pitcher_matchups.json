@@ -1,7 +1,7 @@
 {
   "meta": {
     "date": "2026-06-15",
-    "generated_at": "2026-06-15T22:25:15Z",
+    "generated_at": "2026-06-16T01:02:22Z",
     "source": "Barrel Proof pitcher/player signals",
     "game_count": 10
   },
@@ -381,16 +381,10 @@
         "summary": "J.T. Ginn has been volatile."
       },
       "away_lineup_vs_home_pitcher": {
-        "lineup_source": "projected_lineup",
-        "pressure_read": "Balanced Pressure",
-        "danger_bats": [
-          {
-            "name": "Oneil Cruz",
-            "slug": "oneil-cruz",
-            "tag": "Power Threat"
-          }
-        ],
-        "summary": "Balanced Pressure \u2014 watch for Oneil Cruz."
+        "lineup_source": "confirmed_lineup",
+        "pressure_read": "Limited Read",
+        "danger_bats": [],
+        "summary": "Insufficient hitter signal data for this lineup."
       },
       "home_lineup_vs_away_pitcher": {
         "lineup_source": "confirmed_lineup",
@@ -399,8 +393,7 @@
         "summary": "Insufficient hitter signal data for this lineup."
       },
       "game_pitching_read": [
-        "PIT starter has strikeout upside.",
-        "PIT projected lineup creates balanced pressure."
+        "PIT starter has strikeout upside."
       ]
     },
     {
@@ -432,26 +425,10 @@
         "summary": "Eric Lauer low strikeout ceiling, carries power risk."
       },
       "away_lineup_vs_home_pitcher": {
-        "lineup_source": "projected_lineup",
-        "pressure_read": "Balanced Pressure",
-        "danger_bats": [
-          {
-            "name": "Jonathan Aranda",
-            "slug": "jonathan-aranda",
-            "tag": "Power Threat"
-          },
-          {
-            "name": "Junior Caminero",
-            "slug": "junior-caminero",
-            "tag": "Power Threat"
-          },
-          {
-            "name": "Yandy D\u00edaz",
-            "slug": "yandy-diaz",
-            "tag": "Contact Threat"
-          }
-        ],
-        "summary": "Balanced Pressure \u2014 watch for Jonathan Aranda, Junior Caminero, Yandy D\u00edaz."
+        "lineup_source": "confirmed_lineup",
+        "pressure_read": "Limited Read",
+        "danger_bats": [],
+        "summary": "Insufficient hitter signal data for this lineup."
       },
       "home_lineup_vs_away_pitcher": {
         "lineup_source": "confirmed_lineup",
@@ -460,8 +437,7 @@
         "summary": "Insufficient hitter signal data for this lineup."
       },
       "game_pitching_read": [
-        "LAD starter has power risk.",
-        "TB projected lineup creates balanced pressure."
+        "LAD starter has power risk."
       ]
     }
   ]

@@ -1,14 +1,14 @@
 {
   "meta": {
-    "date": "2026-06-15",
-    "generated_at": "2026-06-15T23:24:42Z",
+    "date": "2026-06-16",
+    "generated_at": "2026-06-16T01:08:25Z",
     "season": 2026,
     "source": "pybaseball/statcast",
     "data_quality": "available",
-    "pitcher_count": 25,
-    "hitter_count": 57,
-    "pitcher_available": 24,
-    "hitter_available": 57
+    "pitcher_count": 27,
+    "hitter_count": 55,
+    "pitcher_available": 26,
+    "hitter_available": 55
   },
   "pitchers": {
     "ryan-gusto": {
@@ -1192,6 +1192,132 @@
       },
       "primary_shape": "Fastball/Breaking",
       "summary": "Eric Lauer works primarily from a fastball/breaking-ball mix. The Four-Seam Fastball is the primary weapon at 46% usage, sitting 90.7 mph. The Cutter (18%) is the key secondary."
+    },
+    "sean-manaea": {
+      "name": "Sean Manaea",
+      "slug": "sean-manaea",
+      "team": "",
+      "throws": "",
+      "sample": {
+        "pitches": 860,
+        "date_range": "2026-03-29 to 2026-06-13"
+      },
+      "arsenal": [
+        {
+          "pitch": "FF",
+          "label": "Four-Seam Fastball",
+          "family": "Fastball",
+          "usage_pct": 37.2,
+          "whiff_pct": 18.1,
+          "avg_velocity": 90.3
+        },
+        {
+          "pitch": "ST",
+          "label": "Sweeper",
+          "family": "Breaking",
+          "usage_pct": 32.2,
+          "whiff_pct": 29.9,
+          "avg_velocity": 74.9
+        },
+        {
+          "pitch": "SI",
+          "label": "Sinker",
+          "family": "Fastball",
+          "usage_pct": 18.7,
+          "whiff_pct": 10.1,
+          "avg_velocity": 90.1
+        },
+        {
+          "pitch": "FC",
+          "label": "Cutter",
+          "family": "Fastball",
+          "usage_pct": 7.0,
+          "whiff_pct": 33.3,
+          "avg_velocity": 84.1
+        },
+        {
+          "pitch": "CH",
+          "label": "Changeup",
+          "family": "Offspeed",
+          "usage_pct": 4.9,
+          "whiff_pct": 20.0,
+          "avg_velocity": 83.1
+        }
+      ],
+      "family_mix": {
+        "Offspeed": 4.9,
+        "Fastball": 62.9,
+        "Breaking": 32.2
+      },
+      "primary_shape": "Fastball/Breaking",
+      "summary": "Sean Manaea works primarily from a fastball/breaking-ball mix. The Four-Seam Fastball is the primary weapon at 37% usage, sitting 90.3 mph. The Sweeper (32%) is the key secondary."
+    },
+    "freddy-peralta": {
+      "name": "Freddy Peralta",
+      "slug": "freddy-peralta",
+      "team": "",
+      "throws": "",
+      "sample": {
+        "pitches": 1349,
+        "date_range": "2026-04-01 to 2026-06-14"
+      },
+      "arsenal": [
+        {
+          "pitch": "FF",
+          "label": "Four-Seam Fastball",
+          "family": "Fastball",
+          "usage_pct": 53.4,
+          "whiff_pct": 19.3,
+          "avg_velocity": 93.9
+        },
+        {
+          "pitch": "CH",
+          "label": "Changeup",
+          "family": "Offspeed",
+          "usage_pct": 23.7,
+          "whiff_pct": 26.6,
+          "avg_velocity": 87.3
+        },
+        {
+          "pitch": "CU",
+          "label": "Curveball",
+          "family": "Breaking",
+          "usage_pct": 12.4,
+          "whiff_pct": 31.6,
+          "avg_velocity": 79.7
+        },
+        {
+          "pitch": "SL",
+          "label": "Slider",
+          "family": "Breaking",
+          "usage_pct": 7.6,
+          "whiff_pct": 40.0,
+          "avg_velocity": 82.8
+        },
+        {
+          "pitch": "ST",
+          "label": "Sweeper",
+          "family": "Breaking",
+          "usage_pct": 2.0,
+          "whiff_pct": 31.2,
+          "avg_velocity": 82.3
+        },
+        {
+          "pitch": "CS",
+          "label": "Slow Curve",
+          "family": "Breaking",
+          "usage_pct": 1.0,
+          "whiff_pct": 20.0,
+          "avg_velocity": 75.2
+        }
+      ],
+      "family_mix": {
+        "Offspeed": 23.7,
+        "Breaking": 22.9,
+        "Fastball": 53.4
+      },
+      "primary_shape": "Fastball/Offspeed",
+      "summary": "Freddy Peralta pairs fastball velocity with offspeed timing. The Four-Seam Fastball is the primary weapon at 53% usage, sitting 93.9 mph. The Changeup (24%) is the key secondary."
     },
     "matthew-liberatore": {
       "name": "Matthew Liberatore",
@@ -3171,72 +3297,6 @@
       "best_family": "Fastball",
       "risk_family": "Breaking",
       "summary": "Bryan Reynolds fits best in fastball-heavy matchups. The risk spot is breaking \u2014 chase vulnerability goes up when pitchers work that family."
-    },
-    "oneil-cruz": {
-      "name": "Oneil Cruz",
-      "slug": "oneil-cruz",
-      "team": "PIT",
-      "bats": "L",
-      "sample": {
-        "pitches": 1130,
-        "date_range": "2026-03-28 to 2026-06-06"
-      },
-      "pitch_family_profile": {
-        "Fastball": {
-          "damage": "neutral",
-          "contact": "neutral",
-          "pitches": 558,
-          "summary": "Oneil Cruz profiles as a neutral bat against fastball pitching."
-        },
-        "Breaking": {
-          "damage": "risk",
-          "contact": "risk",
-          "pitches": 374,
-          "summary": "Oneil Cruz carries swing-and-miss risk against breaking pitching \u2014 chase vulnerability is elevated."
-        },
-        "Offspeed": {
-          "damage": "risk",
-          "contact": "risk",
-          "pitches": 198,
-          "summary": "Oneil Cruz carries swing-and-miss risk against offspeed pitching \u2014 chase vulnerability is elevated."
-        }
-      },
-      "best_family": "Fastball",
-      "risk_family": "Breaking",
-      "summary": "Oneil Cruz fits best in fastball-heavy matchups. The risk spot is breaking \u2014 chase vulnerability goes up when pitchers work that family."
-    },
-    "marcell-ozuna": {
-      "name": "Marcell Ozuna",
-      "slug": "marcell-ozuna",
-      "team": "PIT",
-      "bats": "R",
-      "sample": {
-        "pitches": 888,
-        "date_range": "2026-03-28 to 2026-06-11"
-      },
-      "pitch_family_profile": {
-        "Fastball": {
-          "damage": "strong",
-          "contact": "strong",
-          "pitches": 514,
-          "summary": "Marcell Ozuna makes consistent contact and finds damage lanes against fastball pitching."
-        },
-        "Breaking": {
-          "damage": "risk",
-          "contact": "risk",
-          "pitches": 247,
-          "summary": "Marcell Ozuna carries swing-and-miss risk against breaking pitching \u2014 chase vulnerability is elevated."
-        },
-        "Offspeed": {
-          "damage": "risk",
-          "contact": "risk",
-          "pitches": 127,
-          "summary": "Marcell Ozuna carries swing-and-miss risk against offspeed pitching \u2014 chase vulnerability is elevated."
-        }
-      },
-      "best_family": "Fastball",
-      "risk_family": "Breaking",
-      "summary": "Marcell Ozuna finds the damage lane against fastball pitching. The risk spot is breaking \u2014 chase vulnerability goes up when pitchers work that family."
     },
     "nick-kurtz": {
       "name": "Nick Kurtz",
