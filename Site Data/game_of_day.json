@@ -1,126 +1,128 @@
 {
-  "date": "2026-06-14",
-  "date_display": "Sunday, June 14, 2026",
-  "updated": "2026-06-15 10:20",
+  "date": "2026-06-15",
+  "date_display": "Monday, June 15, 2026",
+  "updated": "2026-06-16 10:16",
   "game": {
-    "away": "ATL",
-    "home": "NYM",
-    "away_runs": 1,
-    "home_runs": 8,
+    "away": "COL",
+    "home": "CHC",
+    "away_runs": 4,
+    "home_runs": 5,
     "innings": 9,
-    "raw_score": 72.0,
+    "raw_score": 117.0,
     "flags": [
-      "PLAYOFF IMPLICATIONS",
-      "DIVISION MATCHUP",
-      "NYM HOME GAME",
-      "RIVALRY GAME"
+      "CYCLE: Pete Crow-Armstrong",
+      "WALK-OFF WIN",
+      "ONE-RUN GAME",
+      "CHC HOME GAME"
     ],
-    "winner": "NYM",
-    "loser": "ATL",
-    "margin": 7,
+    "winner": "CHC",
+    "loser": "COL",
+    "margin": 1,
     "total_runs": 9
   },
   "editorial": {
-    "headline": "Marcus Semien Powers Mets Past Braves in Huge Division Clash",
-    "subheadline": "New York Mets beats Atlanta Braves.",
-    "lead_angle": "Marcus Semien cleared the left-field wall in the very first frame, sparking a four-run explosion that carried the New York Mets to an 8-1 victory over the Atlanta Braves at Citi Field. Semien's blast instantly erased an early deficit and ignited a relentless Mets attack that kept the visitors on their heels all afternoon, securing a crucial win in this heated division rivalry.\n\nAtlanta grabbed a brief lead in the top of the first, but the advantage evaporated before Bryce Elder could record three outs. After Semien’s solo shot tied it, Bo Bichette singled and Juan Soto lined a sharp double to plate two more runners. Brett Baty followed with an RBI single, pushing the lead to four and putting the Braves in an early hole from which their lineup never recovered against a stubborn New York defense.\n\nA.J. Ewing finished the afternoon 3-for-5 with a home run and two runs batted in, putting the finishing touches on the division rivals with a late blast in the eighth. Freddy Peralta earned the victory with seven dominant innings, while Elder took the loss. The crucial division win keeps New York securely in the thick of the National League East race as the summer heat begins to test both pitching staffs.",
-    "reason": "Best game on today's slate."
+    "headline": "Pete Crow-Armstrong hits for the cycle.",
+    "subheadline": "Chicago Cubs wins as Pete Crow-Armstrong goes single, double, triple, homer.",
+    "lead_angle": "You don't see it often. Pete Crow-Armstrong completed the cycle for CHC in a COL 4, CHC 5 victory over COL. Single, double, triple, home run — the full tour of the bases.",
+    "reason": "Hitting for the cycle happens fewer than a dozen times a season league-wide."
   },
   "all_games": [
     {
       "rank": 1,
-      "away": "ATL",
-      "home": "NYM",
-      "away_runs": 1,
-      "home_runs": 8,
+      "away": "COL",
+      "home": "CHC",
+      "away_runs": 4,
+      "home_runs": 5,
       "innings": 9,
-      "raw_score": 72.0,
+      "raw_score": 117.0,
       "flags": [
-        "PLAYOFF IMPLICATIONS",
-        "DIVISION MATCHUP",
-        "NYM HOME GAME",
-        "RIVALRY GAME"
+        "CYCLE: Pete Crow-Armstrong",
+        "WALK-OFF WIN",
+        "ONE-RUN GAME",
+        "CHC HOME GAME"
       ],
       "selected": true
     },
     {
       "rank": 2,
-      "away": "COL",
+      "away": "PIT",
       "home": "ATH",
-      "away_runs": 23,
-      "home_runs": 9,
+      "away_runs": 2,
+      "home_runs": 11,
       "innings": 9,
-      "raw_score": 66.0,
+      "raw_score": 56.0,
       "flags": [
         "PLAYOFF IMPLICATIONS",
-        "MULTI-HR: Willi Castro (2 HR)",
-        "BIG RBI GAME: Willi Castro (7 RBI)",
-        "HIGH-SCORING (32 runs)"
+        "MULTI-HR: Nick Kurtz (2 HR)",
+        "BIG RBI GAME: Nick Kurtz (5 RBI)"
       ],
       "selected": false
     },
     {
       "rank": 3,
-      "away": "TEX",
-      "home": "BOS",
-      "away_runs": 6,
+      "away": "TB",
+      "home": "LAD",
+      "away_runs": 3,
       "home_runs": 4,
       "innings": 9,
-      "raw_score": 54.0,
+      "raw_score": 49.0,
       "flags": [
+        "ONE-RUN GAME",
         "PLAYOFF IMPLICATIONS",
-        "MULTI-HR: Willson Contreras (2 HR)",
-        "BOS HOME GAME"
+        "LAD HOME GAME"
       ],
       "selected": false
     },
     {
       "rank": 4,
-      "away": "LAD",
-      "home": "CWS",
-      "away_runs": 4,
-      "home_runs": 6,
+      "away": "DET",
+      "home": "HOU",
+      "away_runs": 9,
+      "home_runs": 3,
       "innings": 9,
-      "raw_score": 50.0,
+      "raw_score": 46.0,
       "flags": [
-        "FIRST-PLACE CLASH",
-        "PLAYOFF IMPLICATIONS"
+        "MULTI-HR: Colt Keith (3 HR)",
+        "BIG RBI GAME: Colt Keith (6 RBI)",
+        "HOU HOME GAME"
       ],
       "selected": false
     },
     {
       "rank": 5,
-      "away": "NYY",
-      "home": "TOR",
-      "away_runs": 8,
-      "home_runs": 3,
+      "away": "NYM",
+      "home": "CIN",
+      "away_runs": 0,
+      "home_runs": 12,
       "innings": 9,
-      "raw_score": 40.0,
+      "raw_score": 42.0,
       "flags": [
-        "PLAYOFF IMPLICATIONS",
-        "DIVISION MATCHUP"
+        "MULTI-HR: Eugenio Suárez (2 HR)",
+        "BIG RBI GAME: Eugenio Suárez (6 RBI)",
+        "SB SPREE (3)"
       ],
       "selected": false
     },
     {
       "rank": 6,
-      "away": "SEA",
-      "home": "WSH",
-      "away_runs": 1,
-      "home_runs": 10,
+      "away": "MIA",
+      "home": "PHI",
+      "away_runs": 0,
+      "home_runs": 7,
       "innings": 9,
-      "raw_score": 22.0,
+      "raw_score": 30.0,
       "flags": [
-        "PLAYOFF IMPLICATIONS"
+        "DIVISION MATCHUP",
+        "PHI HOME GAME"
       ],
       "selected": false
     },
     {
       "rank": 7,
-      "away": "PHI",
-      "home": "MIL",
-      "away_runs": 0,
-      "home_runs": 4,
+      "away": "MIN",
+      "home": "TEX",
+      "away_runs": 4,
+      "home_runs": 2,
       "innings": 9,
       "raw_score": 22.0,
       "flags": [
@@ -130,37 +132,23 @@
     },
     {
       "rank": 8,
-      "away": "TB",
-      "home": "LAA",
-      "away_runs": 8,
+      "away": "SD",
+      "home": "STL",
+      "away_runs": 0,
       "home_runs": 3,
       "innings": 9,
-      "raw_score": 22.0,
+      "raw_score": 18.0,
       "flags": [
-        "PLAYOFF IMPLICATIONS"
+        "DOMINANT START: Dustin May (9.0 IP, 0 ER, 9 K)"
       ],
       "selected": false
     },
     {
       "rank": 9,
-      "away": "CHC",
-      "home": "SF",
-      "away_runs": 1,
-      "home_runs": 5,
-      "innings": 9,
-      "raw_score": 20.0,
-      "flags": [
-        "SB SPREE (3)",
-        "SF HOME GAME"
-      ],
-      "selected": false
-    },
-    {
-      "rank": 10,
-      "away": "STL",
-      "home": "MIN",
-      "away_runs": 4,
-      "home_runs": 5,
+      "away": "LAA",
+      "home": "AZ",
+      "away_runs": 3,
+      "home_runs": 4,
       "innings": 9,
       "raw_score": 15.0,
       "flags": [
@@ -169,46 +157,11 @@
       "selected": false
     },
     {
-      "rank": 11,
-      "away": "HOU",
-      "home": "KC",
-      "away_runs": 0,
-      "home_runs": 4,
-      "innings": 9,
-      "raw_score": 8.0,
-      "flags": [
-        "SB SPREE (4)"
-      ],
-      "selected": false
-    },
-    {
-      "rank": 12,
-      "away": "MIA",
-      "home": "PIT",
-      "away_runs": 4,
-      "home_runs": 2,
-      "innings": 9,
-      "raw_score": 0.0,
-      "flags": [],
-      "selected": false
-    },
-    {
-      "rank": 13,
-      "away": "SD",
-      "home": "BAL",
-      "away_runs": 5,
-      "home_runs": 2,
-      "innings": 9,
-      "raw_score": 0.0,
-      "flags": [],
-      "selected": false
-    },
-    {
-      "rank": 14,
-      "away": "AZ",
-      "home": "CIN",
-      "away_runs": 5,
-      "home_runs": 3,
+      "rank": 10,
+      "away": "KC",
+      "home": "WSH",
+      "away_runs": 3,
+      "home_runs": 7,
       "innings": 9,
       "raw_score": 0.0,
       "flags": [],
