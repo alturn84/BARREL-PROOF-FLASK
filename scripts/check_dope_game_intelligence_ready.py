@@ -11,10 +11,29 @@ PATH = BASE_DIR / "Site Data" / "dope_game_intelligence.json"
 BAD_STRINGS = {"nan", "inf", "-inf", "undefined", "none"}
 
 REQUIRED_GAME_KEYS = {
-    "away_team", "home_team", "game_read", "lineup_read", "pitching_read",
+    "away_team", "home_team", "game_read", "game_report", "lineup_read", "pitching_read",
     "bullpen_read", "environment_read", "players_who_tilt_game",
     "fantasy_dfs_watch", "betting_props_watch", "data_basis",
 }
+
+REQUIRED_GAME_REPORT_KEYS = {
+    "game_shape", "pitching_arsenal_read", "away_lineup_path",
+    "home_lineup_path", "bullpen_environment_read", "fantasy_dfs_props_watch",
+}
+
+FASTBALL_EDGE_LABELS = {"Fastball Damage", "Handles Fastballs", "Contact Path"}
+FASTBALL_EDGE_CAP = 3
+
+BANNED_PHRASES = [
+    "poised to", "set to", "showcase", "battle", "clash",
+    "will look to", "only time will tell", "it remains to be seen",
+    "both teams are looking to", "intriguing matchup",
+    "exciting contest", "highly anticipated",
+]
+BANNED_BET = [
+    "lock", "guaranteed", "free money", "must bet", "bet this",
+    "smash spot", "can't miss", "easy money", "automatic", "hammer", "wager",
+]
 
 
 def fail(msg):
@@ -67,6 +86,15 @@ def main():
     if meta["game_count"] != len(games):
         fail(f"meta.game_count ({meta['game_count']}) != len(games) ({len(games)})")
 
+    all_text = json.dumps(data)
+    all_lower = all_text.lower()
+    for phrase in BANNED_PHRASES:
+        if phrase in all_lower:
+            fail(f"banned phrase found: '{phrase}'")
+    for word in BANNED_BET:
+        if word in all_lower:
+            fail(f"banned betting word found: '{word}'")
+
     for game_id, g in games.items():
         missing = REQUIRED_GAME_KEYS - set(g.keys())
         if missing:
@@ -74,6 +102,29 @@ def main():
 
         if not g["game_read"] or not isinstance(g["game_read"], str):
             fail(f"game {game_id} has empty/invalid game_read")
+
+        # game_report validation
+        gr = g.get("game_report")
+        if not isinstance(gr, dict):
+            fail(f"game {game_id} game_report must be a dict")
+        gr_missing = REQUIRED_GAME_REPORT_KEYS - set(gr.keys())
+        if gr_missing:
+            fail(f"game {game_id} game_report missing keys: {gr_missing}")
+        for key in ("game_shape", "pitching_arsenal_read", "away_lineup_path", "home_lineup_path", "bullpen_environment_read"):
+            if not gr.get(key) or not isinstance(gr[key], str):
+                fail(f"game {game_id} game_report.{key} is empty or invalid")
+        if not isinstance(gr.get("fantasy_dfs_props_watch"), list):
+            fail(f"game {game_id} game_report.fantasy_dfs_props_watch must be a list")
+
+        # Fastball edge cap check
+        ptm = g.get("pitch_type_matchup", {})
+        edges = ptm.get("hitters_with_edge", [])
+        fb_edge_count = sum(1 for e in edges if e.get("edge") in FASTBALL_EDGE_LABELS)
+        if fb_edge_count > FASTBALL_EDGE_CAP:
+            fail(
+                f"game {game_id} has {fb_edge_count} fastball-family edge labels "
+                f"(cap is {FASTBALL_EDGE_CAP})"
+            )
 
         for side in ("away", "home"):
             if side not in g["lineup_read"]:

@@ -763,66 +763,40 @@ function renderGameIntelligence(g){
   const playerLink=(name,slug)=>name?(slug?`<a href="/player/${slug}">${name}</a>`:name):null;
   const sub=[];
 
-  if(v(gi.game_read)){
-    sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Game Read</div><div class="matchup-line">${gi.game_read}</div></div>`);
+  // ── Game Report (primary reader section, data-driven scouting narrative) ──
+  const gr=gi.game_report||{};
+  if(v(gr.game_shape)){
+    sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Game Shape</div><div class="matchup-line">${gr.game_shape}</div></div>`);
+  }
+  if(v(gr.pitching_arsenal_read)){
+    sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Pitching Arsenal</div><div class="matchup-line">${gr.pitching_arsenal_read}</div></div>`);
+  }
+  if(v(gr.away_lineup_path)||v(gr.home_lineup_path)){
+    const awayLine=v(gr.away_lineup_path)?`<div class="matchup-line"><strong>${g.awayFull||gi.away_team}</strong>: ${gr.away_lineup_path}</div>`:'';
+    const homeLine=v(gr.home_lineup_path)?`<div class="matchup-line"><strong>${g.homeFull||gi.home_team}</strong>: ${gr.home_lineup_path}</div>`:'';
+    sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Lineup Paths</div>${awayLine}${homeLine}</div>`);
+  }
+  if(v(gr.bullpen_environment_read)){
+    sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Bullpen & Environment</div><div class="matchup-line">${gr.bullpen_environment_read}</div></div>`);
+  }
+  const grDfs=(gr.fantasy_dfs_props_watch||[]).filter(v);
+  if(grDfs.length){
+    sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Fantasy / DFS / Props</div><ul class="matchup-list">${grDfs.map(n=>`<li>${n}</li>`).join('')}</ul></div>`);
   }
 
-  const lr=gi.lineup_read||{};
-  const sideBlock=(label,side)=>{
-    if(!side)return'';
-    const bats=(side.key_bats||[]).map(b=>playerLink(v(b.name),b.slug)).filter(Boolean);
-    return `<div class="matchup-line"><strong>${label}</strong>: ${v(side.summary)||''}${bats.length?` — Key bats: ${bats.join(', ')}`:''}</div>`;
-  };
-  if(lr.away||lr.home){
-    sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Lineup Read${v(lr.matchup_shape)?` — ${lr.matchup_shape}`:''}</div>
-      ${sideBlock(g.awayFull||gi.away_team,lr.away)}
-      ${sideBlock(g.homeFull||gi.home_team,lr.home)}</div>`);
-  }
-
-  const pr=gi.pitching_read||{};
-  const starterBlock=(label,starter)=>{
-    if(!starter)return'';
-    return `<div class="matchup-line"><strong>${label}</strong>: ${v(starter.summary)||''} ${v(starter.watch)||''}</div>`;
-  };
-  if(pr.away_starter||pr.home_starter){
-    sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Pitching Path${v(pr.game_pitching_shape)?` — ${pr.game_pitching_shape}`:''}</div>
-      ${starterBlock(g.awayFull||gi.away_team,pr.away_starter)}
-      ${starterBlock(g.homeFull||gi.home_team,pr.home_starter)}
-      ${v(pr.starter_edge)?`<div class="matchup-line">${pr.starter_edge}</div>`:''}</div>`);
-  }
-
-  const bp=gi.bullpen_read||{};
-  if(v(bp.summary)){
-    sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Bullpen Read</div><div class="matchup-line">${bp.summary}</div>${v(bp.leverage_note)?`<div class="matchup-line">${bp.leverage_note}</div>`:''}</div>`);
-  }
-
-  const er=gi.environment_read||{};
-  if(v(er.summary)){
-    sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Game Environment${v(er.run_environment)?` — ${er.run_environment}`:''}</div><div class="matchup-line">${er.summary}</div></div>`);
-  }
-
+  // ── Pitch-Type Matchup (edge & risk details not covered in Game Report) ──
   const ptm=gi.pitch_type_matchup||{};
-  if(v(ptm.summary)){
+  if(v(ptm.summary)||(ptm.hitters_with_edge||[]).length||(ptm.hitters_at_risk||[]).length){
     const ptmSubs=[];
-    ptmSubs.push(`<div class="matchup-line">${ptm.summary}</div>`);
-    const pan=ptm.pitcher_arsenal_notes||{};
-    if(v(pan.away_starter)||v(pan.home_starter)){
-      const lines=[pan.away_starter,pan.home_starter].filter(v).map(n=>`<div class="matchup-line">${n}</div>`).join('');
-      ptmSubs.push(`<div class="matchup-subsection"><div class="matchup-subhead">Pitcher Arsenals</div>${lines}</div>`);
-    }
-    const lf=ptm.lineup_fit||{};
-    if(v(lf.away_vs_home_starter)||v(lf.home_vs_away_starter)){
-      const lines2=[lf.away_vs_home_starter,lf.home_vs_away_starter].filter(v).map(n=>`<div class="matchup-line">${n}</div>`).join('');
-      ptmSubs.push(`<div class="matchup-subsection"><div class="matchup-subhead">Lineup Fit</div>${lines2}</div>`);
-    }
     const edgeItems=(ptm.hitters_with_edge||[]).filter(p=>v(p.name)&&v(p.reason)).map(p=>`${playerLink(p.name,p.slug)||p.name} (${p.edge}) — ${p.reason}`);
     if(edgeItems.length) ptmSubs.push(`<div class="matchup-subsection"><div class="matchup-subhead">Pitch-Type Edge</div><ul class="matchup-list">${edgeItems.map(t=>`<li>${t}</li>`).join('')}</ul></div>`);
     const riskItems=(ptm.hitters_at_risk||[]).filter(p=>v(p.name)&&v(p.reason)).map(p=>`${playerLink(p.name,p.slug)||p.name} (${p.risk}) — ${p.reason}`);
     if(riskItems.length) ptmSubs.push(`<div class="matchup-subsection"><div class="matchup-subhead">Pitch-Type Risk</div><ul class="matchup-list">${riskItems.map(t=>`<li>${t}</li>`).join('')}</ul></div>`);
     if(v(ptm.data_quality)&&ptm.data_quality!=='available') ptmSubs.push(`<div class="matchup-line matchup-disclaimer">Pitch-type data quality: ${ptm.data_quality}</div>`);
-    sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Pitch-Type Matchup</div>${ptmSubs.join('')}</div>`);
+    if(ptmSubs.length) sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Pitch-Type Matchup</div>${ptmSubs.join('')}</div>`);
   }
 
+  // ── Players Who Tilt the Game ──
   const tilts=(gi.players_who_tilt_game||[]).map(p=>{
     const link=playerLink(v(p.name),p.slug);
     if(!link)return null;
@@ -830,11 +804,6 @@ function renderGameIntelligence(g){
   }).filter(Boolean);
   if(tilts.length){
     sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Players Who Tilt the Game</div><ul class="matchup-list">${tilts.map(t=>`<li>${t}</li>`).join('')}</ul></div>`);
-  }
-
-  const dfs=(gi.fantasy_dfs_watch||[]).filter(v);
-  if(dfs.length){
-    sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Fantasy / DFS Watch</div><ul class="matchup-list">${dfs.map(n=>`<li>${n}</li>`).join('')}</ul></div>`);
   }
 
   const props=(gi.betting_props_watch||[]).filter(v);

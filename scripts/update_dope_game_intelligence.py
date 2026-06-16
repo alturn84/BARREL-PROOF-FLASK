@@ -22,6 +22,9 @@ SCHEDULE_PATH = DATA_DIR / "schedule.json"
 
 OUTPUT_PATH = DATA_DIR / "dope_game_intelligence.json"
 PITCH_INTEL_PATH = DATA_DIR / "pitch_type_intelligence.json"
+HITTER_CARDS_PATH = DATA_DIR / "players" / "statcast_hitter_cards.json"
+
+FASTBALL_EDGE_LABELS = {"Fastball Damage", "Handles Fastballs", "Contact Path"}
 
 TEAM_ABBR_ALIASES = {"AZ": "ARI"}
 
@@ -532,8 +535,8 @@ def build_game_read(away_team_name, home_team_name, shape, pitching_shape, pitch
 # Pitch-type matchup (reads from pitch_type_intelligence.json)
 # ---------------------------------------------------------------------------
 
-def _ptm_edge_for_bat(hitter_profile, pitcher_profile):
-    """Return (edge_tag, reason) or (None, None) if no meaningful signal."""
+def _ptm_edge_for_bat(hitter_profile, pitcher_profile, hitter_slug, hitter_cards):
+    """Return (edge_tag, reason) or (None, None). Nuanced labels — fastball edge is earned."""
     if not hitter_profile or not pitcher_profile:
         return None, None
     best = hitter_profile.get("best_family", "Limited Data")
@@ -541,19 +544,61 @@ def _ptm_edge_for_bat(hitter_profile, pitcher_profile):
     if best == "Limited Data" or primary == "Limited Data":
         return None, None
 
-    family_to_shape_keywords = {
-        "Fastball": ("Fastball", "Fastball/Breaking", "Fastball/Offspeed"),
-        "Breaking": ("Breaking", "Fastball/Breaking", "Breaking-Heavy"),
-        "Offspeed": ("Offspeed", "Fastball/Offspeed"),
-    }
-    keywords = family_to_shape_keywords.get(best, ())
-    if any(k in primary for k in keywords):
-        edge_tag = f"{best} Fit"
-        reason = (
-            f"{hitter_profile['name']} profiles well against {primary.lower()} pitching — "
-            f"the {best.lower()} family is a stronger damage lane for this bat."
-        )
-        return edge_tag, reason
+    fam_profile = (hitter_profile.get("pitch_family_profile") or {}).get(best, {})
+    damage = fam_profile.get("damage", "neutral")
+    contact = fam_profile.get("contact", "neutral")
+    family_mix = pitcher_profile.get("family_mix", {})
+    name = hitter_profile.get("name", "")
+
+    if best == "Fastball":
+        fb_pct = family_mix.get("Fastball", 0)
+        # Only meaningful when pitcher actually relies on fastball family
+        if fb_pct < 35 or "Fastball" not in primary:
+            return None, None
+        card = hitter_cards.get(hitter_slug, {})
+        barrel_pct = card.get("barrel_pct") or 0
+        if damage == "strong" and barrel_pct >= 12:
+            reason = (
+                f"{name} punishes fastball pitching — {barrel_pct:.1f}% barrel rate with strong contact in the fastball family. "
+                f"The {primary.lower()} shape fits this damage profile."
+            )
+            return "Fastball Damage", reason
+        if damage == "strong" and barrel_pct >= 6:
+            reason = (
+                f"{name} handles fastball pitching and finds the damage lane — workable contact profile against the {primary.lower()} shape."
+            )
+            return "Handles Fastballs", reason
+        if contact == "strong" and damage != "strong":
+            reason = (
+                f"{name} makes consistent contact against fastball pitching — "
+                f"a contact-path profile against the {primary.lower()} shape, not a power advantage."
+            )
+            return "Contact Path", reason
+        return None, None
+
+    if best == "Breaking":
+        br_pct = family_mix.get("Breaking", 0)
+        if br_pct < 20 and "Breaking" not in primary:
+            return None, None
+        if damage == "strong" or contact == "strong":
+            reason = (
+                f"{name} handles breaking-ball pitching — "
+                f"the {primary.lower()} shape is a workable lane for this bat."
+            )
+            return "Breaking-Ball Discipline", reason
+        return None, None
+
+    if best == "Offspeed":
+        os_pct = family_mix.get("Offspeed", 0)
+        if os_pct < 15 and "Offspeed" not in primary:
+            return None, None
+        if damage == "strong" or contact == "strong":
+            reason = (
+                f"{name} recognizes offspeed pitching — finds the contact and damage lane when pitchers lean on that family."
+            )
+            return "Offspeed Recognition", reason
+        return None, None
+
     return None, None
 
 
@@ -592,6 +637,7 @@ def build_pitch_type_matchup(
     away_bats, home_bats,
     away_pitcher_slug, home_pitcher_slug,
     pitch_intel,
+    hitter_cards,
 ):
     """Build the pitch_type_matchup block for a game."""
     pitchers = pitch_intel.get("pitchers", {})
@@ -642,11 +688,12 @@ def build_pitch_type_matchup(
     away_lineup_fit = lineup_fit_note(away_bats, home_p, home_team_name, away_team_name)
     home_lineup_fit = lineup_fit_note(home_bats, away_p, away_team_name, home_team_name)
 
-    # Hitters with edge and at risk
+    # Hitters with edge and at risk — fastball-family edges capped at 3 per game
     edge_players = []
     risk_players = []
     seen_edge = set()
     seen_risk = set()
+    fastball_edge_count = 0
 
     for bat in away_bats + home_bats:
         slug = bat.get("slug", "")
@@ -657,22 +704,27 @@ def build_pitch_type_matchup(
         if not h:
             continue
 
-        # Edge: this batter vs opposing starter
         is_away = bat in away_bats
         opp_pitcher = home_p if is_away else away_p
         team_name = away_team_name if is_away else home_team_name
 
         if slug not in seen_edge:
-            edge_tag, edge_reason = _ptm_edge_for_bat(h, opp_pitcher)
+            edge_tag, edge_reason = _ptm_edge_for_bat(h, opp_pitcher, slug, hitter_cards)
             if edge_tag and edge_reason and len(edge_players) < 4:
-                edge_players.append({
-                    "name": name,
-                    "slug": slug,
-                    "team": team_name,
-                    "edge": edge_tag,
-                    "reason": edge_reason,
-                })
-                seen_edge.add(slug)
+                is_fb_edge = edge_tag in FASTBALL_EDGE_LABELS
+                if is_fb_edge and fastball_edge_count >= 3:
+                    pass  # cap reached — skip this fastball-family label
+                else:
+                    edge_players.append({
+                        "name": name,
+                        "slug": slug,
+                        "team": team_name,
+                        "edge": edge_tag,
+                        "reason": edge_reason,
+                    })
+                    seen_edge.add(slug)
+                    if is_fb_edge:
+                        fastball_edge_count += 1
 
         if slug not in seen_risk:
             risk_tag, risk_reason = _ptm_risk_for_bat(h, opp_pitcher)
@@ -731,6 +783,263 @@ def build_pitch_type_matchup(
 
 
 # ---------------------------------------------------------------------------
+# Game report (flowing scouting narrative)
+# ---------------------------------------------------------------------------
+
+def _format_pitcher_arsenal_prose(pitcher_profile):
+    """Convert arsenal data into a specific, number-driven prose sentence."""
+    if not pitcher_profile or pitcher_profile.get("primary_shape") == "Limited Data":
+        return None
+    name = pitcher_profile.get("name", "")
+    arsenal = pitcher_profile.get("arsenal") or []
+    if not arsenal:
+        return pitcher_profile.get("summary")
+
+    primary = arsenal[0]
+    primary_str = f"{primary['label']} ({int(round(primary['usage_pct']))}%, {primary['avg_velocity']:.1f}mph)"
+
+    secondary_parts = []
+    for p in arsenal[1:4]:
+        if p["usage_pct"] >= 8:
+            if p["whiff_pct"] >= 28:
+                secondary_parts.append(
+                    f"{p['label']} ({int(round(p['usage_pct']))}%, {int(round(p['whiff_pct']))}% whiff)"
+                )
+            else:
+                secondary_parts.append(f"{p['label']} ({int(round(p['usage_pct']))}%)")
+
+    if secondary_parts:
+        return f"{name}: {primary_str}, {', '.join(secondary_parts)}."
+    return f"{name}: {primary_str}."
+
+
+def _lineup_path_prose(team_name, bats, opp_pitcher_profile, hitters_intel, hitter_cards):
+    """Prose describing a team's lineup approach and pitch-type fit against the opposing starter."""
+    if not bats:
+        return f"{team_name}'s lineup signal is limited — no standout profiles cleared the bar."
+
+    power_bats = [b for b in bats if "Power Watch" in (b.get("tags") or [])]
+    contact_bats = [b for b in bats if "Contact Edge" in (b.get("tags") or [])]
+    buy_low = [b for b in bats if "Buy-Low Bat" in (b.get("tags") or [])]
+    opp_shape = (opp_pitcher_profile or {}).get("primary_shape", "")
+
+    parts = []
+
+    power_names = {b["full_name"] for b in power_bats}
+    if power_bats:
+        damage_names = []
+        handle_names = []
+        for b in power_bats[:2]:
+            slug = b.get("slug", "")
+            h = hitters_intel.get(slug, {})
+            card = hitter_cards.get(slug, {})
+            fb = (h.get("pitch_family_profile") or {}).get("Fastball", {})
+            barrel = card.get("barrel_pct") or 0
+            if fb.get("damage") == "strong" and barrel >= 12:
+                damage_names.append(b["full_name"])
+            elif fb.get("damage") == "strong" or fb.get("contact") == "strong":
+                handle_names.append(b["full_name"])
+        if damage_names:
+            n = ", ".join(damage_names)
+            verb = "bring" if len(damage_names) > 1 else "brings"
+            parts.append(
+                f"{n} {verb} genuine power-damage upside — "
+                f"{'bats' if len(damage_names) > 1 else 'a bat'} that {'punish' if len(damage_names) > 1 else 'punishes'} mistakes in the fastball window."
+            )
+        elif handle_names:
+            n = ", ".join(handle_names[:2])
+            parts.append(f"{n} give {team_name} a power pocket — workable contact profile, though not elite barrel production.")
+        else:
+            n = ", ".join(b["full_name"] for b in power_bats[:2])
+            verb = "carry" if len(power_bats[:2]) > 1 else "carries"
+            parts.append(f"{n} {verb} the power-pressure profile for {team_name}.")
+    else:
+        parts.append(f"{team_name} doesn't carry a clear power-pocket bat in today's signal pool.")
+
+    # Exclude bats already mentioned as power from the contact/traffic line
+    contact_only = [b for b in contact_bats if b["full_name"] not in power_names]
+    if contact_only:
+        names = ", ".join(b["full_name"] for b in contact_only[:2])
+        verb = "run" if len(contact_only[:2]) > 1 else "runs"
+        parts.append(f"{names} {verb} the traffic path — contact pressure and baserunners ahead of the middle of the order.")
+
+    if opp_shape and opp_shape != "Limited Data":
+        best_fits = []
+        for b in bats[:6]:
+            slug = b.get("slug", "")
+            h = hitters_intel.get(slug, {})
+            if not h or h.get("best_family") == "Limited Data":
+                continue
+            best = h["best_family"]
+            fam_p = (h.get("pitch_family_profile") or {}).get(best, {})
+            if fam_p.get("damage") == "strong" or fam_p.get("contact") == "strong":
+                if any(k in opp_shape for k in (best, best.split()[0])):
+                    best_fits.append(b["full_name"])
+        if best_fits:
+            parts.append(f"Pitch-type fit vs the {opp_shape.lower()} shape: {', '.join(best_fits[:2])}.")
+
+    if buy_low:
+        parts.append(
+            f"{buy_low[0]['full_name']} is a buy-low signal — expected production is running ahead of current results."
+        )
+
+    return " ".join(parts[:4])
+
+
+def build_game_report(
+    away_team_name, home_team_name,
+    away_bats, home_bats,
+    shape, pitching_note,
+    pitch_intel, away_pitcher_slug, home_pitcher_slug,
+    bp_read, env_read,
+    tilt_players,
+    hitters_intel, hitter_cards,
+):
+    """Build the flowing game_report block."""
+    pitchers = pitch_intel.get("pitchers", {})
+
+    away_p = pitchers.get(away_pitcher_slug) if away_pitcher_slug else None
+    home_p = pitchers.get(home_pitcher_slug) if home_pitcher_slug else None
+
+    # ── game_shape ────────────────────────────────────────────────────────
+    shape_openers = {
+        "Power Pressure": (
+            f"{away_team_name} at {home_team_name} is a power-pressure game — "
+            f"one mistake from either starter can become the separator."
+        ),
+        "Traffic Game": (
+            f"{away_team_name} at {home_team_name} runs on contact and baserunners — "
+            f"the scoring path goes through traffic, not the big swing."
+        ),
+        "Pitching-Controlled": (
+            f"{away_team_name} at {home_team_name} reads as a pitching-controlled game — "
+            f"neither lineup carries a standout pressure profile today."
+        ),
+        "Volatile Run Environment": (
+            f"{away_team_name} at {home_team_name} is an unpredictable run environment — "
+            f"both starters carry volatile profiles and this can tilt quickly."
+        ),
+    }
+    opener = shape_openers.get(
+        shape,
+        f"{away_team_name} at {home_team_name} is a balanced game — both sides have multiple paths to scoring.",
+    )
+
+    power_tilt = next((p for p in tilt_players if p["tag"] in ("Power Pressure", "Middle-Order Damage")), None)
+    anchor = next((p for p in tilt_players if p["tag"] == "Run Prevention Anchor"), None)
+    driver = ""
+    if power_tilt:
+        driver = (
+            f"The swing factor: if {power_tilt['name']} sees a fastball in the damage zone, "
+            f"the inning changes."
+        )
+    elif anchor:
+        driver = (
+            f"{anchor['name']} gives {anchor['team']} the cleaner run-prevention path — "
+            f"the other side needs to apply pressure before the starter settles."
+        )
+    elif bp_read.get("data_quality") == "fresh" and "fresher bullpen path" in bp_read.get("leverage_note", ""):
+        driver = bp_read["leverage_note"]
+
+    env_note = ""
+    run_env = env_read.get("run_environment", "")
+    if run_env == "Hitter Lean":
+        env_note = "The posted total reflects a hitter-friendly lean."
+    elif run_env == "Dome/Controlled":
+        park = env_read.get("park_note", "").replace(" is tonight's park.", "")
+        env_note = f"Controlled environment{' at ' + park if park else ''} — no weather variable to plan around."
+
+    game_shape_parts = [opener, pitching_note]
+    if driver:
+        game_shape_parts.append(driver)
+    if env_note:
+        game_shape_parts.append(env_note)
+    game_shape = " ".join(game_shape_parts[:4])
+
+    # ── pitching_arsenal_read ─────────────────────────────────────────────
+    away_prose = _format_pitcher_arsenal_prose(away_p)
+    home_prose = _format_pitcher_arsenal_prose(home_p)
+    if away_prose and home_prose:
+        pitching_arsenal_read = f"{away_prose} {home_prose}"
+    elif away_prose:
+        pitching_arsenal_read = f"{away_prose} {home_team_name} starter arsenal data is limited."
+    elif home_prose:
+        pitching_arsenal_read = f"{away_team_name} starter arsenal data is limited. {home_prose}"
+    else:
+        pitching_arsenal_read = "Pitch arsenal data is limited for this matchup."
+
+    # ── lineup paths ──────────────────────────────────────────────────────
+    away_lineup_path = _lineup_path_prose(away_team_name, away_bats, home_p, hitters_intel, hitter_cards)
+    home_lineup_path = _lineup_path_prose(home_team_name, home_bats, away_p, hitters_intel, hitter_cards)
+
+    # ── bullpen + environment ─────────────────────────────────────────────
+    bp_parts = []
+    lev = bp_read.get("leverage_note", "")
+    if lev and "Limited current" not in lev and "balanced" not in lev:
+        bp_parts.append(lev)
+    else:
+        away_st = bp_read.get("away_status", "")
+        home_st = bp_read.get("home_status", "")
+        if away_st and "Limited current" not in away_st:
+            bp_parts.append(away_st)
+        elif home_st and "Limited current" not in home_st:
+            bp_parts.append(home_st)
+
+    w_note = env_read.get("weather_note", "")
+    o_note = env_read.get("odds_note", "")
+    if w_note and "unavailable" not in w_note.lower():
+        bp_parts.append(w_note)
+    if o_note and "unavailable" not in o_note.lower():
+        bp_parts.append(o_note)
+
+    bullpen_environment_read = (
+        " ".join(bp_parts[:3]) if bp_parts
+        else "Bullpen and environment data are limited for this game."
+    )
+
+    # ── fantasy / DFS / props ─────────────────────────────────────────────
+    fdw = []
+    for p in tilt_players:
+        slug = p.get("slug", "")
+        tag = p["tag"]
+        name = p["name"]
+        team = p["team"]
+        card = hitter_cards.get(slug, {})
+        barrel = card.get("barrel_pct")
+        if tag in ("Power Pressure", "Middle-Order Damage"):
+            if barrel and barrel >= 12:
+                fdw.append(f"DFS Power: {name} ({team}) — {barrel:.1f}% barrel rate, genuine power-pocket threat.")
+            else:
+                fdw.append(f"DFS Power: {name} ({team}) — power-pressure profile worth tracking in stack builds.")
+        elif tag == "Contact Table-Setter":
+            fdw.append(f"OBP/Stack: {name} ({team}) — table-setter profile is a stack lead consideration.")
+        elif tag == "Buy-Low Signal":
+            fdw.append(f"Buy-Low: {name} ({team}) — expected production running ahead of current results.")
+        elif tag == "Run Prevention Anchor":
+            fdw.append(f"Pitcher Build: {name} ({team}) — clean run-prevention path, worth a profile check for pitching builds.")
+        elif tag == "Volatile Starter":
+            fdw.append(f"Pitcher Risk: {name} ({team}) — volatile profile, check before finalizing pitching builds.")
+        elif tag == "Traffic Starter":
+            fdw.append(f"Strikeout Watch: {name} ({team}) — swing-and-miss path is a build consideration.")
+
+    if run_env == "Dome/Controlled":
+        fdw.append("Environment: Controlled venue removes weather variance from DFS planning.")
+    elif run_env == "Hitter Lean":
+        fdw.append("Environment: Hitter-friendly total — worth tracking for stack consideration.")
+    elif run_env == "Pitcher Lean":
+        fdw.append("Environment: Pitcher-friendly total — worth tracking for pitching builds.")
+
+    return {
+        "game_shape": game_shape,
+        "pitching_arsenal_read": pitching_arsenal_read,
+        "away_lineup_path": away_lineup_path,
+        "home_lineup_path": home_lineup_path,
+        "bullpen_environment_read": bullpen_environment_read,
+        "fantasy_dfs_props_watch": fdw[:6],
+    }
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
@@ -746,6 +1055,7 @@ def main():
     odds_data = load_json(ODDS_PATH, fallback={})
     il_data = (load_json(TEAM_IL_PATH, fallback={}) or {}).get("teams", {})
     pitch_intel = load_json(PITCH_INTEL_PATH, fallback={"pitchers": {}, "hitters": {}})
+    hitter_cards = (load_json(HITTER_CARDS_PATH, fallback={}) or {}).get("players", {})
 
     pm_by_teams = {}
     for g in (player_matchups.get("games") or []):
@@ -853,16 +1163,30 @@ def main():
             away_bats, home_bats,
             away_pitcher_slug, home_pitcher_slug,
             pitch_intel,
+            hitter_cards,
         )
 
         # --- Game read ---
         game_read = build_game_read(away_team_name, home_team_name, shape, pitching_shape, pitching_note, tilt_players, bp_read)
+
+        # --- Game report (flowing scouting narrative) ---
+        hitters_intel = pitch_intel.get("hitters", {})
+        game_report = build_game_report(
+            away_team_name, home_team_name,
+            away_bats, home_bats,
+            shape, pitching_note,
+            pitch_intel, away_pitcher_slug, home_pitcher_slug,
+            bp_read, env_read,
+            tilt_players,
+            hitters_intel, hitter_cards,
+        )
 
         key = f"{away_abbr}-{home_abbr}-{game_date}"
         games_out[key] = {
             "away_team": away_abbr,
             "home_team": home_abbr,
             "game_read": game_read,
+            "game_report": game_report,
             "lineup_read": lineup_read,
             "pitching_read": pitching_read,
             "pitch_type_matchup": pitch_type_matchup,
