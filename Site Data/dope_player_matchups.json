@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-06-16T14:59:00Z",
+    "generated_at": "2026-06-16T21:17:53Z",
     "date": "2026-06-16",
     "season": 2026,
     "source": "Barrel Proof player signal stack",
@@ -239,9 +239,9 @@
       "away_team_name": "Miami Marlins",
       "home_team_name": "Philadelphia Phillies",
       "venue": null,
-      "lineup_source": "projected_lineup",
-      "away_lineup_source": "projected_lineup",
-      "home_lineup_source": "projected_lineup",
+      "lineup_source": "confirmed_lineup",
+      "away_lineup_source": "confirmed_lineup",
+      "home_lineup_source": "confirmed_lineup",
       "probable_pitchers": {
         "away": {
           "slug": "tyler-phillips",
@@ -388,9 +388,9 @@
       "away_team_name": "Kansas City Royals",
       "home_team_name": "Washington Nationals",
       "venue": null,
-      "lineup_source": "projected_lineup",
-      "away_lineup_source": "projected_lineup",
-      "home_lineup_source": "projected_lineup",
+      "lineup_source": "confirmed_lineup",
+      "away_lineup_source": "confirmed_lineup",
+      "home_lineup_source": "confirmed_lineup",
       "probable_pitchers": {
         "away": {
           "slug": "michael-wacha",
@@ -525,9 +525,9 @@
       "away_team_name": "Toronto Blue Jays",
       "home_team_name": "Boston Red Sox",
       "venue": null,
-      "lineup_source": "projected_lineup",
-      "away_lineup_source": "projected_lineup",
-      "home_lineup_source": "projected_lineup",
+      "lineup_source": "confirmed_lineup",
+      "away_lineup_source": "confirmed_lineup",
+      "home_lineup_source": "confirmed_lineup",
       "probable_pitchers": {
         "away": null,
         "home": {
@@ -561,22 +561,6 @@
             "DFS Watch"
           ],
           "note": "Vladimir Guerrero Jr. backed by a stable contact profile."
-        },
-        {
-          "slug": "jesus-sanchez",
-          "full_name": "Jes\u00fas S\u00e1nchez",
-          "team_abbr": "TOR",
-          "position": "RF",
-          "bats": "L",
-          "power_signal": 79,
-          "contact_signal": 60,
-          "luck_gap_points": 6,
-          "hitter_profile_type": "Real Power Bat",
-          "confidence": "HIGH",
-          "tags": [
-            "Power Watch"
-          ],
-          "note": "Jes\u00fas S\u00e1nchez brings strong power indicators."
         },
         {
           "slug": "kazuma-okamoto",
@@ -614,8 +598,8 @@
         }
       ],
       "away_lineup_pressure": {
-        "power_score": 73,
-        "contact_score": 58,
+        "power_score": 70,
+        "contact_score": 57,
         "profile": "Moderate lineup pressure",
         "notes": []
       },
@@ -627,7 +611,7 @@
       },
       "pitcher_edges": [],
       "fantasy_watch": [
-        "Power Watch: Jes\u00fas S\u00e1nchez brings elite power indicators into today's matchup.",
+        "Power Watch: Kazuma Okamoto brings elite power indicators into today's matchup.",
         "Power Watch: Willson Contreras brings elite power indicators into today's matchup."
       ],
       "matchup_notes": []
@@ -640,9 +624,9 @@
       "away_team_name": "Chicago White Sox",
       "home_team_name": "New York Yankees",
       "venue": null,
-      "lineup_source": "projected_lineup",
-      "away_lineup_source": "projected_lineup",
-      "home_lineup_source": "projected_lineup",
+      "lineup_source": "confirmed_lineup",
+      "away_lineup_source": "confirmed_lineup",
+      "home_lineup_source": "confirmed_lineup",
       "probable_pitchers": {
         "away": {
           "slug": "davis-martin",
@@ -820,9 +804,9 @@
       "away_team_name": "New York Mets",
       "home_team_name": "Cincinnati Reds",
       "venue": null,
-      "lineup_source": "projected_lineup",
-      "away_lineup_source": "projected_lineup",
-      "home_lineup_source": "projected_lineup",
+      "lineup_source": "confirmed_lineup",
+      "away_lineup_source": "confirmed_lineup",
+      "home_lineup_source": "confirmed_lineup",
       "probable_pitchers": {
         "away": {
           "slug": "kodai-senga",
@@ -903,23 +887,6 @@
             "DFS Watch"
           ],
           "note": "Carson Benge expected production is running ahead of current results."
-        },
-        {
-          "slug": "mark-vientos",
-          "full_name": "Mark Vientos",
-          "team_abbr": "NYM",
-          "position": "1B",
-          "bats": "R",
-          "power_signal": 63,
-          "contact_signal": 22,
-          "luck_gap_points": 44,
-          "hitter_profile_type": "Buy-Low Bat",
-          "confidence": "HIGH",
-          "tags": [
-            "Buy-Low Bat",
-            "DFS Watch"
-          ],
-          "note": "Mark Vientos expected production is running ahead of current results."
         },
         {
           "slug": "marcus-semien",
@@ -1008,7 +975,7 @@
       ],
       "away_lineup_pressure": {
         "power_score": 65,
-        "contact_score": 49,
+        "contact_score": 56,
         "profile": "Moderate lineup pressure",
         "notes": [
           "Multiple high-signal bats are clustered in this lineup: Juan Soto, Bo Bichette, Carson Benge."
@@ -1081,9 +1048,9 @@
       "away_team_name": "San Francisco Giants",
       "home_team_name": "Atlanta Braves",
       "venue": null,
-      "lineup_source": "projected_lineup",
-      "away_lineup_source": "projected_lineup",
-      "home_lineup_source": "projected_lineup",
+      "lineup_source": "confirmed_lineup",
+      "away_lineup_source": "confirmed_lineup",
+      "home_lineup_source": "confirmed_lineup",
       "probable_pitchers": {
         "away": {
           "slug": "adrian-houser",
@@ -1149,6 +1116,24 @@
       ],
       "home_bats_to_watch": [
         {
+          "slug": "drake-baldwin",
+          "full_name": "Drake Baldwin",
+          "team_abbr": "ATL",
+          "position": "C",
+          "bats": null,
+          "power_signal": 91,
+          "contact_signal": 84,
+          "luck_gap_points": 14,
+          "hitter_profile_type": "Real Power Bat",
+          "confidence": "HIGH",
+          "tags": [
+            "Power Watch",
+            "Contact Edge",
+            "DFS Watch"
+          ],
+          "note": "Drake Baldwin brings strong power indicators, and backed by a stable contact profile."
+        },
+        {
           "slug": "michael-harris-ii",
           "full_name": "Michael Harris II",
           "team_abbr": "ATL",
@@ -1164,22 +1149,6 @@
             "DFS Watch"
           ],
           "note": "Michael Harris II brings strong power indicators."
-        },
-        {
-          "slug": "ronald-acuna-jr",
-          "full_name": "Ronald Acu\u00f1a Jr.",
-          "team_abbr": "ATL",
-          "position": "RF",
-          "bats": "R",
-          "power_signal": 78,
-          "contact_signal": 67,
-          "luck_gap_points": 27,
-          "hitter_profile_type": "Real Power Bat",
-          "confidence": "HIGH",
-          "tags": [
-            "Power Watch"
-          ],
-          "note": "Ronald Acu\u00f1a Jr. brings strong power indicators."
         },
         {
           "slug": "matt-olson",
@@ -1206,11 +1175,11 @@
         "notes": []
       },
       "home_lineup_pressure": {
-        "power_score": 87,
-        "contact_score": 67,
+        "power_score": 91,
+        "contact_score": 72,
         "profile": "Heavy lineup pressure",
         "notes": [
-          "Multiple high-signal bats are clustered in this lineup: Michael Harris II, Matt Olson."
+          "Multiple high-signal bats are clustered in this lineup: Drake Baldwin, Michael Harris II, Matt Olson."
         ]
       },
       "pitcher_edges": [
@@ -1242,10 +1211,10 @@
         }
       ],
       "fantasy_watch": [
-        "Power Watch: Michael Harris II brings elite power indicators into today's matchup.",
+        "Power Watch: Drake Baldwin brings elite power indicators into today's matchup.",
         "Risk Spot: Adrian Houser's foundation signal points to risk against ATL.",
         "Risk Spot: Grant Holmes's foundation signal points to risk against SF.",
-        "Stack Watch: Multiple high-signal bats are clustered in this lineup: Michael Harris II, Matt Olson."
+        "Stack Watch: Multiple high-signal bats are clustered in this lineup: Drake Baldwin, Michael Harris II, Matt Olson."
       ],
       "matchup_notes": [
         "Adrian Houser (Pitching Risk) faces Grant Holmes (Pitching Risk)."
@@ -1259,9 +1228,9 @@
       "away_team_name": "Cleveland Guardians",
       "home_team_name": "Milwaukee Brewers",
       "venue": null,
-      "lineup_source": "projected_lineup",
-      "away_lineup_source": "projected_lineup",
-      "home_lineup_source": "projected_lineup",
+      "lineup_source": "confirmed_lineup",
+      "away_lineup_source": "confirmed_lineup",
+      "home_lineup_source": "confirmed_lineup",
       "probable_pitchers": {
         "away": {
           "slug": "slade-cecconi",
@@ -1290,24 +1259,7 @@
           "whip": 1.582
         }
       },
-      "away_bats_to_watch": [
-        {
-          "slug": "jose-ramirez",
-          "full_name": "Jos\u00e9 Ram\u00edrez",
-          "team_abbr": "CLE",
-          "position": "3B",
-          "bats": "S",
-          "power_signal": 54,
-          "contact_signal": 77,
-          "luck_gap_points": 25,
-          "hitter_profile_type": "Contact-First Bat",
-          "confidence": "HIGH",
-          "tags": [
-            "Contact Edge"
-          ],
-          "note": "Jos\u00e9 Ram\u00edrez backed by a stable contact profile."
-        }
-      ],
+      "away_bats_to_watch": [],
       "home_bats_to_watch": [
         {
           "slug": "jake-bauers",
@@ -1375,36 +1327,20 @@
             "Power Watch"
           ],
           "note": "Garrett Mitchell brings strong power indicators."
-        },
-        {
-          "slug": "luis-rengifo",
-          "full_name": "Luis Rengifo",
-          "team_abbr": "MIL",
-          "position": "3B",
-          "bats": "S",
-          "power_signal": 23,
-          "contact_signal": 44,
-          "luck_gap_points": 51,
-          "hitter_profile_type": "Watch List",
-          "confidence": "HIGH",
-          "tags": [
-            "DFS Watch"
-          ],
-          "note": "Luis Rengifo expected production is running ahead of current results."
         }
       ],
       "away_lineup_pressure": {
-        "power_score": 54,
-        "contact_score": 77,
-        "profile": "Contact-heavy pressure",
+        "power_score": null,
+        "contact_score": null,
+        "profile": "Insufficient data",
         "notes": []
       },
       "home_lineup_pressure": {
-        "power_score": 68,
-        "contact_score": 57,
-        "profile": "Moderate lineup pressure",
+        "power_score": 79,
+        "contact_score": 60,
+        "profile": "Power-heavy pressure",
         "notes": [
-          "Multiple high-signal bats are clustered in this lineup: Jake Bauers, Jackson Chourio, Luis Rengifo."
+          "Multiple high-signal bats are clustered in this lineup: Jake Bauers, Jackson Chourio."
         ]
       },
       "pitcher_edges": [
@@ -1465,9 +1401,9 @@
       "away_team_name": "San Diego Padres",
       "home_team_name": "St. Louis Cardinals",
       "venue": null,
-      "lineup_source": "projected_lineup",
-      "away_lineup_source": "projected_lineup",
-      "home_lineup_source": "projected_lineup",
+      "lineup_source": "confirmed_lineup",
+      "away_lineup_source": "confirmed_lineup",
+      "home_lineup_source": "confirmed_lineup",
       "probable_pitchers": {
         "away": {
           "slug": "michael-king",
@@ -1630,9 +1566,9 @@
       "away_team_name": "Colorado Rockies",
       "home_team_name": "Chicago Cubs",
       "venue": null,
-      "lineup_source": "projected_lineup",
-      "away_lineup_source": "projected_lineup",
-      "home_lineup_source": "projected_lineup",
+      "lineup_source": "confirmed_lineup",
+      "away_lineup_source": "confirmed_lineup",
+      "home_lineup_source": "confirmed_lineup",
       "probable_pitchers": {
         "away": {
           "slug": "ryan-feltner",
@@ -1792,9 +1728,9 @@
       "away_team_name": "Minnesota Twins",
       "home_team_name": "Texas Rangers",
       "venue": null,
-      "lineup_source": "projected_lineup",
-      "away_lineup_source": "projected_lineup",
-      "home_lineup_source": "projected_lineup",
+      "lineup_source": "confirmed_lineup",
+      "away_lineup_source": "confirmed_lineup",
+      "home_lineup_source": "confirmed_lineup",
       "probable_pitchers": {
         "away": {
           "slug": "zebby-matthews",
@@ -1856,22 +1792,6 @@
             "Power Watch"
           ],
           "note": "Kody Clemens brings strong power indicators."
-        },
-        {
-          "slug": "victor-caratini",
-          "full_name": "Victor Caratini",
-          "team_abbr": "MIN",
-          "position": "C",
-          "bats": "S",
-          "power_signal": 33,
-          "contact_signal": 38,
-          "luck_gap_points": 58,
-          "hitter_profile_type": "Watch List",
-          "confidence": "HIGH",
-          "tags": [
-            "DFS Watch"
-          ],
-          "note": "Victor Caratini expected production is running ahead of current results."
         }
       ],
       "home_bats_to_watch": [
@@ -1891,24 +1811,6 @@
             "DFS Watch"
           ],
           "note": "Brandon Nimmo expected production is running ahead of current results."
-        },
-        {
-          "slug": "corey-seager",
-          "full_name": "Corey Seager",
-          "team_abbr": "TEX",
-          "position": "SS",
-          "bats": "L",
-          "power_signal": 80,
-          "contact_signal": 27,
-          "luck_gap_points": 53,
-          "hitter_profile_type": "Buy-Low Bat",
-          "confidence": "HIGH",
-          "tags": [
-            "Power Watch",
-            "Buy-Low Bat",
-            "DFS Watch"
-          ],
-          "note": "Corey Seager brings strong power indicators, and expected production is running ahead of current results."
         },
         {
           "slug": "joc-pederson",
@@ -1944,23 +1846,20 @@
         }
       ],
       "away_lineup_pressure": {
-        "power_score": 64,
-        "contact_score": 41,
-        "profile": "Moderate lineup pressure",
+        "power_score": 80,
+        "contact_score": 43,
+        "profile": "Power-heavy pressure",
         "notes": []
       },
       "home_lineup_pressure": {
-        "power_score": 66,
-        "contact_score": 58,
+        "power_score": 61,
+        "contact_score": 68,
         "profile": "Moderate lineup pressure",
-        "notes": [
-          "Multiple high-signal bats are clustered in this lineup: Brandon Nimmo, Corey Seager."
-        ]
+        "notes": []
       },
       "pitcher_edges": [],
       "fantasy_watch": [
         "Power Watch: Byron Buxton brings elite power indicators into today's matchup.",
-        "Power Watch: Corey Seager brings elite power indicators into today's matchup.",
         "Buy-Low Bat: Brandon Nimmo's expected production is running ahead of current results."
       ],
       "matchup_notes": [
@@ -1975,9 +1874,9 @@
       "away_team_name": "Detroit Tigers",
       "home_team_name": "Houston Astros",
       "venue": null,
-      "lineup_source": "projected_lineup",
-      "away_lineup_source": "projected_lineup",
-      "home_lineup_source": "projected_lineup",
+      "lineup_source": "confirmed_lineup",
+      "away_lineup_source": "confirmed_lineup",
+      "home_lineup_source": "confirmed_lineup",
       "probable_pitchers": {
         "away": {
           "slug": "framber-valdez",
@@ -2057,22 +1956,6 @@
             "DFS Watch"
           ],
           "note": "Kevin McGonigle backed by a stable contact profile."
-        },
-        {
-          "slug": "matt-vierling",
-          "full_name": "Matt Vierling",
-          "team_abbr": "DET",
-          "position": "CF",
-          "bats": "R",
-          "power_signal": 26,
-          "contact_signal": 38,
-          "luck_gap_points": 39,
-          "hitter_profile_type": "Watch List",
-          "confidence": "HIGH",
-          "tags": [
-            "DFS Watch"
-          ],
-          "note": "Matt Vierling expected production is running ahead of current results."
         }
       ],
       "home_bats_to_watch": [
@@ -2114,11 +1997,11 @@
         }
       ],
       "away_lineup_pressure": {
-        "power_score": 59,
-        "contact_score": 65,
+        "power_score": 70,
+        "contact_score": 74,
         "profile": "Moderate lineup pressure",
         "notes": [
-          "Multiple high-signal bats are clustered in this lineup: Dillon Dingler, Kevin McGonigle, Matt Vierling."
+          "Multiple high-signal bats are clustered in this lineup: Dillon Dingler, Kevin McGonigle."
         ]
       },
       "home_lineup_pressure": {
