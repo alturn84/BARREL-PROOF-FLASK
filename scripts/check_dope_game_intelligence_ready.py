@@ -27,6 +27,9 @@ VALID_GRADES = {"green", "yellow", "red", "gray"}
 MATCHUP_BOARD_KEYS = {"away_starter", "home_starter", "away_lineup_vs_home_starter", "home_lineup_vs_away_starter", "board_summary"}
 GREEN_FAIL = 6
 GREEN_WARN = 5
+GRAY_MISSING_FAIL_PCT = 35  # fail if >35% of hitter slots are gray due to missing profiles
+GRAY_MISSING_WARN_PCT = 25
+BANNED_HITTER_PHRASES = ["No pitch-type profile", "No profile", "Pitch-type profile unavailable for this hitter"]
 
 BANNED_PHRASES = [
     "poised to", "set to", "showcase", "battle", "clash",
@@ -157,6 +160,31 @@ def main():
             fail(f"game {game_id} betting_props_watch must be a list")
         if not isinstance(g["data_basis"], list):
             fail(f"game {game_id} data_basis must be a list")
+
+    # matchup_board grade distribution and quality checks
+    total_hitters = 0
+    gray_hitters = 0
+    for game_id, g in games.items():
+        mb = g.get("matchup_board")
+        if not mb:
+            continue
+        for side in ("away_lineup_vs_home_starter", "home_lineup_vs_away_starter"):
+            for h in mb.get(side, []):
+                total_hitters += 1
+                if h.get("grade") == "gray":
+                    gray_hitters += 1
+                reason = h.get("reason", "")
+                for phrase in BANNED_HITTER_PHRASES:
+                    if phrase in reason:
+                        fail(f"game {game_id} hitter {h.get('name')} reason contains banned phrase: '{phrase}'")
+
+    if total_hitters > 0:
+        gray_pct = gray_hitters / total_hitters * 100
+        if gray_pct > GRAY_MISSING_FAIL_PCT:
+            fail(f"matchup_board gray hitter rate {gray_pct:.1f}% exceeds {GRAY_MISSING_FAIL_PCT}% threshold ({gray_hitters}/{total_hitters})")
+        if gray_pct > GRAY_MISSING_WARN_PCT:
+            print(f"WARN: matchup_board gray hitter rate {gray_pct:.1f}% ({gray_hitters}/{total_hitters}) — above {GRAY_MISSING_WARN_PCT}% warning threshold")
+        print(f"INFO: matchup_board grade coverage: {total_hitters} hitters, {gray_hitters} gray ({gray_pct:.1f}%)")
 
     # matchup_board validation (optional but structured when present)
     for game_id, g in games.items():

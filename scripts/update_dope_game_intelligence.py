@@ -1071,18 +1071,56 @@ FAMILY_SHAPE_KEYWORDS = {
 }
 
 
+def _hitter_grade_from_card(hitter_card, pitcher_profile):
+    """Fallback grade from statcast hitter card when no pitch-type split is available."""
+    card = hitter_card or {}
+    barrel = card.get("barrel_pct") or 0
+    hard_hit = card.get("hard_hit_pct") or 0
+    xslg = card.get("xslg") or 0
+    has_card = barrel > 0 or hard_hit > 0 or xslg > 0
+
+    if not pitcher_profile or pitcher_profile.get("primary_shape") == "Limited Data":
+        if has_card:
+            return "gray", "Split limited", "Limited pitch-type split; arsenal data developing."
+        return "gray", "Split limited", "Limited pitch-type split; profile data developing."
+
+    # Have pitcher shape but no pitch-type split for this hitter
+    if barrel >= 12 or hard_hit >= 50:
+        return "yellow", "Power Profile", (
+            "Limited pitch-type split; strong power profile — graded from exit velocity data."
+        )
+    if barrel >= 6 or hard_hit >= 40:
+        return "yellow", "Hard Contact", (
+            "Limited pitch-type split; solid hard contact rate — graded from Statcast data."
+        )
+    if xslg >= 0.450:
+        return "yellow", "Above-Avg xSLG", (
+            "Limited pitch-type split; above-average expected production — graded from Statcast data."
+        )
+    if has_card:
+        return "gray", "Split limited", (
+            "Limited pitch-type split; contact profile is average or developing."
+        )
+    return "gray", "Split limited", "Pitch-type split unavailable; contact data limited."
+
+
 def _hitter_grade(hitter_profile, pitcher_profile, hitter_card):
     """Return (grade, label, reason) for a hitter vs opposing pitcher arsenal."""
-    if not hitter_profile or not pitcher_profile:
-        return "gray", "No profile", "Pitch-type profile unavailable for this matchup."
+    # No pitch-type profile — fall back to hitter card
+    if not hitter_profile:
+        return _hitter_grade_from_card(hitter_card, pitcher_profile)
+
     best = hitter_profile.get("best_family", "Limited Data")
     risk = hitter_profile.get("risk_family", "Limited Data")
-    primary_shape = pitcher_profile.get("primary_shape", "Limited Data")
-    family_mix = pitcher_profile.get("family_mix", {})
+    primary_shape = (pitcher_profile or {}).get("primary_shape", "Limited Data")
+    family_mix = (pitcher_profile or {}).get("family_mix", {})
+
+    if not pitcher_profile:
+        return "gray", "Split limited", "Limited pitch-type split; arsenal data developing."
     if best == "Limited Data" and risk == "Limited Data":
-        return "gray", "No profile", "Pitch-type profile unavailable for this hitter."
+        return _hitter_grade_from_card(hitter_card, pitcher_profile)
     if primary_shape == "Limited Data":
-        return "gray", "Limited pitcher data", "Pitcher profile data is unavailable."
+        return "gray", "Split limited", "Limited pitch-type split; pitcher arsenal data developing."
 
     best_pct = family_mix.get(best, 0) if best != "Limited Data" else 0
     risk_pct = family_mix.get(risk, 0) if risk != "Limited Data" else 0
@@ -1094,22 +1132,37 @@ def _hitter_grade(hitter_profile, pitcher_profile, hitter_card):
     best_damage = best_fam.get("damage", "neutral")
     best_contact = best_fam.get("contact", "neutral")
 
-    barrel_pct = (hitter_card or {}).get("barrel_pct") or 0
+    card = hitter_card or {}
+    barrel_pct = card.get("barrel_pct") or 0
+    hard_hit = card.get("hard_hit_pct") or 0
 
-    if best_shape_match and best_pct >= 25:
-        if best_damage == "strong":
+    # ── Green: genuine damage threat — pitch-type split + real barrel production ──
+    # "damage=strong" alone means low whiff rate (fastball competence), not power.
+    # Green requires BOTH: strong pitch-type fit AND verifiable barrel/power output.
+    if best_shape_match and best_pct >= 35:
+        if best_damage == "strong" and (barrel_pct >= 10 or hard_hit >= 45):
+            label = f"{best} Damage"
             if barrel_pct >= 10:
-                label = f"{best} Damage"
                 reason = f"{barrel_pct:.0f}% barrel rate — genuine damage threat in the {best.lower()} family against this arsenal."
             else:
-                label = f"Handles {best}"
-                reason = f"Strong {best.lower()} damage profile against a {primary_shape.lower()} pitcher."
-            return "green", label, reason
-        if best_contact == "strong":
-            label = f"{best} Contact"
-            reason = f"Consistent contact profile against {best.lower()} pitching — finds the barrel window."
+                reason = f"{hard_hit:.0f}% hard-hit rate — power threat in the {best.lower()} family against this arsenal."
             return "green", label, reason
 
+    # ── Yellow: contact fit or partial power signal ──
+    if best_shape_match and best_pct >= 25:
+        if best_damage == "strong":
+            label = f"Handles {best}"
+            reason = (
+                f"Low whiff rate against {best.lower()} pitching — consistent contact profile "
+                f"against the {primary_shape.lower()} shape. Barrel rate does not reach damage threshold."
+            )
+            return "yellow", label, reason
+        if best_contact == "strong":
+            label = f"{best} Contact"
+            reason = f"Consistent contact against {best.lower()} pitching — contact-path fit, not a power advantage."
+            return "yellow", label, reason
+
+    # ── Red: risk family aligns with pitcher's primary ──
     if risk_shape_match and risk_pct >= 20:
         risk_type_labels = {
             "Fastball": "Velocity Risk",
@@ -1120,9 +1173,10 @@ def _hitter_grade(hitter_profile, pitcher_profile, hitter_card):
         reason = f"Chase tendency against {risk.lower()} pitching — the {primary_shape.lower()} shape targets this bat."
         return "red", label, reason
 
+    # ── Yellow: weaker signal ──
     if best != "Limited Data" and (best_damage == "strong" or best_contact == "strong"):
         label = "Partial Fit"
-        reason = f"{best.lower().capitalize()} contact profile — some fit against this arsenal, not dominant."
+        reason = f"{best.lower().capitalize()} contact profile — some fit against this arsenal, pitcher usage below threshold."
         return "yellow", label, reason
 
     if risk != "Limited Data" or best != "Limited Data":
@@ -1130,7 +1184,7 @@ def _hitter_grade(hitter_profile, pitcher_profile, hitter_card):
         reason = "No dominant edge or risk signal — neutral matchup read."
         return "yellow", label, reason
 
-    return "gray", "No profile", "Pitch-type profile unavailable."
+    return _hitter_grade_from_card(hitter_card, pitcher_profile)
 
 
 def build_matchup_board(

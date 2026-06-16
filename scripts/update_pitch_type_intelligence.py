@@ -483,9 +483,10 @@ def collect_pitcher_targets():
 
 def collect_hitter_targets():
     pm = load_json(PLAYER_MATCHUPS_PATH, {})
-    games = pm.get("games") or []
     seen = {}
-    for g in games:
+
+    # Priority 1: bats_to_watch from player matchups (existing behavior)
+    for g in (pm.get("games") or []):
         for side in ("away_bats_to_watch", "home_bats_to_watch"):
             for b in g.get(side, []):
                 name = b.get("full_name", "")
@@ -496,6 +497,28 @@ def collect_hitter_targets():
                     "name": name, "slug": slug,
                     "team": b.get("team_abbr", ""), "bats": b.get("bats", ""),
                 }
+
+    # Priority 2: all projected/confirmed lineup hitters from dope-sheet-data.json
+    dope = load_json(DOPE_SHEET_PATH, {})
+    dope_games = dope.get("games") or (dope if isinstance(dope, list) else [])
+    pi_list = load_json(str(PLAYER_DIR / "player_index.json"), [])
+    pi_by_slug = {p["slug"]: p for p in pi_list if isinstance(p, dict) and p.get("slug")}
+
+    for g in dope_games:
+        lineups = g.get("lineups") or {}
+        for side in ("away", "home"):
+            for h in (lineups.get(side) or []):
+                name = h.get("name", "")
+                slug = h.get("slug", "") or name_to_slug(name)
+                if not name or not slug or slug in seen:
+                    continue
+                pi = pi_by_slug.get(slug, {})
+                seen[slug] = {
+                    "name": name, "slug": slug,
+                    "team": pi.get("team_abbr", ""),
+                    "bats": pi.get("bats", ""),
+                }
+
     return list(seen.values())
 
 
