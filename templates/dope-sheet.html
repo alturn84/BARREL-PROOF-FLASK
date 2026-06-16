@@ -411,6 +411,48 @@ footer{border-top:.5px solid var(--rule-heavy);margin-top:40px;padding:20px 0;di
     padding: 12px;
   }
 }
+
+/* ── Arsenal Board (DOPE-CARD-001B) ── */
+.arsenal-board-wrap{margin-top:10px;}
+.arsenal-board-title{font-family:var(--typewriter-font,'IBM Plex Mono',monospace);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--bp-muted);margin-bottom:6px;}
+.arsenal-board{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.arsenal-pitcher-block{background:var(--bp-paper-soft);border-radius:2px;padding:10px 12px;}
+.arsenal-pitcher-name{font-family:var(--typewriter-font,'IBM Plex Mono',monospace);font-size:12px;font-weight:500;margin-bottom:2px;}
+.arsenal-pitcher-shape{font-size:11px;color:var(--bp-muted);margin-bottom:8px;}
+.pitch-row{display:flex;align-items:center;gap:8px;padding:4px 0;border-top:.5px solid var(--bp-rule);}
+.pitch-row:first-of-type{border-top:none;}
+.grade-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+.grade-dot.green{background:var(--green);}
+.grade-dot.yellow{background:var(--amber);}
+.grade-dot.red{background:var(--red);}
+.grade-dot.gray{background:var(--bp-muted);opacity:.5;}
+.pitch-row-label{font-family:var(--typewriter-font,'IBM Plex Mono',monospace);font-size:11px;flex:1;min-width:0;}
+.pitch-row-stats{font-family:var(--typewriter-font,'IBM Plex Mono',monospace);font-size:10px;color:var(--bp-muted);white-space:nowrap;}
+.arsenal-limited{font-size:12px;color:var(--bp-muted);font-style:italic;padding:6px 0;}
+@media(max-width:480px){.arsenal-board{grid-template-columns:1fr;}}
+
+/* ── Lineup Matchup Board (DOPE-CARD-001B) ── */
+.lineup-board-wrap{margin-top:10px;}
+.lineup-board-title{font-family:var(--typewriter-font,'IBM Plex Mono',monospace);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--bp-muted);margin-bottom:6px;}
+.lineup-boards{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.lineup-board{background:var(--bp-paper-soft);border-radius:2px;padding:10px 12px;}
+.lineup-board-team{font-family:var(--typewriter-font,'IBM Plex Mono',monospace);font-size:12px;font-weight:500;margin-bottom:2px;}
+.lineup-board-vs{font-size:11px;color:var(--bp-muted);margin-bottom:8px;}
+.hitter-row{display:flex;align-items:flex-start;gap:8px;padding:5px 0;border-top:.5px solid var(--bp-rule);}
+.hitter-row:first-of-type{border-top:none;}
+.hitter-row-order{font-family:var(--typewriter-font,'IBM Plex Mono',monospace);font-size:10px;color:var(--bp-muted);width:14px;flex-shrink:0;padding-top:1px;}
+.hitter-row-name{font-size:12px;flex:1;min-width:0;line-height:1.3;}
+.hitter-row-name a{color:inherit;}
+.hitter-row-pos{font-family:var(--typewriter-font,'IBM Plex Mono',monospace);font-size:10px;color:var(--bp-muted);}
+.hitter-row-grade{display:flex;flex-direction:column;align-items:flex-end;gap:2px;flex-shrink:0;}
+.grade-badge{font-family:var(--typewriter-font,'IBM Plex Mono',monospace);font-size:9px;letter-spacing:.05em;padding:2px 5px;border-radius:2px;font-weight:500;}
+.grade-badge.green{background:rgba(74,138,74,.18);color:var(--green);}
+.grade-badge.yellow{background:rgba(200,136,42,.18);color:var(--amber);}
+.grade-badge.red{background:rgba(168,48,48,.18);color:var(--red);}
+.grade-badge.gray{background:rgba(107,90,67,.12);color:var(--bp-muted);}
+.hitter-row-reason{font-size:11px;color:var(--bp-muted);margin-top:2px;line-height:1.4;}
+.lineup-board-summary{font-size:12px;color:var(--bp-muted);font-style:italic;margin-top:8px;padding-top:8px;border-top:.5px solid var(--bp-rule);}
+@media(max-width:480px){.lineup-boards{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -756,6 +798,59 @@ function renderPitching(g){
   </div></div>`;
 }
 
+function renderArsenalBoard(g){
+  const mb=(g.gameIntel||{}).matchup_board;
+  if(!mb)return'';
+  const v=x=>x!==null&&x!==undefined&&x!==''?x:null;
+  const fmtStat=(label,val,suffix)=>v(val)!=null?`<span title="${label}">${val}${suffix||''}</span>`:'';
+  function pitcherBlock(board,abbr){
+    if(!board)return'';
+    if(board.data_quality==='limited'){
+      return`<div class="arsenal-pitcher-block"><div class="arsenal-pitcher-name">${abbr}: ${board.name||'TBD'}</div><div class="arsenal-limited">${board.summary||'Pitch-type data limited.'}</div></div>`;
+    }
+    const rows=(board.pitches||[]).map(p=>{
+      const vel=v(p.avg_velocity)?`${p.avg_velocity.toFixed(1)}mph `:'';
+      const whiff=v(p.whiff_pct)?`${p.whiff_pct}%W `:'';
+      const hh=v(p.hard_hit_pct)?`${p.hard_hit_pct}%HH`:'';
+      return`<div class="pitch-row"><div class="grade-dot ${p.damage_grade||'gray'}"></div><span class="pitch-row-label">${p.label} <span style="color:var(--bp-muted);font-size:10px;">${Math.round(p.usage_pct)}%</span></span><span class="pitch-row-stats">${vel}${whiff}${hh}</span></div>`;
+    }).join('');
+    return`<div class="arsenal-pitcher-block"><div class="arsenal-pitcher-name">${abbr}: ${board.name}</div><div class="arsenal-pitcher-shape">${board.primary_shape||''}</div>${rows}</div>`;
+  }
+  const away=pitcherBlock(mb.away_starter,g.away);
+  const home=pitcherBlock(mb.home_starter,g.home);
+  if(!away&&!home)return'';
+  return`<div class="detail-section full arsenal-board-wrap"><div class="arsenal-board-title">Arsenal Board</div><div class="arsenal-board">${away}${home}</div></div>`;
+}
+
+function renderLineupMatchupBoard(g){
+  const mb=(g.gameIntel||{}).matchup_board;
+  if(!mb)return'';
+  const v=x=>x!==null&&x!==undefined&&x!==''?x:null;
+  const playerLink=(name,slug)=>slug?`<a href="/player/${slug}">${name}</a>`:name;
+  function lineupBlock(hitters,teamAbbr,vsName){
+    if(!hitters||!hitters.length)return'';
+    const rows=hitters.map(h=>{
+      const link=playerLink(v(h.name)||'—',h.slug);
+      return`<div class="hitter-row">
+        <div class="hitter-row-order">${h.batting_order||'—'}</div>
+        <div style="flex:1;min-width:0;">
+          <div class="hitter-row-name">${link} <span class="hitter-row-pos">${h.pos||''}</span></div>
+          ${v(h.reason)?`<div class="hitter-row-reason">${h.reason}</div>`:''}
+        </div>
+        <div class="hitter-row-grade"><span class="grade-badge ${h.grade||'gray'}">${(h.label||h.grade||'—').toUpperCase()}</span></div>
+      </div>`;
+    }).join('');
+    return`<div class="lineup-board"><div class="lineup-board-team">${teamAbbr}</div><div class="lineup-board-vs">vs ${vsName}</div>${rows}</div>`;
+  }
+  const homeStarterName=(mb.home_starter||{}).name||g.home;
+  const awayStarterName=(mb.away_starter||{}).name||g.away;
+  const awayBlock=lineupBlock(mb.away_lineup_vs_home_starter,g.away,homeStarterName);
+  const homeBlock=lineupBlock(mb.home_lineup_vs_away_starter,g.home,awayStarterName);
+  if(!awayBlock&&!homeBlock)return'';
+  const summary=v(mb.board_summary)?`<div class="lineup-board-summary">${mb.board_summary}</div>`:'';
+  return`<div class="detail-section full lineup-board-wrap"><div class="lineup-board-title">Lineup Matchup Board</div><div class="lineup-boards">${awayBlock}${homeBlock}</div>${summary}</div>`;
+}
+
 function renderGameIntelligence(g){
   const gi=g.gameIntel;
   if(!gi)return'';
@@ -765,13 +860,15 @@ function renderGameIntelligence(g){
 
   // ── Game Report (primary reader section, data-driven scouting narrative) ──
   const gr=gi.game_report||{};
+  const hasBoard=!!(gi.matchup_board&&(gi.matchup_board.away_starter||gi.matchup_board.home_starter));
   if(v(gr.game_shape)){
     sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Game Shape</div><div class="matchup-line">${gr.game_shape}</div></div>`);
   }
-  if(v(gr.pitching_arsenal_read)){
+  // Suppress Pitching Arsenal and Lineup Paths when arsenal/lineup boards are rendered above
+  if(!hasBoard&&v(gr.pitching_arsenal_read)){
     sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Pitching Arsenal</div><div class="matchup-line">${gr.pitching_arsenal_read}</div></div>`);
   }
-  if(v(gr.away_lineup_path)||v(gr.home_lineup_path)){
+  if(!hasBoard&&(v(gr.away_lineup_path)||v(gr.home_lineup_path))){
     const awayLine=v(gr.away_lineup_path)?`<div class="matchup-line"><strong>${g.awayFull||gi.away_team}</strong>: ${gr.away_lineup_path}</div>`:'';
     const homeLine=v(gr.home_lineup_path)?`<div class="matchup-line"><strong>${g.homeFull||gi.home_team}</strong>: ${gr.home_lineup_path}</div>`:'';
     sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Lineup Paths</div>${awayLine}${homeLine}</div>`);
@@ -993,9 +1090,11 @@ function render(games){
     const noOdds=!g.oddsAvailable;
     const isLive=g.oddsLive?`<span class="live-badge">LIVE</span>`:'';
     const pcCard=(abb,p)=>`<div class="pitcher-card"><div class="pc-team">${abb}</div><div class="pc-name">${p?.name||'TBD'} (${p?.hand||'R'}) <span style="font-size:11px;color:var(--smoke-light);">${p?.record&&p.record!=='—'?'· '+p.record:''}</span></div><div class="pc-stats"><div class="pc-stat"><span class="pc-val">${p?.era||'—'}</span><span class="pc-lbl">ERA</span></div><div class="pc-stat"><span class="pc-val">${p?.whip||'—'}</span><span class="pc-lbl">WHIP</span></div><div class="pc-stat"><span class="pc-val">${p?.k9||'—'}</span><span class="pc-lbl">K/9</span></div><div class="pc-stat"><span class="pc-val">${p?.bb9||'—'}</span><span class="pc-lbl">BB/9</span></div><div class="pc-stat"><span class="pc-val">${p?.ip||'—'}</span><span class="pc-lbl">IP</span></div></div><div class="pc-last">${p?.lastStart&&p.lastStart!=='—'?`Last Start: <span>${p.lastStart}</span>`:`<span>Last start unavailable</span>`}</div></div>`;
+    const hasMB=!!(g.gameIntel&&g.gameIntel.matchup_board);
     const sections=[
       renderParkFactor(g),
       (()=>{
+        if(hasMB)return renderArsenalBoard(g);
         const ap=g.pitchers?.away;const hp=g.pitchers?.home;
         const awayTbd=!ap||ap.name==='TBD';const homeTbd=!hp||hp.name==='TBD';
         if(awayTbd&&homeTbd){
@@ -1005,7 +1104,7 @@ function render(games){
       })(),
       renderVegas(g),
       renderWeather(g),
-      renderLineups(g),
+      hasMB?renderLineupMatchupBoard(g):renderLineups(g),
       renderBullpen(g),
       renderUmpire(g),
       renderBroadcasts(g),

@@ -23,6 +23,7 @@ SCHEDULE_PATH = DATA_DIR / "schedule.json"
 OUTPUT_PATH = DATA_DIR / "dope_game_intelligence.json"
 PITCH_INTEL_PATH = DATA_DIR / "pitch_type_intelligence.json"
 HITTER_CARDS_PATH = DATA_DIR / "players" / "statcast_hitter_cards.json"
+PLAYER_INDEX_PATH = DATA_DIR / "players" / "player_index.json"
 
 FASTBALL_EDGE_LABELS = {"Fastball Damage", "Handles Fastballs", "Contact Path"}
 
@@ -801,7 +802,7 @@ def _format_pitcher_arsenal_prose(pitcher_profile):
     secondary_parts = []
     for p in arsenal[1:4]:
         if p["usage_pct"] >= 8:
-            if p["whiff_pct"] >= 28:
+            if p.get("whiff_pct") is not None and p["whiff_pct"] >= 28:
                 secondary_parts.append(
                     f"{p['label']} ({int(round(p['usage_pct']))}%, {int(round(p['whiff_pct']))}% whiff)"
                 )
@@ -1040,6 +1041,195 @@ def build_game_report(
 
 
 # ---------------------------------------------------------------------------
+# Matchup board (DOPE-CARD-001A)
+# ---------------------------------------------------------------------------
+
+def _pitch_damage_grade(pitch):
+    """Green=tough to square up; Red=getting barreled; Yellow=middling; Gray=no data."""
+    whiff = pitch.get("whiff_pct")
+    hard_hit = pitch.get("hard_hit_pct")
+    barrel = pitch.get("barrel_pct")
+    bip = pitch.get("bip_count") or 0
+    has_contact = bip >= 15 and hard_hit is not None
+
+    if whiff is None and not has_contact:
+        return "gray"
+    if has_contact and (hard_hit >= 40 or (barrel is not None and barrel >= 10)):
+        return "red"
+    if whiff is not None and whiff >= 28:
+        if not has_contact or (hard_hit < 32 and (barrel is None or barrel < 6)):
+            return "green"
+    if whiff is not None and whiff < 14 and has_contact and hard_hit >= 35:
+        return "red"
+    return "yellow"
+
+
+FAMILY_SHAPE_KEYWORDS = {
+    "Fastball": ("Fastball", "Fastball/Breaking", "Fastball/Offspeed"),
+    "Breaking": ("Breaking", "Fastball/Breaking", "Breaking-Heavy"),
+    "Offspeed": ("Offspeed", "Fastball/Offspeed"),
+}
+
+
+def _hitter_grade(hitter_profile, pitcher_profile, hitter_card):
+    """Return (grade, label, reason) for a hitter vs opposing pitcher arsenal."""
+    if not hitter_profile or not pitcher_profile:
+        return "gray", "No profile", "Pitch-type profile unavailable for this matchup."
+    best = hitter_profile.get("best_family", "Limited Data")
+    risk = hitter_profile.get("risk_family", "Limited Data")
+    primary_shape = pitcher_profile.get("primary_shape", "Limited Data")
+    family_mix = pitcher_profile.get("family_mix", {})
+    if best == "Limited Data" and risk == "Limited Data":
+        return "gray", "No profile", "Pitch-type profile unavailable for this hitter."
+    if primary_shape == "Limited Data":
+        return "gray", "Limited pitcher data", "Pitcher profile data is unavailable."
+
+    best_pct = family_mix.get(best, 0) if best != "Limited Data" else 0
+    risk_pct = family_mix.get(risk, 0) if risk != "Limited Data" else 0
+    best_shape_match = best != "Limited Data" and any(k in primary_shape for k in FAMILY_SHAPE_KEYWORDS.get(best, ()))
+    risk_shape_match = risk != "Limited Data" and any(k in primary_shape for k in FAMILY_SHAPE_KEYWORDS.get(risk, ()))
+
+    pfp = hitter_profile.get("pitch_family_profile", {})
+    best_fam = pfp.get(best, {}) if best != "Limited Data" else {}
+    best_damage = best_fam.get("damage", "neutral")
+    best_contact = best_fam.get("contact", "neutral")
+
+    barrel_pct = (hitter_card or {}).get("barrel_pct") or 0
+
+    if best_shape_match and best_pct >= 25:
+        if best_damage == "strong":
+            if barrel_pct >= 10:
+                label = f"{best} Damage"
+                reason = f"{barrel_pct:.0f}% barrel rate — genuine damage threat in the {best.lower()} family against this arsenal."
+            else:
+                label = f"Handles {best}"
+                reason = f"Strong {best.lower()} damage profile against a {primary_shape.lower()} pitcher."
+            return "green", label, reason
+        if best_contact == "strong":
+            label = f"{best} Contact"
+            reason = f"Consistent contact profile against {best.lower()} pitching — finds the barrel window."
+            return "green", label, reason
+
+    if risk_shape_match and risk_pct >= 20:
+        risk_type_labels = {
+            "Fastball": "Velocity Risk",
+            "Breaking": "Breaking Chase",
+            "Offspeed": "Offspeed Timing",
+        }
+        label = risk_type_labels.get(risk, "Pitch Risk")
+        reason = f"Chase tendency against {risk.lower()} pitching — the {primary_shape.lower()} shape targets this bat."
+        return "red", label, reason
+
+    if best != "Limited Data" and (best_damage == "strong" or best_contact == "strong"):
+        label = "Partial Fit"
+        reason = f"{best.lower().capitalize()} contact profile — some fit against this arsenal, not dominant."
+        return "yellow", label, reason
+
+    if risk != "Limited Data" or best != "Limited Data":
+        label = "Neutral"
+        reason = "No dominant edge or risk signal — neutral matchup read."
+        return "yellow", label, reason
+
+    return "gray", "No profile", "Pitch-type profile unavailable."
+
+
+def build_matchup_board(
+    away_team_name, home_team_name,
+    away_starter_block, home_starter_block,
+    away_pitcher_slug, home_pitcher_slug,
+    away_lineup, home_lineup,
+    pitch_intel, hitter_cards, player_index_by_slug,
+):
+    """Build the matchup_board dict for a game."""
+    pitchers = pitch_intel.get("pitchers", {})
+    hitters_intel = pitch_intel.get("hitters", {})
+    away_p = pitchers.get(away_pitcher_slug) if away_pitcher_slug else None
+    home_p = pitchers.get(home_pitcher_slug) if home_pitcher_slug else None
+
+    def build_pitcher_board(pitcher_profile, starter_block):
+        if not pitcher_profile or pitcher_profile.get("primary_shape") == "Limited Data":
+            name = (starter_block or {}).get("name", "Unknown")
+            hand = (starter_block or {}).get("hand", "")
+            return {
+                "name": name, "hand": hand, "pitches": [],
+                "summary": f"{name}'s pitch-type data is limited.",
+                "data_quality": "limited",
+            }
+        arsenal = pitcher_profile.get("arsenal", [])
+        pitches = []
+        for pitch in arsenal[:5]:
+            pitches.append({
+                "pitch": pitch["pitch"],
+                "label": pitch["label"],
+                "family": pitch["family"],
+                "usage_pct": pitch["usage_pct"],
+                "whiff_pct": pitch.get("whiff_pct"),
+                "avg_velocity": pitch.get("avg_velocity"),
+                "hard_hit_pct": pitch.get("hard_hit_pct"),
+                "barrel_pct": pitch.get("barrel_pct"),
+                "bip_count": pitch.get("bip_count") or 0,
+                "damage_grade": _pitch_damage_grade(pitch),
+            })
+        return {
+            "name": pitcher_profile["name"],
+            "slug": pitcher_profile.get("slug"),
+            "hand": (starter_block or {}).get("hand", pitcher_profile.get("throws", "")),
+            "pitches": pitches,
+            "primary_shape": pitcher_profile["primary_shape"],
+            "summary": pitcher_profile.get("summary", ""),
+            "data_quality": "available",
+        }
+
+    def build_lineup_board(lineup, opp_pitcher_profile):
+        rows = []
+        for hitter in sorted(lineup or [], key=lambda h: h.get("batting_order") or 99):
+            slug = hitter.get("slug", "")
+            name = hitter.get("name", "")
+            pos = hitter.get("pos", "")
+            order = hitter.get("batting_order")
+            h_profile = hitters_intel.get(slug)
+            card = hitter_cards.get(slug, {})
+            idx_entry = player_index_by_slug.get(slug, {})
+            bats = idx_entry.get("bats", "")
+            grade, label, reason = _hitter_grade(h_profile, opp_pitcher_profile, card)
+            rows.append({
+                "name": name, "slug": slug, "pos": pos,
+                "batting_order": order, "bats": bats,
+                "grade": grade, "label": label, "reason": reason,
+            })
+        return rows
+
+    away_board = build_pitcher_board(away_p, away_starter_block)
+    home_board = build_pitcher_board(home_p, home_starter_block)
+    away_lineup_grades = build_lineup_board(away_lineup, home_p)
+    home_lineup_grades = build_lineup_board(home_lineup, away_p)
+
+    away_greens = sum(1 for h in away_lineup_grades if h["grade"] == "green")
+    home_greens = sum(1 for h in home_lineup_grades if h["grade"] == "green")
+
+    if away_greens > home_greens:
+        board_summary = (
+            f"{away_team_name}'s lineup has more favorable pitch-type matchups "
+            f"({away_greens} green grades vs {home_greens})."
+        )
+    elif home_greens > away_greens:
+        board_summary = (
+            f"{home_team_name}'s lineup has more favorable pitch-type matchups "
+            f"({home_greens} green grades vs {away_greens})."
+        )
+    else:
+        board_summary = "Both lineups show similar pitch-type matchup grades against today's starters."
+
+    return {
+        "away_starter": away_board,
+        "home_starter": home_board,
+        "away_lineup_vs_home_starter": away_lineup_grades,
+        "home_lineup_vs_away_starter": home_lineup_grades,
+        "board_summary": board_summary,
+    }
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
@@ -1056,6 +1246,8 @@ def main():
     il_data = (load_json(TEAM_IL_PATH, fallback={}) or {}).get("teams", {})
     pitch_intel = load_json(PITCH_INTEL_PATH, fallback={"pitchers": {}, "hitters": {}})
     hitter_cards = (load_json(HITTER_CARDS_PATH, fallback={}) or {}).get("players", {})
+    player_index_list = load_json(PLAYER_INDEX_PATH, fallback=[])
+    player_index_by_slug = {p["slug"]: p for p in player_index_list if isinstance(p, dict) and p.get("slug")}
 
     pm_by_teams = {}
     for g in (player_matchups.get("games") or []):
@@ -1155,9 +1347,21 @@ def main():
         data_basis.append("Weather available" if weather_present else "Weather unavailable")
         data_basis.append("Odds available" if total_line is not None else "Odds unavailable")
 
-        # --- Pitch-type matchup ---
+        # --- Matchup board ---
         away_pitcher_slug = (away_pm_pitcher or {}).get("slug") or (away_starter or {}).get("slug")
         home_pitcher_slug = (home_pm_pitcher or {}).get("slug") or (home_starter or {}).get("slug")
+        raw_lineups = g.get("lineups") or {}
+        away_lineup_raw = raw_lineups.get("away") or []
+        home_lineup_raw = raw_lineups.get("home") or []
+        matchup_board = build_matchup_board(
+            away_team_name, home_team_name,
+            away_starter, home_starter,
+            away_pitcher_slug, home_pitcher_slug,
+            away_lineup_raw, home_lineup_raw,
+            pitch_intel, hitter_cards, player_index_by_slug,
+        )
+
+        # --- Pitch-type matchup ---
         pitch_type_matchup = build_pitch_type_matchup(
             away_team_name, home_team_name,
             away_bats, home_bats,
@@ -1187,6 +1391,7 @@ def main():
             "home_team": home_abbr,
             "game_read": game_read,
             "game_report": game_report,
+            "matchup_board": matchup_board,
             "lineup_read": lineup_read,
             "pitching_read": pitching_read,
             "pitch_type_matchup": pitch_type_matchup,

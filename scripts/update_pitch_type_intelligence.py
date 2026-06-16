@@ -76,6 +76,7 @@ WHIFF_EVENTS = {"swinging_strike", "swinging_strike_blocked"}
 
 MIN_PITCHES = 20
 MIN_SWINGS = 10
+MIN_BIP = 15
 
 
 # ---------------------------------------------------------------------------
@@ -236,10 +237,27 @@ def build_pitcher_profile(full_name, slug, team, throws, mlbam_id):
             swing_count = grp["description"].isin(SWING_EVENTS).sum()
             whiff_count = grp["description"].isin(WHIFF_EVENTS).sum()
             whiff_pct = round(whiff_count / swing_count * 100, 1) if swing_count >= 5 else None
+            bip_grp = grp[grp["type"] == "X"]
+            bip_count = len(bip_grp)
+            if bip_count >= MIN_BIP:
+                hard_hit_count = (bip_grp["launch_speed"].dropna() >= 95).sum()
+                hard_hit_pct = round(hard_hit_count / bip_count * 100, 1)
+                barrel_mask = (
+                    (bip_grp["launch_speed"] >= 98) &
+                    (bip_grp["launch_angle"] >= 8) &
+                    (bip_grp["launch_angle"] <= 50)
+                )
+                barrel_pct = round(barrel_mask.sum() / bip_count * 100, 1)
+            else:
+                hard_hit_pct = None
+                barrel_pct = None
             arsenal.append({
                 "pitch": pt, "label": label, "family": family,
                 "usage_pct": round(usage_pct, 1), "whiff_pct": whiff_pct,
                 "avg_velocity": avg_vel,
+                "bip_count": bip_count,
+                "hard_hit_pct": hard_hit_pct,
+                "barrel_pct": barrel_pct,
             })
             family_counts[family] = family_counts.get(family, 0) + count
 

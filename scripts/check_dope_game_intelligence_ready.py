@@ -23,6 +23,10 @@ REQUIRED_GAME_REPORT_KEYS = {
 
 FASTBALL_EDGE_LABELS = {"Fastball Damage", "Handles Fastballs", "Contact Path"}
 FASTBALL_EDGE_CAP = 3
+VALID_GRADES = {"green", "yellow", "red", "gray"}
+MATCHUP_BOARD_KEYS = {"away_starter", "home_starter", "away_lineup_vs_home_starter", "home_lineup_vs_away_starter", "board_summary"}
+GREEN_FAIL = 6
+GREEN_WARN = 5
 
 BANNED_PHRASES = [
     "poised to", "set to", "showcase", "battle", "clash",
@@ -153,6 +157,36 @@ def main():
             fail(f"game {game_id} betting_props_watch must be a list")
         if not isinstance(g["data_basis"], list):
             fail(f"game {game_id} data_basis must be a list")
+
+    # matchup_board validation (optional but structured when present)
+    for game_id, g in games.items():
+        mb = g.get("matchup_board")
+        if mb is None:
+            continue
+        if not isinstance(mb, dict):
+            fail(f"game {game_id} matchup_board must be a dict")
+        missing_mb = MATCHUP_BOARD_KEYS - set(mb.keys())
+        if missing_mb:
+            fail(f"game {game_id} matchup_board missing keys: {missing_mb}")
+        if not isinstance(mb.get("board_summary"), str) or not mb["board_summary"].strip():
+            fail(f"game {game_id} matchup_board.board_summary must be a non-empty string")
+        for side in ("away_lineup_vs_home_starter", "home_lineup_vs_away_starter"):
+            lineup = mb.get(side, [])
+            if not isinstance(lineup, list):
+                fail(f"game {game_id} matchup_board.{side} must be a list")
+            green_count = 0
+            for hitter in lineup:
+                grade = hitter.get("grade")
+                if grade not in VALID_GRADES:
+                    fail(f"game {game_id} matchup_board.{side} hitter {hitter.get('name')} has invalid grade: {grade!r}")
+                if not hitter.get("reason") or not isinstance(hitter["reason"], str):
+                    fail(f"game {game_id} matchup_board.{side} hitter {hitter.get('name')} has missing/invalid reason")
+                if grade == "green":
+                    green_count += 1
+            if green_count >= GREEN_FAIL:
+                fail(f"game {game_id} matchup_board.{side} has {green_count} green grades (cap is {GREEN_FAIL - 1})")
+            if green_count >= GREEN_WARN:
+                print(f"WARN: game {game_id} matchup_board.{side} has {green_count} green grades — verify grading is not too generous")
 
     walk(data, "dope_game_intelligence")
 
