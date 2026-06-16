@@ -4,13 +4,13 @@
     "season": 2026,
     "source": "pybaseball/statcast",
     "pitcher_count": 27,
-    "hitter_count": 57,
+    "hitter_count": 55,
     "pitcher_available": 26,
-    "hitter_available": 57,
+    "hitter_available": 55,
     "failed_pitcher_count": 0,
     "failed_hitter_count": 0,
     "failure_notes": [],
-    "generated_at": "2026-06-16T01:17:29Z",
+    "generated_at": "2026-06-16T01:26:03Z",
     "data_quality": "available",
     "cache_status": "fresh"
   },
@@ -3301,72 +3301,6 @@
       "best_family": "Fastball",
       "risk_family": "Breaking",
       "summary": "Bryan Reynolds fits best in fastball-heavy matchups. The risk spot is breaking \u2014 chase vulnerability goes up when pitchers work that family."
-    },
-    "oneil-cruz": {
-      "name": "Oneil Cruz",
-      "slug": "oneil-cruz",
-      "team": "PIT",
-      "bats": "L",
-      "sample": {
-        "pitches": 1130,
-        "date_range": "2026-03-28 to 2026-06-06"
-      },
-      "pitch_family_profile": {
-        "Fastball": {
-          "damage": "neutral",
-          "contact": "neutral",
-          "pitches": 558,
-          "summary": "Oneil Cruz profiles as a neutral bat against fastball pitching."
-        },
-        "Breaking": {
-          "damage": "risk",
-          "contact": "risk",
-          "pitches": 374,
-          "summary": "Oneil Cruz carries swing-and-miss risk against breaking pitching \u2014 chase vulnerability is elevated."
-        },
-        "Offspeed": {
-          "damage": "risk",
-          "contact": "risk",
-          "pitches": 198,
-          "summary": "Oneil Cruz carries swing-and-miss risk against offspeed pitching \u2014 chase vulnerability is elevated."
-        }
-      },
-      "best_family": "Fastball",
-      "risk_family": "Breaking",
-      "summary": "Oneil Cruz fits best in fastball-heavy matchups. The risk spot is breaking \u2014 chase vulnerability goes up when pitchers work that family."
-    },
-    "marcell-ozuna": {
-      "name": "Marcell Ozuna",
-      "slug": "marcell-ozuna",
-      "team": "PIT",
-      "bats": "R",
-      "sample": {
-        "pitches": 888,
-        "date_range": "2026-03-28 to 2026-06-11"
-      },
-      "pitch_family_profile": {
-        "Fastball": {
-          "damage": "strong",
-          "contact": "strong",
-          "pitches": 514,
-          "summary": "Marcell Ozuna makes consistent contact and finds damage lanes against fastball pitching."
-        },
-        "Breaking": {
-          "damage": "risk",
-          "contact": "risk",
-          "pitches": 247,
-          "summary": "Marcell Ozuna carries swing-and-miss risk against breaking pitching \u2014 chase vulnerability is elevated."
-        },
-        "Offspeed": {
-          "damage": "risk",
-          "contact": "risk",
-          "pitches": 127,
-          "summary": "Marcell Ozuna carries swing-and-miss risk against offspeed pitching \u2014 chase vulnerability is elevated."
-        }
-      },
-      "best_family": "Fastball",
-      "risk_family": "Breaking",
-      "summary": "Marcell Ozuna finds the damage lane against fastball pitching. The risk spot is breaking \u2014 chase vulnerability goes up when pitchers work that family."
     },
     "nick-kurtz": {
       "name": "Nick Kurtz",
