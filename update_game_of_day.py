@@ -30,7 +30,7 @@ from datetime import datetime, timedelta
 from dataclasses import dataclass, field
 from pathlib import Path
 
-GEMINI_MODEL = "gemini-3.5-flash"
+GEMINI_MODEL = "gemini-2.5-flash"
 
 def load_api_key():
     """Load GEMINI_API_KEY from environment or .env file."""
