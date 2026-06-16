@@ -258,7 +258,143 @@ def luck_gap_standout(team_abbr, lookups):
     return candidates[0] if candidates else None
 
 
-def build_series_entry(away, home, games, away_name, home_name, lookups, standings):
+def build_pitch_type_series_read(away, home, away_name, home_name, pitching_path, tilt_players, pitch_intel):
+    """Build pitch_type_series_read block from pitch_type_intelligence.json."""
+    if not pitch_intel:
+        return {
+            "summary": "Pitch-type data is limited for this series.",
+            "series_arsenal_shape": "Limited Pitch-Type Data",
+            "team_fit": {"away": "Pitch-type data unavailable.", "home": "Pitch-type data unavailable."},
+            "hitters_to_track": [],
+            "pitchers_to_track": [],
+            "data_quality": "limited",
+        }
+
+    pitchers_data = pitch_intel.get("pitchers", {})
+    hitters_data = pitch_intel.get("hitters", {})
+
+    # Collect named starter slugs from pitching_path
+    def slug_from_name(name):
+        if not name or name in ("TBD", "Probable starter TBD"):
+            return None
+        s = name.lower().strip()
+        import re
+        s = re.sub(r"[''\.]", "", s)
+        s = re.sub(r"[^a-z0-9\s\-]", "", s)
+        s = re.sub(r"\s+", "-", s.strip())
+        return s
+
+    away_probables = pitching_path.get("away_probables", [])
+    home_probables = pitching_path.get("home_probables", [])
+
+    away_slugs = [slug_from_name(n) for n in away_probables if slug_from_name(n)]
+    home_slugs = [slug_from_name(n) for n in home_probables if slug_from_name(n)]
+
+    away_pitcher_profiles = [pitchers_data.get(s) for s in away_slugs if pitchers_data.get(s)]
+    home_pitcher_profiles = [pitchers_data.get(s) for s in home_slugs if pitchers_data.get(s)]
+
+    named_profiles = [p for p in away_pitcher_profiles + home_pitcher_profiles if p and p.get("primary_shape") != "Limited Data"]
+
+    # Series arsenal shape
+    shapes = [p["primary_shape"] for p in named_profiles]
+    fb_heavy = sum(1 for s in shapes if "Fastball" in s)
+    br_heavy = sum(1 for s in shapes if "Breaking" in s)
+    os_heavy = sum(1 for s in shapes if "Offspeed" in s)
+
+    if not shapes:
+        series_arsenal_shape = "Limited Pitch-Type Data"
+    elif br_heavy > fb_heavy and br_heavy >= len(shapes) // 2:
+        series_arsenal_shape = "Breaking Ball Series"
+    elif os_heavy >= len(shapes) // 2:
+        series_arsenal_shape = "Offspeed/Timing Series"
+    elif fb_heavy >= len(shapes) - 1:
+        series_arsenal_shape = "Fastball Pressure Series"
+    else:
+        series_arsenal_shape = "Balanced Arsenal Series"
+
+    # Team fit notes
+    def team_fit_note(team_name, pitcher_profiles_facing, opp_pitcher_profiles):
+        if not opp_pitcher_profiles:
+            return f"{team_name}'s pitch-type lineup fit is limited — opposing starters are not yet confirmed."
+        shapes_facing = [p["primary_shape"] for p in opp_pitcher_profiles if p.get("primary_shape") != "Limited Data"]
+        if not shapes_facing:
+            return f"{team_name} faces pitchers with limited arsenal data this series."
+        dominant = shapes_facing[0] if shapes_facing else "balanced"
+        return (
+            f"{team_name} faces primarily {dominant.lower()} pitching in this series — "
+            f"patience against the primary offering and damage in the secondary window are the key path."
+        )
+
+    away_team_fit = team_fit_note(away_name, home_pitcher_profiles, home_pitcher_profiles)
+    home_team_fit = team_fit_note(home_name, away_pitcher_profiles, away_pitcher_profiles)
+
+    # Hitters to track from tilt_players
+    hitters_to_track = []
+    seen_h = set()
+    for p in tilt_players:
+        slug = p.get("slug", "")
+        name = p.get("name", "")
+        if not slug or slug in seen_h or len(hitters_to_track) >= 4:
+            continue
+        h = hitters_data.get(slug)
+        if h and h.get("best_family") != "Limited Data":
+            hitters_to_track.append({
+                "name": name,
+                "slug": slug,
+                "team": p.get("team", ""),
+                "best_family": h["best_family"],
+                "note": h.get("summary", ""),
+            })
+            seen_h.add(slug)
+
+    # Pitchers to track
+    pitchers_to_track = []
+    for p in named_profiles[:4]:
+        pitchers_to_track.append({
+            "name": p.get("name", ""),
+            "slug": p.get("slug", ""),
+            "team": p.get("team", ""),
+            "primary_shape": p.get("primary_shape", ""),
+            "note": p.get("summary", ""),
+        })
+
+    # Summary
+    if series_arsenal_shape == "Limited Pitch-Type Data":
+        summary = (
+            f"Pitch-type series data is limited for {away_name} at {home_name} — "
+            f"most starters are TBD. The pitch-type read will sharpen as rotations confirm."
+        )
+    else:
+        parts = [
+            f"This series leans into {series_arsenal_shape.lower().replace(' series', '')} shape."
+        ]
+        if away_team_fit:
+            parts.append(
+                f"{away_name}'s path runs through pitch discipline against the home rotation."
+            )
+        if hitters_to_track:
+            lead = hitters_to_track[0]
+            parts.append(
+                f"{lead['name']} is the key pitch-type fit bat to track — "
+                f"{lead['best_family'].lower()} pitching is the damage lane."
+            )
+        summary = " ".join(parts[:3])
+
+    dq = "limited" if series_arsenal_shape == "Limited Pitch-Type Data" else (
+        "partial" if len(named_profiles) < 2 else "available"
+    )
+
+    return {
+        "summary": summary,
+        "series_arsenal_shape": series_arsenal_shape,
+        "team_fit": {"away": away_team_fit, "home": home_team_fit},
+        "hitters_to_track": hitters_to_track,
+        "pitchers_to_track": pitchers_to_track,
+        "data_quality": dq,
+    }
+
+
+def build_series_entry(away, home, games, away_name, home_name, lookups, standings, pitch_intel=None):
     start_date = games[0]["date"]
     end_date = games[-1]["date"]
     game_count = len(games)
@@ -577,6 +713,10 @@ def build_series_entry(away, home, games, away_name, home_name, lookups, standin
 
     barrel_proof_read = " ".join(read_parts[:4])
 
+    pitch_type_series_read = build_pitch_type_series_read(
+        away, home, away_name, home_name, pitching_path, tilt, pitch_intel or {}
+    )
+
     return {
         "series_id": series_id,
         "away_team": away,
@@ -595,6 +735,7 @@ def build_series_entry(away, home, games, away_name, home_name, lookups, standin
         "lineup_matchup": lineup_matchup,
         "bullpen_leverage": bullpen_leverage,
         "players_who_tilt_series": tilt,
+        "pitch_type_series_read": pitch_type_series_read,
         "fantasy_dfs_watch": fantasy_dfs_watch,
         "betting_props_watch": betting_props_watch,
         "data_basis": data_basis,
@@ -618,12 +759,19 @@ def main():
     lookups = build_lookups()
     standings = get_standings_records()
 
+    pitch_intel_path = DATA_DIR / "pitch_type_intelligence.json"
+    try:
+        pitch_intel = json.loads(pitch_intel_path.read_text(encoding="utf-8"))
+    except Exception:
+        pitch_intel = {}
+        print("  ⚠ pitch_type_intelligence.json not found — series pitch-type reads will be limited.", flush=True)
+
     series_out = []
     teams_seen = []
     for away, home, run in grouped:
         away_name = run[0]["away_team_name"]
         home_name = run[0]["home_team_name"]
-        entry = build_series_entry(away, home, run, away_name, home_name, lookups, standings)
+        entry = build_series_entry(away, home, run, away_name, home_name, lookups, standings, pitch_intel=pitch_intel)
         series_out.append(entry)
         teams_seen.extend([away, home])
 

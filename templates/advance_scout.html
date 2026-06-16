@@ -244,6 +244,33 @@ footer{border-top:2px solid var(--bp-rule);background:var(--bp-charcoal);color:v
       {% endif %}
     </div>
 
+    {% set ptsr = s.pitch_type_series_read %}
+    {% if ptsr and ptsr.data_quality != 'limited' %}
+    <div class="scout-section">
+      <div class="scout-section-title">Pitch-Type Series Read — {{ ptsr.series_arsenal_shape }}</div>
+      {% if ptsr.summary %}<div class="scout-text-line">{{ ptsr.summary }}</div>{% endif %}
+      {% if ptsr.team_fit %}
+        {% if ptsr.team_fit.away %}<div class="scout-text-line">{{ ptsr.team_fit.away }}</div>{% endif %}
+        {% if ptsr.team_fit.home %}<div class="scout-text-line">{{ ptsr.team_fit.home }}</div>{% endif %}
+      {% endif %}
+      {% if ptsr.pitchers_to_track %}
+      <div class="scout-text-line"><strong>Pitchers:</strong>
+        {% for p in ptsr.pitchers_to_track %}{% if p.slug %}<a href="/player/{{ p.slug }}">{{ p.name }}</a>{% else %}{{ p.name }}{% endif %} ({{ p.primary_shape }}){% if not loop.last %}, {% endif %}{% endfor %}
+      </div>
+      {% endif %}
+      {% if ptsr.hitters_to_track %}
+      <div class="scout-text-line"><strong>Hitters:</strong>
+        {% for h in ptsr.hitters_to_track %}{% if h.slug %}<a href="/player/{{ h.slug }}">{{ h.name }}</a>{% else %}{{ h.name }}{% endif %} ({{ h.best_family }} fit){% if not loop.last %}, {% endif %}{% endfor %}
+      </div>
+      {% endif %}
+    </div>
+    {% elif ptsr %}
+    <div class="scout-section">
+      <div class="scout-section-title">Pitch-Type Series Read</div>
+      <div class="scout-text-line">{{ ptsr.summary }}</div>
+    </div>
+    {% endif %}
+
     {% set lm = s.lineup_matchup %}
     {% if lm and (lm.away_pressure or lm.home_pressure or lm.power_bats or lm.contact_bats) %}
     <div class="scout-section">

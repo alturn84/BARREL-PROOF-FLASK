@@ -801,6 +801,28 @@ function renderGameIntelligence(g){
     sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Game Environment${v(er.run_environment)?` — ${er.run_environment}`:''}</div><div class="matchup-line">${er.summary}</div></div>`);
   }
 
+  const ptm=gi.pitch_type_matchup||{};
+  if(v(ptm.summary)){
+    const ptmSubs=[];
+    ptmSubs.push(`<div class="matchup-line">${ptm.summary}</div>`);
+    const pan=ptm.pitcher_arsenal_notes||{};
+    if(v(pan.away_starter)||v(pan.home_starter)){
+      const lines=[pan.away_starter,pan.home_starter].filter(v).map(n=>`<div class="matchup-line">${n}</div>`).join('');
+      ptmSubs.push(`<div class="matchup-subsection"><div class="matchup-subhead">Pitcher Arsenals</div>${lines}</div>`);
+    }
+    const lf=ptm.lineup_fit||{};
+    if(v(lf.away_vs_home_starter)||v(lf.home_vs_away_starter)){
+      const lines2=[lf.away_vs_home_starter,lf.home_vs_away_starter].filter(v).map(n=>`<div class="matchup-line">${n}</div>`).join('');
+      ptmSubs.push(`<div class="matchup-subsection"><div class="matchup-subhead">Lineup Fit</div>${lines2}</div>`);
+    }
+    const edgeItems=(ptm.hitters_with_edge||[]).filter(p=>v(p.name)&&v(p.reason)).map(p=>`${playerLink(p.name,p.slug)||p.name} (${p.edge}) — ${p.reason}`);
+    if(edgeItems.length) ptmSubs.push(`<div class="matchup-subsection"><div class="matchup-subhead">Pitch-Type Edge</div><ul class="matchup-list">${edgeItems.map(t=>`<li>${t}</li>`).join('')}</ul></div>`);
+    const riskItems=(ptm.hitters_at_risk||[]).filter(p=>v(p.name)&&v(p.reason)).map(p=>`${playerLink(p.name,p.slug)||p.name} (${p.risk}) — ${p.reason}`);
+    if(riskItems.length) ptmSubs.push(`<div class="matchup-subsection"><div class="matchup-subhead">Pitch-Type Risk</div><ul class="matchup-list">${riskItems.map(t=>`<li>${t}</li>`).join('')}</ul></div>`);
+    if(v(ptm.data_quality)&&ptm.data_quality!=='available') ptmSubs.push(`<div class="matchup-line matchup-disclaimer">Pitch-type data quality: ${ptm.data_quality}</div>`);
+    sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Pitch-Type Matchup</div>${ptmSubs.join('')}</div>`);
+  }
+
   const tilts=(gi.players_who_tilt_game||[]).map(p=>{
     const link=playerLink(v(p.name),p.slug);
     if(!link)return null;

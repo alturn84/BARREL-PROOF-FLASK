@@ -1,7 +1,7 @@
 {
   "meta": {
     "date": "2026-06-15",
-    "generated_at": "2026-06-15T22:51:39Z",
+    "generated_at": "2026-06-15T23:29:34Z",
     "source": "Barrel Proof unified game intelligence",
     "game_count": 10
   },
@@ -84,6 +84,64 @@
         },
         "starter_edge": "Neither starter holds a clear foundation edge, so middle-innings bullpen usage carries extra weight.",
         "game_pitching_shape": "Bullpen Game Risk"
+      },
+      "pitch_type_matchup": {
+        "summary": "Miami Marlins's starter brings a fastball/breaking approach \u2014 the Philadelphia Phillies lineup's path runs through pitch discipline and damage timing. Philadelphia Phillies's starter works from fastball/breaking shape \u2014 the Miami Marlins offense needs to find the right window to do damage. Xavier Edwards stands out as the best pitch-type fit among the likely lineup contributors.",
+        "pitcher_arsenal_notes": {
+          "away_starter": "Ryan Gusto works primarily from a fastball/breaking-ball mix. The Four-Seam Fastball is the primary weapon at 31% usage, sitting 93.9 mph. The Cutter (15%) is the key secondary.",
+          "home_starter": "Zack Wheeler works primarily from a fastball/breaking-ball mix. The Four-Seam Fastball is the primary weapon at 39% usage, sitting 95.2 mph. The Sinker (17%) is the key secondary."
+        },
+        "lineup_fit": {
+          "away_vs_home_starter": "Miami Marlins's best-fit bats against this fastball/breaking shape: Xavier Edwards, Otto Lopez. The pitch-type matchup favors patience and working the primary offering.",
+          "home_vs_away_starter": "Philadelphia Phillies's best-fit bats against this fastball/breaking shape: Bryce Harper, Kyle Schwarber, J.T. Realmuto. The pitch-type matchup favors patience and working the primary offering."
+        },
+        "hitters_with_edge": [
+          {
+            "name": "Xavier Edwards",
+            "slug": "xavier-edwards",
+            "team": "Miami Marlins",
+            "edge": "Fastball Fit",
+            "reason": "Xavier Edwards profiles well against fastball/breaking pitching \u2014 the fastball family is a stronger damage lane for this bat."
+          },
+          {
+            "name": "Otto Lopez",
+            "slug": "otto-lopez",
+            "team": "Miami Marlins",
+            "edge": "Fastball Fit",
+            "reason": "Otto Lopez profiles well against fastball/breaking pitching \u2014 the fastball family is a stronger damage lane for this bat."
+          },
+          {
+            "name": "Bryce Harper",
+            "slug": "bryce-harper",
+            "team": "Philadelphia Phillies",
+            "edge": "Fastball Fit",
+            "reason": "Bryce Harper profiles well against fastball/breaking pitching \u2014 the fastball family is a stronger damage lane for this bat."
+          },
+          {
+            "name": "Kyle Schwarber",
+            "slug": "kyle-schwarber",
+            "team": "Philadelphia Phillies",
+            "edge": "Fastball Fit",
+            "reason": "Kyle Schwarber profiles well against fastball/breaking pitching \u2014 the fastball family is a stronger damage lane for this bat."
+          }
+        ],
+        "hitters_at_risk": [
+          {
+            "name": "Bryce Harper",
+            "slug": "bryce-harper",
+            "team": "Philadelphia Phillies",
+            "risk": "Breaking Ball Chase",
+            "reason": "Bryce Harper carries chase risk against breaking pitching \u2014 the fastball/breaking shape puts pressure on this bat's expansion tendency."
+          },
+          {
+            "name": "Kyle Schwarber",
+            "slug": "kyle-schwarber",
+            "team": "Philadelphia Phillies",
+            "risk": "Breaking Ball Chase",
+            "reason": "Kyle Schwarber carries chase risk against breaking pitching \u2014 the fastball/breaking shape puts pressure on this bat's expansion tendency."
+          }
+        ],
+        "data_quality": "available"
       },
       "bullpen_read": {
         "summary": "Miami Marlins has 4 arm(s) already used and 4 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited. Philadelphia Phillies has 3 arm(s) already used and 3 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited.",
@@ -227,6 +285,28 @@
         },
         "starter_edge": "Probable starter signals are limited for this game, so the pitching path is still developing.",
         "game_pitching_shape": "TBD Pitching Path"
+      },
+      "pitch_type_matchup": {
+        "summary": "Washington Nationals's starter works from breaking-heavy shape \u2014 the Kansas City Royals offense needs to find the right window to do damage.",
+        "pitcher_arsenal_notes": {
+          "away_starter": "Pitch-type data is limited for the Kansas City Royals starter.",
+          "home_starter": "Andrew Alvarez leans heavily on breaking ball shape \u2014 57% breaking-ball usage. The Slider is the primary weapon at 30% usage, sitting 83.8 mph. The Curveball (28%) is the key secondary."
+        },
+        "lineup_fit": {
+          "away_vs_home_starter": "Kansas City Royals faces a breaking-heavy pitcher \u2014 the key path is discipline against the primary shape and damage in the fastball window.",
+          "home_vs_away_starter": "Pitch-type lineup fit is limited \u2014 Kansas City Royals starter profile unavailable."
+        },
+        "hitters_with_edge": [],
+        "hitters_at_risk": [
+          {
+            "name": "Jac Caglianone",
+            "slug": "jac-caglianone",
+            "team": "Kansas City Royals",
+            "risk": "Breaking Ball Chase",
+            "reason": "Jac Caglianone carries chase risk against breaking pitching \u2014 the breaking-heavy shape puts pressure on this bat's expansion tendency."
+          }
+        ],
+        "data_quality": "partial"
       },
       "bullpen_read": {
         "summary": "Kansas City Royals has 3 arm(s) already used and 3 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited. Washington Nationals has 2 arm(s) already used and 3 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited.",
@@ -384,6 +464,57 @@
         },
         "starter_edge": "Probable starter signals are limited for this game, so the pitching path is still developing.",
         "game_pitching_shape": "TBD Pitching Path"
+      },
+      "pitch_type_matchup": {
+        "summary": "Cincinnati Reds's starter works from fastball/breaking shape \u2014 the New York Mets offense needs to find the right window to do damage. Juan Soto stands out as the best pitch-type fit among the likely lineup contributors.",
+        "pitcher_arsenal_notes": {
+          "away_starter": "Pitch-type data is limited for the New York Mets starter.",
+          "home_starter": "Chase Burns works primarily from a fastball/breaking-ball mix. The Four-Seam Fastball is the primary weapon at 57% usage, sitting 98.0 mph. The Slider (37%) is the key secondary."
+        },
+        "lineup_fit": {
+          "away_vs_home_starter": "New York Mets's best-fit bats against this fastball/breaking shape: Juan Soto, Bo Bichette, Carson Benge. The pitch-type matchup favors patience and working the primary offering.",
+          "home_vs_away_starter": "Pitch-type lineup fit is limited \u2014 New York Mets starter profile unavailable."
+        },
+        "hitters_with_edge": [
+          {
+            "name": "Juan Soto",
+            "slug": "juan-soto",
+            "team": "New York Mets",
+            "edge": "Fastball Fit",
+            "reason": "Juan Soto profiles well against fastball/breaking pitching \u2014 the fastball family is a stronger damage lane for this bat."
+          },
+          {
+            "name": "Bo Bichette",
+            "slug": "bo-bichette",
+            "team": "New York Mets",
+            "edge": "Fastball Fit",
+            "reason": "Bo Bichette profiles well against fastball/breaking pitching \u2014 the fastball family is a stronger damage lane for this bat."
+          },
+          {
+            "name": "Carson Benge",
+            "slug": "carson-benge",
+            "team": "New York Mets",
+            "edge": "Fastball Fit",
+            "reason": "Carson Benge profiles well against fastball/breaking pitching \u2014 the fastball family is a stronger damage lane for this bat."
+          },
+          {
+            "name": "Marcus Semien",
+            "slug": "marcus-semien",
+            "team": "New York Mets",
+            "edge": "Fastball Fit",
+            "reason": "Marcus Semien profiles well against fastball/breaking pitching \u2014 the fastball family is a stronger damage lane for this bat."
+          }
+        ],
+        "hitters_at_risk": [
+          {
+            "name": "Juan Soto",
+            "slug": "juan-soto",
+            "team": "New York Mets",
+            "risk": "Breaking Ball Chase",
+            "reason": "Juan Soto carries chase risk against breaking pitching \u2014 the fastball/breaking shape puts pressure on this bat's expansion tendency."
+          }
+        ],
+        "data_quality": "partial"
       },
       "bullpen_read": {
         "summary": "New York Mets has 2 arm(s) already used and 4 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited. Cincinnati Reds has 1 arm(s) already used and 5 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited.",
@@ -543,6 +674,50 @@
         "starter_edge": "Neither starter holds a clear foundation edge, so middle-innings bullpen usage carries extra weight.",
         "game_pitching_shape": "Bullpen Game Risk"
       },
+      "pitch_type_matchup": {
+        "summary": "San Diego Padres's starter brings a balanced arsenal approach \u2014 the St. Louis Cardinals lineup's path runs through pitch discipline and damage timing. St. Louis Cardinals's starter works from fastball/breaking shape \u2014 the San Diego Padres offense needs to find the right window to do damage. Fernando Tatis Jr. stands out as the best pitch-type fit among the likely lineup contributors.",
+        "pitcher_arsenal_notes": {
+          "away_starter": "Wandy Peralta commands a balanced arsenal across pitch families. The Sinker is the primary weapon at 39% usage, sitting 96.0 mph. The Changeup (34%) is the key secondary.",
+          "home_starter": "Dustin May works primarily from a fastball/breaking-ball mix. The Four-Seam Fastball is the primary weapon at 26% usage, sitting 96.9 mph. The Cutter (22%) is the key secondary."
+        },
+        "lineup_fit": {
+          "away_vs_home_starter": "San Diego Padres's best-fit bats against this fastball/breaking shape: Fernando Tatis Jr., Jackson Merrill, Manny Machado. The pitch-type matchup favors patience and working the primary offering.",
+          "home_vs_away_starter": "St. Louis Cardinals faces a balanced arsenal pitcher \u2014 the key path is discipline against the primary shape and damage in the fastball window."
+        },
+        "hitters_with_edge": [
+          {
+            "name": "Fernando Tatis Jr.",
+            "slug": "fernando-tatis-jr",
+            "team": "San Diego Padres",
+            "edge": "Fastball Fit",
+            "reason": "Fernando Tatis Jr. profiles well against fastball/breaking pitching \u2014 the fastball family is a stronger damage lane for this bat."
+          },
+          {
+            "name": "Jackson Merrill",
+            "slug": "jackson-merrill",
+            "team": "San Diego Padres",
+            "edge": "Fastball Fit",
+            "reason": "Jackson Merrill profiles well against fastball/breaking pitching \u2014 the fastball family is a stronger damage lane for this bat."
+          },
+          {
+            "name": "Manny Machado",
+            "slug": "manny-machado",
+            "team": "San Diego Padres",
+            "edge": "Fastball Fit",
+            "reason": "Manny Machado profiles well against fastball/breaking pitching \u2014 the fastball family is a stronger damage lane for this bat."
+          }
+        ],
+        "hitters_at_risk": [
+          {
+            "name": "Fernando Tatis Jr.",
+            "slug": "fernando-tatis-jr",
+            "team": "San Diego Padres",
+            "risk": "Breaking Ball Chase",
+            "reason": "Fernando Tatis Jr. carries chase risk against breaking pitching \u2014 the fastball/breaking shape puts pressure on this bat's expansion tendency."
+          }
+        ],
+        "data_quality": "available"
+      },
       "bullpen_read": {
         "summary": "San Diego Padres has 1 arm(s) already used and 4 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited. St. Louis Cardinals has 3 arm(s) already used and 2 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited.",
         "away_status": "San Diego Padres has 1 arm(s) already used and 4 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited.",
@@ -685,6 +860,43 @@
         },
         "starter_edge": "Shota Imanaga gives Chicago Cubs the cleaner path with the stronger foundation read in this matchup.",
         "game_pitching_shape": "Starter Edge"
+      },
+      "pitch_type_matchup": {
+        "summary": "Colorado Rockies's starter brings a balanced arsenal approach \u2014 the Chicago Cubs lineup's path runs through pitch discipline and damage timing. Chicago Cubs's starter works from fastball/offspeed shape \u2014 the Colorado Rockies offense needs to find the right window to do damage. Hunter Goodman stands out as the best pitch-type fit among the likely lineup contributors.",
+        "pitcher_arsenal_notes": {
+          "away_starter": "Michael Lorenzen commands a balanced arsenal across pitch families. The Four-Seam Fastball is the primary weapon at 20% usage, sitting 94.2 mph. The Changeup (20%) is the key secondary.",
+          "home_starter": "Shota Imanaga pairs fastball velocity with offspeed timing. The Four-Seam Fastball is the primary weapon at 43% usage, sitting 91.8 mph. The Split-Finger (34%) is the key secondary."
+        },
+        "lineup_fit": {
+          "away_vs_home_starter": "Colorado Rockies's best-fit bats against this fastball/offspeed shape: Hunter Goodman, Ezequiel Tovar. The pitch-type matchup favors patience and working the primary offering.",
+          "home_vs_away_starter": "Chicago Cubs faces a balanced arsenal pitcher \u2014 the key path is discipline against the primary shape and damage in the fastball window."
+        },
+        "hitters_with_edge": [
+          {
+            "name": "Hunter Goodman",
+            "slug": "hunter-goodman",
+            "team": "Colorado Rockies",
+            "edge": "Fastball Fit",
+            "reason": "Hunter Goodman profiles well against fastball/offspeed pitching \u2014 the fastball family is a stronger damage lane for this bat."
+          },
+          {
+            "name": "Ezequiel Tovar",
+            "slug": "ezequiel-tovar",
+            "team": "Colorado Rockies",
+            "edge": "Fastball Fit",
+            "reason": "Ezequiel Tovar profiles well against fastball/offspeed pitching \u2014 the fastball family is a stronger damage lane for this bat."
+          }
+        ],
+        "hitters_at_risk": [
+          {
+            "name": "Ezequiel Tovar",
+            "slug": "ezequiel-tovar",
+            "team": "Colorado Rockies",
+            "risk": "Offspeed Timing",
+            "reason": "Ezequiel Tovar carries chase risk against offspeed pitching \u2014 the fastball/offspeed shape puts pressure on this bat's expansion tendency."
+          }
+        ],
+        "data_quality": "available"
       },
       "bullpen_read": {
         "summary": "Colorado Rockies has 2 arm(s) already used and 2 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited. Chicago Cubs has 3 arm(s) already used and 5 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited.",
@@ -838,6 +1050,71 @@
         "starter_edge": "Neither starter holds a clear foundation edge, so middle-innings bullpen usage carries extra weight.",
         "game_pitching_shape": "Bullpen Game Risk"
       },
+      "pitch_type_matchup": {
+        "summary": "Minnesota Twins's starter brings a fastball/offspeed approach \u2014 the Texas Rangers lineup's path runs through pitch discipline and damage timing. Texas Rangers's starter works from fastball/breaking shape \u2014 the Minnesota Twins offense needs to find the right window to do damage. Byron Buxton stands out as the best pitch-type fit among the likely lineup contributors.",
+        "pitcher_arsenal_notes": {
+          "away_starter": "Mike Paredes pairs fastball velocity with offspeed timing. The Four-Seam Fastball is the primary weapon at 40% usage, sitting 93.3 mph. The Changeup (24%) is the key secondary.",
+          "home_starter": "MacKenzie Gore works primarily from a fastball/breaking-ball mix. The Four-Seam Fastball is the primary weapon at 44% usage, sitting 95.4 mph. The Curveball (22%) is the key secondary."
+        },
+        "lineup_fit": {
+          "away_vs_home_starter": "Minnesota Twins's best-fit bats against this fastball/breaking shape: Byron Buxton, Kody Clemens. The pitch-type matchup favors patience and working the primary offering.",
+          "home_vs_away_starter": "Texas Rangers's best-fit bats against this fastball/offspeed shape: Brandon Nimmo, Joc Pederson, Josh Jung. The pitch-type matchup favors patience and working the primary offering."
+        },
+        "hitters_with_edge": [
+          {
+            "name": "Byron Buxton",
+            "slug": "byron-buxton",
+            "team": "Minnesota Twins",
+            "edge": "Fastball Fit",
+            "reason": "Byron Buxton profiles well against fastball/breaking pitching \u2014 the fastball family is a stronger damage lane for this bat."
+          },
+          {
+            "name": "Kody Clemens",
+            "slug": "kody-clemens",
+            "team": "Minnesota Twins",
+            "edge": "Fastball Fit",
+            "reason": "Kody Clemens profiles well against fastball/breaking pitching \u2014 the fastball family is a stronger damage lane for this bat."
+          },
+          {
+            "name": "Brandon Nimmo",
+            "slug": "brandon-nimmo",
+            "team": "Texas Rangers",
+            "edge": "Fastball Fit",
+            "reason": "Brandon Nimmo profiles well against fastball/offspeed pitching \u2014 the fastball family is a stronger damage lane for this bat."
+          },
+          {
+            "name": "Joc Pederson",
+            "slug": "joc-pederson",
+            "team": "Texas Rangers",
+            "edge": "Fastball Fit",
+            "reason": "Joc Pederson profiles well against fastball/offspeed pitching \u2014 the fastball family is a stronger damage lane for this bat."
+          }
+        ],
+        "hitters_at_risk": [
+          {
+            "name": "Byron Buxton",
+            "slug": "byron-buxton",
+            "team": "Minnesota Twins",
+            "risk": "Breaking Ball Chase",
+            "reason": "Byron Buxton carries chase risk against breaking pitching \u2014 the fastball/breaking shape puts pressure on this bat's expansion tendency."
+          },
+          {
+            "name": "Brandon Nimmo",
+            "slug": "brandon-nimmo",
+            "team": "Texas Rangers",
+            "risk": "Offspeed Timing",
+            "reason": "Brandon Nimmo carries chase risk against offspeed pitching \u2014 the fastball/offspeed shape puts pressure on this bat's expansion tendency."
+          },
+          {
+            "name": "Joc Pederson",
+            "slug": "joc-pederson",
+            "team": "Texas Rangers",
+            "risk": "Offspeed Timing",
+            "reason": "Joc Pederson carries chase risk against offspeed pitching \u2014 the fastball/offspeed shape puts pressure on this bat's expansion tendency."
+          }
+        ],
+        "data_quality": "available"
+      },
       "bullpen_read": {
         "summary": "Minnesota Twins has 2 arm(s) already used and 3 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited. Texas Rangers has 2 arm(s) already used and 3 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited.",
         "away_status": "Minnesota Twins has 2 arm(s) already used and 3 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited.",
@@ -989,6 +1266,20 @@
         },
         "starter_edge": "Drew Anderson gives Detroit Tigers the cleaner path with the stronger foundation read in this matchup.",
         "game_pitching_shape": "Starter Edge"
+      },
+      "pitch_type_matchup": {
+        "summary": "Houston Astros's starter works from breaking-heavy shape \u2014 the Detroit Tigers offense needs to find the right window to do damage.",
+        "pitcher_arsenal_notes": {
+          "away_starter": "Pitch-type data is limited for the Detroit Tigers starter.",
+          "home_starter": "Kai-Wei Teng leans heavily on breaking ball shape \u2014 47% breaking-ball usage. The Sweeper is the primary weapon at 35% usage, sitting 84.6 mph. The Four-Seam Fastball (25%) is the key secondary."
+        },
+        "lineup_fit": {
+          "away_vs_home_starter": "Detroit Tigers faces a breaking-heavy pitcher \u2014 the key path is discipline against the primary shape and damage in the fastball window.",
+          "home_vs_away_starter": "Pitch-type lineup fit is limited \u2014 Detroit Tigers starter profile unavailable."
+        },
+        "hitters_with_edge": [],
+        "hitters_at_risk": [],
+        "data_quality": "partial"
       },
       "bullpen_read": {
         "summary": "Detroit Tigers has leaned on 2 arm(s) already \u2014 bullpen freshness is a question if the starter exits early. Houston Astros has 1 arm(s) already used and 2 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited.",
@@ -1150,6 +1441,78 @@
         },
         "starter_edge": "Both starters carry volatile-arm profiles \u2014 this game can tilt on whichever bullpen absorbs the middle innings better.",
         "game_pitching_shape": "Volatile Starters"
+      },
+      "pitch_type_matchup": {
+        "summary": "Los Angeles Angels's starter brings a fastball/offspeed approach \u2014 the Arizona Diamondbacks lineup's path runs through pitch discipline and damage timing. Arizona Diamondbacks's starter works from fastball/breaking shape \u2014 the Los Angeles Angels offense needs to find the right window to do damage. Mike Trout stands out as the best pitch-type fit among the likely lineup contributors.",
+        "pitcher_arsenal_notes": {
+          "away_starter": "Walbert Ure\u00f1a pairs fastball velocity with offspeed timing. The Changeup is the primary weapon at 32% usage, sitting 90.9 mph. The Sinker (31%) is the key secondary.",
+          "home_starter": "Ryne Nelson works primarily from a fastball/breaking-ball mix. The Four-Seam Fastball is the primary weapon at 57% usage, sitting 96.3 mph. The Slider (19%) is the key secondary."
+        },
+        "lineup_fit": {
+          "away_vs_home_starter": "Los Angeles Angels's best-fit bats against this fastball/breaking shape: Mike Trout, Jo Adell. The pitch-type matchup favors patience and working the primary offering.",
+          "home_vs_away_starter": "Arizona Diamondbacks's best-fit bats against this fastball/offspeed shape: Ketel Marte, Corbin Carroll, Gabriel Moreno. The pitch-type matchup favors patience and working the primary offering."
+        },
+        "hitters_with_edge": [
+          {
+            "name": "Mike Trout",
+            "slug": "mike-trout",
+            "team": "Los Angeles Angels",
+            "edge": "Fastball Fit",
+            "reason": "Mike Trout profiles well against fastball/breaking pitching \u2014 the fastball family is a stronger damage lane for this bat."
+          },
+          {
+            "name": "Jo Adell",
+            "slug": "jo-adell",
+            "team": "Los Angeles Angels",
+            "edge": "Fastball Fit",
+            "reason": "Jo Adell profiles well against fastball/breaking pitching \u2014 the fastball family is a stronger damage lane for this bat."
+          },
+          {
+            "name": "Ketel Marte",
+            "slug": "ketel-marte",
+            "team": "Arizona Diamondbacks",
+            "edge": "Fastball Fit",
+            "reason": "Ketel Marte profiles well against fastball/offspeed pitching \u2014 the fastball family is a stronger damage lane for this bat."
+          },
+          {
+            "name": "Corbin Carroll",
+            "slug": "corbin-carroll",
+            "team": "Arizona Diamondbacks",
+            "edge": "Fastball Fit",
+            "reason": "Corbin Carroll profiles well against fastball/offspeed pitching \u2014 the fastball family is a stronger damage lane for this bat."
+          }
+        ],
+        "hitters_at_risk": [
+          {
+            "name": "Mike Trout",
+            "slug": "mike-trout",
+            "team": "Los Angeles Angels",
+            "risk": "Breaking Ball Chase",
+            "reason": "Mike Trout carries chase risk against breaking pitching \u2014 the fastball/breaking shape puts pressure on this bat's expansion tendency."
+          },
+          {
+            "name": "Ketel Marte",
+            "slug": "ketel-marte",
+            "team": "Arizona Diamondbacks",
+            "risk": "Offspeed Timing",
+            "reason": "Ketel Marte carries chase risk against offspeed pitching \u2014 the fastball/offspeed shape puts pressure on this bat's expansion tendency."
+          },
+          {
+            "name": "Corbin Carroll",
+            "slug": "corbin-carroll",
+            "team": "Arizona Diamondbacks",
+            "risk": "Offspeed Timing",
+            "reason": "Corbin Carroll carries chase risk against offspeed pitching \u2014 the fastball/offspeed shape puts pressure on this bat's expansion tendency."
+          },
+          {
+            "name": "Gabriel Moreno",
+            "slug": "gabriel-moreno",
+            "team": "Arizona Diamondbacks",
+            "risk": "Offspeed Timing",
+            "reason": "Gabriel Moreno carries chase risk against offspeed pitching \u2014 the fastball/offspeed shape puts pressure on this bat's expansion tendency."
+          }
+        ],
+        "data_quality": "available"
       },
       "bullpen_read": {
         "summary": "Los Angeles Angels has 2 arm(s) already used and 4 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited. Arizona Diamondbacks has 1 arm(s) already used and 4 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited.",
@@ -1313,6 +1676,71 @@
         },
         "starter_edge": "Neither starter holds a clear foundation edge, so middle-innings bullpen usage carries extra weight.",
         "game_pitching_shape": "Bullpen Game Risk"
+      },
+      "pitch_type_matchup": {
+        "summary": "Pittsburgh Pirates's starter brings a breaking-heavy approach \u2014 the Athletics lineup's path runs through pitch discipline and damage timing. Athletics's starter works from fastball/breaking shape \u2014 the Pittsburgh Pirates offense needs to find the right window to do damage. Bryan Reynolds stands out as the best pitch-type fit among the likely lineup contributors.",
+        "pitcher_arsenal_notes": {
+          "away_starter": "Jared Jones leans heavily on breaking ball shape \u2014 48% breaking-ball usage. The Four-Seam Fastball is the primary weapon at 39% usage, sitting 98.8 mph. The Slider (35%) is the key secondary.",
+          "home_starter": "J.T. Ginn works primarily from a fastball/breaking-ball mix. The Sinker is the primary weapon at 35% usage, sitting 94.1 mph. The Cutter (19%) is the key secondary."
+        },
+        "lineup_fit": {
+          "away_vs_home_starter": "Pittsburgh Pirates's best-fit bats against this fastball/breaking shape: Bryan Reynolds, Oneil Cruz, Marcell Ozuna. The pitch-type matchup favors patience and working the primary offering.",
+          "home_vs_away_starter": "Athletics faces a breaking-heavy pitcher \u2014 the key path is discipline against the primary shape and damage in the fastball window."
+        },
+        "hitters_with_edge": [
+          {
+            "name": "Bryan Reynolds",
+            "slug": "bryan-reynolds",
+            "team": "Pittsburgh Pirates",
+            "edge": "Fastball Fit",
+            "reason": "Bryan Reynolds profiles well against fastball/breaking pitching \u2014 the fastball family is a stronger damage lane for this bat."
+          },
+          {
+            "name": "Oneil Cruz",
+            "slug": "oneil-cruz",
+            "team": "Pittsburgh Pirates",
+            "edge": "Fastball Fit",
+            "reason": "Oneil Cruz profiles well against fastball/breaking pitching \u2014 the fastball family is a stronger damage lane for this bat."
+          },
+          {
+            "name": "Marcell Ozuna",
+            "slug": "marcell-ozuna",
+            "team": "Pittsburgh Pirates",
+            "edge": "Fastball Fit",
+            "reason": "Marcell Ozuna profiles well against fastball/breaking pitching \u2014 the fastball family is a stronger damage lane for this bat."
+          }
+        ],
+        "hitters_at_risk": [
+          {
+            "name": "Bryan Reynolds",
+            "slug": "bryan-reynolds",
+            "team": "Pittsburgh Pirates",
+            "risk": "Breaking Ball Chase",
+            "reason": "Bryan Reynolds carries chase risk against breaking pitching \u2014 the fastball/breaking shape puts pressure on this bat's expansion tendency."
+          },
+          {
+            "name": "Oneil Cruz",
+            "slug": "oneil-cruz",
+            "team": "Pittsburgh Pirates",
+            "risk": "Breaking Ball Chase",
+            "reason": "Oneil Cruz carries chase risk against breaking pitching \u2014 the fastball/breaking shape puts pressure on this bat's expansion tendency."
+          },
+          {
+            "name": "Marcell Ozuna",
+            "slug": "marcell-ozuna",
+            "team": "Pittsburgh Pirates",
+            "risk": "Breaking Ball Chase",
+            "reason": "Marcell Ozuna carries chase risk against breaking pitching \u2014 the fastball/breaking shape puts pressure on this bat's expansion tendency."
+          },
+          {
+            "name": "Nick Kurtz",
+            "slug": "nick-kurtz",
+            "team": "Athletics",
+            "risk": "Breaking Ball Chase",
+            "reason": "Nick Kurtz carries chase risk against breaking pitching \u2014 the breaking-heavy shape puts pressure on this bat's expansion tendency."
+          }
+        ],
+        "data_quality": "available"
       },
       "bullpen_read": {
         "summary": "Pittsburgh Pirates has 3 arm(s) already used and 4 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited. Athletics has 1 arm(s) already used and 3 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited.",
@@ -1482,6 +1910,78 @@
         },
         "starter_edge": "Nick Martinez gives Tampa Bay Rays the cleaner path with the stronger foundation read in this matchup.",
         "game_pitching_shape": "Starter Edge"
+      },
+      "pitch_type_matchup": {
+        "summary": "Tampa Bay Rays's starter brings a fastball/offspeed approach \u2014 the Los Angeles Dodgers lineup's path runs through pitch discipline and damage timing. Los Angeles Dodgers's starter works from fastball/breaking shape \u2014 the Tampa Bay Rays offense needs to find the right window to do damage. Junior Caminero stands out as the best pitch-type fit among the likely lineup contributors.",
+        "pitcher_arsenal_notes": {
+          "away_starter": "Nick Martinez pairs fastball velocity with offspeed timing. The Sinker is the primary weapon at 31% usage, sitting 92.5 mph. The Changeup (28%) is the key secondary.",
+          "home_starter": "Eric Lauer works primarily from a fastball/breaking-ball mix. The Four-Seam Fastball is the primary weapon at 46% usage, sitting 90.7 mph. The Cutter (18%) is the key secondary."
+        },
+        "lineup_fit": {
+          "away_vs_home_starter": "Tampa Bay Rays's best-fit bats against this fastball/breaking shape: Junior Caminero, Jonathan Aranda, Yandy D\u00edaz. The pitch-type matchup favors patience and working the primary offering.",
+          "home_vs_away_starter": "Los Angeles Dodgers's best-fit bats against this fastball/offspeed shape: Shohei Ohtani, Max Muncy, Freddie Freeman. The pitch-type matchup favors patience and working the primary offering."
+        },
+        "hitters_with_edge": [
+          {
+            "name": "Junior Caminero",
+            "slug": "junior-caminero",
+            "team": "Tampa Bay Rays",
+            "edge": "Fastball Fit",
+            "reason": "Junior Caminero profiles well against fastball/breaking pitching \u2014 the fastball family is a stronger damage lane for this bat."
+          },
+          {
+            "name": "Jonathan Aranda",
+            "slug": "jonathan-aranda",
+            "team": "Tampa Bay Rays",
+            "edge": "Fastball Fit",
+            "reason": "Jonathan Aranda profiles well against fastball/breaking pitching \u2014 the fastball family is a stronger damage lane for this bat."
+          },
+          {
+            "name": "Yandy D\u00edaz",
+            "slug": "yandy-diaz",
+            "team": "Tampa Bay Rays",
+            "edge": "Fastball Fit",
+            "reason": "Yandy D\u00edaz profiles well against fastball/breaking pitching \u2014 the fastball family is a stronger damage lane for this bat."
+          },
+          {
+            "name": "Shohei Ohtani",
+            "slug": "shohei-ohtani",
+            "team": "Los Angeles Dodgers",
+            "edge": "Fastball Fit",
+            "reason": "Shohei Ohtani profiles well against fastball/offspeed pitching \u2014 the fastball family is a stronger damage lane for this bat."
+          }
+        ],
+        "hitters_at_risk": [
+          {
+            "name": "Jonathan Aranda",
+            "slug": "jonathan-aranda",
+            "team": "Tampa Bay Rays",
+            "risk": "Breaking Ball Chase",
+            "reason": "Jonathan Aranda carries chase risk against breaking pitching \u2014 the fastball/breaking shape puts pressure on this bat's expansion tendency."
+          },
+          {
+            "name": "Shohei Ohtani",
+            "slug": "shohei-ohtani",
+            "team": "Los Angeles Dodgers",
+            "risk": "Offspeed Timing",
+            "reason": "Shohei Ohtani carries chase risk against offspeed pitching \u2014 the fastball/offspeed shape puts pressure on this bat's expansion tendency."
+          },
+          {
+            "name": "Max Muncy",
+            "slug": "max-muncy",
+            "team": "Los Angeles Dodgers",
+            "risk": "Offspeed Timing",
+            "reason": "Max Muncy carries chase risk against offspeed pitching \u2014 the fastball/offspeed shape puts pressure on this bat's expansion tendency."
+          },
+          {
+            "name": "Andy Pages",
+            "slug": "andy-pages",
+            "team": "Los Angeles Dodgers",
+            "risk": "Offspeed Timing",
+            "reason": "Andy Pages carries chase risk against offspeed pitching \u2014 the fastball/offspeed shape puts pressure on this bat's expansion tendency."
+          }
+        ],
+        "data_quality": "available"
       },
       "bullpen_read": {
         "summary": "Tampa Bay Rays has 1 arm(s) already used and 4 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited. Los Angeles Dodgers has 1 arm(s) already used and 4 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited.",

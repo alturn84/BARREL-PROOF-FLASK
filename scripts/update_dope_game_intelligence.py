@@ -21,6 +21,7 @@ TEAM_IL_PATH = DATA_DIR / "team_il.json"
 SCHEDULE_PATH = DATA_DIR / "schedule.json"
 
 OUTPUT_PATH = DATA_DIR / "dope_game_intelligence.json"
+PITCH_INTEL_PATH = DATA_DIR / "pitch_type_intelligence.json"
 
 TEAM_ABBR_ALIASES = {"AZ": "ARI"}
 
@@ -528,6 +529,208 @@ def build_game_read(away_team_name, home_team_name, shape, pitching_shape, pitch
 
 
 # ---------------------------------------------------------------------------
+# Pitch-type matchup (reads from pitch_type_intelligence.json)
+# ---------------------------------------------------------------------------
+
+def _ptm_edge_for_bat(hitter_profile, pitcher_profile):
+    """Return (edge_tag, reason) or (None, None) if no meaningful signal."""
+    if not hitter_profile or not pitcher_profile:
+        return None, None
+    best = hitter_profile.get("best_family", "Limited Data")
+    primary = pitcher_profile.get("primary_shape", "Limited Data")
+    if best == "Limited Data" or primary == "Limited Data":
+        return None, None
+
+    family_to_shape_keywords = {
+        "Fastball": ("Fastball", "Fastball/Breaking", "Fastball/Offspeed"),
+        "Breaking": ("Breaking", "Fastball/Breaking", "Breaking-Heavy"),
+        "Offspeed": ("Offspeed", "Fastball/Offspeed"),
+    }
+    keywords = family_to_shape_keywords.get(best, ())
+    if any(k in primary for k in keywords):
+        edge_tag = f"{best} Fit"
+        reason = (
+            f"{hitter_profile['name']} profiles well against {primary.lower()} pitching — "
+            f"the {best.lower()} family is a stronger damage lane for this bat."
+        )
+        return edge_tag, reason
+    return None, None
+
+
+def _ptm_risk_for_bat(hitter_profile, pitcher_profile):
+    """Return (risk_tag, reason) or (None, None) if no meaningful signal."""
+    if not hitter_profile or not pitcher_profile:
+        return None, None
+    risk = hitter_profile.get("risk_family", "Limited Data")
+    primary = pitcher_profile.get("primary_shape", "Limited Data")
+    if risk == "Limited Data" or primary == "Limited Data":
+        return None, None
+
+    family_to_shape_keywords = {
+        "Fastball": ("Fastball", "Fastball/Breaking", "Fastball/Offspeed"),
+        "Breaking": ("Breaking", "Fastball/Breaking", "Breaking-Heavy"),
+        "Offspeed": ("Offspeed", "Fastball/Offspeed"),
+    }
+    keywords = family_to_shape_keywords.get(risk, ())
+    if any(k in primary for k in keywords):
+        risk_map = {
+            "Fastball": "Fastball Velocity",
+            "Breaking": "Breaking Ball Chase",
+            "Offspeed": "Offspeed Timing",
+        }
+        risk_tag = risk_map.get(risk, "Limited Data Risk")
+        reason = (
+            f"{hitter_profile['name']} carries chase risk against {risk.lower()} pitching — "
+            f"the {primary.lower()} shape puts pressure on this bat's expansion tendency."
+        )
+        return risk_tag, reason
+    return None, None
+
+
+def build_pitch_type_matchup(
+    away_team_name, home_team_name,
+    away_bats, home_bats,
+    away_pitcher_slug, home_pitcher_slug,
+    pitch_intel,
+):
+    """Build the pitch_type_matchup block for a game."""
+    pitchers = pitch_intel.get("pitchers", {})
+    hitters_intel = pitch_intel.get("hitters", {})
+
+    away_p = pitchers.get(away_pitcher_slug) if away_pitcher_slug else None
+    home_p = pitchers.get(home_pitcher_slug) if home_pitcher_slug else None
+
+    dq_flags = []
+    if not away_p or away_p.get("primary_shape") == "Limited Data":
+        dq_flags.append("away_starter_limited")
+    if not home_p or home_p.get("primary_shape") == "Limited Data":
+        dq_flags.append("home_starter_limited")
+
+    # Pitcher arsenal notes
+    away_arsenal_note = (
+        away_p.get("summary") if away_p and away_p.get("primary_shape") != "Limited Data"
+        else f"Pitch-type data is limited for the {away_team_name} starter."
+    )
+    home_arsenal_note = (
+        home_p.get("summary") if home_p and home_p.get("primary_shape") != "Limited Data"
+        else f"Pitch-type data is limited for the {home_team_name} starter."
+    )
+
+    # Lineup fit: how does each lineup match against the opposing starter?
+    def lineup_fit_note(lineup_bats, opp_pitcher, opp_team_name, batting_team_name):
+        if not opp_pitcher or opp_pitcher.get("primary_shape") == "Limited Data":
+            return f"Pitch-type lineup fit is limited — {opp_team_name} starter profile unavailable."
+        primary = opp_pitcher.get("primary_shape", "")
+        best_fits = []
+        for bat in lineup_bats[:5]:
+            h = hitters_intel.get(bat.get("slug", ""))
+            if h and h.get("best_family") != "Limited Data":
+                best = h["best_family"]
+                if any(k in primary for k in (best, best.split()[0])):
+                    best_fits.append(h["name"])
+        if best_fits:
+            names = ", ".join(best_fits[:3])
+            return (
+                f"{batting_team_name}'s best-fit bats against this {primary.lower()} shape: "
+                f"{names}. The pitch-type matchup favors patience and working the primary offering."
+            )
+        return (
+            f"{batting_team_name} faces a {primary.lower()} pitcher — "
+            f"the key path is discipline against the primary shape and damage in the fastball window."
+        )
+
+    away_lineup_fit = lineup_fit_note(away_bats, home_p, home_team_name, away_team_name)
+    home_lineup_fit = lineup_fit_note(home_bats, away_p, away_team_name, home_team_name)
+
+    # Hitters with edge and at risk
+    edge_players = []
+    risk_players = []
+    seen_edge = set()
+    seen_risk = set()
+
+    for bat in away_bats + home_bats:
+        slug = bat.get("slug", "")
+        name = bat.get("full_name", bat.get("name", ""))
+        if not slug or not name:
+            continue
+        h = hitters_intel.get(slug)
+        if not h:
+            continue
+
+        # Edge: this batter vs opposing starter
+        is_away = bat in away_bats
+        opp_pitcher = home_p if is_away else away_p
+        team_name = away_team_name if is_away else home_team_name
+
+        if slug not in seen_edge:
+            edge_tag, edge_reason = _ptm_edge_for_bat(h, opp_pitcher)
+            if edge_tag and edge_reason and len(edge_players) < 4:
+                edge_players.append({
+                    "name": name,
+                    "slug": slug,
+                    "team": team_name,
+                    "edge": edge_tag,
+                    "reason": edge_reason,
+                })
+                seen_edge.add(slug)
+
+        if slug not in seen_risk:
+            risk_tag, risk_reason = _ptm_risk_for_bat(h, opp_pitcher)
+            if risk_tag and risk_reason and len(risk_players) < 4:
+                risk_players.append({
+                    "name": name,
+                    "slug": slug,
+                    "team": team_name,
+                    "risk": risk_tag,
+                    "reason": risk_reason,
+                })
+                seen_risk.add(slug)
+
+    # Overall summary
+    def matchup_summary(away_p, home_p, edge_players, risk_players, away_team_name, home_team_name):
+        if not away_p and not home_p:
+            return "Pitch-type data is limited for this matchup — pitcher arsenal profiles are unavailable."
+        parts = []
+        if away_p and away_p.get("primary_shape") != "Limited Data":
+            ap_shape = away_p["primary_shape"]
+            parts.append(
+                f"{away_team_name}'s starter brings a {ap_shape.lower()} approach — "
+                f"the {home_team_name} lineup's path runs through pitch discipline and damage timing."
+            )
+        if home_p and home_p.get("primary_shape") != "Limited Data":
+            hp_shape = home_p["primary_shape"]
+            parts.append(
+                f"{home_team_name}'s starter works from {hp_shape.lower()} shape — "
+                f"the {away_team_name} offense needs to find the right window to do damage."
+            )
+        if edge_players:
+            lead_edge = edge_players[0]
+            parts.append(
+                f"{lead_edge['name']} stands out as the best pitch-type fit among the likely lineup contributors."
+            )
+        return " ".join(parts[:3]) if parts else "Pitch-type matchup data is limited for this game."
+
+    summary = matchup_summary(away_p, home_p, edge_players, risk_players, away_team_name, home_team_name)
+
+    data_quality = "limited" if len(dq_flags) >= 2 else ("partial" if dq_flags else "available")
+
+    return {
+        "summary": summary,
+        "pitcher_arsenal_notes": {
+            "away_starter": away_arsenal_note,
+            "home_starter": home_arsenal_note,
+        },
+        "lineup_fit": {
+            "away_vs_home_starter": away_lineup_fit,
+            "home_vs_away_starter": home_lineup_fit,
+        },
+        "hitters_with_edge": edge_players,
+        "hitters_at_risk": risk_players,
+        "data_quality": data_quality,
+    }
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
@@ -542,6 +745,7 @@ def main():
     pitcher_matchups = load_json(PITCHER_MATCHUPS_PATH, fallback={})
     odds_data = load_json(ODDS_PATH, fallback={})
     il_data = (load_json(TEAM_IL_PATH, fallback={}) or {}).get("teams", {})
+    pitch_intel = load_json(PITCH_INTEL_PATH, fallback={"pitchers": {}, "hitters": {}})
 
     pm_by_teams = {}
     for g in (player_matchups.get("games") or []):
@@ -641,6 +845,16 @@ def main():
         data_basis.append("Weather available" if weather_present else "Weather unavailable")
         data_basis.append("Odds available" if total_line is not None else "Odds unavailable")
 
+        # --- Pitch-type matchup ---
+        away_pitcher_slug = (away_pm_pitcher or {}).get("slug") or (away_starter or {}).get("slug")
+        home_pitcher_slug = (home_pm_pitcher or {}).get("slug") or (home_starter or {}).get("slug")
+        pitch_type_matchup = build_pitch_type_matchup(
+            away_team_name, home_team_name,
+            away_bats, home_bats,
+            away_pitcher_slug, home_pitcher_slug,
+            pitch_intel,
+        )
+
         # --- Game read ---
         game_read = build_game_read(away_team_name, home_team_name, shape, pitching_shape, pitching_note, tilt_players, bp_read)
 
@@ -651,6 +865,7 @@ def main():
             "game_read": game_read,
             "lineup_read": lineup_read,
             "pitching_read": pitching_read,
+            "pitch_type_matchup": pitch_type_matchup,
             "bullpen_read": bp_read,
             "environment_read": env_read,
             "players_who_tilt_game": tilt_players,

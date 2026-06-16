@@ -105,12 +105,14 @@ Check after each scheduled run:
 4. `scripts/check_dope_player_matchups_ready.py` — validates the regenerated player matchup file
 5. `scripts/update_dope_pitcher_matchups.py` — regenerates Pitcher Matchup Intelligence (Starter Edge, Lineup Pressure, Fantasy/DFS Watch) from the refreshed Dope Sheet and lineup data
 6. `scripts/check_dope_pitcher_matchups_ready.py` — validates the regenerated pitcher matchup file
-7. `scripts/update_dope_game_intelligence.py` — regenerates unified Game Intelligence (game read, lineup read, pitching path, bullpen read, environment read, players who tilt the game, fantasy/DFS watch, betting/props watch) from the refreshed Dope Sheet, matchup, and odds data
-8. `scripts/check_dope_game_intelligence_ready.py` — validates the regenerated game intelligence file
+7. `scripts/update_pitch_type_intelligence.py` — pulls 2026 Statcast pitch-by-pitch data for probable starters and key lineup hitters; generates pitch arsenal profiles (pitch family mix, usage, whiff rate, primary shape) and hitter pitch-family splits (damage/contact/risk by Fastball/Breaking/Offspeed family); outputs `Site Data/pitch_type_intelligence.json`
+8. `scripts/check_pitch_type_intelligence_ready.py` — validates the pitch type intelligence file
+9. `scripts/update_dope_game_intelligence.py` — regenerates unified Game Intelligence (game read, lineup read, pitching path, pitch-type matchup, bullpen read, environment read, players who tilt the game, fantasy/DFS watch, betting/props watch) from the refreshed Dope Sheet, matchup, pitch-type, and odds data
+10. `scripts/check_dope_game_intelligence_ready.py` — validates the regenerated game intelligence file
 
 This is a focused refresh only — it does not run the full morning pipeline (no MLB fetch, standings, odds, player stats, content generation, etc.).
 
-> **Server wrapper note:** The active Hostinger cron wrapper (`/opt/data/scripts/run_dope_sheet_refresh.sh`, outside this repo) must be kept in sync with `run_dope_sheet_refresh_with_venv.sh`. If/when that external wrapper is updated, it must also run `scripts/update_dope_pitcher_matchups.py` followed by `scripts/check_dope_pitcher_matchups_ready.py`, then `scripts/update_dope_game_intelligence.py` followed by `scripts/check_dope_game_intelligence_ready.py`, immediately after `scripts/check_dope_player_matchups_ready.py`. This repo cannot modify that external wrapper directly — confirm with Hermes/Hostinger automation that it has been updated to match.
+> **Server wrapper note:** The active Hostinger cron wrapper (`/opt/data/scripts/run_dope_sheet_refresh.sh`, outside this repo) must be kept in sync with `run_dope_sheet_refresh_with_venv.sh`. If/when that external wrapper is updated, it must also run `scripts/update_dope_pitcher_matchups.py` → `scripts/check_dope_pitcher_matchups_ready.py` → `scripts/update_pitch_type_intelligence.py` → `scripts/check_pitch_type_intelligence_ready.py` → `scripts/update_dope_game_intelligence.py` → `scripts/check_dope_game_intelligence_ready.py`, in that order after `scripts/check_dope_player_matchups_ready.py`. Note: `update_pitch_type_intelligence.py` pulls live Statcast data via pybaseball and may take 5–10 minutes on first run (subsequent runs benefit from pybaseball's local cache). This repo cannot modify that external wrapper directly — confirm with Hermes/Hostinger automation that it has been updated to match.
 
 ---
 

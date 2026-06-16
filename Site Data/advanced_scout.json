@@ -10,7 +10,7 @@
       "2026-06-18",
       "2026-06-21"
     ],
-    "generated_at": "2026-06-15T22:03:24Z",
+    "generated_at": "2026-06-15T23:28:28Z",
     "series_count": 15
   },
   "series": [
@@ -154,6 +154,46 @@
           "reason": "Lawrence Butler has been unlucky relative to expected production (production lagging contact quality), making Athletics a buy-low watch this series."
         }
       ],
+      "pitch_type_series_read": {
+        "summary": "Pitch-type series data is limited for Los Angeles Angels at Athletics \u2014 most starters are TBD. The pitch-type read will sharpen as rotations confirm.",
+        "series_arsenal_shape": "Limited Pitch-Type Data",
+        "team_fit": {
+          "away": "Los Angeles Angels's pitch-type lineup fit is limited \u2014 opposing starters are not yet confirmed.",
+          "home": "Athletics's pitch-type lineup fit is limited \u2014 opposing starters are not yet confirmed."
+        },
+        "hitters_to_track": [
+          {
+            "name": "Mike Trout",
+            "slug": "mike-trout",
+            "team": "LAA",
+            "best_family": "Fastball",
+            "note": "Mike Trout finds the damage lane against fastball pitching. The risk spot is breaking \u2014 chase vulnerability goes up when pitchers work that family."
+          },
+          {
+            "name": "Nick Kurtz",
+            "slug": "nick-kurtz",
+            "team": "ATH",
+            "best_family": "Fastball",
+            "note": "Nick Kurtz fits best in fastball-heavy matchups. The risk spot is breaking \u2014 chase vulnerability goes up when pitchers work that family."
+          },
+          {
+            "name": "Carlos Cortes",
+            "slug": "carlos-cortes",
+            "team": "ATH",
+            "best_family": "Fastball",
+            "note": "Carlos Cortes finds the damage lane against fastball pitching. The risk spot is offspeed \u2014 chase vulnerability goes up when pitchers work that family."
+          },
+          {
+            "name": "Lawrence Butler",
+            "slug": "lawrence-butler",
+            "team": "ATH",
+            "best_family": "Fastball",
+            "note": "Lawrence Butler fits best in fastball-heavy matchups. The risk spot is offspeed \u2014 chase vulnerability goes up when pitchers work that family."
+          }
+        ],
+        "pitchers_to_track": [],
+        "data_quality": "limited"
+      },
       "fantasy_dfs_watch": [
         "Power Watch: Mike Trout (LAA) is a power-pressure angle worth tracking for DFS builds in this series.",
         "Power Watch: Nick Kurtz (ATH) is a power-pressure angle worth tracking for DFS builds in this series.",
@@ -191,7 +231,7 @@
           "away_team_name": "New York Mets",
           "home_team_name": "Philadelphia Phillies",
           "venue": "Citizens Bank Park",
-          "probable_away_pitcher": "TBD",
+          "probable_away_pitcher": "Sean Manaea",
           "probable_home_pitcher": "TBD"
         },
         {
@@ -201,7 +241,7 @@
           "away_team_name": "New York Mets",
           "home_team_name": "Philadelphia Phillies",
           "venue": "Citizens Bank Park",
-          "probable_away_pitcher": "TBD",
+          "probable_away_pitcher": "Freddy Peralta",
           "probable_home_pitcher": "TBD"
         },
         {
@@ -226,8 +266,8 @@
       },
       "pitching_path": {
         "away_probables": [
-          "TBD",
-          "TBD",
+          "Sean Manaea",
+          "Freddy Peralta",
           "TBD"
         ],
         "home_probables": [
@@ -235,10 +275,25 @@
           "TBD",
           "TBD"
         ],
-        "rotation_edge": "Probable starter signals are limited for this series, so the pitching path is still developing.",
+        "rotation_edge": "Freddy Peralta gives New York Mets the steadier arm on paper, but the rest of the rotation picture is still filling in.",
         "volatility_note": "3 of 6 starting assignments are still TBD, so the back half of the series can swing the pitching path.",
         "probable_confidence": "Partial",
-        "pitcher_watchlist": []
+        "pitcher_watchlist": [
+          {
+            "name": "Freddy Peralta",
+            "team": "New York Mets",
+            "slug": "freddy-peralta",
+            "tag": "Mid-Profile Starter",
+            "label": "Volatile pitching profile"
+          },
+          {
+            "name": "Sean Manaea",
+            "team": "New York Mets",
+            "slug": "sean-manaea",
+            "tag": "Volatile Starter",
+            "label": "Pitching risk"
+          }
+        ]
       },
       "lineup_matchup": {
         "away_pressure": "Juan Soto is the power-pocket bat for New York Mets \u2014 elite power foundation.",
@@ -293,28 +348,69 @@
           "reason": "Bryce Harper sets the table for Philadelphia Phillies with a contact profile that keeps traffic on the bases."
         },
         {
+          "name": "Freddy Peralta",
+          "team": "NYM",
+          "slug": "freddy-peralta",
+          "tag": "Run Prevention Anchor",
+          "reason": "Freddy Peralta is the steadiest probable arm in this series for New York Mets."
+        },
+        {
           "name": "Bo Bichette",
           "team": "NYM",
           "slug": "bo-bichette",
           "tag": "Buy-Low Signal",
           "reason": "Bo Bichette has been unlucky relative to expected production (production lagging contact quality), making New York Mets a buy-low watch this series."
-        },
-        {
-          "name": "J.T. Realmuto",
-          "team": "PHI",
-          "slug": "jt-realmuto",
-          "tag": "Buy-Low Signal",
-          "reason": "J.T. Realmuto has been unlucky relative to expected production (production lagging contact quality), making Philadelphia Phillies a buy-low watch this series."
         }
       ],
+      "pitch_type_series_read": {
+        "summary": "Pitch-type series data is limited for New York Mets at Philadelphia Phillies \u2014 most starters are TBD. The pitch-type read will sharpen as rotations confirm.",
+        "series_arsenal_shape": "Limited Pitch-Type Data",
+        "team_fit": {
+          "away": "New York Mets's pitch-type lineup fit is limited \u2014 opposing starters are not yet confirmed.",
+          "home": "Philadelphia Phillies's pitch-type lineup fit is limited \u2014 opposing starters are not yet confirmed."
+        },
+        "hitters_to_track": [
+          {
+            "name": "Juan Soto",
+            "slug": "juan-soto",
+            "team": "NYM",
+            "best_family": "Fastball",
+            "note": "Juan Soto finds the damage lane against fastball pitching. The risk spot is breaking \u2014 chase vulnerability goes up when pitchers work that family."
+          },
+          {
+            "name": "Kyle Schwarber",
+            "slug": "kyle-schwarber",
+            "team": "PHI",
+            "best_family": "Fastball",
+            "note": "Kyle Schwarber fits best in fastball-heavy matchups. The risk spot is breaking \u2014 chase vulnerability goes up when pitchers work that family."
+          },
+          {
+            "name": "Bryce Harper",
+            "slug": "bryce-harper",
+            "team": "PHI",
+            "best_family": "Fastball",
+            "note": "Bryce Harper finds the damage lane against fastball pitching. The risk spot is breaking \u2014 chase vulnerability goes up when pitchers work that family."
+          },
+          {
+            "name": "Bo Bichette",
+            "slug": "bo-bichette",
+            "team": "NYM",
+            "best_family": "Fastball",
+            "note": "Bo Bichette finds the damage lane against fastball pitching. The risk spot is offspeed \u2014 chase vulnerability goes up when pitchers work that family."
+          }
+        ],
+        "pitchers_to_track": [],
+        "data_quality": "limited"
+      },
       "fantasy_dfs_watch": [
         "Power Watch: Juan Soto (NYM) is a power-pressure angle worth tracking for DFS builds in this series.",
         "Power Watch: Kyle Schwarber (PHI) is a power-pressure angle worth tracking for DFS builds in this series.",
         "Contact/OBP Watch: Bryce Harper (PHI) profiles as a table-setter lean if confirmed near the top of the order.",
-        "Value Angle: Bo Bichette (NYM) is a buy-low lean based on recent luck-gap signals.",
-        "Value Angle: J.T. Realmuto (PHI) is a buy-low lean based on recent luck-gap signals."
+        "Pitcher Stability: Freddy Peralta (NYM) is worth a profile check before finalizing pitching builds.",
+        "Value Angle: Bo Bichette (NYM) is a buy-low lean based on recent luck-gap signals."
       ],
       "betting_props_watch": [
+        "Strikeout Angle: Freddy Peralta's profile (9.12 K/9) makes the strikeout market worth checking once lineups are confirmed.",
         "Power Risk: Juan Soto's power profile is worth watching against this series' probable starters.",
         "Starter Risk: With probable pitchers still unsettled, props tied to specific starters carry more uncertainty until lineups firm up."
       ],
@@ -323,7 +419,7 @@
         "probable_pitcher_basis": "partial",
         "bullpen_basis": "limited"
       },
-      "barrel_proof_read": "New York Mets at Philadelphia Phillies reads as a power series \u2014 both lineups carry pockets that can turn one mistake into the separator. Probable starters are still unsettled, so the pitching path is the swing factor to track as the week develops. If NYM gets into the middle innings with a lead, Juan Soto turns this into a bullpen-stress series for the other side."
+      "barrel_proof_read": "New York Mets at Philadelphia Phillies reads as a power series \u2014 both lineups carry pockets that can turn one mistake into the separator. Freddy Peralta gives New York Mets the steadier arm on paper, which puts pressure on the opposing lineup to find traffic in the middle innings. If NYM gets into the middle innings with a lead, Juan Soto turns this into a bullpen-stress series for the other side."
     },
     {
       "series_id": "stl-kc-2026-06-18",
@@ -475,6 +571,61 @@
           "reason": "Michael McGreevy is the steadiest probable arm in this series for St. Louis Cardinals."
         }
       ],
+      "pitch_type_series_read": {
+        "summary": "This series leans into fastball pressure shape. St. Louis Cardinals's path runs through pitch discipline against the home rotation. Jordan Walker is the key pitch-type fit bat to track \u2014 fastball pitching is the damage lane.",
+        "series_arsenal_shape": "Fastball Pressure Series",
+        "team_fit": {
+          "away": "St. Louis Cardinals's pitch-type lineup fit is limited \u2014 opposing starters are not yet confirmed.",
+          "home": "Kansas City Royals faces primarily balanced arsenal pitching in this series \u2014 patience against the primary offering and damage in the secondary window are the key path."
+        },
+        "hitters_to_track": [
+          {
+            "name": "Jordan Walker",
+            "slug": "jordan-walker",
+            "team": "STL",
+            "best_family": "Fastball",
+            "note": "Jordan Walker fits best in fastball-heavy matchups. The risk spot is breaking \u2014 chase vulnerability goes up when pitchers work that family."
+          },
+          {
+            "name": "Jac Caglianone",
+            "slug": "jac-caglianone",
+            "team": "KC",
+            "best_family": "Fastball",
+            "note": "Jac Caglianone fits best in fastball-heavy matchups. The risk spot is breaking \u2014 chase vulnerability goes up when pitchers work that family."
+          },
+          {
+            "name": "Iv\u00e1n Herrera",
+            "slug": "ivan-herrera",
+            "team": "STL",
+            "best_family": "Fastball",
+            "note": "Iv\u00e1n Herrera finds the damage lane against fastball pitching. The risk spot is offspeed \u2014 chase vulnerability goes up when pitchers work that family."
+          },
+          {
+            "name": "Bobby Witt Jr.",
+            "slug": "bobby-witt-jr",
+            "team": "KC",
+            "best_family": "Fastball",
+            "note": "Bobby Witt Jr. finds the damage lane against fastball pitching. The risk spot is offspeed \u2014 chase vulnerability goes up when pitchers work that family."
+          }
+        ],
+        "pitchers_to_track": [
+          {
+            "name": "Matthew Liberatore",
+            "slug": "matthew-liberatore",
+            "team": "",
+            "primary_shape": "Balanced Arsenal",
+            "note": "Matthew Liberatore commands a balanced arsenal across pitch families. The Four-Seam Fastball is the primary weapon at 33% usage, sitting 94.5 mph. The Slider (21%) is the key secondary."
+          },
+          {
+            "name": "Michael McGreevy",
+            "slug": "michael-mcgreevy",
+            "team": "",
+            "primary_shape": "Fastball/Breaking",
+            "note": "Michael McGreevy works primarily from a fastball/breaking-ball mix. The Four-Seam Fastball is the primary weapon at 25% usage, sitting 91.5 mph. The Changeup (21%) is the key secondary."
+          }
+        ],
+        "data_quality": "available"
+      },
       "fantasy_dfs_watch": [
         "Power Watch: Jordan Walker (STL) is a power-pressure angle worth tracking for DFS builds in this series.",
         "Power Watch: Jac Caglianone (KC) is a power-pressure angle worth tracking for DFS builds in this series.",
@@ -621,6 +772,25 @@
           "reason": "Will Smith has been unlucky relative to expected production (production lagging contact quality), making Los Angeles Dodgers a buy-low watch this series."
         }
       ],
+      "pitch_type_series_read": {
+        "summary": "Pitch-type series data is limited for Baltimore Orioles at Los Angeles Dodgers \u2014 most starters are TBD. The pitch-type read will sharpen as rotations confirm.",
+        "series_arsenal_shape": "Limited Pitch-Type Data",
+        "team_fit": {
+          "away": "Baltimore Orioles's pitch-type lineup fit is limited \u2014 opposing starters are not yet confirmed.",
+          "home": "Los Angeles Dodgers's pitch-type lineup fit is limited \u2014 opposing starters are not yet confirmed."
+        },
+        "hitters_to_track": [
+          {
+            "name": "Shohei Ohtani",
+            "slug": "shohei-ohtani",
+            "team": "LAD",
+            "best_family": "Fastball",
+            "note": "Shohei Ohtani fits best in fastball-heavy matchups. The risk spot is offspeed \u2014 chase vulnerability goes up when pitchers work that family."
+          }
+        ],
+        "pitchers_to_track": [],
+        "data_quality": "limited"
+      },
       "fantasy_dfs_watch": [
         "Power Watch: Pete Alonso (BAL) is a power-pressure angle worth tracking for DFS builds in this series.",
         "Power Watch: Shohei Ohtani (LAD) is a power-pressure angle worth tracking for DFS builds in this series.",
@@ -774,6 +944,17 @@
           "reason": "Cole Young has been unlucky relative to expected production (expected production ahead of actual production), making Seattle Mariners a buy-low watch this series."
         }
       ],
+      "pitch_type_series_read": {
+        "summary": "Pitch-type series data is limited for Boston Red Sox at Seattle Mariners \u2014 most starters are TBD. The pitch-type read will sharpen as rotations confirm.",
+        "series_arsenal_shape": "Limited Pitch-Type Data",
+        "team_fit": {
+          "away": "Boston Red Sox's pitch-type lineup fit is limited \u2014 opposing starters are not yet confirmed.",
+          "home": "Seattle Mariners's pitch-type lineup fit is limited \u2014 opposing starters are not yet confirmed."
+        },
+        "hitters_to_track": [],
+        "pitchers_to_track": [],
+        "data_quality": "limited"
+      },
       "fantasy_dfs_watch": [
         "Power Watch: Willson Contreras (BOS) is a power-pressure angle worth tracking for DFS builds in this series.",
         "Power Watch: Dominic Canzone (SEA) is a power-pressure angle worth tracking for DFS builds in this series.",
@@ -935,6 +1116,40 @@
           "reason": "Rhett Lowder brings volatility to Cincinnati Reds's pitching path \u2014 pitching risk."
         }
       ],
+      "pitch_type_series_read": {
+        "summary": "This series leans into offspeed/timing shape. Cincinnati Reds's path runs through pitch discipline against the home rotation. Sal Stewart is the key pitch-type fit bat to track \u2014 fastball pitching is the damage lane.",
+        "series_arsenal_shape": "Offspeed/Timing Series",
+        "team_fit": {
+          "away": "Cincinnati Reds's pitch-type lineup fit is limited \u2014 opposing starters are not yet confirmed.",
+          "home": "New York Yankees faces primarily fastball/offspeed pitching in this series \u2014 patience against the primary offering and damage in the secondary window are the key path."
+        },
+        "hitters_to_track": [
+          {
+            "name": "Sal Stewart",
+            "slug": "sal-stewart",
+            "team": "CIN",
+            "best_family": "Fastball",
+            "note": "Sal Stewart fits best in fastball-heavy matchups. The risk spot is offspeed \u2014 chase vulnerability goes up when pitchers work that family."
+          },
+          {
+            "name": "JJ Bleday",
+            "slug": "jj-bleday",
+            "team": "CIN",
+            "best_family": "Fastball",
+            "note": "JJ Bleday finds the damage lane against fastball pitching. The risk spot is breaking \u2014 chase vulnerability goes up when pitchers work that family."
+          }
+        ],
+        "pitchers_to_track": [
+          {
+            "name": "Rhett Lowder",
+            "slug": "rhett-lowder",
+            "team": "",
+            "primary_shape": "Fastball/Offspeed",
+            "note": "Rhett Lowder pairs fastball velocity with offspeed timing. The Sinker is the primary weapon at 30% usage, sitting 92.5 mph. The Slider (24%) is the key secondary."
+          }
+        ],
+        "data_quality": "partial"
+      },
       "fantasy_dfs_watch": [
         "Power Watch: Sal Stewart (CIN) is a power-pressure angle worth tracking for DFS builds in this series.",
         "Power Watch: Ben Rice (NYY) is a power-pressure angle worth tracking for DFS builds in this series.",
@@ -1097,6 +1312,33 @@
           "reason": "Christian V\u00e1zquez is outperforming the underlying numbers for Houston Astros (regression warning), a swing factor if it continues."
         }
       ],
+      "pitch_type_series_read": {
+        "summary": "This series leans into offspeed/timing shape. Cleveland Guardians's path runs through pitch discipline against the home rotation. Yordan Alvarez is the key pitch-type fit bat to track \u2014 fastball pitching is the damage lane.",
+        "series_arsenal_shape": "Offspeed/Timing Series",
+        "team_fit": {
+          "away": "Cleveland Guardians's pitch-type lineup fit is limited \u2014 opposing starters are not yet confirmed.",
+          "home": "Houston Astros faces primarily fastball/breaking pitching in this series \u2014 patience against the primary offering and damage in the secondary window are the key path."
+        },
+        "hitters_to_track": [
+          {
+            "name": "Yordan Alvarez",
+            "slug": "yordan-alvarez",
+            "team": "HOU",
+            "best_family": "Fastball",
+            "note": "Yordan Alvarez finds the damage lane against fastball pitching. The risk spot is breaking \u2014 chase vulnerability goes up when pitchers work that family."
+          }
+        ],
+        "pitchers_to_track": [
+          {
+            "name": "Tanner Bibee",
+            "slug": "tanner-bibee",
+            "team": "",
+            "primary_shape": "Fastball/Breaking",
+            "note": "Tanner Bibee works primarily from a fastball/breaking-ball mix. The Cutter is the primary weapon at 25% usage, sitting 86.1 mph. The Four-Seam Fastball (23%) is the key secondary."
+          }
+        ],
+        "data_quality": "partial"
+      },
       "fantasy_dfs_watch": [
         "Power Watch: Jos\u00e9 Ram\u00edrez (CLE) is a power-pressure angle worth tracking for DFS builds in this series.",
         "Power Watch: Yordan Alvarez (HOU) is a power-pressure angle worth tracking for DFS builds in this series.",
@@ -1258,6 +1500,40 @@
           "reason": "Tristan Peters is outperforming the underlying numbers for Chicago White Sox (regression warning), a swing factor if it continues."
         }
       ],
+      "pitch_type_series_read": {
+        "summary": "This series leans into offspeed/timing shape. Chicago White Sox's path runs through pitch discipline against the home rotation. Dillon Dingler is the key pitch-type fit bat to track \u2014 fastball pitching is the damage lane.",
+        "series_arsenal_shape": "Offspeed/Timing Series",
+        "team_fit": {
+          "away": "Chicago White Sox faces primarily fastball/offspeed pitching in this series \u2014 patience against the primary offering and damage in the secondary window are the key path.",
+          "home": "Detroit Tigers's pitch-type lineup fit is limited \u2014 opposing starters are not yet confirmed."
+        },
+        "hitters_to_track": [
+          {
+            "name": "Dillon Dingler",
+            "slug": "dillon-dingler",
+            "team": "DET",
+            "best_family": "Fastball",
+            "note": "Dillon Dingler finds the damage lane against fastball pitching. The risk spot is offspeed \u2014 chase vulnerability goes up when pitchers work that family."
+          },
+          {
+            "name": "Kevin McGonigle",
+            "slug": "kevin-mcgonigle",
+            "team": "DET",
+            "best_family": "Fastball",
+            "note": "Kevin McGonigle finds the damage lane against fastball pitching. The risk spot is offspeed \u2014 chase vulnerability goes up when pitchers work that family."
+          }
+        ],
+        "pitchers_to_track": [
+          {
+            "name": "Tarik Skubal",
+            "slug": "tarik-skubal",
+            "team": "",
+            "primary_shape": "Fastball/Offspeed",
+            "note": "Tarik Skubal pairs fastball velocity with offspeed timing. The Four-Seam Fastball is the primary weapon at 38% usage, sitting 96.6 mph. The Changeup (26%) is the key secondary."
+          }
+        ],
+        "data_quality": "partial"
+      },
       "fantasy_dfs_watch": [
         "Power Watch: Miguel Vargas (CWS) is a power-pressure angle worth tracking for DFS builds in this series.",
         "Power Watch: Dillon Dingler (DET) is a power-pressure angle worth tracking for DFS builds in this series.",
@@ -1412,6 +1688,17 @@
           "reason": "Ozzie Albies is outperforming the underlying numbers for Atlanta Braves (actual production running ahead), a swing factor if it continues."
         }
       ],
+      "pitch_type_series_read": {
+        "summary": "Pitch-type series data is limited for Milwaukee Brewers at Atlanta Braves \u2014 most starters are TBD. The pitch-type read will sharpen as rotations confirm.",
+        "series_arsenal_shape": "Limited Pitch-Type Data",
+        "team_fit": {
+          "away": "Milwaukee Brewers's pitch-type lineup fit is limited \u2014 opposing starters are not yet confirmed.",
+          "home": "Atlanta Braves's pitch-type lineup fit is limited \u2014 opposing starters are not yet confirmed."
+        },
+        "hitters_to_track": [],
+        "pitchers_to_track": [],
+        "data_quality": "limited"
+      },
       "fantasy_dfs_watch": [
         "Power Watch: Jackson Chourio (MIL) is a power-pressure angle worth tracking for DFS builds in this series.",
         "Power Watch: Michael Harris II (ATL) is a power-pressure angle worth tracking for DFS builds in this series.",
@@ -1565,6 +1852,39 @@
           "reason": "Ketel Marte has been unlucky relative to expected production (production lagging contact quality), making Arizona Diamondbacks a buy-low watch this series."
         }
       ],
+      "pitch_type_series_read": {
+        "summary": "Pitch-type series data is limited for Minnesota Twins at Arizona Diamondbacks \u2014 most starters are TBD. The pitch-type read will sharpen as rotations confirm.",
+        "series_arsenal_shape": "Limited Pitch-Type Data",
+        "team_fit": {
+          "away": "Minnesota Twins's pitch-type lineup fit is limited \u2014 opposing starters are not yet confirmed.",
+          "home": "Arizona Diamondbacks's pitch-type lineup fit is limited \u2014 opposing starters are not yet confirmed."
+        },
+        "hitters_to_track": [
+          {
+            "name": "Byron Buxton",
+            "slug": "byron-buxton",
+            "team": "MIN",
+            "best_family": "Fastball",
+            "note": "Byron Buxton fits best in fastball-heavy matchups. The risk spot is breaking \u2014 chase vulnerability goes up when pitchers work that family."
+          },
+          {
+            "name": "Corbin Carroll",
+            "slug": "corbin-carroll",
+            "team": "ARI",
+            "best_family": "Fastball",
+            "note": "Corbin Carroll fits best in fastball-heavy matchups. The risk spot is offspeed \u2014 chase vulnerability goes up when pitchers work that family."
+          },
+          {
+            "name": "Ketel Marte",
+            "slug": "ketel-marte",
+            "team": "ARI",
+            "best_family": "Fastball",
+            "note": "Ketel Marte finds the damage lane against fastball pitching. The risk spot is offspeed \u2014 chase vulnerability goes up when pitchers work that family."
+          }
+        ],
+        "pitchers_to_track": [],
+        "data_quality": "limited"
+      },
       "fantasy_dfs_watch": [
         "Power Watch: Byron Buxton (MIN) is a power-pressure angle worth tracking for DFS builds in this series.",
         "Power Watch: Corbin Carroll (ARI) is a power-pressure angle worth tracking for DFS builds in this series.",
@@ -1718,6 +2038,46 @@
           "reason": "Marcell Ozuna has been unlucky relative to expected production (production lagging contact quality), making Pittsburgh Pirates a buy-low watch this series."
         }
       ],
+      "pitch_type_series_read": {
+        "summary": "Pitch-type series data is limited for Pittsburgh Pirates at Colorado Rockies \u2014 most starters are TBD. The pitch-type read will sharpen as rotations confirm.",
+        "series_arsenal_shape": "Limited Pitch-Type Data",
+        "team_fit": {
+          "away": "Pittsburgh Pirates's pitch-type lineup fit is limited \u2014 opposing starters are not yet confirmed.",
+          "home": "Colorado Rockies's pitch-type lineup fit is limited \u2014 opposing starters are not yet confirmed."
+        },
+        "hitters_to_track": [
+          {
+            "name": "Oneil Cruz",
+            "slug": "oneil-cruz",
+            "team": "PIT",
+            "best_family": "Fastball",
+            "note": "Oneil Cruz fits best in fastball-heavy matchups. The risk spot is breaking \u2014 chase vulnerability goes up when pitchers work that family."
+          },
+          {
+            "name": "Hunter Goodman",
+            "slug": "hunter-goodman",
+            "team": "COL",
+            "best_family": "Fastball",
+            "note": "Hunter Goodman fits best in fastball-heavy matchups. The risk spot is breaking \u2014 chase vulnerability goes up when pitchers work that family."
+          },
+          {
+            "name": "Bryan Reynolds",
+            "slug": "bryan-reynolds",
+            "team": "PIT",
+            "best_family": "Fastball",
+            "note": "Bryan Reynolds fits best in fastball-heavy matchups. The risk spot is breaking \u2014 chase vulnerability goes up when pitchers work that family."
+          },
+          {
+            "name": "Marcell Ozuna",
+            "slug": "marcell-ozuna",
+            "team": "PIT",
+            "best_family": "Fastball",
+            "note": "Marcell Ozuna finds the damage lane against fastball pitching. The risk spot is breaking \u2014 chase vulnerability goes up when pitchers work that family."
+          }
+        ],
+        "pitchers_to_track": [],
+        "data_quality": "limited"
+      },
       "fantasy_dfs_watch": [
         "Power Watch: Oneil Cruz (PIT) is a power-pressure angle worth tracking for DFS builds in this series.",
         "Power Watch: Hunter Goodman (COL) is a power-pressure angle worth tracking for DFS builds in this series.",
@@ -1871,6 +2231,46 @@
           "reason": "Brandon Nimmo has been unlucky relative to expected production (production lagging contact quality), making Texas Rangers a buy-low watch this series."
         }
       ],
+      "pitch_type_series_read": {
+        "summary": "Pitch-type series data is limited for San Diego Padres at Texas Rangers \u2014 most starters are TBD. The pitch-type read will sharpen as rotations confirm.",
+        "series_arsenal_shape": "Limited Pitch-Type Data",
+        "team_fit": {
+          "away": "San Diego Padres's pitch-type lineup fit is limited \u2014 opposing starters are not yet confirmed.",
+          "home": "Texas Rangers's pitch-type lineup fit is limited \u2014 opposing starters are not yet confirmed."
+        },
+        "hitters_to_track": [
+          {
+            "name": "Fernando Tatis Jr.",
+            "slug": "fernando-tatis-jr",
+            "team": "SD",
+            "best_family": "Fastball",
+            "note": "Fernando Tatis Jr. fits best in fastball-heavy matchups. The risk spot is breaking \u2014 chase vulnerability goes up when pitchers work that family."
+          },
+          {
+            "name": "Josh Jung",
+            "slug": "josh-jung",
+            "team": "TEX",
+            "best_family": "Fastball",
+            "note": "Josh Jung finds the damage lane against fastball pitching. The risk spot is breaking \u2014 chase vulnerability goes up when pitchers work that family."
+          },
+          {
+            "name": "Jackson Merrill",
+            "slug": "jackson-merrill",
+            "team": "SD",
+            "best_family": "Fastball",
+            "note": "Jackson Merrill fits best in fastball-heavy matchups. The risk spot is offspeed \u2014 chase vulnerability goes up when pitchers work that family."
+          },
+          {
+            "name": "Brandon Nimmo",
+            "slug": "brandon-nimmo",
+            "team": "TEX",
+            "best_family": "Fastball",
+            "note": "Brandon Nimmo finds the damage lane against fastball pitching. The risk spot is offspeed \u2014 chase vulnerability goes up when pitchers work that family."
+          }
+        ],
+        "pitchers_to_track": [],
+        "data_quality": "limited"
+      },
       "fantasy_dfs_watch": [
         "Power Watch: Fernando Tatis Jr. (SD) is a power-pressure angle worth tracking for DFS builds in this series.",
         "Power Watch: Corey Seager (TEX) is a power-pressure angle worth tracking for DFS builds in this series.",
@@ -2024,6 +2424,25 @@
           "reason": "Luis Arraez is outperforming the underlying numbers for San Francisco Giants (regression warning), a swing factor if it continues."
         }
       ],
+      "pitch_type_series_read": {
+        "summary": "Pitch-type series data is limited for San Francisco Giants at Miami Marlins \u2014 most starters are TBD. The pitch-type read will sharpen as rotations confirm.",
+        "series_arsenal_shape": "Limited Pitch-Type Data",
+        "team_fit": {
+          "away": "San Francisco Giants's pitch-type lineup fit is limited \u2014 opposing starters are not yet confirmed.",
+          "home": "Miami Marlins's pitch-type lineup fit is limited \u2014 opposing starters are not yet confirmed."
+        },
+        "hitters_to_track": [
+          {
+            "name": "Xavier Edwards",
+            "slug": "xavier-edwards",
+            "team": "MIA",
+            "best_family": "Fastball",
+            "note": "Xavier Edwards finds the damage lane against fastball pitching. The risk spot is offspeed \u2014 chase vulnerability goes up when pitchers work that family."
+          }
+        ],
+        "pitchers_to_track": [],
+        "data_quality": "limited"
+      },
       "fantasy_dfs_watch": [
         "Power Watch: Casey Schmitt (SF) is a power-pressure angle worth tracking for DFS builds in this series.",
         "Power Watch: Owen Caissie (MIA) is a power-pressure angle worth tracking for DFS builds in this series.",
@@ -2177,6 +2596,25 @@
           "reason": "Ernie Clement is outperforming the underlying numbers for Toronto Blue Jays (regression warning), a swing factor if it continues."
         }
       ],
+      "pitch_type_series_read": {
+        "summary": "Pitch-type series data is limited for Toronto Blue Jays at Chicago Cubs \u2014 most starters are TBD. The pitch-type read will sharpen as rotations confirm.",
+        "series_arsenal_shape": "Limited Pitch-Type Data",
+        "team_fit": {
+          "away": "Toronto Blue Jays's pitch-type lineup fit is limited \u2014 opposing starters are not yet confirmed.",
+          "home": "Chicago Cubs's pitch-type lineup fit is limited \u2014 opposing starters are not yet confirmed."
+        },
+        "hitters_to_track": [
+          {
+            "name": "Ian Happ",
+            "slug": "ian-happ",
+            "team": "CHC",
+            "best_family": "Fastball",
+            "note": "Ian Happ fits best in fastball-heavy matchups. The risk spot is breaking \u2014 chase vulnerability goes up when pitchers work that family."
+          }
+        ],
+        "pitchers_to_track": [],
+        "data_quality": "limited"
+      },
       "fantasy_dfs_watch": [
         "Power Watch: Kazuma Okamoto (TOR) is a power-pressure angle worth tracking for DFS builds in this series.",
         "Power Watch: Ian Happ (CHC) is a power-pressure angle worth tracking for DFS builds in this series.",
@@ -2323,6 +2761,39 @@
           "reason": "CJ Abrams is outperforming the underlying numbers for Washington Nationals (actual production running ahead), a swing factor if it continues."
         }
       ],
+      "pitch_type_series_read": {
+        "summary": "Pitch-type series data is limited for Washington Nationals at Tampa Bay Rays \u2014 most starters are TBD. The pitch-type read will sharpen as rotations confirm.",
+        "series_arsenal_shape": "Limited Pitch-Type Data",
+        "team_fit": {
+          "away": "Washington Nationals's pitch-type lineup fit is limited \u2014 opposing starters are not yet confirmed.",
+          "home": "Tampa Bay Rays's pitch-type lineup fit is limited \u2014 opposing starters are not yet confirmed."
+        },
+        "hitters_to_track": [
+          {
+            "name": "James Wood",
+            "slug": "james-wood",
+            "team": "WSH",
+            "best_family": "Fastball",
+            "note": "James Wood finds the damage lane against fastball pitching. The risk spot is breaking \u2014 chase vulnerability goes up when pitchers work that family."
+          },
+          {
+            "name": "Junior Caminero",
+            "slug": "junior-caminero",
+            "team": "TB",
+            "best_family": "Fastball",
+            "note": "Junior Caminero finds the damage lane against fastball pitching. The risk spot is offspeed \u2014 chase vulnerability goes up when pitchers work that family."
+          },
+          {
+            "name": "Yandy D\u00edaz",
+            "slug": "yandy-diaz",
+            "team": "TB",
+            "best_family": "Fastball",
+            "note": "Yandy D\u00edaz finds the damage lane against fastball pitching. The risk spot is offspeed \u2014 chase vulnerability goes up when pitchers work that family."
+          }
+        ],
+        "pitchers_to_track": [],
+        "data_quality": "limited"
+      },
       "fantasy_dfs_watch": [
         "Power Watch: James Wood (WSH) is a power-pressure angle worth tracking for DFS builds in this series.",
         "Power Watch: Junior Caminero (TB) is a power-pressure angle worth tracking for DFS builds in this series.",
