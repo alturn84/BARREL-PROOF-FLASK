@@ -22,7 +22,7 @@ All API keys and sensitive credentials must be stored as environment variables. 
 |--------------|---------|------------|-----------------|
 | `MLB_API_KEY` | MLB data API authentication | Cron Job 1 | Server environment / `.env` |
 | `GEMINI_API_KEY` | Gemini API authentication | Cron Job 2 | Server environment / `.env` |
-| [Add others as applicable] | | | |
+| `FIRECRAWL_API_KEY` | Firecrawl API authentication for news intake | `scripts/update_news_intake.py` | Server environment / `.env` |
 
 ---
 

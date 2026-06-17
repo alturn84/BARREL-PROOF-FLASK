@@ -116,6 +116,68 @@ This is a focused refresh only — it does not run the full morning pipeline (no
 
 ---
 
+## Firecrawl News Intake (FIRECRAWL-001)
+
+### Purpose
+
+`scripts/update_news_intake.py` gathers source-backed facts from official MLB sources before editorial generation runs. It is **not a writing replacement** — it provides factual context that Press Box can optionally use when generating the morning edition.
+
+### Environment Variable
+
+| Variable | Purpose | Required By | Storage |
+|---|---|---|---|
+| `FIRECRAWL_API_KEY` | Firecrawl API authentication | `scripts/update_news_intake.py` | Server environment / `.env` |
+
+> **Never commit this key.** It must be set in the Render dashboard (Production) or server `.env` (Hostinger). See `05-AUTOMATION/Environment Variables.md`.
+
+### Behavior
+
+- If `FIRECRAWL_API_KEY` is **missing**: writes a valid `limited` fallback JSON, exits 0. No morning disruption.
+- If any source **fails** (network error, Firecrawl error, blocked page): logs the failure in `meta.failure_notes`, marks source `status=failed`, continues remaining sources, exits 0.
+- If **all sources fail**: writes valid `limited` fallback, exits 0.
+- **Never fatal** to the morning update.
+
+### Sources attempted (V1)
+
+1. **MLB Stats API Transactions** — direct REST call (`https://statsapi.mlb.com/api/v1/transactions`), no Firecrawl needed. Fetches today's significant transactions (trades, IL placements, call-ups, DFAs).
+2. **MLB.com Probable Pitchers** — Firecrawl scrape of `https://www.mlb.com/probable-pitchers`. Requires API key.
+3. **MLB.com Injuries** — Firecrawl scrape of `https://www.mlb.com/injuries`. Requires API key.
+
+### Copyright / editorial rules
+
+- Fact intake only. No article rewriting.
+- Max 25 words per summary item. Paraphrased factual summaries preferred.
+- Every item retains `source_name` + `source_url`.
+- No long excerpts. No full article text.
+
+### Output file
+
+`Site Data/news_intake.json` — schema: `meta`, `sources`, `transactions`, `injuries`, `pitcher_notes`, `lineup_notes`, `team_notes`.
+
+### Pipeline placement
+
+In `run_morning_update_with_venv.sh`, news intake runs **after** game intelligence and **before** editorial generation:
+
+```
+scripts/check_dope_game_intelligence_ready.py
+scripts/update_news_intake.py          ← gather facts
+scripts/check_news_intake_ready.py     ← validate (passes on limited)
+update_game_of_day.py                  ← editorial start
+update_around_the_league.py
+update_game_to_watch.py
+update_press_box.py                    ← optionally reads news_intake.json
+```
+
+### Press Box integration
+
+`update_press_box.py` optionally reads `news_intake.json`. When `data_quality` is `available` or `partial`, it appends a `NEWS INTAKE` section to the Gemini context with brief tagged facts (`[TXN]`, `[INJ]`, `[PITCHER]`). When `limited`, the section is omitted silently. Press Box does not fail if news_intake is missing or limited.
+
+### Server wrapper note
+
+The Hostinger cron wrapper (`/opt/data/scripts/run_morning_update.sh`, outside this repo) must be updated to include `scripts/update_news_intake.py` → `scripts/check_news_intake_ready.py` before `update_game_of_day.py`. This repo cannot modify that wrapper directly. Confirm with Hermes/Hostinger automation that it has been updated. See also `05-AUTOMATION/Render Flow.md` for Render environment variable setup.
+
+---
+
 ## Failure Handling
 
 See `03-RUNBOOKS/Cron Failure Recovery.md` for step-by-step recovery procedures.

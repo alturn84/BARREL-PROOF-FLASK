@@ -24,6 +24,8 @@ SCRIPTS=(
     "scripts/check_pitch_type_intelligence_ready.py"
     "scripts/update_dope_game_intelligence.py"
     "scripts/check_dope_game_intelligence_ready.py"
+    "scripts/update_news_intake.py"
+    "scripts/check_news_intake_ready.py"
     "update_game_of_day.py"
     "update_around_the_league.py"
     "update_game_to_watch.py"

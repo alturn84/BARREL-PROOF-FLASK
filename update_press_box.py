@@ -172,7 +172,7 @@ def load_recent_columns(date_str):
     return results
 
 
-def build_context(date_str, gotd, atl, standings, game_cards, recent_columns, transactions=None):
+def build_context(date_str, gotd, atl, standings, game_cards, recent_columns, transactions=None, news_intake=None):
     dt       = datetime.strptime(date_str, "%Y-%m-%d")
     day_name = dt.strftime("%A, %B %-d, %Y")
     month_end = (dt.replace(day=28) + timedelta(days=4)).replace(day=1) - timedelta(days=1)
@@ -233,6 +233,31 @@ def build_context(date_str, gotd, atl, standings, game_cards, recent_columns, tr
             lines.append(f"  {t}")
         lines.append("")
 
+    # Optional: news_intake fact layer (source-backed, non-editorial)
+    # Only included when data_quality is not limited — limited means no data fetched.
+    if news_intake and news_intake.get("meta", {}).get("data_quality") != "limited":
+        ni_lines = []
+        for item in (news_intake.get("transactions") or [])[:10]:
+            s = (item.get("summary") or "").strip()
+            if s:
+                ni_lines.append(f"  [TXN] {s}")
+        for item in (news_intake.get("injuries") or [])[:8]:
+            s = (item.get("summary") or "").strip()
+            if s:
+                ni_lines.append(f"  [INJ] {s}")
+        for item in (news_intake.get("pitcher_notes") or [])[:6]:
+            s = (item.get("summary") or "").strip()
+            if s:
+                ni_lines.append(f"  [PITCHER] {s}")
+        for item in (news_intake.get("team_notes") or [])[:4]:
+            s = (item.get("summary") or "").strip()
+            if s:
+                ni_lines.append(f"  [NOTE] {s}")
+        if ni_lines:
+            lines.append("NEWS INTAKE (source-backed facts; use for context, not verbatim)")
+            lines.extend(ni_lines)
+            lines.append("")
+
     if recent_columns:
         lines.append(f"RECENT PRESS BOX CONTEXT (last {len(recent_columns)} days)")
         for rc_date, ww in recent_columns:
@@ -243,7 +268,7 @@ def build_context(date_str, gotd, atl, standings, game_cards, recent_columns, tr
 
     if len(context) > MAX_CTX_TOKENS * 4 and len(recent_columns) > 3:
         print(f"  ⚠ Context {len(context)} chars — trimming recent columns", flush=True)
-        return build_context(date_str, gotd, atl, standings, game_cards, recent_columns[:3], transactions)
+        return build_context(date_str, gotd, atl, standings, game_cards, recent_columns[:3], transactions, news_intake)
 
     return context
 
@@ -327,13 +352,18 @@ def run(date_str):
         sys.exit(1)
 
     print(f"  Loading inputs for {date_str}...", flush=True)
-    gotd       = load_json(SITE_DATA / "game_of_day.json")
-    atl        = load_json(SITE_DATA / "around_the_league.json")
-    standings  = load_json(SITE_DATA / "standings.json")
-    game_cards = load_json(SITE_DATA / "game_cards.json")
+    gotd         = load_json(SITE_DATA / "game_of_day.json")
+    atl          = load_json(SITE_DATA / "around_the_league.json")
+    standings    = load_json(SITE_DATA / "standings.json")
+    game_cards   = load_json(SITE_DATA / "game_cards.json")
     transactions = fetch_transactions(date_str)
     print(f"  {len(transactions)} transactions loaded", flush=True)
-    recent     = load_recent_columns(date_str)
+    recent       = load_recent_columns(date_str)
+    # Optional news intake layer — non-fatal if missing or limited
+    news_intake  = load_json(SITE_DATA / "news_intake.json")
+    ni_quality   = (news_intake.get("meta") or {}).get("data_quality", "limited")
+    ni_items     = (news_intake.get("meta") or {}).get("item_count", 0)
+    print(f"  news_intake: quality={ni_quality}, items={ni_items}", flush=True)
 
     # ── Date guard — validate inputs match requested date ─────────────────────
     date_checks = {
@@ -367,7 +397,7 @@ def run(date_str):
         sys.exit(1)
 
     effective_date = gotd.get("date", date_str)
-    context = build_context(effective_date, gotd, atl, standings, game_cards, recent, transactions)
+    context = build_context(effective_date, gotd, atl, standings, game_cards, recent, transactions, news_intake)
     print(f"  Context assembled: {len(context)} chars", flush=True)
 
     try:
