@@ -83,16 +83,25 @@ def main():
     player_index = player_index_data if isinstance(player_index_data, list) else []
     slugs = {p.get("slug") for p in player_index if p.get("slug")}
 
-    seen_games = set()
+    # Build expected pair counts from dope-sheet-data (doubleheaders produce 2 entries).
+    expected_pair_counts: dict = {}
+    if DOPE_SHEET_DATA_PATH.exists():
+        dope_sheet_data = json.loads(DOPE_SHEET_DATA_PATH.read_text(encoding="utf-8"))
+        for dg in (dope_sheet_data.get("games") or []):
+            pair = (dg.get("away"), dg.get("home"))
+            expected_pair_counts[pair] = expected_pair_counts.get(pair, 0) + 1
+
+    seen_game_counts: dict = {}
     for i, game in enumerate(games):
         for field in ("away_team", "home_team", "game_date"):
             if field not in game or game[field] is None:
                 fail(f"games[{i}]: missing {field}")
 
         game_key = (game["away_team"], game["home_team"])
-        if game_key in seen_games:
+        seen_game_counts[game_key] = seen_game_counts.get(game_key, 0) + 1
+        allowed = expected_pair_counts.get(game_key, 1)
+        if seen_game_counts[game_key] > allowed:
             fail(f"games[{i}]: duplicate game record for {game_key}")
-        seen_games.add(game_key)
 
         for side in ("away_pitcher", "home_pitcher"):
             pitcher = game.get(side)
