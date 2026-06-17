@@ -1230,7 +1230,12 @@ def get_dope_pitcher_matchups_lookup(sched_date):
 
 
 def get_dope_game_intelligence_lookup(sched_date):
-    """Display-only: date-guarded unified game-intelligence reads keyed by (away_team, home_team)."""
+    """Display-only: date-guarded unified game-intelligence reads.
+
+    Returns a dict with two key types:
+      ("id", str_game_id)        -> intel record  (when game_id is present)
+      ("teams", away, home)      -> intel record  (only when pair is unique in the file)
+    """
     data = load_json("dope_game_intelligence.json", fallback={})
     games = data.get("games") if isinstance(data, dict) else None
     meta = data.get("meta") if isinstance(data, dict) else {}
@@ -1240,13 +1245,25 @@ def get_dope_game_intelligence_lookup(sched_date):
         return {}
 
     lookup = {}
-    for game_id, g in games.items():
+    # Count occurrences of each (away, home) pair to detect doubleheaders
+    pair_counts: dict = {}
+    for g in games.values():
+        if not isinstance(g, dict):
+            continue
+        pair = (g.get("away_team"), g.get("home_team"))
+        pair_counts[pair] = pair_counts.get(pair, 0) + 1
+
+    for g in games.values():
         if not isinstance(g, dict):
             continue
         away_team = g.get("away_team")
         home_team = g.get("home_team")
-        if away_team and home_team:
-            lookup[(away_team, home_team)] = g
+        gid = g.get("game_id")
+        if gid is not None:
+            lookup[("id", str(gid))] = g
+        # Only add team-pair key when unambiguous (not a doubleheader)
+        if away_team and home_team and pair_counts.get((away_team, home_team), 0) == 1:
+            lookup[("teams", away_team, home_team)] = g
     return lookup
 
 
@@ -1286,9 +1303,26 @@ def dope_sheet():
         if pmatch is not None:
             g["pitcherMatchup"] = pmatch
 
+    # Build (away_abbr, home_abbr, time) -> str(game_pk) from schedule for precise matching
+    sched_pk_lookup = {}
+    for sg in (today_slate.get("games") or []):
+        pk = sg.get("game_pk")
+        t = sg.get("time")
+        a = sg.get("away_abbr")
+        h = sg.get("home_abbr")
+        if pk and t and a and h:
+            sched_pk_lookup[(a, h, t)] = str(pk)
+
     game_intel_lookup = get_dope_game_intelligence_lookup(sched_date)
     for g in ds_games:
-        intel = game_intel_lookup.get((g.get("away"), g.get("home")))
+        intel = None
+        # Primary: match by game_pk via schedule time cross-reference
+        pk = sched_pk_lookup.get((g.get("away"), g.get("home"), g.get("time")))
+        if pk:
+            intel = game_intel_lookup.get(("id", pk))
+        # Fallback: team-pair key (only populated for non-doubleheader pairs)
+        if intel is None:
+            intel = game_intel_lookup.get(("teams", g.get("away"), g.get("home")))
         if intel is not None:
             g["gameIntel"] = intel
 

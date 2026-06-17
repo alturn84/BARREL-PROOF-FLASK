@@ -7,6 +7,7 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 PATH = BASE_DIR / "Site Data" / "dope_game_intelligence.json"
+DOPE_SHEET_DATA_PATH = BASE_DIR / "Site Data" / "dope-sheet-data.json"
 
 BAD_STRINGS = {"nan", "inf", "-inf", "undefined", "none"}
 
@@ -92,6 +93,35 @@ def main():
 
     if meta["game_count"] != len(games):
         fail(f"meta.game_count ({meta['game_count']}) != len(games) ({len(games)})")
+
+    # Compare against dope-sheet-data active game count (doubleheaders must not be collapsed).
+    if DOPE_SHEET_DATA_PATH.exists():
+        dope_sheet_data = json.loads(DOPE_SHEET_DATA_PATH.read_text(encoding="utf-8"))
+        dope_games = dope_sheet_data.get("games") or []
+        if len(dope_games) != len(games):
+            fail(
+                f"intelligence game count ({len(games)}) != dope-sheet-data game count ({len(dope_games)}); "
+                f"doubleheaders may have been collapsed"
+            )
+        # Build expected pair counts for duplicate-pair validation below
+        expected_pair_counts: dict = {}
+        for dg in dope_games:
+            p = (dg.get("away"), dg.get("home"))
+            expected_pair_counts[p] = expected_pair_counts.get(p, 0) + 1
+    else:
+        expected_pair_counts = {}
+
+    # Validate that duplicate (away, home) pairs in intelligence match dope-sheet-data expectations
+    seen_pair_counts: dict = {}
+    for g in games.values():
+        if not isinstance(g, dict):
+            continue
+        p = (g.get("away_team"), g.get("home_team"))
+        seen_pair_counts[p] = seen_pair_counts.get(p, 0) + 1
+    for p, count in seen_pair_counts.items():
+        allowed = expected_pair_counts.get(p, 1)
+        if count > allowed:
+            fail(f"intelligence has {count} records for pair {p} but dope-sheet-data only has {allowed}")
 
     all_text = json.dumps(data)
     all_lower = all_text.lower()

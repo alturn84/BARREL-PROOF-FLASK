@@ -1313,13 +1313,20 @@ def main():
     player_index_list = load_json(PLAYER_INDEX_PATH, fallback=[])
     player_index_by_slug = {p["slug"]: p for p in player_index_list if isinstance(p, dict) and p.get("slug")}
 
-    pm_by_teams = {}
-    for g in (player_matchups.get("games") or []):
-        pm_by_teams[(g.get("away_team"), g.get("home_team"))] = g
+    pm_games_list = player_matchups.get("games") or []
+    ptm_games_list = pitcher_matchups.get("games") or []
 
-    ptm_by_teams = {}
-    for g in (pitcher_matchups.get("games") or []):
-        ptm_by_teams[(g.get("away_team"), g.get("home_team"))] = g
+    # Team-pair lists for fallback when positional match fails (e.g. count mismatch)
+    pm_by_teams_list: dict = {}
+    for _g in pm_games_list:
+        pm_by_teams_list.setdefault((_g.get("away_team"), _g.get("home_team")), []).append(_g)
+
+    ptm_by_teams_list: dict = {}
+    for _g in ptm_games_list:
+        ptm_by_teams_list.setdefault((_g.get("away_team"), _g.get("home_team")), []).append(_g)
+
+    pm_consumed: dict = {}   # (away, home) -> count consumed, for fallback path
+    ptm_consumed: dict = {}
 
     odds_by_teams = {}
     for og in (odds_data.get("games") or []):
@@ -1327,14 +1334,29 @@ def main():
 
     games_out = {}
 
-    for g in games_raw:
+    for ds_idx, g in enumerate(games_raw):
         away_abbr = g.get("away")
         home_abbr = g.get("home")
         away_team_name = g.get("awayFull") or away_abbr
         home_team_name = g.get("homeFull") or home_abbr
+        pair = (away_abbr, home_abbr)
 
-        pm = pm_by_teams.get((away_abbr, home_abbr), {})
-        ptm = ptm_by_teams.get((away_abbr, home_abbr), {})
+        # Positional match (primary): same index in player-matchup list → same game
+        if ds_idx < len(pm_games_list) and (pm_games_list[ds_idx].get("away_team"), pm_games_list[ds_idx].get("home_team")) == pair:
+            pm = pm_games_list[ds_idx]
+        else:
+            _candidates = pm_by_teams_list.get(pair, [])
+            _idx = pm_consumed.get(pair, 0)
+            pm = _candidates[_idx] if _idx < len(_candidates) else {}
+        pm_consumed[pair] = pm_consumed.get(pair, 0) + 1
+
+        if ds_idx < len(ptm_games_list) and (ptm_games_list[ds_idx].get("away_team"), ptm_games_list[ds_idx].get("home_team")) == pair:
+            ptm = ptm_games_list[ds_idx]
+        else:
+            _candidates = ptm_by_teams_list.get(pair, [])
+            _idx = ptm_consumed.get(pair, 0)
+            ptm = _candidates[_idx] if _idx < len(_candidates) else {}
+        ptm_consumed[pair] = ptm_consumed.get(pair, 0) + 1
         odds_game = odds_by_teams.get((away_team_name, home_team_name), {})
 
         away_bats = pm.get("away_bats_to_watch") or []
@@ -1449,10 +1471,18 @@ def main():
             hitters_intel, hitter_cards,
         )
 
-        key = f"{away_abbr}-{home_abbr}-{game_date}"
+        game_id = pm.get("game_id")
+        if game_id is not None:
+            key = str(game_id)
+        else:
+            # Fallback: include time slug to keep doubleheaders distinct
+            _time_slug = (g.get("time") or "").replace(" ", "").replace(":", "")
+            key = f"{away_abbr}-{home_abbr}-{game_date}-{_time_slug}" if _time_slug else f"{away_abbr}-{home_abbr}-{game_date}"
+
         games_out[key] = {
             "away_team": away_abbr,
             "home_team": home_abbr,
+            "game_id": game_id,
             "game_read": game_read,
             "game_report": game_report,
             "matchup_board": matchup_board,

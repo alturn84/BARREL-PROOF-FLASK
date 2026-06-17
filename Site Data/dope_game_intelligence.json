@@ -1,14 +1,15 @@
 {
   "meta": {
     "date": "2026-06-17",
-    "generated_at": "2026-06-17T16:48:57Z",
+    "generated_at": "2026-06-17T17:17:15Z",
     "source": "Barrel Proof unified game intelligence",
-    "game_count": 14
+    "game_count": 15
   },
   "games": {
-    "NYM-CIN-2026-06-17": {
+    "824503": {
       "away_team": "NYM",
       "home_team": "CIN",
+      "game_id": "824503",
       "game_read": "New York Mets at Cincinnati Reds is a balanced lineup game \u2014 both sides can win this more than one way. Nolan McLean gives New York Mets the cleaner path with the stronger foundation read in this matchup. If NYM gets into the middle innings with a lead, Juan Soto turns this into a bullpen-stress game for the other side.",
       "game_report": {
         "game_shape": "New York Mets at Cincinnati Reds is a balanced game \u2014 both sides have multiple paths to scoring. Nolan McLean gives New York Mets the cleaner path with the stronger foundation read in this matchup. The swing factor: if Juan Soto sees a fastball in the damage zone, the inning changes.",
@@ -532,9 +533,10 @@
         "Odds available"
       ]
     },
-    "KC-WSH-2026-06-17": {
+    "822721": {
       "away_team": "KC",
       "home_team": "WSH",
+      "game_id": "822721",
       "game_read": "Kansas City Royals at Washington Nationals reads as a power-pressure game \u2014 one mistake against either power pocket can become the separator. Neither starter holds a clear foundation edge, so middle-innings bullpen usage carries extra weight. If KC gets into the middle innings with a lead, Bobby Witt Jr. turns this into a bullpen-stress game for the other side.",
       "game_report": {
         "game_shape": "Kansas City Royals at Washington Nationals is a power-pressure game \u2014 one mistake from either starter can become the separator. Neither starter holds a clear foundation edge, so middle-innings bullpen usage carries extra weight. The swing factor: if Bobby Witt Jr. sees a fastball in the damage zone, the inning changes. The posted total reflects a hitter-friendly lean.",
@@ -1057,9 +1059,10 @@
         "Odds available"
       ]
     },
-    "MIA-PHI-2026-06-17": {
+    "823450": {
       "away_team": "MIA",
       "home_team": "PHI",
+      "game_id": "823450",
       "game_read": "Miami Marlins at Philadelphia Phillies is a traffic game \u2014 the path to runs is contact and baserunners rather than the long ball. Sandy Alcantara gives Miami Marlins the cleaner path with the stronger foundation read in this matchup. If PHI gets into the middle innings with a lead, Bryce Harper turns this into a bullpen-stress game for the other side.",
       "game_report": {
         "game_shape": "Miami Marlins at Philadelphia Phillies runs on contact and baserunners \u2014 the scoring path goes through traffic, not the big swing. Sandy Alcantara gives Miami Marlins the cleaner path with the stronger foundation read in this matchup. The swing factor: if Bryce Harper sees a fastball in the damage zone, the inning changes.",
@@ -1578,15 +1581,16 @@
         "Odds available"
       ]
     },
-    "SF-ATL-2026-06-17": {
+    "824912": {
       "away_team": "SF",
       "home_team": "ATL",
-      "game_read": "San Francisco Giants at Atlanta Braves reads as a power-pressure game \u2014 one mistake against either power pocket can become the separator. Probable starter signals are limited for this game, so the pitching path is still developing. If ATL gets into the middle innings with a lead, Michael Harris II turns this into a bullpen-stress game for the other side.",
+      "game_id": "824912",
+      "game_read": "San Francisco Giants at Atlanta Braves reads as a power-pressure game \u2014 one mistake against either power pocket can become the separator. Grant Holmes gives Atlanta Braves the cleaner path with the stronger foundation read in this matchup. If ATL gets into the middle innings with a lead, Michael Harris II turns this into a bullpen-stress game for the other side.",
       "game_report": {
-        "game_shape": "San Francisco Giants at Atlanta Braves is a power-pressure game \u2014 one mistake from either starter can become the separator. Probable starter signals are limited for this game, so the pitching path is still developing. The swing factor: if Michael Harris II sees a fastball in the damage zone, the inning changes. The posted total reflects a hitter-friendly lean.",
-        "pitching_arsenal_read": "Pitch arsenal data is limited for this matchup.",
+        "game_shape": "San Francisco Giants at Atlanta Braves is a power-pressure game \u2014 one mistake from either starter can become the separator. Grant Holmes gives Atlanta Braves the cleaner path with the stronger foundation read in this matchup. The swing factor: if Michael Harris II sees a fastball in the damage zone, the inning changes. The posted total reflects a hitter-friendly lean.",
+        "pitching_arsenal_read": "Adrian Houser: Sinker (45%, 94.7mph), Changeup (18%, 31% whiff), Four-Seam Fastball (16%), Slider (12%). Grant Holmes: Slider (40%, 85.3mph), Four-Seam Fastball (34%).",
         "away_lineup_path": "San Francisco Giants doesn't carry a clear power-pocket bat in today's signal pool. Jung Hoo Lee, Luis Arraez run the traffic path \u2014 contact pressure and baserunners ahead of the middle of the order.",
-        "home_lineup_path": "Michael Harris II brings genuine power-damage upside \u2014 a bat that punishes mistakes in the fastball window.",
+        "home_lineup_path": "Michael Harris II brings genuine power-damage upside \u2014 a bat that punishes mistakes in the fastball window. Pitch-type fit vs the fastball/breaking shape: Michael Harris II, Matt Olson.",
         "bullpen_environment_read": "Both bullpens carry a similar usage profile \u2014 no clear middle-innings edge from bullpen freshness alone. Conditions: 70\u00b0F, Cloudy, 0 mph N. Posted run total is 9.5.",
         "fantasy_dfs_props_watch": [
           "OBP/Stack: Jung Hoo Lee (SF) \u2014 table-setter profile is a stack lead consideration.",
@@ -1598,18 +1602,144 @@
       },
       "matchup_board": {
         "away_starter": {
-          "name": "TBD",
-          "hand": "",
-          "pitches": [],
-          "summary": "TBD's pitch-type data is limited.",
-          "data_quality": "limited"
+          "name": "Adrian Houser",
+          "slug": "adrian-houser",
+          "hand": "R",
+          "pitches": [
+            {
+              "pitch": "SI",
+              "label": "Sinker",
+              "family": "Fastball",
+              "usage_pct": 44.9,
+              "whiff_pct": 7.2,
+              "avg_velocity": 94.7,
+              "hard_hit_pct": 45.2,
+              "barrel_pct": 18.3,
+              "bip_count": 115,
+              "damage_grade": "red"
+            },
+            {
+              "pitch": "CH",
+              "label": "Changeup",
+              "family": "Offspeed",
+              "usage_pct": 17.8,
+              "whiff_pct": 30.6,
+              "avg_velocity": 85.3,
+              "hard_hit_pct": 37.5,
+              "barrel_pct": 18.8,
+              "bip_count": 32,
+              "damage_grade": "red"
+            },
+            {
+              "pitch": "FF",
+              "label": "Four-Seam Fastball",
+              "family": "Fastball",
+              "usage_pct": 15.8,
+              "whiff_pct": 22.1,
+              "avg_velocity": 95.4,
+              "hard_hit_pct": 45.2,
+              "barrel_pct": 22.6,
+              "bip_count": 31,
+              "damage_grade": "red"
+            },
+            {
+              "pitch": "SL",
+              "label": "Slider",
+              "family": "Breaking",
+              "usage_pct": 11.9,
+              "whiff_pct": 18.3,
+              "avg_velocity": 88.2,
+              "hard_hit_pct": 46.9,
+              "barrel_pct": 31.2,
+              "bip_count": 32,
+              "damage_grade": "red"
+            },
+            {
+              "pitch": "CU",
+              "label": "Curveball",
+              "family": "Breaking",
+              "usage_pct": 9.6,
+              "whiff_pct": 25.0,
+              "avg_velocity": 82.2,
+              "hard_hit_pct": null,
+              "barrel_pct": null,
+              "bip_count": 12,
+              "damage_grade": "yellow"
+            }
+          ],
+          "primary_shape": "Fastball/Breaking",
+          "summary": "Adrian Houser works primarily from a fastball/breaking-ball mix. The Sinker is the primary weapon at 45% usage, sitting 94.7 mph. The Changeup (18%) is the key secondary.",
+          "data_quality": "available"
         },
         "home_starter": {
-          "name": "JR Ritchie",
-          "hand": "",
-          "pitches": [],
-          "summary": "JR Ritchie's pitch-type data is limited.",
-          "data_quality": "limited"
+          "name": "Grant Holmes",
+          "slug": "grant-holmes",
+          "hand": "R",
+          "pitches": [
+            {
+              "pitch": "SL",
+              "label": "Slider",
+              "family": "Breaking",
+              "usage_pct": 40.0,
+              "whiff_pct": 39.6,
+              "avg_velocity": 85.3,
+              "hard_hit_pct": 42.6,
+              "barrel_pct": 29.4,
+              "bip_count": 68,
+              "damage_grade": "red"
+            },
+            {
+              "pitch": "FF",
+              "label": "Four-Seam Fastball",
+              "family": "Fastball",
+              "usage_pct": 34.0,
+              "whiff_pct": 12.1,
+              "avg_velocity": 94.3,
+              "hard_hit_pct": 50.0,
+              "barrel_pct": 21.1,
+              "bip_count": 76,
+              "damage_grade": "red"
+            },
+            {
+              "pitch": "SI",
+              "label": "Sinker",
+              "family": "Fastball",
+              "usage_pct": 7.5,
+              "whiff_pct": 12.1,
+              "avg_velocity": 93.3,
+              "hard_hit_pct": 52.9,
+              "barrel_pct": 5.9,
+              "bip_count": 17,
+              "damage_grade": "red"
+            },
+            {
+              "pitch": "CU",
+              "label": "Curveball",
+              "family": "Breaking",
+              "usage_pct": 6.7,
+              "whiff_pct": 35.1,
+              "avg_velocity": 82.9,
+              "hard_hit_pct": null,
+              "barrel_pct": null,
+              "bip_count": 13,
+              "damage_grade": "green"
+            },
+            {
+              "pitch": "FC",
+              "label": "Cutter",
+              "family": "Fastball",
+              "usage_pct": 6.1,
+              "whiff_pct": 15.4,
+              "avg_velocity": 92.5,
+              "hard_hit_pct": null,
+              "barrel_pct": null,
+              "bip_count": 13,
+              "damage_grade": "yellow"
+            }
+          ],
+          "primary_shape": "Breaking-Heavy",
+          "summary": "Grant Holmes leans heavily on breaking ball shape \u2014 47% breaking-ball usage. The Slider is the primary weapon at 40% usage, sitting 85.3 mph. The Four-Seam Fastball (34%) is the key secondary.",
+          "data_quality": "available"
         },
         "away_lineup_vs_home_starter": [
           {
@@ -1618,9 +1748,9 @@
             "pos": "C",
             "batting_order": 1,
             "bats": "R",
-            "grade": "gray",
-            "label": "Split limited",
-            "reason": "Limited pitch-type split; arsenal data developing."
+            "grade": "red",
+            "label": "Breaking Chase",
+            "reason": "Chase tendency against breaking pitching \u2014 the breaking-heavy shape targets this bat."
           },
           {
             "name": "Rafael Devers",
@@ -1628,9 +1758,9 @@
             "pos": "1B",
             "batting_order": 2,
             "bats": "L",
-            "grade": "gray",
-            "label": "Split limited",
-            "reason": "Limited pitch-type split; arsenal data developing."
+            "grade": "yellow",
+            "label": "Neutral",
+            "reason": "No dominant edge or risk signal \u2014 neutral matchup read."
           },
           {
             "name": "Luis Arraez",
@@ -1638,9 +1768,9 @@
             "pos": "2B",
             "batting_order": 3,
             "bats": "L",
-            "grade": "gray",
-            "label": "Split limited",
-            "reason": "Limited pitch-type split; arsenal data developing."
+            "grade": "yellow",
+            "label": "Partial Fit",
+            "reason": "Fastball contact profile \u2014 some fit against this arsenal, pitcher usage below threshold."
           },
           {
             "name": "Matt Chapman",
@@ -1648,9 +1778,9 @@
             "pos": "3B",
             "batting_order": 4,
             "bats": "R",
-            "grade": "gray",
-            "label": "Split limited",
-            "reason": "Limited pitch-type split; arsenal data developing."
+            "grade": "yellow",
+            "label": "Partial Fit",
+            "reason": "Fastball contact profile \u2014 some fit against this arsenal, pitcher usage below threshold."
           },
           {
             "name": "Willy Adames",
@@ -1658,9 +1788,9 @@
             "pos": "SS",
             "batting_order": 5,
             "bats": "R",
-            "grade": "gray",
-            "label": "Split limited",
-            "reason": "Limited pitch-type split; arsenal data developing."
+            "grade": "red",
+            "label": "Breaking Chase",
+            "reason": "Chase tendency against breaking pitching \u2014 the breaking-heavy shape targets this bat."
           },
           {
             "name": "Drew Gilbert",
@@ -1668,9 +1798,9 @@
             "pos": "CF",
             "batting_order": 6,
             "bats": "L",
-            "grade": "gray",
-            "label": "Split limited",
-            "reason": "Limited pitch-type split; arsenal data developing."
+            "grade": "yellow",
+            "label": "Partial Fit",
+            "reason": "Fastball contact profile \u2014 some fit against this arsenal, pitcher usage below threshold."
           },
           {
             "name": "Jung Hoo Lee",
@@ -1678,9 +1808,9 @@
             "pos": "RF",
             "batting_order": 7,
             "bats": "L",
-            "grade": "gray",
-            "label": "Split limited",
-            "reason": "Limited pitch-type split; arsenal data developing."
+            "grade": "yellow",
+            "label": "Partial Fit",
+            "reason": "Fastball contact profile \u2014 some fit against this arsenal, pitcher usage below threshold."
           },
           {
             "name": "Casey Schmitt",
@@ -1688,9 +1818,9 @@
             "pos": "DH",
             "batting_order": 8,
             "bats": "R",
-            "grade": "gray",
-            "label": "Split limited",
-            "reason": "Limited pitch-type split; arsenal data developing."
+            "grade": "yellow",
+            "label": "Partial Fit",
+            "reason": "Fastball contact profile \u2014 some fit against this arsenal, pitcher usage below threshold."
           },
           {
             "name": "Bryce Eldridge",
@@ -1698,9 +1828,9 @@
             "pos": "DH",
             "batting_order": 9,
             "bats": "L",
-            "grade": "gray",
-            "label": "Split limited",
-            "reason": "Limited pitch-type split; arsenal data developing."
+            "grade": "yellow",
+            "label": "Partial Fit",
+            "reason": "Fastball contact profile \u2014 some fit against this arsenal, pitcher usage below threshold."
           }
         ],
         "home_lineup_vs_away_starter": [
@@ -1710,9 +1840,9 @@
             "pos": "C",
             "batting_order": 1,
             "bats": "R",
-            "grade": "gray",
-            "label": "Split limited",
-            "reason": "Limited pitch-type split; arsenal data developing."
+            "grade": "yellow",
+            "label": "Handles Fastball",
+            "reason": "Low whiff rate against fastball pitching \u2014 consistent contact profile against the fastball/breaking shape. Barrel rate does not reach damage threshold."
           },
           {
             "name": "Matt Olson",
@@ -1720,9 +1850,9 @@
             "pos": "1B",
             "batting_order": 2,
             "bats": "L",
-            "grade": "gray",
-            "label": "Split limited",
-            "reason": "Limited pitch-type split; arsenal data developing."
+            "grade": "green",
+            "label": "Fastball Damage",
+            "reason": "14% barrel rate \u2014 genuine damage threat in the fastball family against this arsenal."
           },
           {
             "name": "Ozzie Albies",
@@ -1730,9 +1860,9 @@
             "pos": "2B",
             "batting_order": 3,
             "bats": "S",
-            "grade": "gray",
-            "label": "Split limited",
-            "reason": "Limited pitch-type split; arsenal data developing."
+            "grade": "yellow",
+            "label": "Handles Fastball",
+            "reason": "Low whiff rate against fastball pitching \u2014 consistent contact profile against the fastball/breaking shape. Barrel rate does not reach damage threshold."
           },
           {
             "name": "Austin Riley",
@@ -1740,9 +1870,9 @@
             "pos": "3B",
             "batting_order": 4,
             "bats": "R",
-            "grade": "gray",
-            "label": "Split limited",
-            "reason": "Limited pitch-type split; arsenal data developing."
+            "grade": "red",
+            "label": "Breaking Chase",
+            "reason": "Chase tendency against breaking pitching \u2014 the fastball/breaking shape targets this bat."
           },
           {
             "name": "Mauricio Dub\u00f3n",
@@ -1750,9 +1880,9 @@
             "pos": "SS",
             "batting_order": 5,
             "bats": "R",
-            "grade": "gray",
-            "label": "Split limited",
-            "reason": "Limited pitch-type split; arsenal data developing."
+            "grade": "yellow",
+            "label": "Handles Fastball",
+            "reason": "Low whiff rate against fastball pitching \u2014 consistent contact profile against the fastball/breaking shape. Barrel rate does not reach damage threshold."
           },
           {
             "name": "Mike Yastrzemski",
@@ -1760,9 +1890,9 @@
             "pos": "LF",
             "batting_order": 6,
             "bats": "L",
-            "grade": "gray",
-            "label": "Split limited",
-            "reason": "Limited pitch-type split; arsenal data developing."
+            "grade": "yellow",
+            "label": "Neutral",
+            "reason": "No dominant edge or risk signal \u2014 neutral matchup read."
           },
           {
             "name": "Michael Harris II",
@@ -1770,9 +1900,9 @@
             "pos": "CF",
             "batting_order": 7,
             "bats": "L",
-            "grade": "gray",
-            "label": "Split limited",
-            "reason": "Limited pitch-type split; arsenal data developing."
+            "grade": "green",
+            "label": "Fastball Damage",
+            "reason": "15% barrel rate \u2014 genuine damage threat in the fastball family against this arsenal."
           },
           {
             "name": "Ronald Acu\u00f1a Jr.",
@@ -1780,9 +1910,9 @@
             "pos": "RF",
             "batting_order": 8,
             "bats": "R",
-            "grade": "gray",
-            "label": "Split limited",
-            "reason": "Limited pitch-type split; arsenal data developing."
+            "grade": "yellow",
+            "label": "Neutral",
+            "reason": "No dominant edge or risk signal \u2014 neutral matchup read."
           },
           {
             "name": "Dominic Smith",
@@ -1790,12 +1920,12 @@
             "pos": "DH",
             "batting_order": 9,
             "bats": "L",
-            "grade": "gray",
-            "label": "Split limited",
-            "reason": "Limited pitch-type split; arsenal data developing."
+            "grade": "yellow",
+            "label": "Handles Fastball",
+            "reason": "Low whiff rate against fastball pitching \u2014 consistent contact profile against the fastball/breaking shape. Barrel rate does not reach damage threshold."
           }
         ],
-        "board_summary": "Both lineups show similar pitch-type matchup grades against today's starters."
+        "board_summary": "Atlanta Braves's lineup has more favorable pitch-type matchups (2 green grades vs 0)."
       },
       "lineup_read": {
         "away": {
@@ -1855,35 +1985,58 @@
       },
       "pitching_read": {
         "away_starter": {
-          "summary": "TBD (San Francisco Giants) is probable, but signal data is limited \u2014 pitching path still developing.",
+          "summary": "Adrian Houser low strikeout ceiling, carries power risk, vulnerable to contact pressure.",
           "stability": "Limited sample; stability read still developing.",
-          "risk": "Limited current sample for a risk read.",
-          "matchup_fit": "Limited current sample for a matchup-fit read.",
-          "watch": "Limited current sample \u2014 watch for confirmed lineup before drawing conclusions."
+          "risk": "Adrian Houser carries power risk if they leave pitches in the damage lane, and is vulnerable to contact pressure and traffic.",
+          "matchup_fit": "Atlanta Braves's lineup grades as balanced pressure against Adrian Houser \u2014 Matt Olson, Michael Harris II is the matchup fit to track.",
+          "watch": "Watch Matt Olson early \u2014 if Adrian Houser falls behind in counts, that's the leverage point."
         },
         "home_starter": {
-          "summary": "JR Ritchie (Atlanta Braves) is probable, but signal data is limited \u2014 pitching path still developing.",
+          "summary": "Grant Holmes carries power risk.",
           "stability": "Limited sample; stability read still developing.",
-          "risk": "Limited current sample for a risk read.",
-          "matchup_fit": "Limited current sample for a matchup-fit read.",
-          "watch": "Limited current sample \u2014 watch for confirmed lineup before drawing conclusions."
+          "risk": "Grant Holmes carries power risk if they leave pitches in the damage lane.",
+          "matchup_fit": "San Francisco Giants's lineup grades as balanced pressure against Grant Holmes \u2014 Luis Arraez, Jung Hoo Lee is the matchup fit to track.",
+          "watch": "Watch Luis Arraez early \u2014 if Grant Holmes falls behind in counts, that's the leverage point."
         },
-        "starter_edge": "Probable starter signals are limited for this game, so the pitching path is still developing.",
-        "game_pitching_shape": "TBD Pitching Path"
+        "starter_edge": "Grant Holmes gives Atlanta Braves the cleaner path with the stronger foundation read in this matchup.",
+        "game_pitching_shape": "Starter Edge"
       },
       "pitch_type_matchup": {
-        "summary": "Pitch-type data is limited for this matchup \u2014 pitcher arsenal profiles are unavailable.",
+        "summary": "San Francisco Giants's starter brings a fastball/breaking approach \u2014 the Atlanta Braves lineup's path runs through pitch discipline and damage timing. Atlanta Braves's starter works from breaking-heavy shape \u2014 the San Francisco Giants offense needs to find the right window to do damage. Michael Harris II stands out as the best pitch-type fit among the likely lineup contributors.",
         "pitcher_arsenal_notes": {
-          "away_starter": "Pitch-type data is limited for the San Francisco Giants starter.",
-          "home_starter": "Pitch-type data is limited for the Atlanta Braves starter."
+          "away_starter": "Adrian Houser works primarily from a fastball/breaking-ball mix. The Sinker is the primary weapon at 45% usage, sitting 94.7 mph. The Changeup (18%) is the key secondary.",
+          "home_starter": "Grant Holmes leans heavily on breaking ball shape \u2014 47% breaking-ball usage. The Slider is the primary weapon at 40% usage, sitting 85.3 mph. The Four-Seam Fastball (34%) is the key secondary."
         },
         "lineup_fit": {
-          "away_vs_home_starter": "Pitch-type lineup fit is limited \u2014 Atlanta Braves starter profile unavailable.",
-          "home_vs_away_starter": "Pitch-type lineup fit is limited \u2014 San Francisco Giants starter profile unavailable."
+          "away_vs_home_starter": "San Francisco Giants faces a breaking-heavy pitcher \u2014 the key path is discipline against the primary shape and damage in the fastball window.",
+          "home_vs_away_starter": "Atlanta Braves's best-fit bats against this fastball/breaking shape: Michael Harris II, Ronald Acu\u00f1a Jr., Matt Olson. The pitch-type matchup favors patience and working the primary offering."
         },
-        "hitters_with_edge": [],
-        "hitters_at_risk": [],
-        "data_quality": "limited"
+        "hitters_with_edge": [
+          {
+            "name": "Michael Harris II",
+            "slug": "michael-harris-ii",
+            "team": "Atlanta Braves",
+            "edge": "Fastball Damage",
+            "reason": "Michael Harris II punishes fastball pitching \u2014 15.1% barrel rate with strong contact in the fastball family. The fastball/breaking shape fits this damage profile."
+          },
+          {
+            "name": "Matt Olson",
+            "slug": "matt-olson",
+            "team": "Atlanta Braves",
+            "edge": "Fastball Damage",
+            "reason": "Matt Olson punishes fastball pitching \u2014 14.5% barrel rate with strong contact in the fastball family. The fastball/breaking shape fits this damage profile."
+          }
+        ],
+        "hitters_at_risk": [
+          {
+            "name": "Michael Harris II",
+            "slug": "michael-harris-ii",
+            "team": "Atlanta Braves",
+            "risk": "Breaking Ball Chase",
+            "reason": "Michael Harris II carries chase risk against breaking pitching \u2014 the fastball/breaking shape puts pressure on this bat's expansion tendency."
+          }
+        ],
+        "data_quality": "available"
       },
       "bullpen_read": {
         "summary": "San Francisco Giants bullpen usage data is limited. Atlanta Braves bullpen usage data is limited.",
@@ -1938,20 +2091,23 @@
         "Run Environment: Posted total leans toward a hitter-friendly environment \u2014 worth tracking for stack consideration."
       ],
       "betting_props_watch": [
+        "Power Watch: Adrian Houser's power-risk profile makes Atlanta Braves home-run markets worth monitoring.",
+        "Power Watch: Grant Holmes's power-risk profile makes San Francisco Giants home-run markets worth monitoring.",
         "Run Environment: This game's posted total leans toward a hitter-friendly number \u2014 worth checking against the live line."
       ],
       "data_basis": [
         "Away: Projected lineup",
         "Home: Projected lineup",
-        "TBD probables",
+        "Confirmed probables",
         "Bullpen usage available",
         "Weather available",
         "Odds available"
       ]
     },
-    "DET-HOU-2026-06-17": {
+    "824178": {
       "away_team": "DET",
       "home_team": "HOU",
+      "game_id": "824178",
       "game_read": "Detroit Tigers at Houston Astros reads as a power-pressure game \u2014 one mistake against either power pocket can become the separator. Casey Mize gives Detroit Tigers the cleaner path with the stronger foundation read in this matchup. If DET gets into the middle innings with a lead, Dillon Dingler turns this into a bullpen-stress game for the other side.",
       "game_report": {
         "game_shape": "Detroit Tigers at Houston Astros is a power-pressure game \u2014 one mistake from either starter can become the separator. Casey Mize gives Detroit Tigers the cleaner path with the stronger foundation read in this matchup. The swing factor: if Dillon Dingler sees a fastball in the damage zone, the inning changes.",
@@ -2486,9 +2642,10 @@
         "Odds available"
       ]
     },
-    "SD-STL-2026-06-17": {
+    "823044": {
       "away_team": "SD",
       "home_team": "STL",
+      "game_id": "823044",
       "game_read": "San Diego Padres at St. Louis Cardinals is a traffic game \u2014 the path to runs is contact and baserunners rather than the long ball. Probable starter signals are limited for this game, so the pitching path is still developing. If STL gets into the middle innings with a lead, Alec Burleson turns this into a bullpen-stress game for the other side.",
       "game_report": {
         "game_shape": "San Diego Padres at St. Louis Cardinals runs on contact and baserunners \u2014 the scoring path goes through traffic, not the big swing. Probable starter signals are limited for this game, so the pitching path is still developing. The swing factor: if Alec Burleson sees a fastball in the damage zone, the inning changes. The posted total reflects a hitter-friendly lean.",
@@ -2930,9 +3087,10 @@
         "Odds available"
       ]
     },
-    "TB-LAD-2026-06-17": {
+    "823940": {
       "away_team": "TB",
       "home_team": "LAD",
+      "game_id": "823940",
       "game_read": "Tampa Bay Rays at Los Angeles Dodgers reads as a power-pressure game \u2014 one mistake against either power pocket can become the separator. Both starters carry stable run-prevention profiles \u2014 mistake punishment is the most likely separator. If TB gets into the middle innings with a lead, Junior Caminero turns this into a bullpen-stress game for the other side.",
       "game_report": {
         "game_shape": "Tampa Bay Rays at Los Angeles Dodgers is a power-pressure game \u2014 one mistake from either starter can become the separator. Both starters carry stable run-prevention profiles \u2014 mistake punishment is the most likely separator. The swing factor: if Junior Caminero sees a fastball in the damage zone, the inning changes.",
@@ -3433,9 +3591,10 @@
         "Odds available"
       ]
     },
-    "LAA-AZ-2026-06-17": {
+    "825072": {
       "away_team": "LAA",
       "home_team": "AZ",
+      "game_id": "825072",
       "game_read": "Los Angeles Angels at Arizona Diamondbacks reads as a power-pressure game \u2014 one mistake against either power pocket can become the separator. Both starters carry volatile-arm profiles \u2014 this game can tilt on whichever bullpen absorbs the middle innings better. If LAA gets into the middle innings with a lead, Mike Trout turns this into a bullpen-stress game for the other side.",
       "game_report": {
         "game_shape": "Los Angeles Angels at Arizona Diamondbacks is a power-pressure game \u2014 one mistake from either starter can become the separator. Both starters carry volatile-arm profiles \u2014 this game can tilt on whichever bullpen absorbs the middle innings better. The swing factor: if Mike Trout sees a fastball in the damage zone, the inning changes.",
@@ -3999,9 +4158,10 @@
         "Odds available"
       ]
     },
-    "TOR-BOS-2026-06-17": {
+    "824746": {
       "away_team": "TOR",
       "home_team": "BOS",
+      "game_id": "824746",
       "game_read": "Toronto Blue Jays at Boston Red Sox reads as a power-pressure game \u2014 one mistake against either power pocket can become the separator. Probable starter signals are limited for this game, so the pitching path is still developing. If BOS gets into the middle innings with a lead, Willson Contreras turns this into a bullpen-stress game for the other side.",
       "game_report": {
         "game_shape": "Toronto Blue Jays at Boston Red Sox is a power-pressure game \u2014 one mistake from either starter can become the separator. Probable starter signals are limited for this game, so the pitching path is still developing. The swing factor: if Willson Contreras sees a fastball in the damage zone, the inning changes. The posted total reflects a hitter-friendly lean.",
@@ -4417,9 +4577,10 @@
         "Odds available"
       ]
     },
-    "CWS-NYY-2026-06-17": {
+    "823536": {
       "away_team": "CWS",
       "home_team": "NYY",
+      "game_id": "823536",
       "game_read": "Chicago White Sox at New York Yankees is a traffic game \u2014 the path to runs is contact and baserunners rather than the long ball. Carlos Rod\u00f3n gives New York Yankees the cleaner path with the stronger foundation read in this matchup. If CWS gets into the middle innings with a lead, Miguel Vargas turns this into a bullpen-stress game for the other side.",
       "game_report": {
         "game_shape": "Chicago White Sox at New York Yankees runs on contact and baserunners \u2014 the scoring path goes through traffic, not the big swing. Carlos Rod\u00f3n gives New York Yankees the cleaner path with the stronger foundation read in this matchup. The swing factor: if Miguel Vargas sees a fastball in the damage zone, the inning changes.",
@@ -4975,9 +5136,382 @@
         "Odds available"
       ]
     },
-    "CLE-MIL-2026-06-17": {
+    "824913": {
+      "away_team": "SF",
+      "home_team": "ATL",
+      "game_id": "824913",
+      "game_read": "San Francisco Giants at Atlanta Braves reads as a power-pressure game \u2014 one mistake against either power pocket can become the separator. Probable starter signals are limited for this game, so the pitching path is still developing. If ATL gets into the middle innings with a lead, Michael Harris II turns this into a bullpen-stress game for the other side.",
+      "game_report": {
+        "game_shape": "San Francisco Giants at Atlanta Braves is a power-pressure game \u2014 one mistake from either starter can become the separator. Probable starter signals are limited for this game, so the pitching path is still developing. The swing factor: if Michael Harris II sees a fastball in the damage zone, the inning changes. The posted total reflects a hitter-friendly lean.",
+        "pitching_arsenal_read": "Pitch arsenal data is limited for this matchup.",
+        "away_lineup_path": "San Francisco Giants doesn't carry a clear power-pocket bat in today's signal pool. Jung Hoo Lee, Luis Arraez run the traffic path \u2014 contact pressure and baserunners ahead of the middle of the order.",
+        "home_lineup_path": "Michael Harris II brings genuine power-damage upside \u2014 a bat that punishes mistakes in the fastball window.",
+        "bullpen_environment_read": "Both bullpens carry a similar usage profile \u2014 no clear middle-innings edge from bullpen freshness alone. Conditions: 70\u00b0F, Cloudy, 0 mph N. Posted run total is 9.5.",
+        "fantasy_dfs_props_watch": [
+          "OBP/Stack: Jung Hoo Lee (SF) \u2014 table-setter profile is a stack lead consideration.",
+          "DFS Power: Michael Harris II (ATL) \u2014 15.1% barrel rate, genuine power-pocket threat.",
+          "DFS Power: Luis Arraez (SF) \u2014 power-pressure profile worth tracking in stack builds.",
+          "DFS Power: Ronald Acu\u00f1a Jr. (ATL) \u2014 13.1% barrel rate, genuine power-pocket threat.",
+          "Environment: Hitter-friendly total \u2014 worth tracking for stack consideration."
+        ]
+      },
+      "matchup_board": {
+        "away_starter": {
+          "name": "TBD",
+          "hand": "",
+          "pitches": [],
+          "summary": "TBD's pitch-type data is limited.",
+          "data_quality": "limited"
+        },
+        "home_starter": {
+          "name": "JR Ritchie",
+          "hand": "",
+          "pitches": [],
+          "summary": "JR Ritchie's pitch-type data is limited.",
+          "data_quality": "limited"
+        },
+        "away_lineup_vs_home_starter": [
+          {
+            "name": "Daniel Susac",
+            "slug": "daniel-susac",
+            "pos": "C",
+            "batting_order": 1,
+            "bats": "R",
+            "grade": "gray",
+            "label": "Split limited",
+            "reason": "Limited pitch-type split; arsenal data developing."
+          },
+          {
+            "name": "Rafael Devers",
+            "slug": "rafael-devers",
+            "pos": "1B",
+            "batting_order": 2,
+            "bats": "L",
+            "grade": "gray",
+            "label": "Split limited",
+            "reason": "Limited pitch-type split; arsenal data developing."
+          },
+          {
+            "name": "Luis Arraez",
+            "slug": "luis-arraez",
+            "pos": "2B",
+            "batting_order": 3,
+            "bats": "L",
+            "grade": "gray",
+            "label": "Split limited",
+            "reason": "Limited pitch-type split; arsenal data developing."
+          },
+          {
+            "name": "Matt Chapman",
+            "slug": "matt-chapman",
+            "pos": "3B",
+            "batting_order": 4,
+            "bats": "R",
+            "grade": "gray",
+            "label": "Split limited",
+            "reason": "Limited pitch-type split; arsenal data developing."
+          },
+          {
+            "name": "Willy Adames",
+            "slug": "willy-adames",
+            "pos": "SS",
+            "batting_order": 5,
+            "bats": "R",
+            "grade": "gray",
+            "label": "Split limited",
+            "reason": "Limited pitch-type split; arsenal data developing."
+          },
+          {
+            "name": "Drew Gilbert",
+            "slug": "drew-gilbert",
+            "pos": "CF",
+            "batting_order": 6,
+            "bats": "L",
+            "grade": "gray",
+            "label": "Split limited",
+            "reason": "Limited pitch-type split; arsenal data developing."
+          },
+          {
+            "name": "Jung Hoo Lee",
+            "slug": "jung-hoo-lee",
+            "pos": "RF",
+            "batting_order": 7,
+            "bats": "L",
+            "grade": "gray",
+            "label": "Split limited",
+            "reason": "Limited pitch-type split; arsenal data developing."
+          },
+          {
+            "name": "Casey Schmitt",
+            "slug": "casey-schmitt",
+            "pos": "DH",
+            "batting_order": 8,
+            "bats": "R",
+            "grade": "gray",
+            "label": "Split limited",
+            "reason": "Limited pitch-type split; arsenal data developing."
+          },
+          {
+            "name": "Bryce Eldridge",
+            "slug": "bryce-eldridge",
+            "pos": "DH",
+            "batting_order": 9,
+            "bats": "L",
+            "grade": "gray",
+            "label": "Split limited",
+            "reason": "Limited pitch-type split; arsenal data developing."
+          }
+        ],
+        "home_lineup_vs_away_starter": [
+          {
+            "name": "Austin Wynns",
+            "slug": "austin-wynns",
+            "pos": "C",
+            "batting_order": 1,
+            "bats": "R",
+            "grade": "gray",
+            "label": "Split limited",
+            "reason": "Limited pitch-type split; arsenal data developing."
+          },
+          {
+            "name": "Matt Olson",
+            "slug": "matt-olson",
+            "pos": "1B",
+            "batting_order": 2,
+            "bats": "L",
+            "grade": "gray",
+            "label": "Split limited",
+            "reason": "Limited pitch-type split; arsenal data developing."
+          },
+          {
+            "name": "Ozzie Albies",
+            "slug": "ozzie-albies",
+            "pos": "2B",
+            "batting_order": 3,
+            "bats": "S",
+            "grade": "gray",
+            "label": "Split limited",
+            "reason": "Limited pitch-type split; arsenal data developing."
+          },
+          {
+            "name": "Austin Riley",
+            "slug": "austin-riley",
+            "pos": "3B",
+            "batting_order": 4,
+            "bats": "R",
+            "grade": "gray",
+            "label": "Split limited",
+            "reason": "Limited pitch-type split; arsenal data developing."
+          },
+          {
+            "name": "Mauricio Dub\u00f3n",
+            "slug": "mauricio-dubon",
+            "pos": "SS",
+            "batting_order": 5,
+            "bats": "R",
+            "grade": "gray",
+            "label": "Split limited",
+            "reason": "Limited pitch-type split; arsenal data developing."
+          },
+          {
+            "name": "Mike Yastrzemski",
+            "slug": "mike-yastrzemski",
+            "pos": "LF",
+            "batting_order": 6,
+            "bats": "L",
+            "grade": "gray",
+            "label": "Split limited",
+            "reason": "Limited pitch-type split; arsenal data developing."
+          },
+          {
+            "name": "Michael Harris II",
+            "slug": "michael-harris-ii",
+            "pos": "CF",
+            "batting_order": 7,
+            "bats": "L",
+            "grade": "gray",
+            "label": "Split limited",
+            "reason": "Limited pitch-type split; arsenal data developing."
+          },
+          {
+            "name": "Ronald Acu\u00f1a Jr.",
+            "slug": "ronald-acuna-jr",
+            "pos": "RF",
+            "batting_order": 8,
+            "bats": "R",
+            "grade": "gray",
+            "label": "Split limited",
+            "reason": "Limited pitch-type split; arsenal data developing."
+          },
+          {
+            "name": "Dominic Smith",
+            "slug": "dominic-smith",
+            "pos": "DH",
+            "batting_order": 9,
+            "bats": "L",
+            "grade": "gray",
+            "label": "Split limited",
+            "reason": "Limited pitch-type split; arsenal data developing."
+          }
+        ],
+        "board_summary": "Both lineups show similar pitch-type matchup grades against today's starters."
+      },
+      "lineup_read": {
+        "away": {
+          "summary": "San Francisco Giants leans on contact pressure and traffic rather than the power pocket.",
+          "power_pressure": "San Francisco Giants doesn't carry a standout power-pocket bat in today's signal pool.",
+          "contact_pressure": "Jung Hoo Lee, Luis Arraez create contact pressure and traffic if they get on ahead of the middle of the order.",
+          "traffic_path": "San Francisco Giants's path to scoring runs through traffic \u2014 putting the ball in play and forcing the defense to make plays with runners on.",
+          "risk": "Luis Arraez carries a regression-risk profile.",
+          "key_bats": [
+            {
+              "name": "Jung Hoo Lee",
+              "slug": "jung-hoo-lee",
+              "tags": [
+                "Contact Table-Setter"
+              ]
+            },
+            {
+              "name": "Luis Arraez",
+              "slug": "luis-arraez",
+              "tags": [
+                "Contact Table-Setter"
+              ]
+            }
+          ]
+        },
+        "home": {
+          "summary": "Atlanta Braves leans on power pressure \u2014 one swing can change the separator.",
+          "power_pressure": "Michael Harris II, Ronald Acu\u00f1a Jr. give Atlanta Braves a power pocket that can turn one mistake into a separator.",
+          "contact_pressure": "Atlanta Braves lacks a clear contact-pressure profile today.",
+          "traffic_path": "Atlanta Braves's path leans on the power pocket rather than traffic \u2014 fewer baserunners, but louder mistake punishment.",
+          "risk": "No major volatility flags in today's lineup signal.",
+          "key_bats": [
+            {
+              "name": "Michael Harris II",
+              "slug": "michael-harris-ii",
+              "tags": [
+                "Power Pressure"
+              ]
+            },
+            {
+              "name": "Ronald Acu\u00f1a Jr.",
+              "slug": "ronald-acuna-jr",
+              "tags": [
+                "Power Pressure"
+              ]
+            },
+            {
+              "name": "Matt Olson",
+              "slug": "matt-olson",
+              "tags": [
+                "Power Pressure"
+              ]
+            }
+          ]
+        },
+        "matchup_shape": "Power Pressure"
+      },
+      "pitching_read": {
+        "away_starter": {
+          "summary": "TBD (San Francisco Giants) is probable, but signal data is limited \u2014 pitching path still developing.",
+          "stability": "Limited sample; stability read still developing.",
+          "risk": "Limited current sample for a risk read.",
+          "matchup_fit": "Limited current sample for a matchup-fit read.",
+          "watch": "Limited current sample \u2014 watch for confirmed lineup before drawing conclusions."
+        },
+        "home_starter": {
+          "summary": "JR Ritchie (Atlanta Braves) is probable, but signal data is limited \u2014 pitching path still developing.",
+          "stability": "Limited sample; stability read still developing.",
+          "risk": "Limited current sample for a risk read.",
+          "matchup_fit": "Limited current sample for a matchup-fit read.",
+          "watch": "Limited current sample \u2014 watch for confirmed lineup before drawing conclusions."
+        },
+        "starter_edge": "Probable starter signals are limited for this game, so the pitching path is still developing.",
+        "game_pitching_shape": "TBD Pitching Path"
+      },
+      "pitch_type_matchup": {
+        "summary": "Pitch-type data is limited for this matchup \u2014 pitcher arsenal profiles are unavailable.",
+        "pitcher_arsenal_notes": {
+          "away_starter": "Pitch-type data is limited for the San Francisco Giants starter.",
+          "home_starter": "Pitch-type data is limited for the Atlanta Braves starter."
+        },
+        "lineup_fit": {
+          "away_vs_home_starter": "Pitch-type lineup fit is limited \u2014 Atlanta Braves starter profile unavailable.",
+          "home_vs_away_starter": "Pitch-type lineup fit is limited \u2014 San Francisco Giants starter profile unavailable."
+        },
+        "hitters_with_edge": [],
+        "hitters_at_risk": [],
+        "data_quality": "limited"
+      },
+      "bullpen_read": {
+        "summary": "San Francisco Giants bullpen usage data is limited. Atlanta Braves bullpen usage data is limited.",
+        "away_status": "San Francisco Giants bullpen usage data is limited.",
+        "home_status": "Atlanta Braves bullpen usage data is limited.",
+        "leverage_note": "Both bullpens carry a similar usage profile \u2014 no clear middle-innings edge from bullpen freshness alone.",
+        "risk": "Bullpen risk is balanced; starter length is the bigger lever for both sides.",
+        "data_quality": "fresh"
+      },
+      "environment_read": {
+        "summary": "Truist Park is tonight's park. Conditions: 70\u00b0F, Cloudy, 0 mph N. Posted run total is 9.5.",
+        "run_environment": "Hitter Lean",
+        "weather_note": "Conditions: 70\u00b0F, Cloudy, 0 mph N.",
+        "park_note": "Truist Park is tonight's park.",
+        "odds_note": "Posted run total is 9.5."
+      },
+      "players_who_tilt_game": [
+        {
+          "name": "Jung Hoo Lee",
+          "slug": "jung-hoo-lee",
+          "team": "SF",
+          "tag": "Contact Table-Setter",
+          "reason": "Jung Hoo Lee's contact profile creates traffic ahead of the middle of the order."
+        },
+        {
+          "name": "Michael Harris II",
+          "slug": "michael-harris-ii",
+          "team": "ATL",
+          "tag": "Power Pressure",
+          "reason": "Michael Harris II carries a power-pocket profile that can turn one swing into the separator."
+        },
+        {
+          "name": "Luis Arraez",
+          "slug": "luis-arraez",
+          "team": "SF",
+          "tag": "Middle-Order Damage",
+          "reason": "Luis Arraez adds middle-order damage to SF's lineup."
+        },
+        {
+          "name": "Ronald Acu\u00f1a Jr.",
+          "slug": "ronald-acuna-jr",
+          "team": "ATL",
+          "tag": "Power Pressure",
+          "reason": "Ronald Acu\u00f1a Jr. adds a second power-pocket bat to ATL's lineup pressure."
+        }
+      ],
+      "fantasy_dfs_watch": [
+        "Contact/OBP Watch: Jung Hoo Lee (SF)'s table-setter profile is worth tracking for stack consideration.",
+        "Power Watch: Michael Harris II (ATL) is a power-pressure angle worth tracking for DFS builds.",
+        "Power Watch: Luis Arraez (SF) is a power-pressure angle worth tracking for DFS builds.",
+        "Power Watch: Ronald Acu\u00f1a Jr. (ATL) is a power-pressure angle worth tracking for DFS builds.",
+        "Run Environment: Posted total leans toward a hitter-friendly environment \u2014 worth tracking for stack consideration."
+      ],
+      "betting_props_watch": [
+        "Run Environment: This game's posted total leans toward a hitter-friendly number \u2014 worth checking against the live line."
+      ],
+      "data_basis": [
+        "Away: Projected lineup",
+        "Home: Projected lineup",
+        "TBD probables",
+        "Bullpen usage available",
+        "Weather available",
+        "Odds available"
+      ]
+    },
+    "823774": {
       "away_team": "CLE",
       "home_team": "MIL",
+      "game_id": "823774",
       "game_read": "Cleveland Guardians at Milwaukee Brewers is a traffic game \u2014 the path to runs is contact and baserunners rather than the long ball. Gavin Williams gives Cleveland Guardians the cleaner path with the stronger foundation read in this matchup. If MIL gets into the middle innings with a lead, Jake Bauers turns this into a bullpen-stress game for the other side.",
       "game_report": {
         "game_shape": "Cleveland Guardians at Milwaukee Brewers runs on contact and baserunners \u2014 the scoring path goes through traffic, not the big swing. Gavin Williams gives Cleveland Guardians the cleaner path with the stronger foundation read in this matchup. The swing factor: if Jake Bauers sees a fastball in the damage zone, the inning changes.",
@@ -5482,9 +6016,10 @@
         "Odds available"
       ]
     },
-    "COL-CHC-2026-06-17": {
+    "824668": {
       "away_team": "COL",
       "home_team": "CHC",
+      "game_id": "824668",
       "game_read": "Colorado Rockies at Chicago Cubs reads as a power-pressure game \u2014 one mistake against either power pocket can become the separator. Probable starter signals are limited for this game, so the pitching path is still developing. If COL gets into the middle innings with a lead, Hunter Goodman turns this into a bullpen-stress game for the other side.",
       "game_report": {
         "game_shape": "Colorado Rockies at Chicago Cubs is a power-pressure game \u2014 one mistake from either starter can become the separator. Probable starter signals are limited for this game, so the pitching path is still developing. The swing factor: if Hunter Goodman sees a fastball in the damage zone, the inning changes. The posted total reflects a hitter-friendly lean.",
@@ -5949,9 +6484,10 @@
         "Odds available"
       ]
     },
-    "PIT-ATH-2026-06-17": {
+    "824992": {
       "away_team": "PIT",
       "home_team": "ATH",
+      "game_id": "824992",
       "game_read": "Pittsburgh Pirates at Athletics reads as a power-pressure game \u2014 one mistake against either power pocket can become the separator. Braxton Ashcraft gives Pittsburgh Pirates the cleaner path with the stronger foundation read in this matchup. If ATH gets into the middle innings with a lead, Nick Kurtz turns this into a bullpen-stress game for the other side.",
       "game_report": {
         "game_shape": "Pittsburgh Pirates at Athletics is a power-pressure game \u2014 one mistake from either starter can become the separator. Braxton Ashcraft gives Pittsburgh Pirates the cleaner path with the stronger foundation read in this matchup. The swing factor: if Nick Kurtz sees a fastball in the damage zone, the inning changes. The posted total reflects a hitter-friendly lean.",
@@ -6499,9 +7035,10 @@
         "Odds available"
       ]
     },
-    "BAL-SEA-2026-06-17": {
+    "823127": {
       "away_team": "BAL",
       "home_team": "SEA",
+      "game_id": "823127",
       "game_read": "Baltimore Orioles at Seattle Mariners reads as a power-pressure game \u2014 one mistake against either power pocket can become the separator. George Kirby gives Seattle Mariners the cleaner path with the stronger foundation read in this matchup. If BAL gets into the middle innings with a lead, Pete Alonso turns this into a bullpen-stress game for the other side.",
       "game_report": {
         "game_shape": "Baltimore Orioles at Seattle Mariners is a power-pressure game \u2014 one mistake from either starter can become the separator. George Kirby gives Seattle Mariners the cleaner path with the stronger foundation read in this matchup. The swing factor: if Pete Alonso sees a fastball in the damage zone, the inning changes.",
