@@ -1200,6 +1200,14 @@ def build_matchup_board(
     away_p = pitchers.get(away_pitcher_slug) if away_pitcher_slug else None
     home_p = pitchers.get(home_pitcher_slug) if home_pitcher_slug else None
 
+    # Build a lookup from name to slug
+    name_to_slug_map = {}
+    for p_slug, p_idx in (player_index_by_slug or {}).items():
+        if p_idx.get("full_name"):
+            name_to_slug_map[p_idx["full_name"].lower()] = p_slug
+        if p_idx.get("display_name"):
+            name_to_slug_map[p_idx["display_name"].lower()] = p_slug
+
     def build_pitcher_board(pitcher_profile, starter_block):
         if not pitcher_profile or pitcher_profile.get("primary_shape") == "Limited Data":
             name = (starter_block or {}).get("name", "Unknown")
@@ -1239,6 +1247,8 @@ def build_matchup_board(
         for hitter in sorted(lineup or [], key=lambda h: h.get("batting_order") or 99):
             slug = hitter.get("slug", "")
             name = hitter.get("name", "")
+            if not slug and name:
+                slug = name_to_slug_map.get(name.lower(), "")
             pos = hitter.get("pos", "")
             order = hitter.get("batting_order")
             h_profile = hitters_intel.get(slug)

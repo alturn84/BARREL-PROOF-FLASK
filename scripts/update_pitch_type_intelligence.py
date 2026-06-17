@@ -108,7 +108,28 @@ def parse_name(full_name):
     return " ".join(parts[1:]), parts[0]
 
 
+LOOKUP_CACHE_PATH = DATA_DIR / "mlbam_lookup_cache.json"
 _id_cache = {}
+
+
+def load_lookup_cache():
+    global _id_cache
+    if LOOKUP_CACHE_PATH.exists():
+        try:
+            raw = json.loads(LOOKUP_CACHE_PATH.read_text(encoding="utf-8"))
+            _id_cache = {k: (v[0], v[1]) for k, v in raw.items()}
+            print(f"Loaded {len(_id_cache)} cached MLBAM IDs from {LOOKUP_CACHE_PATH.name}", flush=True)
+        except Exception as e:
+            print(f"Failed to load MLBAM ID cache: {e}", flush=True)
+            _id_cache = {}
+
+
+def save_lookup_cache():
+    try:
+        raw = {k: list(v) for k, v in _id_cache.items()}
+        LOOKUP_CACHE_PATH.write_text(json.dumps(raw, indent=2), encoding="utf-8")
+    except Exception as e:
+        print(f"Failed to save MLBAM ID cache: {e}", flush=True)
 
 
 def resolve_mlbam(full_name):
@@ -117,18 +138,48 @@ def resolve_mlbam(full_name):
         return _id_cache[full_name]
     last, first = parse_name(full_name)
     try:
-        result = pybaseball.playerid_lookup(last, first, fuzzy=True)
+        # Try exact lookup first (much faster)
+        result = pybaseball.playerid_lookup(last, first, fuzzy=False)
+        if result is None or result.empty:
+            # Fallback to fuzzy lookup
+            result = pybaseball.playerid_lookup(last, first, fuzzy=True)
+        
         if result is None or result.empty:
             _id_cache[full_name] = (None, name_to_slug(full_name))
+            save_lookup_cache()
             return _id_cache[full_name]
+        
         row = result.iloc[0]
         mlbam = int(row["key_mlbam"]) if not (row["key_mlbam"] != row["key_mlbam"]) else None
         _id_cache[full_name] = (mlbam, name_to_slug(full_name))
+        save_lookup_cache()
         return _id_cache[full_name]
     except Exception as e:
         print(f"  ID lookup failed for {full_name}: {e}", flush=True)
         _id_cache[full_name] = (None, name_to_slug(full_name))
+        save_lookup_cache()
         return _id_cache[full_name]
+
+
+def check_cache_fresh():
+    """Return True if output JSON exists, is valid, and was generated within 12 hours."""
+    if not OUTPUT_PATH.exists():
+        return False
+    try:
+        data = json.loads(OUTPUT_PATH.read_text(encoding="utf-8"))
+    except Exception:
+        return False
+    meta = data.get("meta", {})
+    if not meta.get("generated_at") or meta.get("data_quality") == "limited":
+        return False
+    try:
+        gen_dt = datetime.fromisoformat(meta["generated_at"].replace("Z", "+00:00"))
+        age_hours = (datetime.now(timezone.utc) - gen_dt).total_seconds() / 3600
+        if age_hours < 12:
+            return True
+    except Exception:
+        pass
+    return False
 
 
 def load_existing_cache():
@@ -530,6 +581,14 @@ def main():
     now_str = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     print("=== Pitch Type Intelligence ===", flush=True)
     print(f"Season window: {SEASON_START} to {SEASON_END}", flush=True)
+
+    # Load persistent lookup cache
+    load_lookup_cache()
+
+    # Fast-exit if the output JSON was generated in the last 12 hours
+    if check_cache_fresh():
+        print(f"Cache is fresh (generated within 12 hours). Skipping regeneration.", flush=True)
+        return
 
     pitchers = collect_pitcher_targets()
     hitters = collect_hitter_targets()
