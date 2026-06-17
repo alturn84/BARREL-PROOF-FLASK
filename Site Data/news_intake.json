@@ -1,20 +1,373 @@
 {
   "meta": {
     "date": "2026-06-17",
-    "generated_at": "2026-06-17T19:34:43Z",
+    "generated_at": "2026-06-17T19:55:47Z",
     "source": "firecrawl",
-    "data_quality": "limited",
-    "item_count": 0,
-    "source_count": 0,
-    "failure_count": 1,
-    "failure_notes": [
-      "FIRECRAWL_API_KEY not set in environment or .env"
-    ]
+    "data_quality": "available",
+    "item_count": 33,
+    "source_count": 3,
+    "failure_count": 0,
+    "failure_notes": []
   },
-  "sources": [],
-  "transactions": [],
-  "injuries": [],
-  "pitcher_notes": [],
+  "sources": [
+    {
+      "source_name": "MLB Stats API Transactions",
+      "source_url": "https://statsapi.mlb.com/api/v1/transactions?startDate=2026-06-17&endDate=2026-06-17",
+      "source_type": "transactions",
+      "retrieved_at": "2026-06-17T19:55:46Z",
+      "status": "ok"
+    },
+    {
+      "source_name": "MLB.com Probable Pitchers",
+      "source_url": "https://www.mlb.com/probable-pitchers",
+      "source_type": "pitchers",
+      "retrieved_at": "2026-06-17T19:55:46Z",
+      "status": "ok"
+    },
+    {
+      "source_name": "MLB.com Injuries",
+      "source_url": "https://www.mlb.com/injuries",
+      "source_type": "injuries",
+      "retrieved_at": "2026-06-17T19:55:47Z",
+      "status": "ok"
+    }
+  ],
+  "transactions": [
+    {
+      "team": "Washington Nationals",
+      "player": "Julian Fern\u00e1ndez",
+      "transaction_type": "Released",
+      "summary": "Washington Nationals released RHP Julian Fern\u00e1ndez.",
+      "source_name": "MLB Stats API",
+      "source_url": "https://statsapi.mlb.com/api/v1/transactions",
+      "published_at": "2026-06-17",
+      "confidence": "high"
+    },
+    {
+      "team": "Texas Rangers",
+      "player": "Ben DeTaeye",
+      "transaction_type": "Signed as Free Agent",
+      "summary": "Texas Rangers signed free agent LHP Benjamin DeTaeye to a minor league contract.",
+      "source_name": "MLB Stats API",
+      "source_url": "https://statsapi.mlb.com/api/v1/transactions",
+      "published_at": "2026-06-17",
+      "confidence": "high"
+    },
+    {
+      "team": "Toronto Blue Jays",
+      "player": "Max Scherzer",
+      "transaction_type": "Status Change",
+      "summary": "Toronto Blue Jays placed RHP Max Scherzer on the 15-day injured list retroactive to June 14, 2026. Back spasms.",
+      "source_name": "MLB Stats API",
+      "source_url": "https://statsapi.mlb.com/api/v1/transactions",
+      "published_at": "2026-06-17",
+      "confidence": "high"
+    },
+    {
+      "team": "Detroit Tigers",
+      "player": "Casey Mize",
+      "transaction_type": "Status Change",
+      "summary": "Detroit Tigers activated RHP Casey Mize from the 15-day injured list.",
+      "source_name": "MLB Stats API",
+      "source_url": "https://statsapi.mlb.com/api/v1/transactions",
+      "published_at": "2026-06-17",
+      "confidence": "high"
+    },
+    {
+      "team": "Akron RubberDucks",
+      "player": "Erik Sabrowski",
+      "transaction_type": "Assigned",
+      "summary": "Cleveland Guardians sent LHP Erik Sabrowski on a rehab assignment to Akron RubberDucks.",
+      "source_name": "MLB Stats API",
+      "source_url": "https://statsapi.mlb.com/api/v1/transactions",
+      "published_at": "2026-06-17",
+      "confidence": "high"
+    },
+    {
+      "team": "Detroit Tigers",
+      "player": "Gleyber Torres",
+      "transaction_type": "Status Change",
+      "summary": "Detroit Tigers placed 2B Gleyber Torres on the 10-day injured list retroactive to June 16, 2026. Left oblique strain.",
+      "source_name": "MLB Stats API",
+      "source_url": "https://statsapi.mlb.com/api/v1/transactions",
+      "published_at": "2026-06-17",
+      "confidence": "high"
+    },
+    {
+      "team": "Los Angeles Angels",
+      "player": "Vaughn Grissom",
+      "transaction_type": "Status Change",
+      "summary": "Los Angeles Angels activated 2B Vaughn Grissom from the 10-day injured list.",
+      "source_name": "MLB Stats API",
+      "source_url": "https://statsapi.mlb.com/api/v1/transactions",
+      "published_at": "2026-06-17",
+      "confidence": "high"
+    },
+    {
+      "team": "St. Paul Saints",
+      "player": "Kendry Rojas",
+      "transaction_type": "Assigned",
+      "summary": "Minnesota Twins sent LHP Kendry Rojas on a rehab assignment to St. Paul Saints.",
+      "source_name": "MLB Stats API",
+      "source_url": "https://statsapi.mlb.com/api/v1/transactions",
+      "published_at": "2026-06-17",
+      "confidence": "high"
+    },
+    {
+      "team": "Los Angeles Angels",
+      "player": "Trey Mancini",
+      "transaction_type": "Designated for Assignment",
+      "summary": "Los Angeles Angels designated 1B Trey Mancini for assignment.",
+      "source_name": "MLB Stats API",
+      "source_url": "https://statsapi.mlb.com/api/v1/transactions",
+      "published_at": "2026-06-17",
+      "confidence": "high"
+    },
+    {
+      "team": "Toronto Blue Jays",
+      "player": "Chad Dallas",
+      "transaction_type": "Recalled",
+      "summary": "Toronto Blue Jays recalled RHP Chad Dallas from Buffalo Bisons.",
+      "source_name": "MLB Stats API",
+      "source_url": "https://statsapi.mlb.com/api/v1/transactions",
+      "published_at": "2026-06-17",
+      "confidence": "high"
+    },
+    {
+      "team": "Seattle Mariners",
+      "player": "Connor Joe",
+      "transaction_type": "Recalled",
+      "summary": "Seattle Mariners recalled RF Connor Joe from Tacoma Rainiers.",
+      "source_name": "MLB Stats API",
+      "source_url": "https://statsapi.mlb.com/api/v1/transactions",
+      "published_at": "2026-06-17",
+      "confidence": "high"
+    },
+    {
+      "team": "Everett AquaSox",
+      "player": "Curtis Washington Jr.",
+      "transaction_type": "Optioned",
+      "summary": "Seattle Mariners optioned CF Curtis Washington Jr. to Everett AquaSox.",
+      "source_name": "MLB Stats API",
+      "source_url": "https://statsapi.mlb.com/api/v1/transactions",
+      "published_at": "2026-06-17",
+      "confidence": "high"
+    }
+  ],
+  "injuries": [
+    {
+      "team": "",
+      "player": "",
+      "status": "",
+      "summary": "Greene (right elbow surgery) faced hitters in a simulated game environment on June 13 and will repeat the process on June 18 before potentially beginning\u2026",
+      "source_name": "MLB.com Injuries",
+      "source_url": "https://www.mlb.com/injuries",
+      "published_at": "",
+      "confidence": "medium"
+    },
+    {
+      "team": "",
+      "player": "",
+      "status": "",
+      "summary": "Arozarena was placed on the 10-day IL on June 16 after an MRI revealed mild inflammation in his left hamstring. He originally exited the Mariners'\u2026",
+      "source_name": "MLB.com Injuries",
+      "source_url": "https://www.mlb.com/injuries",
+      "published_at": "",
+      "confidence": "medium"
+    },
+    {
+      "team": "",
+      "player": "",
+      "status": "",
+      "summary": "Naylor, who also left the game on June 14 (https://www.mlb.com/news/josh-naylor-andres-munoz-exit-mariners-game-early) after fouling a pitch off his right shin, had X-rays come back negative. He was\u2026",
+      "source_name": "MLB.com Injuries",
+      "source_url": "https://www.mlb.com/injuries",
+      "published_at": "",
+      "confidence": "medium"
+    },
+    {
+      "team": "",
+      "player": "",
+      "status": "",
+      "summary": "Torres left the June 15 game after grabbing at his left side (https://www.mlb.com/news/gleyber-torres-exits-tigers-game-in-2nd-inning). He spent time on the injured list earlier this season with a\u2026",
+      "source_name": "MLB.com Injuries",
+      "source_url": "https://www.mlb.com/injuries",
+      "published_at": "",
+      "confidence": "medium"
+    },
+    {
+      "team": "",
+      "player": "",
+      "status": "",
+      "summary": "Seager will be placed on the 7-day concussion IL, manager Skip Schumaker said on June 15. Seager was out of the lineup for three straight\u2026",
+      "source_name": "MLB.com Injuries",
+      "source_url": "https://www.mlb.com/injuries",
+      "published_at": "",
+      "confidence": "medium"
+    },
+    {
+      "team": "",
+      "player": "",
+      "status": "",
+      "summary": "Turner suffered a right wrist contusion (https://www.mlb.com/news/trea-turner-right-wrist-injury) after being hit by a pitch during the June 15 game. X-rays came back negative but Turner was\u2026",
+      "source_name": "MLB.com Injuries",
+      "source_url": "https://www.mlb.com/injuries",
+      "published_at": "",
+      "confidence": "medium"
+    },
+    {
+      "team": "",
+      "player": "",
+      "status": "",
+      "summary": "Keller ( right forearm tendinitis (https://www.mlb.com/news/brad-keller-phillies-injured-list-forearm-tendinitis)) was placed on the 15-day IL on June 16.",
+      "source_name": "MLB.com Injuries",
+      "source_url": "https://www.mlb.com/injuries",
+      "published_at": "",
+      "confidence": "medium"
+    },
+    {
+      "team": "",
+      "player": "",
+      "status": "",
+      "summary": "Anthony (partially torn ligament in right ring finger) received good news (https://www.mlb.com/news/roman-anthony-garrett-crochet-progressing-in-injury-recovery) on June 16 when a follow-up MRI revealed that he is healing properly.\u2026",
+      "source_name": "MLB.com Injuries",
+      "source_url": "https://www.mlb.com/injuries",
+      "published_at": "",
+      "confidence": "medium"
+    },
+    {
+      "team": "",
+      "player": "",
+      "status": "",
+      "summary": "Ram\u00edrez (fractured left hamate bone) underwent surgery (https://www.mlb.com/news/jose-ramirez-surgery-hamate-bone) on June 16, two days after being placed on the 10-day IL. He is expected to miss\u2026",
+      "source_name": "MLB.com Injuries",
+      "source_url": "https://www.mlb.com/injuries",
+      "published_at": "",
+      "confidence": "medium"
+    },
+    {
+      "team": "",
+      "player": "",
+      "status": "",
+      "summary": "DeLauter suffered a right rib cage contusion (https://www.mlb.com/news/chase-delauter-and-angel-martinez-exit-early-in-game-against-tigers) in a collision with the outfield wall on June 13. Imaging revealed bone bruising and a small\u2026",
+      "source_name": "MLB.com Injuries",
+      "source_url": "https://www.mlb.com/injuries",
+      "published_at": "",
+      "confidence": "medium"
+    },
+    {
+      "team": "",
+      "player": "",
+      "status": "",
+      "summary": "Mart\u00ednez (non-displaced left foot fracture) was placed on the 10-day IL on June 16, three days after fouling a ball off his foot. He is\u2026",
+      "source_name": "MLB.com Injuries",
+      "source_url": "https://www.mlb.com/injuries",
+      "published_at": "",
+      "confidence": "medium"
+    },
+    {
+      "team": "",
+      "player": "",
+      "status": "",
+      "summary": "Pasquantino ( right hamate fracture (https://www.mlb.com/news/vinnie-pasquantino-on-injured-list-with-fractured-hamate-bone)) was placed on the 10-day IL on June 14.",
+      "source_name": "MLB.com Injuries",
+      "source_url": "https://www.mlb.com/injuries",
+      "published_at": "",
+      "confidence": "medium"
+    },
+    {
+      "team": "",
+      "player": "",
+      "status": "",
+      "summary": "Palencia ( right elbow inflammation (https://www.mlb.com/news/daniel-palencia-to-injured-list-with-right-elbow-inflammation)) was placed on the 15-day IL on June 16.",
+      "source_name": "MLB.com Injuries",
+      "source_url": "https://www.mlb.com/injuries",
+      "published_at": "",
+      "confidence": "medium"
+    },
+    {
+      "team": "",
+      "player": "",
+      "status": "",
+      "summary": "Steele (left elbow surgery) is flying to Chicago and will spend the next three weeks with the club as he progresses through the next phase\u2026",
+      "source_name": "MLB.com Injuries",
+      "source_url": "https://www.mlb.com/injuries",
+      "published_at": "",
+      "confidence": "medium"
+    },
+    {
+      "team": "",
+      "player": "",
+      "status": "",
+      "summary": "Blanco (torn right UCL) threw a 40-pitch simulated game on June 13 and is expected to begin a rehab assignment shortly.",
+      "source_name": "MLB.com Injuries",
+      "source_url": "https://www.mlb.com/injuries",
+      "published_at": "",
+      "confidence": "medium"
+    },
+    {
+      "team": "",
+      "player": "",
+      "status": "",
+      "summary": "Scott (right hip impingement) was placed on the 15-day IL (https://www.mlb.com/news/mets-christian-scott-injured-list-2026) on June 15.",
+      "source_name": "MLB.com Injuries",
+      "source_url": "https://www.mlb.com/injuries",
+      "published_at": "",
+      "confidence": "medium"
+    },
+    {
+      "team": "",
+      "player": "",
+      "status": "",
+      "summary": "Fermin was placed on the 7-day concussion IL (https://www.mlb.com/news/freddy-fermin-placed-on-concussion-injured-list) on June 14 after being hit by a warmup pitch the day before.",
+      "source_name": "MLB.com Injuries",
+      "source_url": "https://www.mlb.com/injuries",
+      "published_at": "",
+      "confidence": "medium"
+    },
+    {
+      "team": "",
+      "player": "",
+      "status": "",
+      "summary": "Rodriguez left his June 14 start in the middle of the third inning with low back tightness (https://www.mlb.com/news/grayson-rodriguez-exits-with-injury-in-rays-angels-game). He was placed on the injured list\u2026",
+      "source_name": "MLB.com Injuries",
+      "source_url": "https://www.mlb.com/injuries",
+      "published_at": "",
+      "confidence": "medium"
+    },
+    {
+      "team": "",
+      "player": "",
+      "status": "",
+      "summary": "\"Just having good looks, just readjusting my sights and making sure that I know how the ball is moving,\" Ohtani said through interpreter Will Ireton\u2026",
+      "source_name": "MLB.com Injuries",
+      "source_url": "https://www.mlb.com/injuries",
+      "published_at": "",
+      "confidence": "medium"
+    },
+    {
+      "team": "",
+      "player": "",
+      "status": "",
+      "summary": "Justin Wrobleski strikes out Austin Slater",
+      "source_name": "MLB.com Injuries",
+      "source_url": "https://www.mlb.com/injuries",
+      "published_at": "",
+      "confidence": "medium"
+    }
+  ],
+  "pitcher_notes": [
+    {
+      "team": "",
+      "player": "",
+      "note_type": "probable",
+      "summary": "Baseball Probable Pitchers",
+      "source_name": "MLB.com Probable Pitchers",
+      "source_url": "https://www.mlb.com/probable-pitchers",
+      "published_at": "",
+      "confidence": "medium"
+    }
+  ],
   "lineup_notes": [],
   "team_notes": []
 }

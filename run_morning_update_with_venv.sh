@@ -1,4 +1,10 @@
 #!/bin/bash
+if [ -f /opt/data/.env ]; then
+  set -a
+  source /opt/data/.env
+  set +a
+fi
+
 
 # Change to the project directory
 cd /opt/data/workspace/barrel-proof || { echo "Failed to change directory to /opt/data/workspace/barrel-proof"; exit 1; }
