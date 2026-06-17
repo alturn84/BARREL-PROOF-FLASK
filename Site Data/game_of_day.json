@@ -1,60 +1,62 @@
 {
-  "date": "2026-06-15",
-  "date_display": "Monday, June 15, 2026",
-  "updated": "2026-06-16 10:18",
+  "date": "2026-06-16",
+  "date_display": "Tuesday, June 16, 2026",
+  "updated": "2026-06-17 10:15",
   "game": {
-    "away": "COL",
-    "home": "CHC",
-    "away_runs": 4,
+    "away": "PIT",
+    "home": "ATH",
+    "away_runs": 6,
     "home_runs": 5,
     "innings": 9,
-    "raw_score": 117.0,
+    "raw_score": 77.0,
     "flags": [
-      "CYCLE: Pete Crow-Armstrong",
-      "WALK-OFF WIN",
+      "COMEBACK (trailed 4)",
       "ONE-RUN GAME",
-      "CHC HOME GAME"
+      "PLAYOFF IMPLICATIONS",
+      "MULTI-HR: Bryan Reynolds (2 HR)",
+      "SB SPREE (3)"
     ],
-    "winner": "CHC",
-    "loser": "COL",
+    "winner": "PIT",
+    "loser": "ATH",
     "margin": 1,
-    "total_runs": 9
+    "total_runs": 11
   },
   "editorial": {
-    "headline": "Pete Crow-Armstrong Cycles Home for Chicago Cubs Walk-Off",
-    "subheadline": "Chicago Cubs wins as Pete Crow-Armstrong goes single, double, triple, homer.",
-    "lead_angle": "Pete Crow-Armstrong ripped a two-run shot into the Wrigley Field bleachers, completing the cycle with a walk-off homer that delivered a 5-4 victory for the Chicago Cubs over the Colorado Rockies. The dramatic ninth-inning blast, Crow-Armstrong's first career cycle, capped a stunning comeback. Daniel Palencia earned the win in relief, while Juan Mejia suffered the loss.\n\nThe lead flipped dramatically in the late innings. Chicago had built a 3-0 advantage before the eighth inning, when Colorado stormed back. Cole Carrigg connected for a grand slam, driving in four runs that erased the Cubs' lead and pushed the Rockies ahead 4-3.\n\nCrow-Armstrong’s bat was the ultimate difference maker, with his 4-for-4 day featuring a single in the first, a double in the fourth, a triple in the sixth, and the game-ending home run. His two runs batted in accounted for the winning margin, lifting the Cubs to a vital victory in a tightly contested divisional race. Alex Bregman also contributed a pair of hits for Chicago.",
-    "reason": "Hitting for the cycle happens fewer than a dozen times a season league-wide."
+    "headline": "PIT erases a 4-run hole.",
+    "subheadline": "Pittsburgh Pirates rallies past Oakland Athletics, PIT 6, ATH 5.",
+    "lead_angle": "Bryan Reynolds' bat kept the Pittsburgh Pirates clawing back, eventually erasing a four-run deficit before the winning run scored in the ninth, lifting the Pittsburgh Pirates over the Oakland Athletics, 6-5, at Sutter Health Park. Mason Montgomery earned the win in relief, with Gregory Soto picking up the save. Elvis Alvarado suffered the loss for Oakland.\n\nOakland Athletics jumped on Pittsburgh starter Bubba Chandler in the first, Zack Gelof launching a two-run homer to help build a quick 4-0 lead. The Pittsburgh Pirates began chipping away. Bryan Reynolds connected for a solo blast in the fourth. He followed with a two-run shot in the sixth, bringing the Pirates within a single run. Pittsburgh then tied the score in the seventh, with Brandon Lowe contributing a solo homer in the frame.\n\nBryan Reynolds anchored the Pittsburgh comeback, hitting 4-for-5 with two home runs and three runs batted in. He proved a constant threat as Pittsburgh navigated the four-run deficit. This hard-fought victory carries significant playoff implications for Pittsburgh, keeping them squarely in the hunt for a postseason berth.",
+    "reason": "A 4-run comeback is the day's best storyline — resilience over résumé."
   },
   "all_games": [
     {
       "rank": 1,
-      "away": "COL",
-      "home": "CHC",
-      "away_runs": 4,
+      "away": "PIT",
+      "home": "ATH",
+      "away_runs": 6,
       "home_runs": 5,
       "innings": 9,
-      "raw_score": 117.0,
+      "raw_score": 77.0,
       "flags": [
-        "CYCLE: Pete Crow-Armstrong",
-        "WALK-OFF WIN",
+        "COMEBACK (trailed 4)",
         "ONE-RUN GAME",
-        "CHC HOME GAME"
+        "PLAYOFF IMPLICATIONS",
+        "MULTI-HR: Bryan Reynolds (2 HR)",
+        "SB SPREE (3)"
       ],
       "selected": true
     },
     {
       "rank": 2,
-      "away": "PIT",
-      "home": "ATH",
+      "away": "CWS",
+      "home": "NYY",
       "away_runs": 2,
-      "home_runs": 11,
+      "home_runs": 12,
       "innings": 9,
-      "raw_score": 56.0,
+      "raw_score": 62.0,
       "flags": [
+        "FIRST-PLACE CLASH",
         "PLAYOFF IMPLICATIONS",
-        "MULTI-HR: Nick Kurtz (2 HR)",
-        "BIG RBI GAME: Nick Kurtz (5 RBI)"
+        "NYY HOME GAME"
       ],
       "selected": false
     },
@@ -62,8 +64,8 @@
       "rank": 3,
       "away": "TB",
       "home": "LAD",
-      "away_runs": 3,
-      "home_runs": 4,
+      "away_runs": 0,
+      "home_runs": 1,
       "innings": 9,
       "raw_score": 49.0,
       "flags": [
@@ -75,40 +77,53 @@
     },
     {
       "rank": 4,
-      "away": "DET",
-      "home": "HOU",
-      "away_runs": 9,
+      "away": "BAL",
+      "home": "SEA",
+      "away_runs": 1,
       "home_runs": 3,
       "innings": 9,
-      "raw_score": 46.0,
+      "raw_score": 40.0,
       "flags": [
-        "MULTI-HR: Colt Keith (3 HR)",
-        "BIG RBI GAME: Colt Keith (6 RBI)",
-        "HOU HOME GAME"
+        "PLAYOFF IMPLICATIONS",
+        "DOMINANT START: Logan Gilbert (7.0 IP, 1 ER, 10 K)"
       ],
       "selected": false
     },
     {
       "rank": 5,
-      "away": "NYM",
-      "home": "CIN",
-      "away_runs": 0,
-      "home_runs": 12,
+      "away": "TOR",
+      "home": "BOS",
+      "away_runs": 6,
+      "home_runs": 1,
       "innings": 9,
-      "raw_score": 42.0,
+      "raw_score": 38.0,
       "flags": [
-        "MULTI-HR: Eugenio Suárez (2 HR)",
-        "BIG RBI GAME: Eugenio Suárez (6 RBI)",
-        "SB SPREE (3)"
+        "DIVISION MATCHUP",
+        "SB SPREE (3)",
+        "BOS HOME GAME"
       ],
       "selected": false
     },
     {
       "rank": 6,
+      "away": "CLE",
+      "home": "MIL",
+      "away_runs": 1,
+      "home_runs": 2,
+      "innings": 9,
+      "raw_score": 37.0,
+      "flags": [
+        "ONE-RUN GAME",
+        "PLAYOFF IMPLICATIONS"
+      ],
+      "selected": false
+    },
+    {
+      "rank": 7,
       "away": "MIA",
       "home": "PHI",
-      "away_runs": 0,
-      "home_runs": 7,
+      "away_runs": 2,
+      "home_runs": 8,
       "innings": 9,
       "raw_score": 30.0,
       "flags": [
@@ -118,37 +133,11 @@
       "selected": false
     },
     {
-      "rank": 7,
-      "away": "MIN",
-      "home": "TEX",
-      "away_runs": 4,
-      "home_runs": 2,
-      "innings": 9,
-      "raw_score": 22.0,
-      "flags": [
-        "PLAYOFF IMPLICATIONS"
-      ],
-      "selected": false
-    },
-    {
       "rank": 8,
       "away": "SD",
       "home": "STL",
-      "away_runs": 0,
+      "away_runs": 2,
       "home_runs": 3,
-      "innings": 9,
-      "raw_score": 18.0,
-      "flags": [
-        "DOMINANT START: Dustin May (9.0 IP, 0 ER, 9 K)"
-      ],
-      "selected": false
-    },
-    {
-      "rank": 9,
-      "away": "LAA",
-      "home": "AZ",
-      "away_runs": 3,
-      "home_runs": 4,
       "innings": 9,
       "raw_score": 15.0,
       "flags": [
@@ -157,11 +146,72 @@
       "selected": false
     },
     {
+      "rank": 9,
+      "away": "COL",
+      "home": "CHC",
+      "away_runs": 5,
+      "home_runs": 2,
+      "innings": 9,
+      "raw_score": 12.0,
+      "flags": [
+        "CHC HOME GAME"
+      ],
+      "selected": false
+    },
+    {
       "rank": 10,
+      "away": "DET",
+      "home": "HOU",
+      "away_runs": 2,
+      "home_runs": 4,
+      "innings": 9,
+      "raw_score": 12.0,
+      "flags": [
+        "HOU HOME GAME"
+      ],
+      "selected": false
+    },
+    {
+      "rank": 11,
       "away": "KC",
       "home": "WSH",
+      "away_runs": 4,
+      "home_runs": 6,
+      "innings": 9,
+      "raw_score": 8.0,
+      "flags": [
+        "SB SPREE (4)"
+      ],
+      "selected": false
+    },
+    {
+      "rank": 12,
+      "away": "NYM",
+      "home": "CIN",
       "away_runs": 3,
-      "home_runs": 7,
+      "home_runs": 5,
+      "innings": 9,
+      "raw_score": 0.0,
+      "flags": [],
+      "selected": false
+    },
+    {
+      "rank": 13,
+      "away": "MIN",
+      "home": "TEX",
+      "away_runs": 12,
+      "home_runs": 2,
+      "innings": 9,
+      "raw_score": 0.0,
+      "flags": [],
+      "selected": false
+    },
+    {
+      "rank": 14,
+      "away": "LAA",
+      "home": "AZ",
+      "away_runs": 7,
+      "home_runs": 0,
       "innings": 9,
       "raw_score": 0.0,
       "flags": [],
