@@ -127,7 +127,7 @@ def lineup_name_key(name):
     return str(name or "").strip().lower()
 
 
-def build_bats_to_watch(team_abbr, player_index, power_signal, contact_signal, luck_gap, hitter_profile, confirmed_names=None):
+def build_bats_to_watch(team_abbr, players_by_team, power_signal, contact_signal, luck_gap, hitter_profile, confirmed_names=None):
     if not team_abbr:
         return []
 
@@ -136,9 +136,7 @@ def build_bats_to_watch(team_abbr, player_index, power_signal, contact_signal, l
         confirmed_keys = {lineup_name_key(n) for n in confirmed_names}
 
     candidates = []
-    for p in player_index:
-        if p.get("team_abbr") != team_abbr:
-            continue
+    for p in players_by_team.get(team_abbr, []):
         if p.get("position_group") == "Pitcher":
             continue
         slug = p.get("slug")
@@ -393,6 +391,12 @@ def main():
     player_index = player_index_data if isinstance(player_index_data, list) else []
     by_slug, by_name_team = build_player_index_lookups(player_index)
 
+    players_by_team = {}
+    for p in player_index:
+        abbr = p.get("team_abbr")
+        if abbr:
+            players_by_team.setdefault(abbr, []).append(p)
+
     power_signal = players_by_key(load_json(POWER_SIGNAL_PATH, fallback={}))
     contact_signal = players_by_key(load_json(CONTACT_SIGNAL_PATH, fallback={}))
     luck_gap = players_by_key(load_json(LUCK_GAP_PATH, fallback={}))
@@ -440,8 +444,8 @@ def main():
             home_confirmed = None
             home_lineup_source = "roster_signals"
 
-        away_bats = build_bats_to_watch(away_abbr, player_index, power_signal, contact_signal, luck_gap, hitter_profile, confirmed_names=away_confirmed)
-        home_bats = build_bats_to_watch(home_abbr, player_index, power_signal, contact_signal, luck_gap, hitter_profile, confirmed_names=home_confirmed)
+        away_bats = build_bats_to_watch(away_abbr, players_by_team, power_signal, contact_signal, luck_gap, hitter_profile, confirmed_names=away_confirmed)
+        home_bats = build_bats_to_watch(home_abbr, players_by_team, power_signal, contact_signal, luck_gap, hitter_profile, confirmed_names=home_confirmed)
         if away_bats or home_bats:
             games_with_bats += 1
 
