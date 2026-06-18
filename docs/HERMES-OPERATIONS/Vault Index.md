@@ -101,6 +101,9 @@ Technical documentation for the pipeline, APIs, scripts, and infrastructure.
 | `Environment Variables.md` | Variable registry and security policy |
 | `GitHub Flow.md` | Git operations, commit standards, what Hermes can and cannot do |
 | `Render Flow.md` | Deployment trigger, build process, verification |
+| `HERMES-ROLE-001 - Hermes Operating Role.md` | Hermes' operator role, success criteria, failure patterns, and editorial boundary in the upgraded Copilot/Firecrawl stack |
+| `MODEL-001 - Hermes GitHub Copilot Provider Setup.md` | GitHub Copilot provider auth, PAT conflict rules, gateway restart |
+| `FIRECRAWL-002 - Hermes News Intake Operating Rules.md` | Firecrawl source intake rules, what it can/cannot be used for |
 
 ---
 
