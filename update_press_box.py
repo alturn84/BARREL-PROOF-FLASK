@@ -33,7 +33,7 @@ SITE_DATA = VAULT / "Site Data"
 ARCHIVE   = VAULT / "Archive"
 OUT_FILE  = SITE_DATA / "press_box.json"
 
-MODEL          = "gemini-2.5-flash"   # change here to swap Gemini models
+MODEL          = "gemini-2.5-pro"   # change here to swap Gemini models
 MAX_TOKENS     = 4096
 CONTEXT_DAYS   = 7
 MAX_CTX_TOKENS = 2000
@@ -409,11 +409,35 @@ def run(date_str):
     
     client = genai.Client(api_key=api_key, http_options=types.HttpOptions(api_version="v1"))
 
+    def generate_content_with_retry(model, contents, config, max_retries=3, initial_delay=3):
+        import time
+        delay = initial_delay
+        for attempt in range(max_retries):
+            try:
+                res = client.models.generate_content(
+                    model=model,
+                    contents=contents,
+                    config=config,
+                )
+                if res and res.text:
+                    return res
+                print(f"  ⚠ Empty response text on attempt {attempt+1}, retrying in {delay}s...", flush=True)
+            except Exception as ex:
+                print(f"  ⚠ API call attempt {attempt+1} failed: {ex}. Retrying in {delay}s...", flush=True)
+            time.sleep(delay)
+            delay *= 2
+        # Try one last time and propagate exception
+        return client.models.generate_content(
+            model=model,
+            contents=contents,
+            config=config,
+        )
+
     full_prompt = f"{SYSTEM_PROMPT}\n\n{context}"
 
     print("  Calling Hermes...", flush=True)
     try:
-        response = client.models.generate_content(
+        response = generate_content_with_retry(
             model=MODEL,
             contents=full_prompt,
             config=types.GenerateContentConfig(
