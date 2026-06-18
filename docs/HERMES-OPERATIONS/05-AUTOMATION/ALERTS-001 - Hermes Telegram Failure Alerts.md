@@ -146,27 +146,44 @@ Keep messages short enough to read on a phone. Include the specific script name 
 
 ### Current state (as of 2026-06-18)
 
-**No Telegram helper or alert pattern exists in this repo.** The inspection found:
+**Inspection found before implementation:**
 
 - Zero matches for `telegram`, `TELEGRAM`, `bot_token`, `chat_id`, `sendMessage` in any `.py` or `.sh` file
 - Both wrappers (`run_morning_update_with_venv.sh`, `run_dope_sheet_refresh_with_venv.sh`) loop through scripts, retry once on failure, then continue regardless of exit code — failures are printed to stdout/log only
 - Checker scripts emit structured `FAIL:`, `WARN:`, `INFO:` lines to stdout with exit code 1 on failure — well-suited to being parsed by a future helper
-- No `send_operator_alert.py` or equivalent helper exists
 
-### Future helper: `scripts/send_operator_alert.py`
+### ALERTS-002 helper: `scripts/send_operator_alert.py`
 
-When implemented, this helper should:
+Added in ALERTS-002. A small, non-blocking Telegram alert helper.
 
-- Read `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID` from environment only — never hardcoded
-- Accept `severity`, `workflow`, and `message` as arguments
-- Be **non-blocking** — if alert delivery fails, log the failure and exit 0
-- Never commit tokens or chat IDs
-- Be callable from wrapper scripts after key failure checkpoints
-- Support a structured format matching the message templates above
+**Required environment variables** (set in Hostinger `/opt/data/.env` — never committed):
 
-Shell helpers calling this script should capture checker exit codes explicitly rather than relying on the current retry-and-continue pattern.
+| Variable | Purpose |
+|----------|---------|
+| `TELEGRAM_BOT_TOKEN` | Telegram bot token for the Barrel Proof operator bot |
+| `TELEGRAM_CHAT_ID` | Telegram chat or channel ID to receive alerts |
+| `BARREL_PROOF_ALERTS_ENABLED` | Optional — set to `0`, `false`, or `off` to disable silently |
 
-**Do not implement until explicitly authorized.** Document this file as a future addition.
+**Dry-run example** (no credentials required):
+
+```bash
+python3 scripts/send_operator_alert.py \
+    --dry-run \
+    --severity WARNING \
+    --workflow "Dope Refresh" \
+    --problem "Game count mismatch" \
+    --expected "14 games" \
+    --actual "13 records in intelligence file" \
+    --next-action "Check dope_game_intelligence.json"
+```
+
+**All required flags:** `--severity`, `--workflow`, `--problem`
+
+**Optional flags:** `--expected`, `--actual`, `--likely-cause`, `--next-action`, `--log-file`, `--date`, `--notes`, `--dry-run`
+
+**Status:** Helper exists at `scripts/send_operator_alert.py`. It is **not yet wired into any wrapper scripts**. Alert delivery is non-blocking by design — the helper exits 0 on missing credentials, disabled flag, or Telegram API failure.
+
+Shell wrappers calling this script should capture checker exit codes explicitly rather than relying on the current retry-and-continue pattern.
 
 ---
 

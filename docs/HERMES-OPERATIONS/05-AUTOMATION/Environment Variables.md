@@ -24,6 +24,9 @@ All API keys and sensitive credentials must be stored as environment variables. 
 | `GEMINI_API_KEY` | Gemini API authentication | Cron Job 2 | Server environment / `.env` |
 | `FIRECRAWL_API_KEY` | Firecrawl API authentication for news intake | `scripts/update_news_intake.py` | Server environment / `.env` |
 | `RENDER_DEPLOY_HOOK` | Private URL to trigger a Render deploy of `barrel-proof-flask` | Future Hermes deploy step | Hostinger `/opt/data/.env` only — never commit |
+| `TELEGRAM_BOT_TOKEN` | Telegram bot token for operator alerts | `scripts/send_operator_alert.py` | Hostinger `/opt/data/.env` only — never commit |
+| `TELEGRAM_CHAT_ID` | Telegram chat/channel ID to receive alerts | `scripts/send_operator_alert.py` | Hostinger `/opt/data/.env` only — never commit |
+| `BARREL_PROOF_ALERTS_ENABLED` | Set to `0`, `false`, or `off` to disable Telegram alerts silently | `scripts/send_operator_alert.py` | Hostinger `/opt/data/.env` — optional |
 
 ---
 
