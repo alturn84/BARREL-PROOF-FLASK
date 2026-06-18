@@ -1,476 +1,38 @@
 {
   "meta": {
-    "date": "2026-06-17",
-    "generated_at": "2026-06-18T00:00:46Z",
+    "date": "2026-06-18",
+    "generated_at": "2026-06-18T20:00:28Z",
     "source": "Barrel Proof pitcher/player signals",
-    "game_count": 15
+    "game_count": 9
   },
   "games": [
     {
-      "game_date": "2026-06-17",
-      "away_team": "NYM",
-      "home_team": "CIN",
-      "away_pitcher": {
-        "name": "Nolan McLean",
-        "slug": "nolan-mclean",
-        "team": "NYM",
-        "throws": "R",
-        "role": "probable_starter",
-        "strikeout_read": "Strikeout Edge",
-        "power_risk": "Neutral Power Risk",
-        "contact_risk": "Neutral Contact Profile",
-        "stability": "Stable Arm",
-        "summary": "Nolan McLean misses bats."
-      },
-      "home_pitcher": {
-        "name": "Nick Lodolo",
-        "slug": "nick-lodolo",
-        "team": "CIN",
-        "throws": "L",
-        "role": "probable_starter",
-        "strikeout_read": "Neutral K Profile",
-        "power_risk": "Power Risk",
-        "contact_risk": "Contact Pressure Risk",
-        "stability": "Limited Sample",
-        "summary": "Nick Lodolo carries power risk, vulnerable to contact pressure."
-      },
-      "away_lineup_vs_home_pitcher": {
-        "lineup_source": "confirmed_lineup",
-        "pressure_read": "Limited Read",
-        "danger_bats": [],
-        "summary": "Insufficient hitter signal data for this lineup."
-      },
-      "home_lineup_vs_away_pitcher": {
-        "lineup_source": "confirmed_lineup",
-        "pressure_read": "Limited Read",
-        "danger_bats": [],
-        "summary": "Insufficient hitter signal data for this lineup."
-      },
-      "game_pitching_read": [
-        "NYM starter has strikeout upside.",
-        "CIN starter has power risk but contact risk."
-      ]
-    },
-    {
-      "game_date": "2026-06-17",
-      "away_team": "KC",
-      "home_team": "WSH",
-      "away_pitcher": {
-        "name": "Luinder Avila",
-        "slug": "luinder-avila",
-        "team": "KC",
-        "throws": "R",
-        "role": "probable_starter",
-        "strikeout_read": "Neutral K Profile",
-        "power_risk": "Power Risk",
-        "contact_risk": "Neutral Contact Profile",
-        "stability": "Limited Sample",
-        "summary": "Luinder Avila carries power risk."
-      },
-      "home_pitcher": {
-        "name": "Zack Littell",
-        "slug": "zack-littell",
-        "team": "WSH",
-        "throws": "R",
-        "role": "probable_starter",
-        "strikeout_read": "Low K Ceiling",
-        "power_risk": "Power Risk",
-        "contact_risk": "Neutral Contact Profile",
-        "stability": "Limited Sample",
-        "summary": "Zack Littell low strikeout ceiling, carries power risk."
-      },
-      "away_lineup_vs_home_pitcher": {
-        "lineup_source": "confirmed_lineup",
-        "pressure_read": "Limited Read",
-        "danger_bats": [],
-        "summary": "Insufficient hitter signal data for this lineup."
-      },
-      "home_lineup_vs_away_pitcher": {
-        "lineup_source": "confirmed_lineup",
-        "pressure_read": "Limited Read",
-        "danger_bats": [],
-        "summary": "Insufficient hitter signal data for this lineup."
-      },
-      "game_pitching_read": [
-        "KC starter has power risk.",
-        "WSH starter has power risk."
-      ]
-    },
-    {
-      "game_date": "2026-06-17",
-      "away_team": "MIA",
-      "home_team": "PHI",
-      "away_pitcher": {
-        "name": "Sandy Alcantara",
-        "slug": "sandy-alcantara",
-        "team": "MIA",
-        "throws": "R",
-        "role": "probable_starter",
-        "strikeout_read": "Low K Ceiling",
-        "power_risk": "Neutral Power Risk",
-        "contact_risk": "Neutral Contact Profile",
-        "stability": "Volatile Arm",
-        "summary": "Sandy Alcantara low strikeout ceiling, has been volatile."
-      },
-      "home_pitcher": {
-        "name": "Andrew Painter",
-        "slug": "andrew-painter",
-        "team": "PHI",
-        "throws": "R",
-        "role": "probable_starter",
-        "strikeout_read": "Neutral K Profile",
-        "power_risk": "Power Risk",
-        "contact_risk": "Contact Pressure Risk",
-        "stability": "Limited Sample",
-        "summary": "Andrew Painter carries power risk, vulnerable to contact pressure."
-      },
-      "away_lineup_vs_home_pitcher": {
-        "lineup_source": "confirmed_lineup",
-        "pressure_read": "Limited Read",
-        "danger_bats": [],
-        "summary": "Insufficient hitter signal data for this lineup."
-      },
-      "home_lineup_vs_away_pitcher": {
-        "lineup_source": "confirmed_lineup",
-        "pressure_read": "Limited Read",
-        "danger_bats": [],
-        "summary": "Insufficient hitter signal data for this lineup."
-      },
-      "game_pitching_read": [
-        "PHI starter has power risk but contact risk."
-      ]
-    },
-    {
-      "game_date": "2026-06-17",
-      "away_team": "SF",
-      "home_team": "ATL",
-      "away_pitcher": {
-        "name": "Adrian Houser",
-        "slug": "adrian-houser",
-        "team": "SF",
-        "throws": "R",
-        "role": "probable_starter",
-        "strikeout_read": "Low K Ceiling",
-        "power_risk": "Power Risk",
-        "contact_risk": "Contact Pressure Risk",
-        "stability": "Limited Sample",
-        "summary": "Adrian Houser low strikeout ceiling, carries power risk, vulnerable to contact pressure."
-      },
-      "home_pitcher": {
-        "name": "Grant Holmes",
-        "slug": "grant-holmes",
-        "team": "ATL",
-        "throws": "R",
-        "role": "probable_starter",
-        "strikeout_read": "Neutral K Profile",
-        "power_risk": "Power Risk",
-        "contact_risk": "Neutral Contact Profile",
-        "stability": "Limited Sample",
-        "summary": "Grant Holmes carries power risk."
-      },
-      "away_lineup_vs_home_pitcher": {
-        "lineup_source": "confirmed_lineup",
-        "pressure_read": "Limited Read",
-        "danger_bats": [],
-        "summary": "Insufficient hitter signal data for this lineup."
-      },
-      "home_lineup_vs_away_pitcher": {
-        "lineup_source": "confirmed_lineup",
-        "pressure_read": "Limited Read",
-        "danger_bats": [],
-        "summary": "Insufficient hitter signal data for this lineup."
-      },
-      "game_pitching_read": [
-        "SF starter has power risk but contact risk.",
-        "ATL starter has power risk."
-      ]
-    },
-    {
-      "game_date": "2026-06-17",
-      "away_team": "DET",
-      "home_team": "HOU",
-      "away_pitcher": {
-        "name": "Casey Mize",
-        "slug": "casey-mize",
-        "team": "DET",
-        "throws": "R",
-        "role": "probable_starter",
-        "strikeout_read": "Neutral K Profile",
-        "power_risk": "Suppresses Power",
-        "contact_risk": "Contact Suppression",
-        "stability": "Limited Sample",
-        "summary": "Casey Mize suppresses power, limits contact quality."
-      },
-      "home_pitcher": {
-        "name": "Peter Lambert",
-        "slug": "peter-lambert",
-        "team": "HOU",
-        "throws": "R",
-        "role": "probable_starter",
-        "strikeout_read": "Neutral K Profile",
-        "power_risk": "Neutral Power Risk",
-        "contact_risk": "Neutral Contact Profile",
-        "stability": "Volatile Arm",
-        "summary": "Peter Lambert has been volatile."
-      },
-      "away_lineup_vs_home_pitcher": {
-        "lineup_source": "confirmed_lineup",
-        "pressure_read": "Limited Read",
-        "danger_bats": [],
-        "summary": "Insufficient hitter signal data for this lineup."
-      },
-      "home_lineup_vs_away_pitcher": {
-        "lineup_source": "confirmed_lineup",
-        "pressure_read": "Limited Read",
-        "danger_bats": [],
-        "summary": "Insufficient hitter signal data for this lineup."
-      },
-      "game_pitching_read": []
-    },
-    {
-      "game_date": "2026-06-17",
-      "away_team": "SD",
-      "home_team": "STL",
-      "away_pitcher": {
-        "name": "Bradgley Rodriguez",
-        "slug": "bradgley-rodriguez",
-        "team": "SD",
-        "throws": "R",
-        "role": "probable_starter",
-        "strikeout_read": "Neutral K Profile",
-        "power_risk": "Neutral Power Risk",
-        "contact_risk": "Neutral Contact Profile",
-        "stability": "Stable Arm",
-        "summary": "Bradgley Rodriguez is a small-sample read today."
-      },
-      "home_pitcher": {
-        "name": "Kyle Leahy",
-        "slug": "kyle-leahy",
-        "team": "STL",
-        "throws": "R",
-        "role": "probable_starter",
-        "strikeout_read": "Neutral K Profile",
-        "power_risk": "Power Risk",
-        "contact_risk": "Contact Pressure Risk",
-        "stability": "Limited Sample",
-        "summary": "Kyle Leahy carries power risk, vulnerable to contact pressure."
-      },
-      "away_lineup_vs_home_pitcher": {
-        "lineup_source": "confirmed_lineup",
-        "pressure_read": "Limited Read",
-        "danger_bats": [],
-        "summary": "Insufficient hitter signal data for this lineup."
-      },
-      "home_lineup_vs_away_pitcher": {
-        "lineup_source": "confirmed_lineup",
-        "pressure_read": "Limited Read",
-        "danger_bats": [],
-        "summary": "Insufficient hitter signal data for this lineup."
-      },
-      "game_pitching_read": [
-        "STL starter has power risk but contact risk."
-      ]
-    },
-    {
-      "game_date": "2026-06-17",
-      "away_team": "TB",
-      "home_team": "LAD",
-      "away_pitcher": {
-        "name": "Shane McClanahan",
-        "slug": "shane-mcclanahan",
-        "team": "TB",
-        "throws": "L",
-        "role": "probable_starter",
-        "strikeout_read": "Neutral K Profile",
-        "power_risk": "Neutral Power Risk",
-        "contact_risk": "Contact Suppression",
-        "stability": "Stable Arm",
-        "summary": "Shane McClanahan limits contact quality."
-      },
-      "home_pitcher": {
-        "name": "Shohei Ohtani",
-        "slug": "shohei-ohtani",
-        "team": "LAD",
-        "throws": "R",
-        "role": "probable_starter",
-        "strikeout_read": "Strikeout Edge",
-        "power_risk": "Suppresses Power",
-        "contact_risk": "Contact Suppression",
-        "stability": "Limited Sample",
-        "summary": "Shohei Ohtani misses bats, suppresses power, limits contact quality."
-      },
-      "away_lineup_vs_home_pitcher": {
-        "lineup_source": "confirmed_lineup",
-        "pressure_read": "Limited Read",
-        "danger_bats": [],
-        "summary": "Insufficient hitter signal data for this lineup."
-      },
-      "home_lineup_vs_away_pitcher": {
-        "lineup_source": "confirmed_lineup",
-        "pressure_read": "Limited Read",
-        "danger_bats": [],
-        "summary": "Insufficient hitter signal data for this lineup."
-      },
-      "game_pitching_read": [
-        "LAD starter has strikeout upside."
-      ]
-    },
-    {
-      "game_date": "2026-06-17",
-      "away_team": "LAA",
-      "home_team": "AZ",
-      "away_pitcher": {
-        "name": "Sam Aldegheri",
-        "slug": "sam-aldegheri",
-        "team": "LAA",
-        "throws": "L",
-        "role": "probable_starter",
-        "strikeout_read": "Small Sample",
-        "power_risk": "Small Sample",
-        "contact_risk": "Small Sample",
-        "stability": "Volatile Arm",
-        "summary": "Sam Aldegheri has been volatile."
-      },
-      "home_pitcher": {
-        "name": "Eduardo Rodriguez",
-        "slug": "eduardo-rodriguez",
-        "team": "AZ",
-        "throws": "L",
-        "role": "probable_starter",
-        "strikeout_read": "Neutral K Profile",
-        "power_risk": "Neutral Power Risk",
-        "contact_risk": "Neutral Contact Profile",
-        "stability": "Volatile Arm",
-        "summary": "Eduardo Rodriguez has been volatile."
-      },
-      "away_lineup_vs_home_pitcher": {
-        "lineup_source": "confirmed_lineup",
-        "pressure_read": "Limited Read",
-        "danger_bats": [],
-        "summary": "Insufficient hitter signal data for this lineup."
-      },
-      "home_lineup_vs_away_pitcher": {
-        "lineup_source": "confirmed_lineup",
-        "pressure_read": "Limited Read",
-        "danger_bats": [],
-        "summary": "Insufficient hitter signal data for this lineup."
-      },
-      "game_pitching_read": []
-    },
-    {
-      "game_date": "2026-06-17",
+      "game_date": "2026-06-18",
       "away_team": "TOR",
       "home_team": "BOS",
       "away_pitcher": {
-        "name": "Braydon Fisher",
-        "slug": "braydon-fisher",
+        "name": "Trey Yesavage",
+        "slug": "trey-yesavage",
         "team": "TOR",
         "throws": "R",
         "role": "probable_starter",
         "strikeout_read": "Neutral K Profile",
-        "power_risk": "Suppresses Power",
-        "contact_risk": "Contact Suppression",
-        "stability": "Stable Arm",
-        "summary": "Braydon Fisher suppresses power, limits contact quality."
-      },
-      "home_pitcher": {
-        "name": "Jake Bennett",
-        "slug": null,
-        "team": "BOS",
-        "throws": "L",
-        "role": "probable_starter",
-        "strikeout_read": "Small Sample",
-        "power_risk": "Small Sample",
-        "contact_risk": "Small Sample",
-        "stability": "Limited Sample",
-        "summary": "Jake Bennett signal data unavailable \u2014 limited sample."
-      },
-      "away_lineup_vs_home_pitcher": {
-        "lineup_source": "confirmed_lineup",
-        "pressure_read": "Limited Read",
-        "danger_bats": [],
-        "summary": "Insufficient hitter signal data for this lineup."
-      },
-      "home_lineup_vs_away_pitcher": {
-        "lineup_source": "confirmed_lineup",
-        "pressure_read": "Limited Read",
-        "danger_bats": [],
-        "summary": "Insufficient hitter signal data for this lineup."
-      },
-      "game_pitching_read": []
-    },
-    {
-      "game_date": "2026-06-17",
-      "away_team": "CWS",
-      "home_team": "NYY",
-      "away_pitcher": {
-        "name": "Anthony Kay",
-        "slug": "anthony-kay",
-        "team": "CWS",
-        "throws": "L",
-        "role": "probable_starter",
-        "strikeout_read": "Neutral K Profile",
-        "power_risk": "Power Risk",
-        "contact_risk": "Contact Pressure Risk",
-        "stability": "Limited Sample",
-        "summary": "Anthony Kay carries power risk, vulnerable to contact pressure."
-      },
-      "home_pitcher": {
-        "name": "Carlos Rod\u00f3n",
-        "slug": "carlos-rodon",
-        "team": "NYY",
-        "throws": "L",
-        "role": "probable_starter",
-        "strikeout_read": "Strikeout Edge",
         "power_risk": "Neutral Power Risk",
         "contact_risk": "Neutral Contact Profile",
         "stability": "Volatile Arm",
-        "summary": "Carlos Rod\u00f3n misses bats, has been volatile."
-      },
-      "away_lineup_vs_home_pitcher": {
-        "lineup_source": "confirmed_lineup",
-        "pressure_read": "Limited Read",
-        "danger_bats": [],
-        "summary": "Insufficient hitter signal data for this lineup."
-      },
-      "home_lineup_vs_away_pitcher": {
-        "lineup_source": "confirmed_lineup",
-        "pressure_read": "Limited Read",
-        "danger_bats": [],
-        "summary": "Insufficient hitter signal data for this lineup."
-      },
-      "game_pitching_read": [
-        "CWS starter has power risk but contact risk.",
-        "NYY starter has strikeout upside."
-      ]
-    },
-    {
-      "game_date": "2026-06-17",
-      "away_team": "SF",
-      "home_team": "ATL",
-      "away_pitcher": {
-        "name": "Carson Whisenhunt",
-        "slug": null,
-        "team": "SF",
-        "throws": "L",
-        "role": "probable_starter",
-        "strikeout_read": "Small Sample",
-        "power_risk": "Small Sample",
-        "contact_risk": "Small Sample",
-        "stability": "Limited Sample",
-        "summary": "Carson Whisenhunt signal data unavailable \u2014 limited sample."
+        "summary": "Trey Yesavage has been volatile."
       },
       "home_pitcher": {
-        "name": "JR Ritchie",
-        "slug": null,
-        "team": "ATL",
+        "name": "Sonny Gray",
+        "slug": "sonny-gray",
+        "team": "BOS",
         "throws": "R",
         "role": "probable_starter",
-        "strikeout_read": "Small Sample",
-        "power_risk": "Small Sample",
-        "contact_risk": "Small Sample",
-        "stability": "Limited Sample",
-        "summary": "JR Ritchie signal data unavailable \u2014 limited sample."
+        "strikeout_read": "Neutral K Profile",
+        "power_risk": "Neutral Power Risk",
+        "contact_risk": "Neutral Contact Profile",
+        "stability": "Volatile Arm",
+        "summary": "Sonny Gray has been volatile."
       },
       "away_lineup_vs_home_pitcher": {
         "lineup_source": "confirmed_lineup",
@@ -487,77 +49,32 @@
       "game_pitching_read": []
     },
     {
-      "game_date": "2026-06-17",
+      "game_date": "2026-06-18",
       "away_team": "CLE",
       "home_team": "MIL",
       "away_pitcher": {
-        "name": "Gavin Williams",
-        "slug": "gavin-williams",
+        "name": "Parker Messick",
+        "slug": "parker-messick",
         "team": "CLE",
-        "throws": "R",
-        "role": "probable_starter",
-        "strikeout_read": "Strikeout Edge",
-        "power_risk": "Suppresses Power",
-        "contact_risk": "Contact Suppression",
-        "stability": "Stable Arm",
-        "summary": "Gavin Williams misses bats, suppresses power, limits contact quality."
-      },
-      "home_pitcher": {
-        "name": "Brandon Sproat",
-        "slug": "brandon-sproat",
-        "team": "MIL",
-        "throws": "R",
-        "role": "probable_starter",
-        "strikeout_read": "Neutral K Profile",
-        "power_risk": "Power Risk",
-        "contact_risk": "Neutral Contact Profile",
-        "stability": "Limited Sample",
-        "summary": "Brandon Sproat carries power risk."
-      },
-      "away_lineup_vs_home_pitcher": {
-        "lineup_source": "confirmed_lineup",
-        "pressure_read": "Limited Read",
-        "danger_bats": [],
-        "summary": "Insufficient hitter signal data for this lineup."
-      },
-      "home_lineup_vs_away_pitcher": {
-        "lineup_source": "confirmed_lineup",
-        "pressure_read": "Limited Read",
-        "danger_bats": [],
-        "summary": "Insufficient hitter signal data for this lineup."
-      },
-      "game_pitching_read": [
-        "CLE starter has strikeout upside.",
-        "MIL starter has power risk."
-      ]
-    },
-    {
-      "game_date": "2026-06-17",
-      "away_team": "COL",
-      "home_team": "CHC",
-      "away_pitcher": {
-        "name": "Sean Sullivan",
-        "slug": null,
-        "team": "COL",
         "throws": "L",
         "role": "probable_starter",
-        "strikeout_read": "Small Sample",
-        "power_risk": "Small Sample",
-        "contact_risk": "Small Sample",
+        "strikeout_read": "Neutral K Profile",
+        "power_risk": "Suppresses Power",
+        "contact_risk": "Contact Suppression",
         "stability": "Limited Sample",
-        "summary": "Sean Sullivan signal data unavailable \u2014 limited sample."
+        "summary": "Parker Messick suppresses power, limits contact quality."
       },
       "home_pitcher": {
-        "name": "Javier Assad",
-        "slug": "javier-assad",
-        "team": "CHC",
-        "throws": "R",
+        "name": "Shane Drohan",
+        "slug": "shane-drohan",
+        "team": "MIL",
+        "throws": "L",
         "role": "probable_starter",
-        "strikeout_read": "Low K Ceiling",
+        "strikeout_read": "Neutral K Profile",
         "power_risk": "Neutral Power Risk",
-        "contact_risk": "Contact Suppression",
-        "stability": "Volatile Arm",
-        "summary": "Javier Assad low strikeout ceiling, limits contact quality, has been volatile."
+        "contact_risk": "Neutral Contact Profile",
+        "stability": "Stable Arm",
+        "summary": "Shane Drohan is a small-sample read today."
       },
       "away_lineup_vs_home_pitcher": {
         "lineup_source": "confirmed_lineup",
@@ -574,32 +91,32 @@
       "game_pitching_read": []
     },
     {
-      "game_date": "2026-06-17",
-      "away_team": "PIT",
-      "home_team": "ATH",
+      "game_date": "2026-06-18",
+      "away_team": "MIN",
+      "home_team": "TEX",
       "away_pitcher": {
-        "name": "Braxton Ashcraft",
-        "slug": "braxton-ashcraft",
-        "team": "PIT",
+        "name": "Joe Ryan",
+        "slug": "joe-ryan",
+        "team": "MIN",
         "throws": "R",
         "role": "probable_starter",
         "strikeout_read": "Strikeout Edge",
         "power_risk": "Suppresses Power",
         "contact_risk": "Contact Suppression",
-        "stability": "Stable Arm",
-        "summary": "Braxton Ashcraft misses bats, suppresses power, limits contact quality."
+        "stability": "Limited Sample",
+        "summary": "Joe Ryan misses bats, suppresses power, limits contact quality."
       },
       "home_pitcher": {
-        "name": "Aaron Civale",
-        "slug": "aaron-civale",
-        "team": "ATH",
+        "name": "Jack Leiter",
+        "slug": "jack-leiter",
+        "team": "TEX",
         "throws": "R",
         "role": "probable_starter",
-        "strikeout_read": "Low K Ceiling",
-        "power_risk": "Power Risk",
-        "contact_risk": "Contact Pressure Risk",
-        "stability": "Limited Sample",
-        "summary": "Aaron Civale low strikeout ceiling, carries power risk, vulnerable to contact pressure."
+        "strikeout_read": "Strikeout Edge",
+        "power_risk": "Neutral Power Risk",
+        "contact_risk": "Neutral Contact Profile",
+        "stability": "Volatile Arm",
+        "summary": "Jack Leiter misses bats, has been volatile."
       },
       "away_lineup_vs_home_pitcher": {
         "lineup_source": "confirmed_lineup",
@@ -614,17 +131,17 @@
         "summary": "Insufficient hitter signal data for this lineup."
       },
       "game_pitching_read": [
-        "PIT starter has strikeout upside.",
-        "ATH starter has power risk but contact risk."
+        "MIN starter has strikeout upside.",
+        "TEX starter has strikeout upside."
       ]
     },
     {
-      "game_date": "2026-06-17",
+      "game_date": "2026-06-18",
       "away_team": "BAL",
       "home_team": "SEA",
       "away_pitcher": {
-        "name": "Kyle Bradish",
-        "slug": "kyle-bradish",
+        "name": "Shane Baz",
+        "slug": "shane-baz",
         "team": "BAL",
         "throws": "R",
         "role": "probable_starter",
@@ -632,19 +149,19 @@
         "power_risk": "Power Risk",
         "contact_risk": "Neutral Contact Profile",
         "stability": "Limited Sample",
-        "summary": "Kyle Bradish carries power risk."
+        "summary": "Shane Baz carries power risk."
       },
       "home_pitcher": {
-        "name": "George Kirby",
-        "slug": "george-kirby",
+        "name": "Bryan Woo",
+        "slug": "bryan-woo",
         "team": "SEA",
         "throws": "R",
         "role": "probable_starter",
         "strikeout_read": "Neutral K Profile",
-        "power_risk": "Neutral Power Risk",
-        "contact_risk": "Neutral Contact Profile",
-        "stability": "Volatile Arm",
-        "summary": "George Kirby has been volatile."
+        "power_risk": "Suppresses Power",
+        "contact_risk": "Contact Suppression",
+        "stability": "Stable Arm",
+        "summary": "Bryan Woo suppresses power, limits contact quality."
       },
       "away_lineup_vs_home_pitcher": {
         "lineup_source": "confirmed_lineup",
@@ -660,6 +177,285 @@
       },
       "game_pitching_read": [
         "BAL starter has power risk."
+      ]
+    },
+    {
+      "game_date": "2026-06-18",
+      "away_team": "NYM",
+      "home_team": "PHI",
+      "away_pitcher": {
+        "name": "Sean Manaea",
+        "slug": "sean-manaea",
+        "team": "NYM",
+        "throws": "L",
+        "role": "probable_starter",
+        "strikeout_read": "Neutral K Profile",
+        "power_risk": "Power Risk",
+        "contact_risk": "Neutral Contact Profile",
+        "stability": "Limited Sample",
+        "summary": "Sean Manaea carries power risk."
+      },
+      "home_pitcher": {
+        "name": "Aaron Nola",
+        "slug": "aaron-nola",
+        "team": "PHI",
+        "throws": "R",
+        "role": "probable_starter",
+        "strikeout_read": "Neutral K Profile",
+        "power_risk": "Power Risk",
+        "contact_risk": "Neutral Contact Profile",
+        "stability": "Limited Sample",
+        "summary": "Aaron Nola carries power risk."
+      },
+      "away_lineup_vs_home_pitcher": {
+        "lineup_source": "projected_lineup",
+        "pressure_read": "Balanced Pressure",
+        "danger_bats": [
+          {
+            "name": "Juan Soto",
+            "slug": "juan-soto",
+            "tag": "Power Threat"
+          }
+        ],
+        "summary": "Balanced Pressure \u2014 watch for Juan Soto."
+      },
+      "home_lineup_vs_away_pitcher": {
+        "lineup_source": "confirmed_lineup",
+        "pressure_read": "Limited Read",
+        "danger_bats": [],
+        "summary": "Insufficient hitter signal data for this lineup."
+      },
+      "game_pitching_read": [
+        "NYM starter has power risk.",
+        "PHI starter has power risk.",
+        "NYM projected lineup creates balanced pressure."
+      ]
+    },
+    {
+      "game_date": "2026-06-18",
+      "away_team": "CWS",
+      "home_team": "NYY",
+      "away_pitcher": {
+        "name": "Bryan Hudson",
+        "slug": "bryan-hudson",
+        "team": "CWS",
+        "throws": "L",
+        "role": "probable_starter",
+        "strikeout_read": "Neutral K Profile",
+        "power_risk": "Neutral Power Risk",
+        "contact_risk": "Neutral Contact Profile",
+        "stability": "Volatile Arm",
+        "summary": "Bryan Hudson has been volatile."
+      },
+      "home_pitcher": {
+        "name": "Ryan Weathers",
+        "slug": "ryan-weathers",
+        "team": "NYY",
+        "throws": "L",
+        "role": "probable_starter",
+        "strikeout_read": "Strikeout Edge",
+        "power_risk": "Neutral Power Risk",
+        "contact_risk": "Neutral Contact Profile",
+        "stability": "Stable Arm",
+        "summary": "Ryan Weathers misses bats."
+      },
+      "away_lineup_vs_home_pitcher": {
+        "lineup_source": "confirmed_lineup",
+        "pressure_read": "Limited Read",
+        "danger_bats": [],
+        "summary": "Insufficient hitter signal data for this lineup."
+      },
+      "home_lineup_vs_away_pitcher": {
+        "lineup_source": "confirmed_lineup",
+        "pressure_read": "Limited Read",
+        "danger_bats": [],
+        "summary": "Insufficient hitter signal data for this lineup."
+      },
+      "game_pitching_read": [
+        "NYY starter has strikeout upside."
+      ]
+    },
+    {
+      "game_date": "2026-06-18",
+      "away_team": "STL",
+      "home_team": "KC",
+      "away_pitcher": {
+        "name": "Matthew Liberatore",
+        "slug": "matthew-liberatore",
+        "team": "STL",
+        "throws": "L",
+        "role": "probable_starter",
+        "strikeout_read": "Neutral K Profile",
+        "power_risk": "Power Risk",
+        "contact_risk": "Neutral Contact Profile",
+        "stability": "Limited Sample",
+        "summary": "Matthew Liberatore carries power risk."
+      },
+      "home_pitcher": {
+        "name": "Noah Cameron",
+        "slug": "noah-cameron",
+        "team": "KC",
+        "throws": "L",
+        "role": "probable_starter",
+        "strikeout_read": "Neutral K Profile",
+        "power_risk": "Neutral Power Risk",
+        "contact_risk": "Neutral Contact Profile",
+        "stability": "Volatile Arm",
+        "summary": "Noah Cameron has been volatile."
+      },
+      "away_lineup_vs_home_pitcher": {
+        "lineup_source": "confirmed_lineup",
+        "pressure_read": "Limited Read",
+        "danger_bats": [],
+        "summary": "Insufficient hitter signal data for this lineup."
+      },
+      "home_lineup_vs_away_pitcher": {
+        "lineup_source": "confirmed_lineup",
+        "pressure_read": "Limited Read",
+        "danger_bats": [],
+        "summary": "Insufficient hitter signal data for this lineup."
+      },
+      "game_pitching_read": [
+        "STL starter has power risk."
+      ]
+    },
+    {
+      "game_date": "2026-06-18",
+      "away_team": "LAA",
+      "home_team": "ATH",
+      "away_pitcher": {
+        "name": "TBD",
+        "slug": null,
+        "team": "LAA",
+        "throws": "R",
+        "role": "probable_starter",
+        "strikeout_read": "Small Sample",
+        "power_risk": "Small Sample",
+        "contact_risk": "Small Sample",
+        "stability": "Limited Sample",
+        "summary": "TBD signal data unavailable \u2014 limited sample."
+      },
+      "home_pitcher": {
+        "name": "Gage Jump",
+        "slug": "gage-jump",
+        "team": "ATH",
+        "throws": "L",
+        "role": "probable_starter",
+        "strikeout_read": "Small Sample",
+        "power_risk": "Small Sample",
+        "contact_risk": "Small Sample",
+        "stability": "Limited Sample",
+        "summary": "Gage Jump is a small-sample read today."
+      },
+      "away_lineup_vs_home_pitcher": {
+        "lineup_source": "projected_lineup",
+        "pressure_read": "Balanced Pressure",
+        "danger_bats": [
+          {
+            "name": "Mike Trout",
+            "slug": "mike-trout",
+            "tag": "Power Threat"
+          }
+        ],
+        "summary": "Balanced Pressure \u2014 watch for Mike Trout."
+      },
+      "home_lineup_vs_away_pitcher": {
+        "lineup_source": "projected_lineup",
+        "pressure_read": "Balanced Pressure",
+        "danger_bats": [
+          {
+            "name": "Shea Langeliers",
+            "slug": "shea-langeliers",
+            "tag": "Power Threat"
+          },
+          {
+            "name": "Nick Kurtz",
+            "slug": "nick-kurtz",
+            "tag": "Power Threat"
+          },
+          {
+            "name": "Carlos Cortes",
+            "slug": "carlos-cortes",
+            "tag": "Contact Threat"
+          }
+        ],
+        "summary": "Balanced Pressure \u2014 watch for Shea Langeliers, Nick Kurtz, Carlos Cortes."
+      },
+      "game_pitching_read": [
+        "LAA projected lineup creates balanced pressure."
+      ]
+    },
+    {
+      "game_date": "2026-06-18",
+      "away_team": "SF",
+      "home_team": "ATL",
+      "away_pitcher": {
+        "name": "Landen Roupp",
+        "slug": "landen-roupp",
+        "team": "SF",
+        "throws": "R",
+        "role": "probable_starter",
+        "strikeout_read": "Strikeout Edge",
+        "power_risk": "Neutral Power Risk",
+        "contact_risk": "Neutral Contact Profile",
+        "stability": "Volatile Arm",
+        "summary": "Landen Roupp misses bats, has been volatile."
+      },
+      "home_pitcher": {
+        "name": "Mart\u00edn P\u00e9rez",
+        "slug": "martin-perez",
+        "team": "ATL",
+        "throws": "L",
+        "role": "probable_starter",
+        "strikeout_read": "Neutral K Profile",
+        "power_risk": "Neutral Power Risk",
+        "contact_risk": "Contact Suppression",
+        "stability": "Volatile Arm",
+        "summary": "Mart\u00edn P\u00e9rez limits contact quality, has been volatile."
+      },
+      "away_lineup_vs_home_pitcher": {
+        "lineup_source": "projected_lineup",
+        "pressure_read": "Balanced Pressure",
+        "danger_bats": [
+          {
+            "name": "Luis Arraez",
+            "slug": "luis-arraez",
+            "tag": "Contact Threat"
+          },
+          {
+            "name": "Jung Hoo Lee",
+            "slug": "jung-hoo-lee",
+            "tag": "Contact Threat"
+          }
+        ],
+        "summary": "Balanced Pressure \u2014 watch for Luis Arraez, Jung Hoo Lee."
+      },
+      "home_lineup_vs_away_pitcher": {
+        "lineup_source": "projected_lineup",
+        "pressure_read": "Balanced Pressure",
+        "danger_bats": [
+          {
+            "name": "Matt Olson",
+            "slug": "matt-olson",
+            "tag": "Power Threat"
+          },
+          {
+            "name": "Michael Harris II",
+            "slug": "michael-harris-ii",
+            "tag": "Power Threat"
+          },
+          {
+            "name": "Ronald Acu\u00f1a Jr.",
+            "slug": "ronald-acuna-jr",
+            "tag": "Power Threat"
+          }
+        ],
+        "summary": "Balanced Pressure \u2014 watch for Matt Olson, Michael Harris II, Ronald Acu\u00f1a Jr.."
+      },
+      "game_pitching_read": [
+        "SF starter has strikeout upside.",
+        "ATL projected lineup creates balanced pressure.",
+        "SF projected lineup creates balanced pressure."
       ]
     }
   ]
