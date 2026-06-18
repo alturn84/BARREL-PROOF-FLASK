@@ -30,7 +30,7 @@ from datetime import datetime, timedelta
 from dataclasses import dataclass, field
 from pathlib import Path
 
-GEMINI_MODEL = "gemini-2.5-flash"
+GEMINI_MODEL = "gemini-2.5-pro"
 
 def load_api_key():
     """Load GEMINI_API_KEY from environment or .env file."""
@@ -892,9 +892,33 @@ Write 4-5 paragraphs of lead story copy. Plain text only. No markdown."""
         import google.genai as genai
         from google.genai import types
         client = genai.Client(api_key=api_key, http_options=types.HttpOptions(api_version="v1"))
+        
+        def generate_content_with_retry(model, contents, config, max_retries=3, initial_delay=3):
+            delay = initial_delay
+            for attempt in range(max_retries):
+                try:
+                    res = client.models.generate_content(
+                        model=model,
+                        contents=contents,
+                        config=config,
+                    )
+                    if res and res.text:
+                        return res
+                    print(f"  ⚠ Empty response text on attempt {attempt+1}, retrying in {delay}s...", flush=True)
+                except Exception as ex:
+                    print(f"  ⚠ API call attempt {attempt+1} failed: {ex}. Retrying in {delay}s...", flush=True)
+                time.sleep(delay)
+                delay *= 2
+            # Try one last time and propagate exception
+            return client.models.generate_content(
+                model=model,
+                contents=contents,
+                config=config,
+            )
+
         print("  Calling Gemini for expanded lead angle...", flush=True)
         full_prompt = f"{system_prompt}\n\n{prompt}"
-        response = client.models.generate_content(
+        response = generate_content_with_retry(
             model=GEMINI_MODEL,
             contents=full_prompt,
             config=types.GenerateContentConfig(
@@ -907,6 +931,10 @@ Write 4-5 paragraphs of lead story copy. Plain text only. No markdown."""
         if word_count < 150:
             print("  ⚠ Response too short — falling back to template", flush=True)
             return base_copy["lead_angle"], base_copy["headline"]
+
+        # Sleep to avoid rate limits
+        print("  Sleeping for 5 seconds before headline generation...", flush=True)
+        time.sleep(5)
 
         # Generate improved headline
         headline_prompt = f"""Write one headline for a baseball newspaper lead story.
@@ -940,11 +968,11 @@ Good examples:
 Write the raw headline text only. Do not include any other words, explanations, or formatting."""
 
         try:
-            hl_response = client.models.generate_content(
+            hl_response = generate_content_with_retry(
                 model=GEMINI_MODEL,
                 contents=headline_prompt,
                 config=types.GenerateContentConfig(
-                    max_output_tokens=512,
+                    # No max_output_tokens to avoid SDK finish reason bugs
                 ),
             )
             raw_text = hl_response.text or ""
