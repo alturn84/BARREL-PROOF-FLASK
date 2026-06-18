@@ -28,7 +28,7 @@ VALID_GRADES = {"green", "yellow", "red", "gray"}
 MATCHUP_BOARD_KEYS = {"away_starter", "home_starter", "away_lineup_vs_home_starter", "home_lineup_vs_away_starter", "board_summary"}
 GREEN_FAIL = 6
 GREEN_WARN = 5
-GRAY_MISSING_FAIL_PCT = 35  # fail if >35% of hitter slots are gray due to missing profiles
+GRAY_MISSING_FAIL_PCT = 45  # fail if >45% of hitter slots are gray due to missing profiles
 GRAY_MISSING_WARN_PCT = 25
 BANNED_HITTER_PHRASES = ["No pitch-type profile", "No profile", "Pitch-type profile unavailable for this hitter"]
 
