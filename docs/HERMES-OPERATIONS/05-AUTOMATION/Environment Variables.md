@@ -23,6 +23,7 @@ All API keys and sensitive credentials must be stored as environment variables. 
 | `MLB_API_KEY` | MLB data API authentication | Cron Job 1 | Server environment / `.env` |
 | `GEMINI_API_KEY` | Gemini API authentication | Cron Job 2 | Server environment / `.env` |
 | `FIRECRAWL_API_KEY` | Firecrawl API authentication for news intake | `scripts/update_news_intake.py` | Server environment / `.env` |
+| `RENDER_DEPLOY_HOOK` | Private URL to trigger a Render deploy of `barrel-proof-flask` | Future Hermes deploy step | Hostinger `/opt/data/.env` only — never commit |
 
 ---
 
