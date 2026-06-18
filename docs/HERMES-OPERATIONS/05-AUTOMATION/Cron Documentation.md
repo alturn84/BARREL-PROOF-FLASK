@@ -182,6 +182,8 @@ The Hostinger cron wrapper (`/opt/data/scripts/run_morning_update.sh`, outside t
 
 See `03-RUNBOOKS/Cron Failure Recovery.md` for step-by-step recovery procedures.
 
+For Firecrawl-specific operating rules (what it can/cannot be used for, source handling, editorial boundary): see `05-AUTOMATION/FIRECRAWL-002 - Hermes News Intake Operating Rules.md`.
+
 Escalate to Allan Turner if either job cannot be recovered by the following thresholds:
 - Cron Job 1: unresolved by 6:10 AM ET
 - Cron Job 2: unresolved by 6:25 AM ET

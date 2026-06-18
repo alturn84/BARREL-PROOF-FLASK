@@ -62,3 +62,4 @@ Response:
 - `05-AUTOMATION/API Inventory.md`
 - `05-AUTOMATION/Pipeline Overview.md`
 - `05-AUTOMATION/MODEL-001 - Hermes GitHub Copilot Provider Setup.md` — Copilot provider auth rules, including the `GITHUB_TOKEN=ghp_*` conflict issue
+- `05-AUTOMATION/FIRECRAWL-002 - Hermes News Intake Operating Rules.md` — `FIRECRAWL_API_KEY` usage rules, source handling, and editorial boundaries
