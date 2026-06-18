@@ -61,3 +61,4 @@ Response:
 ## Related Documents
 - `05-AUTOMATION/API Inventory.md`
 - `05-AUTOMATION/Pipeline Overview.md`
+- `05-AUTOMATION/MODEL-001 - Hermes GitHub Copilot Provider Setup.md` — Copilot provider auth rules, including the `GITHUB_TOKEN=ghp_*` conflict issue
