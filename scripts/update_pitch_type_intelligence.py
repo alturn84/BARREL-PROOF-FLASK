@@ -175,7 +175,7 @@ def check_cache_fresh():
     try:
         gen_dt = datetime.fromisoformat(meta["generated_at"].replace("Z", "+00:00"))
         age_hours = (datetime.now(timezone.utc) - gen_dt).total_seconds() / 3600
-        if age_hours < 12:
+        if age_hours < 23:
             return True
     except Exception:
         pass
