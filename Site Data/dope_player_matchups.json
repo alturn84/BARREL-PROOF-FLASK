@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-06-18T20:00:28Z",
+    "generated_at": "2026-06-19T01:47:50Z",
     "date": "2026-06-18",
     "season": 2026,
     "source": "Barrel Proof player signal stack",
@@ -658,8 +658,8 @@
       "away_team_name": "New York Mets",
       "home_team_name": "Philadelphia Phillies",
       "venue": null,
-      "lineup_source": "mixed",
-      "away_lineup_source": "projected_lineup",
+      "lineup_source": "confirmed_lineup",
+      "away_lineup_source": "confirmed_lineup",
       "home_lineup_source": "confirmed_lineup",
       "probable_pitchers": {
         "away": {
@@ -743,23 +743,6 @@
           "note": "Carson Benge expected production is running ahead of current results."
         },
         {
-          "slug": "mark-vientos",
-          "full_name": "Mark Vientos",
-          "team_abbr": "NYM",
-          "position": "1B",
-          "bats": "R",
-          "power_signal": 63,
-          "contact_signal": 22,
-          "luck_gap_points": 44,
-          "hitter_profile_type": "Buy-Low Bat",
-          "confidence": "HIGH",
-          "tags": [
-            "Buy-Low Bat",
-            "DFS Watch"
-          ],
-          "note": "Mark Vientos expected production is running ahead of current results."
-        },
-        {
           "slug": "marcus-semien",
           "full_name": "Marcus Semien",
           "team_abbr": "NYM",
@@ -831,7 +814,7 @@
       ],
       "away_lineup_pressure": {
         "power_score": 65,
-        "contact_score": 49,
+        "contact_score": 56,
         "profile": "Moderate lineup pressure",
         "notes": [
           "Multiple high-signal bats are clustered in this lineup: Juan Soto, Bo Bichette, Carson Benge."
@@ -1358,9 +1341,9 @@
       "away_team_name": "Los Angeles Angels",
       "home_team_name": "Oakland Athletics",
       "venue": null,
-      "lineup_source": "projected_lineup",
-      "away_lineup_source": "projected_lineup",
-      "home_lineup_source": "projected_lineup",
+      "lineup_source": "confirmed_lineup",
+      "away_lineup_source": "confirmed_lineup",
+      "home_lineup_source": "confirmed_lineup",
       "probable_pitchers": {
         "away": null,
         "home": {
@@ -1378,24 +1361,6 @@
         }
       },
       "away_bats_to_watch": [
-        {
-          "slug": "mike-trout",
-          "full_name": "Mike Trout",
-          "team_abbr": "LAA",
-          "position": "CF",
-          "bats": "R",
-          "power_signal": 94,
-          "contact_signal": 70,
-          "luck_gap_points": 46,
-          "hitter_profile_type": "Buy-Low Bat",
-          "confidence": "HIGH",
-          "tags": [
-            "Power Watch",
-            "Buy-Low Bat",
-            "DFS Watch"
-          ],
-          "note": "Mike Trout brings strong power indicators, and expected production is running ahead of current results."
-        },
         {
           "slug": "jo-adell",
           "full_name": "Jo Adell",
@@ -1485,12 +1450,10 @@
         }
       ],
       "away_lineup_pressure": {
-        "power_score": 80,
-        "contact_score": 52,
-        "profile": "Power-heavy pressure",
-        "notes": [
-          "Multiple high-signal bats are clustered in this lineup: Mike Trout, Jo Adell."
-        ]
+        "power_score": 67,
+        "contact_score": 35,
+        "profile": "Moderate lineup pressure",
+        "notes": []
       },
       "home_lineup_pressure": {
         "power_score": 79,
@@ -1516,9 +1479,8 @@
         }
       ],
       "fantasy_watch": [
-        "Power Watch: Mike Trout brings elite power indicators into today's matchup.",
         "Power Watch: Nick Kurtz brings elite power indicators into today's matchup.",
-        "Buy-Low Bat: Mike Trout's expected production is running ahead of current results.",
+        "Buy-Low Bat: Jo Adell's expected production is running ahead of current results.",
         "Stack Watch: Multiple high-signal bats are clustered in this lineup: Nick Kurtz, Shea Langeliers, Carlos Cortes."
       ],
       "matchup_notes": []

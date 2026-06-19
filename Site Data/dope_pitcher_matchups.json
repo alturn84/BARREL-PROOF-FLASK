@@ -1,7 +1,7 @@
 {
   "meta": {
     "date": "2026-06-18",
-    "generated_at": "2026-06-18T20:00:28Z",
+    "generated_at": "2026-06-19T01:47:53Z",
     "source": "Barrel Proof pitcher/player signals",
     "game_count": 9
   },
@@ -208,16 +208,10 @@
         "summary": "Aaron Nola carries power risk."
       },
       "away_lineup_vs_home_pitcher": {
-        "lineup_source": "projected_lineup",
-        "pressure_read": "Balanced Pressure",
-        "danger_bats": [
-          {
-            "name": "Juan Soto",
-            "slug": "juan-soto",
-            "tag": "Power Threat"
-          }
-        ],
-        "summary": "Balanced Pressure \u2014 watch for Juan Soto."
+        "lineup_source": "confirmed_lineup",
+        "pressure_read": "Limited Read",
+        "danger_bats": [],
+        "summary": "Insufficient hitter signal data for this lineup."
       },
       "home_lineup_vs_away_pitcher": {
         "lineup_source": "confirmed_lineup",
@@ -227,8 +221,7 @@
       },
       "game_pitching_read": [
         "NYM starter has power risk.",
-        "PHI starter has power risk.",
-        "NYM projected lineup creates balanced pressure."
+        "PHI starter has power risk."
       ]
     },
     {
@@ -324,7 +317,7 @@
       "away_team": "LAA",
       "home_team": "ATH",
       "away_pitcher": {
-        "name": "TBD",
+        "name": "Ryan Johnson",
         "slug": null,
         "team": "LAA",
         "throws": "R",
@@ -333,7 +326,7 @@
         "power_risk": "Small Sample",
         "contact_risk": "Small Sample",
         "stability": "Limited Sample",
-        "summary": "TBD signal data unavailable \u2014 limited sample."
+        "summary": "Ryan Johnson signal data unavailable \u2014 limited sample."
       },
       "home_pitcher": {
         "name": "Gage Jump",
@@ -348,42 +341,18 @@
         "summary": "Gage Jump is a small-sample read today."
       },
       "away_lineup_vs_home_pitcher": {
-        "lineup_source": "projected_lineup",
-        "pressure_read": "Balanced Pressure",
-        "danger_bats": [
-          {
-            "name": "Mike Trout",
-            "slug": "mike-trout",
-            "tag": "Power Threat"
-          }
-        ],
-        "summary": "Balanced Pressure \u2014 watch for Mike Trout."
+        "lineup_source": "confirmed_lineup",
+        "pressure_read": "Limited Read",
+        "danger_bats": [],
+        "summary": "Insufficient hitter signal data for this lineup."
       },
       "home_lineup_vs_away_pitcher": {
-        "lineup_source": "projected_lineup",
-        "pressure_read": "Balanced Pressure",
-        "danger_bats": [
-          {
-            "name": "Shea Langeliers",
-            "slug": "shea-langeliers",
-            "tag": "Power Threat"
-          },
-          {
-            "name": "Nick Kurtz",
-            "slug": "nick-kurtz",
-            "tag": "Power Threat"
-          },
-          {
-            "name": "Carlos Cortes",
-            "slug": "carlos-cortes",
-            "tag": "Contact Threat"
-          }
-        ],
-        "summary": "Balanced Pressure \u2014 watch for Shea Langeliers, Nick Kurtz, Carlos Cortes."
+        "lineup_source": "confirmed_lineup",
+        "pressure_read": "Limited Read",
+        "danger_bats": [],
+        "summary": "Insufficient hitter signal data for this lineup."
       },
-      "game_pitching_read": [
-        "LAA projected lineup creates balanced pressure."
-      ]
+      "game_pitching_read": []
     },
     {
       "game_date": "2026-06-18",
