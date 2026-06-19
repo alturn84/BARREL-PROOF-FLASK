@@ -184,7 +184,9 @@ See `03-RUNBOOKS/Cron Failure Recovery.md` for step-by-step recovery procedures.
 
 For Firecrawl-specific operating rules (what it can/cannot be used for, source handling, editorial boundary): see `05-AUTOMATION/FIRECRAWL-002 - Hermes News Intake Operating Rules.md`.
 
-For failure alert categories, message formats, and the future Telegram helper plan: see `05-AUTOMATION/ALERTS-001 - Hermes Telegram Failure Alerts.md`.
+For failure alert categories, message formats, and the Telegram helper: see `05-AUTOMATION/ALERTS-001 - Hermes Telegram Failure Alerts.md`.
+
+**ALERTS-003 (live):** Part 1, Part 2, and Dope Sheet Refresh now send Telegram operator alerts via `/opt/data/workspace/barrel-proof/scripts/send_operator_alert.py`. Each script uses an ERR trap to send a CRITICAL alert on failure and sends an INFO alert on completion. Alert wiring lives in server-only scripts outside this repo. Alert delivery is non-blocking — alert failure does not abort the pipeline. Part 1 and Part 2 have no-change guards so a clean working tree does not trigger a false CRITICAL.
 
 For Render deploy hook setup and live wiring: see `05-AUTOMATION/RENDER-AUTO-001 - Render Auto Deploy Setup.md` (RENDER-HOOK-003 section). Part 1, Part 2, and Dope Sheet refresh now trigger Render deploy via `/opt/data/scripts/trigger_render_deploy.sh` after each successful `git push origin main`. This helper lives outside the repo, reads `RENDER_DEPLOY_HOOK` from `/opt/data/.env`, and is non-blocking — deploy trigger failure produces a Telegram WARNING alert but does not abort the pipeline.
 

@@ -105,7 +105,7 @@ Technical documentation for the pipeline, APIs, scripts, and infrastructure.
 | `MODEL-001 - Hermes GitHub Copilot Provider Setup.md` | GitHub Copilot provider auth, PAT conflict rules, gateway restart |
 | `FIRECRAWL-002 - Hermes News Intake Operating Rules.md` | Firecrawl source intake rules, what it can/cannot be used for |
 | `RENDER-AUTO-001 - Render Auto Deploy Setup.md` | Auto-Deploy and Deploy Hook setup for barrel-proof-flask; how pushes become live-site updates |
-| `ALERTS-001 - Hermes Telegram Failure Alerts.md` | Failure alert categories, message formats, severity levels, and future Telegram helper plan |
+| `ALERTS-001 - Hermes Telegram Failure Alerts.md` | Failure alert categories, message formats, severity levels; ALERTS-003 section: live Hostinger cron alert wiring verified |
 | `RENDER-AUTO-001` (RENDER-HOOK-003 section) | Deploy hook live on Hostinger: three post-push server scripts call `trigger_render_deploy.sh` after each successful push — verified with deploy ID |
 
 ---

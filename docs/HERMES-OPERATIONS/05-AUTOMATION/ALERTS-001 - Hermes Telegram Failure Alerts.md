@@ -181,9 +181,59 @@ python3 scripts/send_operator_alert.py \
 
 **Optional flags:** `--expected`, `--actual`, `--likely-cause`, `--next-action`, `--log-file`, `--date`, `--notes`, `--dry-run`
 
-**Status:** Helper exists at `scripts/send_operator_alert.py`. It is **not yet wired into any wrapper scripts**. Alert delivery is non-blocking by design — the helper exits 0 on missing credentials, disabled flag, or Telegram API failure.
+**Status:** Helper exists at `scripts/send_operator_alert.py`. Live Hostinger cron alert wiring was added in ALERTS-003 (see section below). Alert delivery is non-blocking by design — the helper exits 0 on missing credentials, disabled flag, or Telegram API failure.
 
 Shell wrappers calling this script should capture checker exit codes explicitly rather than relying on the current retry-and-continue pattern.
+
+---
+
+## ALERTS-003 — Live Hostinger Cron Alert Wiring
+
+**Status: Live and verified on Hostinger. Not repo-tracked.**
+
+### Scripts Patched
+
+ALERTS-003 was applied to these three server-only scripts:
+
+| Script | Workflow |
+|--------|---------|
+| `/opt/data/scripts/run_morning_update_part1.sh` | Morning update Part 1 |
+| `/opt/data/scripts/run_morning_update_part2.sh` | Morning update Part 2 |
+| `/opt/data/scripts/run_dope_sheet_refresh.sh` | Dope Sheet afternoon refresh |
+
+These scripts are not tracked in this repo.
+
+### Live Alert Behavior
+
+Each script now:
+
+- Sources `/opt/data/.env` (provides `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`, `BARREL_PROOF_ALERTS_ENABLED`)
+- Uses a shell `ERR` trap to send a **CRITICAL** Telegram alert if the workflow fails at any point
+- Sends an **INFO** Telegram alert on successful completion
+- Alert delivery is non-blocking — alert failures are logged but do not abort the pipeline
+
+Alert helper called:
+
+```
+/opt/data/workspace/barrel-proof/scripts/send_operator_alert.py
+```
+
+### No-Change Guards
+
+- Part 1 and Part 2 have no-change guards: if `git status` shows nothing to commit, the script skips `git commit` / `git push` / Render deploy trigger and sends an INFO alert noting "no new data to commit" rather than a false CRITICAL
+- Dope Sheet Refresh already had a no-change guard before ALERTS-003
+
+### Render Deploy Integration
+
+The Render deploy helper (`/opt/data/scripts/trigger_render_deploy.sh`) remains separate and is called only after a confirmed successful `git push`. It is independent of the Telegram alert wiring. See `RENDER-AUTO-001 - Render Auto Deploy Setup.md` (RENDER-HOOK-003 section) for full detail.
+
+### Verification
+
+All three scripts passed `bash -n` syntax check on Hostinger after patching. Secret safety check was clean — no hook URL, token, key, or chat ID appears in script contents.
+
+### VPS Rebuild Note
+
+These alert patches exist only on the Hostinger server. If the VPS is rebuilt or server scripts are reset, the ERR trap and completion alert calls must be re-added to all three scripts, and `/opt/data/.env` must contain valid `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID` values.
 
 ---
 
