@@ -126,6 +126,30 @@ The Auto-Deploy path is the primary mechanism. The Deploy Hook is a future expli
 
 ---
 
+## RENDER-HOOK-002 — Deploy Hook: Operational Finding
+
+**Status: Finding documented. Not yet wired into a wrapper.**
+
+Render Auto-Deploy is unreliable for Barrel Proof — pushes from Hostinger do not consistently trigger automatic deploys. Manual Render Deploy Hook trigger from Hostinger has been verified to work.
+
+`RENDER_DEPLOY_HOOK` lives in `/opt/data/.env` on Hostinger. Hook URL must never be committed to the repo.
+
+**Why the repo wrappers were not patched:**
+
+Inspection of `run_morning_update_with_venv.sh` and `run_dope_sheet_refresh_with_venv.sh` found that **neither wrapper currently owns the git commit/push step**. The git operations happen through the Hermes/Copilot gateway or another external operational path that is not tracked in this repo. Adding `git add / git commit / git push` and a deploy hook call directly to `run_morning_update_with_venv.sh` risks creating duplicate commits or committing partial data if Hermes also commits independently.
+
+**Correct future implementation path:**
+
+1. Identify the real post-push control point — the Hermes/Copilot gateway command or external server-side script that actually owns the git push step
+2. Wire `RENDER_DEPLOY_HOOK` into that control point after a confirmed successful push
+3. Alternatively, create a dedicated external post-push script (outside this repo, in `/opt/data/scripts/`) that is called explicitly after the Hermes push completes
+
+**Until that is resolved:** manual deploy hook trigger from Hostinger is the verified fallback. The hook URL and `RENDER_DEPLOY_HOOK` variable are in `/opt/data/.env`.
+
+**Alert integration when wired:** `scripts/send_operator_alert.py` should report WARNING on hook failure and INFO on hook success. Hook failure must not block or undo the git push.
+
+---
+
 ## Related Documents
 - `05-AUTOMATION/Render Flow.md` — general deployment sequence and Hermes verification steps
 - `03-RUNBOOKS/Render Deployment Failure.md` — recovery steps when deploys fail

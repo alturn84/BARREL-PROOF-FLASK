@@ -186,6 +186,8 @@ For Firecrawl-specific operating rules (what it can/cannot be used for, source h
 
 For failure alert categories, message formats, and the future Telegram helper plan: see `05-AUTOMATION/ALERTS-001 - Hermes Telegram Failure Alerts.md`.
 
+For Render deploy hook finding and future wiring plan: see `05-AUTOMATION/RENDER-AUTO-001 - Render Auto Deploy Setup.md` (RENDER-HOOK-002 section). Note: repo wrappers do not currently own the git commit/push step — deploy hook wiring must wait until the real post-push control point is identified.
+
 Escalate to Allan Turner if either job cannot be recovered by the following thresholds:
 - Cron Job 1: unresolved by 6:10 AM ET
 - Cron Job 2: unresolved by 6:25 AM ET
