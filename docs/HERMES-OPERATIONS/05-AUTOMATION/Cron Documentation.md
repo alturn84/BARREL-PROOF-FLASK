@@ -186,7 +186,7 @@ For Firecrawl-specific operating rules (what it can/cannot be used for, source h
 
 For failure alert categories, message formats, and the future Telegram helper plan: see `05-AUTOMATION/ALERTS-001 - Hermes Telegram Failure Alerts.md`.
 
-For Render deploy hook finding and future wiring plan: see `05-AUTOMATION/RENDER-AUTO-001 - Render Auto Deploy Setup.md` (RENDER-HOOK-002 section). Note: repo wrappers do not currently own the git commit/push step — deploy hook wiring must wait until the real post-push control point is identified.
+For Render deploy hook setup and live wiring: see `05-AUTOMATION/RENDER-AUTO-001 - Render Auto Deploy Setup.md` (RENDER-HOOK-003 section). Part 1, Part 2, and Dope Sheet refresh now trigger Render deploy via `/opt/data/scripts/trigger_render_deploy.sh` after each successful `git push origin main`. This helper lives outside the repo, reads `RENDER_DEPLOY_HOOK` from `/opt/data/.env`, and is non-blocking — deploy trigger failure produces a Telegram WARNING alert but does not abort the pipeline.
 
 Escalate to Allan Turner if either job cannot be recovered by the following thresholds:
 - Cron Job 1: unresolved by 6:10 AM ET

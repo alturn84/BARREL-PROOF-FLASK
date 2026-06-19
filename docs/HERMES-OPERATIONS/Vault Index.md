@@ -106,7 +106,7 @@ Technical documentation for the pipeline, APIs, scripts, and infrastructure.
 | `FIRECRAWL-002 - Hermes News Intake Operating Rules.md` | Firecrawl source intake rules, what it can/cannot be used for |
 | `RENDER-AUTO-001 - Render Auto Deploy Setup.md` | Auto-Deploy and Deploy Hook setup for barrel-proof-flask; how pushes become live-site updates |
 | `ALERTS-001 - Hermes Telegram Failure Alerts.md` | Failure alert categories, message formats, severity levels, and future Telegram helper plan |
-| `RENDER-AUTO-001` (RENDER-HOOK-002 section) | Deploy hook finding: Auto-Deploy unreliable; manual hook verified; repo wrappers do not own git push — wiring deferred |
+| `RENDER-AUTO-001` (RENDER-HOOK-003 section) | Deploy hook live on Hostinger: three post-push server scripts call `trigger_render_deploy.sh` after each successful push — verified with deploy ID |
 
 ---
 

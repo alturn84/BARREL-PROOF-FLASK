@@ -150,6 +150,66 @@ Inspection of `run_morning_update_with_venv.sh` and `run_dope_sheet_refresh_with
 
 ---
 
+## RENDER-HOOK-003 — Live Hostinger Post-Push Deploy Hook Wiring
+
+**Status: Live and verified on Hostinger. Not repo-tracked.**
+
+### Background
+
+RENDER-HOOK-002 found that neither repo-tracked wrapper owns the git commit/push step — the real post-push owners are server-only scripts outside this repo. RENDER-HOOK-003 was applied directly on Hostinger to wire deploy hook triggering into those scripts.
+
+### Real Post-Push Owners
+
+The scripts that perform `git commit` and `git push origin main` on the Hostinger server are:
+
+| Script | Workflow |
+|--------|---------|
+| `/opt/data/scripts/run_morning_update_part1.sh` | Morning update Part 1 |
+| `/opt/data/scripts/run_morning_update_part2.sh` | Morning update Part 2 |
+| `/opt/data/scripts/run_dope_sheet_refresh.sh` | Dope Sheet afternoon refresh |
+
+Backups of all three scripts were created before patching.
+
+### Shared Deploy Helper
+
+A new server-only helper was created:
+
+```
+/opt/data/scripts/trigger_render_deploy.sh
+```
+
+This helper:
+- Sources `/opt/data/.env` to read `RENDER_DEPLOY_HOOK`
+- Never prints or logs the hook URL
+- Calls the Render deploy hook with `curl`
+- Prints the deploy ID when available in the response
+- Sends Telegram alerts via `/opt/data/workspace/barrel-proof/scripts/send_operator_alert.py`
+- Is non-blocking — exits 0 on all failure paths
+- Is server-only and not tracked in this repo
+
+All three scripts above now call `trigger_render_deploy.sh` only after a confirmed successful `git push origin main`. Deploy trigger failure does not block or undo the push.
+
+### Manual Verification
+
+Verified on Hostinger:
+
+```
+/opt/data/scripts/trigger_render_deploy.sh "Manual RENDER-HOOK-003 Test"
+```
+
+Result:
+```
+Render deploy hook triggered
+Deploy id: dep-d8qp20q8qa3s73dpbjl0
+ALERT SENT: [INFO] Manual RENDER-HOOK-003 Test — Render deploy hook triggered
+```
+
+### VPS Rebuild Note
+
+`trigger_render_deploy.sh` and its integration into the three post-push scripts exist only on the Hostinger server. If the VPS is rebuilt or the server scripts are reset, this helper must be recreated and the three scripts must be re-patched. `RENDER_DEPLOY_HOOK` must also be re-added to `/opt/data/.env`.
+
+---
+
 ## Related Documents
 - `05-AUTOMATION/Render Flow.md` — general deployment sequence and Hermes verification steps
 - `03-RUNBOOKS/Render Deployment Failure.md` — recovery steps when deploys fail
