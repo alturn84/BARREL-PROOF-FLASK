@@ -256,7 +256,7 @@ These alert patches exist only on the Hostinger server. If the VPS is rebuilt or
 | `FIRECRAWL-002` | Defines `available` / `partial` / `limited` quality states — alerts should distinguish these and only fire on unexpected `limited` |
 | `RENDER-AUTO-001` | Defines the deploy path — Category E alerts cover the deploy verification gap |
 | `05-AUTOMATION/Cron Documentation.md` | Identifies the active wrappers that are the integration points for future alert calls |
-| `05-AUTOMATION/DEPLOY-QA-001 - Live Site Smoke Checks.md` | Post-deploy smoke check results are the planned source for Category F (live site) Telegram alerts in DEPLOY-QA-002 |
+| `05-AUTOMATION/DEPLOY-QA-001 - Live Site Smoke Checks.md` | Post-deploy smoke check results are the planned source for Category F (live site) Telegram alerts in DEPLOY-QA-002; use `--base-url https://www.barrel-proof-baseball.com` on Hostinger |
 | `03-RUNBOOKS/Cron Failure Recovery.md` | Runbook for what to do after an alert fires |
 
 ---

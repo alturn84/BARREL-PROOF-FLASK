@@ -118,13 +118,77 @@ Result: WARN
 
 ---
 
+## DEPLOY-QA-001B — Hostinger Verification
+
+**Status: Verified on Hostinger. PASS.**
+
+### DNS Finding
+
+The apex/root domain does not resolve from inside the Hostinger Docker environment:
+
+```
+barrel-proof-baseball.com  => ERROR: gaierror(-5, 'No address associated with hostname')
+www.barrel-proof-baseball.com => 216.24.57.9  ← resolves
+google.com  => resolved
+render.com  => resolved
+```
+
+Hostinger DNS works generally, but the apex Barrel Proof domain fails to resolve from that container. The `www` subdomain resolves correctly.
+
+### Operational Base URL (Hostinger)
+
+Use this base URL for all server-side smoke checks until apex DNS is fixed:
+
+```
+https://www.barrel-proof-baseball.com
+```
+
+Do not use `https://barrel-proof-baseball.com` (apex/root) in any Hostinger cron or server-side script.
+
+### Verified Smoke Check Result
+
+Run on Hostinger with `--base-url https://www.barrel-proof-baseball.com`:
+
+```
+OK: [Homepage] / — Marker found: 'Game of the Day'
+OK: [Dope Sheet] /dope-sheet — Marker found: 'Dope Sheet'
+OK: [Scoreboard] /scoreboard — Marker found: 'Scoreboard'
+OK: [Advanced Scout] /advance-scout — Marker found: 'Advanced Scout'
+OK: [Archive] /archive — HTTP 200
+OK: [Players] /players — HTTP 200
+OK: [Teams] /teams — HTTP 200
+
+LIVE SITE SMOKE CHECK
+Base URL: https://www.barrel-proof-baseball.com
+Critical failures: 0
+Warnings: 0
+Result: PASS
+```
+
+Both normal run and `--soft-fail` exited 0.
+
+### DEPLOY-QA-002 Note
+
+Future cron wiring (DEPLOY-QA-002) should call:
+
+```bash
+python3 scripts/check_live_site_smoke.py \
+  --base-url https://www.barrel-proof-baseball.com \
+  --soft-fail
+```
+
+Use the `www` base URL until apex DNS from Hostinger is confirmed working.
+
+---
+
 ## Current Status
 
-Helper exists at `scripts/check_live_site_smoke.py` and is repo-tracked.
+Helper exists at `scripts/check_live_site_smoke.py` and is repo-tracked. Verified PASS on Hostinger (DEPLOY-QA-001B).
 
 **Not yet wired into Hostinger cron scripts.** This must be added as a post-deploy step after `trigger_render_deploy.sh` calls on the Hostinger server. That wiring is planned for DEPLOY-QA-002.
 
 When wired on Hostinger:
+- Use `--base-url https://www.barrel-proof-baseball.com` (not apex domain)
 - The helper should run after the Render deploy hook triggers and a short settle delay
 - `--soft-fail` should be used so smoke check failures do not block cron completion
 - Results should be piped to `send_operator_alert.py` for Telegram reporting

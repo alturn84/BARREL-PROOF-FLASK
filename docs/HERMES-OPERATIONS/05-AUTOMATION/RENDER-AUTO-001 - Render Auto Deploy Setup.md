@@ -212,10 +212,15 @@ ALERT SENT: [INFO] Manual RENDER-HOOK-003 Test — Render deploy hook triggered
 
 ## Post-Deploy Smoke Check
 
-`scripts/check_live_site_smoke.py` (DEPLOY-QA-001) exists and is repo-tracked. It checks that key public routes load and contain expected content markers. It is **not yet wired into the Hostinger deploy helper** — that wiring is planned for DEPLOY-QA-002. Until then, run it manually after a deploy to confirm the site is live:
+`scripts/check_live_site_smoke.py` (DEPLOY-QA-001) exists and is repo-tracked. It checks that key public routes load and contain expected content markers. It is **not yet wired into the Hostinger deploy helper** — that wiring is planned for DEPLOY-QA-002.
+
+**DEPLOY-QA-001B verified:** Smoke checks from Hostinger pass using `https://www.barrel-proof-baseball.com`. Do not use the apex domain (`barrel-proof-baseball.com`) in server-side smoke checks — it fails DNS resolution from the Hostinger Docker environment. Until apex DNS is fixed, always pass `--base-url https://www.barrel-proof-baseball.com` when running the helper from Hostinger.
+
+Until wired, run manually after a deploy to confirm the site is live:
 
 ```bash
-python3 scripts/check_live_site_smoke.py
+python3 scripts/check_live_site_smoke.py \
+  --base-url https://www.barrel-proof-baseball.com
 ```
 
 ---
