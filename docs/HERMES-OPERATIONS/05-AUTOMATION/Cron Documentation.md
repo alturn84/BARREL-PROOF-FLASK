@@ -193,3 +193,5 @@ For Render deploy hook setup and live wiring: see `05-AUTOMATION/RENDER-AUTO-001
 Escalate to Allan Turner if either job cannot be recovered by the following thresholds:
 - Cron Job 1: unresolved by 6:10 AM ET
 - Cron Job 2: unresolved by 6:25 AM ET
+
+For travel / away-from-desk operation — including how to read Telegram alerts, run manual smoke checks, trigger Render deploys, and recover dirty Hostinger state — see `05-AUTOMATION/OPS-001 - Travel MacBook Operating Checklist.md`.

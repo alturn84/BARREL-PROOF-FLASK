@@ -109,6 +109,7 @@ Technical documentation for the pipeline, APIs, scripts, and infrastructure.
 | `RENDER-AUTO-001` (RENDER-HOOK-003 section) | Deploy hook live on Hostinger: three post-push server scripts call `trigger_render_deploy.sh` after each successful push — verified with deploy ID |
 | `DEPLOY-QA-001 - Live Site Smoke Checks.md` | Repo-tracked smoke check helper; verified PASS on Hostinger (DEPLOY-QA-001B); DEPLOY-QA-002 section documents live post-deploy wiring |
 | `DEPLOY-QA-001` (DEPLOY-QA-002 section) | Live post-deploy smoke check wiring in `trigger_render_deploy.sh` on Hostinger — 75s settle wait, www base URL, Telegram INFO/WARNING on result — verified dep-d8qu7nm7r5hc73dlhd5g |
+| `OPS-001 - Travel MacBook Operating Checklist.md` | Practical travel operating guide: morning alert sequence, manual smoke check, manual deploy trigger, Mac repo sync, Hostinger dirty-state recovery, emergency triage, known quirks |
 
 ---
 
