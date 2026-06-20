@@ -1,7 +1,7 @@
 {
   "meta": {
-    "generated_at": "2026-06-20T00:00:49Z",
-    "date": "2026-06-19",
+    "generated_at": "2026-06-20T15:31:08Z",
+    "date": "2026-06-20",
     "season": 2026,
     "source": "Barrel Proof player signal stack",
     "status": "success",
@@ -9,30 +9,215 @@
   },
   "games": [
     {
-      "game_id": "823936",
-      "game_date": "2026-06-19",
+      "game_id": "824988",
+      "game_date": "2026-06-20",
+      "away_team": "LAA",
+      "home_team": "ATH",
+      "away_team_name": "Los Angeles Angels",
+      "home_team_name": "Oakland Athletics",
+      "venue": null,
+      "lineup_source": "projected_lineup",
+      "away_lineup_source": "projected_lineup",
+      "home_lineup_source": "projected_lineup",
+      "probable_pitchers": {
+        "away": {
+          "slug": "walbert-urena",
+          "full_name": "Walbert Ure\u00f1a",
+          "team_abbr": "LAA",
+          "throws": null,
+          "pitcher_foundation_signal": 48,
+          "profile_type": "Volatile Arm",
+          "confidence": "HIGH",
+          "k9": 8.95,
+          "bb9": 5.37,
+          "era": 2.44,
+          "whip": 1.355
+        },
+        "home": {
+          "slug": "jt-ginn",
+          "full_name": "J.T. Ginn",
+          "team_abbr": "ATH",
+          "throws": null,
+          "pitcher_foundation_signal": 54,
+          "profile_type": "Volatile Arm",
+          "confidence": "HIGH",
+          "k9": 8.2,
+          "bb9": 3.79,
+          "era": 3.15,
+          "whip": 1.15
+        }
+      },
+      "away_bats_to_watch": [
+        {
+          "slug": "mike-trout",
+          "full_name": "Mike Trout",
+          "team_abbr": "LAA",
+          "position": "CF",
+          "bats": "R",
+          "power_signal": 94,
+          "contact_signal": 70,
+          "luck_gap_points": 46,
+          "hitter_profile_type": "Buy-Low Bat",
+          "confidence": "HIGH",
+          "tags": [
+            "Power Watch",
+            "Buy-Low Bat",
+            "DFS Watch"
+          ],
+          "note": "Mike Trout brings strong power indicators, and expected production is running ahead of current results."
+        },
+        {
+          "slug": "jo-adell",
+          "full_name": "Jo Adell",
+          "team_abbr": "LAA",
+          "position": "RF",
+          "bats": "R",
+          "power_signal": 67,
+          "contact_signal": 35,
+          "luck_gap_points": 36,
+          "hitter_profile_type": "Buy-Low Bat",
+          "confidence": "HIGH",
+          "tags": [
+            "Buy-Low Bat",
+            "DFS Watch"
+          ],
+          "note": "Jo Adell expected production is running ahead of current results."
+        }
+      ],
+      "home_bats_to_watch": [
+        {
+          "slug": "nick-kurtz",
+          "full_name": "Nick Kurtz",
+          "team_abbr": "ATH",
+          "position": "1B",
+          "bats": "L",
+          "power_signal": 96,
+          "contact_signal": 69,
+          "luck_gap_points": -19,
+          "hitter_profile_type": "Real Power Bat",
+          "confidence": "HIGH",
+          "tags": [
+            "Power Watch",
+            "DFS Watch"
+          ],
+          "note": "Nick Kurtz brings strong power indicators."
+        },
+        {
+          "slug": "shea-langeliers",
+          "full_name": "Shea Langeliers",
+          "team_abbr": "ATH",
+          "position": "C",
+          "bats": "R",
+          "power_signal": 89,
+          "contact_signal": 69,
+          "luck_gap_points": -3,
+          "hitter_profile_type": "Real Power Bat",
+          "confidence": "HIGH",
+          "tags": [
+            "Power Watch",
+            "DFS Watch"
+          ],
+          "note": "Shea Langeliers brings strong power indicators."
+        },
+        {
+          "slug": "carlos-cortes",
+          "full_name": "Carlos Cortes",
+          "team_abbr": "ATH",
+          "position": "RF",
+          "bats": "L",
+          "power_signal": 62,
+          "contact_signal": 93,
+          "luck_gap_points": -11,
+          "hitter_profile_type": "Balanced Producer",
+          "confidence": "HIGH",
+          "tags": [
+            "Contact Edge",
+            "Balanced Producer",
+            "DFS Watch"
+          ],
+          "note": "Carlos Cortes backed by a stable contact profile."
+        },
+        {
+          "slug": "tyler-soderstrom",
+          "full_name": "Tyler Soderstrom",
+          "team_abbr": "ATH",
+          "position": "LF",
+          "bats": "L",
+          "power_signal": 68,
+          "contact_signal": 62,
+          "luck_gap_points": -9,
+          "hitter_profile_type": "Balanced Producer",
+          "confidence": "HIGH",
+          "tags": [
+            "Balanced Producer"
+          ],
+          "note": "Tyler Soderstrom profile flagged for today's matchup."
+        }
+      ],
+      "away_lineup_pressure": {
+        "power_score": 80,
+        "contact_score": 52,
+        "profile": "Power-heavy pressure",
+        "notes": [
+          "Multiple high-signal bats are clustered in this lineup: Mike Trout, Jo Adell."
+        ]
+      },
+      "home_lineup_pressure": {
+        "power_score": 79,
+        "contact_score": 73,
+        "profile": "Heavy lineup pressure",
+        "notes": [
+          "Multiple high-signal bats are clustered in this lineup: Nick Kurtz, Shea Langeliers, Carlos Cortes."
+        ]
+      },
+      "pitcher_edges": [],
+      "fantasy_watch": [
+        "Power Watch: Mike Trout brings elite power indicators into today's matchup.",
+        "Power Watch: Nick Kurtz brings elite power indicators into today's matchup.",
+        "Buy-Low Bat: Mike Trout's expected production is running ahead of current results.",
+        "Stack Watch: Multiple high-signal bats are clustered in this lineup: Nick Kurtz, Shea Langeliers, Carlos Cortes."
+      ],
+      "matchup_notes": [
+        "Walbert Ure\u00f1a (Volatile Arm) faces J.T. Ginn (Volatile Arm)."
+      ]
+    },
+    {
+      "game_id": "823937",
+      "game_date": "2026-06-20",
       "away_team": "BAL",
       "home_team": "LAD",
       "away_team_name": "Baltimore Orioles",
       "home_team_name": "Los Angeles Dodgers",
       "venue": null,
-      "lineup_source": "mixed",
-      "away_lineup_source": "confirmed_lineup",
+      "lineup_source": "projected_lineup",
+      "away_lineup_source": "projected_lineup",
       "home_lineup_source": "projected_lineup",
       "probable_pitchers": {
-        "away": null,
+        "away": {
+          "slug": "trevor-rogers",
+          "full_name": "Trevor Rogers",
+          "team_abbr": "BAL",
+          "throws": null,
+          "pitcher_foundation_signal": 22,
+          "profile_type": "Pitching Risk",
+          "confidence": "HIGH",
+          "k9": 6.6,
+          "bb9": 3.0,
+          "era": 6.15,
+          "whip": 1.483
+        },
         "home": {
-          "slug": "roki-sasaki",
-          "full_name": "Roki Sasaki",
+          "slug": "yoshinobu-yamamoto",
+          "full_name": "Yoshinobu Yamamoto",
           "team_abbr": "LAD",
           "throws": null,
-          "pitcher_foundation_signal": 53,
-          "profile_type": "Volatile Arm",
+          "pitcher_foundation_signal": 77,
+          "profile_type": "Strong Foundation",
           "confidence": "HIGH",
-          "k9": 9.31,
-          "bb9": 3.26,
-          "era": 4.03,
-          "whip": 1.259
+          "k9": 8.5,
+          "bb9": 1.75,
+          "era": 2.68,
+          "whip": 0.918
         }
       },
       "away_bats_to_watch": [
@@ -52,6 +237,23 @@
             "DFS Watch"
           ],
           "note": "Pete Alonso brings strong power indicators."
+        },
+        {
+          "slug": "adley-rutschman",
+          "full_name": "Adley Rutschman",
+          "team_abbr": "BAL",
+          "position": "C",
+          "bats": "S",
+          "power_signal": 66,
+          "contact_signal": 80,
+          "luck_gap_points": 15,
+          "hitter_profile_type": "Balanced Producer",
+          "confidence": "HIGH",
+          "tags": [
+            "Contact Edge",
+            "Balanced Producer"
+          ],
+          "note": "Adley Rutschman backed by a stable contact profile."
         },
         {
           "slug": "samuel-basallo",
@@ -159,8 +361,8 @@
         }
       ],
       "away_lineup_pressure": {
-        "power_score": 84,
-        "contact_score": 56,
+        "power_score": 78,
+        "contact_score": 64,
         "profile": "Power-heavy pressure",
         "notes": []
       },
@@ -172,52 +374,83 @@
           "Multiple high-signal bats are clustered in this lineup: Shohei Ohtani, Will Smith, Max Muncy."
         ]
       },
-      "pitcher_edges": [],
+      "pitcher_edges": [
+        {
+          "pitcher_slug": "trevor-rogers",
+          "pitcher_name": "Trevor Rogers",
+          "team_abbr": "BAL",
+          "opponent_team": "LAD",
+          "edge_type": "Pitcher Risk",
+          "confidence": "HIGH",
+          "pitcher_foundation_signal": 22,
+          "pitcher_profile_type": "Pitching Risk",
+          "k9": 6.6,
+          "bb9": 3.0,
+          "note": "Trevor Rogers's foundation signal points to significant risk against LAD."
+        },
+        {
+          "pitcher_slug": "yoshinobu-yamamoto",
+          "pitcher_name": "Yoshinobu Yamamoto",
+          "team_abbr": "LAD",
+          "opponent_team": "BAL",
+          "edge_type": "Run Prevention Edge",
+          "confidence": "HIGH",
+          "pitcher_foundation_signal": 77,
+          "pitcher_profile_type": "Strong Foundation",
+          "k9": 8.5,
+          "bb9": 1.75,
+          "note": "Yoshinobu Yamamoto carries a strong run-prevention foundation into this matchup."
+        }
+      ],
       "fantasy_watch": [
         "Power Watch: Pete Alonso brings elite power indicators into today's matchup.",
         "Power Watch: Shohei Ohtani brings elite power indicators into today's matchup.",
+        "Risk Spot: Trevor Rogers's foundation signal points to risk against LAD.",
         "Buy-Low Bat: Will Smith's expected production is running ahead of current results.",
-        "Stack Watch: Multiple high-signal bats are clustered in this lineup: Shohei Ohtani, Will Smith, Max Muncy."
+        "Stack Watch: Multiple high-signal bats are clustered in this lineup: Shohei Ohtani, Will Smith, Max Muncy.",
+        "Risk Spot: Power-heavy pressure lineup faces a Strong Foundation arm in Yoshinobu Yamamoto."
       ],
-      "matchup_notes": []
+      "matchup_notes": [
+        "Trevor Rogers (Pitching Risk) faces Yoshinobu Yamamoto (Strong Foundation)."
+      ]
     },
     {
-      "game_id": "823124",
-      "game_date": "2026-06-19",
+      "game_id": "823126",
+      "game_date": "2026-06-20",
       "away_team": "BOS",
       "home_team": "SEA",
       "away_team_name": "Boston Red Sox",
       "home_team_name": "Seattle Mariners",
       "venue": null,
-      "lineup_source": "confirmed_lineup",
-      "away_lineup_source": "confirmed_lineup",
-      "home_lineup_source": "confirmed_lineup",
+      "lineup_source": "projected_lineup",
+      "away_lineup_source": "projected_lineup",
+      "home_lineup_source": "projected_lineup",
       "probable_pitchers": {
         "away": {
-          "slug": "ranger-suarez",
-          "full_name": "Ranger Suarez",
+          "slug": "connelly-early",
+          "full_name": "Connelly Early",
           "team_abbr": "BOS",
           "throws": null,
-          "pitcher_foundation_signal": 64,
-          "profile_type": "Stable Arm",
+          "pitcher_foundation_signal": 54,
+          "profile_type": "Volatile Arm",
           "confidence": "HIGH",
-          "k9": 8.72,
-          "bb9": 2.63,
-          "era": 3.18,
-          "whip": 1.138
+          "k9": 8.75,
+          "bb9": 3.42,
+          "era": 3.3,
+          "whip": 1.225
         },
         "home": {
-          "slug": "bryce-miller",
-          "full_name": "Bryce Miller",
+          "slug": "emerson-hancock",
+          "full_name": "Emerson Hancock",
           "team_abbr": "SEA",
           "throws": null,
-          "pitcher_foundation_signal": 90,
+          "pitcher_foundation_signal": 76,
           "profile_type": "Strong Foundation",
-          "confidence": "MEDIUM",
-          "k9": 9.67,
-          "bb9": 1.67,
-          "era": 1.33,
-          "whip": 0.778
+          "confidence": "HIGH",
+          "k9": 8.68,
+          "bb9": 2.02,
+          "era": 2.74,
+          "whip": 0.952
         }
       },
       "away_bats_to_watch": [
@@ -257,20 +490,37 @@
           "note": "Dominic Canzone brings strong power indicators."
         },
         {
-          "slug": "cal-raleigh",
-          "full_name": "Cal Raleigh",
+          "slug": "randy-arozarena",
+          "full_name": "Randy Arozarena",
           "team_abbr": "SEA",
-          "position": "C",
-          "bats": null,
-          "power_signal": 51,
-          "contact_signal": 11,
-          "luck_gap_points": 37,
-          "hitter_profile_type": "Watch List",
+          "position": "LF",
+          "bats": "R",
+          "power_signal": 64,
+          "contact_signal": 70,
+          "luck_gap_points": -13,
+          "hitter_profile_type": "Balanced Producer",
           "confidence": "HIGH",
           "tags": [
+            "Balanced Producer"
+          ],
+          "note": "Randy Arozarena profile flagged for today's matchup."
+        },
+        {
+          "slug": "luke-raley",
+          "full_name": "Luke Raley",
+          "team_abbr": "SEA",
+          "position": "RF",
+          "bats": "L",
+          "power_signal": 87,
+          "contact_signal": 39,
+          "luck_gap_points": 11,
+          "hitter_profile_type": "Volatile Slugger",
+          "confidence": "HIGH",
+          "tags": [
+            "Power Watch",
             "DFS Watch"
           ],
-          "note": "Cal Raleigh expected production is running ahead of current results."
+          "note": "Luke Raley brings strong power indicators."
         }
       ],
       "away_lineup_pressure": {
@@ -280,227 +530,224 @@
         "notes": []
       },
       "home_lineup_pressure": {
-        "power_score": 72,
-        "contact_score": 40,
-        "profile": "Moderate lineup pressure",
+        "power_score": 82,
+        "contact_score": 59,
+        "profile": "Power-heavy pressure",
         "notes": [
-          "Multiple high-signal bats are clustered in this lineup: Dominic Canzone, Cal Raleigh."
+          "Multiple high-signal bats are clustered in this lineup: Dominic Canzone, Luke Raley."
         ]
       },
       "pitcher_edges": [
         {
-          "pitcher_slug": "bryce-miller",
-          "pitcher_name": "Bryce Miller",
-          "team_abbr": "SEA",
-          "opponent_team": "BOS",
-          "edge_type": "Strikeout Upside",
-          "confidence": "MEDIUM",
-          "pitcher_foundation_signal": 90,
-          "pitcher_profile_type": "Strong Foundation",
-          "k9": 9.67,
-          "bb9": 1.67,
-          "note": "Bryce Miller owns a strong foundation with a double-digit K/9 against BOS."
-        },
-        {
-          "pitcher_slug": "bryce-miller",
-          "pitcher_name": "Bryce Miller",
+          "pitcher_slug": "emerson-hancock",
+          "pitcher_name": "Emerson Hancock",
           "team_abbr": "SEA",
           "opponent_team": "BOS",
           "edge_type": "Run Prevention Edge",
-          "confidence": "MEDIUM",
-          "pitcher_foundation_signal": 90,
+          "confidence": "HIGH",
+          "pitcher_foundation_signal": 76,
           "pitcher_profile_type": "Strong Foundation",
-          "k9": 9.67,
-          "bb9": 1.67,
-          "note": "Bryce Miller carries a strong run-prevention foundation into this matchup."
+          "k9": 8.68,
+          "bb9": 2.02,
+          "note": "Emerson Hancock carries a strong run-prevention foundation into this matchup."
         }
       ],
       "fantasy_watch": [
         "Power Watch: Willson Contreras brings elite power indicators into today's matchup.",
         "Power Watch: Dominic Canzone brings elite power indicators into today's matchup.",
-        "Strikeout Upside: Bryce Miller owns a strong foundation with a double-digit K/9.",
-        "Risk Spot: Heavy lineup pressure lineup faces a Strong Foundation arm in Bryce Miller."
+        "Risk Spot: Heavy lineup pressure lineup faces a Strong Foundation arm in Emerson Hancock."
       ],
       "matchup_notes": [
-        "Ranger Suarez (Stable Arm) faces Bryce Miller (Strong Foundation)."
+        "Connelly Early (Volatile Arm) faces Emerson Hancock (Strong Foundation)."
       ]
     },
     {
-      "game_id": "824663",
-      "game_date": "2026-06-19",
-      "away_team": "TOR",
-      "home_team": "CHC",
-      "away_team_name": "Toronto Blue Jays",
-      "home_team_name": "Chicago Cubs",
+      "game_id": "825068",
+      "game_date": "2026-06-20",
+      "away_team": "MIN",
+      "home_team": "AZ",
+      "away_team_name": "Minnesota Twins",
+      "home_team_name": "Arizona Diamondbacks",
       "venue": null,
-      "lineup_source": "confirmed_lineup",
-      "away_lineup_source": "confirmed_lineup",
-      "home_lineup_source": "confirmed_lineup",
+      "lineup_source": "projected_lineup",
+      "away_lineup_source": "projected_lineup",
+      "home_lineup_source": "projected_lineup",
       "probable_pitchers": {
         "away": {
-          "slug": "kevin-gausman",
-          "full_name": "Kevin Gausman",
-          "team_abbr": "TOR",
+          "slug": "taj-bradley",
+          "full_name": "Taj Bradley",
+          "team_abbr": "MIN",
           "throws": null,
-          "pitcher_foundation_signal": 69,
-          "profile_type": "Stable Arm",
+          "pitcher_foundation_signal": 48,
+          "profile_type": "Volatile Arm",
           "confidence": "HIGH",
-          "k9": 8.89,
-          "bb9": 1.57,
-          "era": 3.6,
-          "whip": 1.088
+          "k9": 10.11,
+          "bb9": 4.02,
+          "era": 4.02,
+          "whip": 1.385
         },
         "home": {
-          "slug": "ben-brown",
-          "full_name": "Ben Brown",
-          "team_abbr": "CHC",
+          "slug": "zac-gallen",
+          "full_name": "Zac Gallen",
+          "team_abbr": "ARI",
           "throws": null,
-          "pitcher_foundation_signal": 82,
-          "profile_type": "Strong Foundation",
+          "pitcher_foundation_signal": 23,
+          "profile_type": "Pitching Risk",
           "confidence": "HIGH",
-          "k9": 9.16,
-          "bb9": 2.53,
-          "era": 1.74,
-          "whip": 0.877
+          "k9": 5.94,
+          "bb9": 2.71,
+          "era": 5.43,
+          "whip": 1.55
         }
       },
       "away_bats_to_watch": [
         {
-          "slug": "vladimir-guerrero-jr",
-          "full_name": "Vladimir Guerrero Jr.",
-          "team_abbr": "TOR",
+          "slug": "byron-buxton",
+          "full_name": "Byron Buxton",
+          "team_abbr": "MIN",
+          "position": "CF",
+          "bats": "R",
+          "power_signal": 84,
+          "contact_signal": 41,
+          "luck_gap_points": -41,
+          "hitter_profile_type": "Regression Risk",
+          "confidence": "HIGH",
+          "tags": [
+            "Power Watch",
+            "Regression Risk"
+          ],
+          "note": "Byron Buxton brings strong power indicators."
+        },
+        {
+          "slug": "kody-clemens",
+          "full_name": "Kody Clemens",
+          "team_abbr": "MIN",
           "position": "1B",
-          "bats": "R",
-          "power_signal": 58,
-          "contact_signal": 86,
-          "luck_gap_points": 31,
-          "hitter_profile_type": "Contact-First Bat",
-          "confidence": "HIGH",
-          "tags": [
-            "Contact Edge",
-            "DFS Watch"
-          ],
-          "note": "Vladimir Guerrero Jr. backed by a stable contact profile."
-        },
-        {
-          "slug": "jesus-sanchez",
-          "full_name": "Jes\u00fas S\u00e1nchez",
-          "team_abbr": "TOR",
-          "position": "RF",
           "bats": "L",
-          "power_signal": 79,
-          "contact_signal": 60,
-          "luck_gap_points": 6,
-          "hitter_profile_type": "Real Power Bat",
-          "confidence": "HIGH",
-          "tags": [
-            "Power Watch"
-          ],
-          "note": "Jes\u00fas S\u00e1nchez brings strong power indicators."
-        },
-        {
-          "slug": "kazuma-okamoto",
-          "full_name": "Kazuma Okamoto",
-          "team_abbr": "TOR",
-          "position": "3B",
-          "bats": "R",
-          "power_signal": 83,
-          "contact_signal": 28,
-          "luck_gap_points": 1,
+          "power_signal": 76,
+          "contact_signal": 45,
+          "luck_gap_points": -13,
           "hitter_profile_type": "Volatile Slugger",
           "confidence": "HIGH",
           "tags": [
             "Power Watch"
           ],
-          "note": "Kazuma Okamoto brings strong power indicators."
+          "note": "Kody Clemens brings strong power indicators."
+        },
+        {
+          "slug": "victor-caratini",
+          "full_name": "Victor Caratini",
+          "team_abbr": "MIN",
+          "position": "C",
+          "bats": "S",
+          "power_signal": 33,
+          "contact_signal": 38,
+          "luck_gap_points": 58,
+          "hitter_profile_type": "Watch List",
+          "confidence": "HIGH",
+          "tags": [
+            "DFS Watch"
+          ],
+          "note": "Victor Caratini expected production is running ahead of current results."
         }
       ],
       "home_bats_to_watch": [
         {
-          "slug": "pete-crow-armstrong",
-          "full_name": "Pete Crow-Armstrong",
-          "team_abbr": "CHC",
-          "position": "CF",
-          "bats": "L",
-          "power_signal": 80,
-          "contact_signal": 49,
-          "luck_gap_points": 11,
-          "hitter_profile_type": "Volatile Slugger",
+          "slug": "ketel-marte",
+          "full_name": "Ketel Marte",
+          "team_abbr": "ARI",
+          "position": "2B",
+          "bats": "S",
+          "power_signal": 77,
+          "contact_signal": 61,
+          "luck_gap_points": 46,
+          "hitter_profile_type": "Buy-Low Bat",
           "confidence": "HIGH",
           "tags": [
-            "Power Watch"
+            "Power Watch",
+            "Buy-Low Bat",
+            "DFS Watch"
           ],
-          "note": "Pete Crow-Armstrong brings strong power indicators."
+          "note": "Ketel Marte brings strong power indicators, and expected production is running ahead of current results."
         },
         {
-          "slug": "ian-happ",
-          "full_name": "Ian Happ",
-          "team_abbr": "CHC",
-          "position": "LF",
-          "bats": "S",
-          "power_signal": 81,
-          "contact_signal": 44,
-          "luck_gap_points": -21,
-          "hitter_profile_type": "Volatile Slugger",
+          "slug": "corbin-carroll",
+          "full_name": "Corbin Carroll",
+          "team_abbr": "ARI",
+          "position": "RF",
+          "bats": "L",
+          "power_signal": 83,
+          "contact_signal": 75,
+          "luck_gap_points": -29,
+          "hitter_profile_type": "Real Power Bat",
           "confidence": "HIGH",
           "tags": [
-            "Power Watch"
+            "Power Watch",
+            "Contact Edge"
           ],
-          "note": "Ian Happ brings strong power indicators."
+          "note": "Corbin Carroll brings strong power indicators, and backed by a stable contact profile."
+        },
+        {
+          "slug": "gabriel-moreno",
+          "full_name": "Gabriel Moreno",
+          "team_abbr": "ARI",
+          "position": "C",
+          "bats": "R",
+          "power_signal": 65,
+          "contact_signal": 73,
+          "luck_gap_points": 36,
+          "hitter_profile_type": "Buy-Low Bat",
+          "confidence": "HIGH",
+          "tags": [
+            "Buy-Low Bat",
+            "DFS Watch"
+          ],
+          "note": "Gabriel Moreno expected production is running ahead of current results."
         }
       ],
       "away_lineup_pressure": {
-        "power_score": 73,
-        "contact_score": 58,
+        "power_score": 64,
+        "contact_score": 41,
         "profile": "Moderate lineup pressure",
         "notes": []
       },
       "home_lineup_pressure": {
-        "power_score": 80,
-        "contact_score": 46,
-        "profile": "Power-heavy pressure",
-        "notes": []
+        "power_score": 75,
+        "contact_score": 70,
+        "profile": "Heavy lineup pressure",
+        "notes": [
+          "Multiple high-signal bats are clustered in this lineup: Ketel Marte, Gabriel Moreno."
+        ]
       },
       "pitcher_edges": [
         {
-          "pitcher_slug": "ben-brown",
-          "pitcher_name": "Ben Brown",
-          "team_abbr": "CHC",
-          "opponent_team": "TOR",
-          "edge_type": "Strikeout Upside",
+          "pitcher_slug": "zac-gallen",
+          "pitcher_name": "Zac Gallen",
+          "team_abbr": "ARI",
+          "opponent_team": "MIN",
+          "edge_type": "Pitcher Risk",
           "confidence": "HIGH",
-          "pitcher_foundation_signal": 82,
-          "pitcher_profile_type": "Strong Foundation",
-          "k9": 9.16,
-          "bb9": 2.53,
-          "note": "Ben Brown owns a strong foundation with a double-digit K/9 against TOR."
-        },
-        {
-          "pitcher_slug": "ben-brown",
-          "pitcher_name": "Ben Brown",
-          "team_abbr": "CHC",
-          "opponent_team": "TOR",
-          "edge_type": "Run Prevention Edge",
-          "confidence": "HIGH",
-          "pitcher_foundation_signal": 82,
-          "pitcher_profile_type": "Strong Foundation",
-          "k9": 9.16,
-          "bb9": 2.53,
-          "note": "Ben Brown carries a strong run-prevention foundation into this matchup."
+          "pitcher_foundation_signal": 23,
+          "pitcher_profile_type": "Pitching Risk",
+          "k9": 5.94,
+          "bb9": 2.71,
+          "note": "Zac Gallen's foundation signal points to significant risk against MIN."
         }
       ],
       "fantasy_watch": [
-        "Power Watch: Jes\u00fas S\u00e1nchez brings elite power indicators into today's matchup.",
-        "Power Watch: Pete Crow-Armstrong brings elite power indicators into today's matchup.",
-        "Strikeout Upside: Ben Brown owns a strong foundation with a double-digit K/9."
+        "Power Watch: Byron Buxton brings elite power indicators into today's matchup.",
+        "Power Watch: Ketel Marte brings elite power indicators into today's matchup.",
+        "Risk Spot: Zac Gallen's foundation signal points to risk against MIN.",
+        "Buy-Low Bat: Ketel Marte's expected production is running ahead of current results.",
+        "Stack Watch: Multiple high-signal bats are clustered in this lineup: Ketel Marte, Gabriel Moreno."
       ],
       "matchup_notes": [
-        "Kevin Gausman (Stable Arm) faces Ben Brown (Strong Foundation)."
+        "Taj Bradley (Volatile Arm) faces Zac Gallen (Pitching Risk)."
       ]
     },
     {
-      "game_id": "824264",
-      "game_date": "2026-06-19",
+      "game_id": "824263",
+      "game_date": "2026-06-20",
       "away_team": "CWS",
       "home_team": "DET",
       "away_team_name": "Chicago White Sox",
@@ -510,31 +757,19 @@
       "away_lineup_source": "confirmed_lineup",
       "home_lineup_source": "confirmed_lineup",
       "probable_pitchers": {
-        "away": {
-          "slug": "erick-fedde",
-          "full_name": "Erick Fedde",
-          "team_abbr": "CWS",
-          "throws": null,
-          "pitcher_foundation_signal": 26,
-          "profile_type": "Pitching Risk",
-          "confidence": "HIGH",
-          "k9": 5.68,
-          "bb9": 3.41,
-          "era": 4.69,
-          "whip": 1.389
-        },
+        "away": null,
         "home": {
-          "slug": "tarik-skubal",
-          "full_name": "Tarik Skubal",
-          "team_abbr": null,
+          "slug": "troy-melton",
+          "full_name": "Troy Melton",
+          "team_abbr": "DET",
           "throws": null,
-          "pitcher_foundation_signal": 82,
-          "profile_type": "Strong Foundation",
+          "pitcher_foundation_signal": 58,
+          "profile_type": "Volatile Arm",
           "confidence": "MEDIUM",
-          "k9": 9.35,
-          "bb9": 1.25,
-          "era": 2.7,
-          "whip": 0.946
+          "k9": 4.91,
+          "bb9": 2.1,
+          "era": 2.81,
+          "whip": 1.013
         }
       },
       "away_bats_to_watch": [
@@ -671,61 +906,17 @@
           "Multiple high-signal bats are clustered in this lineup: Dillon Dingler, Kevin McGonigle, Matt Vierling."
         ]
       },
-      "pitcher_edges": [
-        {
-          "pitcher_slug": "erick-fedde",
-          "pitcher_name": "Erick Fedde",
-          "team_abbr": "CWS",
-          "opponent_team": "DET",
-          "edge_type": "Pitcher Risk",
-          "confidence": "HIGH",
-          "pitcher_foundation_signal": 26,
-          "pitcher_profile_type": "Pitching Risk",
-          "k9": 5.68,
-          "bb9": 3.41,
-          "note": "Erick Fedde's foundation signal points to significant risk against DET."
-        },
-        {
-          "pitcher_slug": "tarik-skubal",
-          "pitcher_name": "Tarik Skubal",
-          "team_abbr": null,
-          "opponent_team": "CWS",
-          "edge_type": "Strikeout Upside",
-          "confidence": "MEDIUM",
-          "pitcher_foundation_signal": 82,
-          "pitcher_profile_type": "Strong Foundation",
-          "k9": 9.35,
-          "bb9": 1.25,
-          "note": "Tarik Skubal owns a strong foundation with a double-digit K/9 against CWS."
-        },
-        {
-          "pitcher_slug": "tarik-skubal",
-          "pitcher_name": "Tarik Skubal",
-          "team_abbr": null,
-          "opponent_team": "CWS",
-          "edge_type": "Run Prevention Edge",
-          "confidence": "MEDIUM",
-          "pitcher_foundation_signal": 82,
-          "pitcher_profile_type": "Strong Foundation",
-          "k9": 9.35,
-          "bb9": 1.25,
-          "note": "Tarik Skubal carries a strong run-prevention foundation into this matchup."
-        }
-      ],
+      "pitcher_edges": [],
       "fantasy_watch": [
         "Power Watch: Miguel Vargas brings elite power indicators into today's matchup.",
         "Power Watch: Dillon Dingler brings elite power indicators into today's matchup.",
-        "Risk Spot: Erick Fedde's foundation signal points to risk against DET.",
-        "Strikeout Upside: Tarik Skubal owns a strong foundation with a double-digit K/9.",
         "Buy-Low Bat: Dillon Dingler's expected production is running ahead of current results."
       ],
-      "matchup_notes": [
-        "Erick Fedde (Pitching Risk) faces Tarik Skubal (Strong Foundation)."
-      ]
+      "matchup_notes": []
     },
     {
-      "game_id": "823534",
-      "game_date": "2026-06-19",
+      "game_id": "823532",
+      "game_date": "2026-06-20",
       "away_team": "CIN",
       "home_team": "NYY",
       "away_team_name": "Cincinnati Reds",
@@ -736,30 +927,30 @@
       "home_lineup_source": "confirmed_lineup",
       "probable_pitchers": {
         "away": {
-          "slug": "rhett-lowder",
-          "full_name": "Rhett Lowder",
+          "slug": "andrew-abbott",
+          "full_name": "Andrew Abbott",
           "team_abbr": "CIN",
           "throws": null,
-          "pitcher_foundation_signal": 18,
+          "pitcher_foundation_signal": 28,
           "profile_type": "Pitching Risk",
-          "confidence": "MEDIUM",
-          "k9": 6.75,
-          "bb9": 5.01,
-          "era": 5.01,
-          "whip": 1.452
+          "confidence": "HIGH",
+          "k9": 6.39,
+          "bb9": 3.98,
+          "era": 4.1,
+          "whip": 1.406
         },
         "home": {
-          "slug": "cam-schlittler",
-          "full_name": "Cam Schlittler",
+          "slug": "will-warren",
+          "full_name": "Will Warren",
           "team_abbr": "NYY",
           "throws": null,
-          "pitcher_foundation_signal": 89,
-          "profile_type": "Ace Foundation",
+          "pitcher_foundation_signal": 66,
+          "profile_type": "Stable Arm",
           "confidence": "HIGH",
-          "k9": 9.77,
-          "bb9": 1.54,
-          "era": 1.87,
-          "whip": 0.866
+          "k9": 9.83,
+          "bb9": 2.75,
+          "era": 3.28,
+          "whip": 1.194
         }
       },
       "away_bats_to_watch": [
@@ -811,23 +1002,6 @@
             "Balanced Producer"
           ],
           "note": "Nathaniel Lowe profile flagged for today's matchup."
-        },
-        {
-          "slug": "tyler-stephenson",
-          "full_name": "Tyler Stephenson",
-          "team_abbr": "CIN",
-          "position": "C",
-          "bats": "R",
-          "power_signal": 63,
-          "contact_signal": 36,
-          "luck_gap_points": 36,
-          "hitter_profile_type": "Buy-Low Bat",
-          "confidence": "HIGH",
-          "tags": [
-            "Buy-Low Bat",
-            "DFS Watch"
-          ],
-          "note": "Tyler Stephenson expected production is running ahead of current results."
         }
       ],
       "home_bats_to_watch": [
@@ -884,9 +1058,9 @@
         }
       ],
       "away_lineup_pressure": {
-        "power_score": 74,
-        "contact_score": 62,
-        "profile": "Moderate lineup pressure",
+        "power_score": 77,
+        "contact_score": 71,
+        "profile": "Heavy lineup pressure",
         "notes": []
       },
       "home_lineup_pressure": {
@@ -899,539 +1073,239 @@
       },
       "pitcher_edges": [
         {
-          "pitcher_slug": "rhett-lowder",
-          "pitcher_name": "Rhett Lowder",
+          "pitcher_slug": "andrew-abbott",
+          "pitcher_name": "Andrew Abbott",
           "team_abbr": "CIN",
           "opponent_team": "NYY",
           "edge_type": "Pitcher Risk",
-          "confidence": "MEDIUM",
-          "pitcher_foundation_signal": 18,
+          "confidence": "HIGH",
+          "pitcher_foundation_signal": 28,
           "pitcher_profile_type": "Pitching Risk",
-          "k9": 6.75,
-          "bb9": 5.01,
-          "note": "Rhett Lowder's foundation signal points to significant risk against NYY."
-        },
-        {
-          "pitcher_slug": "cam-schlittler",
-          "pitcher_name": "Cam Schlittler",
-          "team_abbr": "NYY",
-          "opponent_team": "CIN",
-          "edge_type": "Strikeout Upside",
-          "confidence": "HIGH",
-          "pitcher_foundation_signal": 89,
-          "pitcher_profile_type": "Ace Foundation",
-          "k9": 9.77,
-          "bb9": 1.54,
-          "note": "Cam Schlittler owns a strong foundation with a double-digit K/9 against CIN."
-        },
-        {
-          "pitcher_slug": "cam-schlittler",
-          "pitcher_name": "Cam Schlittler",
-          "team_abbr": "NYY",
-          "opponent_team": "CIN",
-          "edge_type": "Run Prevention Edge",
-          "confidence": "HIGH",
-          "pitcher_foundation_signal": 89,
-          "pitcher_profile_type": "Ace Foundation",
-          "k9": 9.77,
-          "bb9": 1.54,
-          "note": "Cam Schlittler carries a strong run-prevention foundation into this matchup."
+          "k9": 6.39,
+          "bb9": 3.98,
+          "note": "Andrew Abbott's foundation signal points to significant risk against NYY."
         }
       ],
       "fantasy_watch": [
         "Power Watch: JJ Bleday brings elite power indicators into today's matchup.",
         "Power Watch: Ben Rice brings elite power indicators into today's matchup.",
-        "Risk Spot: Rhett Lowder's foundation signal points to risk against NYY.",
-        "Strikeout Upside: Cam Schlittler owns a strong foundation with a double-digit K/9.",
-        "Buy-Low Bat: Tyler Stephenson's expected production is running ahead of current results."
+        "Risk Spot: Andrew Abbott's foundation signal points to risk against NYY."
       ],
       "matchup_notes": [
-        "Rhett Lowder (Pitching Risk) faces Cam Schlittler (Ace Foundation)."
+        "Andrew Abbott (Pitching Risk) faces Will Warren (Stable Arm)."
       ]
     },
     {
-      "game_id": "822966",
-      "game_date": "2026-06-19",
-      "away_team": "WSH",
-      "home_team": "TB",
-      "away_team_name": "Washington Nationals",
-      "home_team_name": "Tampa Bay Rays",
+      "game_id": "824665",
+      "game_date": "2026-06-20",
+      "away_team": "TOR",
+      "home_team": "CHC",
+      "away_team_name": "Toronto Blue Jays",
+      "home_team_name": "Chicago Cubs",
       "venue": null,
-      "lineup_source": "confirmed_lineup",
-      "away_lineup_source": "confirmed_lineup",
+      "lineup_source": "mixed",
+      "away_lineup_source": "projected_lineup",
       "home_lineup_source": "confirmed_lineup",
       "probable_pitchers": {
         "away": {
-          "slug": "cade-cavalli",
-          "full_name": "Cade Cavalli",
-          "team_abbr": "WSH",
+          "slug": "patrick-corbin",
+          "full_name": "Patrick Corbin",
+          "team_abbr": "TOR",
           "throws": null,
-          "pitcher_foundation_signal": 51,
-          "profile_type": "Volatile Arm",
+          "pitcher_foundation_signal": 28,
+          "profile_type": "Pitching Risk",
           "confidence": "HIGH",
-          "k9": 9.82,
-          "bb9": 3.23,
-          "era": 3.88,
-          "whip": 1.435
+          "k9": 6.28,
+          "bb9": 3.14,
+          "era": 4.55,
+          "whip": 1.448
         },
         "home": {
-          "slug": "griffin-jax",
-          "full_name": "Griffin Jax",
-          "team_abbr": "TB",
+          "slug": "colin-rea",
+          "full_name": "Colin Rea",
+          "team_abbr": "CHC",
           "throws": null,
-          "pitcher_foundation_signal": 35,
+          "pitcher_foundation_signal": 27,
           "profile_type": "Pitching Risk",
-          "confidence": "MEDIUM",
-          "k9": 8.31,
-          "bb9": 4.15,
-          "era": 4.15,
-          "whip": 1.41
+          "confidence": "HIGH",
+          "k9": 7.01,
+          "bb9": 3.25,
+          "era": 5.19,
+          "whip": 1.428
         }
       },
       "away_bats_to_watch": [
         {
-          "slug": "james-wood",
-          "full_name": "James Wood",
-          "team_abbr": "WSH",
-          "position": "RF",
-          "bats": "L",
-          "power_signal": 99,
-          "contact_signal": 76,
-          "luck_gap_points": 27,
-          "hitter_profile_type": "Real Power Bat",
-          "confidence": "HIGH",
-          "tags": [
-            "Power Watch",
-            "Contact Edge",
-            "DFS Watch"
-          ],
-          "note": "James Wood brings strong power indicators, and backed by a stable contact profile."
-        }
-      ],
-      "home_bats_to_watch": [
-        {
-          "slug": "junior-caminero",
-          "full_name": "Junior Caminero",
-          "team_abbr": "TB",
-          "position": "3B",
+          "slug": "vladimir-guerrero-jr",
+          "full_name": "Vladimir Guerrero Jr.",
+          "team_abbr": "TOR",
+          "position": "1B",
           "bats": "R",
-          "power_signal": 85,
-          "contact_signal": 85,
-          "luck_gap_points": -9,
-          "hitter_profile_type": "Real Power Bat",
+          "power_signal": 58,
+          "contact_signal": 86,
+          "luck_gap_points": 31,
+          "hitter_profile_type": "Contact-First Bat",
           "confidence": "HIGH",
           "tags": [
-            "Power Watch",
             "Contact Edge",
             "DFS Watch"
           ],
-          "note": "Junior Caminero brings strong power indicators, and backed by a stable contact profile."
+          "note": "Vladimir Guerrero Jr. backed by a stable contact profile."
         },
         {
-          "slug": "jonathan-aranda",
-          "full_name": "Jonathan Aranda",
-          "team_abbr": "TB",
-          "position": "1B",
+          "slug": "jesus-sanchez",
+          "full_name": "Jes\u00fas S\u00e1nchez",
+          "team_abbr": "TOR",
+          "position": "RF",
           "bats": "L",
-          "power_signal": 75,
-          "contact_signal": 69,
-          "luck_gap_points": 11,
+          "power_signal": 79,
+          "contact_signal": 60,
+          "luck_gap_points": 6,
           "hitter_profile_type": "Real Power Bat",
           "confidence": "HIGH",
           "tags": [
             "Power Watch"
           ],
-          "note": "Jonathan Aranda brings strong power indicators."
+          "note": "Jes\u00fas S\u00e1nchez brings strong power indicators."
         },
         {
-          "slug": "yandy-diaz",
-          "full_name": "Yandy D\u00edaz",
-          "team_abbr": "TB",
-          "position": "DH",
+          "slug": "kazuma-okamoto",
+          "full_name": "Kazuma Okamoto",
+          "team_abbr": "TOR",
+          "position": "3B",
           "bats": "R",
-          "power_signal": 70,
-          "contact_signal": 87,
-          "luck_gap_points": -32,
-          "hitter_profile_type": "Watch List",
-          "confidence": "HIGH",
-          "tags": [
-            "Contact Edge",
-            "DFS Watch"
-          ],
-          "note": "Yandy D\u00edaz backed by a stable contact profile."
-        }
-      ],
-      "away_lineup_pressure": {
-        "power_score": 99,
-        "contact_score": 76,
-        "profile": "Heavy lineup pressure",
-        "notes": []
-      },
-      "home_lineup_pressure": {
-        "power_score": 77,
-        "contact_score": 80,
-        "profile": "Heavy lineup pressure",
-        "notes": [
-          "Multiple high-signal bats are clustered in this lineup: Junior Caminero, Yandy D\u00edaz."
-        ]
-      },
-      "pitcher_edges": [
-        {
-          "pitcher_slug": "griffin-jax",
-          "pitcher_name": "Griffin Jax",
-          "team_abbr": "TB",
-          "opponent_team": "WSH",
-          "edge_type": "Pitcher Risk",
-          "confidence": "MEDIUM",
-          "pitcher_foundation_signal": 35,
-          "pitcher_profile_type": "Pitching Risk",
-          "k9": 8.31,
-          "bb9": 4.15,
-          "note": "Griffin Jax's foundation signal points to significant risk against WSH."
-        }
-      ],
-      "fantasy_watch": [
-        "Power Watch: James Wood brings elite power indicators into today's matchup.",
-        "Power Watch: Junior Caminero brings elite power indicators into today's matchup.",
-        "Risk Spot: Griffin Jax's foundation signal points to risk against WSH.",
-        "Stack Watch: Multiple high-signal bats are clustered in this lineup: Junior Caminero, Yandy D\u00edaz."
-      ],
-      "matchup_notes": [
-        "Cade Cavalli (Volatile Arm) faces Griffin Jax (Pitching Risk)."
-      ]
-    },
-    {
-      "game_id": "823853",
-      "game_date": "2026-06-19",
-      "away_team": "SF",
-      "home_team": "MIA",
-      "away_team_name": "San Francisco Giants",
-      "home_team_name": "Miami Marlins",
-      "venue": null,
-      "lineup_source": "confirmed_lineup",
-      "away_lineup_source": "confirmed_lineup",
-      "home_lineup_source": "confirmed_lineup",
-      "probable_pitchers": {
-        "away": {
-          "slug": "landen-roupp",
-          "full_name": "Landen Roupp",
-          "team_abbr": "SF",
-          "throws": null,
-          "pitcher_foundation_signal": 52,
-          "profile_type": "Volatile Arm",
-          "confidence": "HIGH",
-          "k9": 9.95,
-          "bb9": 3.88,
-          "era": 4.0,
-          "whip": 1.292
-        },
-        "home": null
-      },
-      "away_bats_to_watch": [
-        {
-          "slug": "jung-hoo-lee",
-          "full_name": "Jung Hoo Lee",
-          "team_abbr": "SF",
-          "position": "RF",
-          "bats": "L",
-          "power_signal": 23,
-          "contact_signal": 80,
-          "luck_gap_points": -25,
-          "hitter_profile_type": "Contact-First Bat",
-          "confidence": "HIGH",
-          "tags": [
-            "Contact Edge"
-          ],
-          "note": "Jung Hoo Lee backed by a stable contact profile."
-        },
-        {
-          "slug": "luis-arraez",
-          "full_name": "Luis Arraez",
-          "team_abbr": "SF",
-          "position": "2B",
-          "bats": "L",
-          "power_signal": 13,
-          "contact_signal": 75,
-          "luck_gap_points": -42,
-          "hitter_profile_type": "Regression Risk",
-          "confidence": "HIGH",
-          "tags": [
-            "Contact Edge",
-            "Regression Risk"
-          ],
-          "note": "Luis Arraez backed by a stable contact profile."
-        }
-      ],
-      "home_bats_to_watch": [
-        {
-          "slug": "otto-lopez",
-          "full_name": "Otto Lopez",
-          "team_abbr": "MIA",
-          "position": "SS",
-          "bats": "R",
-          "power_signal": 62,
-          "contact_signal": 76,
-          "luck_gap_points": -32,
-          "hitter_profile_type": "Watch List",
-          "confidence": "HIGH",
-          "tags": [
-            "Contact Edge"
-          ],
-          "note": "Otto Lopez backed by a stable contact profile."
-        }
-      ],
-      "away_lineup_pressure": {
-        "power_score": 18,
-        "contact_score": 78,
-        "profile": "Contact-heavy pressure",
-        "notes": []
-      },
-      "home_lineup_pressure": {
-        "power_score": 62,
-        "contact_score": 76,
-        "profile": "Contact-heavy pressure",
-        "notes": []
-      },
-      "pitcher_edges": [],
-      "fantasy_watch": [],
-      "matchup_notes": []
-    },
-    {
-      "game_id": "824910",
-      "game_date": "2026-06-19",
-      "away_team": "MIL",
-      "home_team": "ATL",
-      "away_team_name": "Milwaukee Brewers",
-      "home_team_name": "Atlanta Braves",
-      "venue": null,
-      "lineup_source": "confirmed_lineup",
-      "away_lineup_source": "confirmed_lineup",
-      "home_lineup_source": "confirmed_lineup",
-      "probable_pitchers": {
-        "away": {
-          "slug": "jacob-misiorowski",
-          "full_name": "Jacob Misiorowski",
-          "team_abbr": "MIL",
-          "throws": null,
-          "pitcher_foundation_signal": 94,
-          "profile_type": "Ace Foundation",
-          "confidence": "HIGH",
-          "k9": 13.38,
-          "bb9": 2.54,
-          "era": 1.5,
-          "whip": 0.808
-        },
-        "home": {
-          "slug": "martin-perez",
-          "full_name": "Mart\u00edn P\u00e9rez",
-          "team_abbr": "ATL",
-          "throws": null,
-          "pitcher_foundation_signal": 57,
-          "profile_type": "Volatile Arm",
-          "confidence": "HIGH",
-          "k9": 7.46,
-          "bb9": 3.18,
-          "era": 3.02,
-          "whip": 1.059
-        }
-      },
-      "away_bats_to_watch": [
-        {
-          "slug": "brice-turang",
-          "full_name": "Brice Turang",
-          "team_abbr": "MIL",
-          "position": "2B",
-          "bats": "L",
-          "power_signal": 61,
-          "contact_signal": 71,
-          "luck_gap_points": -5,
-          "hitter_profile_type": "Balanced Producer",
-          "confidence": "HIGH",
-          "tags": [
-            "Balanced Producer"
-          ],
-          "note": "Brice Turang profile flagged for today's matchup."
-        },
-        {
-          "slug": "jackson-chourio",
-          "full_name": "Jackson Chourio",
-          "team_abbr": "MIL",
-          "position": "LF",
-          "bats": "R",
-          "power_signal": 88,
-          "contact_signal": 53,
-          "luck_gap_points": -39,
-          "hitter_profile_type": "Regression Risk",
-          "confidence": "HIGH",
-          "tags": [
-            "Power Watch",
-            "Regression Risk",
-            "DFS Watch"
-          ],
-          "note": "Jackson Chourio brings strong power indicators."
-        },
-        {
-          "slug": "garrett-mitchell",
-          "full_name": "Garrett Mitchell",
-          "team_abbr": "MIL",
-          "position": "CF",
-          "bats": "L",
           "power_signal": 83,
-          "contact_signal": 44,
-          "luck_gap_points": -8,
+          "contact_signal": 28,
+          "luck_gap_points": 1,
           "hitter_profile_type": "Volatile Slugger",
           "confidence": "HIGH",
           "tags": [
             "Power Watch"
           ],
-          "note": "Garrett Mitchell brings strong power indicators."
-        },
-        {
-          "slug": "joey-ortiz",
-          "full_name": "Joey Ortiz",
-          "team_abbr": "MIL",
-          "position": "SS",
-          "bats": "R",
-          "power_signal": 16,
-          "contact_signal": 41,
-          "luck_gap_points": 40,
-          "hitter_profile_type": "Watch List",
-          "confidence": "HIGH",
-          "tags": [
-            "DFS Watch"
-          ],
-          "note": "Joey Ortiz expected production is running ahead of current results."
+          "note": "Kazuma Okamoto brings strong power indicators."
         }
       ],
       "home_bats_to_watch": [
         {
-          "slug": "drake-baldwin",
-          "full_name": "Drake Baldwin",
-          "team_abbr": "ATL",
-          "position": "C",
-          "bats": null,
-          "power_signal": 91,
-          "contact_signal": 84,
-          "luck_gap_points": 14,
-          "hitter_profile_type": "Real Power Bat",
+          "slug": "pete-crow-armstrong",
+          "full_name": "Pete Crow-Armstrong",
+          "team_abbr": "CHC",
+          "position": "CF",
+          "bats": "L",
+          "power_signal": 80,
+          "contact_signal": 49,
+          "luck_gap_points": 11,
+          "hitter_profile_type": "Volatile Slugger",
           "confidence": "HIGH",
           "tags": [
-            "Power Watch",
-            "Contact Edge",
-            "DFS Watch"
+            "Power Watch"
           ],
-          "note": "Drake Baldwin brings strong power indicators, and backed by a stable contact profile."
+          "note": "Pete Crow-Armstrong brings strong power indicators."
         },
         {
-          "slug": "matt-olson",
-          "full_name": "Matt Olson",
-          "team_abbr": "ATL",
-          "position": "1B",
-          "bats": "L",
-          "power_signal": 89,
-          "contact_signal": 65,
-          "luck_gap_points": -7,
-          "hitter_profile_type": "Real Power Bat",
+          "slug": "ian-happ",
+          "full_name": "Ian Happ",
+          "team_abbr": "CHC",
+          "position": "LF",
+          "bats": "S",
+          "power_signal": 81,
+          "contact_signal": 44,
+          "luck_gap_points": -21,
+          "hitter_profile_type": "Volatile Slugger",
           "confidence": "HIGH",
           "tags": [
-            "Power Watch",
-            "DFS Watch"
+            "Power Watch"
           ],
-          "note": "Matt Olson brings strong power indicators."
+          "note": "Ian Happ brings strong power indicators."
         }
       ],
       "away_lineup_pressure": {
-        "power_score": 62,
-        "contact_score": 52,
+        "power_score": 73,
+        "contact_score": 58,
         "profile": "Moderate lineup pressure",
-        "notes": [
-          "Multiple high-signal bats are clustered in this lineup: Jackson Chourio, Joey Ortiz."
-        ]
+        "notes": []
       },
       "home_lineup_pressure": {
-        "power_score": 90,
-        "contact_score": 74,
-        "profile": "Heavy lineup pressure",
-        "notes": [
-          "Multiple high-signal bats are clustered in this lineup: Drake Baldwin, Matt Olson."
-        ]
+        "power_score": 80,
+        "contact_score": 46,
+        "profile": "Power-heavy pressure",
+        "notes": []
       },
       "pitcher_edges": [
         {
-          "pitcher_slug": "jacob-misiorowski",
-          "pitcher_name": "Jacob Misiorowski",
-          "team_abbr": "MIL",
-          "opponent_team": "ATL",
-          "edge_type": "Strikeout Upside",
+          "pitcher_slug": "patrick-corbin",
+          "pitcher_name": "Patrick Corbin",
+          "team_abbr": "TOR",
+          "opponent_team": "CHC",
+          "edge_type": "Pitcher Risk",
           "confidence": "HIGH",
-          "pitcher_foundation_signal": 94,
-          "pitcher_profile_type": "Ace Foundation",
-          "k9": 13.38,
-          "bb9": 2.54,
-          "note": "Jacob Misiorowski owns a strong foundation with a double-digit K/9 against ATL."
+          "pitcher_foundation_signal": 28,
+          "pitcher_profile_type": "Pitching Risk",
+          "k9": 6.28,
+          "bb9": 3.14,
+          "note": "Patrick Corbin's foundation signal points to significant risk against CHC."
         },
         {
-          "pitcher_slug": "jacob-misiorowski",
-          "pitcher_name": "Jacob Misiorowski",
-          "team_abbr": "MIL",
-          "opponent_team": "ATL",
-          "edge_type": "Run Prevention Edge",
+          "pitcher_slug": "colin-rea",
+          "pitcher_name": "Colin Rea",
+          "team_abbr": "CHC",
+          "opponent_team": "TOR",
+          "edge_type": "Pitcher Risk",
           "confidence": "HIGH",
-          "pitcher_foundation_signal": 94,
-          "pitcher_profile_type": "Ace Foundation",
-          "k9": 13.38,
-          "bb9": 2.54,
-          "note": "Jacob Misiorowski carries a strong run-prevention foundation into this matchup."
+          "pitcher_foundation_signal": 27,
+          "pitcher_profile_type": "Pitching Risk",
+          "k9": 7.01,
+          "bb9": 3.25,
+          "note": "Colin Rea's foundation signal points to significant risk against TOR."
         }
       ],
       "fantasy_watch": [
-        "Power Watch: Jackson Chourio brings elite power indicators into today's matchup.",
-        "Power Watch: Drake Baldwin brings elite power indicators into today's matchup.",
-        "Strikeout Upside: Jacob Misiorowski owns a strong foundation with a double-digit K/9.",
-        "Stack Watch: Multiple high-signal bats are clustered in this lineup: Drake Baldwin, Matt Olson.",
-        "Risk Spot: Heavy lineup pressure lineup faces a Ace Foundation arm in Jacob Misiorowski."
+        "Power Watch: Jes\u00fas S\u00e1nchez brings elite power indicators into today's matchup.",
+        "Power Watch: Pete Crow-Armstrong brings elite power indicators into today's matchup.",
+        "Risk Spot: Patrick Corbin's foundation signal points to risk against CHC.",
+        "Risk Spot: Colin Rea's foundation signal points to risk against TOR."
       ],
       "matchup_notes": [
-        "Jacob Misiorowski (Ace Foundation) faces Mart\u00edn P\u00e9rez (Volatile Arm)."
+        "Patrick Corbin (Pitching Risk) faces Colin Rea (Pitching Risk)."
       ]
     },
     {
-      "game_id": "822886",
-      "game_date": "2026-06-19",
+      "game_id": "822885",
+      "game_date": "2026-06-20",
       "away_team": "SD",
       "home_team": "TEX",
       "away_team_name": "San Diego Padres",
       "home_team_name": "Texas Rangers",
       "venue": null,
-      "lineup_source": "confirmed_lineup",
-      "away_lineup_source": "confirmed_lineup",
-      "home_lineup_source": "confirmed_lineup",
+      "lineup_source": "projected_lineup",
+      "away_lineup_source": "projected_lineup",
+      "home_lineup_source": "projected_lineup",
       "probable_pitchers": {
         "away": {
-          "slug": "randy-vasquez",
-          "full_name": "Randy V\u00e1squez",
+          "slug": "walker-buehler",
+          "full_name": "Walker Buehler",
           "team_abbr": "SD",
           "throws": null,
-          "pitcher_foundation_signal": 46,
-          "profile_type": "Volatile Arm",
+          "pitcher_foundation_signal": 39,
+          "profile_type": "Pitching Risk",
           "confidence": "HIGH",
-          "k9": 6.88,
-          "bb9": 2.6,
-          "era": 3.63,
-          "whip": 1.298
+          "k9": 7.65,
+          "bb9": 3.18,
+          "era": 4.33,
+          "whip": 1.348
         },
         "home": {
-          "slug": "jacob-degrom",
-          "full_name": "Jacob deGrom",
+          "slug": "nathan-eovaldi",
+          "full_name": "Nathan Eovaldi",
           "team_abbr": "TEX",
           "throws": null,
-          "pitcher_foundation_signal": 81,
-          "profile_type": "Strong Foundation",
+          "pitcher_foundation_signal": 56,
+          "profile_type": "Volatile Arm",
           "confidence": "HIGH",
-          "k9": 10.7,
-          "bb9": 1.91,
-          "era": 3.18,
-          "whip": 0.991
+          "k9": 8.63,
+          "bb9": 2.24,
+          "era": 4.26,
+          "whip": 1.183
         }
       },
       "away_bats_to_watch": [
@@ -1504,6 +1378,24 @@
           "note": "Brandon Nimmo expected production is running ahead of current results."
         },
         {
+          "slug": "corey-seager",
+          "full_name": "Corey Seager",
+          "team_abbr": "TEX",
+          "position": "SS",
+          "bats": "L",
+          "power_signal": 80,
+          "contact_signal": 27,
+          "luck_gap_points": 53,
+          "hitter_profile_type": "Buy-Low Bat",
+          "confidence": "HIGH",
+          "tags": [
+            "Power Watch",
+            "Buy-Low Bat",
+            "DFS Watch"
+          ],
+          "note": "Corey Seager brings strong power indicators, and expected production is running ahead of current results."
+        },
+        {
           "slug": "joc-pederson",
           "full_name": "Joc Pederson",
           "team_abbr": "TEX",
@@ -1545,88 +1437,633 @@
         ]
       },
       "home_lineup_pressure": {
-        "power_score": 61,
-        "contact_score": 68,
+        "power_score": 66,
+        "contact_score": 58,
         "profile": "Moderate lineup pressure",
-        "notes": []
+        "notes": [
+          "Multiple high-signal bats are clustered in this lineup: Brandon Nimmo, Corey Seager."
+        ]
       },
       "pitcher_edges": [
         {
-          "pitcher_slug": "jacob-degrom",
-          "pitcher_name": "Jacob deGrom",
-          "team_abbr": "TEX",
-          "opponent_team": "SD",
-          "edge_type": "Strikeout Upside",
+          "pitcher_slug": "walker-buehler",
+          "pitcher_name": "Walker Buehler",
+          "team_abbr": "SD",
+          "opponent_team": "TEX",
+          "edge_type": "Pitcher Risk",
           "confidence": "HIGH",
-          "pitcher_foundation_signal": 81,
-          "pitcher_profile_type": "Strong Foundation",
-          "k9": 10.7,
-          "bb9": 1.91,
-          "note": "Jacob deGrom owns a strong foundation with a double-digit K/9 against SD."
-        },
-        {
-          "pitcher_slug": "jacob-degrom",
-          "pitcher_name": "Jacob deGrom",
-          "team_abbr": "TEX",
-          "opponent_team": "SD",
-          "edge_type": "Run Prevention Edge",
-          "confidence": "HIGH",
-          "pitcher_foundation_signal": 81,
-          "pitcher_profile_type": "Strong Foundation",
-          "k9": 10.7,
-          "bb9": 1.91,
-          "note": "Jacob deGrom carries a strong run-prevention foundation into this matchup."
+          "pitcher_foundation_signal": 39,
+          "pitcher_profile_type": "Pitching Risk",
+          "k9": 7.65,
+          "bb9": 3.18,
+          "note": "Walker Buehler's foundation signal points to significant risk against TEX."
         }
       ],
       "fantasy_watch": [
-        "Strikeout Upside: Jacob deGrom owns a strong foundation with a double-digit K/9.",
+        "Power Watch: Corey Seager brings elite power indicators into today's matchup.",
+        "Risk Spot: Walker Buehler's foundation signal points to risk against TEX.",
         "Buy-Low Bat: Fernando Tatis Jr.'s expected production is running ahead of current results.",
         "Buy-Low Bat: Brandon Nimmo's expected production is running ahead of current results."
       ],
       "matchup_notes": [
-        "Randy V\u00e1squez (Volatile Arm) faces Jacob deGrom (Strong Foundation)."
+        "Walker Buehler (Pitching Risk) faces Nathan Eovaldi (Volatile Arm)."
       ]
     },
     {
-      "game_id": "824179",
-      "game_date": "2026-06-19",
+      "game_id": "822967",
+      "game_date": "2026-06-20",
+      "away_team": "WSH",
+      "home_team": "TB",
+      "away_team_name": "Washington Nationals",
+      "home_team_name": "Tampa Bay Rays",
+      "venue": null,
+      "lineup_source": "projected_lineup",
+      "away_lineup_source": "projected_lineup",
+      "home_lineup_source": "projected_lineup",
+      "probable_pitchers": {
+        "away": {
+          "slug": "cade-cavalli",
+          "full_name": "Cade Cavalli",
+          "team_abbr": "WSH",
+          "throws": null,
+          "pitcher_foundation_signal": 51,
+          "profile_type": "Volatile Arm",
+          "confidence": "HIGH",
+          "k9": 9.82,
+          "bb9": 3.23,
+          "era": 3.88,
+          "whip": 1.435
+        },
+        "home": {
+          "slug": "ian-seymour",
+          "full_name": "Ian Seymour",
+          "team_abbr": "TB",
+          "throws": null,
+          "pitcher_foundation_signal": 44,
+          "profile_type": "Volatile Arm",
+          "confidence": "MEDIUM",
+          "k9": 9.77,
+          "bb9": 4.11,
+          "era": 4.89,
+          "whip": 1.257
+        }
+      },
+      "away_bats_to_watch": [
+        {
+          "slug": "james-wood",
+          "full_name": "James Wood",
+          "team_abbr": "WSH",
+          "position": "RF",
+          "bats": "L",
+          "power_signal": 99,
+          "contact_signal": 76,
+          "luck_gap_points": 27,
+          "hitter_profile_type": "Real Power Bat",
+          "confidence": "HIGH",
+          "tags": [
+            "Power Watch",
+            "Contact Edge",
+            "DFS Watch"
+          ],
+          "note": "James Wood brings strong power indicators, and backed by a stable contact profile."
+        },
+        {
+          "slug": "curtis-mead",
+          "full_name": "Curtis Mead",
+          "team_abbr": "WSH",
+          "position": "1B",
+          "bats": "R",
+          "power_signal": 64,
+          "contact_signal": 75,
+          "luck_gap_points": 6,
+          "hitter_profile_type": "Balanced Producer",
+          "confidence": "HIGH",
+          "tags": [
+            "Contact Edge",
+            "Balanced Producer"
+          ],
+          "note": "Curtis Mead backed by a stable contact profile."
+        }
+      ],
+      "home_bats_to_watch": [
+        {
+          "slug": "junior-caminero",
+          "full_name": "Junior Caminero",
+          "team_abbr": "TB",
+          "position": "3B",
+          "bats": "R",
+          "power_signal": 85,
+          "contact_signal": 85,
+          "luck_gap_points": -9,
+          "hitter_profile_type": "Real Power Bat",
+          "confidence": "HIGH",
+          "tags": [
+            "Power Watch",
+            "Contact Edge",
+            "DFS Watch"
+          ],
+          "note": "Junior Caminero brings strong power indicators, and backed by a stable contact profile."
+        },
+        {
+          "slug": "jonathan-aranda",
+          "full_name": "Jonathan Aranda",
+          "team_abbr": "TB",
+          "position": "1B",
+          "bats": "L",
+          "power_signal": 75,
+          "contact_signal": 69,
+          "luck_gap_points": 11,
+          "hitter_profile_type": "Real Power Bat",
+          "confidence": "HIGH",
+          "tags": [
+            "Power Watch"
+          ],
+          "note": "Jonathan Aranda brings strong power indicators."
+        },
+        {
+          "slug": "yandy-diaz",
+          "full_name": "Yandy D\u00edaz",
+          "team_abbr": "TB",
+          "position": "DH",
+          "bats": "R",
+          "power_signal": 70,
+          "contact_signal": 87,
+          "luck_gap_points": -32,
+          "hitter_profile_type": "Watch List",
+          "confidence": "HIGH",
+          "tags": [
+            "Contact Edge",
+            "DFS Watch"
+          ],
+          "note": "Yandy D\u00edaz backed by a stable contact profile."
+        }
+      ],
+      "away_lineup_pressure": {
+        "power_score": 82,
+        "contact_score": 76,
+        "profile": "Heavy lineup pressure",
+        "notes": []
+      },
+      "home_lineup_pressure": {
+        "power_score": 77,
+        "contact_score": 80,
+        "profile": "Heavy lineup pressure",
+        "notes": [
+          "Multiple high-signal bats are clustered in this lineup: Junior Caminero, Yandy D\u00edaz."
+        ]
+      },
+      "pitcher_edges": [],
+      "fantasy_watch": [
+        "Power Watch: James Wood brings elite power indicators into today's matchup.",
+        "Power Watch: Junior Caminero brings elite power indicators into today's matchup.",
+        "Stack Watch: Multiple high-signal bats are clustered in this lineup: Junior Caminero, Yandy D\u00edaz."
+      ],
+      "matchup_notes": [
+        "Cade Cavalli (Volatile Arm) faces Ian Seymour (Volatile Arm)."
+      ]
+    },
+    {
+      "game_id": "823854",
+      "game_date": "2026-06-20",
+      "away_team": "SF",
+      "home_team": "MIA",
+      "away_team_name": "San Francisco Giants",
+      "home_team_name": "Miami Marlins",
+      "venue": null,
+      "lineup_source": "projected_lineup",
+      "away_lineup_source": "projected_lineup",
+      "home_lineup_source": "projected_lineup",
+      "probable_pitchers": {
+        "away": {
+          "slug": "trevor-mcdonald",
+          "full_name": "Trevor McDonald",
+          "team_abbr": "SF",
+          "throws": null,
+          "pitcher_foundation_signal": 53,
+          "profile_type": "Volatile Arm",
+          "confidence": "MEDIUM",
+          "k9": 8.54,
+          "bb9": 2.77,
+          "era": 4.15,
+          "whip": 1.179
+        },
+        "home": {
+          "slug": "max-meyer",
+          "full_name": "Max Meyer",
+          "team_abbr": "MIA",
+          "throws": null,
+          "pitcher_foundation_signal": 69,
+          "profile_type": "Stable Arm",
+          "confidence": "HIGH",
+          "k9": 9.8,
+          "bb9": 3.3,
+          "era": 2.85,
+          "whip": 1.089
+        }
+      },
+      "away_bats_to_watch": [
+        {
+          "slug": "jung-hoo-lee",
+          "full_name": "Jung Hoo Lee",
+          "team_abbr": "SF",
+          "position": "RF",
+          "bats": "L",
+          "power_signal": 23,
+          "contact_signal": 80,
+          "luck_gap_points": -25,
+          "hitter_profile_type": "Contact-First Bat",
+          "confidence": "HIGH",
+          "tags": [
+            "Contact Edge"
+          ],
+          "note": "Jung Hoo Lee backed by a stable contact profile."
+        },
+        {
+          "slug": "luis-arraez",
+          "full_name": "Luis Arraez",
+          "team_abbr": "SF",
+          "position": "2B",
+          "bats": "L",
+          "power_signal": 13,
+          "contact_signal": 75,
+          "luck_gap_points": -42,
+          "hitter_profile_type": "Regression Risk",
+          "confidence": "HIGH",
+          "tags": [
+            "Contact Edge",
+            "Regression Risk"
+          ],
+          "note": "Luis Arraez backed by a stable contact profile."
+        }
+      ],
+      "home_bats_to_watch": [
+        {
+          "slug": "xavier-edwards",
+          "full_name": "Xavier Edwards",
+          "team_abbr": "MIA",
+          "position": "2B",
+          "bats": "S",
+          "power_signal": 29,
+          "contact_signal": 87,
+          "luck_gap_points": -24,
+          "hitter_profile_type": "Contact-First Bat",
+          "confidence": "HIGH",
+          "tags": [
+            "Contact Edge",
+            "DFS Watch"
+          ],
+          "note": "Xavier Edwards backed by a stable contact profile."
+        },
+        {
+          "slug": "otto-lopez",
+          "full_name": "Otto Lopez",
+          "team_abbr": "MIA",
+          "position": "SS",
+          "bats": "R",
+          "power_signal": 62,
+          "contact_signal": 76,
+          "luck_gap_points": -32,
+          "hitter_profile_type": "Watch List",
+          "confidence": "HIGH",
+          "tags": [
+            "Contact Edge"
+          ],
+          "note": "Otto Lopez backed by a stable contact profile."
+        }
+      ],
+      "away_lineup_pressure": {
+        "power_score": 18,
+        "contact_score": 78,
+        "profile": "Contact-heavy pressure",
+        "notes": []
+      },
+      "home_lineup_pressure": {
+        "power_score": 46,
+        "contact_score": 82,
+        "profile": "Contact-heavy pressure",
+        "notes": []
+      },
+      "pitcher_edges": [],
+      "fantasy_watch": [],
+      "matchup_notes": [
+        "Trevor McDonald (Volatile Arm) faces Max Meyer (Stable Arm)."
+      ]
+    },
+    {
+      "game_id": "824909",
+      "game_date": "2026-06-20",
+      "away_team": "MIL",
+      "home_team": "ATL",
+      "away_team_name": "Milwaukee Brewers",
+      "home_team_name": "Atlanta Braves",
+      "venue": null,
+      "lineup_source": "projected_lineup",
+      "away_lineup_source": "projected_lineup",
+      "home_lineup_source": "projected_lineup",
+      "probable_pitchers": {
+        "away": {
+          "slug": "kyle-harrison",
+          "full_name": "Kyle Harrison",
+          "team_abbr": "MIL",
+          "throws": null,
+          "pitcher_foundation_signal": 78,
+          "profile_type": "Strong Foundation",
+          "confidence": "HIGH",
+          "k9": 11.61,
+          "bb9": 2.72,
+          "era": 2.72,
+          "whip": 1.156
+        },
+        "home": {
+          "slug": "chris-sale",
+          "full_name": "Chris Sale",
+          "team_abbr": "ATL",
+          "throws": null,
+          "pitcher_foundation_signal": 85,
+          "profile_type": "Ace Foundation",
+          "confidence": "HIGH",
+          "k9": 10.65,
+          "bb9": 2.35,
+          "era": 2.23,
+          "whip": 1.032
+        }
+      },
+      "away_bats_to_watch": [
+        {
+          "slug": "jake-bauers",
+          "full_name": "Jake Bauers",
+          "team_abbr": "MIL",
+          "position": "1B",
+          "bats": "L",
+          "power_signal": 85,
+          "contact_signal": 72,
+          "luck_gap_points": -17,
+          "hitter_profile_type": "Real Power Bat",
+          "confidence": "HIGH",
+          "tags": [
+            "Power Watch",
+            "DFS Watch"
+          ],
+          "note": "Jake Bauers brings strong power indicators."
+        },
+        {
+          "slug": "brice-turang",
+          "full_name": "Brice Turang",
+          "team_abbr": "MIL",
+          "position": "2B",
+          "bats": "L",
+          "power_signal": 61,
+          "contact_signal": 71,
+          "luck_gap_points": -5,
+          "hitter_profile_type": "Balanced Producer",
+          "confidence": "HIGH",
+          "tags": [
+            "Balanced Producer"
+          ],
+          "note": "Brice Turang profile flagged for today's matchup."
+        },
+        {
+          "slug": "jackson-chourio",
+          "full_name": "Jackson Chourio",
+          "team_abbr": "MIL",
+          "position": "LF",
+          "bats": "R",
+          "power_signal": 88,
+          "contact_signal": 53,
+          "luck_gap_points": -39,
+          "hitter_profile_type": "Regression Risk",
+          "confidence": "HIGH",
+          "tags": [
+            "Power Watch",
+            "Regression Risk",
+            "DFS Watch"
+          ],
+          "note": "Jackson Chourio brings strong power indicators."
+        },
+        {
+          "slug": "garrett-mitchell",
+          "full_name": "Garrett Mitchell",
+          "team_abbr": "MIL",
+          "position": "CF",
+          "bats": "L",
+          "power_signal": 83,
+          "contact_signal": 44,
+          "luck_gap_points": -8,
+          "hitter_profile_type": "Volatile Slugger",
+          "confidence": "HIGH",
+          "tags": [
+            "Power Watch"
+          ],
+          "note": "Garrett Mitchell brings strong power indicators."
+        },
+        {
+          "slug": "luis-rengifo",
+          "full_name": "Luis Rengifo",
+          "team_abbr": "MIL",
+          "position": "3B",
+          "bats": "S",
+          "power_signal": 23,
+          "contact_signal": 44,
+          "luck_gap_points": 51,
+          "hitter_profile_type": "Watch List",
+          "confidence": "HIGH",
+          "tags": [
+            "DFS Watch"
+          ],
+          "note": "Luis Rengifo expected production is running ahead of current results."
+        }
+      ],
+      "home_bats_to_watch": [
+        {
+          "slug": "michael-harris-ii",
+          "full_name": "Michael Harris II",
+          "team_abbr": "ATL",
+          "position": "CF",
+          "bats": "L",
+          "power_signal": 93,
+          "contact_signal": 68,
+          "luck_gap_points": 13,
+          "hitter_profile_type": "Real Power Bat",
+          "confidence": "HIGH",
+          "tags": [
+            "Power Watch",
+            "DFS Watch"
+          ],
+          "note": "Michael Harris II brings strong power indicators."
+        },
+        {
+          "slug": "ronald-acuna-jr",
+          "full_name": "Ronald Acu\u00f1a Jr.",
+          "team_abbr": "ATL",
+          "position": "RF",
+          "bats": "R",
+          "power_signal": 78,
+          "contact_signal": 67,
+          "luck_gap_points": 27,
+          "hitter_profile_type": "Real Power Bat",
+          "confidence": "HIGH",
+          "tags": [
+            "Power Watch"
+          ],
+          "note": "Ronald Acu\u00f1a Jr. brings strong power indicators."
+        },
+        {
+          "slug": "matt-olson",
+          "full_name": "Matt Olson",
+          "team_abbr": "ATL",
+          "position": "1B",
+          "bats": "L",
+          "power_signal": 89,
+          "contact_signal": 65,
+          "luck_gap_points": -7,
+          "hitter_profile_type": "Real Power Bat",
+          "confidence": "HIGH",
+          "tags": [
+            "Power Watch",
+            "DFS Watch"
+          ],
+          "note": "Matt Olson brings strong power indicators."
+        }
+      ],
+      "away_lineup_pressure": {
+        "power_score": 68,
+        "contact_score": 57,
+        "profile": "Moderate lineup pressure",
+        "notes": [
+          "Multiple high-signal bats are clustered in this lineup: Jake Bauers, Jackson Chourio, Luis Rengifo."
+        ]
+      },
+      "home_lineup_pressure": {
+        "power_score": 87,
+        "contact_score": 67,
+        "profile": "Heavy lineup pressure",
+        "notes": [
+          "Multiple high-signal bats are clustered in this lineup: Michael Harris II, Matt Olson."
+        ]
+      },
+      "pitcher_edges": [
+        {
+          "pitcher_slug": "kyle-harrison",
+          "pitcher_name": "Kyle Harrison",
+          "team_abbr": "MIL",
+          "opponent_team": "ATL",
+          "edge_type": "Strikeout Upside",
+          "confidence": "HIGH",
+          "pitcher_foundation_signal": 78,
+          "pitcher_profile_type": "Strong Foundation",
+          "k9": 11.61,
+          "bb9": 2.72,
+          "note": "Kyle Harrison owns a strong foundation with a double-digit K/9 against ATL."
+        },
+        {
+          "pitcher_slug": "kyle-harrison",
+          "pitcher_name": "Kyle Harrison",
+          "team_abbr": "MIL",
+          "opponent_team": "ATL",
+          "edge_type": "Run Prevention Edge",
+          "confidence": "HIGH",
+          "pitcher_foundation_signal": 78,
+          "pitcher_profile_type": "Strong Foundation",
+          "k9": 11.61,
+          "bb9": 2.72,
+          "note": "Kyle Harrison carries a strong run-prevention foundation into this matchup."
+        },
+        {
+          "pitcher_slug": "chris-sale",
+          "pitcher_name": "Chris Sale",
+          "team_abbr": "ATL",
+          "opponent_team": "MIL",
+          "edge_type": "Strikeout Upside",
+          "confidence": "HIGH",
+          "pitcher_foundation_signal": 85,
+          "pitcher_profile_type": "Ace Foundation",
+          "k9": 10.65,
+          "bb9": 2.35,
+          "note": "Chris Sale owns a strong foundation with a double-digit K/9 against MIL."
+        },
+        {
+          "pitcher_slug": "chris-sale",
+          "pitcher_name": "Chris Sale",
+          "team_abbr": "ATL",
+          "opponent_team": "MIL",
+          "edge_type": "Run Prevention Edge",
+          "confidence": "HIGH",
+          "pitcher_foundation_signal": 85,
+          "pitcher_profile_type": "Ace Foundation",
+          "k9": 10.65,
+          "bb9": 2.35,
+          "note": "Chris Sale carries a strong run-prevention foundation into this matchup."
+        }
+      ],
+      "fantasy_watch": [
+        "Power Watch: Jake Bauers brings elite power indicators into today's matchup.",
+        "Power Watch: Michael Harris II brings elite power indicators into today's matchup.",
+        "Strikeout Upside: Kyle Harrison owns a strong foundation with a double-digit K/9.",
+        "Strikeout Upside: Chris Sale owns a strong foundation with a double-digit K/9.",
+        "Stack Watch: Multiple high-signal bats are clustered in this lineup: Michael Harris II, Matt Olson.",
+        "Risk Spot: Heavy lineup pressure lineup faces a Strong Foundation arm in Kyle Harrison."
+      ],
+      "matchup_notes": [
+        "Kyle Harrison (Strong Foundation) faces Chris Sale (Ace Foundation)."
+      ]
+    },
+    {
+      "game_id": "824180",
+      "game_date": "2026-06-20",
       "away_team": "CLE",
       "home_team": "HOU",
       "away_team_name": "Cleveland Guardians",
       "home_team_name": "Houston Astros",
       "venue": null,
-      "lineup_source": "confirmed_lineup",
-      "away_lineup_source": "confirmed_lineup",
-      "home_lineup_source": "confirmed_lineup",
+      "lineup_source": "projected_lineup",
+      "away_lineup_source": "projected_lineup",
+      "home_lineup_source": "projected_lineup",
       "probable_pitchers": {
         "away": {
-          "slug": "tanner-bibee",
-          "full_name": "Tanner Bibee",
+          "slug": "joey-cantillo",
+          "full_name": "Joey Cantillo",
           "team_abbr": "CLE",
           "throws": null,
-          "pitcher_foundation_signal": 46,
-          "profile_type": "Volatile Arm",
+          "pitcher_foundation_signal": 27,
+          "profile_type": "Pitching Risk",
           "confidence": "HIGH",
-          "k9": 7.36,
-          "bb9": 2.81,
-          "era": 4.09,
-          "whip": 1.234
+          "k9": 8.46,
+          "bb9": 4.84,
+          "era": 4.57,
+          "whip": 1.507
         },
         "home": {
-          "slug": "tatsuya-imai",
-          "full_name": "Tatsuya Imai",
+          "slug": "spencer-arrighetti",
+          "full_name": "Spencer Arrighetti",
           "team_abbr": "HOU",
           "throws": null,
-          "pitcher_foundation_signal": 29,
-          "profile_type": "Pitching Risk",
-          "confidence": "MEDIUM",
-          "k9": 9.44,
-          "bb9": 6.03,
-          "era": 5.24,
-          "whip": 1.398
+          "pitcher_foundation_signal": 54,
+          "profile_type": "Volatile Arm",
+          "confidence": "HIGH",
+          "k9": 8.37,
+          "bb9": 4.89,
+          "era": 2.21,
+          "whip": 1.193
         }
       },
-      "away_bats_to_watch": [],
+      "away_bats_to_watch": [
+        {
+          "slug": "jose-ramirez",
+          "full_name": "Jos\u00e9 Ram\u00edrez",
+          "team_abbr": "CLE",
+          "position": "3B",
+          "bats": "S",
+          "power_signal": 54,
+          "contact_signal": 77,
+          "luck_gap_points": 25,
+          "hitter_profile_type": "Contact-First Bat",
+          "confidence": "HIGH",
+          "tags": [
+            "Contact Edge"
+          ],
+          "note": "Jos\u00e9 Ram\u00edrez backed by a stable contact profile."
+        }
+      ],
       "home_bats_to_watch": [
         {
           "slug": "yordan-alvarez",
@@ -1666,9 +2103,9 @@
         }
       ],
       "away_lineup_pressure": {
-        "power_score": null,
-        "contact_score": null,
-        "profile": "Insufficient data",
+        "power_score": 54,
+        "contact_score": 77,
+        "profile": "Contact-heavy pressure",
         "notes": []
       },
       "home_lineup_pressure": {
@@ -1681,196 +2118,298 @@
       },
       "pitcher_edges": [
         {
-          "pitcher_slug": "tatsuya-imai",
-          "pitcher_name": "Tatsuya Imai",
-          "team_abbr": "HOU",
-          "opponent_team": "CLE",
+          "pitcher_slug": "joey-cantillo",
+          "pitcher_name": "Joey Cantillo",
+          "team_abbr": "CLE",
+          "opponent_team": "HOU",
           "edge_type": "Pitcher Risk",
-          "confidence": "MEDIUM",
-          "pitcher_foundation_signal": 29,
+          "confidence": "HIGH",
+          "pitcher_foundation_signal": 27,
           "pitcher_profile_type": "Pitching Risk",
-          "k9": 9.44,
-          "bb9": 6.03,
-          "note": "Tatsuya Imai's foundation signal points to significant risk against CLE."
+          "k9": 8.46,
+          "bb9": 4.84,
+          "note": "Joey Cantillo's foundation signal points to significant risk against HOU."
         }
       ],
       "fantasy_watch": [
         "Power Watch: Yordan Alvarez brings elite power indicators into today's matchup.",
-        "Risk Spot: Tatsuya Imai's foundation signal points to risk against CLE.",
+        "Risk Spot: Joey Cantillo's foundation signal points to risk against HOU.",
         "Buy-Low Bat: Yordan Alvarez's expected production is running ahead of current results."
       ],
       "matchup_notes": [
-        "Tanner Bibee (Volatile Arm) faces Tatsuya Imai (Pitching Risk)."
+        "Joey Cantillo (Pitching Risk) faces Spencer Arrighetti (Volatile Arm)."
       ]
     },
     {
-      "game_id": "824097",
-      "game_date": "2026-06-19",
-      "away_team": "STL",
-      "home_team": "KC",
-      "away_team_name": "St. Louis Cardinals",
-      "home_team_name": "Kansas City Royals",
+      "game_id": "823447",
+      "game_date": "2026-06-20",
+      "away_team": "NYM",
+      "home_team": "PHI",
+      "away_team_name": "New York Mets",
+      "home_team_name": "Philadelphia Phillies",
       "venue": null,
-      "lineup_source": "confirmed_lineup",
-      "away_lineup_source": "confirmed_lineup",
-      "home_lineup_source": "confirmed_lineup",
+      "lineup_source": "projected_lineup",
+      "away_lineup_source": "projected_lineup",
+      "home_lineup_source": "projected_lineup",
       "probable_pitchers": {
         "away": {
-          "slug": "michael-mcgreevy",
-          "full_name": "Michael McGreevy",
-          "team_abbr": "STL",
+          "slug": "freddy-peralta",
+          "full_name": "Freddy Peralta",
+          "team_abbr": "NYM",
           "throws": null,
-          "pitcher_foundation_signal": 58,
+          "pitcher_foundation_signal": 47,
           "profile_type": "Volatile Arm",
           "confidence": "HIGH",
-          "k9": 6.1,
-          "bb9": 2.12,
-          "era": 2.99,
-          "whip": 1.078
+          "k9": 9.12,
+          "bb9": 3.69,
+          "era": 4.04,
+          "whip": 1.321
         },
         "home": {
-          "slug": "seth-lugo",
-          "full_name": "Seth Lugo",
-          "team_abbr": "KC",
+          "slug": "cristopher-sanchez",
+          "full_name": "Cristopher S\u00e1nchez",
+          "team_abbr": "PHI",
           "throws": null,
-          "pitcher_foundation_signal": 44,
-          "profile_type": "Volatile Arm",
+          "pitcher_foundation_signal": 90,
+          "profile_type": "Ace Foundation",
           "confidence": "HIGH",
-          "k9": 7.58,
-          "bb9": 2.84,
-          "era": 3.91,
-          "whip": 1.355
+          "k9": 10.9,
+          "bb9": 1.74,
+          "era": 1.54,
+          "whip": 1.061
         }
       },
       "away_bats_to_watch": [
         {
-          "slug": "alec-burleson",
-          "full_name": "Alec Burleson",
-          "team_abbr": "STL",
-          "position": "1B",
+          "slug": "juan-soto",
+          "full_name": "Juan Soto",
+          "team_abbr": "NYM",
+          "position": "LF",
           "bats": "L",
-          "power_signal": 78,
-          "contact_signal": 79,
-          "luck_gap_points": 22,
+          "power_signal": 94,
+          "contact_signal": 87,
+          "luck_gap_points": 29,
           "hitter_profile_type": "Real Power Bat",
           "confidence": "HIGH",
           "tags": [
             "Power Watch",
-            "Contact Edge"
-          ],
-          "note": "Alec Burleson brings strong power indicators, and backed by a stable contact profile."
-        },
-        {
-          "slug": "jordan-walker",
-          "full_name": "Jordan Walker",
-          "team_abbr": "STL",
-          "position": "RF",
-          "bats": "R",
-          "power_signal": 92,
-          "contact_signal": 66,
-          "luck_gap_points": -26,
-          "hitter_profile_type": "Real Power Bat",
-          "confidence": "HIGH",
-          "tags": [
-            "Power Watch",
+            "Contact Edge",
             "DFS Watch"
           ],
-          "note": "Jordan Walker brings strong power indicators."
+          "note": "Juan Soto brings strong power indicators, and backed by a stable contact profile."
         },
         {
-          "slug": "ivan-herrera",
-          "full_name": "Iv\u00e1n Herrera",
-          "team_abbr": "STL",
-          "position": "DH",
+          "slug": "bo-bichette",
+          "full_name": "Bo Bichette",
+          "team_abbr": "NYM",
+          "position": "3B",
           "bats": "R",
-          "power_signal": 49,
-          "contact_signal": 80,
-          "luck_gap_points": 5,
-          "hitter_profile_type": "Contact-First Bat",
+          "power_signal": 63,
+          "contact_signal": 44,
+          "luck_gap_points": 58,
+          "hitter_profile_type": "Buy-Low Bat",
           "confidence": "HIGH",
           "tags": [
-            "Contact Edge"
+            "Buy-Low Bat",
+            "DFS Watch"
           ],
-          "note": "Iv\u00e1n Herrera backed by a stable contact profile."
+          "note": "Bo Bichette expected production is running ahead of current results."
+        },
+        {
+          "slug": "carson-benge",
+          "full_name": "Carson Benge",
+          "team_abbr": "NYM",
+          "position": "RF",
+          "bats": "L",
+          "power_signal": 62,
+          "contact_signal": 54,
+          "luck_gap_points": 35,
+          "hitter_profile_type": "Buy-Low Bat",
+          "confidence": "HIGH",
+          "tags": [
+            "Buy-Low Bat",
+            "DFS Watch"
+          ],
+          "note": "Carson Benge expected production is running ahead of current results."
+        },
+        {
+          "slug": "mark-vientos",
+          "full_name": "Mark Vientos",
+          "team_abbr": "NYM",
+          "position": "1B",
+          "bats": "R",
+          "power_signal": 63,
+          "contact_signal": 22,
+          "luck_gap_points": 44,
+          "hitter_profile_type": "Buy-Low Bat",
+          "confidence": "HIGH",
+          "tags": [
+            "Buy-Low Bat",
+            "DFS Watch"
+          ],
+          "note": "Mark Vientos expected production is running ahead of current results."
+        },
+        {
+          "slug": "marcus-semien",
+          "full_name": "Marcus Semien",
+          "team_abbr": "NYM",
+          "position": "2B",
+          "bats": "R",
+          "power_signal": 41,
+          "contact_signal": 37,
+          "luck_gap_points": 50,
+          "hitter_profile_type": "Watch List",
+          "confidence": "HIGH",
+          "tags": [
+            "DFS Watch"
+          ],
+          "note": "Marcus Semien expected production is running ahead of current results."
         }
       ],
       "home_bats_to_watch": [
         {
-          "slug": "jac-caglianone",
-          "full_name": "Jac Caglianone",
-          "team_abbr": "KC",
-          "position": "RF",
+          "slug": "bryce-harper",
+          "full_name": "Bryce Harper",
+          "team_abbr": "PHI",
+          "position": "1B",
           "bats": "L",
-          "power_signal": 93,
-          "contact_signal": 58,
-          "luck_gap_points": 10,
+          "power_signal": 82,
+          "contact_signal": 87,
+          "luck_gap_points": 29,
           "hitter_profile_type": "Real Power Bat",
+          "confidence": "HIGH",
+          "tags": [
+            "Power Watch",
+            "Contact Edge",
+            "DFS Watch"
+          ],
+          "note": "Bryce Harper brings strong power indicators, and backed by a stable contact profile."
+        },
+        {
+          "slug": "kyle-schwarber",
+          "full_name": "Kyle Schwarber",
+          "team_abbr": "PHI",
+          "position": "DH",
+          "bats": "L",
+          "power_signal": 95,
+          "contact_signal": 54,
+          "luck_gap_points": -20,
+          "hitter_profile_type": "Volatile Slugger",
           "confidence": "HIGH",
           "tags": [
             "Power Watch",
             "DFS Watch"
           ],
-          "note": "Jac Caglianone brings strong power indicators."
+          "note": "Kyle Schwarber brings strong power indicators."
+        },
+        {
+          "slug": "jt-realmuto",
+          "full_name": "J.T. Realmuto",
+          "team_abbr": "PHI",
+          "position": "C",
+          "bats": "R",
+          "power_signal": 28,
+          "contact_signal": 35,
+          "luck_gap_points": 52,
+          "hitter_profile_type": "Watch List",
+          "confidence": "HIGH",
+          "tags": [
+            "DFS Watch"
+          ],
+          "note": "J.T. Realmuto expected production is running ahead of current results."
         }
       ],
       "away_lineup_pressure": {
-        "power_score": 73,
-        "contact_score": 75,
-        "profile": "Contact-heavy pressure",
-        "notes": []
+        "power_score": 65,
+        "contact_score": 49,
+        "profile": "Moderate lineup pressure",
+        "notes": [
+          "Multiple high-signal bats are clustered in this lineup: Juan Soto, Bo Bichette, Carson Benge."
+        ]
       },
       "home_lineup_pressure": {
-        "power_score": 93,
-        "contact_score": 58,
-        "profile": "Power-heavy pressure",
-        "notes": []
+        "power_score": 68,
+        "contact_score": 59,
+        "profile": "Moderate lineup pressure",
+        "notes": [
+          "Multiple high-signal bats are clustered in this lineup: Bryce Harper, Kyle Schwarber, J.T. Realmuto."
+        ]
       },
-      "pitcher_edges": [],
+      "pitcher_edges": [
+        {
+          "pitcher_slug": "cristopher-sanchez",
+          "pitcher_name": "Cristopher S\u00e1nchez",
+          "team_abbr": "PHI",
+          "opponent_team": "NYM",
+          "edge_type": "Strikeout Upside",
+          "confidence": "HIGH",
+          "pitcher_foundation_signal": 90,
+          "pitcher_profile_type": "Ace Foundation",
+          "k9": 10.9,
+          "bb9": 1.74,
+          "note": "Cristopher S\u00e1nchez owns a strong foundation with a double-digit K/9 against NYM."
+        },
+        {
+          "pitcher_slug": "cristopher-sanchez",
+          "pitcher_name": "Cristopher S\u00e1nchez",
+          "team_abbr": "PHI",
+          "opponent_team": "NYM",
+          "edge_type": "Run Prevention Edge",
+          "confidence": "HIGH",
+          "pitcher_foundation_signal": 90,
+          "pitcher_profile_type": "Ace Foundation",
+          "k9": 10.9,
+          "bb9": 1.74,
+          "note": "Cristopher S\u00e1nchez carries a strong run-prevention foundation into this matchup."
+        }
+      ],
       "fantasy_watch": [
-        "Power Watch: Alec Burleson brings elite power indicators into today's matchup.",
-        "Power Watch: Jac Caglianone brings elite power indicators into today's matchup."
+        "Power Watch: Juan Soto brings elite power indicators into today's matchup.",
+        "Power Watch: Bryce Harper brings elite power indicators into today's matchup.",
+        "Strikeout Upside: Cristopher S\u00e1nchez owns a strong foundation with a double-digit K/9.",
+        "Buy-Low Bat: Bo Bichette's expected production is running ahead of current results."
       ],
       "matchup_notes": [
-        "Michael McGreevy (Volatile Arm) faces Seth Lugo (Volatile Arm)."
+        "Freddy Peralta (Volatile Arm) faces Cristopher S\u00e1nchez (Ace Foundation)."
       ]
     },
     {
-      "game_id": "824345",
-      "game_date": "2026-06-19",
+      "game_id": "824342",
+      "game_date": "2026-06-20",
       "away_team": "PIT",
       "home_team": "COL",
       "away_team_name": "Pittsburgh Pirates",
       "home_team_name": "Colorado Rockies",
       "venue": null,
-      "lineup_source": "confirmed_lineup",
-      "away_lineup_source": "confirmed_lineup",
-      "home_lineup_source": "confirmed_lineup",
+      "lineup_source": "projected_lineup",
+      "away_lineup_source": "projected_lineup",
+      "home_lineup_source": "projected_lineup",
       "probable_pitchers": {
         "away": {
-          "slug": "bubba-chandler",
-          "full_name": "Bubba Chandler",
+          "slug": "paul-skenes",
+          "full_name": "Paul Skenes",
           "team_abbr": "PIT",
           "throws": null,
-          "pitcher_foundation_signal": 27,
-          "profile_type": "Pitching Risk",
+          "pitcher_foundation_signal": 85,
+          "profile_type": "Ace Foundation",
           "confidence": "HIGH",
-          "k9": 8.95,
-          "bb9": 5.78,
-          "era": 4.91,
-          "whip": 1.444
+          "k9": 10.54,
+          "bb9": 1.78,
+          "era": 2.84,
+          "whip": 0.934
         },
         "home": {
-          "slug": "kyle-freeland",
-          "full_name": "Kyle Freeland",
+          "slug": "tomoyuki-sugano",
+          "full_name": "Tomoyuki Sugano",
           "team_abbr": "COL",
           "throws": null,
-          "pitcher_foundation_signal": 24,
+          "pitcher_foundation_signal": 38,
           "profile_type": "Pitching Risk",
           "confidence": "HIGH",
-          "k9": 7.64,
-          "bb9": 2.72,
-          "era": 7.81,
-          "whip": 1.698
+          "k9": 5.14,
+          "bb9": 2.63,
+          "era": 4.08,
+          "whip": 1.288
         }
       },
       "away_bats_to_watch": [
@@ -1889,6 +2428,23 @@
             "Balanced Producer"
           ],
           "note": "Bryan Reynolds profile flagged for today's matchup."
+        },
+        {
+          "slug": "oneil-cruz",
+          "full_name": "Oneil Cruz",
+          "team_abbr": "PIT",
+          "position": "CF",
+          "bats": "L",
+          "power_signal": 95,
+          "contact_signal": 53,
+          "luck_gap_points": -1,
+          "hitter_profile_type": "Volatile Slugger",
+          "confidence": "HIGH",
+          "tags": [
+            "Power Watch",
+            "DFS Watch"
+          ],
+          "note": "Oneil Cruz brings strong power indicators."
         },
         {
           "slug": "marcell-ozuna",
@@ -1926,6 +2482,22 @@
           "note": "Hunter Goodman brings strong power indicators."
         },
         {
+          "slug": "edouard-julien",
+          "full_name": "Edouard Julien",
+          "team_abbr": "COL",
+          "position": "2B",
+          "bats": "L",
+          "power_signal": 54,
+          "contact_signal": 47,
+          "luck_gap_points": 48,
+          "hitter_profile_type": "Watch List",
+          "confidence": "HIGH",
+          "tags": [
+            "DFS Watch"
+          ],
+          "note": "Edouard Julien expected production is running ahead of current results."
+        },
+        {
           "slug": "ezequiel-tovar",
           "full_name": "Ezequiel Tovar",
           "team_abbr": "COL",
@@ -1943,388 +2515,70 @@
         }
       ],
       "away_lineup_pressure": {
-        "power_score": 59,
-        "contact_score": 46,
-        "profile": "Limited signal pressure",
-        "notes": []
+        "power_score": 71,
+        "contact_score": 49,
+        "profile": "Moderate lineup pressure",
+        "notes": [
+          "Multiple high-signal bats are clustered in this lineup: Oneil Cruz, Marcell Ozuna."
+        ]
       },
       "home_lineup_pressure": {
-        "power_score": 64,
-        "contact_score": 28,
+        "power_score": 61,
+        "contact_score": 34,
         "profile": "Moderate lineup pressure",
-        "notes": []
+        "notes": [
+          "Multiple high-signal bats are clustered in this lineup: Edouard Julien, Ezequiel Tovar."
+        ]
       },
       "pitcher_edges": [
         {
-          "pitcher_slug": "bubba-chandler",
-          "pitcher_name": "Bubba Chandler",
+          "pitcher_slug": "paul-skenes",
+          "pitcher_name": "Paul Skenes",
           "team_abbr": "PIT",
           "opponent_team": "COL",
-          "edge_type": "Pitcher Risk",
+          "edge_type": "Strikeout Upside",
           "confidence": "HIGH",
-          "pitcher_foundation_signal": 27,
-          "pitcher_profile_type": "Pitching Risk",
-          "k9": 8.95,
-          "bb9": 5.78,
-          "note": "Bubba Chandler's foundation signal points to significant risk against COL."
+          "pitcher_foundation_signal": 85,
+          "pitcher_profile_type": "Ace Foundation",
+          "k9": 10.54,
+          "bb9": 1.78,
+          "note": "Paul Skenes owns a strong foundation with a double-digit K/9 against COL."
         },
         {
-          "pitcher_slug": "kyle-freeland",
-          "pitcher_name": "Kyle Freeland",
+          "pitcher_slug": "paul-skenes",
+          "pitcher_name": "Paul Skenes",
+          "team_abbr": "PIT",
+          "opponent_team": "COL",
+          "edge_type": "Run Prevention Edge",
+          "confidence": "HIGH",
+          "pitcher_foundation_signal": 85,
+          "pitcher_profile_type": "Ace Foundation",
+          "k9": 10.54,
+          "bb9": 1.78,
+          "note": "Paul Skenes carries a strong run-prevention foundation into this matchup."
+        },
+        {
+          "pitcher_slug": "tomoyuki-sugano",
+          "pitcher_name": "Tomoyuki Sugano",
           "team_abbr": "COL",
           "opponent_team": "PIT",
           "edge_type": "Pitcher Risk",
           "confidence": "HIGH",
-          "pitcher_foundation_signal": 24,
+          "pitcher_foundation_signal": 38,
           "pitcher_profile_type": "Pitching Risk",
-          "k9": 7.64,
-          "bb9": 2.72,
-          "note": "Kyle Freeland's foundation signal points to significant risk against PIT."
+          "k9": 5.14,
+          "bb9": 2.63,
+          "note": "Tomoyuki Sugano's foundation signal points to significant risk against PIT."
         }
       ],
       "fantasy_watch": [
+        "Power Watch: Oneil Cruz brings elite power indicators into today's matchup.",
         "Power Watch: Hunter Goodman brings elite power indicators into today's matchup.",
-        "Risk Spot: Bubba Chandler's foundation signal points to risk against COL.",
-        "Risk Spot: Kyle Freeland's foundation signal points to risk against PIT."
+        "Strikeout Upside: Paul Skenes owns a strong foundation with a double-digit K/9.",
+        "Risk Spot: Tomoyuki Sugano's foundation signal points to risk against PIT."
       ],
       "matchup_notes": [
-        "Bubba Chandler (Pitching Risk) faces Kyle Freeland (Pitching Risk)."
-      ]
-    },
-    {
-      "game_id": "824990",
-      "game_date": "2026-06-19",
-      "away_team": "LAA",
-      "home_team": "ATH",
-      "away_team_name": "Los Angeles Angels",
-      "home_team_name": "Oakland Athletics",
-      "venue": null,
-      "lineup_source": "confirmed_lineup",
-      "away_lineup_source": "confirmed_lineup",
-      "home_lineup_source": "confirmed_lineup",
-      "probable_pitchers": {
-        "away": {
-          "slug": "jose-soriano",
-          "full_name": "Jos\u00e9 Soriano",
-          "team_abbr": "LAA",
-          "throws": null,
-          "pitcher_foundation_signal": 56,
-          "profile_type": "Volatile Arm",
-          "confidence": "HIGH",
-          "k9": 9.55,
-          "bb9": 4.39,
-          "era": 2.96,
-          "whip": 1.244
-        },
-        "home": {
-          "slug": "jeffrey-springs",
-          "full_name": "Jeffrey Springs",
-          "team_abbr": "ATH",
-          "throws": null,
-          "pitcher_foundation_signal": 41,
-          "profile_type": "Volatile Arm",
-          "confidence": "HIGH",
-          "k9": 7.56,
-          "bb9": 2.76,
-          "era": 4.68,
-          "whip": 1.293
-        }
-      },
-      "away_bats_to_watch": [
-        {
-          "slug": "jo-adell",
-          "full_name": "Jo Adell",
-          "team_abbr": "LAA",
-          "position": "RF",
-          "bats": "R",
-          "power_signal": 67,
-          "contact_signal": 35,
-          "luck_gap_points": 36,
-          "hitter_profile_type": "Buy-Low Bat",
-          "confidence": "HIGH",
-          "tags": [
-            "Buy-Low Bat",
-            "DFS Watch"
-          ],
-          "note": "Jo Adell expected production is running ahead of current results."
-        }
-      ],
-      "home_bats_to_watch": [
-        {
-          "slug": "nick-kurtz",
-          "full_name": "Nick Kurtz",
-          "team_abbr": "ATH",
-          "position": "1B",
-          "bats": "L",
-          "power_signal": 96,
-          "contact_signal": 69,
-          "luck_gap_points": -19,
-          "hitter_profile_type": "Real Power Bat",
-          "confidence": "HIGH",
-          "tags": [
-            "Power Watch",
-            "DFS Watch"
-          ],
-          "note": "Nick Kurtz brings strong power indicators."
-        },
-        {
-          "slug": "shea-langeliers",
-          "full_name": "Shea Langeliers",
-          "team_abbr": "ATH",
-          "position": "C",
-          "bats": "R",
-          "power_signal": 89,
-          "contact_signal": 69,
-          "luck_gap_points": -3,
-          "hitter_profile_type": "Real Power Bat",
-          "confidence": "HIGH",
-          "tags": [
-            "Power Watch",
-            "DFS Watch"
-          ],
-          "note": "Shea Langeliers brings strong power indicators."
-        },
-        {
-          "slug": "carlos-cortes",
-          "full_name": "Carlos Cortes",
-          "team_abbr": "ATH",
-          "position": "RF",
-          "bats": "L",
-          "power_signal": 62,
-          "contact_signal": 93,
-          "luck_gap_points": -11,
-          "hitter_profile_type": "Balanced Producer",
-          "confidence": "HIGH",
-          "tags": [
-            "Contact Edge",
-            "Balanced Producer",
-            "DFS Watch"
-          ],
-          "note": "Carlos Cortes backed by a stable contact profile."
-        },
-        {
-          "slug": "tyler-soderstrom",
-          "full_name": "Tyler Soderstrom",
-          "team_abbr": "ATH",
-          "position": "LF",
-          "bats": "L",
-          "power_signal": 68,
-          "contact_signal": 62,
-          "luck_gap_points": -9,
-          "hitter_profile_type": "Balanced Producer",
-          "confidence": "HIGH",
-          "tags": [
-            "Balanced Producer"
-          ],
-          "note": "Tyler Soderstrom profile flagged for today's matchup."
-        },
-        {
-          "slug": "lawrence-butler",
-          "full_name": "Lawrence Butler",
-          "team_abbr": "ATH",
-          "position": "RF",
-          "bats": "L",
-          "power_signal": 43,
-          "contact_signal": 27,
-          "luck_gap_points": 73,
-          "hitter_profile_type": "Watch List",
-          "confidence": "HIGH",
-          "tags": [
-            "DFS Watch"
-          ],
-          "note": "Lawrence Butler expected production is running ahead of current results."
-        }
-      ],
-      "away_lineup_pressure": {
-        "power_score": 67,
-        "contact_score": 35,
-        "profile": "Moderate lineup pressure",
-        "notes": []
-      },
-      "home_lineup_pressure": {
-        "power_score": 72,
-        "contact_score": 64,
-        "profile": "Moderate lineup pressure",
-        "notes": [
-          "Multiple high-signal bats are clustered in this lineup: Nick Kurtz, Shea Langeliers, Carlos Cortes."
-        ]
-      },
-      "pitcher_edges": [],
-      "fantasy_watch": [
-        "Power Watch: Nick Kurtz brings elite power indicators into today's matchup.",
-        "Buy-Low Bat: Jo Adell's expected production is running ahead of current results."
-      ],
-      "matchup_notes": [
-        "Jos\u00e9 Soriano (Volatile Arm) faces Jeffrey Springs (Volatile Arm)."
-      ]
-    },
-    {
-      "game_id": "825069",
-      "game_date": "2026-06-19",
-      "away_team": "MIN",
-      "home_team": "AZ",
-      "away_team_name": "Minnesota Twins",
-      "home_team_name": "Arizona Diamondbacks",
-      "venue": null,
-      "lineup_source": "confirmed_lineup",
-      "away_lineup_source": "confirmed_lineup",
-      "home_lineup_source": "confirmed_lineup",
-      "probable_pitchers": {
-        "away": {
-          "slug": "connor-prielipp",
-          "full_name": "Connor Prielipp",
-          "team_abbr": "MIN",
-          "throws": null,
-          "pitcher_foundation_signal": 45,
-          "profile_type": "Volatile Arm",
-          "confidence": "MEDIUM",
-          "k9": 10.1,
-          "bb9": 3.71,
-          "era": 5.15,
-          "whip": 1.328
-        },
-        "home": {
-          "slug": "michael-soroka",
-          "full_name": "Michael Soroka",
-          "team_abbr": "ARI",
-          "throws": null,
-          "pitcher_foundation_signal": 66,
-          "profile_type": "Stable Arm",
-          "confidence": "HIGH",
-          "k9": 8.76,
-          "bb9": 2.07,
-          "era": 3.28,
-          "whip": 1.149
-        }
-      },
-      "away_bats_to_watch": [
-        {
-          "slug": "byron-buxton",
-          "full_name": "Byron Buxton",
-          "team_abbr": "MIN",
-          "position": "CF",
-          "bats": "R",
-          "power_signal": 84,
-          "contact_signal": 41,
-          "luck_gap_points": -41,
-          "hitter_profile_type": "Regression Risk",
-          "confidence": "HIGH",
-          "tags": [
-            "Power Watch",
-            "Regression Risk"
-          ],
-          "note": "Byron Buxton brings strong power indicators."
-        },
-        {
-          "slug": "kody-clemens",
-          "full_name": "Kody Clemens",
-          "team_abbr": "MIN",
-          "position": "1B",
-          "bats": "L",
-          "power_signal": 76,
-          "contact_signal": 45,
-          "luck_gap_points": -13,
-          "hitter_profile_type": "Volatile Slugger",
-          "confidence": "HIGH",
-          "tags": [
-            "Power Watch"
-          ],
-          "note": "Kody Clemens brings strong power indicators."
-        },
-        {
-          "slug": "victor-caratini",
-          "full_name": "Victor Caratini",
-          "team_abbr": "MIN",
-          "position": "C",
-          "bats": "S",
-          "power_signal": 33,
-          "contact_signal": 38,
-          "luck_gap_points": 58,
-          "hitter_profile_type": "Watch List",
-          "confidence": "HIGH",
-          "tags": [
-            "DFS Watch"
-          ],
-          "note": "Victor Caratini expected production is running ahead of current results."
-        }
-      ],
-      "home_bats_to_watch": [
-        {
-          "slug": "ketel-marte",
-          "full_name": "Ketel Marte",
-          "team_abbr": "ARI",
-          "position": "2B",
-          "bats": "S",
-          "power_signal": 77,
-          "contact_signal": 61,
-          "luck_gap_points": 46,
-          "hitter_profile_type": "Buy-Low Bat",
-          "confidence": "HIGH",
-          "tags": [
-            "Power Watch",
-            "Buy-Low Bat",
-            "DFS Watch"
-          ],
-          "note": "Ketel Marte brings strong power indicators, and expected production is running ahead of current results."
-        },
-        {
-          "slug": "corbin-carroll",
-          "full_name": "Corbin Carroll",
-          "team_abbr": "ARI",
-          "position": "RF",
-          "bats": "L",
-          "power_signal": 83,
-          "contact_signal": 75,
-          "luck_gap_points": -29,
-          "hitter_profile_type": "Real Power Bat",
-          "confidence": "HIGH",
-          "tags": [
-            "Power Watch",
-            "Contact Edge"
-          ],
-          "note": "Corbin Carroll brings strong power indicators, and backed by a stable contact profile."
-        },
-        {
-          "slug": "gabriel-moreno",
-          "full_name": "Gabriel Moreno",
-          "team_abbr": "ARI",
-          "position": "C",
-          "bats": "R",
-          "power_signal": 65,
-          "contact_signal": 73,
-          "luck_gap_points": 36,
-          "hitter_profile_type": "Buy-Low Bat",
-          "confidence": "HIGH",
-          "tags": [
-            "Buy-Low Bat",
-            "DFS Watch"
-          ],
-          "note": "Gabriel Moreno expected production is running ahead of current results."
-        }
-      ],
-      "away_lineup_pressure": {
-        "power_score": 64,
-        "contact_score": 41,
-        "profile": "Moderate lineup pressure",
-        "notes": []
-      },
-      "home_lineup_pressure": {
-        "power_score": 75,
-        "contact_score": 70,
-        "profile": "Heavy lineup pressure",
-        "notes": [
-          "Multiple high-signal bats are clustered in this lineup: Ketel Marte, Gabriel Moreno."
-        ]
-      },
-      "pitcher_edges": [],
-      "fantasy_watch": [
-        "Power Watch: Byron Buxton brings elite power indicators into today's matchup.",
-        "Power Watch: Ketel Marte brings elite power indicators into today's matchup.",
-        "Buy-Low Bat: Ketel Marte's expected production is running ahead of current results.",
-        "Stack Watch: Multiple high-signal bats are clustered in this lineup: Ketel Marte, Gabriel Moreno."
-      ],
-      "matchup_notes": [
-        "Connor Prielipp (Volatile Arm) faces Michael Soroka (Stable Arm)."
+        "Paul Skenes (Ace Foundation) faces Tomoyuki Sugano (Pitching Risk)."
       ]
     }
   ]
