@@ -210,9 +210,20 @@ ALERT SENT: [INFO] Manual RENDER-HOOK-003 Test — Render deploy hook triggered
 
 ---
 
+## Post-Deploy Smoke Check
+
+`scripts/check_live_site_smoke.py` (DEPLOY-QA-001) exists and is repo-tracked. It checks that key public routes load and contain expected content markers. It is **not yet wired into the Hostinger deploy helper** — that wiring is planned for DEPLOY-QA-002. Until then, run it manually after a deploy to confirm the site is live:
+
+```bash
+python3 scripts/check_live_site_smoke.py
+```
+
+---
+
 ## Related Documents
 - `05-AUTOMATION/Render Flow.md` — general deployment sequence and Hermes verification steps
 - `03-RUNBOOKS/Render Deployment Failure.md` — recovery steps when deploys fail
 - `01-SOPs/Deployment SOP.md` — full deployment SOP
 - `05-AUTOMATION/GitHub Flow.md` — commit and push standards
 - `05-AUTOMATION/HERMES-ROLE-001 - Hermes Operating Role.md` — Render deploy is listed as a success criterion
+- `05-AUTOMATION/DEPLOY-QA-001 - Live Site Smoke Checks.md` — post-deploy site verification helper
