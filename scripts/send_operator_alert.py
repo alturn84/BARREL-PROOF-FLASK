@@ -31,16 +31,27 @@ import sys
 import urllib.error
 import urllib.parse
 import urllib.request
-from datetime import date
+from datetime import datetime
 
 
 TELEGRAM_API = "https://api.telegram.org/bot{token}/sendMessage"
 
 _DISABLED_VALUES = {"0", "false", "off"}
 
+# Operator alerts use Eastern Time — Barrel Proof publishing operations are Eastern Time.
+try:
+    from zoneinfo import ZoneInfo as _ZoneInfo
+    def _et_date_str() -> str:
+        return datetime.now(_ZoneInfo("America/New_York")).strftime("%Y-%m-%d ET")
+except ImportError:
+    from datetime import timezone as _tz, timedelta as _td  # type: ignore[assignment]
+    # Fixed UTC-5 (EST) fallback; DST not handled — close enough for alert display date only.
+    def _et_date_str() -> str:
+        return datetime.now(_tz(_td(hours=-5))).strftime("%Y-%m-%d ET")
+
 
 def build_message(args) -> str:
-    today = args.date or date.today().isoformat()
+    today = args.date or _et_date_str()
     lines = [
         "BARREL PROOF ALERT" if args.severity != "INFO" else "BARREL PROOF OK",
         f"Severity: {args.severity}",

@@ -181,6 +181,15 @@ python3 scripts/send_operator_alert.py \
 
 **Optional flags:** `--expected`, `--actual`, `--likely-cause`, `--next-action`, `--log-file`, `--date`, `--notes`, `--dry-run`
 
+**Alert date behavior (ALERTS-DATE-001):**
+
+- The `Date:` field in operator alerts defaults to **America/New_York (Eastern Time)**.
+- The Hostinger container runs on UTC; without this fix, alerts rolled over to the next calendar date before midnight ET.
+- Uses Python `zoneinfo` (stdlib, Python 3.9+) with a fixed UTC-5 fallback if unavailable.
+- Date line format: `YYYY-MM-DD ET` (e.g. `Date: 2026-06-19 ET`)
+- Passing `--date` explicitly overrides the Eastern Time default with whatever string is provided.
+- This is separate from baseball slate/edition dates, which come from schedule or data files.
+
 **Status:** Helper exists at `scripts/send_operator_alert.py`. Live Hostinger cron alert wiring was added in ALERTS-003 (see section below). Alert delivery is non-blocking by design — the helper exits 0 on missing credentials, disabled flag, or Telegram API failure.
 
 Shell wrappers calling this script should capture checker exit codes explicitly rather than relying on the current retry-and-continue pattern.
