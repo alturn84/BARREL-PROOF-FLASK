@@ -27,6 +27,7 @@ All API keys and sensitive credentials must be stored as environment variables. 
 | `TELEGRAM_BOT_TOKEN` | Telegram bot token for operator alerts | `scripts/send_operator_alert.py`; live Hostinger cron wiring (ALERTS-003) | Hostinger `/opt/data/.env` only — never commit |
 | `TELEGRAM_CHAT_ID` | Telegram chat/channel ID to receive alerts | `scripts/send_operator_alert.py`; live Hostinger cron wiring (ALERTS-003) | Hostinger `/opt/data/.env` only — never commit |
 | `BARREL_PROOF_ALERTS_ENABLED` | Set to `0`, `false`, or `off` to disable Telegram alerts silently | `scripts/send_operator_alert.py` | Hostinger `/opt/data/.env` — optional |
+| `BARREL_PROOF_SITE_URL` | Override base URL for live-site smoke checks; default is `https://www.barrel-proof-baseball.com` (www required — apex fails DNS from Hostinger Docker) | `/opt/data/scripts/trigger_render_deploy.sh` (server-only); `scripts/check_live_site_smoke.py` | Hostinger `/opt/data/.env` — optional |
 
 ---
 

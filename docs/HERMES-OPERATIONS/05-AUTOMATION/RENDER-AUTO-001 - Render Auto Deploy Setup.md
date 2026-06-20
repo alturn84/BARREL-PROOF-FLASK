@@ -212,11 +212,21 @@ ALERT SENT: [INFO] Manual RENDER-HOOK-003 Test — Render deploy hook triggered
 
 ## Post-Deploy Smoke Check
 
-`scripts/check_live_site_smoke.py` (DEPLOY-QA-001) exists and is repo-tracked. It checks that key public routes load and contain expected content markers. It is **not yet wired into the Hostinger deploy helper** — that wiring is planned for DEPLOY-QA-002.
+`scripts/check_live_site_smoke.py` (DEPLOY-QA-001) is repo-tracked and runs a live-site check after each Render deploy.
 
-**DEPLOY-QA-001B verified:** Smoke checks from Hostinger pass using `https://www.barrel-proof-baseball.com`. Do not use the apex domain (`barrel-proof-baseball.com`) in server-side smoke checks — it fails DNS resolution from the Hostinger Docker environment. Until apex DNS is fixed, always pass `--base-url https://www.barrel-proof-baseball.com` when running the helper from Hostinger.
+**DEPLOY-QA-002 is live on Hostinger.** `trigger_render_deploy.sh` now automatically runs the smoke check after triggering a deploy:
 
-Until wired, run manually after a deploy to confirm the site is live:
+- Waits **75 seconds** after the deploy hook is accepted for Render to build and serve
+- Runs `check_live_site_smoke.py --base-url https://www.barrel-proof-baseball.com --soft-fail`
+- Sends **Telegram INFO** on PASS, **Telegram WARNING** on WARN or FAIL
+- Smoke check and alert delivery are non-blocking — failures are logged but do not abort
+- `BARREL_PROOF_SITE_URL` env var overrides the default base URL if set
+
+**DNS constraint:** Do not use the apex domain (`barrel-proof-baseball.com`) in server-side smoke checks — it fails DNS from the Hostinger Docker environment. The www subdomain resolves correctly. See DEPLOY-QA-001B.
+
+**VPS rebuild note:** The DEPLOY-QA-002 wiring lives only in the server-side `trigger_render_deploy.sh`. If the VPS is rebuilt, the wait-and-smoke-check block must be re-added to that helper.
+
+To run manually after a deploy:
 
 ```bash
 python3 scripts/check_live_site_smoke.py \

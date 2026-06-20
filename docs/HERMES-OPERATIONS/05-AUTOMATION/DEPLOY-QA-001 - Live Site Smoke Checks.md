@@ -181,17 +181,88 @@ Use the `www` base URL until apex DNS from Hostinger is confirmed working.
 
 ---
 
+## DEPLOY-QA-002 — Live Post-Deploy Smoke Check Wiring
+
+**Status: Live and verified on Hostinger. Not repo-tracked.**
+
+### What Was Patched
+
+The server-only Render deploy helper was updated to run a live-site smoke check after triggering a deploy:
+
+```
+/opt/data/scripts/trigger_render_deploy.sh
+```
+
+This helper is not tracked in this repo. It was patched directly on the Hostinger server.
+
+### Live Behavior
+
+After `trigger_render_deploy.sh` triggers the Render deploy hook, it now:
+
+1. Sends a Telegram INFO alert that the deploy hook was triggered
+2. Waits **75 seconds** for Render to complete the build and serve the updated site
+3. Runs:
+
+```bash
+python3 scripts/check_live_site_smoke.py \
+  --base-url https://www.barrel-proof-baseball.com \
+  --timeout 15 \
+  --retries 2 \
+  --soft-fail
+```
+
+4. Prints smoke check output to the log
+5. Sends **Telegram INFO** alert if the smoke check result is PASS
+6. Sends **Telegram WARNING** alert if the smoke check result is WARN or FAIL
+7. Never blocks the pipeline — smoke check and alert delivery failures are logged but do not abort
+
+### Base URL Behavior
+
+- Default base URL: `https://www.barrel-proof-baseball.com`
+- `BARREL_PROOF_SITE_URL` env var overrides the default if set
+- Do **not** use the apex domain (`barrel-proof-baseball.com`) from Hostinger — it fails DNS resolution from the Hostinger Docker environment (see DEPLOY-QA-001B)
+- When apex DNS is confirmed working, `BARREL_PROOF_SITE_URL` can be removed or updated without patching the helper
+
+### Manual Verification
+
+Verified on Hostinger:
+
+```
+/opt/data/scripts/trigger_render_deploy.sh "Manual DEPLOY-QA-002 Test"
+```
+
+Result:
+```
+Render deploy hook triggered
+Deploy ID: dep-d8qu7nm7r5hc73dlhd5g
+Telegram alert sent: deploy triggered
+[75 second wait]
+OK: [Homepage] / — Marker found: 'Game of the Day'
+OK: [Dope Sheet] /dope-sheet — Marker found: 'Dope Sheet'
+OK: [Scoreboard] /scoreboard — Marker found: 'Scoreboard'
+OK: [Advanced Scout] /advance-scout — Marker found: 'Advanced Scout'
+OK: [Archive] /archive — HTTP 200
+OK: [Players] /players — HTTP 200
+OK: [Teams] /teams — HTTP 200
+
+LIVE SITE SMOKE CHECK
+Base URL: https://www.barrel-proof-baseball.com
+Critical failures: 0
+Warnings: 0
+Result: PASS
+
+Telegram alert sent: live site smoke check passed
+```
+
+### VPS Rebuild Note
+
+`trigger_render_deploy.sh` is server-only. If the VPS is rebuilt or the server scripts are reset, the 75-second wait and smoke check call must be re-added to `trigger_render_deploy.sh`. `BARREL_PROOF_SITE_URL` should also be set in `/opt/data/.env` if apex DNS is still unresolved at that time.
+
+---
+
 ## Current Status
 
-Helper exists at `scripts/check_live_site_smoke.py` and is repo-tracked. Verified PASS on Hostinger (DEPLOY-QA-001B).
-
-**Not yet wired into Hostinger cron scripts.** This must be added as a post-deploy step after `trigger_render_deploy.sh` calls on the Hostinger server. That wiring is planned for DEPLOY-QA-002.
-
-When wired on Hostinger:
-- Use `--base-url https://www.barrel-proof-baseball.com` (not apex domain)
-- The helper should run after the Render deploy hook triggers and a short settle delay
-- `--soft-fail` should be used so smoke check failures do not block cron completion
-- Results should be piped to `send_operator_alert.py` for Telegram reporting
+Helper exists at `scripts/check_live_site_smoke.py` and is repo-tracked. Verified PASS on Hostinger (DEPLOY-QA-001B). Post-deploy wiring is live in `trigger_render_deploy.sh` on Hostinger (DEPLOY-QA-002).
 
 ---
 

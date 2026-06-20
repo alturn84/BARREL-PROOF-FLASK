@@ -86,16 +86,22 @@ Current gap: the wrappers (`run_morning_update_with_venv.sh`, `run_dope_sheet_re
 | Live site did not update after deploy window | CRITICAL |
 | `RENDER_DEPLOY_HOOK` missing if/when explicit hook triggering is implemented | WARNING |
 
-### F — Live Site Smoke Check (Future)
+### F — Live Site Smoke Check
+
+**Status: Live as of DEPLOY-QA-002.** Post-deploy smoke check alerts are wired into `/opt/data/scripts/trigger_render_deploy.sh` on Hostinger. Alert dates use Eastern Time per ALERTS-DATE-001.
 
 | Condition | Severity |
 |-----------|---------|
-| `/` does not load | CRITICAL |
-| `/dope-sheet` does not load | CRITICAL |
-| `/scoreboard` does not load | WARNING |
-| `/advance-scout` does not load | WARNING |
-| Expected Dope Sheet sections missing from page | WARNING |
-| Expected Advanced Scout cards missing from page | WARNING |
+| All critical routes load with expected markers | INFO (PASS) |
+| One or more routes WARN (e.g. missing section markers) | WARNING |
+| One or more critical routes FAIL | WARNING |
+| `/` does not load | WARNING (via FAIL smoke check) |
+| `/dope-sheet` does not load | WARNING (via FAIL smoke check) |
+| `/scoreboard` does not load | WARNING (via WARN smoke check) |
+| `/advance-scout` does not load | WARNING (via WARN smoke check) |
+| Expected Dope Sheet section markers missing from page | WARNING |
+
+> Smoke check uses `--soft-fail` so it never blocks the pipeline. All failures result in WARNING (not CRITICAL) because the site may still be mid-deploy at the time of the check. If a live-site outage is confirmed, escalate to CRITICAL manually via runbook.
 
 ---
 

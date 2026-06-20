@@ -107,7 +107,8 @@ Technical documentation for the pipeline, APIs, scripts, and infrastructure.
 | `RENDER-AUTO-001 - Render Auto Deploy Setup.md` | Auto-Deploy and Deploy Hook setup for barrel-proof-flask; how pushes become live-site updates |
 | `ALERTS-001 - Hermes Telegram Failure Alerts.md` | Failure alert categories, message formats, severity levels; ALERTS-003 section: live Hostinger cron alert wiring verified |
 | `RENDER-AUTO-001` (RENDER-HOOK-003 section) | Deploy hook live on Hostinger: three post-push server scripts call `trigger_render_deploy.sh` after each successful push — verified with deploy ID |
-| `DEPLOY-QA-001 - Live Site Smoke Checks.md` | Repo-tracked smoke check helper; verified PASS on Hostinger using www base URL; not yet wired into cron |
+| `DEPLOY-QA-001 - Live Site Smoke Checks.md` | Repo-tracked smoke check helper; verified PASS on Hostinger (DEPLOY-QA-001B); DEPLOY-QA-002 section documents live post-deploy wiring |
+| `DEPLOY-QA-001` (DEPLOY-QA-002 section) | Live post-deploy smoke check wiring in `trigger_render_deploy.sh` on Hostinger — 75s settle wait, www base URL, Telegram INFO/WARNING on result — verified dep-d8qu7nm7r5hc73dlhd5g |
 
 ---
 
