@@ -1,64 +1,112 @@
 {
-  "date": "2026-06-19",
-  "date_display": "Friday, June 19, 2026",
-  "updated": "2026-06-20 10:21",
+  "date": "2026-06-20",
+  "date_display": "Saturday, June 20, 2026",
+  "updated": "2026-06-21 10:19",
   "game": {
-    "away": "LAA",
-    "home": "ATH",
-    "away_runs": 11,
-    "home_runs": 12,
-    "innings": 10,
-    "raw_score": 133.0,
+    "away": "NYM",
+    "home": "PHI",
+    "away_runs": 3,
+    "home_runs": 15,
+    "innings": 9,
+    "raw_score": 134.0,
     "flags": [
-      "WALK-OFF WIN",
-      "EXTRA INNINGS (10)",
-      "COMEBACK (trailed 6)",
-      "ONE-RUN GAME",
-      "PLAYOFF IMPLICATIONS",
+      "CYCLE: Bryce Harper",
       "DIVISION MATCHUP",
-      "HIGH-SCORING (23 runs)"
+      "MULTI-HR: Kyle Schwarber (3 HR)",
+      "BIG RBI GAME: Kyle Schwarber (6 RBI)",
+      "PHI HOME GAME",
+      "HIGH-SCORING (18 runs)"
     ],
-    "winner": "ATH",
-    "loser": "LAA",
-    "margin": 1,
-    "total_runs": 23
+    "winner": "PHI",
+    "loser": "NYM",
+    "margin": 12,
+    "total_runs": 18
   },
   "editorial": {
-    "headline": "Soderstrom's Single Lifts Oakland Past Angels in Ten Innings",
-    "subheadline": "Dramatic Finish in the 10th Innings Lifts Oakland Athletics",
-    "lead_angle": "Tyler Soderstrom slashed a single past a drawn-in infield, chasing home the winning run from third and capping a wild, seesaw affair in the tenth inning. The Oakland Athletics poured from their dugout to mob Soderstrom near first base, celebrating a 12-11 victory over the visiting Los Angeles Angels. It was a stunning end to a contest the Athletics had trailed by six runs, a final, definitive answer in a night filled with offensive fireworks. Los Angeles reliever Kirby Yates was tagged with the loss after surrendering the final run.\n\nThe Angels looked to have the game sealed, carrying an 11-9 lead into the bottom of the ninth against a tiring bullpen. But the Athletics refused to fold. Zack Gelof worked a leadoff walk to begin the rally. After a fielder’s choice, Lawrence Butler drove a pitch into the right-field corner for a triple, scoring the tying run and sending the game to extras. The Angels, who had built their lead on home runs from Logan O’Hoppe and Jose Siri, were left stunned as their two-run cushion evaporated.\n\nSoderstrom was the man of the hour, but the comeback was a team effort. The win was credited to Elvis Alvarado, who pitched a scoreless top of the tenth to earn his third victory of the season. While O'Hoppe finished 3-for-4 with three runs batted in for the Angels, his work was ultimately wasted. The victory is a crucial one for Oakland, pushing them another game ahead of their rivals in the tight divisional race and marking their biggest come-from-behind win this year.",
-    "reason": "Extra-inning walk-off — the purest combination of tension and resolution the sport offers."
+    "headline": "Harper Completes First Career Cycle in Rout of Mets",
+    "subheadline": "Philadelphia Phillies wins as Bryce Harper goes single, double, triple, homer.",
+    "lead_angle": "Bryce Harper dug for third, his arms churning, and slid headfirst into the history books. His eighth-inning triple completed the first cycle of his career, capping a thorough dismantling of the New York Mets by the Philadelphia Phillies, 15-3. Harper collected his single, double, and home run in his first four trips, but the three-bagger sent the Citizens Bank Park crowd into a frenzy. The rout was already on, but Harper’s hustle provided the punctuation on a punishing offensive display.\n\nThe game was put away early. New York starter Freddy Peralta never saw the fourth inning after the Phillies buried him and the Mets’ chances in a disastrous third, hanging eight runs on the board. Kyle Schwarber started the onslaught with a solo shot, his second of the night. Following a walk to Trea Turner and a single by Harper, J.T. Realmuto drove them both in with a ringing double. The crooked number chased Peralta from the mound for the loss.\n\nWhile Harper provided the rare feat, Kyle Schwarber supplied the raw power. He finished the night 4-for-5 with three home runs and six runs batted in, a one-man demolition of the Mets’ pitching staff. His final blast came in the seventh, a towering shot that erased any faint comeback notions. The win, credited to Cristopher Sánchez, pushes the Phillies further ahead of their division rivals, a statement delivered by bat and brawn in front of a roaring home crowd.",
+    "reason": "Hitting for the cycle happens fewer than a dozen times a season league-wide."
   },
   "all_games": [
     {
       "rank": 1,
-      "away": "LAA",
-      "home": "ATH",
-      "away_runs": 11,
-      "home_runs": 12,
-      "innings": 10,
-      "raw_score": 133.0,
+      "away": "NYM",
+      "home": "PHI",
+      "away_runs": 3,
+      "home_runs": 15,
+      "innings": 9,
+      "raw_score": 134.0,
       "flags": [
-        "WALK-OFF WIN",
-        "EXTRA INNINGS (10)",
-        "COMEBACK (trailed 6)",
-        "ONE-RUN GAME",
-        "PLAYOFF IMPLICATIONS",
+        "CYCLE: Bryce Harper",
         "DIVISION MATCHUP",
-        "HIGH-SCORING (23 runs)"
+        "MULTI-HR: Kyle Schwarber (3 HR)",
+        "BIG RBI GAME: Kyle Schwarber (6 RBI)",
+        "PHI HOME GAME",
+        "HIGH-SCORING (18 runs)"
       ],
       "selected": true
     },
     {
       "rank": 2,
-      "away": "BAL",
-      "home": "LAD",
-      "away_runs": 5,
-      "home_runs": 6,
+      "away": "MIL",
+      "home": "ATL",
+      "away_runs": 3,
+      "home_runs": 4,
       "innings": 9,
-      "raw_score": 79.0,
+      "raw_score": 127.0,
       "flags": [
         "WALK-OFF WIN",
+        "ONE-RUN GAME",
+        "FIRST-PLACE CLASH",
+        "PLAYOFF IMPLICATIONS",
+        "MULTI-HR: Ozzie Albies (2 HR)",
+        "ATL HOME GAME"
+      ],
+      "selected": false
+    },
+    {
+      "rank": 3,
+      "away": "CLE",
+      "home": "HOU",
+      "away_runs": 8,
+      "home_runs": 1,
+      "innings": 9,
+      "raw_score": 86.0,
+      "flags": [
+        "PLAYOFF IMPLICATIONS",
+        "MULTI-HR: Travis Bazzana (2 HR)",
+        "DOMINANT START: Joey Cantillo (8.0 IP, 1 ER, 9 K)",
+        "BIG RBI GAME: Travis Bazzana (5 RBI)",
+        "HOU HOME GAME"
+      ],
+      "selected": false
+    },
+    {
+      "rank": 4,
+      "away": "CIN",
+      "home": "NYY",
+      "away_runs": 10,
+      "home_runs": 2,
+      "innings": 9,
+      "raw_score": 56.0,
+      "flags": [
+        "PLAYOFF IMPLICATIONS",
+        "BIG RBI GAME: Sal Stewart (6 RBI)",
+        "SB SPREE (3)",
+        "NYY HOME GAME"
+      ],
+      "selected": false
+    },
+    {
+      "rank": 5,
+      "away": "BAL",
+      "home": "LAD",
+      "away_runs": 3,
+      "home_runs": 2,
+      "innings": 9,
+      "raw_score": 49.0,
+      "flags": [
         "ONE-RUN GAME",
         "PLAYOFF IMPLICATIONS",
         "LAD HOME GAME"
@@ -66,103 +114,82 @@
       "selected": false
     },
     {
-      "rank": 3,
-      "away": "MIL",
-      "home": "ATL",
-      "away_runs": 2,
-      "home_runs": 3,
-      "innings": 9,
-      "raw_score": 77.0,
-      "flags": [
-        "ONE-RUN GAME",
-        "FIRST-PLACE CLASH",
-        "PLAYOFF IMPLICATIONS",
-        "ATL HOME GAME"
-      ],
-      "selected": false
-    },
-    {
-      "rank": 4,
+      "rank": 6,
       "away": "SD",
       "home": "TEX",
-      "away_runs": 7,
-      "home_runs": 9,
-      "innings": 9,
-      "raw_score": 66.0,
+      "away_runs": 6,
+      "home_runs": 4,
+      "innings": 10,
+      "raw_score": 42.0,
       "flags": [
+        "EXTRA INNINGS (10)",
         "PLAYOFF IMPLICATIONS",
-        "MULTI-HR: Ty France (2 HR)",
-        "BIG RBI GAME: Ty France (5 RBI)",
-        "HIGH-SCORING (16 runs)"
+        "BIG RBI GAME: Manny Machado (5 RBI)"
       ],
       "selected": false
     },
     {
-      "rank": 5,
+      "rank": 7,
       "away": "CWS",
       "home": "DET",
-      "away_runs": 3,
+      "away_runs": 1,
       "home_runs": 4,
       "innings": 9,
-      "raw_score": 55.0,
+      "raw_score": 40.0,
       "flags": [
-        "ONE-RUN GAME",
         "PLAYOFF IMPLICATIONS",
         "DIVISION MATCHUP"
       ],
       "selected": false
     },
     {
-      "rank": 6,
-      "away": "CLE",
-      "home": "HOU",
-      "away_runs": 3,
-      "home_runs": 9,
-      "innings": 9,
-      "raw_score": 54.0,
-      "flags": [
-        "PLAYOFF IMPLICATIONS",
-        "MULTI-HR: Jeremy Peña (2 HR)",
-        "HOU HOME GAME"
-      ],
-      "selected": false
-    },
-    {
-      "rank": 7,
-      "away": "TOR",
-      "home": "CHC",
-      "away_runs": 2,
-      "home_runs": 16,
-      "innings": 9,
-      "raw_score": 44.0,
-      "flags": [
-        "BIG RBI GAME: Carson Kelly (6 RBI)",
-        "SB SPREE (4)",
-        "CHC HOME GAME",
-        "HIGH-SCORING (18 runs)"
-      ],
-      "selected": false
-    },
-    {
       "rank": 8,
-      "away": "CIN",
-      "home": "NYY",
-      "away_runs": 0,
-      "home_runs": 5,
+      "away": "LAA",
+      "home": "ATH",
+      "away_runs": 7,
+      "home_runs": 0,
       "innings": 9,
-      "raw_score": 34.0,
+      "raw_score": 40.0,
       "flags": [
         "PLAYOFF IMPLICATIONS",
-        "NYY HOME GAME"
+        "DIVISION MATCHUP"
       ],
       "selected": false
     },
     {
       "rank": 9,
-      "away": "SF",
-      "home": "MIA",
-      "away_runs": 3,
-      "home_runs": 4,
+      "away": "TOR",
+      "home": "CHC",
+      "away_runs": 8,
+      "home_runs": 6,
+      "innings": 9,
+      "raw_score": 34.0,
+      "flags": [
+        "COMEBACK (trailed 5)",
+        "CHC HOME GAME"
+      ],
+      "selected": false
+    },
+    {
+      "rank": 10,
+      "away": "BOS",
+      "home": "SEA",
+      "away_runs": 5,
+      "home_runs": 1,
+      "innings": 9,
+      "raw_score": 30.0,
+      "flags": [
+        "PLAYOFF IMPLICATIONS",
+        "SB SPREE (4)"
+      ],
+      "selected": false
+    },
+    {
+      "rank": 11,
+      "away": "WSH",
+      "home": "TB",
+      "away_runs": 4,
+      "home_runs": 3,
       "innings": 9,
       "raw_score": 23.0,
       "flags": [
@@ -172,37 +199,11 @@
       "selected": false
     },
     {
-      "rank": 10,
-      "away": "BOS",
-      "home": "SEA",
-      "away_runs": 6,
-      "home_runs": 2,
-      "innings": 9,
-      "raw_score": 22.0,
-      "flags": [
-        "PLAYOFF IMPLICATIONS"
-      ],
-      "selected": false
-    },
-    {
-      "rank": 11,
-      "away": "STL",
-      "home": "KC",
-      "away_runs": 5,
-      "home_runs": 6,
-      "innings": 9,
-      "raw_score": 15.0,
-      "flags": [
-        "ONE-RUN GAME"
-      ],
-      "selected": false
-    },
-    {
       "rank": 12,
       "away": "PIT",
       "home": "COL",
-      "away_runs": 3,
-      "home_runs": 4,
+      "away_runs": 1,
+      "home_runs": 2,
       "innings": 9,
       "raw_score": 15.0,
       "flags": [
@@ -212,24 +213,28 @@
     },
     {
       "rank": 13,
-      "away": "WSH",
-      "home": "TB",
-      "away_runs": 2,
-      "home_runs": 5,
+      "away": "MIN",
+      "home": "AZ",
+      "away_runs": 16,
+      "home_runs": 8,
       "innings": 9,
-      "raw_score": 0.0,
-      "flags": [],
+      "raw_score": 10.0,
+      "flags": [
+        "HIGH-SCORING (24 runs)"
+      ],
       "selected": false
     },
     {
       "rank": 14,
-      "away": "MIN",
-      "home": "AZ",
-      "away_runs": 5,
-      "home_runs": 9,
+      "away": "SF",
+      "home": "MIA",
+      "away_runs": 3,
+      "home_runs": 6,
       "innings": 9,
-      "raw_score": 0.0,
-      "flags": [],
+      "raw_score": 8.0,
+      "flags": [
+        "SB SPREE (3)"
+      ],
       "selected": false
     }
   ]
