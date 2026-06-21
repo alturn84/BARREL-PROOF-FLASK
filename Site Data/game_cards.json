@@ -1,7 +1,7 @@
 {
-  "updated": "2026-06-20 10:00",
-  "date": "2026-06-19",
-  "display_date": "Friday, June 19, 2026",
+  "updated": "2026-06-21 10:00",
+  "date": "2026-06-20",
+  "display_date": "Saturday, June 20, 2026",
   "game_count": 14,
   "games": [
     {
@@ -9,15 +9,15 @@
       "home_abbr": "TEX",
       "away_city": "San Diego",
       "home_city": "Texas",
-      "away_runs": 7,
-      "winner": "home",
+      "away_runs": 6,
+      "winner": "away",
       "venue": "Globe Life Field",
-      "duration": "2:50",
-      "attendance": "33,406",
+      "duration": "3:10",
+      "attendance": "35,383",
       "decisions": {
-        "W": "Jacob deGrom",
-        "L": "Randy Vásquez",
-        "SV": "Jacob Latz"
+        "W": "Adrian Morejon",
+        "L": "Joe Ross",
+        "SV": "Mason Miller"
       },
       "game_status": "Final",
       "is_final": true,
@@ -30,59 +30,84 @@
         "6",
         "7",
         "8",
-        "9"
+        "9",
+        "10"
       ],
       "away_line": [
-        "5",
         "0",
         "0",
         "1",
         "0",
         "0",
         "0",
-        "1",
-        "0"
+        "0",
+        "2",
+        "0",
+        "3"
       ],
       "home_line": [
-        "6",
         "0",
         "0",
-        "1",
         "0",
-        "1",
+        "0",
         "0",
         "1",
-        "0"
+        "2",
+        "0",
+        "0",
+        "1"
       ],
       "away_rhe": [
-        "7",
-        "10",
+        "6",
+        "9",
         "1"
       ],
       "home_rhe": [
+        "4",
         "9",
-        "13",
-        "0"
+        "1"
       ],
-      "home_runs": 9,
+      "home_runs": 4,
       "away_batting": [
         {
           "name": "Fernando Tatis Jr.",
           "pos": "2B",
-          "ab": 4,
-          "r": 1,
-          "h": 0,
-          "2b": 0,
+          "ab": 5,
+          "r": 3,
+          "h": 2,
+          "2b": 2,
           "3b": 0,
           "hr": 0,
           "rbi": 0
         },
         {
           "name": "Samad Taylor",
-          "pos": "RF",
+          "pos": "LF",
+          "ab": 3,
+          "r": 2,
+          "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Manny Machado",
+          "pos": "3B",
           "ab": 5,
           "r": 1,
-          "h": 3,
+          "h": 2,
+          "2b": 1,
+          "3b": 0,
+          "hr": 1,
+          "rbi": 5
+        },
+        {
+          "name": "Xander Bogaerts",
+          "pos": "SS",
+          "ab": 4,
+          "r": 0,
+          "h": 1,
           "2b": 0,
           "3b": 0,
           "hr": 0,
@@ -93,6 +118,17 @@
           "pos": "CF",
           "ab": 5,
           "r": 0,
+          "h": 3,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 1
+        },
+        {
+          "name": "Ty France",
+          "pos": "1B",
+          "ab": 4,
+          "r": 0,
           "h": 0,
           "2b": 0,
           "3b": 0,
@@ -100,9 +136,31 @@
           "rbi": 0
         },
         {
-          "name": "Manny Machado",
-          "pos": "3B",
-          "ab": 5,
+          "name": "Nick Solak",
+          "pos": "DH",
+          "ab": 2,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Will Wagner",
+          "pos": "PH",
+          "ab": 1,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Jase Bowen",
+          "pos": "RF",
+          "ab": 2,
           "r": 0,
           "h": 0,
           "2b": 0,
@@ -112,20 +170,9 @@
         },
         {
           "name": "Gavin Sheets",
-          "pos": "LF",
-          "ab": 4,
-          "r": 2,
-          "h": 2,
-          "2b": 0,
-          "3b": 0,
-          "hr": 1,
-          "rbi": 2
-        },
-        {
-          "name": "Xander Bogaerts",
-          "pos": "SS",
-          "ab": 3,
-          "r": 1,
+          "pos": "PH",
+          "ab": 2,
+          "r": 0,
           "h": 0,
           "2b": 0,
           "3b": 0,
@@ -133,29 +180,7 @@
           "rbi": 0
         },
         {
-          "name": "Ty France",
-          "pos": "1B",
-          "ab": 4,
-          "r": 2,
-          "h": 3,
-          "2b": 1,
-          "3b": 0,
-          "hr": 2,
-          "rbi": 5
-        },
-        {
-          "name": "Will Wagner",
-          "pos": "DH",
-          "ab": 3,
-          "r": 0,
-          "h": 2,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Rodolfo Durán",
+          "name": "Blake Hunt",
           "pos": "C",
           "ab": 3,
           "r": 0,
@@ -166,7 +191,7 @@
           "rbi": 0
         },
         {
-          "name": "Nick Solak",
+          "name": "Rodolfo Durán",
           "pos": "PH",
           "ab": 1,
           "r": 0,
@@ -181,8 +206,8 @@
         {
           "name": "Joc Pederson",
           "pos": "DH",
-          "ab": 4,
-          "r": 1,
+          "ab": 5,
+          "r": 0,
           "h": 0,
           "2b": 0,
           "3b": 0,
@@ -192,10 +217,10 @@
         {
           "name": "Josh Jung",
           "pos": "3B",
-          "ab": 4,
-          "r": 3,
+          "ab": 5,
+          "r": 1,
           "h": 2,
-          "2b": 0,
+          "2b": 1,
           "3b": 0,
           "hr": 0,
           "rbi": 0
@@ -203,46 +228,46 @@
         {
           "name": "Wyatt Langford",
           "pos": "CF",
-          "ab": 5,
-          "r": 1,
-          "h": 3,
+          "ab": 4,
+          "r": 0,
+          "h": 2,
           "2b": 1,
           "3b": 0,
-          "hr": 1,
+          "hr": 0,
           "rbi": 2
         },
         {
           "name": "Brandon Nimmo",
           "pos": "RF",
           "ab": 5,
-          "r": 1,
+          "r": 0,
           "h": 2,
-          "2b": 2,
+          "2b": 0,
           "3b": 0,
           "hr": 0,
-          "rbi": 1
+          "rbi": 0
         },
         {
           "name": "Ezequiel Duran",
           "pos": "SS",
-          "ab": 2,
+          "ab": 4,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Jarred Kelenic",
+          "pos": "LF",
+          "ab": 3,
           "r": 1,
           "h": 1,
           "2b": 0,
           "3b": 0,
           "hr": 0,
-          "rbi": 1
-        },
-        {
-          "name": "Alejandro Osuna",
-          "pos": "LF",
-          "ab": 3,
-          "r": 1,
-          "h": 2,
-          "2b": 1,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 2
+          "rbi": 0
         },
         {
           "name": "Justin Foscue",
@@ -256,7 +281,29 @@
           "rbi": 0
         },
         {
-          "name": "Jarred Kelenic",
+          "name": "Jake Burger",
+          "pos": "1B",
+          "ab": 3,
+          "r": 1,
+          "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 1,
+          "rbi": 2
+        },
+        {
+          "name": "Nicky Lopez",
+          "pos": "2B",
+          "ab": 3,
+          "r": 0,
+          "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Cody Freeman",
           "pos": "PH",
           "ab": 1,
           "r": 0,
@@ -267,120 +314,125 @@
           "rbi": 0
         },
         {
-          "name": "Jake Burger",
-          "pos": "1B",
-          "ab": 4,
-          "r": 1,
-          "h": 1,
-          "2b": 1,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 2
-        },
-        {
-          "name": "Nicky Lopez",
-          "pos": "2B",
+          "name": "Kyle Higashioka",
+          "pos": "C",
           "ab": 4,
           "r": 0,
-          "h": 1,
+          "h": 0,
           "2b": 0,
           "3b": 0,
           "hr": 0,
           "rbi": 0
-        },
-        {
-          "name": "Elias Díaz",
-          "pos": "C",
-          "ab": 4,
-          "r": 0,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 1
         }
       ],
       "away_pitching": [
         {
-          "name": "Randy Vásquez",
-          "ip": "3.1",
-          "h": "8",
-          "r": "7",
-          "er": "6",
-          "bb": "3",
-          "k": "1"
+          "name": "Walker Buehler",
+          "ip": "5.1",
+          "h": "5",
+          "r": "1",
+          "er": "1",
+          "bb": "1",
+          "k": "7"
         },
         {
-          "name": "Yuki Matsui",
-          "ip": "1.2",
+          "name": "Adrian Morejon",
+          "ip": "2.0",
           "h": "1",
           "r": "0",
           "er": "0",
-          "bb": "1",
-          "k": "3"
+          "bb": "0",
+          "k": "5"
         },
         {
-          "name": "Wandy Peralta",
-          "ip": "1.2",
-          "h": "0",
-          "r": "0",
+          "name": "Mason Miller",
+          "ip": "1.0",
+          "h": "1",
+          "r": "1",
           "er": "0",
-          "bb": "1",
-          "k": "0"
+          "bb": "0",
+          "k": "2"
         },
         {
           "name": "Jason Adam",
           "ip": "1.0",
-          "h": "1",
-          "r": "1",
-          "er": "1",
+          "h": "2",
+          "r": "2",
+          "er": "2",
           "bb": "0",
-          "k": "1"
+          "k": "2"
         },
         {
-          "name": "David Morgan",
-          "ip": "0.1",
-          "h": "3",
-          "r": "1",
-          "er": "1",
+          "name": "Kyle Hart",
+          "ip": "0.2",
+          "h": "0",
+          "r": "0",
+          "er": "0",
           "bb": "0",
-          "k": "0"
+          "k": "1"
         }
       ],
       "home_pitching": [
         {
-          "name": "Jacob deGrom",
+          "name": "MacKenzie Gore",
           "ip": "6.0",
-          "h": "6",
-          "r": "6",
-          "er": "6",
-          "bb": "3",
-          "k": "9"
-        },
-        {
-          "name": "Jakob Junis",
-          "ip": "1.2",
-          "h": "3",
+          "h": "5",
           "r": "1",
           "er": "1",
+          "bb": "2",
+          "k": "6"
+        },
+        {
+          "name": "Peyton Gray",
+          "ip": "1.0",
+          "h": "0",
+          "r": "0",
+          "er": "0",
+          "bb": "0",
+          "k": "2"
+        },
+        {
+          "name": "Jacob Latz",
+          "ip": "1.0",
+          "h": "0",
+          "r": "0",
+          "er": "0",
           "bb": "0",
           "k": "1"
         },
         {
-          "name": "Jacob Latz",
-          "ip": "1.1",
+          "name": "Joe Ross",
+          "ip": "1.0",
+          "h": "2",
+          "r": "3",
+          "er": "2",
+          "bb": "1",
+          "k": "0"
+        },
+        {
+          "name": "Cole Winn",
+          "ip": "0.2",
+          "h": "1",
+          "r": "2",
+          "er": "1",
+          "bb": "0",
+          "k": "0"
+        },
+        {
+          "name": "Tyler Alexander",
+          "ip": "0.1",
           "h": "1",
           "r": "0",
           "er": "0",
-          "bb": "0",
+          "bb": "1",
           "k": "0"
         }
       ],
-      "headline": "Texas 9, San Diego 7 — deGrom (W)",
+      "headline": "San Diego 6, Texas 4 (F/10)",
       "notes": {
-        "key_moment": "Texas scored 6 runs in the 1st inning, with Jacob Latz closing it out.",
-        "standout": "Ty France (San Diego) homered twice and drove in five runs.",
-        "why_it_mattered": "Texas improved to 35-39 in the West.",
+        "key_moment": "San Diego scored 3 runs in the 10th inning, with Mason Miller closing it out.",
+        "standout": "Manny Machado (San Diego) homered and drove in five runs.",
+        "why_it_mattered": "San Diego improved to 38-36 in the West.",
         "notable_stat": ""
       }
     },
@@ -389,15 +441,15 @@
       "home_abbr": "TB",
       "away_city": "Washington",
       "home_city": "Tampa Bay",
-      "away_runs": 2,
-      "winner": "home",
+      "away_runs": 4,
+      "winner": "away",
       "venue": "Tropicana Field",
-      "duration": "2:17",
-      "attendance": "17,134",
+      "duration": "2:58",
+      "attendance": "20,996",
       "decisions": {
-        "W": "Griffin Jax",
-        "L": "Miles Mikolas",
-        "SV": "Bryan Baker"
+        "W": "Mitchell Parker",
+        "L": "Ian Seymour",
+        "SV": "Clayton Beeter"
       },
       "game_status": "Final",
       "is_final": true,
@@ -414,86 +466,75 @@
       ],
       "away_line": [
         "0",
+        "2",
+        "0",
+        "0",
         "1",
-        "1",
         "0",
         "0",
         "0",
-        "0",
-        "0",
-        "0"
+        "1"
       ],
       "home_line": [
+        "1",
         "0",
-        "0",
-        "3",
         "1",
         "0",
         "0",
         "0",
-        "1",
-        "0"
+        "0",
+        "0",
+        "1"
       ],
       "away_rhe": [
-        "2",
-        "6",
+        "4",
+        "10",
         "0"
       ],
       "home_rhe": [
-        "5",
+        "3",
         "10",
-        "1"
+        "0"
       ],
-      "home_runs": 5,
+      "home_runs": 3,
       "away_batting": [
         {
           "name": "James Wood",
-          "pos": "RF",
-          "ab": 4,
+          "pos": "DH",
+          "ab": 5,
           "r": 0,
-          "h": 0,
-          "2b": 0,
+          "h": 1,
+          "2b": 1,
           "3b": 0,
           "hr": 0,
           "rbi": 0
-        },
-        {
-          "name": "Luis García Jr.",
-          "pos": "1B",
-          "ab": 3,
-          "r": 1,
-          "h": 2,
-          "2b": 0,
-          "3b": 0,
-          "hr": 1,
-          "rbi": 1
         },
         {
           "name": "Curtis Mead",
+          "pos": "3B",
+          "ab": 4,
+          "r": 0,
+          "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Andrés Chaparro",
+          "pos": "1B",
+          "ab": 3,
+          "r": 0,
+          "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 1
+        },
+        {
+          "name": "Luis García Jr.",
           "pos": "PH",
           "ab": 1,
-          "r": 0,
-          "h": 0,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "José Tena",
-          "pos": "DH",
-          "ab": 2,
-          "r": 0,
-          "h": 0,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Dylan Crews",
-          "pos": "PH",
-          "ab": 2,
           "r": 0,
           "h": 0,
           "2b": 0,
@@ -513,15 +554,15 @@
           "rbi": 1
         },
         {
-          "name": "Keibert Ruiz",
-          "pos": "C",
+          "name": "Dylan Crews",
+          "pos": "RF",
           "ab": 4,
-          "r": 0,
-          "h": 1,
+          "r": 2,
+          "h": 2,
           "2b": 0,
           "3b": 0,
-          "hr": 0,
-          "rbi": 0
+          "hr": 1,
+          "rbi": 1
         },
         {
           "name": "Daylen Lile",
@@ -535,11 +576,11 @@
           "rbi": 0
         },
         {
-          "name": "Nasim Nuñez",
-          "pos": "2B",
+          "name": "Jacob Young",
+          "pos": "CF",
           "ab": 3,
           "r": 0,
-          "h": 1,
+          "h": 0,
           "2b": 0,
           "3b": 0,
           "hr": 0,
@@ -547,8 +588,8 @@
         },
         {
           "name": "Jorbit Vivas",
-          "pos": "3B",
-          "ab": 3,
+          "pos": "PH",
+          "ab": 1,
           "r": 0,
           "h": 1,
           "2b": 0,
@@ -557,11 +598,22 @@
           "rbi": 0
         },
         {
-          "name": "Jacob Young",
-          "pos": "CF",
-          "ab": 3,
+          "name": "Nasim Nuñez",
+          "pos": "2B",
+          "ab": 4,
           "r": 0,
-          "h": 0,
+          "h": 2,
+          "2b": 1,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 1
+        },
+        {
+          "name": "Keibert Ruiz",
+          "pos": "C",
+          "ab": 4,
+          "r": 1,
+          "h": 1,
           "2b": 0,
           "3b": 0,
           "hr": 0,
@@ -578,36 +630,14 @@
           "2b": 0,
           "3b": 0,
           "hr": 0,
-          "rbi": 0
+          "rbi": 1
         },
         {
           "name": "Jonathan Aranda",
           "pos": "1B",
           "ab": 4,
-          "r": 1,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 1,
-          "rbi": 3
-        },
-        {
-          "name": "Jonny DeLuca",
-          "pos": "RF",
-          "ab": 4,
-          "r": 1,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 1,
-          "rbi": 1
-        },
-        {
-          "name": "Junior Caminero",
-          "pos": "3B",
-          "ab": 4,
           "r": 0,
-          "h": 2,
+          "h": 1,
           "2b": 0,
           "3b": 0,
           "hr": 0,
@@ -616,9 +646,42 @@
         {
           "name": "Cedric Mullins",
           "pos": "CF",
-          "ab": 4,
+          "ab": 5,
           "r": 0,
           "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Junior Caminero",
+          "pos": "3B",
+          "ab": 3,
+          "r": 1,
+          "h": 3,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 1
+        },
+        {
+          "name": "Richie Palacios",
+          "pos": "2B",
+          "ab": 1,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Ben Williamson",
+          "pos": "PH",
+          "ab": 3,
+          "r": 0,
+          "h": 0,
           "2b": 0,
           "3b": 0,
           "hr": 0,
@@ -629,19 +692,41 @@
           "pos": "LF",
           "ab": 4,
           "r": 0,
-          "h": 1,
+          "h": 2,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 1
+        },
+        {
+          "name": "Victor Mesa Jr.",
+          "pos": "RF",
+          "ab": 4,
+          "r": 0,
+          "h": 0,
           "2b": 0,
           "3b": 0,
           "hr": 0,
           "rbi": 0
         },
         {
-          "name": "Richie Palacios",
-          "pos": "2B",
+          "name": "Hunter Feduccia",
+          "pos": "C",
+          "ab": 0,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Nick Fortes",
+          "pos": "PH",
           "ab": 3,
-          "r": 1,
-          "h": 1,
-          "2b": 1,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
           "3b": 0,
           "hr": 0,
           "rbi": 0
@@ -649,21 +734,10 @@
         {
           "name": "Taylor Walls",
           "pos": "SS",
-          "ab": 3,
-          "r": 0,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 1
-        },
-        {
-          "name": "Hunter Feduccia",
-          "pos": "C",
           "ab": 2,
           "r": 1,
-          "h": 0,
-          "2b": 0,
+          "h": 1,
+          "2b": 1,
           "3b": 0,
           "hr": 0,
           "rbi": 0
@@ -671,76 +745,85 @@
       ],
       "away_pitching": [
         {
-          "name": "Miles Mikolas",
-          "ip": "6.0",
-          "h": "9",
-          "r": "5",
-          "er": "5",
-          "bb": "1",
-          "k": "2"
-        },
-        {
-          "name": "PJ Poulin",
-          "ip": "2.0",
-          "h": "1",
+          "name": "Brad Lord",
+          "ip": "3.0",
+          "h": "2",
           "r": "0",
           "er": "0",
-          "bb": "0",
-          "k": "1"
-        }
-      ],
-      "home_pitching": [
-        {
-          "name": "Griffin Jax",
-          "ip": "5.0",
-          "h": "4",
-          "r": "2",
-          "er": "2",
           "bb": "0",
           "k": "5"
         },
         {
-          "name": "Steven Matz",
-          "ip": "1.2",
-          "h": "1",
-          "r": "0",
-          "er": "0",
-          "bb": "0",
+          "name": "Cade Cavalli",
+          "ip": "2.2",
+          "h": "6",
+          "r": "2",
+          "er": "2",
+          "bb": "3",
           "k": "1"
         },
         {
-          "name": "Garrett Cleavinger",
+          "name": "Mitchell Parker",
+          "ip": "2.1",
+          "h": "1",
+          "r": "0",
+          "er": "0",
+          "bb": "1",
+          "k": "2"
+        },
+        {
+          "name": "Clayton Beeter",
           "ip": "1.0",
+          "h": "1",
+          "r": "1",
+          "er": "1",
+          "bb": "2",
+          "k": "2"
+        }
+      ],
+      "home_pitching": [
+        {
+          "name": "Ian Seymour",
+          "ip": "5.0",
+          "h": "7",
+          "r": "3",
+          "er": "3",
+          "bb": "0",
+          "k": "4"
+        },
+        {
+          "name": "Cole Sulser",
+          "ip": "2.0",
           "h": "0",
           "r": "0",
           "er": "0",
+          "bb": "0",
+          "k": "4"
+        },
+        {
+          "name": "Cam Booser",
+          "ip": "1.0",
+          "h": "3",
+          "r": "1",
+          "er": "1",
           "bb": "0",
           "k": "0"
         },
         {
-          "name": "Bryan Baker",
+          "name": "Craig Kimbrel",
           "ip": "1.0",
           "h": "0",
-          "r": "0",
-          "er": "0",
-          "bb": "0",
-          "k": "1"
-        },
-        {
-          "name": "Kevin Kelly",
-          "ip": "0.1",
-          "h": "1",
           "r": "0",
           "er": "0",
           "bb": "0",
           "k": "0"
         }
       ],
-      "headline": "Tampa Bay 5, Washington 2 — Jax (W)",
+      "headline": "Washington 4, Tampa Bay 3 — Parker (W)",
       "notes": {
-        "key_moment": "Tampa Bay scored 3 runs in the 3rd inning, with Bryan Baker closing it out.",
-        "standout": "Jonathan Aranda (Tampa Bay) homered and drove in three runs.",
-        "why_it_mattered": "Tampa Bay improved to 41-30 in the East.",
+        "key_moment": "Washington edged Tampa Bay by a single run, 4-3, with Clayton Beeter closing it out.",
+        "standout": "Dylan Crews (Washington) homered.",
+        "why_it_mattered": "Washington improved to 39-37 in the East.",
         "notable_stat": ""
       }
     },
@@ -749,14 +832,14 @@
       "home_abbr": "SEA",
       "away_city": "Boston",
       "home_city": "Seattle",
-      "away_runs": 6,
+      "away_runs": 5,
       "winner": "away",
       "venue": "T-Mobile Park",
-      "duration": "2:23",
-      "attendance": "45,775",
+      "duration": "2:34",
+      "attendance": "45,663",
       "decisions": {
-        "W": "Ranger Suarez",
-        "L": "Bryce Miller",
+        "W": "Connelly Early",
+        "L": "Emerson Hancock",
         "SV": ""
       },
       "game_status": "Final",
@@ -774,42 +857,53 @@
       ],
       "away_line": [
         "0",
+        "0",
+        "0",
+        "2",
+        "0",
+        "3",
+        "0",
+        "0",
+        "0"
+      ],
+      "home_line": [
         "1",
         "0",
         "0",
         "0",
         "0",
-        "4",
-        "0",
-        "1"
-      ],
-      "home_line": [
         "0",
         "0",
         "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "2"
-      ],
-      "away_rhe": [
-        "6",
-        "10",
         "0"
       ],
+      "away_rhe": [
+        "5",
+        "6",
+        "1"
+      ],
       "home_rhe": [
-        "2",
+        "1",
         "2",
         "1"
       ],
-      "home_runs": 2,
+      "home_runs": 1,
       "away_batting": [
         {
-          "name": "Mickey Gasper",
-          "pos": "DH",
+          "name": "Anthony Seigler",
+          "pos": "2B",
           "ab": 4,
+          "r": 1,
+          "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Andruw Monasterio",
+          "pos": "2B",
+          "ab": 1,
           "r": 0,
           "h": 0,
           "2b": 0,
@@ -818,19 +912,8 @@
           "rbi": 0
         },
         {
-          "name": "Ceddanne Rafaela",
-          "pos": "CF",
-          "ab": 4,
-          "r": 1,
-          "h": 1,
-          "2b": 1,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Wilyer Abreu",
-          "pos": "RF",
+          "name": "Masataka Yoshida",
+          "pos": "DH",
           "ab": 4,
           "r": 0,
           "h": 1,
@@ -840,11 +923,22 @@
           "rbi": 0
         },
         {
+          "name": "Wilyer Abreu",
+          "pos": "RF",
+          "ab": 3,
+          "r": 2,
+          "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 1,
+          "rbi": 2
+        },
+        {
           "name": "Willson Contreras",
           "pos": "1B",
-          "ab": 4,
+          "ab": 2,
           "r": 1,
-          "h": 1,
+          "h": 0,
           "2b": 0,
           "3b": 0,
           "hr": 0,
@@ -855,7 +949,7 @@
           "pos": "LF",
           "ab": 4,
           "r": 1,
-          "h": 1,
+          "h": 0,
           "2b": 0,
           "3b": 0,
           "hr": 0,
@@ -865,11 +959,11 @@
           "name": "Caleb Durbin",
           "pos": "3B",
           "ab": 4,
-          "r": 3,
-          "h": 3,
-          "2b": 1,
+          "r": 0,
+          "h": 2,
+          "2b": 0,
           "3b": 0,
-          "hr": 1,
+          "hr": 0,
           "rbi": 1
         },
         {
@@ -877,11 +971,11 @@
           "pos": "SS",
           "ab": 4,
           "r": 0,
-          "h": 2,
-          "2b": 1,
+          "h": 1,
+          "2b": 0,
           "3b": 0,
           "hr": 0,
-          "rbi": 3
+          "rbi": 1
         },
         {
           "name": "Carlos Narváez",
@@ -892,14 +986,14 @@
           "2b": 0,
           "3b": 0,
           "hr": 0,
-          "rbi": 1
+          "rbi": 0
         },
         {
-          "name": "Andruw Monasterio",
-          "pos": "2B",
+          "name": "Nate Eaton",
+          "pos": "CF",
           "ab": 3,
           "r": 0,
-          "h": 1,
+          "h": 0,
           "2b": 0,
           "3b": 0,
           "hr": 0,
@@ -908,10 +1002,10 @@
       ],
       "home_batting": [
         {
-          "name": "Rob Refsnyder",
-          "pos": "DH",
-          "ab": 4,
-          "r": 0,
+          "name": "J.P. Crawford",
+          "pos": "3B",
+          "ab": 3,
+          "r": 1,
           "h": 0,
           "2b": 0,
           "3b": 0,
@@ -921,9 +1015,9 @@
         {
           "name": "Cal Raleigh",
           "pos": "C",
-          "ab": 1,
-          "r": 1,
-          "h": 0,
+          "ab": 3,
+          "r": 0,
+          "h": 1,
           "2b": 0,
           "3b": 0,
           "hr": 0,
@@ -932,13 +1026,13 @@
         {
           "name": "Julio Rodríguez",
           "pos": "CF",
-          "ab": 4,
-          "r": 1,
-          "h": 1,
+          "ab": 3,
+          "r": 0,
+          "h": 0,
           "2b": 0,
           "3b": 0,
-          "hr": 1,
-          "rbi": 2
+          "hr": 0,
+          "rbi": 0
         },
         {
           "name": "Josh Naylor",
@@ -946,15 +1040,15 @@
           "ab": 4,
           "r": 0,
           "h": 1,
-          "2b": 1,
+          "2b": 0,
           "3b": 0,
           "hr": 0,
-          "rbi": 0
+          "rbi": 1
         },
         {
-          "name": "Dominic Canzone",
+          "name": "Rob Refsnyder",
           "pos": "RF",
-          "ab": 4,
+          "ab": 3,
           "r": 0,
           "h": 0,
           "2b": 0,
@@ -974,7 +1068,29 @@
           "rbi": 0
         },
         {
-          "name": "Victor Robles",
+          "name": "Mitch Garver",
+          "pos": "DH",
+          "ab": 2,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Luke Raley",
+          "pos": "PH",
+          "ab": 1,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Connor Joe",
           "pos": "LF",
           "ab": 2,
           "r": 0,
@@ -985,7 +1101,7 @@
           "rbi": 0
         },
         {
-          "name": "J.P. Crawford",
+          "name": "Dominic Canzone",
           "pos": "PH",
           "ab": 1,
           "r": 0,
@@ -1005,31 +1121,29 @@
           "3b": 0,
           "hr": 0,
           "rbi": 0
-        },
-        {
-          "name": "Weston Wilson",
-          "pos": "3B",
-          "ab": 3,
-          "r": 0,
-          "h": 0,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
         }
       ],
       "away_pitching": [
         {
-          "name": "Ranger Suarez",
-          "ip": "6.2",
-          "h": "1",
-          "r": "0",
-          "er": "0",
-          "bb": "3",
-          "k": "5"
+          "name": "Connelly Early",
+          "ip": "6.0",
+          "h": "2",
+          "r": "1",
+          "er": "1",
+          "bb": "2",
+          "k": "7"
         },
         {
-          "name": "Greg Weissert",
+          "name": "Tyron Guerrero",
+          "ip": "1.0",
+          "h": "0",
+          "r": "0",
+          "er": "0",
+          "bb": "0",
+          "k": "2"
+        },
+        {
+          "name": "Garrett Whitlock",
           "ip": "1.0",
           "h": "0",
           "r": "0",
@@ -1038,65 +1152,83 @@
           "k": "1"
         },
         {
-          "name": "Tommy Kahnle",
+          "name": "Danny Coulombe",
           "ip": "1.0",
-          "h": "1",
-          "r": "2",
-          "er": "2",
-          "bb": "1",
-          "k": "1"
-        },
-        {
-          "name": "Justin Slaten",
-          "ip": "0.1",
           "h": "0",
           "r": "0",
           "er": "0",
           "bb": "0",
-          "k": "1"
+          "k": "0"
         }
       ],
       "home_pitching": [
         {
-          "name": "Bryce Miller",
-          "ip": "5.0",
-          "h": "3",
-          "r": "1",
-          "er": "1",
-          "bb": "0",
-          "k": "7"
+          "name": "Emerson Hancock",
+          "ip": "5.1",
+          "h": "4",
+          "r": "5",
+          "er": "5",
+          "bb": "2",
+          "k": "6"
         },
         {
-          "name": "Luis Castillo",
-          "ip": "4.0",
-          "h": "7",
-          "r": "5",
-          "er": "4",
+          "name": "Nick Davila",
+          "ip": "1.0",
+          "h": "0",
+          "r": "0",
+          "er": "0",
+          "bb": "2",
+          "k": "1"
+        },
+        {
+          "name": "Michael Rucker",
+          "ip": "1.0",
+          "h": "0",
+          "r": "0",
+          "er": "0",
           "bb": "0",
-          "k": "4"
+          "k": "2"
+        },
+        {
+          "name": "Alex Hoppe",
+          "ip": "1.0",
+          "h": "0",
+          "r": "0",
+          "er": "0",
+          "bb": "0",
+          "k": "2"
+        },
+        {
+          "name": "José A. Ferrer",
+          "ip": "0.2",
+          "h": "2",
+          "r": "0",
+          "er": "0",
+          "bb": "0",
+          "k": "0"
         }
       ],
-      "headline": "Boston 6, Seattle 2 — Suarez (W)",
+      "headline": "Boston 5, Seattle 1 — Early (W)",
       "notes": {
-        "key_moment": "Boston scored 4 runs in the 7th inning.",
-        "standout": "Caleb Durbin (Boston) homered.",
-        "why_it_mattered": "Boston improved to 29-43 in the East.",
+        "key_moment": "Boston scored 3 runs in the 6th inning.",
+        "standout": "Wilyer Abreu (Boston) homered and drove in two runs.",
+        "why_it_mattered": "Boston improved to 30-43 in the East.",
         "notable_stat": ""
       }
     },
     {
-      "away_abbr": "CIN",
-      "home_abbr": "NYY",
-      "away_city": "Cincinnati",
-      "home_city": "New York",
-      "away_runs": 0,
+      "away_abbr": "NYM",
+      "home_abbr": "PHI",
+      "away_city": "New York",
+      "home_city": "Philadelphia",
+      "away_runs": 3,
       "winner": "home",
-      "venue": "Yankee Stadium",
-      "duration": "2:35",
-      "attendance": "42,420",
+      "venue": "Citizens Bank Park",
+      "duration": "2:46",
+      "attendance": "43,402",
       "decisions": {
-        "W": "Cam Schlittler",
-        "L": "Rhett Lowder",
+        "W": "Cristopher Sánchez",
+        "L": "Freddy Peralta",
         "SV": ""
       },
       "game_status": "Final",
@@ -1116,16 +1248,387 @@
         "0",
         "0",
         "0",
+        "1",
         "0",
         "0",
-        "0",
-        "0",
+        "2",
         "0",
         "0"
       ],
       "home_line": [
+        "1",
+        "2",
+        "8",
+        "0",
+        "2",
+        "0",
+        "2",
+        "0",
+        "0"
+      ],
+      "away_rhe": [
+        "3",
+        "8",
+        "1"
+      ],
+      "home_rhe": [
+        "15",
+        "17",
+        "0"
+      ],
+      "home_runs": 15,
+      "away_batting": [
+        {
+          "name": "Carson Benge",
+          "pos": "CF",
+          "ab": 4,
+          "r": 1,
+          "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 1,
+          "rbi": 2
+        },
+        {
+          "name": "Bo Bichette",
+          "pos": "3B",
+          "ab": 3,
+          "r": 0,
+          "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Brett Baty",
+          "pos": "PH",
+          "ab": 1,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Juan Soto",
+          "pos": "LF",
+          "ab": 3,
+          "r": 0,
+          "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "MJ Melendez",
+          "pos": "LF",
+          "ab": 1,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Marcus Semien",
+          "pos": "2B",
+          "ab": 4,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Eric Wagaman",
+          "pos": "RF",
+          "ab": 3,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Francisco Alvarez",
+          "pos": "DH",
+          "ab": 3,
+          "r": 0,
+          "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "A.J. Ewing",
+          "pos": "CF",
+          "ab": 1,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Mark Vientos",
+          "pos": "1B",
+          "ab": 4,
+          "r": 2,
+          "h": 2,
+          "2b": 0,
+          "3b": 0,
+          "hr": 1,
+          "rbi": 1
+        },
+        {
+          "name": "Luis Torrens",
+          "pos": "C",
+          "ab": 4,
+          "r": 0,
+          "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Zack Short",
+          "pos": "SS",
+          "ab": 4,
+          "r": 0,
+          "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        }
+      ],
+      "home_batting": [
+        {
+          "name": "Trea Turner",
+          "pos": "SS",
+          "ab": 5,
+          "r": 3,
+          "h": 2,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 1
+        },
+        {
+          "name": "Kyle Schwarber",
+          "pos": "DH",
+          "ab": 5,
+          "r": 4,
+          "h": 4,
+          "2b": 0,
+          "3b": 0,
+          "hr": 3,
+          "rbi": 6
+        },
+        {
+          "name": "Bryce Harper",
+          "pos": "1B",
+          "ab": 5,
+          "r": 2,
+          "h": 4,
+          "2b": 1,
+          "3b": 1,
+          "hr": 1,
+          "rbi": 3
+        },
+        {
+          "name": "Brandon Marsh",
+          "pos": "LF",
+          "ab": 5,
+          "r": 1,
+          "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Alec Bohm",
+          "pos": "3B",
+          "ab": 5,
+          "r": 1,
+          "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Bryson Stott",
+          "pos": "2B",
+          "ab": 5,
+          "r": 1,
+          "h": 1,
+          "2b": 1,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 1
+        },
+        {
+          "name": "J.T. Realmuto",
+          "pos": "C",
+          "ab": 4,
+          "r": 2,
+          "h": 2,
+          "2b": 2,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 2
+        },
+        {
+          "name": "Gabriel Rincones Jr.",
+          "pos": "RF",
+          "ab": 4,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Justin Crawford",
+          "pos": "CF",
+          "ab": 3,
+          "r": 1,
+          "h": 2,
+          "2b": 1,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 1
+        }
+      ],
+      "away_pitching": [
+        {
+          "name": "Freddy Peralta",
+          "ip": "2.2",
+          "h": "10",
+          "r": "10",
+          "er": "10",
+          "bb": "1",
+          "k": "2"
+        },
+        {
+          "name": "Tobias Myers",
+          "ip": "2.1",
+          "h": "3",
+          "r": "2",
+          "er": "2",
+          "bb": "0",
+          "k": "1"
+        },
+        {
+          "name": "Cionel Pérez",
+          "ip": "2.0",
+          "h": "4",
+          "r": "3",
+          "er": "3",
+          "bb": "0",
+          "k": "3"
+        },
+        {
+          "name": "Zack Short",
+          "ip": "1.0",
+          "h": "0",
+          "r": "0",
+          "er": "0",
+          "bb": "0",
+          "k": "0"
+        }
+      ],
+      "home_pitching": [
+        {
+          "name": "Cristopher Sánchez",
+          "ip": "6.0",
+          "h": "5",
+          "r": "1",
+          "er": "1",
+          "bb": "1",
+          "k": "5"
+        },
+        {
+          "name": "Max Lazar",
+          "ip": "2.0",
+          "h": "2",
+          "r": "2",
+          "er": "2",
+          "bb": "0",
+          "k": "1"
+        },
+        {
+          "name": "Jhoan Duran",
+          "ip": "1.0",
+          "h": "1",
+          "r": "0",
+          "er": "0",
+          "bb": "0",
+          "k": "2"
+        }
+      ],
+      "headline": "Philadelphia 15, New York 3",
+      "notes": {
+        "key_moment": "Philadelphia scored 8 runs in the 3rd inning.",
+        "standout": "Kyle Schwarber (Philadelphia) homered three times and drove in six runs.",
+        "why_it_mattered": "Philadelphia improved to 40-35 in the East.",
+        "notable_stat": "The teams combined for 25 hits."
+      }
+    },
+    {
+      "away_abbr": "CIN",
+      "home_abbr": "NYY",
+      "away_city": "Cincinnati",
+      "home_city": "New York",
+      "away_runs": 10,
+      "winner": "away",
+      "venue": "Yankee Stadium",
+      "duration": "2:53",
+      "attendance": "46,089",
+      "decisions": {
+        "W": "Andrew Abbott",
+        "L": "Will Warren",
+        "SV": ""
+      },
+      "game_status": "Final",
+      "is_final": true,
+      "innings": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "away_line": [
+        "0",
+        "0",
+        "2",
         "0",
         "4",
+        "0",
+        "0",
+        "4",
+        "0"
+      ],
+      "home_line": [
+        "1",
+        "0",
         "0",
         "0",
         "0",
@@ -1135,24 +1638,24 @@
         "0"
       ],
       "away_rhe": [
-        "0",
-        "4",
-        "0"
+        "10",
+        "15",
+        "3"
       ],
       "home_rhe": [
-        "5",
+        "2",
         "8",
         "1"
       ],
-      "home_runs": 5,
+      "home_runs": 2,
       "away_batting": [
         {
           "name": "Blake Dunn",
           "pos": "CF",
-          "ab": 3,
-          "r": 0,
+          "ab": 5,
+          "r": 3,
           "h": 2,
-          "2b": 1,
+          "2b": 0,
           "3b": 0,
           "hr": 0,
           "rbi": 0
@@ -1160,65 +1663,65 @@
         {
           "name": "JJ Bleday",
           "pos": "LF",
-          "ab": 3,
-          "r": 0,
-          "h": 0,
-          "2b": 0,
+          "ab": 5,
+          "r": 1,
+          "h": 1,
+          "2b": 1,
           "3b": 0,
           "hr": 0,
           "rbi": 0
         },
         {
           "name": "Sal Stewart",
-          "pos": "1B",
+          "pos": "3B",
           "ab": 4,
-          "r": 0,
-          "h": 0,
-          "2b": 0,
+          "r": 1,
+          "h": 2,
+          "2b": 2,
           "3b": 0,
           "hr": 0,
-          "rbi": 0
+          "rbi": 6
         },
         {
           "name": "Nathaniel Lowe",
           "pos": "DH",
-          "ab": 4,
-          "r": 0,
-          "h": 1,
-          "2b": 0,
+          "ab": 3,
+          "r": 1,
+          "h": 2,
+          "2b": 1,
           "3b": 0,
           "hr": 0,
           "rbi": 0
+        },
+        {
+          "name": "Dane Myers",
+          "pos": "PH",
+          "ab": 1,
+          "r": 0,
+          "h": 1,
+          "2b": 1,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 1
         },
         {
           "name": "Spencer Steer",
-          "pos": "RF",
-          "ab": 4,
-          "r": 0,
-          "h": 0,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Eugenio Suárez",
-          "pos": "3B",
-          "ab": 4,
-          "r": 0,
+          "pos": "1B",
+          "ab": 5,
+          "r": 1,
           "h": 1,
           "2b": 0,
           "3b": 0,
-          "hr": 0,
-          "rbi": 0
+          "hr": 1,
+          "rbi": 3
         },
         {
-          "name": "Tyler Stephenson",
-          "pos": "C",
-          "ab": 3,
+          "name": "Noelvi Marte",
+          "pos": "RF",
+          "ab": 4,
           "r": 0,
-          "h": 0,
-          "2b": 0,
+          "h": 1,
+          "2b": 1,
           "3b": 0,
           "hr": 0,
           "rbi": 0
@@ -1226,8 +1729,19 @@
         {
           "name": "Matt McLain",
           "pos": "SS",
-          "ab": 3,
+          "ab": 5,
           "r": 0,
+          "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Jose Trevino",
+          "pos": "C",
+          "ab": 5,
+          "r": 1,
           "h": 0,
           "2b": 0,
           "3b": 0,
@@ -1237,10 +1751,10 @@
         {
           "name": "Edwin Arroyo",
           "pos": "2B",
-          "ab": 3,
-          "r": 0,
-          "h": 0,
-          "2b": 0,
+          "ab": 5,
+          "r": 2,
+          "h": 4,
+          "2b": 1,
           "3b": 0,
           "hr": 0,
           "rbi": 0
@@ -1249,32 +1763,32 @@
       "home_batting": [
         {
           "name": "Ben Rice",
-          "pos": "DH",
-          "ab": 4,
-          "r": 1,
-          "h": 2,
-          "2b": 0,
-          "3b": 0,
-          "hr": 1,
-          "rbi": 3
-        },
-        {
-          "name": "Jasson Domínguez",
-          "pos": "RF",
-          "ab": 4,
+          "pos": "1B",
+          "ab": 5,
           "r": 0,
-          "h": 2,
-          "2b": 1,
+          "h": 0,
+          "2b": 0,
           "3b": 0,
           "hr": 0,
           "rbi": 0
         },
         {
-          "name": "Cody Bellinger",
-          "pos": "LF",
+          "name": "Amed Rosario",
+          "pos": "3B",
           "ab": 3,
           "r": 0,
           "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "J.C. Escarra",
+          "pos": "C",
+          "ab": 1,
+          "r": 0,
+          "h": 1,
           "2b": 0,
           "3b": 0,
           "hr": 0,
@@ -1282,20 +1796,9 @@
         },
         {
           "name": "Paul Goldschmidt",
-          "pos": "1B",
-          "ab": 4,
-          "r": 0,
-          "h": 0,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Jazz Chisholm Jr.",
-          "pos": "2B",
-          "ab": 3,
-          "r": 2,
+          "pos": "DH",
+          "ab": 5,
+          "r": 1,
           "h": 1,
           "2b": 0,
           "3b": 0,
@@ -1303,10 +1806,43 @@
           "rbi": 1
         },
         {
-          "name": "Spencer Jones",
+          "name": "Cody Bellinger",
           "pos": "CF",
-          "ab": 2,
+          "ab": 4,
           "r": 1,
+          "h": 2,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Jasson Domínguez",
+          "pos": "RF",
+          "ab": 3,
+          "r": 0,
+          "h": 2,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "José Caballero",
+          "pos": "LF",
+          "ab": 3,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 1
+        },
+        {
+          "name": "Jazz Chisholm Jr.",
+          "pos": "2B",
+          "ab": 4,
+          "r": 0,
           "h": 0,
           "2b": 0,
           "3b": 0,
@@ -1317,17 +1853,6 @@
           "name": "Anthony Volpe",
           "pos": "SS",
           "ab": 3,
-          "r": 1,
-          "h": 2,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 1
-        },
-        {
-          "name": "Ryan McMahon",
-          "pos": "3B",
-          "ab": 4,
           "r": 0,
           "h": 1,
           "2b": 0,
@@ -1336,9 +1861,20 @@
           "rbi": 0
         },
         {
-          "name": "J.C. Escarra",
+          "name": "Ali Sánchez",
           "pos": "C",
-          "ab": 4,
+          "ab": 2,
+          "r": 0,
+          "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Spencer Jones",
+          "pos": "PH",
+          "ab": 2,
           "r": 0,
           "h": 0,
           "2b": 0,
@@ -1349,47 +1885,65 @@
       ],
       "away_pitching": [
         {
-          "name": "Rhett Lowder",
-          "ip": "5.1",
-          "h": "6",
-          "r": "4",
-          "er": "4",
+          "name": "Andrew Abbott",
+          "ip": "5.0",
+          "h": "5",
+          "r": "1",
+          "er": "1",
           "bb": "3",
-          "k": "5"
+          "k": "6"
         },
         {
-          "name": "Caleb Ferguson",
-          "ip": "1.2",
+          "name": "Tejay Antone",
+          "ip": "2.0",
+          "h": "0",
+          "r": "0",
+          "er": "0",
+          "bb": "0",
+          "k": "1"
+        },
+        {
+          "name": "Chase Petty",
+          "ip": "1.0",
           "h": "1",
           "r": "0",
           "er": "0",
           "bb": "0",
-          "k": "0"
+          "k": "1"
         },
         {
-          "name": "Zach Maxwell",
+          "name": "Brock Burke",
           "ip": "1.0",
-          "h": "1",
+          "h": "2",
           "r": "1",
           "er": "1",
-          "bb": "2",
-          "k": "1"
+          "bb": "0",
+          "k": "0"
         }
       ],
       "home_pitching": [
         {
-          "name": "Cam Schlittler",
-          "ip": "6.0",
-          "h": "4",
-          "r": "0",
-          "er": "0",
-          "bb": "0",
-          "k": "13"
+          "name": "Will Warren",
+          "ip": "5.2",
+          "h": "8",
+          "r": "6",
+          "er": "2",
+          "bb": "2",
+          "k": "8"
         },
         {
-          "name": "Brent Headrick",
+          "name": "Ryan Yarbrough",
           "ip": "1.0",
-          "h": "0",
+          "h": "5",
+          "r": "4",
+          "er": "4",
+          "bb": "0",
+          "k": "2"
+        },
+        {
+          "name": "Max Schuemann",
+          "ip": "1.0",
+          "h": "1",
           "r": "0",
           "er": "0",
           "bb": "1",
@@ -1398,27 +1952,27 @@
         {
           "name": "Jake Bird",
           "ip": "1.0",
-          "h": "0",
+          "h": "1",
           "r": "0",
           "er": "0",
           "bb": "0",
-          "k": "2"
+          "k": "0"
         },
         {
-          "name": "David Bednar",
-          "ip": "1.0",
+          "name": "Tim Hill",
+          "ip": "0.1",
           "h": "0",
           "r": "0",
           "er": "0",
           "bb": "0",
-          "k": "2"
+          "k": "0"
         }
       ],
-      "headline": "New York Blank Cincinnati, 5-0",
+      "headline": "Cincinnati 10, New York 2",
       "notes": {
-        "key_moment": "New York scored 4 runs in the 2nd inning.",
-        "standout": "Ben Rice (New York) homered and drove in three runs.",
-        "why_it_mattered": "New York improved to 34-41 in the East.",
+        "key_moment": "Cincinnati scored 4 runs in the 5th inning.",
+        "standout": "Sal Stewart (Cincinnati) drove in six runs.",
+        "why_it_mattered": "Cincinnati improved to 35-39 in the Central.",
         "notable_stat": ""
       }
     },
@@ -1430,11 +1984,11 @@
       "away_runs": 3,
       "winner": "home",
       "venue": "loanDepot park",
-      "duration": "2:50",
-      "attendance": "11,677",
+      "duration": "3:08",
+      "attendance": "22,643",
       "decisions": {
-        "W": "Cade Gibson",
-        "L": "Sam Hentges",
+        "W": "Max Meyer",
+        "L": "Trevor McDonald",
         "SV": "Pete Fairbanks"
       },
       "game_status": "Final",
@@ -1454,42 +2008,42 @@
         "0",
         "1",
         "0",
+        "1",
         "0",
         "0",
-        "2",
         "0",
-        "0",
+        "1",
         "0"
       ],
       "home_line": [
         "1",
-        "0",
-        "0",
-        "0",
         "1",
         "0",
-        "2",
+        "4",
+        "0",
+        "0",
+        "0",
         "0",
         "0"
       ],
       "away_rhe": [
         "3",
-        "9",
-        "0"
+        "10",
+        "4"
       ],
       "home_rhe": [
-        "4",
-        "10",
+        "6",
+        "6",
         "0"
       ],
-      "home_runs": 4,
+      "home_runs": 6,
       "away_batting": [
         {
           "name": "Luis Arraez",
           "pos": "2B",
-          "ab": 5,
+          "ab": 3,
           "r": 0,
-          "h": 0,
+          "h": 1,
           "2b": 0,
           "3b": 0,
           "hr": 0,
@@ -1497,10 +2051,10 @@
         },
         {
           "name": "Bryce Eldridge",
-          "pos": "1B",
+          "pos": "DH",
           "ab": 4,
           "r": 0,
-          "h": 0,
+          "h": 1,
           "2b": 0,
           "3b": 0,
           "hr": 0,
@@ -1509,7 +2063,7 @@
         {
           "name": "Matt Chapman",
           "pos": "3B",
-          "ab": 3,
+          "ab": 5,
           "r": 0,
           "h": 0,
           "2b": 0,
@@ -1519,22 +2073,22 @@
         },
         {
           "name": "Rafael Devers",
-          "pos": "DH",
-          "ab": 3,
-          "r": 1,
-          "h": 2,
+          "pos": "1B",
+          "ab": 4,
+          "r": 0,
+          "h": 0,
           "2b": 0,
           "3b": 0,
-          "hr": 1,
-          "rbi": 1
+          "hr": 0,
+          "rbi": 0
         },
         {
           "name": "Jung Hoo Lee",
           "pos": "RF",
           "ab": 4,
-          "r": 1,
+          "r": 2,
           "h": 2,
-          "2b": 1,
+          "2b": 2,
           "3b": 0,
           "hr": 0,
           "rbi": 0
@@ -1543,8 +2097,8 @@
           "name": "Willy Adames",
           "pos": "SS",
           "ab": 4,
-          "r": 1,
-          "h": 1,
+          "r": 0,
+          "h": 0,
           "2b": 0,
           "3b": 0,
           "hr": 0,
@@ -1554,73 +2108,27 @@
           "name": "Casey Schmitt",
           "pos": "LF",
           "ab": 4,
-          "r": 0,
-          "h": 2,
-          "2b": 0,
+          "r": 1,
+          "h": 3,
+          "2b": 2,
           "3b": 0,
-          "hr": 0,
-          "rbi": 1
+          "hr": 1,
+          "rbi": 2
         },
         {
           "name": "Drew Gilbert",
           "pos": "CF",
           "ab": 4,
           "r": 0,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Daniel Susac",
-          "pos": "C",
-          "ab": 3,
-          "r": 0,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 1
-        }
-      ],
-      "home_batting": [
-        {
-          "name": "Liam Hicks",
-          "pos": "1B",
-          "ab": 5,
-          "r": 0,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 1
-        },
-        {
-          "name": "Owen Caissie",
-          "pos": "RF",
-          "ab": 3,
-          "r": 1,
           "h": 3,
           "2b": 1,
           "3b": 0,
-          "hr": 1,
-          "rbi": 3
-        },
-        {
-          "name": "Heriberto Hernández",
-          "pos": "DH",
-          "ab": 4,
-          "r": 0,
-          "h": 1,
-          "2b": 1,
-          "3b": 0,
           "hr": 0,
-          "rbi": 0
+          "rbi": 1
         },
         {
-          "name": "Kyle Stowers",
-          "pos": "LF",
+          "name": "Eric Haase",
+          "pos": "C",
           "ab": 3,
           "r": 0,
           "h": 0,
@@ -1630,32 +2138,34 @@
           "rbi": 0
         },
         {
-          "name": "Otto Lopez",
-          "pos": "SS",
-          "ab": 4,
+          "name": "Victor Bericoto",
+          "pos": "PH",
+          "ab": 1,
           "r": 0,
-          "h": 1,
+          "h": 0,
           "2b": 0,
           "3b": 0,
           "hr": 0,
           "rbi": 0
-        },
+        }
+      ],
+      "home_batting": [
         {
           "name": "Jakob Marsee",
           "pos": "CF",
-          "ab": 3,
-          "r": 0,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Connor Norby",
-          "pos": "3B",
           "ab": 4,
-          "r": 0,
+          "r": 1,
+          "h": 2,
+          "2b": 1,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 1
+        },
+        {
+          "name": "Otto Lopez",
+          "pos": "SS",
+          "ab": 5,
+          "r": 2,
           "h": 1,
           "2b": 0,
           "3b": 0,
@@ -1663,8 +2173,8 @@
           "rbi": 0
         },
         {
-          "name": "Joe Mack",
-          "pos": "C",
+          "name": "Kyle Stowers",
+          "pos": "1B",
           "ab": 2,
           "r": 0,
           "h": 0,
@@ -1674,10 +2184,10 @@
           "rbi": 0
         },
         {
-          "name": "Esteury Ruiz",
-          "pos": "PH",
-          "ab": 0,
-          "r": 1,
+          "name": "Xavier Edwards",
+          "pos": "2B",
+          "ab": 5,
+          "r": 0,
           "h": 0,
           "2b": 0,
           "3b": 0,
@@ -1685,12 +2195,56 @@
           "rbi": 0
         },
         {
-          "name": "Javier Sanoja",
-          "pos": "2B",
+          "name": "Heriberto Hernández",
+          "pos": "LF",
+          "ab": 3,
+          "r": 1,
+          "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 1,
+          "rbi": 2
+        },
+        {
+          "name": "Owen Caissie",
+          "pos": "DH",
+          "ab": 2,
+          "r": 0,
+          "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 1
+        },
+        {
+          "name": "Leo Jiménez",
+          "pos": "3B",
+          "ab": 2,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Joe Mack",
+          "pos": "C",
           "ab": 4,
-          "r": 2,
-          "h": 2,
-          "2b": 1,
+          "r": 1,
+          "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Esteury Ruiz",
+          "pos": "RF",
+          "ab": 2,
+          "r": 1,
+          "h": 0,
+          "2b": 0,
           "3b": 0,
           "hr": 0,
           "rbi": 0
@@ -1698,87 +2252,60 @@
       ],
       "away_pitching": [
         {
-          "name": "Landen Roupp",
-          "ip": "6.0",
-          "h": "7",
-          "r": "2",
-          "er": "2",
-          "bb": "1",
-          "k": "7"
+          "name": "Trevor McDonald",
+          "ip": "3.0",
+          "h": "3",
+          "r": "5",
+          "er": "3",
+          "bb": "3",
+          "k": "1"
         },
         {
-          "name": "Dylan Smith",
-          "ip": "0.2",
+          "name": "JT Brubaker",
+          "ip": "2.1",
           "h": "1",
           "r": "0",
           "er": "0",
           "bb": "1",
-          "k": "0"
+          "k": "2"
         },
         {
-          "name": "Ryan Walker",
-          "ip": "0.2",
-          "h": "0",
-          "r": "0",
-          "er": "0",
-          "bb": "1",
-          "k": "0"
-        },
-        {
-          "name": "Sam Hentges",
-          "ip": "0.1",
-          "h": "2",
-          "r": "2",
-          "er": "2",
-          "bb": "0",
-          "k": "0"
-        },
-        {
-          "name": "Erik Miller",
-          "ip": "0.1",
+          "name": "Tristan Beck",
+          "ip": "2.0",
           "h": "0",
           "r": "0",
           "er": "0",
           "bb": "0",
           "k": "1"
+        },
+        {
+          "name": "Matt Gage",
+          "ip": "0.2",
+          "h": "2",
+          "r": "1",
+          "er": "1",
+          "bb": "1",
+          "k": "0"
         }
       ],
       "home_pitching": [
         {
-          "name": "Cade Gibson",
-          "ip": "1.2",
-          "h": "0",
-          "r": "0",
-          "er": "0",
-          "bb": "0",
-          "k": "1"
-        },
-        {
-          "name": "Lake Bachar",
-          "ip": "1.1",
-          "h": "3",
-          "r": "1",
-          "er": "1",
+          "name": "Max Meyer",
+          "ip": "5.0",
+          "h": "7",
+          "r": "2",
+          "er": "2",
           "bb": "2",
-          "k": "1"
+          "k": "7"
         },
         {
-          "name": "John King",
-          "ip": "1.1",
-          "h": "2",
-          "r": "0",
-          "er": "0",
-          "bb": "0",
-          "k": "1"
-        },
-        {
-          "name": "Anthony Bender",
+          "name": "Tyler Zuber",
           "ip": "1.1",
           "h": "0",
           "r": "0",
           "er": "0",
           "bb": "0",
-          "k": "0"
+          "k": "2"
         },
         {
           "name": "Pete Fairbanks",
@@ -1787,41 +2314,32 @@
           "r": "0",
           "er": "0",
           "bb": "0",
-          "k": "0"
+          "k": "2"
         },
         {
-          "name": "Michael Petersen",
+          "name": "Cade Gibson",
           "ip": "1.0",
-          "h": "2",
-          "r": "2",
-          "er": "2",
-          "bb": "0",
+          "h": "1",
+          "r": "1",
+          "er": "1",
+          "bb": "1",
           "k": "1"
         },
         {
-          "name": "Tyler Zuber",
+          "name": "Anthony Bender",
           "ip": "0.2",
           "h": "2",
-          "r": "0",
-          "er": "0",
-          "bb": "0",
-          "k": "1"
-        },
-        {
-          "name": "Calvin Faucher",
-          "ip": "0.2",
-          "h": "0",
           "r": "0",
           "er": "0",
           "bb": "0",
           "k": "0"
         }
       ],
-      "headline": "Miami 4, San Francisco 3 — Gibson (W)",
+      "headline": "Miami 6, San Francisco 3 — Meyer (W)",
       "notes": {
-        "key_moment": "Miami edged San Francisco by a single run, 4-3, with Pete Fairbanks closing it out.",
-        "standout": "Owen Caissie (Miami) homered and drove in three runs.",
-        "why_it_mattered": "Miami improved to 37-38 in the East.",
+        "key_moment": "Miami scored 4 runs in the 4th inning, with Pete Fairbanks closing it out.",
+        "standout": "Casey Schmitt (San Francisco) homered and drove in two runs.",
+        "why_it_mattered": "Miami improved to 38-38 in the East.",
         "notable_stat": ""
       }
     },
@@ -1830,15 +2348,15 @@
       "home_abbr": "LAD",
       "away_city": "Baltimore",
       "home_city": "Los Angeles",
-      "away_runs": 5,
-      "winner": "home",
+      "away_runs": 3,
+      "winner": "away",
       "venue": "UNIQLO Field at Dodger Stadium",
-      "duration": "2:57",
-      "attendance": "51,939",
+      "duration": "2:38",
+      "attendance": "50,538",
       "decisions": {
-        "W": "Blake Treinen",
-        "L": "Ryan Helsley",
-        "SV": ""
+        "W": "Trevor Rogers",
+        "L": "Yoshinobu Yamamoto",
+        "SV": "Yennier Cano"
       },
       "game_status": "Final",
       "is_final": true,
@@ -1855,42 +2373,42 @@
       ],
       "away_line": [
         "0",
+        "1",
         "0",
-        "0",
-        "0",
-        "0",
-        "3",
         "2",
+        "0",
+        "0",
+        "0",
         "0",
         "0"
       ],
       "home_line": [
-        "2",
-        "1",
         "0",
         "0",
         "0",
         "0",
         "0",
         "0",
-        "3"
+        "0",
+        "0",
+        "2"
       ],
       "away_rhe": [
-        "5",
+        "3",
         "7",
         "1"
       ],
       "home_rhe": [
-        "6",
-        "12",
+        "2",
+        "4",
         "0"
       ],
-      "home_runs": 6,
+      "home_runs": 2,
       "away_batting": [
         {
           "name": "Taylor Ward",
-          "pos": "DH",
-          "ab": 4,
+          "pos": "LF",
+          "ab": 5,
           "r": 0,
           "h": 1,
           "2b": 0,
@@ -1900,29 +2418,7 @@
         },
         {
           "name": "Gunnar Henderson",
-          "pos": "SS",
-          "ab": 4,
-          "r": 1,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 1,
-          "rbi": 2
-        },
-        {
-          "name": "Pete Alonso",
-          "pos": "1B",
-          "ab": 4,
-          "r": 1,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 1,
-          "rbi": 1
-        },
-        {
-          "name": "Samuel Basallo",
-          "pos": "C",
+          "pos": "DH",
           "ab": 4,
           "r": 0,
           "h": 0,
@@ -1932,11 +2428,33 @@
           "rbi": 0
         },
         {
+          "name": "Pete Alonso",
+          "pos": "1B",
+          "ab": 3,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Samuel Basallo",
+          "pos": "C",
+          "ab": 4,
+          "r": 0,
+          "h": 2,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
           "name": "Leody Taveras",
           "pos": "RF",
           "ab": 4,
-          "r": 0,
-          "h": 0,
+          "r": 2,
+          "h": 2,
           "2b": 0,
           "3b": 0,
           "hr": 0,
@@ -1956,20 +2474,20 @@
         {
           "name": "Coby Mayo",
           "pos": "3B",
-          "ab": 4,
-          "r": 1,
-          "h": 1,
+          "ab": 3,
+          "r": 0,
+          "h": 0,
           "2b": 0,
           "3b": 0,
           "hr": 0,
-          "rbi": 0
+          "rbi": 1
         },
         {
           "name": "Jackson Holliday",
           "pos": "2B",
-          "ab": 2,
-          "r": 1,
-          "h": 1,
+          "ab": 3,
+          "r": 0,
+          "h": 0,
           "2b": 0,
           "3b": 0,
           "hr": 0,
@@ -1977,11 +2495,22 @@
         },
         {
           "name": "Jeremiah Jackson",
-          "pos": "LF",
-          "ab": 3,
+          "pos": "2B",
+          "ab": 1,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Blaze Alexander",
+          "pos": "SS",
+          "ab": 4,
           "r": 0,
           "h": 1,
-          "2b": 0,
+          "2b": 1,
           "3b": 0,
           "hr": 0,
           "rbi": 2
@@ -1989,32 +2518,32 @@
       ],
       "home_batting": [
         {
-          "name": "Kyle Tucker",
-          "pos": "RF",
+          "name": "Shohei Ohtani",
+          "pos": "DH",
           "ab": 4,
           "r": 1,
           "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 1,
+          "rbi": 1
+        },
+        {
+          "name": "Andy Pages",
+          "pos": "CF",
+          "ab": 3,
+          "r": 0,
+          "h": 0,
           "2b": 0,
           "3b": 0,
           "hr": 0,
           "rbi": 0
         },
         {
-          "name": "Andy Pages",
-          "pos": "CF",
-          "ab": 5,
-          "r": 0,
-          "h": 1,
-          "2b": 1,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 1
-        },
-        {
           "name": "Freddie Freeman",
           "pos": "1B",
-          "ab": 4,
-          "r": 0,
+          "ab": 3,
+          "r": 1,
           "h": 0,
           "2b": 0,
           "3b": 0,
@@ -2024,41 +2553,74 @@
         {
           "name": "Mookie Betts",
           "pos": "SS",
-          "ab": 5,
-          "r": 2,
-          "h": 3,
-          "2b": 1,
-          "3b": 0,
-          "hr": 1,
-          "rbi": 1
-        },
-        {
-          "name": "Max Muncy",
-          "pos": "3B",
           "ab": 3,
           "r": 0,
           "h": 1,
           "2b": 0,
           "3b": 0,
           "hr": 0,
-          "rbi": 2
+          "rbi": 0
         },
         {
-          "name": "Tommy Edman",
-          "pos": "LF",
-          "ab": 5,
+          "name": "Miguel Rojas",
+          "pos": "2B",
+          "ab": 3,
           "r": 0,
-          "h": 3,
-          "2b": 1,
+          "h": 0,
+          "2b": 0,
           "3b": 0,
           "hr": 0,
           "rbi": 0
         },
         {
-          "name": "Ryan Ward",
-          "pos": "DH",
-          "ab": 3,
-          "r": 1,
+          "name": "Alex Freeland",
+          "pos": "PH",
+          "ab": 1,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Tommy Edman",
+          "pos": "3B",
+          "ab": 4,
+          "r": 0,
+          "h": 2,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Kyle Tucker",
+          "pos": "RF",
+          "ab": 4,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Alex Call",
+          "pos": "LF",
+          "ab": 2,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Max Muncy",
+          "pos": "PH",
+          "ab": 1,
+          "r": 0,
           "h": 0,
           "2b": 0,
           "3b": 0,
@@ -2068,20 +2630,9 @@
         {
           "name": "Dalton Rushing",
           "pos": "C",
-          "ab": 5,
+          "ab": 3,
           "r": 0,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 1
-        },
-        {
-          "name": "Alex Freeland",
-          "pos": "2B",
-          "ab": 4,
-          "r": 1,
-          "h": 2,
+          "h": 0,
           "2b": 0,
           "3b": 0,
           "hr": 0,
@@ -2090,472 +2641,94 @@
       ],
       "away_pitching": [
         {
-          "name": "Trey Gibson",
-          "ip": "5.0",
-          "h": "7",
-          "r": "3",
-          "er": "3",
-          "bb": "4",
-          "k": "8"
-        },
-        {
-          "name": "Tyler Wells",
-          "ip": "1.2",
-          "h": "2",
-          "r": "0",
-          "er": "0",
-          "bb": "0",
-          "k": "3"
-        },
-        {
-          "name": "Andrew Kittredge",
-          "ip": "1.0",
+          "name": "Trevor Rogers",
+          "ip": "7.0",
           "h": "1",
           "r": "0",
           "er": "0",
-          "bb": "0",
-          "k": "1"
-        },
-        {
-          "name": "Ryan Helsley",
-          "ip": "0.2",
-          "h": "2",
-          "r": "3",
-          "er": "2",
           "bb": "2",
-          "k": "0"
-        },
-        {
-          "name": "Yennier Cano",
-          "ip": "0.1",
-          "h": "0",
-          "r": "0",
-          "er": "0",
-          "bb": "0",
-          "k": "1"
-        }
-      ],
-      "home_pitching": [
-        {
-          "name": "Roki Sasaki",
-          "ip": "5.2",
-          "h": "4",
-          "r": "3",
-          "er": "3",
-          "bb": "1",
           "k": "6"
         },
         {
-          "name": "Kyle Hurt",
-          "ip": "1.0",
-          "h": "0",
-          "r": "0",
-          "er": "0",
-          "bb": "0",
-          "k": "1"
-        },
-        {
-          "name": "Blake Treinen",
-          "ip": "1.0",
-          "h": "0",
+          "name": "Rico Garcia",
+          "ip": "0.2",
+          "h": "1",
           "r": "0",
           "er": "0",
           "bb": "0",
           "k": "2"
         },
         {
-          "name": "Will Klein",
+          "name": "Yennier Cano",
           "ip": "0.2",
-          "h": "2",
-          "r": "1",
+          "h": "1",
+          "r": "0",
+          "er": "0",
+          "bb": "0",
+          "k": "1"
+        },
+        {
+          "name": "Andrew Kittredge",
+          "ip": "0.1",
+          "h": "1",
+          "r": "2",
           "er": "1",
           "bb": "1",
           "k": "0"
         },
         {
-          "name": "Jack Dreyer",
-          "ip": "0.2",
-          "h": "1",
-          "r": "1",
-          "er": "1",
-          "bb": "0",
-          "k": "1"
-        }
-      ],
-      "headline": "Los Angeles 6, Baltimore 5 — Treinen (W)",
-      "notes": {
-        "key_moment": "Los Angeles scored 3 runs in the 9th inning.",
-        "standout": "Gunnar Henderson (Baltimore) homered and drove in two runs.",
-        "why_it_mattered": "Los Angeles improved to 48-27 in the West.",
-        "notable_stat": ""
-      }
-    },
-    {
-      "away_abbr": "STL",
-      "home_abbr": "KC",
-      "away_city": "St. Louis",
-      "home_city": "Kansas City",
-      "away_runs": 5,
-      "winner": "home",
-      "venue": "Kauffman Stadium",
-      "duration": "2:37",
-      "attendance": "27,323",
-      "decisions": {
-        "W": "Seth Lugo",
-        "L": "Michael McGreevy",
-        "SV": "Alex Lange"
-      },
-      "game_status": "Final",
-      "is_final": true,
-      "innings": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9"
-      ],
-      "away_line": [
-        "1",
-        "0",
-        "1",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "3"
-      ],
-      "home_line": [
-        "0",
-        "0",
-        "0",
-        "4",
-        "1",
-        "1",
-        "0",
-        "0",
-        "0"
-      ],
-      "away_rhe": [
-        "5",
-        "8",
-        "1"
-      ],
-      "home_rhe": [
-        "6",
-        "9",
-        "0"
-      ],
-      "home_runs": 6,
-      "away_batting": [
-        {
-          "name": "JJ Wetherholt",
-          "pos": "2B",
-          "ab": 4,
-          "r": 0,
-          "h": 0,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Iván Herrera",
-          "pos": "C",
-          "ab": 2,
-          "r": 1,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 1
-        },
-        {
-          "name": "Alec Burleson",
-          "pos": "1B",
-          "ab": 4,
-          "r": 0,
-          "h": 1,
-          "2b": 1,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Jordan Walker",
-          "pos": "RF",
-          "ab": 3,
-          "r": 0,
-          "h": 2,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 1
-        },
-        {
-          "name": "Lars Nootbaar",
-          "pos": "LF",
-          "ab": 4,
-          "r": 1,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Masyn Winn",
-          "pos": "SS",
-          "ab": 4,
-          "r": 1,
-          "h": 1,
-          "2b": 1,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 1
-        },
-        {
-          "name": "Jimmy Crooks",
-          "pos": "DH",
-          "ab": 3,
-          "r": 0,
-          "h": 0,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Nelson Velázquez",
-          "pos": "PH",
-          "ab": 0,
-          "r": 1,
-          "h": 0,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Blaze Jordan",
-          "pos": "3B",
-          "ab": 4,
-          "r": 0,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 2
-        },
-        {
-          "name": "Nathan Church",
-          "pos": "CF",
-          "ab": 1,
-          "r": 1,
-          "h": 1,
-          "2b": 0,
-          "3b": 1,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "José Fermín",
-          "pos": "PH",
-          "ab": 2,
-          "r": 0,
-          "h": 0,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        }
-      ],
-      "home_batting": [
-        {
-          "name": "Carter Jensen",
-          "pos": "C",
-          "ab": 4,
-          "r": 0,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Lane Thomas",
-          "pos": "CF",
-          "ab": 4,
-          "r": 1,
-          "h": 1,
-          "2b": 1,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Jac Caglianone",
-          "pos": "1B",
-          "ab": 4,
-          "r": 2,
-          "h": 2,
-          "2b": 0,
-          "3b": 0,
-          "hr": 1,
-          "rbi": 2
-        },
-        {
-          "name": "Salvador Perez",
-          "pos": "DH",
-          "ab": 4,
-          "r": 0,
-          "h": 1,
-          "2b": 1,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Michael Massey",
-          "pos": "2B",
-          "ab": 4,
-          "r": 1,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 1
-        },
-        {
-          "name": "Nick Loftin",
-          "pos": "3B",
-          "ab": 3,
-          "r": 1,
-          "h": 0,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "John Rave",
-          "pos": "RF",
-          "ab": 2,
-          "r": 1,
-          "h": 1,
-          "2b": 1,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Isaac Collins",
-          "pos": "LF",
-          "ab": 4,
-          "r": 0,
-          "h": 2,
-          "2b": 2,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 2
-        },
-        {
-          "name": "Tyler Tolbert",
-          "pos": "SS",
-          "ab": 2,
-          "r": 0,
-          "h": 0,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 1
-        }
-      ],
-      "away_pitching": [
-        {
-          "name": "Michael McGreevy",
-          "ip": "5.0",
-          "h": "8",
-          "r": "5",
-          "er": "5",
-          "bb": "1",
-          "k": "2"
-        },
-        {
-          "name": "Matt Svanson",
-          "ip": "2.0",
+          "name": "Grant Wolfram",
+          "ip": "0.1",
           "h": "0",
           "r": "0",
           "er": "0",
-          "bb": "1",
-          "k": "1"
-        },
-        {
-          "name": "George Soriano",
-          "ip": "1.0",
-          "h": "1",
-          "r": "1",
-          "er": "1",
-          "bb": "1",
+          "bb": "0",
           "k": "0"
         }
       ],
       "home_pitching": [
         {
-          "name": "Seth Lugo",
+          "name": "Yoshinobu Yamamoto",
           "ip": "6.0",
-          "h": "5",
-          "r": "2",
-          "er": "1",
-          "bb": "3",
-          "k": "0"
-        },
-        {
-          "name": "Daniel Lynch IV",
-          "ip": "1.0",
-          "h": "0",
-          "r": "0",
-          "er": "0",
-          "bb": "0",
-          "k": "0"
-        },
-        {
-          "name": "John Schreiber",
-          "ip": "1.0",
-          "h": "0",
-          "r": "0",
-          "er": "0",
-          "bb": "0",
-          "k": "1"
-        },
-        {
-          "name": "Matt Strahm",
-          "ip": "0.2",
-          "h": "2",
+          "h": "6",
           "r": "3",
           "er": "3",
-          "bb": "1",
-          "k": "0"
+          "bb": "2",
+          "k": "6"
         },
         {
-          "name": "Alex Lange",
-          "ip": "0.1",
+          "name": "Alex Vesia",
+          "ip": "1.0",
+          "h": "0",
+          "r": "0",
+          "er": "0",
+          "bb": "1",
+          "k": "2"
+        },
+        {
+          "name": "Edgardo Henriquez",
+          "ip": "1.0",
+          "h": "0",
+          "r": "0",
+          "er": "0",
+          "bb": "1",
+          "k": "2"
+        },
+        {
+          "name": "Jonathan Hernández",
+          "ip": "1.0",
           "h": "1",
           "r": "0",
           "er": "0",
           "bb": "0",
-          "k": "0"
+          "k": "1"
         }
       ],
-      "headline": "Kansas City 6, St. Louis 5 — Lugo (W)",
+      "headline": "Baltimore 3, Los Angeles 2 — Rogers (W)",
       "notes": {
-        "key_moment": "Kansas City scored 4 runs in the 4th inning, with Alex Lange closing it out.",
-        "standout": "Jac Caglianone (Kansas City) homered and drove in two runs.",
-        "why_it_mattered": "Kansas City improved to 31-45 in the Central.",
+        "key_moment": "Baltimore edged Los Angeles by a single run, 3-2, with Yennier Cano closing it out.",
+        "standout": "Shohei Ohtani (Los Angeles) homered.",
+        "why_it_mattered": "Baltimore improved to 35-42 in the East.",
         "notable_stat": ""
       }
     },
@@ -2564,14 +2737,14 @@
       "home_abbr": "HOU",
       "away_city": "Cleveland",
       "home_city": "Houston",
-      "away_runs": 3,
-      "winner": "home",
+      "away_runs": 8,
+      "winner": "away",
       "venue": "Daikin Park",
-      "duration": "2:39",
-      "attendance": "33,279",
+      "duration": "2:25",
+      "attendance": "32,678",
       "decisions": {
-        "W": "Tatsuya Imai",
-        "L": "Tanner Bibee",
+        "W": "Joey Cantillo",
+        "L": "Spencer Arrighetti",
         "SV": ""
       },
       "game_status": "Final",
@@ -2588,52 +2761,74 @@
         "9"
       ],
       "away_line": [
+        "1",
         "0",
+        "2",
         "0",
         "3",
         "0",
-        "0",
-        "0",
-        "0",
+        "2",
         "0",
         "0"
       ],
       "home_line": [
-        "1",
         "0",
         "1",
         "0",
         "0",
-        "3",
-        "2",
-        "2",
+        "0",
+        "0",
+        "0",
+        "0",
         "0"
       ],
       "away_rhe": [
-        "3",
-        "7",
-        "1"
-      ],
-      "home_rhe": [
-        "9",
-        "12",
+        "8",
+        "10",
         "0"
       ],
-      "home_runs": 9,
+      "home_rhe": [
+        "1",
+        "5",
+        "0"
+      ],
+      "home_runs": 1,
       "away_batting": [
         {
           "name": "Travis Bazzana",
           "pos": "2B",
           "ab": 4,
+          "r": 3,
+          "h": 4,
+          "2b": 0,
+          "3b": 0,
+          "hr": 2,
+          "rbi": 5
+        },
+        {
+          "name": "Kyle Manzardo",
+          "pos": "1B",
+          "ab": 4,
           "r": 1,
           "h": 2,
-          "2b": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 1,
+          "rbi": 3
+        },
+        {
+          "name": "Brayan Rocchio",
+          "pos": "SS",
+          "ab": 4,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
           "3b": 0,
           "hr": 0,
           "rbi": 0
         },
         {
-          "name": "Kyle Manzardo",
+          "name": "Rhys Hoskins",
           "pos": "DH",
           "ab": 4,
           "r": 0,
@@ -2644,45 +2839,12 @@
           "rbi": 0
         },
         {
-          "name": "Brayan Rocchio",
-          "pos": "SS",
-          "ab": 4,
-          "r": 1,
-          "h": 2,
-          "2b": 1,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 1
-        },
-        {
-          "name": "Rhys Hoskins",
-          "pos": "1B",
-          "ab": 4,
-          "r": 1,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 1,
-          "rbi": 2
-        },
-        {
           "name": "Daniel Schneemann",
-          "pos": "CF",
+          "pos": "3B",
           "ab": 4,
           "r": 0,
           "h": 0,
           "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Gabriel Arias",
-          "pos": "3B",
-          "ab": 4,
-          "r": 0,
-          "h": 1,
-          "2b": 1,
           "3b": 0,
           "hr": 0,
           "rbi": 0
@@ -2690,42 +2852,9 @@
         {
           "name": "Kahlil Watson",
           "pos": "RF",
-          "ab": 2,
+          "ab": 4,
           "r": 0,
           "h": 0,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "David Fry",
-          "pos": "PH",
-          "ab": 1,
-          "r": 0,
-          "h": 0,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Petey Halpin",
-          "pos": "PH",
-          "ab": 1,
-          "r": 0,
-          "h": 0,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Patrick Bailey",
-          "pos": "C",
-          "ab": 3,
-          "r": 0,
-          "h": 1,
           "2b": 0,
           "3b": 0,
           "hr": 0,
@@ -2735,8 +2864,30 @@
           "name": "Steven Kwan",
           "pos": "LF",
           "ab": 3,
-          "r": 0,
+          "r": 1,
           "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Patrick Bailey",
+          "pos": "C",
+          "ab": 4,
+          "r": 2,
+          "h": 3,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Petey Halpin",
+          "pos": "CF",
+          "ab": 3,
+          "r": 1,
+          "h": 1,
           "2b": 0,
           "3b": 0,
           "hr": 0,
@@ -2747,30 +2898,8 @@
         {
           "name": "Jeremy Peña",
           "pos": "SS",
-          "ab": 5,
-          "r": 2,
-          "h": 3,
-          "2b": 0,
-          "3b": 0,
-          "hr": 2,
-          "rbi": 3
-        },
-        {
-          "name": "Yordan Alvarez",
-          "pos": "DH",
-          "ab": 4,
-          "r": 2,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Christian Walker",
-          "pos": "1B",
-          "ab": 4,
-          "r": 1,
+          "ab": 3,
+          "r": 0,
           "h": 0,
           "2b": 0,
           "3b": 0,
@@ -2778,62 +2907,7 @@
           "rbi": 0
         },
         {
-          "name": "Isaac Paredes",
-          "pos": "3B",
-          "ab": 4,
-          "r": 1,
-          "h": 2,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Jose Altuve",
-          "pos": "2B",
-          "ab": 4,
-          "r": 1,
-          "h": 2,
-          "2b": 1,
-          "3b": 0,
-          "hr": 1,
-          "rbi": 4
-        },
-        {
-          "name": "Yainer Diaz",
-          "pos": "C",
-          "ab": 4,
-          "r": 0,
-          "h": 1,
-          "2b": 1,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Cam Smith",
-          "pos": "RF",
-          "ab": 3,
-          "r": 1,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Joey Loperfido",
-          "pos": "LF",
-          "ab": 3,
-          "r": 0,
-          "h": 1,
-          "2b": 1,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Brice Matthews",
+          "name": "Raynel Delgado",
           "pos": "PH",
           "ab": 1,
           "r": 0,
@@ -2844,77 +2918,158 @@
           "rbi": 0
         },
         {
-          "name": "Jake Meyers",
-          "pos": "CF",
+          "name": "Yordan Alvarez",
+          "pos": "DH",
+          "ab": 3,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Taylor Trammell",
+          "pos": "PH",
+          "ab": 1,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Christian Walker",
+          "pos": "1B",
+          "ab": 2,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Joey Loperfido",
+          "pos": "LF",
+          "ab": 1,
+          "r": 0,
+          "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Isaac Paredes",
+          "pos": "3B",
           "ab": 4,
           "r": 1,
           "h": 1,
-          "2b": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Jose Altuve",
+          "pos": "2B",
+          "ab": 4,
+          "r": 0,
+          "h": 2,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Yainer Diaz",
+          "pos": "C",
+          "ab": 3,
+          "r": 0,
+          "h": 1,
+          "2b": 0,
           "3b": 0,
           "hr": 0,
           "rbi": 1
+        },
+        {
+          "name": "Cam Smith",
+          "pos": "RF",
+          "ab": 3,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Jake Meyers",
+          "pos": "CF",
+          "ab": 3,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Brice Matthews",
+          "pos": "LF",
+          "ab": 3,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
         }
       ],
       "away_pitching": [
         {
-          "name": "Tanner Bibee",
-          "ip": "5.1",
+          "name": "Joey Cantillo",
+          "ip": "8.0",
           "h": "4",
-          "r": "4",
-          "er": "3",
-          "bb": "2",
-          "k": "7"
+          "r": "1",
+          "er": "1",
+          "bb": "1",
+          "k": "9"
         },
         {
-          "name": "Daniel Espino",
+          "name": "Matt Festa",
           "ip": "1.0",
-          "h": "3",
-          "r": "2",
-          "er": "2",
-          "bb": "0",
-          "k": "2"
-        },
-        {
-          "name": "Shawn Armstrong",
-          "ip": "0.2",
           "h": "1",
           "r": "0",
           "er": "0",
           "bb": "0",
-          "k": "1"
-        },
-        {
-          "name": "Matt Festa",
-          "ip": "0.2",
-          "h": "3",
-          "r": "1",
-          "er": "1",
-          "bb": "0",
-          "k": "0"
-        },
-        {
-          "name": "Erik Sabrowski",
-          "ip": "0.1",
-          "h": "1",
-          "r": "2",
-          "er": "2",
-          "bb": "1",
-          "k": "1"
+          "k": "2"
         }
       ],
       "home_pitching": [
         {
-          "name": "Tatsuya Imai",
+          "name": "Spencer Arrighetti",
           "ip": "6.0",
           "h": "6",
-          "r": "3",
-          "er": "3",
+          "r": "6",
+          "er": "6",
           "bb": "0",
-          "k": "11"
+          "k": "8"
         },
         {
-          "name": "Steven Okert",
-          "ip": "2.0",
+          "name": "Bryan Abreu",
+          "ip": "1.0",
+          "h": "0",
+          "r": "0",
+          "er": "0",
+          "bb": "0",
+          "k": "0"
+        },
+        {
+          "name": "AJ Blubaugh",
+          "ip": "1.0",
           "h": "0",
           "r": "0",
           "er": "0",
@@ -2922,20 +3077,20 @@
           "k": "3"
         },
         {
-          "name": "Mike Burrows",
+          "name": "Nate Pearson",
           "ip": "1.0",
-          "h": "1",
-          "r": "0",
-          "er": "0",
+          "h": "4",
+          "r": "2",
+          "er": "2",
           "bb": "0",
-          "k": "1"
+          "k": "0"
         }
       ],
-      "headline": "Houston 9, Cleveland 3",
+      "headline": "Cleveland 8, Houston 1",
       "notes": {
-        "key_moment": "Houston scored 3 runs in the 6th inning.",
-        "standout": "Jeremy Peña (Houston) homered twice and drove in three runs.",
-        "why_it_mattered": "Houston improved to 35-41 in the West.",
+        "key_moment": "Cleveland scored 3 runs in the 5th inning.",
+        "standout": "Travis Bazzana (Cleveland) homered twice and drove in five runs.",
+        "why_it_mattered": "Cleveland improved to 40-36 in the Central.",
         "notable_stat": ""
       }
     },
@@ -2944,14 +3099,14 @@
       "home_abbr": "DET",
       "away_city": "Chicago",
       "home_city": "Detroit",
-      "away_runs": 3,
+      "away_runs": 1,
       "winner": "home",
       "venue": "Comerica Park",
-      "duration": "2:28",
-      "attendance": "41,353",
+      "duration": "2:17",
+      "attendance": "34,692",
       "decisions": {
-        "W": "Drew Anderson",
-        "L": "Erick Fedde",
+        "W": "Troy Melton",
+        "L": "Joe Rock",
         "SV": "Kenley Jansen"
       },
       "game_status": "Final",
@@ -2972,60 +3127,49 @@
         "0",
         "0",
         "0",
-        "1",
-        "1",
+        "0",
+        "0",
         "0",
         "0",
         "0"
       ],
       "home_line": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
         "2",
-        "0",
-        "0",
-        "0",
-        "0",
-        "2",
-        "0",
+        "1",
         "0",
         "0"
       ],
       "away_rhe": [
-        "3",
-        "8",
-        "0"
+        "1",
+        "4",
+        "1"
       ],
       "home_rhe": [
         "4",
-        "8",
+        "7",
         "1"
       ],
       "home_runs": 4,
       "away_batting": [
         {
-          "name": "Miguel Vargas",
-          "pos": "1B",
-          "ab": 4,
-          "r": 0,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Randal Grichuk",
-          "pos": "DH",
-          "ab": 3,
+          "name": "Sam Antonacci",
+          "pos": "2B",
+          "ab": 2,
           "r": 1,
           "h": 2,
-          "2b": 1,
+          "2b": 0,
           "3b": 0,
           "hr": 1,
           "rbi": 1
         },
         {
-          "name": "Chase Meidroth",
-          "pos": "2B",
+          "name": "Miguel Vargas",
+          "pos": "3B",
           "ab": 4,
           "r": 0,
           "h": 0,
@@ -3035,8 +3179,8 @@
           "rbi": 0
         },
         {
-          "name": "Colson Montgomery",
-          "pos": "3B",
+          "name": "Andrew Benintendi",
+          "pos": "DH",
           "ab": 3,
           "r": 0,
           "h": 0,
@@ -3047,8 +3191,74 @@
         },
         {
           "name": "Edgar Quero",
-          "pos": "C",
+          "pos": "PH",
+          "ab": 1,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Colson Montgomery",
+          "pos": "SS",
           "ab": 4,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Randal Grichuk",
+          "pos": "LF",
+          "ab": 4,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Jacob Gonzalez",
+          "pos": "1B",
+          "ab": 2,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Chase Meidroth",
+          "pos": "PH",
+          "ab": 2,
+          "r": 0,
+          "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Braden Montgomery",
+          "pos": "RF",
+          "ab": 3,
+          "r": 0,
+          "h": 1,
+          "2b": 1,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Tristan Peters",
+          "pos": "CF",
+          "ab": 1,
           "r": 0,
           "h": 0,
           "2b": 0,
@@ -3058,17 +3268,6 @@
         },
         {
           "name": "Junior Perez",
-          "pos": "RF",
-          "ab": 3,
-          "r": 1,
-          "h": 2,
-          "2b": 0,
-          "3b": 0,
-          "hr": 1,
-          "rbi": 1
-        },
-        {
-          "name": "Braden Montgomery",
           "pos": "PH",
           "ab": 1,
           "r": 0,
@@ -3079,89 +3278,56 @@
           "rbi": 0
         },
         {
-          "name": "Sam Antonacci",
-          "pos": "LF",
-          "ab": 4,
-          "r": 1,
-          "h": 2,
-          "2b": 1,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Luisangel Acuña",
-          "pos": "SS",
-          "ab": 3,
-          "r": 0,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Andrew Benintendi",
-          "pos": "PH",
-          "ab": 1,
-          "r": 0,
-          "h": 0,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Tristan Peters",
-          "pos": "CF",
+          "name": "Drew Romo",
+          "pos": "C",
           "ab": 4,
           "r": 0,
           "h": 0,
           "2b": 0,
           "3b": 0,
           "hr": 0,
-          "rbi": 1
+          "rbi": 0
         }
       ],
       "home_batting": [
         {
           "name": "Kevin McGonigle",
-          "pos": "SS",
-          "ab": 4,
+          "pos": "3B",
+          "ab": 3,
           "r": 0,
           "h": 1,
-          "2b": 1,
+          "2b": 0,
           "3b": 0,
           "hr": 0,
           "rbi": 0
         },
         {
           "name": "Dillon Dingler",
-          "pos": "C",
-          "ab": 4,
-          "r": 2,
-          "h": 3,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Matt Vierling",
-          "pos": "CF",
+          "pos": "DH",
           "ab": 4,
           "r": 1,
-          "h": 1,
+          "h": 2,
           "2b": 0,
           "3b": 0,
           "hr": 1,
           "rbi": 2
         },
         {
+          "name": "Matt Vierling",
+          "pos": "CF",
+          "ab": 3,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
           "name": "Riley Greene",
           "pos": "LF",
-          "ab": 3,
-          "r": 1,
+          "ab": 4,
+          "r": 0,
           "h": 0,
           "2b": 0,
           "3b": 0,
@@ -3172,39 +3338,17 @@
           "name": "Spencer Torkelson",
           "pos": "1B",
           "ab": 3,
-          "r": 0,
-          "h": 0,
-          "2b": 0,
+          "r": 1,
+          "h": 1,
+          "2b": 1,
           "3b": 0,
           "hr": 0,
           "rbi": 0
         },
         {
           "name": "Kerry Carpenter",
-          "pos": "DH",
-          "ab": 3,
-          "r": 0,
-          "h": 1,
-          "2b": 1,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 2
-        },
-        {
-          "name": "Hao-Yu  Lee",
-          "pos": "2B",
-          "ab": 3,
-          "r": 0,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Colt Keith",
-          "pos": "3B",
-          "ab": 2,
+          "pos": "RF",
+          "ab": 1,
           "r": 0,
           "h": 0,
           "2b": 0,
@@ -3217,17 +3361,50 @@
           "pos": "PH",
           "ab": 1,
           "r": 0,
-          "h": 1,
+          "h": 0,
           "2b": 0,
           "3b": 0,
           "hr": 0,
           "rbi": 0
         },
         {
-          "name": "Trei Cruz",
-          "pos": "RF",
-          "ab": 3,
+          "name": "James Outman",
+          "pos": "CF",
+          "ab": 2,
+          "r": 1,
+          "h": 2,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 1
+        },
+        {
+          "name": "Hao-Yu  Lee",
+          "pos": "2B",
+          "ab": 4,
           "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Jake Rogers",
+          "pos": "C",
+          "ab": 4,
+          "r": 0,
+          "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 1
+        },
+        {
+          "name": "Zach McKinstry",
+          "pos": "SS",
+          "ab": 2,
+          "r": 1,
           "h": 0,
           "2b": 0,
           "3b": 0,
@@ -3237,31 +3414,31 @@
       ],
       "away_pitching": [
         {
-          "name": "Erick Fedde",
-          "ip": "4.2",
-          "h": "4",
-          "r": "2",
-          "er": "2",
-          "bb": "1",
-          "k": "4"
-        },
-        {
-          "name": "Brandon Eisert",
-          "ip": "1.1",
-          "h": "2",
-          "r": "2",
-          "er": "2",
-          "bb": "0",
-          "k": "2"
-        },
-        {
-          "name": "Seranthony Domínguez",
-          "ip": "1.0",
-          "h": "1",
+          "name": "Sean Newcomb",
+          "ip": "3.0",
+          "h": "0",
           "r": "0",
           "er": "0",
           "bb": "0",
-          "k": "0"
+          "k": "4"
+        },
+        {
+          "name": "Joe Rock",
+          "ip": "2.1",
+          "h": "5",
+          "r": "3",
+          "er": "2",
+          "bb": "2",
+          "k": "1"
+        },
+        {
+          "name": "Trevor Richards",
+          "ip": "1.0",
+          "h": "1",
+          "r": "1",
+          "er": "1",
+          "bb": "0",
+          "k": "1"
         },
         {
           "name": "Chris Murphy",
@@ -3271,51 +3448,51 @@
           "er": "0",
           "bb": "0",
           "k": "1"
+        },
+        {
+          "name": "Tyler Davis",
+          "ip": "0.2",
+          "h": "0",
+          "r": "0",
+          "er": "0",
+          "bb": "3",
+          "k": "0"
         }
       ],
       "home_pitching": [
         {
-          "name": "Tarik Skubal",
-          "ip": "5.2",
-          "h": "7",
-          "r": "3",
-          "er": "3",
-          "bb": "1",
-          "k": "8"
+          "name": "Troy Melton",
+          "ip": "6.0",
+          "h": "1",
+          "r": "1",
+          "er": "1",
+          "bb": "3",
+          "k": "5"
         },
         {
-          "name": "Drew Anderson",
-          "ip": "1.1",
-          "h": "1",
+          "name": "Tyler Holton",
+          "ip": "2.0",
+          "h": "2",
           "r": "0",
           "er": "0",
           "bb": "0",
-          "k": "3"
+          "k": "2"
         },
         {
           "name": "Kenley Jansen",
           "ip": "1.0",
-          "h": "0",
-          "r": "0",
-          "er": "0",
-          "bb": "0",
-          "k": "1"
-        },
-        {
-          "name": "Will Vest",
-          "ip": "1.0",
-          "h": "0",
+          "h": "1",
           "r": "0",
           "er": "0",
           "bb": "1",
           "k": "0"
         }
       ],
-      "headline": "Detroit 4, Chicago 3 — Anderson (W)",
+      "headline": "Detroit 4, Chicago 1 — Melton (W)",
       "notes": {
-        "key_moment": "Detroit edged Chicago by a single run, 4-3, with Kenley Jansen closing it out.",
-        "standout": "Matt Vierling (Detroit) homered and drove in two runs.",
-        "why_it_mattered": "Detroit improved to 30-44 in the Central.",
+        "key_moment": "Detroit defeated Chicago, 4-1, with Kenley Jansen closing it out.",
+        "standout": "Dillon Dingler (Detroit) homered and drove in two runs.",
+        "why_it_mattered": "Detroit improved to 31-44 in the Central.",
         "notable_stat": ""
       }
     },
@@ -3324,15 +3501,15 @@
       "home_abbr": "COL",
       "away_city": "Pittsburgh",
       "home_city": "Colorado",
-      "away_runs": 3,
+      "away_runs": 1,
       "winner": "home",
       "venue": "Coors Field",
-      "duration": "2:16",
-      "attendance": "33,596",
+      "duration": "2:29",
+      "attendance": "40,380",
       "decisions": {
-        "W": "Antonio Senzatela",
-        "L": "Mason Montgomery",
-        "SV": ""
+        "W": "Tomoyuki Sugano",
+        "L": "Paul Skenes",
+        "SV": "Jaden Hill"
       },
       "game_status": "Final",
       "is_final": true,
@@ -3348,6 +3525,7 @@
         "9"
       ],
       "away_line": [
+        "1",
         "0",
         "0",
         "0",
@@ -3355,37 +3533,69 @@
         "0",
         "0",
         "0",
-        "3",
         "0"
       ],
       "home_line": [
-        "0",
-        "0",
-        "1",
         "1",
         "0",
+        "1",
         "0",
         "0",
-        "2",
+        "0",
+        "0",
+        "0",
         "0"
       ],
       "away_rhe": [
-        "3",
-        "7",
+        "1",
+        "6",
         "0"
       ],
       "home_rhe": [
-        "4",
-        "9",
-        "1"
+        "2",
+        "5",
+        "0"
       ],
-      "home_runs": 4,
+      "home_runs": 2,
       "away_batting": [
         {
           "name": "Spencer Horwitz",
           "pos": "1B",
-          "ab": 3,
+          "ab": 4,
           "r": 1,
+          "h": 2,
+          "2b": 0,
+          "3b": 0,
+          "hr": 1,
+          "rbi": 1
+        },
+        {
+          "name": "Brandon Lowe",
+          "pos": "2B",
+          "ab": 4,
+          "r": 0,
+          "h": 2,
+          "2b": 1,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Bryan Reynolds",
+          "pos": "LF",
+          "ab": 4,
+          "r": 0,
+          "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Ryan O'Hearn",
+          "pos": "DH",
+          "ab": 4,
+          "r": 0,
           "h": 0,
           "2b": 0,
           "3b": 0,
@@ -3395,76 +3605,32 @@
         {
           "name": "Nick Gonzales",
           "pos": "3B",
-          "ab": 4,
-          "r": 0,
-          "h": 1,
-          "2b": 0,
-          "3b": 1,
-          "hr": 0,
-          "rbi": 1
-        },
-        {
-          "name": "Ryan O'Hearn",
-          "pos": "RF",
-          "ab": 4,
-          "r": 0,
-          "h": 0,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Marcell Ozuna",
-          "pos": "DH",
-          "ab": 4,
-          "r": 0,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Brandon Lowe",
-          "pos": "2B",
-          "ab": 4,
-          "r": 0,
-          "h": 1,
-          "2b": 1,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Endy Rodríguez",
-          "pos": "C",
           "ab": 3,
           "r": 0,
           "h": 0,
           "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Esmerlyn Valdez",
-          "pos": "LF",
-          "ab": 3,
-          "r": 1,
-          "h": 1,
-          "2b": 1,
           "3b": 0,
           "hr": 0,
           "rbi": 0
         },
         {
           "name": "Tyler Callihan",
-          "pos": "PH",
-          "ab": 1,
+          "pos": "RF",
+          "ab": 3,
           "r": 0,
           "h": 0,
           "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Jake Mangum",
+          "pos": "CF",
+          "ab": 4,
+          "r": 0,
+          "h": 1,
+          "2b": 1,
           "3b": 0,
           "hr": 0,
           "rbi": 0
@@ -3472,17 +3638,17 @@
         {
           "name": "Jared Triolo",
           "pos": "SS",
-          "ab": 4,
-          "r": 1,
-          "h": 2,
-          "2b": 1,
+          "ab": 3,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
           "3b": 0,
           "hr": 0,
-          "rbi": 1
+          "rbi": 0
         },
         {
-          "name": "Billy Cook",
-          "pos": "CF",
+          "name": "Henry Davis",
+          "pos": "C",
           "ab": 2,
           "r": 0,
           "h": 0,
@@ -3492,36 +3658,47 @@
           "rbi": 0
         },
         {
-          "name": "Bryan Reynolds",
+          "name": "Endy Rodríguez",
           "pos": "PH",
           "ab": 1,
           "r": 0,
-          "h": 1,
+          "h": 0,
           "2b": 0,
           "3b": 0,
           "hr": 0,
-          "rbi": 1
+          "rbi": 0
         }
       ],
       "home_batting": [
         {
           "name": "Jake McCarthy",
-          "pos": "LF",
+          "pos": "RF",
+          "ab": 4,
+          "r": 2,
+          "h": 2,
+          "2b": 1,
+          "3b": 0,
+          "hr": 1,
+          "rbi": 1
+        },
+        {
+          "name": "Willi Castro",
+          "pos": "3B",
           "ab": 4,
           "r": 0,
-          "h": 1,
-          "2b": 1,
+          "h": 0,
+          "2b": 0,
           "3b": 0,
           "hr": 0,
           "rbi": 0
         },
         {
-          "name": "Willi Castro",
-          "pos": "2B",
-          "ab": 3,
+          "name": "TJ Rumfield",
+          "pos": "1B",
+          "ab": 2,
           "r": 0,
           "h": 1,
-          "2b": 1,
+          "2b": 0,
           "3b": 0,
           "hr": 0,
           "rbi": 1
@@ -3538,40 +3715,7 @@
           "rbi": 0
         },
         {
-          "name": "TJ Rumfield",
-          "pos": "1B",
-          "ab": 4,
-          "r": 1,
-          "h": 2,
-          "2b": 0,
-          "3b": 0,
-          "hr": 1,
-          "rbi": 1
-        },
-        {
-          "name": "Tyler Freeman",
-          "pos": "RF",
-          "ab": 3,
-          "r": 1,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Cole Carrigg",
-          "pos": "CF",
-          "ab": 3,
-          "r": 1,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Sterlin Thompson",
+          "name": "Troy Johnston",
           "pos": "DH",
           "ab": 2,
           "r": 0,
@@ -3582,33 +3726,44 @@
           "rbi": 0
         },
         {
-          "name": "Braxton Fulford",
-          "pos": "PH",
-          "ab": 1,
+          "name": "Cole Carrigg",
+          "pos": "CF",
+          "ab": 2,
           "r": 0,
           "h": 1,
           "2b": 1,
           "3b": 0,
           "hr": 0,
-          "rbi": 2
+          "rbi": 0
         },
         {
-          "name": "Ezequiel Tovar",
-          "pos": "SS",
-          "ab": 4,
-          "r": 1,
-          "h": 2,
+          "name": "Edouard Julien",
+          "pos": "2B",
+          "ab": 3,
+          "r": 0,
+          "h": 0,
           "2b": 0,
           "3b": 0,
           "hr": 0,
           "rbi": 0
         },
         {
-          "name": "Kyle Karros",
-          "pos": "3B",
+          "name": "Ezequiel Tovar",
+          "pos": "SS",
           "ab": 3,
           "r": 0,
           "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Sterlin Thompson",
+          "pos": "LF",
+          "ab": 3,
+          "r": 0,
+          "h": 1,
           "2b": 0,
           "3b": 0,
           "hr": 0,
@@ -3617,67 +3772,67 @@
       ],
       "away_pitching": [
         {
-          "name": "Bubba Chandler",
+          "name": "Paul Skenes",
           "ip": "6.0",
-          "h": "6",
-          "r": "2",
-          "er": "2",
-          "bb": "2",
-          "k": "1"
-        },
-        {
-          "name": "Yohan Ramírez",
-          "ip": "1.1",
-          "h": "0",
-          "r": "0",
-          "er": "0",
-          "bb": "0",
-          "k": "0"
-        },
-        {
-          "name": "Mason Montgomery",
-          "ip": "0.2",
-          "h": "3",
-          "r": "2",
-          "er": "2",
-          "bb": "0",
-          "k": "1"
-        }
-      ],
-      "home_pitching": [
-        {
-          "name": "Kyle Freeland",
-          "ip": "7.1",
           "h": "4",
           "r": "2",
           "er": "2",
-          "bb": "0",
+          "bb": "2",
           "k": "8"
         },
         {
-          "name": "Antonio Senzatela",
-          "ip": "1.0",
+          "name": "Carmen Mlodzinski",
+          "ip": "2.0",
           "h": "1",
           "r": "0",
           "er": "0",
           "bb": "1",
-          "k": "1"
+          "k": "2"
+        }
+      ],
+      "home_pitching": [
+        {
+          "name": "Tomoyuki Sugano",
+          "ip": "6.0",
+          "h": "4",
+          "r": "1",
+          "er": "1",
+          "bb": "0",
+          "k": "5"
+        },
+        {
+          "name": "Jimmy Herget",
+          "ip": "1.1",
+          "h": "0",
+          "r": "0",
+          "er": "0",
+          "bb": "1",
+          "k": "2"
+        },
+        {
+          "name": "Brennan Bernardino",
+          "ip": "1.0",
+          "h": "2",
+          "r": "0",
+          "er": "0",
+          "bb": "0",
+          "k": "2"
         },
         {
           "name": "Jaden Hill",
           "ip": "0.2",
-          "h": "2",
-          "r": "1",
-          "er": "1",
+          "h": "0",
+          "r": "0",
+          "er": "0",
           "bb": "0",
-          "k": "0"
+          "k": "1"
         }
       ],
-      "headline": "Colorado 4, Pittsburgh 3 — Senzatela (W)",
+      "headline": "Colorado 2, Pittsburgh 1 — Sugano (W)",
       "notes": {
-        "key_moment": "Colorado edged Pittsburgh by a single run, 4-3.",
-        "standout": "TJ Rumfield (Colorado) homered.",
-        "why_it_mattered": "Colorado improved to 28-47 in the West.",
+        "key_moment": "Colorado edged Pittsburgh by a single run, 2-1, with Jaden Hill closing it out.",
+        "standout": "Spencer Horwitz (Pittsburgh) homered.",
+        "why_it_mattered": "Colorado improved to 29-47 in the West.",
         "notable_stat": ""
       }
     },
@@ -3686,14 +3841,412 @@
       "home_abbr": "CHC",
       "away_city": "Toronto",
       "home_city": "Chicago",
-      "away_runs": 2,
-      "winner": "home",
+      "away_runs": 8,
+      "winner": "away",
       "venue": "Wrigley Field",
-      "duration": "2:54",
-      "attendance": "40,275",
+      "duration": "3:12",
+      "attendance": "40,706",
       "decisions": {
-        "W": "Ben Brown",
-        "L": "Kevin Gausman",
+        "W": "Jeff Hoffman",
+        "L": "Jacob Webb",
+        "SV": "Louis Varland"
+      },
+      "game_status": "Final",
+      "is_final": true,
+      "innings": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "away_line": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "3",
+        "5",
+        "0"
+      ],
+      "home_line": [
+        "0",
+        "3",
+        "0",
+        "0",
+        "0",
+        "2",
+        "0",
+        "1",
+        "0"
+      ],
+      "away_rhe": [
+        "8",
+        "9",
+        "2"
+      ],
+      "home_rhe": [
+        "6",
+        "9",
+        "0"
+      ],
+      "home_runs": 6,
+      "away_batting": [
+        {
+          "name": "George Springer",
+          "pos": "DH",
+          "ab": 5,
+          "r": 1,
+          "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Nathan Lukes",
+          "pos": "RF",
+          "ab": 3,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Alejandro Kirk",
+          "pos": "PH",
+          "ab": 1,
+          "r": 0,
+          "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 1
+        },
+        {
+          "name": "Vladimir Guerrero Jr.",
+          "pos": "1B",
+          "ab": 4,
+          "r": 2,
+          "h": 2,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 1
+        },
+        {
+          "name": "Brandon Valenzuela",
+          "pos": "C",
+          "ab": 4,
+          "r": 0,
+          "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Kazuma Okamoto",
+          "pos": "3B",
+          "ab": 3,
+          "r": 2,
+          "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 1,
+          "rbi": 3
+        },
+        {
+          "name": "Daulton Varsho",
+          "pos": "CF",
+          "ab": 4,
+          "r": 1,
+          "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 1,
+          "rbi": 3
+        },
+        {
+          "name": "Davis Schneider",
+          "pos": "2B",
+          "ab": 4,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Andrés Giménez",
+          "pos": "SS",
+          "ab": 2,
+          "r": 0,
+          "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Ernie Clement",
+          "pos": "PH",
+          "ab": 2,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Myles Straw",
+          "pos": "LF",
+          "ab": 3,
+          "r": 1,
+          "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        }
+      ],
+      "home_batting": [
+        {
+          "name": "Pete Crow-Armstrong",
+          "pos": "CF",
+          "ab": 4,
+          "r": 1,
+          "h": 2,
+          "2b": 0,
+          "3b": 0,
+          "hr": 1,
+          "rbi": 2
+        },
+        {
+          "name": "Nico Hoerner",
+          "pos": "2B",
+          "ab": 4,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 1
+        },
+        {
+          "name": "Seiya Suzuki",
+          "pos": "DH",
+          "ab": 4,
+          "r": 0,
+          "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Michael Busch",
+          "pos": "1B",
+          "ab": 4,
+          "r": 0,
+          "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Alex Bregman",
+          "pos": "3B",
+          "ab": 4,
+          "r": 1,
+          "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Ian Happ",
+          "pos": "LF",
+          "ab": 4,
+          "r": 1,
+          "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Matt Shaw",
+          "pos": "RF",
+          "ab": 5,
+          "r": 1,
+          "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 1,
+          "rbi": 3
+        },
+        {
+          "name": "Miguel Amaya",
+          "pos": "C",
+          "ab": 3,
+          "r": 1,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Pedro Ramírez",
+          "pos": "PH",
+          "ab": 1,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Dansby Swanson",
+          "pos": "SS",
+          "ab": 3,
+          "r": 1,
+          "h": 2,
+          "2b": 1,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        }
+      ],
+      "away_pitching": [
+        {
+          "name": "Patrick Corbin",
+          "ip": "3.2",
+          "h": "6",
+          "r": "3",
+          "er": "3",
+          "bb": "3",
+          "k": "4"
+        },
+        {
+          "name": "Lazaro Estrada",
+          "ip": "2.1",
+          "h": "1",
+          "r": "2",
+          "er": "2",
+          "bb": "2",
+          "k": "0"
+        },
+        {
+          "name": "Louis Varland",
+          "ip": "2.0",
+          "h": "0",
+          "r": "0",
+          "er": "0",
+          "bb": "0",
+          "k": "2"
+        },
+        {
+          "name": "Jeff Hoffman",
+          "ip": "1.0",
+          "h": "0",
+          "r": "0",
+          "er": "0",
+          "bb": "1",
+          "k": "1"
+        }
+      ],
+      "home_pitching": [
+        {
+          "name": "Colin Rea",
+          "ip": "5.1",
+          "h": "3",
+          "r": "0",
+          "er": "0",
+          "bb": "0",
+          "k": "3"
+        },
+        {
+          "name": "Ethan Roberts",
+          "ip": "1.1",
+          "h": "0",
+          "r": "0",
+          "er": "0",
+          "bb": "0",
+          "k": "0"
+        },
+        {
+          "name": "Jacob Webb",
+          "ip": "0.2",
+          "h": "3",
+          "r": "3",
+          "er": "3",
+          "bb": "0",
+          "k": "2"
+        },
+        {
+          "name": "Ryan Rolison",
+          "ip": "0.2",
+          "h": "0",
+          "r": "0",
+          "er": "0",
+          "bb": "0",
+          "k": "0"
+        },
+        {
+          "name": "Trent Thornton",
+          "ip": "0.2",
+          "h": "2",
+          "r": "3",
+          "er": "3",
+          "bb": "0",
+          "k": "1"
+        },
+        {
+          "name": "Caleb Thielbar",
+          "ip": "0.1",
+          "h": "1",
+          "r": "2",
+          "er": "2",
+          "bb": "1",
+          "k": "0"
+        }
+      ],
+      "headline": "Toronto 8, Chicago 6 — Hoffman (W)",
+      "notes": {
+        "key_moment": "Toronto scored 5 runs in the 8th inning, with Louis Varland closing it out.",
+        "standout": "Kazuma Okamoto (Toronto) homered and drove in three runs.",
+        "why_it_mattered": "Toronto improved to 37-39 in the East.",
+        "notable_stat": ""
+      }
+    },
+    {
+      "away_abbr": "MIL",
+      "home_abbr": "ATL",
+      "away_city": "Milwaukee",
+      "home_city": "Atlanta",
+      "away_runs": 3,
+      "winner": "home",
+      "venue": "Truist Park",
+      "duration": "2:23",
+      "attendance": "40,156",
+      "decisions": {
+        "W": "Dylan Lee",
+        "L": "Aaron Ashby",
         "SV": ""
       },
       "game_status": "Final",
@@ -3712,492 +4265,118 @@
       "away_line": [
         "0",
         "0",
+        "0",
+        "0",
+        "0",
+        "2",
         "1",
-        "0",
-        "0",
-        "1",
-        "0",
         "0",
         "0"
       ],
       "home_line": [
-        "7",
         "0",
         "0",
         "0",
         "0",
-        "4",
-        "5",
+        "1",
         "0",
-        "0"
-      ],
-      "away_rhe": [
-        "2",
-        "5",
+        "1",
+        "0",
         "2"
       ],
-      "home_rhe": [
-        "16",
-        "18",
+      "away_rhe": [
+        "3",
+        "8",
         "0"
       ],
-      "home_runs": 16,
-      "away_batting": [
-        {
-          "name": "George Springer",
-          "pos": "DH",
-          "ab": 4,
-          "r": 1,
-          "h": 2,
-          "2b": 0,
-          "3b": 0,
-          "hr": 1,
-          "rbi": 2
-        },
-        {
-          "name": "Vladimir Guerrero Jr.",
-          "pos": "1B",
-          "ab": 3,
-          "r": 0,
-          "h": 0,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Charles McAdoo",
-          "pos": "1B",
-          "ab": 1,
-          "r": 0,
-          "h": 0,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Jesús Sánchez",
-          "pos": "RF",
-          "ab": 4,
-          "r": 0,
-          "h": 0,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Yohendrick Piñango",
-          "pos": "LF",
-          "ab": 4,
-          "r": 0,
-          "h": 0,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Alejandro Kirk",
-          "pos": "C",
-          "ab": 4,
-          "r": 0,
-          "h": 0,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Nathan Lukes",
-          "pos": "CF",
-          "ab": 3,
-          "r": 0,
-          "h": 1,
-          "2b": 1,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Kazuma Okamoto",
-          "pos": "3B",
-          "ab": 3,
-          "r": 0,
-          "h": 0,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Davis Schneider",
-          "pos": "2B",
-          "ab": 3,
-          "r": 0,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Andrés Giménez",
-          "pos": "SS",
-          "ab": 3,
-          "r": 1,
-          "h": 1,
-          "2b": 1,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        }
-      ],
-      "home_batting": [
-        {
-          "name": "Pete Crow-Armstrong",
-          "pos": "CF",
-          "ab": 3,
-          "r": 1,
-          "h": 3,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 1
-        },
-        {
-          "name": "Justin Dean",
-          "pos": "CF",
-          "ab": 2,
-          "r": 1,
-          "h": 1,
-          "2b": 0,
-          "3b": 1,
-          "hr": 0,
-          "rbi": 3
-        },
-        {
-          "name": "Alex Bregman",
-          "pos": "3B",
-          "ab": 4,
-          "r": 1,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 2
-        },
-        {
-          "name": "Pedro Ramírez",
-          "pos": "PH",
-          "ab": 1,
-          "r": 0,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 1
-        },
-        {
-          "name": "Michael Busch",
-          "pos": "1B",
-          "ab": 5,
-          "r": 0,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Seiya Suzuki",
-          "pos": "DH",
-          "ab": 5,
-          "r": 2,
-          "h": 3,
-          "2b": 1,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 2
-        },
-        {
-          "name": "Ian Happ",
-          "pos": "LF",
-          "ab": 4,
-          "r": 3,
-          "h": 2,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Michael Conforto",
-          "pos": "PH",
-          "ab": 1,
-          "r": 0,
-          "h": 0,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Matt Shaw",
-          "pos": "RF",
-          "ab": 5,
-          "r": 2,
-          "h": 0,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Nico Hoerner",
-          "pos": "2B",
-          "ab": 6,
-          "r": 1,
-          "h": 3,
-          "2b": 1,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Carson Kelly",
-          "pos": "C",
-          "ab": 4,
-          "r": 3,
-          "h": 2,
-          "2b": 0,
-          "3b": 0,
-          "hr": 1,
-          "rbi": 6
-        },
-        {
-          "name": "Dansby Swanson",
-          "pos": "SS",
-          "ab": 4,
-          "r": 2,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 1
-        }
-      ],
-      "away_pitching": [
-        {
-          "name": "Kevin Gausman",
-          "ip": "2.0",
-          "h": "7",
-          "r": "7",
-          "er": "7",
-          "bb": "4",
-          "k": "3"
-        },
-        {
-          "name": "Tommy Nance",
-          "ip": "1.1",
-          "h": "0",
-          "r": "0",
-          "er": "0",
-          "bb": "0",
-          "k": "0"
-        },
-        {
-          "name": "Myles Straw",
-          "ip": "1.1",
-          "h": "4",
-          "r": "0",
-          "er": "0",
-          "bb": "1",
-          "k": "0"
-        },
-        {
-          "name": "Brendon Little",
-          "ip": "1.0",
-          "h": "2",
-          "r": "4",
-          "er": "4",
-          "bb": "3",
-          "k": "1"
-        },
-        {
-          "name": "Braydon Fisher",
-          "ip": "1.0",
-          "h": "1",
-          "r": "0",
-          "er": "0",
-          "bb": "1",
-          "k": "0"
-        },
-        {
-          "name": "Spencer Miles",
-          "ip": "0.2",
-          "h": "1",
-          "r": "0",
-          "er": "0",
-          "bb": "1",
-          "k": "0"
-        },
-        {
-          "name": "Tyler Rogers",
-          "ip": "0.2",
-          "h": "3",
-          "r": "5",
-          "er": "0",
-          "bb": "1",
-          "k": "0"
-        }
-      ],
-      "home_pitching": [
-        {
-          "name": "Ben Brown",
-          "ip": "6.0",
-          "h": "4",
-          "r": "2",
-          "er": "2",
-          "bb": "0",
-          "k": "4"
-        },
-        {
-          "name": "Hoby Milner",
-          "ip": "1.0",
-          "h": "0",
-          "r": "0",
-          "er": "0",
-          "bb": "0",
-          "k": "2"
-        },
-        {
-          "name": "Ethan Roberts",
-          "ip": "1.0",
-          "h": "0",
-          "r": "0",
-          "er": "0",
-          "bb": "0",
-          "k": "1"
-        },
-        {
-          "name": "Gavin Hollowell",
-          "ip": "1.0",
-          "h": "1",
-          "r": "0",
-          "er": "0",
-          "bb": "0",
-          "k": "0"
-        }
-      ],
-      "headline": "Chicago 16, Toronto 2",
-      "notes": {
-        "key_moment": "Chicago scored 7 runs in the 1st inning.",
-        "standout": "Carson Kelly (Chicago) homered and drove in six runs.",
-        "why_it_mattered": "Chicago improved to 39-36 in the Central.",
-        "notable_stat": ""
-      }
-    },
-    {
-      "away_abbr": "MIL",
-      "home_abbr": "ATL",
-      "away_city": "Milwaukee",
-      "home_city": "Atlanta",
-      "away_runs": 2,
-      "winner": "home",
-      "venue": "Truist Park",
-      "duration": "2:29",
-      "attendance": "40,107",
-      "decisions": {
-        "W": "Martín Pérez",
-        "L": "Jacob Misiorowski",
-        "SV": "Raisel Iglesias"
-      },
-      "game_status": "Final",
-      "is_final": true,
-      "innings": [
-        "1",
-        "2",
-        "3",
+      "home_rhe": [
         "4",
-        "5",
         "6",
-        "7",
-        "8",
-        "9"
-      ],
-      "away_line": [
-        "0",
-        "0",
-        "1",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
         "1"
       ],
-      "home_line": [
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "2",
-        "1",
-        "0",
-        "0"
-      ],
-      "away_rhe": [
-        "2",
-        "11",
-        "0"
-      ],
-      "home_rhe": [
-        "3",
-        "7",
-        "0"
-      ],
-      "home_runs": 3,
+      "home_runs": 4,
       "away_batting": [
-        {
-          "name": "Christian Yelich",
-          "pos": "DH",
-          "ab": 4,
-          "r": 1,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
         {
           "name": "Jackson Chourio",
           "pos": "LF",
           "ab": 4,
-          "r": 0,
+          "r": 1,
           "h": 1,
-          "2b": 1,
+          "2b": 0,
           "3b": 0,
           "hr": 0,
-          "rbi": 0
+          "rbi": 1
         },
         {
           "name": "Brice Turang",
           "pos": "2B",
-          "ab": 5,
-          "r": 0,
-          "h": 2,
+          "ab": 4,
+          "r": 1,
+          "h": 0,
           "2b": 0,
           "3b": 0,
           "hr": 0,
-          "rbi": 2
+          "rbi": 0
         },
         {
           "name": "William Contreras",
           "pos": "C",
           "ab": 4,
+          "r": 0,
+          "h": 2,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Gary Sánchez",
+          "pos": "DH",
+          "ab": 2,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 1
+        },
+        {
+          "name": "Andrew Vaughn",
+          "pos": "1B",
+          "ab": 3,
+          "r": 0,
+          "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 1
+        },
+        {
+          "name": "Sal Frelick",
+          "pos": "PR",
+          "ab": 1,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Blake Perkins",
+          "pos": "RF",
+          "ab": 2,
+          "r": 0,
+          "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Jake Bauers",
+          "pos": "PH",
+          "ab": 2,
           "r": 0,
           "h": 0,
           "2b": 0,
@@ -4210,39 +4389,6 @@
           "pos": "CF",
           "ab": 4,
           "r": 0,
-          "h": 2,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Andrew Vaughn",
-          "pos": "1B",
-          "ab": 4,
-          "r": 0,
-          "h": 2,
-          "2b": 1,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Blake Perkins",
-          "pos": "RF",
-          "ab": 3,
-          "r": 1,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Jake Bauers",
-          "pos": "PH",
-          "ab": 0,
-          "r": 0,
           "h": 0,
           "2b": 0,
           "3b": 0,
@@ -4252,20 +4398,9 @@
         {
           "name": "Cooper Pratt",
           "pos": "SS",
-          "ab": 3,
-          "r": 0,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Sal Frelick",
-          "pos": "PH",
-          "ab": 1,
-          "r": 0,
-          "h": 0,
+          "ab": 4,
+          "r": 1,
+          "h": 2,
           "2b": 0,
           "3b": 0,
           "hr": 0,
@@ -4274,20 +4409,9 @@
         {
           "name": "Joey Ortiz",
           "pos": "3B",
-          "ab": 3,
+          "ab": 4,
           "r": 0,
           "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Gary Sánchez",
-          "pos": "PH",
-          "ab": 1,
-          "r": 0,
-          "h": 0,
           "2b": 0,
           "3b": 0,
           "hr": 0,
@@ -4296,11 +4420,33 @@
       ],
       "home_batting": [
         {
-          "name": "Drake Baldwin",
-          "pos": "C",
+          "name": "Mauricio Dubón",
+          "pos": "LF",
           "ab": 4,
           "r": 0,
           "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Drake Baldwin",
+          "pos": "DH",
+          "ab": 4,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Matt Olson",
+          "pos": "1B",
+          "ab": 4,
+          "r": 1,
+          "h": 1,
           "2b": 0,
           "3b": 0,
           "hr": 0,
@@ -4310,7 +4456,40 @@
           "name": "Ozzie Albies",
           "pos": "2B",
           "ab": 4,
-          "r": 1,
+          "r": 3,
+          "h": 3,
+          "2b": 0,
+          "3b": 0,
+          "hr": 2,
+          "rbi": 3
+        },
+        {
+          "name": "Michael Harris II",
+          "pos": "CF",
+          "ab": 3,
+          "r": 0,
+          "h": 1,
+          "2b": 1,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Austin Riley",
+          "pos": "3B",
+          "ab": 3,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 1
+        },
+        {
+          "name": "Eli White",
+          "pos": "RF",
+          "ab": 2,
+          "r": 0,
           "h": 1,
           "2b": 0,
           "3b": 0,
@@ -4318,9 +4497,9 @@
           "rbi": 0
         },
         {
-          "name": "Matt Olson",
-          "pos": "1B",
-          "ab": 3,
+          "name": "Dominic Smith",
+          "pos": "PH",
+          "ab": 1,
           "r": 0,
           "h": 0,
           "2b": 0,
@@ -4329,52 +4508,8 @@
           "rbi": 0
         },
         {
-          "name": "Dominic Smith",
-          "pos": "DH",
-          "ab": 4,
-          "r": 0,
-          "h": 2,
-          "2b": 1,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Mauricio Dubón",
-          "pos": "CF",
-          "ab": 4,
-          "r": 0,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 2
-        },
-        {
-          "name": "Austin Riley",
-          "pos": "3B",
-          "ab": 3,
-          "r": 0,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Mike Yastrzemski",
-          "pos": "RF",
-          "ab": 3,
-          "r": 1,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 1,
-          "rbi": 1
-        },
-        {
-          "name": "Eli White",
-          "pos": "LF",
+          "name": "Joey Bart",
+          "pos": "C",
           "ab": 3,
           "r": 0,
           "h": 0,
@@ -4386,9 +4521,20 @@
         {
           "name": "Jorge Mateo",
           "pos": "SS",
-          "ab": 3,
-          "r": 1,
-          "h": 1,
+          "ab": 2,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Rowdy Tellez",
+          "pos": "PH",
+          "ab": 1,
+          "r": 0,
+          "h": 0,
           "2b": 0,
           "3b": 0,
           "hr": 0,
@@ -4397,76 +4543,85 @@
       ],
       "away_pitching": [
         {
-          "name": "Jacob Misiorowski",
-          "ip": "6.0",
-          "h": "5",
+          "name": "Kyle Harrison",
+          "ip": "6.1",
+          "h": "4",
           "r": "2",
           "er": "2",
-          "bb": "1",
+          "bb": "0",
           "k": "7"
         },
         {
-          "name": "Abner Uribe",
+          "name": "Trevor Megill",
           "ip": "1.0",
-          "h": "1",
-          "r": "1",
-          "er": "1",
-          "bb": "0",
-          "k": "2"
-        },
-        {
-          "name": "Craig Yoho",
-          "ip": "1.0",
-          "h": "1",
+          "h": "0",
           "r": "0",
           "er": "0",
+          "bb": "0",
+          "k": "1"
+        },
+        {
+          "name": "Abner Uribe",
+          "ip": "0.2",
+          "h": "0",
+          "r": "0",
+          "er": "0",
+          "bb": "0",
+          "k": "0"
+        },
+        {
+          "name": "Aaron Ashby",
+          "ip": "0.1",
+          "h": "2",
+          "r": "2",
+          "er": "2",
           "bb": "0",
           "k": "1"
         }
       ],
       "home_pitching": [
         {
-          "name": "Martín Pérez",
-          "ip": "6.0",
-          "h": "6",
-          "r": "1",
-          "er": "1",
-          "bb": "2",
-          "k": "5"
-        },
-        {
-          "name": "Robert Suarez",
-          "ip": "1.1",
-          "h": "2",
-          "r": "0",
+          "name": "Chris Sale",
+          "ip": "5.2",
+          "h": "5",
+          "r": "2",
           "er": "0",
           "bb": "1",
-          "k": "0"
+          "k": "7"
         },
         {
-          "name": "Raisel Iglesias",
-          "ip": "1.0",
+          "name": "Didier Fuentes",
+          "ip": "1.1",
           "h": "2",
           "r": "1",
           "er": "1",
-          "bb": "1",
+          "bb": "0",
           "k": "1"
         },
         {
           "name": "Dylan Lee",
-          "ip": "0.2",
+          "ip": "1.0",
           "h": "1",
+          "r": "0",
+          "er": "0",
+          "bb": "0",
+          "k": "1"
+        },
+        {
+          "name": "James Karinchak",
+          "ip": "1.0",
+          "h": "0",
           "r": "0",
           "er": "0",
           "bb": "0",
           "k": "1"
         }
       ],
-      "headline": "Atlanta 3, Milwaukee 2 — Pérez (W)",
+      "headline": "Atlanta 4, Milwaukee 3 — Lee (W)",
       "notes": {
-        "key_moment": "Atlanta edged Milwaukee by a single run, 3-2, with Raisel Iglesias closing it out.",
-        "standout": "Mike Yastrzemski (Atlanta) homered.",
-        "why_it_mattered": "Atlanta improved to 46-27 in the East.",
+        "key_moment": "Atlanta edged Milwaukee by a single run, 4-3.",
+        "standout": "Ozzie Albies (Atlanta) homered twice and drove in three runs.",
+        "why_it_mattered": "Atlanta improved to 47-27 in the East.",
         "notable_stat": ""
       }
     },
@@ -4475,415 +4630,14 @@
       "home_abbr": "ATH",
       "away_city": "Los Angeles",
       "home_city": "Athletics",
-      "away_runs": 11,
-      "winner": "home",
+      "away_runs": 7,
+      "winner": "away",
       "venue": "Sutter Health Park",
-      "duration": "3:28",
-      "attendance": "9,687",
+      "duration": "2:58",
+      "attendance": "11,261",
       "decisions": {
-        "W": "Elvis Alvarado",
-        "L": "Kirby Yates",
-        "SV": ""
-      },
-      "game_status": "Final",
-      "is_final": true,
-      "innings": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10"
-      ],
-      "away_line": [
-        "0",
-        "0",
-        "0",
-        "7",
-        "3",
-        "1",
-        "0",
-        "0",
-        "0",
-        "0"
-      ],
-      "home_line": [
-        "0",
-        "1",
-        "3",
-        "0",
-        "0",
-        "1",
-        "2",
-        "2",
-        "2",
-        "1"
-      ],
-      "away_rhe": [
-        "11",
-        "11",
-        "0"
-      ],
-      "home_rhe": [
-        "12",
-        "12",
-        "0"
-      ],
-      "home_runs": 12,
-      "away_batting": [
-        {
-          "name": "Zach Neto",
-          "pos": "SS",
-          "ab": 4,
-          "r": 1,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 1,
-          "rbi": 1
-        },
-        {
-          "name": "Nolan Schanuel",
-          "pos": "1B",
-          "ab": 4,
-          "r": 2,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 1,
-          "rbi": 1
-        },
-        {
-          "name": "Jo Adell",
-          "pos": "RF",
-          "ab": 4,
-          "r": 1,
-          "h": 0,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Oswald Peraza",
-          "pos": "2B",
-          "ab": 5,
-          "r": 2,
-          "h": 3,
-          "2b": 1,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Christian Moore",
-          "pos": "DH",
-          "ab": 4,
-          "r": 0,
-          "h": 0,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 1
-        },
-        {
-          "name": "Denzer Guzman",
-          "pos": "3B",
-          "ab": 5,
-          "r": 1,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 1,
-          "rbi": 2
-        },
-        {
-          "name": "Logan O'Hoppe",
-          "pos": "C",
-          "ab": 4,
-          "r": 2,
-          "h": 3,
-          "2b": 0,
-          "3b": 0,
-          "hr": 1,
-          "rbi": 3
-        },
-        {
-          "name": "Wade Meckler",
-          "pos": "LF",
-          "ab": 4,
-          "r": 1,
-          "h": 1,
-          "2b": 1,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Jose Siri",
-          "pos": "CF",
-          "ab": 4,
-          "r": 1,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 1,
-          "rbi": 3
-        }
-      ],
-      "home_batting": [
-        {
-          "name": "Zack Gelof",
-          "pos": "3B",
-          "ab": 4,
-          "r": 1,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 1
-        },
-        {
-          "name": "Nick Kurtz",
-          "pos": "1B",
-          "ab": 4,
-          "r": 0,
-          "h": 0,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 1
-        },
-        {
-          "name": "Shea Langeliers",
-          "pos": "C",
-          "ab": 5,
-          "r": 1,
-          "h": 1,
-          "2b": 1,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 1
-        },
-        {
-          "name": "Tyler Soderstrom",
-          "pos": "LF",
-          "ab": 3,
-          "r": 3,
-          "h": 3,
-          "2b": 1,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Jacob Wilson",
-          "pos": "SS",
-          "ab": 5,
-          "r": 1,
-          "h": 2,
-          "2b": 1,
-          "3b": 0,
-          "hr": 1,
-          "rbi": 3
-        },
-        {
-          "name": "Carlos Cortes",
-          "pos": "DH",
-          "ab": 3,
-          "r": 0,
-          "h": 0,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 1
-        },
-        {
-          "name": "Colby Thomas",
-          "pos": "PH",
-          "ab": 1,
-          "r": 0,
-          "h": 0,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Jonah Heim",
-          "pos": "PH",
-          "ab": 1,
-          "r": 1,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 1,
-          "rbi": 2
-        },
-        {
-          "name": "Lawrence Butler",
-          "pos": "RF",
-          "ab": 4,
-          "r": 4,
-          "h": 2,
-          "2b": 0,
-          "3b": 0,
-          "hr": 1,
-          "rbi": 1
-        },
-        {
-          "name": "Henry Bolte",
-          "pos": "CF",
-          "ab": 2,
-          "r": 0,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Jeff McNeil",
-          "pos": "2B",
-          "ab": 2,
-          "r": 0,
-          "h": 0,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Max Muncy",
-          "pos": "PH",
-          "ab": 3,
-          "r": 1,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 1,
-          "rbi": 2
-        }
-      ],
-      "away_pitching": [
-        {
-          "name": "José Soriano",
-          "ip": "5.0",
-          "h": "6",
-          "r": "4",
-          "er": "4",
-          "bb": "4",
-          "k": "6"
-        },
-        {
-          "name": "Mitch Farris",
-          "ip": "2.0",
-          "h": "3",
-          "r": "3",
-          "er": "3",
-          "bb": "2",
-          "k": "3"
-        },
-        {
-          "name": "Chase Silseth",
-          "ip": "1.0",
-          "h": "1",
-          "r": "2",
-          "er": "2",
-          "bb": "1",
-          "k": "1"
-        },
-        {
-          "name": "Sam Bachman",
-          "ip": "1.0",
-          "h": "2",
-          "r": "2",
-          "er": "2",
-          "bb": "0",
-          "k": "0"
-        },
-        {
-          "name": "Kirby Yates",
-          "ip": "0.1",
-          "h": "0",
-          "r": "1",
-          "er": "0",
-          "bb": "1",
-          "k": "0"
-        }
-      ],
-      "home_pitching": [
-        {
-          "name": "Jeffrey Springs",
-          "ip": "3.2",
-          "h": "4",
-          "r": "6",
-          "er": "6",
-          "bb": "4",
-          "k": "4"
-        },
-        {
-          "name": "José Suarez",
-          "ip": "2.0",
-          "h": "2",
-          "r": "1",
-          "er": "1",
-          "bb": "0",
-          "k": "3"
-        },
-        {
-          "name": "Elvis Alvarado",
-          "ip": "2.0",
-          "h": "1",
-          "r": "0",
-          "er": "0",
-          "bb": "0",
-          "k": "2"
-        },
-        {
-          "name": "Justin Sterner",
-          "ip": "1.1",
-          "h": "4",
-          "r": "4",
-          "er": "4",
-          "bb": "1",
-          "k": "1"
-        },
-        {
-          "name": "Scott Barlow",
-          "ip": "1.0",
-          "h": "0",
-          "r": "0",
-          "er": "0",
-          "bb": "0",
-          "k": "2"
-        }
-      ],
-      "headline": "Athletics 12, Los Angeles 11 (F/10)",
-      "notes": {
-        "key_moment": "Athletics scored 3 runs in the 3rd inning.",
-        "standout": "Logan O'Hoppe (Los Angeles) homered and drove in three runs.",
-        "why_it_mattered": "Athletics improved to 37-38 in the West.",
-        "notable_stat": "The teams combined for 9 home runs."
-      }
-    },
-    {
-      "away_abbr": "MIN",
-      "home_abbr": "AZ",
-      "away_city": "Minnesota",
-      "home_city": "Arizona",
-      "away_runs": 5,
-      "winner": "home",
-      "venue": "Chase Field",
-      "duration": "2:57",
-      "attendance": "25,110",
-      "decisions": {
-        "W": "Jonathan Loáisiga",
-        "L": "Connor Prielipp",
+        "W": "Walbert Ureña",
+        "L": "J.T. Ginn",
         "SV": ""
       },
       "game_status": "Final",
@@ -4901,42 +4655,176 @@
       ],
       "away_line": [
         "0",
-        "1",
-        "1",
-        "1",
-        "0",
-        "0",
-        "0",
         "2",
+        "0",
+        "0",
+        "0",
+        "4",
+        "1",
+        "0",
         "0"
       ],
       "home_line": [
         "0",
         "0",
-        "1",
         "0",
-        "4",
-        "1",
         "0",
-        "3",
+        "0",
+        "0",
+        "0",
+        "0",
         "0"
       ],
       "away_rhe": [
-        "5",
-        "9",
-        "1"
+        "7",
+        "13",
+        "0"
       ],
       "home_rhe": [
-        "9",
-        "13",
-        "1"
+        "0",
+        "5",
+        "0"
       ],
-      "home_runs": 9,
+      "home_runs": 0,
       "away_batting": [
         {
-          "name": "Trevor Larnach",
+          "name": "Zach Neto",
+          "pos": "SS",
+          "ab": 4,
+          "r": 1,
+          "h": 1,
+          "2b": 1,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 2
+        },
+        {
+          "name": "Nolan Schanuel",
+          "pos": "1B",
+          "ab": 5,
+          "r": 0,
+          "h": 1,
+          "2b": 1,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 2
+        },
+        {
+          "name": "Vaughn Grissom",
+          "pos": "DH",
+          "ab": 5,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Jo Adell",
+          "pos": "RF",
+          "ab": 5,
+          "r": 1,
+          "h": 3,
+          "2b": 2,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Wade Meckler",
+          "pos": "LF",
+          "ab": 4,
+          "r": 1,
+          "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Denzer Guzman",
+          "pos": "3B",
+          "ab": 4,
+          "r": 1,
+          "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 1,
+          "rbi": 1
+        },
+        {
+          "name": "Donovan Walton",
+          "pos": "2B",
+          "ab": 5,
+          "r": 1,
+          "h": 3,
+          "2b": 1,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 1
+        },
+        {
+          "name": "Jose Siri",
+          "pos": "CF",
+          "ab": 4,
+          "r": 1,
+          "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 1
+        },
+        {
+          "name": "Tyler Heineman",
+          "pos": "C",
+          "ab": 3,
+          "r": 1,
+          "h": 2,
+          "2b": 1,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        }
+      ],
+      "home_batting": [
+        {
+          "name": "Nick Kurtz",
+          "pos": "1B",
+          "ab": 3,
+          "r": 0,
+          "h": 1,
+          "2b": 1,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Shea Langeliers",
+          "pos": "C",
+          "ab": 4,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Tyler Soderstrom",
           "pos": "LF",
           "ab": 3,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Jacob Wilson",
+          "pos": "SS",
+          "ab": 4,
           "r": 0,
           "h": 1,
           "2b": 0,
@@ -4945,7 +4833,29 @@
           "rbi": 0
         },
         {
-          "name": "Austin Martin",
+          "name": "Jonah Heim",
+          "pos": "DH",
+          "ab": 4,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Lawrence Butler",
+          "pos": "RF",
+          "ab": 2,
+          "r": 0,
+          "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Colby Thomas",
           "pos": "PH",
           "ab": 2,
           "r": 0,
@@ -4956,11 +4866,215 @@
           "rbi": 0
         },
         {
-          "name": "Byron Buxton",
+          "name": "Henry Bolte",
           "pos": "CF",
           "ab": 4,
           "r": 0,
+          "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Max Muncy",
+          "pos": "3B",
+          "ab": 3,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Jeff McNeil",
+          "pos": "2B",
+          "ab": 2,
+          "r": 0,
+          "h": 1,
+          "2b": 1,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Alika Williams",
+          "pos": "PH",
+          "ab": 1,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        }
+      ],
+      "away_pitching": [
+        {
+          "name": "Walbert Ureña",
+          "ip": "5.0",
+          "h": "4",
+          "r": "0",
+          "er": "0",
+          "bb": "0",
+          "k": "6"
+        },
+        {
+          "name": "Ryan Zeferjahn",
+          "ip": "1.2",
+          "h": "0",
+          "r": "0",
+          "er": "0",
+          "bb": "1",
+          "k": "3"
+        },
+        {
+          "name": "Samy Natera Jr.",
+          "ip": "1.1",
+          "h": "1",
+          "r": "0",
+          "er": "0",
+          "bb": "1",
+          "k": "2"
+        },
+        {
+          "name": "Kirby Yates",
+          "ip": "1.0",
+          "h": "0",
+          "r": "0",
+          "er": "0",
+          "bb": "0",
+          "k": "2"
+        }
+      ],
+      "home_pitching": [
+        {
+          "name": "J.T. Ginn",
+          "ip": "5.1",
+          "h": "7",
+          "r": "4",
+          "er": "4",
+          "bb": "3",
+          "k": "5"
+        },
+        {
+          "name": "Geoff Hartlieb",
+          "ip": "3.0",
+          "h": "3",
+          "r": "1",
+          "er": "1",
+          "bb": "1",
+          "k": "1"
+        },
+        {
+          "name": "Scott Barlow",
+          "ip": "0.2",
+          "h": "3",
+          "r": "2",
+          "er": "2",
+          "bb": "0",
+          "k": "1"
+        }
+      ],
+      "headline": "Los Angeles Blank Athletics, 7-0",
+      "notes": {
+        "key_moment": "Los Angeles scored 4 runs in the 6th inning.",
+        "standout": "Denzer Guzman (Los Angeles) homered.",
+        "why_it_mattered": "Los Angeles improved to 49-27 in the West.",
+        "notable_stat": ""
+      }
+    },
+    {
+      "away_abbr": "MIN",
+      "home_abbr": "AZ",
+      "away_city": "Minnesota",
+      "home_city": "Arizona",
+      "away_runs": 16,
+      "winner": "away",
+      "venue": "Chase Field",
+      "duration": "3:12",
+      "attendance": "30,575",
+      "decisions": {
+        "W": "Taj Bradley",
+        "L": "Zac Gallen",
+        "SV": ""
+      },
+      "game_status": "Final",
+      "is_final": true,
+      "innings": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "away_line": [
+        "2",
+        "0",
+        "0",
+        "4",
+        "10",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "home_line": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "2",
+        "0",
+        "5",
+        "1",
+        "0"
+      ],
+      "away_rhe": [
+        "16",
+        "20",
+        "0"
+      ],
+      "home_rhe": [
+        "8",
+        "8",
+        "0"
+      ],
+      "home_runs": 8,
+      "away_batting": [
+        {
+          "name": "Trevor Larnach",
+          "pos": "LF",
+          "ab": 5,
+          "r": 2,
           "h": 2,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 2
+        },
+        {
+          "name": "Byron Buxton",
+          "pos": "CF",
+          "ab": 4,
+          "r": 1,
+          "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 1,
+          "rbi": 4
+        },
+        {
+          "name": "Kyler Fedko",
+          "pos": "PH",
+          "ab": 1,
+          "r": 0,
+          "h": 0,
           "2b": 0,
           "3b": 0,
           "hr": 0,
@@ -4975,35 +5089,13 @@
           "2b": 0,
           "3b": 0,
           "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Josh Bell",
-          "pos": "DH",
-          "ab": 4,
-          "r": 1,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 1,
           "rbi": 1
         },
         {
-          "name": "Royce Lewis",
-          "pos": "1B",
-          "ab": 4,
-          "r": 1,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 1,
-          "rbi": 1
-        },
-        {
-          "name": "Brooks Lee",
-          "pos": "3B",
-          "ab": 3,
-          "r": 1,
+          "name": "Austin Martin",
+          "pos": "RF",
+          "ab": 0,
+          "r": 0,
           "h": 0,
           "2b": 0,
           "3b": 0,
@@ -5011,98 +5103,76 @@
           "rbi": 0
         },
         {
-          "name": "Victor Caratini",
-          "pos": "C",
-          "ab": 2,
-          "r": 1,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 1,
-          "rbi": 1
-        },
-        {
-          "name": "Tristan Gray",
-          "pos": "SS",
-          "ab": 4,
-          "r": 0,
-          "h": 1,
-          "2b": 0,
+          "name": "Josh Bell",
+          "pos": "DH",
+          "ab": 5,
+          "r": 2,
+          "h": 2,
+          "2b": 1,
           "3b": 0,
           "hr": 0,
-          "rbi": 1
+          "rbi": 0
+        },
+        {
+          "name": "Royce Lewis",
+          "pos": "1B",
+          "ab": 5,
+          "r": 0,
+          "h": 1,
+          "2b": 1,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Brooks Lee",
+          "pos": "3B",
+          "ab": 6,
+          "r": 3,
+          "h": 4,
+          "2b": 1,
+          "3b": 1,
+          "hr": 0,
+          "rbi": 2
+        },
+        {
+          "name": "Victor Caratini",
+          "pos": "C",
+          "ab": 5,
+          "r": 3,
+          "h": 3,
+          "2b": 1,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 3
         },
         {
           "name": "Luke Keaschall",
           "pos": "2B",
-          "ab": 3,
-          "r": 1,
-          "h": 1,
+          "ab": 6,
+          "r": 3,
+          "h": 3,
           "2b": 0,
           "3b": 0,
           "hr": 0,
           "rbi": 0
+        },
+        {
+          "name": "Ryan Kreidler",
+          "pos": "SS",
+          "ab": 4,
+          "r": 2,
+          "h": 3,
+          "2b": 0,
+          "3b": 1,
+          "hr": 0,
+          "rbi": 4
         }
       ],
       "home_batting": [
         {
           "name": "Ketel Marte",
           "pos": "2B",
-          "ab": 4,
-          "r": 1,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 1,
-          "rbi": 1
-        },
-        {
-          "name": "Geraldo Perdomo",
-          "pos": "SS",
-          "ab": 3,
-          "r": 2,
-          "h": 0,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 0
-        },
-        {
-          "name": "Corbin Carroll",
-          "pos": "RF",
-          "ab": 4,
-          "r": 1,
-          "h": 3,
-          "2b": 1,
-          "3b": 1,
-          "hr": 0,
-          "rbi": 4
-        },
-        {
-          "name": "Gabriel Moreno",
-          "pos": "C",
-          "ab": 5,
-          "r": 0,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 1
-        },
-        {
-          "name": "Lourdes Gurriel Jr.",
-          "pos": "LF",
-          "ab": 4,
-          "r": 1,
-          "h": 1,
-          "2b": 0,
-          "3b": 0,
-          "hr": 0,
-          "rbi": 1
-        },
-        {
-          "name": "Jorge Barrosa",
-          "pos": "PR",
           "ab": 1,
           "r": 0,
           "h": 0,
@@ -5112,11 +5182,33 @@
           "rbi": 0
         },
         {
-          "name": "Nolan Arenado",
-          "pos": "3B",
-          "ab": 4,
+          "name": "Tim Tawa",
+          "pos": "PH",
+          "ab": 2,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Geraldo Perdomo",
+          "pos": "SS",
+          "ab": 3,
           "r": 1,
-          "h": 2,
+          "h": 0,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 2
+        },
+        {
+          "name": "Corbin Carroll",
+          "pos": "RF",
+          "ab": 2,
+          "r": 0,
+          "h": 0,
           "2b": 0,
           "3b": 0,
           "hr": 0,
@@ -5124,21 +5216,43 @@
         },
         {
           "name": "Ildemaro Vargas",
-          "pos": "1B",
-          "ab": 4,
-          "r": 0,
+          "pos": "2B",
+          "ab": 3,
+          "r": 1,
           "h": 1,
+          "2b": 1,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 3
+        },
+        {
+          "name": "Lourdes Gurriel Jr.",
+          "pos": "DH",
+          "ab": 5,
+          "r": 0,
+          "h": 0,
           "2b": 0,
           "3b": 0,
           "hr": 0,
-          "rbi": 2
+          "rbi": 0
         },
         {
-          "name": "Jordan Lawlar",
-          "pos": "CF",
-          "ab": 4,
+          "name": "Pavin Smith",
+          "pos": "1B",
+          "ab": 5,
           "r": 0,
           "h": 2,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 1
+        },
+        {
+          "name": "Nolan Arenado",
+          "pos": "3B",
+          "ab": 2,
+          "r": 0,
+          "h": 0,
           "2b": 0,
           "3b": 0,
           "hr": 0,
@@ -5146,21 +5260,43 @@
         },
         {
           "name": "LuJames Groover",
-          "pos": "DH",
+          "pos": "3B",
           "ab": 3,
-          "r": 1,
-          "h": 1,
-          "2b": 1,
+          "r": 0,
+          "h": 0,
+          "2b": 0,
           "3b": 0,
           "hr": 0,
           "rbi": 0
         },
         {
-          "name": "Pavin Smith",
-          "pos": "PH",
-          "ab": 1,
-          "r": 1,
+          "name": "Adrian Del Castillo",
+          "pos": "C",
+          "ab": 3,
+          "r": 2,
           "h": 1,
+          "2b": 0,
+          "3b": 0,
+          "hr": 0,
+          "rbi": 0
+        },
+        {
+          "name": "Jorge Barrosa",
+          "pos": "CF",
+          "ab": 3,
+          "r": 3,
+          "h": 2,
+          "2b": 1,
+          "3b": 0,
+          "hr": 1,
+          "rbi": 2
+        },
+        {
+          "name": "Tommy Troy",
+          "pos": "LF",
+          "ab": 3,
+          "r": 1,
+          "h": 2,
           "2b": 0,
           "3b": 0,
           "hr": 0,
@@ -5169,113 +5305,95 @@
       ],
       "away_pitching": [
         {
-          "name": "Connor Prielipp",
-          "ip": "6.0",
-          "h": "9",
-          "r": "6",
-          "er": "3",
-          "bb": "3",
+          "name": "Taj Bradley",
+          "ip": "5.0",
+          "h": "3",
+          "r": "2",
+          "er": "2",
+          "bb": "2",
           "k": "4"
         },
         {
-          "name": "Travis Adams",
+          "name": "Eric Orze",
           "ip": "1.1",
-          "h": "4",
-          "r": "3",
-          "er": "3",
+          "h": "2",
+          "r": "1",
+          "er": "1",
           "bb": "1",
-          "k": "4"
+          "k": "0"
         },
         {
-          "name": "Cody Laweryson",
-          "ip": "0.2",
+          "name": "Anthony Banda",
+          "ip": "1.0",
+          "h": "1",
+          "r": "0",
+          "er": "0",
+          "bb": "0",
+          "k": "1"
+        },
+        {
+          "name": "Yoendrys Gómez",
+          "ip": "1.0",
           "h": "0",
           "r": "0",
           "er": "0",
           "bb": "0",
-          "k": "0"
+          "k": "1"
+        },
+        {
+          "name": "Justin Lawrence",
+          "ip": "0.2",
+          "h": "2",
+          "r": "5",
+          "er": "5",
+          "bb": "4",
+          "k": "2"
         }
       ],
       "home_pitching": [
         {
-          "name": "Drey Jameson",
-          "ip": "1.2",
-          "h": "3",
-          "r": "1",
-          "er": "1",
+          "name": "Zac Gallen",
+          "ip": "4.0",
+          "h": "12",
+          "r": "9",
+          "er": "9",
+          "bb": "2",
+          "k": "2"
+        },
+        {
+          "name": "Philip Abner",
+          "ip": "2.2",
+          "h": "1",
+          "r": "0",
+          "er": "0",
           "bb": "2",
           "k": "1"
         },
         {
-          "name": "Jonathan Loáisiga",
-          "ip": "1.1",
+          "name": "Ildemaro Vargas",
+          "ip": "1.2",
           "h": "0",
           "r": "0",
           "er": "0",
-          "bb": "0",
+          "bb": "2",
           "k": "0"
         },
         {
-          "name": "Kevin Ginkel",
-          "ip": "1.0",
-          "h": "2",
-          "r": "2",
-          "er": "2",
+          "name": "Yilber Díaz",
+          "ip": "0.2",
+          "h": "7",
+          "r": "7",
+          "er": "7",
           "bb": "1",
-          "k": "1"
-        },
-        {
-          "name": "Paul Sewald",
-          "ip": "1.0",
-          "h": "0",
-          "r": "0",
-          "er": "0",
-          "bb": "1",
-          "k": "1"
-        },
-        {
-          "name": "Michael Soroka",
-          "ip": "1.0",
-          "h": "2",
-          "r": "0",
-          "er": "0",
-          "bb": "0",
           "k": "0"
-        },
-        {
-          "name": "Taylor Clarke",
-          "ip": "1.0",
-          "h": "1",
-          "r": "1",
-          "er": "1",
-          "bb": "0",
-          "k": "0"
-        },
-        {
-          "name": "Ryan Thompson",
-          "ip": "1.0",
-          "h": "1",
-          "r": "1",
-          "er": "0",
-          "bb": "0",
-          "k": "1"
-        },
-        {
-          "name": "Brandyn Garcia",
-          "ip": "1.0",
-          "h": "0",
-          "r": "0",
-          "er": "0",
-          "bb": "1",
-          "k": "2"
         }
       ],
-      "headline": "Arizona 9, Minnesota 5 — Loáisiga (W)",
+      "headline": "Minnesota 16, Arizona 8",
       "notes": {
-        "key_moment": "Arizona scored 4 runs in the 5th inning.",
-        "standout": "Corbin Carroll (Arizona) drove in four runs.",
-        "why_it_mattered": "Arizona improved to 38-36 in the West.",
-        "notable_stat": ""
+        "key_moment": "Minnesota scored 10 runs in the 5th inning.",
+        "standout": "Byron Buxton (Minnesota) homered and drove in four runs.",
+        "why_it_mattered": "Minnesota improved to 36-41 in the Central.",
+        "notable_stat": "The teams combined for 28 hits."
       }
     }
   ]
