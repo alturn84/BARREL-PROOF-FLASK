@@ -13,6 +13,9 @@ import json, sys, time, math
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent / "scripts"))
+from edition_date_lib import read_edition_date
+
 try:
     import requests
 except ImportError:
@@ -727,6 +730,12 @@ def build_game(game, date_str, standings_data, season):
 
 # ── MAIN ──────────────────────────────────────────────────────────────────
 def main():
+    try:
+        edition_date = read_edition_date()
+    except Exception as e:
+        print(f"  ✗ {e}")
+        sys.exit(1)
+
     date_str = sys.argv[1] if len(sys.argv) > 1 else datetime.now().strftime("%Y-%m-%d")
     season   = date_str[:4]
 
@@ -765,6 +774,7 @@ def main():
         banner  = date_str.upper()
 
     output = {
+        "date":         edition_date,
         "date_display": display,
         "date_banner":  banner,
         "updated":      datetime.now(timezone.utc).isoformat(),

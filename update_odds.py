@@ -1,11 +1,15 @@
 import json
 import os
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 import requests
 from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent
+sys.path.insert(0, str(BASE_DIR / "scripts"))
+from edition_date_lib import read_edition_date
+
 DATA_DIR = BASE_DIR / "Site Data"
 OUTPUT_FILE = DATA_DIR / "odds.json"
 
@@ -97,6 +101,12 @@ def normalize(raw_games):
 def main():
     print(f"SCRIPT STARTED: {datetime.now()}")
 
+    try:
+        edition_date = read_edition_date()
+    except Exception as e:
+        print(f"✗ {e}")
+        sys.exit(1)
+
     raw_games = fetch_odds()
 
     if not raw_games:
@@ -106,6 +116,7 @@ def main():
     games = normalize(raw_games)
 
     output = {
+        "date": edition_date,
         "updated": datetime.now(timezone.utc).isoformat(),
         "source": "TheOddsAPI",
         "sportsbooks": SPORTSBOOKS,

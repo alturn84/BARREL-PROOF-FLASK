@@ -21,6 +21,9 @@ import sys
 from datetime import datetime, timedelta
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent / "scripts"))
+from edition_date_lib import read_edition_date
+
 print(f"SCRIPT STARTED: {datetime.now()}", flush=True)
 
 VAULT    = Path(__file__).resolve().parent
@@ -470,6 +473,12 @@ def build_headline(game):
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 def main():
+    try:
+        edition_date = read_edition_date()
+    except Exception as e:
+        print(f"  ✗ {e}", flush=True)
+        sys.exit(1)
+
     args = sys.argv[1:]
     if args:
         date_str = args[0]
@@ -513,7 +522,7 @@ def main():
 
     output = {
         'updated':      datetime.now().strftime('%Y-%m-%d %H:%M'),
-        'date':         date_str,
+        'date':         edition_date,
         'display_date': display_date,
         'game_count':   len(games),
         'games':        games,

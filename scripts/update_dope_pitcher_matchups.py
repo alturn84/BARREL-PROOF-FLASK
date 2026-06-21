@@ -10,8 +10,12 @@ Pure data layer — no rendering. V1 keeps thresholds simple and documented
 inline so they can be tuned later without redesigning the schema.
 """
 import json
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from edition_date_lib import read_edition_date
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 DATA_DIR = BASE_DIR / "Site Data"
@@ -297,6 +301,12 @@ def build_game_pitching_read(away_team, home_team, away_pitcher, home_pitcher, a
 
 
 def main():
+    try:
+        edition_date = read_edition_date()
+    except Exception as e:
+        print(f"✗ {e}")
+        raise SystemExit(1)
+
     dope_sheet_data = load_json(DOPE_SHEET_DATA_PATH, fallback={})
     schedule = load_json(SCHEDULE_PATH, fallback={})
     schedule_date = (schedule.get("today") or {}).get("date") if isinstance(schedule, dict) else None
@@ -382,7 +392,7 @@ def main():
         "game_count": len(games_out),
     }
 
-    output = {"meta": meta, "games": games_out}
+    output = {"date": edition_date, "meta": meta, "games": games_out}
     OUTPUT_PATH.write_text(json.dumps(output, indent=2), encoding="utf-8")
 
     print(f"Wrote {OUTPUT_PATH} with {len(games_out)} games")

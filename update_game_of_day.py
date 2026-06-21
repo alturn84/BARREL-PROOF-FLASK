@@ -45,6 +45,9 @@ def load_api_key():
                     break
     return key
 
+sys.path.insert(0, str(Path(__file__).resolve().parent / "scripts"))
+from edition_date_lib import read_edition_date
+
 print(f"SCRIPT STARTED: {datetime.now()}", flush=True)
 
 VAULT    = Path(__file__).resolve().parent
@@ -1007,7 +1010,7 @@ Write the raw headline text only. Do not include any other words, explanations, 
 
 
 # ── Build JSON output ─────────────────────────────────────────────────────────
-def build_output(winner, all_scored, date_str, feed=None):
+def build_output(winner, all_scored, date_str, edition_date, feed=None):
     dt = datetime.strptime(date_str, "%Y-%m-%d")
     copy = editorial(winner, date_str)
     if feed is not None:
@@ -1034,7 +1037,8 @@ def build_output(winner, all_scored, date_str, feed=None):
         })
 
     return {
-        "date":         date_str,
+        "date":         edition_date,
+        "game_date":    date_str,
         "date_display": dt.strftime("%A, %B %-d, %Y"),
         "updated":      datetime.now().strftime("%Y-%m-%d %H:%M"),
         "game": {
@@ -1062,6 +1066,12 @@ def build_output(winner, all_scored, date_str, feed=None):
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 def run(date_str):
+    try:
+        edition_date = read_edition_date()
+    except Exception as e:
+        print(f"  ✗ {e}")
+        sys.exit(1)
+
     print(f"  Fetching schedule for {date_str}...")
     games = fetch_schedule(date_str)
     if not games:
@@ -1093,7 +1103,7 @@ def run(date_str):
 
     winner = pick_winner(all_scored)
     winner_feed = feeds.get(winner.game_pk, {})
-    output = build_output(winner, all_scored, date_str, feed=winner_feed)
+    output = build_output(winner, all_scored, date_str, edition_date, feed=winner_feed)
 
     OUT_FILE.parent.mkdir(parents=True, exist_ok=True)
     OUT_FILE.write_text(json.dumps(output, indent=2, ensure_ascii=False), encoding="utf-8")

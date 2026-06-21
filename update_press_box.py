@@ -26,6 +26,9 @@ import sys
 from datetime import datetime, timedelta
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent / "scripts"))
+from edition_date_lib import read_edition_date
+
 print(f"SCRIPT STARTED: {datetime.now()}", flush=True)
 
 VAULT     = Path(__file__).resolve().parent
@@ -339,6 +342,12 @@ def extract_worth_watching(column_text):
 
 
 def run(date_str):
+    try:
+        edition_date = read_edition_date()
+    except Exception as e:
+        print(f"  ✗ {e}", flush=True)
+        sys.exit(1)
+
     api_key = os.environ.get("GEMINI_API_KEY", "")
     if not api_key:
         env_file = VAULT / ".env"
@@ -348,7 +357,7 @@ def run(date_str):
                     api_key = line.split("=", 1)[1].strip()
                     break
     if not api_key:
-        write_failed("GEMINI_API_KEY not set", date_str)
+        write_failed("GEMINI_API_KEY not set", edition_date)
         sys.exit(1)
 
     print(f"  Loading inputs for {date_str}...", flush=True)
@@ -365,7 +374,7 @@ def run(date_str):
     ni_items     = (news_intake.get("meta") or {}).get("item_count", 0)
     print(f"  news_intake: quality={ni_quality}, items={ni_items}", flush=True)
 
-    # ── Date guard — validate inputs match requested date ─────────────────────
+    # ── Date guard — validate inputs match the current edition ────────────────
     date_checks = {
         "game_of_day":         gotd.get("date"),
         "around_the_league":   atl.get("date"),
@@ -374,18 +383,18 @@ def run(date_str):
     }
     mismatches = []
     for name, d in date_checks.items():
-        if d is not None and d != date_str:
+        if d is not None and d != edition_date:
             mismatches.append(f"{name}={d}")
     if mismatches:
-        print(f"  ⚠ Date mismatch(es) for {date_str}: {', '.join(mismatches)}", flush=True)
+        print(f"  ⚠ Date mismatch(es) for edition {edition_date}: {', '.join(mismatches)}", flush=True)
         # Null out inputs whose date doesn't match — continue with what aligns
-        if gotd.get("date") and gotd["date"] != date_str:
+        if gotd.get("date") and gotd["date"] != edition_date:
             print("  ⚠ Dropping game_of_day (wrong date)", flush=True)
             gotd = {}
-        if atl.get("date") and atl["date"] != date_str:
+        if atl.get("date") and atl["date"] != edition_date:
             print("  ⚠ Dropping around_the_league (wrong date)", flush=True)
             atl = {}
-        if game_cards.get("date") and game_cards["date"] != date_str:
+        if game_cards.get("date") and game_cards["date"] != edition_date:
             print("  ⚠ Dropping game_cards (wrong date)", flush=True)
             game_cards = {}
 
@@ -393,10 +402,10 @@ def run(date_str):
     print(f"  {inputs_available}/4 primary inputs loaded, {len(recent)} days of context", flush=True)
 
     if inputs_available == 0:
-        write_failed("no input data available", date_str)
+        write_failed("no input data available", edition_date)
         sys.exit(1)
 
-    effective_date = gotd.get("date", date_str)
+    effective_date = gotd.get("date", edition_date)
     context = build_context(effective_date, gotd, atl, standings, game_cards, recent, transactions, news_intake)
     print(f"  Context assembled: {len(context)} chars", flush=True)
 
@@ -404,7 +413,7 @@ def run(date_str):
         import google.genai as genai
         from google.genai import types
     except ImportError:
-        write_failed("google-genai not installed", date_str)
+        write_failed("google-genai not installed", edition_date)
         sys.exit(1)
     
     client = genai.Client(api_key=api_key, http_options=types.HttpOptions(api_version="v1"))
@@ -445,7 +454,7 @@ def run(date_str):
             ),
         )
     except Exception as e:
-        write_failed(f"API error: {e}", date_str)
+        write_failed(f"API error: {e}", edition_date)
         sys.exit(1)
 
     raw = response.text
@@ -507,7 +516,8 @@ def run(date_str):
     teaser_included = bool(teaser_text)
 
     output = {
-        "date":              effective_date,
+        "date":              edition_date,
+        "content_date":      effective_date,
         "date_display":      dt.strftime("%A, %B %-d, %Y"),
         "generated_at":      datetime.now().strftime("%Y-%m-%d %H:%M"),
         "model":             "hermes-editor-at-large-v1",

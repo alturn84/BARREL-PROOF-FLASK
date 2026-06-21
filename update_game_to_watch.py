@@ -27,6 +27,10 @@ try:
 except ImportError:
     openpyxl = None
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parent / "scripts"))
+from edition_date_lib import read_edition_date
+
 print(f"SCRIPT STARTED: {datetime.now()}", flush=True)
 
 VAULT        = Path(__file__).resolve().parent
@@ -314,6 +318,12 @@ def build_copy(game, breakdown, away_era, home_era):
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 def run():
+    try:
+        edition_date = read_edition_date()
+    except Exception as e:
+        print(f"  ✗ {e}", flush=True)
+        sys.exit(1)
+
     schedule  = load_json(SITE_DATA / "schedule.json")
     era_lookup = load_era_lookup()
     standings  = build_standings_lookup()
@@ -361,7 +371,8 @@ def run():
     rail_date = schedule.get("rail_date", "")
 
     output = {
-        "date":           schedule.get("games_date", ""),
+        "date":           edition_date,
+        "game_date":      schedule.get("games_date", ""),
         "date_display":   rail_date,
         "updated":        datetime.now().strftime("%Y-%m-%d %H:%M"),
         "away":           away,

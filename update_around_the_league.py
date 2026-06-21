@@ -25,6 +25,9 @@ import sys
 from datetime import datetime, timedelta
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent / "scripts"))
+from edition_date_lib import read_edition_date
+
 print(f"SCRIPT STARTED: {datetime.now()}", flush=True)
 
 VAULT    = Path(__file__).resolve().parent
@@ -458,6 +461,12 @@ def dedup(items, games):
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 def run(date_str):
+    try:
+        edition_date = read_edition_date()
+    except Exception as e:
+        print(f"  ✗ {e}")
+        sys.exit(1)
+
     md_file = DAILY / f"{date_str}-mlb-box-scores.md"
     if not md_file.exists():
         print(f"  No file found: {md_file}")
@@ -496,7 +505,8 @@ def run(date_str):
 
     dt = datetime.strptime(date_str, "%Y-%m-%d")
     output = {
-        "date":         date_str,
+        "date":         edition_date,
+        "game_date":    date_str,
         "date_display": dt.strftime("%A, %B %-d, %Y"),
         "updated":      datetime.now().strftime("%Y-%m-%d %H:%M"),
         "item_count":   len(items),

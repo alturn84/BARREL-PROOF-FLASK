@@ -23,6 +23,9 @@ import requests
 from datetime import datetime, timedelta
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent / "scripts"))
+from edition_date_lib import read_edition_date
+
 print(f"SCRIPT STARTED: {datetime.now()}", flush=True)
 
 # ── Config ────────────────────────────────────────────────────────────────────
@@ -146,6 +149,13 @@ def fetch_date(date_str):
 # ── Main ──────────────────────────────────────────────────────────────────────
 def main():
     dry_run   = "--dry-run" in sys.argv
+
+    try:
+        edition_date = read_edition_date()
+    except Exception as e:
+        print(f"  ✗ {e}", flush=True)
+        sys.exit(1)
+
     today     = datetime.today()
     yesterday = today - timedelta(days=1)
 
@@ -160,6 +170,7 @@ def main():
         sys.exit(1)
 
     output = {
+        "date": edition_date,
         "updated": datetime.now().strftime("%Y-%m-%d %H:%M"),
         "rail_date":  today.strftime("%A, %B %-d"),
         "games_date": yesterday.strftime("%Y-%m-%d"),
