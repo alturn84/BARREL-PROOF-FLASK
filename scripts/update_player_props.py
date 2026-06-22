@@ -34,6 +34,7 @@ Usage:
     python3 scripts/update_player_props.py
 """
 
+import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -52,75 +53,148 @@ from dfs_props_lib import (
     load_player_resolution_data,
     resolve_abbreviated_name,
     normalize_market,
-    load_audit,
+    start_run,
     save_audit,
-    parse_markdown_tables,
 )
 
 OUTPUT_PATH = DATA_DIR / "player_props.json"
 
-# Per Phase 1 POC: hits / total_bases / outs_recorded were proven working;
-# home_runs / rbis / pitcher_strikeouts are additional markets BettingPros
-# exposes but weren't exercised in the capped POC run. URL slugs are a
-# best-effort guess at BettingPros' picks-page convention and must be
-# confirmed/corrected by Hermes/VPS against the pages Phase 1 actually used.
+# Confirmed via Hermes/VPS live test: /prop-bets/ returned near-empty
+# pages; the working BettingPros picks-page path is /player-props/.
+# hits / total_bases / outs_recorded / home_runs / rbis / pitcher_strikeouts
+# were all confirmed live (60 props across 6 markets).
 PROP_MARKET_PAGES = [
-    {"market": "hits", "url": "https://www.bettingpros.com/mlb/picks/prop-bets/hits/"},
-    {"market": "total_bases", "url": "https://www.bettingpros.com/mlb/picks/prop-bets/total-bases/"},
-    {"market": "outs_recorded", "url": "https://www.bettingpros.com/mlb/picks/prop-bets/outs-recorded/"},
-    {"market": "home_runs", "url": "https://www.bettingpros.com/mlb/picks/prop-bets/home-runs/"},
-    {"market": "rbis", "url": "https://www.bettingpros.com/mlb/picks/prop-bets/rbis/"},
-    {"market": "pitcher_strikeouts", "url": "https://www.bettingpros.com/mlb/picks/prop-bets/strikeouts/"},
+    {"market": "hits", "url": "https://www.bettingpros.com/mlb/player-props/hits/"},
+    {"market": "total_bases", "url": "https://www.bettingpros.com/mlb/player-props/total-bases/"},
+    {"market": "outs_recorded", "url": "https://www.bettingpros.com/mlb/player-props/outs-recorded/"},
+    {"market": "home_runs", "url": "https://www.bettingpros.com/mlb/player-props/home-runs/"},
+    {"market": "rbis", "url": "https://www.bettingpros.com/mlb/player-props/rbis/"},
+    {"market": "pitcher_strikeouts", "url": "https://www.bettingpros.com/mlb/player-props/strikeouts/"},
 ]
 
-COLUMN_ALIASES = {
-    "player": "raw_player_name", "name": "raw_player_name", "player_name": "raw_player_name",
-    "team": "team",
-    "opp": "opponent", "opponent": "opponent", "vs": "opponent",
-    "line": "line", "prop": "line",
-    "over": "over_odds", "over_odds": "over_odds", "o": "over_odds",
-    "under": "under_odds", "under_odds": "under_odds", "u": "under_odds",
-    "pick": "recommendation", "recommendation": "recommendation", "best bet": "recommendation",
-}
+# Position codes BettingPros sometimes glues directly onto the end of a
+# player's abbreviated name with no separating space, e.g.
+# "A. Burleson1B,LF,RF,DH" or "B. WoodruffP". Order matters only in that
+# two-letter codes must be tried before the bare single-letter ones so the
+# alternation doesn't short-circuit on a partial match.
+_POSITION_CODE = r"(?:1B|2B|3B|SS|LF|CF|RF|OF|DH|C|P)"
+_GLUED_POSITION_SUFFIX_RE = re.compile(
+    rf"(?<![A-Za-z]\.)((?:{_POSITION_CODE})(?:,{_POSITION_CODE})*)$"
+)
+
+
+def _clean_bp_player_name(raw):
+    """Strip BettingPros' glued-on position-code suffix (e.g. the
+    "1B,LF,RF,DH" in "A. Burleson1B,LF,RF,DH") from a raw abbreviated name.
+
+    Matches only an exact, case-sensitive run of known position codes at
+    the very end of the string with no preceding space (the scraping
+    artifact is always glued directly onto the last name). Legitimate
+    suffixes like "Jr." or "II" are not position codes, so they never
+    match and are left untouched."""
+    raw = (raw or "").strip()
+    match = _GLUED_POSITION_SUFFIX_RE.search(raw)
+    if not match:
+        return raw
+    prefix = raw[: match.start()]
+    # Only strip if there's a real name left and it wasn't already
+    # separated by whitespace (a legitimately-spaced position column
+    # value, not a glued artifact).
+    if prefix and not prefix.endswith(" "):
+        return prefix
+    return raw
+
+
+# A bare "Over -159" / "Under +119" line is just labeled odds, not the
+# pick itself — only a qualifier word (Bet/Lean/Pick/Take/Best Bet) makes
+# Over/Under an actual recommendation. Without real BettingPros card
+# markdown to confirm against, both regexes are necessarily best-effort.
+_ODDS_LABEL_RE = re.compile(r"\b(Over|Under)\b\s*([+-]\d{2,4})\b", re.IGNORECASE)
+_RECOMMENDATION_RE = re.compile(r"\b(?:Bet|Lean|Pick|Take|Best\s+Bet)[:\s]+(Over|Under)\b", re.IGNORECASE)
+_ODDS_RE = re.compile(r"[+-]\d{2,4}\b")
+_LINE_RE = re.compile(r"\b\d+\.\d\b")
+_TEAM_OPP_RE = re.compile(r"\b([A-Z]{2,4})\s*(?:@|vs\.?|VS)\s*([A-Z]{2,4})\b")
+# A BettingPros abbreviated name: "B. Woodruff", optionally with a glued
+# position-code suffix that _clean_bp_player_name() strips afterward.
+_NAME_RE = re.compile(r"\b([A-Z]\.\s?[A-Za-z'\.\-]+(?:" + _POSITION_CODE + r"(?:,(?:" + _POSITION_CODE + r"))*)?)\b")
 
 
 def parse_bettingpros_markdown(markdown, market):
-    """Parse a BettingPros picks page (markdown) into raw prop rows for one
-    market. Returns a list of dicts with whatever fields could be
-    extracted — never fabricates missing fields (best_book, projection,
-    edge_label are not present on these pages per the Phase 1 POC)."""
-    raw_rows = parse_markdown_tables(markdown)
+    """Parse a BettingPros player-props page (markdown) into raw prop rows
+    for one market.
+
+    Confirmed via Hermes/VPS live test: these pages render as card-style
+    blocks, not markdown tables, so this scans line-by-line instead of
+    looking for pipe-delimited rows. Each card is expected to contain a
+    player name, a team/opponent pair, a numeric line, an over/under odds
+    pair, and a recommendation — fields that aren't found are left null,
+    never fabricated (best_book, projection, edge_label are never present
+    on these pages and are always null)."""
     records = []
-    for row in raw_rows:
-        mapped = {}
-        for raw_key, value in row.items():
-            field = COLUMN_ALIASES.get(raw_key.strip().lower())
-            if field:
-                mapped[field] = value
-        if not mapped.get("raw_player_name"):
+    current = None
+
+    def flush():
+        if current and current.get("raw_player_name"):
+            records.append({
+                "raw_player_name": _clean_bp_player_name(current.get("raw_player_name")),
+                "team": current.get("team"),
+                "opponent": current.get("opponent"),
+                "market": market,
+                "line": current.get("line"),
+                "over_odds": current.get("over_odds"),
+                "under_odds": current.get("under_odds"),
+                "best_book": None,
+                "projection": None,
+                "recommendation": current.get("recommendation"),
+                "edge_label": None,
+            })
+
+    for raw_line in markdown.splitlines():
+        line = re.sub(r"[*_`#>]", " ", raw_line).strip()
+        if not line:
             continue
 
-        line_raw = mapped.get("line")
-        line_val = None
-        if line_raw:
-            try:
-                line_val = float("".join(c for c in line_raw if c.isdigit() or c in ".-"))
-            except ValueError:
-                line_val = None
+        name_match = _NAME_RE.search(line)
+        # A fresh name line starts a new card; flush the previous one first.
+        if name_match:
+            if current is not None:
+                flush()
+            current = {"raw_player_name": name_match.group(1)}
+            continue
 
-        records.append({
-            "raw_player_name": mapped.get("raw_player_name"),
-            "team": mapped.get("team"),
-            "opponent": mapped.get("opponent"),
-            "market": market,
-            "line": line_val,
-            "over_odds": mapped.get("over_odds"),
-            "under_odds": mapped.get("under_odds"),
-            "best_book": None,
-            "projection": None,
-            "recommendation": mapped.get("recommendation"),
-            "edge_label": None,
-        })
+        if current is None:
+            continue
+
+        team_opp = _TEAM_OPP_RE.search(line)
+        if team_opp:
+            current.setdefault("team", team_opp.group(1))
+            current.setdefault("opponent", team_opp.group(2))
+
+        line_match = _LINE_RE.search(line)
+        if line_match and "line" not in current:
+            current["line"] = float(line_match.group(0))
+
+        odds_label = _ODDS_LABEL_RE.search(line)
+        if odds_label:
+            side, price = odds_label.group(1).lower(), odds_label.group(2)
+            current.setdefault("over_odds" if side == "over" else "under_odds", price)
+            continue
+
+        rec_match = _RECOMMENDATION_RE.search(line)
+        if rec_match:
+            current.setdefault("recommendation", rec_match.group(1).title())
+            continue
+
+        # Fallback: a bare odds number with no Over/Under label nearby —
+        # assign to whichever side hasn't been filled yet.
+        odds = _ODDS_RE.findall(line)
+        if odds:
+            if "over_odds" not in current:
+                current["over_odds"] = odds[0]
+            elif "under_odds" not in current:
+                current["under_odds"] = odds[0]
+
+    flush()
     return records
 
 
@@ -131,7 +205,7 @@ def main():
         print(f"  ✗ {e}")
         sys.exit(1)
 
-    audit = load_audit(edition_date)
+    audit = start_run(edition_date, "player_props")
 
     api_key = load_firecrawl_api_key()
     if not api_key:

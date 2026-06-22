@@ -37,9 +37,9 @@ from dfs_props_lib import (
     normalize_team_abbr,
     build_game_id_lookup,
     find_game_id,
-    load_audit,
+    start_run,
     save_audit,
-    parse_markdown_tables,
+    parse_markdown_table_rows,
     to_number,
 )
 
@@ -50,50 +50,67 @@ DFF_SOURCES = [
     {"platform": "FanDuel", "url": "https://www.dailyfantasyfuel.com/mlb/projections/fanduel/"},
 ]
 
-# Column-name variants -> canonical field, matched case-insensitively
-# against markdown table headers. DailyFantasyFuel's exact header wording
-# was not verifiable from this local Mac (no Firecrawl credentials) —
-# Phase 1 proved extraction works on Hermes/VPS, so these aliases should be
-# confirmed/extended there against real scraped markdown.
-COLUMN_ALIASES = {
-    "player": "player_name", "name": "player_name", "player_name": "player_name",
-    "pos": "position", "position": "position",
-    "team": "team",
-    "opp": "opponent", "opponent": "opponent", "vs": "opponent",
-    "salary": "salary",
-    "proj": "projection", "proj.": "projection", "proj fpts": "projection",
-    "projection": "projection", "fpts": "projection",
-    "value": "value_score", "val": "value_score", "value_score": "value_score",
-    "slate": "slate",
-    "status": "status",
-}
+# Confirmed via Hermes/VPS live test: DailyFantasyFuel's per-player rows are
+# wider than a simple header-mapped table (they carry an embedded
+# image/logo cell), and the page also contains narrower group-header rows
+# that a generic header-matched table parser latches onto by mistake. The
+# fix is to read player rows by fixed column position instead.
+DFF_COL_POSITION = 1
+DFF_COL_PLAYER_NAME = 2
+DFF_COL_SALARY = 3
+DFF_COL_TEAM = 5
+DFF_COL_OPPONENT = 6
+DFF_COL_PROJECTION = 8
+DFF_COL_VALUE_SCORE = 9
+DFF_MIN_COLS = 10
+
+VALID_POSITIONS = {"P", "SP", "RP", "C", "1B", "2B", "3B", "SS", "OF", "LF", "CF", "RF", "DH", "UTIL"}
+
+
+def _looks_like_dff_player_row(cells):
+    """True if this raw row is an actual player row (not a group-header /
+    section-divider row that happens to also start with '|')."""
+    if len(cells) < DFF_MIN_COLS:
+        return False
+    if not cells[DFF_COL_PLAYER_NAME]:
+        return False
+    if to_number(cells[DFF_COL_SALARY]) is None:
+        return False
+    if to_number(cells[DFF_COL_PROJECTION]) is None:
+        return False
+    if to_number(cells[DFF_COL_VALUE_SCORE]) is None:
+        return False
+    return True
 
 def parse_dff_markdown(markdown, platform):
     """Parse a DailyFantasyFuel projections page (markdown) into raw DFS
-    rows for one platform. Returns a list of dicts with whatever fields
-    could be extracted — never fabricates missing fields."""
-    raw_rows = parse_markdown_tables(markdown)
+    rows for one platform, using the confirmed column-indexed layout from
+    the Hermes/VPS live test. Returns a list of dicts with whatever fields
+    could be extracted — never fabricates missing fields (slate/status are
+    not present in the confirmed column layout, so they stay null)."""
+    raw_rows = parse_markdown_table_rows(markdown)
     records = []
-    for row in raw_rows:
-        mapped = {}
-        for raw_key, value in row.items():
-            field = COLUMN_ALIASES.get(raw_key.strip().lower())
-            if field:
-                mapped[field] = value
-        if not mapped.get("player_name"):
+    for cells in raw_rows:
+        if not _looks_like_dff_player_row(cells):
+            continue
+
+        position = cells[DFF_COL_POSITION].strip() or None
+        if position and position.upper() not in VALID_POSITIONS:
+            # Not a recognized position code — likely still a stray
+            # non-player row that happened to clear the numeric checks.
             continue
 
         records.append({
-            "player_name": mapped.get("player_name"),
-            "team": mapped.get("team"),
-            "opponent": mapped.get("opponent"),
+            "player_name": cells[DFF_COL_PLAYER_NAME].strip(),
+            "team": cells[DFF_COL_TEAM].strip() or None,
+            "opponent": cells[DFF_COL_OPPONENT].strip() or None,
             "platform": platform,
-            "position": mapped.get("position"),
-            "salary": to_number(mapped.get("salary")),
-            "projection": to_number(mapped.get("projection")),
-            "value_score": to_number(mapped.get("value_score")),
-            "slate": mapped.get("slate"),
-            "status": mapped.get("status"),
+            "position": position,
+            "salary": to_number(cells[DFF_COL_SALARY]),
+            "projection": to_number(cells[DFF_COL_PROJECTION]),
+            "value_score": to_number(cells[DFF_COL_VALUE_SCORE]),
+            "slate": None,
+            "status": None,
         })
     return records
 
@@ -105,7 +122,7 @@ def main():
         print(f"  ✗ {e}")
         sys.exit(1)
 
-    audit = load_audit(edition_date)
+    audit = start_run(edition_date, "dfs_board")
 
     api_key = load_firecrawl_api_key()
     if not api_key:

@@ -47,6 +47,9 @@ EXTRA_TEAM_ALIASES = {
     "A'S": "ATH",
     "AS": "ATH",
     "OAK": "ATH",
+    # DailyFantasyFuel uses WAS for Washington; Barrel Proof's canonical
+    # abbreviation (teams.json) is WSH. Confirmed via Hermes/VPS live test.
+    "WAS": "WSH",
 }
 
 
@@ -342,6 +345,29 @@ def parse_markdown_tables(markdown):
     return rows
 
 
+def parse_markdown_table_rows(markdown):
+    """Parse every markdown pipe-table row in a page into raw cell-list
+    rows, by position rather than by header-name matching.
+
+    Unlike parse_markdown_tables(), this does not require a row's column
+    count to match a preceding header row — needed because DailyFantasyFuel
+    mixes in narrower group-header rows (e.g. a 5-column section divider)
+    among the wider per-player rows. Callers that know a fixed column
+    layout (like DFF's column-indexed player rows) should filter/validate
+    rows themselves rather than relying on a single shared header."""
+    lines = markdown.splitlines()
+    rows = []
+    for line in lines:
+        stripped = line.strip()
+        if not stripped.startswith("|"):
+            continue
+        if re.match(r"^\|?[\s:|\-]+\|?$", stripped):
+            continue  # separator row
+        cells = [clean_cell(c) for c in stripped.strip("|").split("|")]
+        rows.append(cells)
+    return rows
+
+
 # ---------------------------------------------------------------------------
 # Market name normalization (player props)
 # ---------------------------------------------------------------------------
@@ -420,3 +446,21 @@ def load_audit(edition_date):
 def save_audit(audit):
     audit["last_updated"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     write_json(AUDIT_PATH, audit)
+
+
+def start_run(edition_date, tag):
+    """Load the audit for this edition date, then drop this script's own
+    previously-logged entries (identified by their "[tag]" prefix) from
+    team_issues/player_name_issues/errors before the new run repopulates
+    them.
+
+    This keeps each script's section reflecting only its current run —
+    a fixed parser bug's old error doesn't linger forever after a later
+    clean run — while never touching the other script's "[other_tag]"
+    entries (per-edition-date cumulative behavior across scripts is
+    preserved; only same-script re-runs are deduplicated)."""
+    audit = load_audit(edition_date)
+    prefix = f"[{tag}]"
+    for field in ("team_issues", "player_name_issues", "errors"):
+        audit[field] = [item for item in audit.get(field, []) if not str(item).startswith(prefix)]
+    return audit
