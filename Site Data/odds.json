@@ -1,1022 +1,14 @@
 {
-  "date": "2026-06-22",
-  "updated": "2026-06-23T00:00:36.997769+00:00",
+  "date": "2026-06-23",
+  "updated": "2026-06-23T10:01:23.277166+00:00",
   "source": "TheOddsAPI",
   "sportsbooks": [
     "fanduel",
     "draftkings"
   ],
   "league": "MLB",
-  "game_count": 25,
+  "game_count": 15,
   "games": [
-    {
-      "event_id": "7eeb2a9fecc4a8958efb172e75c65224",
-      "home_team": "Detroit Tigers",
-      "away_team": "New York Yankees",
-      "event_start_time": "2026-06-22T22:11:00Z",
-      "sportsbooks": {
-        "fanduel": {
-          "moneyline": [
-            {
-              "name": "Detroit Tigers",
-              "price": -2500,
-              "point": null
-            },
-            {
-              "name": "New York Yankees",
-              "price": 900,
-              "point": null
-            }
-          ],
-          "run_line": [
-            {
-              "name": "Detroit Tigers",
-              "price": -146,
-              "point": -3.5
-            },
-            {
-              "name": "New York Yankees",
-              "price": 110,
-              "point": 3.5
-            }
-          ],
-          "total": [
-            {
-              "name": "Over",
-              "price": 118,
-              "point": 9.5
-            },
-            {
-              "name": "Under",
-              "price": -158,
-              "point": 9.5
-            }
-          ]
-        },
-        "draftkings": {
-          "moneyline": [
-            {
-              "name": "Detroit Tigers",
-              "price": -2100,
-              "point": null
-            },
-            {
-              "name": "New York Yankees",
-              "price": 820,
-              "point": null
-            }
-          ],
-          "run_line": [
-            {
-              "name": "Detroit Tigers",
-              "price": -134,
-              "point": -3.5
-            },
-            {
-              "name": "New York Yankees",
-              "price": 103,
-              "point": 3.5
-            }
-          ],
-          "total": [
-            {
-              "name": "Over",
-              "price": 114,
-              "point": 9.5
-            },
-            {
-              "name": "Under",
-              "price": -149,
-              "point": 9.5
-            }
-          ]
-        }
-      }
-    },
-    {
-      "event_id": "3e12cc318907e3d20b669757daa0601c",
-      "home_team": "Tampa Bay Rays",
-      "away_team": "Kansas City Royals",
-      "event_start_time": "2026-06-22T22:41:00Z",
-      "sportsbooks": {
-        "fanduel": {
-          "moneyline": [
-            {
-              "name": "Kansas City Royals",
-              "price": -172,
-              "point": null
-            },
-            {
-              "name": "Tampa Bay Rays",
-              "price": 134,
-              "point": null
-            }
-          ],
-          "run_line": [
-            {
-              "name": "Kansas City Royals",
-              "price": 158,
-              "point": -1.5
-            },
-            {
-              "name": "Tampa Bay Rays",
-              "price": -215,
-              "point": 1.5
-            }
-          ],
-          "total": [
-            {
-              "name": "Over",
-              "price": 100,
-              "point": 6.5
-            },
-            {
-              "name": "Under",
-              "price": -132,
-              "point": 6.5
-            }
-          ]
-        },
-        "draftkings": {
-          "moneyline": [
-            {
-              "name": "Kansas City Royals",
-              "price": -180,
-              "point": null
-            },
-            {
-              "name": "Tampa Bay Rays",
-              "price": 137,
-              "point": null
-            }
-          ],
-          "run_line": [
-            {
-              "name": "Kansas City Royals",
-              "price": 155,
-              "point": -1.5
-            },
-            {
-              "name": "Tampa Bay Rays",
-              "price": -205,
-              "point": 1.5
-            }
-          ],
-          "total": [
-            {
-              "name": "Over",
-              "price": -102,
-              "point": 6.5
-            },
-            {
-              "name": "Under",
-              "price": -127,
-              "point": 6.5
-            }
-          ]
-        }
-      }
-    },
-    {
-      "event_id": "5a8ab9f3ed0791629f4f9e10da52043a",
-      "home_team": "Miami Marlins",
-      "away_team": "Texas Rangers",
-      "event_start_time": "2026-06-22T22:41:00Z",
-      "sportsbooks": {
-        "fanduel": {
-          "moneyline": [
-            {
-              "name": "Miami Marlins",
-              "price": 260,
-              "point": null
-            },
-            {
-              "name": "Texas Rangers",
-              "price": -360,
-              "point": null
-            }
-          ],
-          "run_line": [
-            {
-              "name": "Miami Marlins",
-              "price": 116,
-              "point": 1.5
-            },
-            {
-              "name": "Texas Rangers",
-              "price": -158,
-              "point": -1.5
-            }
-          ],
-          "total": [
-            {
-              "name": "Over",
-              "price": 102,
-              "point": 6.5
-            },
-            {
-              "name": "Under",
-              "price": -136,
-              "point": 6.5
-            }
-          ]
-        },
-        "draftkings": {
-          "moneyline": [
-            {
-              "name": "Miami Marlins",
-              "price": 194,
-              "point": null
-            },
-            {
-              "name": "Texas Rangers",
-              "price": -263,
-              "point": null
-            }
-          ],
-          "run_line": [
-            {
-              "name": "Miami Marlins",
-              "price": -111,
-              "point": 1.5
-            },
-            {
-              "name": "Texas Rangers",
-              "price": -117,
-              "point": -1.5
-            }
-          ],
-          "total": [
-            {
-              "name": "Over",
-              "price": -101,
-              "point": 6.5
-            },
-            {
-              "name": "Under",
-              "price": -129,
-              "point": 6.5
-            }
-          ]
-        }
-      }
-    },
-    {
-      "event_id": "06b34739941eb6ab0d54c4cee040b202",
-      "home_team": "Toronto Blue Jays",
-      "away_team": "Houston Astros",
-      "event_start_time": "2026-06-22T23:08:00Z",
-      "sportsbooks": {
-        "fanduel": {
-          "moneyline": [
-            {
-              "name": "Houston Astros",
-              "price": 132,
-              "point": null
-            },
-            {
-              "name": "Toronto Blue Jays",
-              "price": -170,
-              "point": null
-            }
-          ],
-          "run_line": [
-            {
-              "name": "Houston Astros",
-              "price": -220,
-              "point": 1.5
-            },
-            {
-              "name": "Toronto Blue Jays",
-              "price": 162,
-              "point": -1.5
-            }
-          ],
-          "total": [
-            {
-              "name": "Over",
-              "price": 114,
-              "point": 7.5
-            },
-            {
-              "name": "Under",
-              "price": -152,
-              "point": 7.5
-            }
-          ]
-        },
-        "draftkings": {
-          "moneyline": [
-            {
-              "name": "Houston Astros",
-              "price": 117,
-              "point": null
-            },
-            {
-              "name": "Toronto Blue Jays",
-              "price": -153,
-              "point": null
-            }
-          ],
-          "run_line": [
-            {
-              "name": "Houston Astros",
-              "price": -241,
-              "point": 1.5
-            },
-            {
-              "name": "Toronto Blue Jays",
-              "price": 179,
-              "point": -1.5
-            }
-          ],
-          "total": [
-            {
-              "name": "Over",
-              "price": 111,
-              "point": 7.5
-            },
-            {
-              "name": "Under",
-              "price": -145,
-              "point": 7.5
-            }
-          ]
-        }
-      }
-    },
-    {
-      "event_id": "7adc5663e108dbde0834e58a957b5d3e",
-      "home_team": "Cincinnati Reds",
-      "away_team": "Milwaukee Brewers",
-      "event_start_time": "2026-06-22T23:11:00Z",
-      "sportsbooks": {
-        "fanduel": {
-          "moneyline": [
-            {
-              "name": "Cincinnati Reds",
-              "price": -115,
-              "point": null
-            },
-            {
-              "name": "Milwaukee Brewers",
-              "price": -111,
-              "point": null
-            }
-          ],
-          "run_line": [
-            {
-              "name": "Cincinnati Reds",
-              "price": 225,
-              "point": -1.5
-            },
-            {
-              "name": "Milwaukee Brewers",
-              "price": -320,
-              "point": 1.5
-            }
-          ],
-          "total": [
-            {
-              "name": "Over",
-              "price": -102,
-              "point": 5.5
-            },
-            {
-              "name": "Under",
-              "price": -130,
-              "point": 5.5
-            }
-          ]
-        },
-        "draftkings": {
-          "moneyline": [
-            {
-              "name": "Cincinnati Reds",
-              "price": -107,
-              "point": null
-            },
-            {
-              "name": "Milwaukee Brewers",
-              "price": -121,
-              "point": null
-            }
-          ],
-          "run_line": [
-            {
-              "name": "Cincinnati Reds",
-              "price": -199,
-              "point": 1.5
-            },
-            {
-              "name": "Milwaukee Brewers",
-              "price": 151,
-              "point": -1.5
-            }
-          ],
-          "total": [
-            {
-              "name": "Over",
-              "price": -124,
-              "point": 5.5
-            },
-            {
-              "name": "Under",
-              "price": -105,
-              "point": 5.5
-            }
-          ]
-        }
-      }
-    },
-    {
-      "event_id": "22bf5f58b0fd7173739a6d0fb1bd280e",
-      "home_team": "Chicago White Sox",
-      "away_team": "Cleveland Guardians",
-      "event_start_time": "2026-06-22T23:41:00Z",
-      "sportsbooks": {
-        "fanduel": {
-          "moneyline": [
-            {
-              "name": "Chicago White Sox",
-              "price": -115,
-              "point": null
-            },
-            {
-              "name": "Cleveland Guardians",
-              "price": -111,
-              "point": null
-            }
-          ],
-          "run_line": [
-            {
-              "name": "Chicago White Sox",
-              "price": 188,
-              "point": -1.5
-            },
-            {
-              "name": "Cleveland Guardians",
-              "price": -260,
-              "point": 1.5
-            }
-          ],
-          "total": [
-            {
-              "name": "Over",
-              "price": -122,
-              "point": 6.5
-            },
-            {
-              "name": "Under",
-              "price": -108,
-              "point": 6.5
-            }
-          ]
-        },
-        "draftkings": {
-          "moneyline": [
-            {
-              "name": "Chicago White Sox",
-              "price": -125,
-              "point": null
-            },
-            {
-              "name": "Cleveland Guardians",
-              "price": -104,
-              "point": null
-            }
-          ],
-          "run_line": [
-            {
-              "name": "Chicago White Sox",
-              "price": -223,
-              "point": 1.5
-            },
-            {
-              "name": "Cleveland Guardians",
-              "price": 168,
-              "point": -1.5
-            }
-          ],
-          "total": [
-            {
-              "name": "Over",
-              "price": -128,
-              "point": 6.5
-            },
-            {
-              "name": "Under",
-              "price": -102,
-              "point": 6.5
-            }
-          ]
-        }
-      }
-    },
-    {
-      "event_id": "0fdd8b67a62fe347c0995afb9eb94c73",
-      "home_team": "Minnesota Twins",
-      "away_team": "Los Angeles Dodgers",
-      "event_start_time": "2026-06-22T23:41:00Z",
-      "sportsbooks": {
-        "fanduel": {
-          "moneyline": [
-            {
-              "name": "Los Angeles Dodgers",
-              "price": -128,
-              "point": null
-            },
-            {
-              "name": "Minnesota Twins",
-              "price": 100,
-              "point": null
-            }
-          ],
-          "run_line": [
-            {
-              "name": "Los Angeles Dodgers",
-              "price": 128,
-              "point": -1.5
-            },
-            {
-              "name": "Minnesota Twins",
-              "price": -172,
-              "point": 1.5
-            }
-          ],
-          "total": [
-            {
-              "name": "Over",
-              "price": 104,
-              "point": 11.5
-            },
-            {
-              "name": "Under",
-              "price": -138,
-              "point": 11.5
-            }
-          ]
-        },
-        "draftkings": {
-          "moneyline": [
-            {
-              "name": "Los Angeles Dodgers",
-              "price": -123,
-              "point": null
-            },
-            {
-              "name": "Minnesota Twins",
-              "price": -104,
-              "point": null
-            }
-          ],
-          "run_line": [
-            {
-              "name": "Los Angeles Dodgers",
-              "price": 131,
-              "point": -1.5
-            },
-            {
-              "name": "Minnesota Twins",
-              "price": -172,
-              "point": 1.5
-            }
-          ],
-          "total": [
-            {
-              "name": "Over",
-              "price": -106,
-              "point": 11.5
-            },
-            {
-              "name": "Under",
-              "price": -122,
-              "point": 11.5
-            }
-          ]
-        }
-      }
-    },
-    {
-      "event_id": "fbfee8c921cea16428faf24b7ba19aed",
-      "home_team": "St. Louis Cardinals",
-      "away_team": "Arizona Diamondbacks",
-      "event_start_time": "2026-06-22T23:46:00Z",
-      "sportsbooks": {
-        "fanduel": {
-          "moneyline": [
-            {
-              "name": "Arizona Diamondbacks",
-              "price": 215,
-              "point": null
-            },
-            {
-              "name": "St. Louis Cardinals",
-              "price": -290,
-              "point": null
-            }
-          ],
-          "run_line": [
-            {
-              "name": "Arizona Diamondbacks",
-              "price": 102,
-              "point": 1.5
-            },
-            {
-              "name": "St. Louis Cardinals",
-              "price": -136,
-              "point": -1.5
-            }
-          ],
-          "total": [
-            {
-              "name": "Over",
-              "price": -132,
-              "point": 8.5
-            },
-            {
-              "name": "Under",
-              "price": 100,
-              "point": 8.5
-            }
-          ]
-        },
-        "draftkings": {
-          "moneyline": [
-            {
-              "name": "Arizona Diamondbacks",
-              "price": 213,
-              "point": null
-            },
-            {
-              "name": "St. Louis Cardinals",
-              "price": -292,
-              "point": null
-            }
-          ],
-          "run_line": [
-            {
-              "name": "Arizona Diamondbacks",
-              "price": 107,
-              "point": 1.5
-            },
-            {
-              "name": "St. Louis Cardinals",
-              "price": -139,
-              "point": -1.5
-            }
-          ],
-          "total": [
-            {
-              "name": "Over",
-              "price": -137,
-              "point": 8.5
-            },
-            {
-              "name": "Under",
-              "price": 105,
-              "point": 8.5
-            }
-          ]
-        }
-      }
-    },
-    {
-      "event_id": "2bbd66d60ea2fc31f947643a281cfb84",
-      "home_team": "Washington Nationals",
-      "away_team": "Philadelphia Phillies",
-      "event_start_time": "2026-06-23T00:16:00Z",
-      "sportsbooks": {
-        "fanduel": {
-          "moneyline": [
-            {
-              "name": "Philadelphia Phillies",
-              "price": 106,
-              "point": null
-            },
-            {
-              "name": "Washington Nationals",
-              "price": -124,
-              "point": null
-            }
-          ],
-          "run_line": [
-            {
-              "name": "Philadelphia Phillies",
-              "price": -192,
-              "point": 1.5
-            },
-            {
-              "name": "Washington Nationals",
-              "price": 158,
-              "point": -1.5
-            }
-          ],
-          "total": [
-            {
-              "name": "Over",
-              "price": -110,
-              "point": 9.5
-            },
-            {
-              "name": "Under",
-              "price": -110,
-              "point": 9.5
-            }
-          ]
-        },
-        "draftkings": {
-          "moneyline": [
-            {
-              "name": "Philadelphia Phillies",
-              "price": 105,
-              "point": null
-            },
-            {
-              "name": "Washington Nationals",
-              "price": -127,
-              "point": null
-            }
-          ],
-          "run_line": [
-            {
-              "name": "Philadelphia Phillies",
-              "price": -186,
-              "point": 1.5
-            },
-            {
-              "name": "Washington Nationals",
-              "price": 153,
-              "point": -1.5
-            }
-          ],
-          "total": [
-            {
-              "name": "Over",
-              "price": -112,
-              "point": 9.5
-            },
-            {
-              "name": "Under",
-              "price": -108,
-              "point": 9.5
-            }
-          ]
-        }
-      }
-    },
-    {
-      "event_id": "4244628ff5c52a85f4e83f8dc171ed4e",
-      "home_team": "Colorado Rockies",
-      "away_team": "Boston Red Sox",
-      "event_start_time": "2026-06-23T00:41:00Z",
-      "sportsbooks": {
-        "fanduel": {
-          "moneyline": [
-            {
-              "name": "Boston Red Sox",
-              "price": -136,
-              "point": null
-            },
-            {
-              "name": "Colorado Rockies",
-              "price": 116,
-              "point": null
-            }
-          ],
-          "run_line": [
-            {
-              "name": "Boston Red Sox",
-              "price": 105,
-              "point": -1.5
-            },
-            {
-              "name": "Colorado Rockies",
-              "price": -126,
-              "point": 1.5
-            }
-          ],
-          "total": [
-            {
-              "name": "Over",
-              "price": -118,
-              "point": 11.5
-            },
-            {
-              "name": "Under",
-              "price": -104,
-              "point": 11.5
-            }
-          ]
-        },
-        "draftkings": {
-          "moneyline": [
-            {
-              "name": "Boston Red Sox",
-              "price": -137,
-              "point": null
-            },
-            {
-              "name": "Colorado Rockies",
-              "price": 114,
-              "point": null
-            }
-          ],
-          "run_line": [
-            {
-              "name": "Boston Red Sox",
-              "price": 113,
-              "point": -1.5
-            },
-            {
-              "name": "Colorado Rockies",
-              "price": -136,
-              "point": 1.5
-            }
-          ],
-          "total": [
-            {
-              "name": "Over",
-              "price": -103,
-              "point": 12.0
-            },
-            {
-              "name": "Under",
-              "price": -116,
-              "point": 12.0
-            }
-          ]
-        }
-      }
-    },
-    {
-      "event_id": "541d3f8c1e87131917cbf8386a2563f6",
-      "home_team": "Los Angeles Angels",
-      "away_team": "Baltimore Orioles",
-      "event_start_time": "2026-06-23T01:39:00Z",
-      "sportsbooks": {
-        "fanduel": {
-          "moneyline": [
-            {
-              "name": "Baltimore Orioles",
-              "price": -162,
-              "point": null
-            },
-            {
-              "name": "Los Angeles Angels",
-              "price": 136,
-              "point": null
-            }
-          ],
-          "run_line": [
-            {
-              "name": "Baltimore Orioles",
-              "price": 105,
-              "point": -1.5
-            },
-            {
-              "name": "Los Angeles Angels",
-              "price": -126,
-              "point": 1.5
-            }
-          ],
-          "total": [
-            {
-              "name": "Over",
-              "price": -124,
-              "point": 8.5
-            },
-            {
-              "name": "Under",
-              "price": 102,
-              "point": 8.5
-            }
-          ]
-        },
-        "draftkings": {
-          "moneyline": [
-            {
-              "name": "Baltimore Orioles",
-              "price": -158,
-              "point": null
-            },
-            {
-              "name": "Los Angeles Angels",
-              "price": 131,
-              "point": null
-            }
-          ],
-          "run_line": [
-            {
-              "name": "Baltimore Orioles",
-              "price": 100,
-              "point": -1.5
-            },
-            {
-              "name": "Los Angeles Angels",
-              "price": -121,
-              "point": 1.5
-            }
-          ],
-          "total": [
-            {
-              "name": "Over",
-              "price": -106,
-              "point": 9.0
-            },
-            {
-              "name": "Under",
-              "price": -114,
-              "point": 9.0
-            }
-          ]
-        }
-      }
-    },
-    {
-      "event_id": "66c3c3524e444f31fe9fc224ac058351",
-      "home_team": "San Diego Padres",
-      "away_team": "Atlanta Braves",
-      "event_start_time": "2026-06-23T02:10:00Z",
-      "sportsbooks": {
-        "draftkings": {
-          "moneyline": [
-            {
-              "name": "Atlanta Braves",
-              "price": -107,
-              "point": null
-            },
-            {
-              "name": "San Diego Padres",
-              "price": -112,
-              "point": null
-            }
-          ],
-          "run_line": [
-            {
-              "name": "Atlanta Braves",
-              "price": 159,
-              "point": -1.5
-            },
-            {
-              "name": "San Diego Padres",
-              "price": -194,
-              "point": 1.5
-            }
-          ],
-          "total": [
-            {
-              "name": "Over",
-              "price": 100,
-              "point": 7.5
-            },
-            {
-              "name": "Under",
-              "price": -121,
-              "point": 7.5
-            }
-          ]
-        },
-        "fanduel": {
-          "moneyline": [
-            {
-              "name": "Atlanta Braves",
-              "price": 100,
-              "point": null
-            },
-            {
-              "name": "San Diego Padres",
-              "price": -118,
-              "point": null
-            }
-          ],
-          "run_line": [
-            {
-              "name": "Atlanta Braves",
-              "price": 172,
-              "point": -1.5
-            },
-            {
-              "name": "San Diego Padres",
-              "price": -210,
-              "point": 1.5
-            }
-          ],
-          "total": [
-            {
-              "name": "Over",
-              "price": 100,
-              "point": 7.5
-            },
-            {
-              "name": "Under",
-              "price": -122,
-              "point": 7.5
-            }
-          ]
-        }
-      }
-    },
     {
       "event_id": "6bdf881264922e973fe4c3736ec56434",
       "home_team": "Toronto Blue Jays",
@@ -1039,12 +31,12 @@
           "run_line": [
             {
               "name": "Houston Astros",
-              "price": -178,
+              "price": -182,
               "point": 1.5
             },
             {
               "name": "Toronto Blue Jays",
-              "price": 146,
+              "price": 150,
               "point": -1.5
             }
           ],
@@ -1057,6 +49,44 @@
             {
               "name": "Under",
               "price": 100,
+              "point": 8.5
+            }
+          ]
+        },
+        "draftkings": {
+          "moneyline": [
+            {
+              "name": "Houston Astros",
+              "price": 113,
+              "point": null
+            },
+            {
+              "name": "Toronto Blue Jays",
+              "price": -136,
+              "point": null
+            }
+          ],
+          "run_line": [
+            {
+              "name": "Houston Astros",
+              "price": -167,
+              "point": 1.5
+            },
+            {
+              "name": "Toronto Blue Jays",
+              "price": 138,
+              "point": -1.5
+            }
+          ],
+          "total": [
+            {
+              "name": "Over",
+              "price": -113,
+              "point": 8.5
+            },
+            {
+              "name": "Under",
+              "price": -107,
               "point": 8.5
             }
           ]
@@ -1085,12 +115,12 @@
           "run_line": [
             {
               "name": "Detroit Tigers",
-              "price": -184,
+              "price": -188,
               "point": 1.5
             },
             {
               "name": "New York Yankees",
-              "price": 152,
+              "price": 155,
               "point": -1.5
             }
           ],
@@ -1111,36 +141,36 @@
           "moneyline": [
             {
               "name": "Detroit Tigers",
-              "price": -105,
+              "price": -102,
               "point": null
             },
             {
               "name": "New York Yankees",
-              "price": -115,
+              "price": -118,
               "point": null
             }
           ],
           "run_line": [
             {
               "name": "Detroit Tigers",
-              "price": -181,
+              "price": -180,
               "point": 1.5
             },
             {
               "name": "New York Yankees",
-              "price": 149,
+              "price": 148,
               "point": -1.5
             }
           ],
           "total": [
             {
               "name": "Over",
-              "price": -114,
+              "price": -110,
               "point": 7.5
             },
             {
               "name": "Under",
-              "price": -106,
+              "price": -110,
               "point": 7.5
             }
           ]
@@ -1157,36 +187,36 @@
           "moneyline": [
             {
               "name": "Kansas City Royals",
-              "price": 152,
+              "price": 158,
               "point": null
             },
             {
               "name": "Tampa Bay Rays",
-              "price": -180,
+              "price": -188,
               "point": null
             }
           ],
           "run_line": [
             {
               "name": "Kansas City Royals",
-              "price": -150,
+              "price": -138,
               "point": 1.5
             },
             {
               "name": "Tampa Bay Rays",
-              "price": 125,
+              "price": 115,
               "point": -1.5
             }
           ],
           "total": [
             {
               "name": "Over",
-              "price": -112,
+              "price": -114,
               "point": 8.0
             },
             {
               "name": "Under",
-              "price": -108,
+              "price": -106,
               "point": 8.0
             }
           ]
@@ -1195,37 +225,121 @@
           "moneyline": [
             {
               "name": "Kansas City Royals",
-              "price": 159,
+              "price": 158,
               "point": null
             },
             {
               "name": "Tampa Bay Rays",
-              "price": -194,
+              "price": -193,
               "point": null
             }
           ],
           "run_line": [
             {
               "name": "Kansas City Royals",
-              "price": -143,
+              "price": -132,
               "point": 1.5
             },
             {
               "name": "Tampa Bay Rays",
-              "price": 119,
+              "price": 109,
               "point": -1.5
             }
           ],
           "total": [
             {
               "name": "Over",
-              "price": -118,
+              "price": -113,
               "point": 8.0
             },
             {
               "name": "Under",
-              "price": -102,
+              "price": -106,
               "point": 8.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "event_id": "452edc1a46fc100945cc12d4d7f93456",
+      "home_team": "Miami Marlins",
+      "away_team": "Texas Rangers",
+      "event_start_time": "2026-06-23T22:41:00Z",
+      "sportsbooks": {
+        "fanduel": {
+          "moneyline": [
+            {
+              "name": "Miami Marlins",
+              "price": -142,
+              "point": null
+            },
+            {
+              "name": "Texas Rangers",
+              "price": 120,
+              "point": null
+            }
+          ],
+          "run_line": [
+            {
+              "name": "Miami Marlins",
+              "price": 152,
+              "point": -1.5
+            },
+            {
+              "name": "Texas Rangers",
+              "price": -184,
+              "point": 1.5
+            }
+          ],
+          "total": [
+            {
+              "name": "Over",
+              "price": -108,
+              "point": 8.5
+            },
+            {
+              "name": "Under",
+              "price": -112,
+              "point": 8.5
+            }
+          ]
+        },
+        "draftkings": {
+          "moneyline": [
+            {
+              "name": "Miami Marlins",
+              "price": -156,
+              "point": null
+            },
+            {
+              "name": "Texas Rangers",
+              "price": 129,
+              "point": null
+            }
+          ],
+          "run_line": [
+            {
+              "name": "Miami Marlins",
+              "price": 135,
+              "point": -1.5
+            },
+            {
+              "name": "Texas Rangers",
+              "price": -163,
+              "point": 1.5
+            }
+          ],
+          "total": [
+            {
+              "name": "Over",
+              "price": -105,
+              "point": 8.5
+            },
+            {
+              "name": "Under",
+              "price": -115,
+              "point": 8.5
             }
           ]
         }
@@ -1253,6 +367,44 @@
           "run_line": [
             {
               "name": "Pittsburgh Pirates",
+              "price": -172,
+              "point": 1.5
+            },
+            {
+              "name": "Seattle Mariners",
+              "price": 140,
+              "point": -1.5
+            }
+          ],
+          "total": [
+            {
+              "name": "Over",
+              "price": 100,
+              "point": 8.5
+            },
+            {
+              "name": "Under",
+              "price": -122,
+              "point": 8.5
+            }
+          ]
+        },
+        "draftkings": {
+          "moneyline": [
+            {
+              "name": "Pittsburgh Pirates",
+              "price": 104,
+              "point": null
+            },
+            {
+              "name": "Seattle Mariners",
+              "price": -125,
+              "point": null
+            }
+          ],
+          "run_line": [
+            {
+              "name": "Pittsburgh Pirates",
               "price": -162,
               "point": 1.5
             },
@@ -1265,50 +417,12 @@
           "total": [
             {
               "name": "Over",
-              "price": -102,
-              "point": 8.5
-            },
-            {
-              "name": "Under",
-              "price": -120,
-              "point": 8.5
-            }
-          ]
-        },
-        "draftkings": {
-          "moneyline": [
-            {
-              "name": "Pittsburgh Pirates",
-              "price": -102,
-              "point": null
-            },
-            {
-              "name": "Seattle Mariners",
-              "price": -118,
-              "point": null
-            }
-          ],
-          "run_line": [
-            {
-              "name": "Pittsburgh Pirates",
-              "price": -163,
-              "point": 1.5
-            },
-            {
-              "name": "Seattle Mariners",
-              "price": 135,
-              "point": -1.5
-            }
-          ],
-          "total": [
-            {
-              "name": "Over",
-              "price": -111,
+              "price": -116,
               "point": 8.0
             },
             {
               "name": "Under",
-              "price": -108,
+              "price": -103,
               "point": 8.0
             }
           ]
@@ -1325,36 +439,36 @@
           "moneyline": [
             {
               "name": "Philadelphia Phillies",
-              "price": -174,
+              "price": -168,
               "point": null
             },
             {
               "name": "Washington Nationals",
-              "price": 146,
+              "price": 142,
               "point": null
             }
           ],
           "run_line": [
             {
               "name": "Philadelphia Phillies",
-              "price": -102,
+              "price": 100,
               "point": -1.5
             },
             {
               "name": "Washington Nationals",
-              "price": -118,
+              "price": -120,
               "point": 1.5
             }
           ],
           "total": [
             {
               "name": "Over",
-              "price": -112,
+              "price": -115,
               "point": 8.5
             },
             {
               "name": "Under",
-              "price": -108,
+              "price": -105,
               "point": 8.5
             }
           ]
@@ -1363,24 +477,24 @@
           "moneyline": [
             {
               "name": "Philadelphia Phillies",
-              "price": -168,
+              "price": -167,
               "point": null
             },
             {
               "name": "Washington Nationals",
-              "price": 139,
+              "price": 138,
               "point": null
             }
           ],
           "run_line": [
             {
               "name": "Philadelphia Phillies",
-              "price": -105,
+              "price": -101,
               "point": -1.5
             },
             {
               "name": "Washington Nationals",
-              "price": -115,
+              "price": -120,
               "point": 1.5
             }
           ],
@@ -1409,37 +523,75 @@
           "moneyline": [
             {
               "name": "Chicago Cubs",
-              "price": 108,
+              "price": 102,
               "point": null
             },
             {
               "name": "New York Mets",
-              "price": -126,
+              "price": -120,
               "point": null
             }
           ],
           "run_line": [
             {
               "name": "Chicago Cubs",
-              "price": -205,
-              "point": 1.5
+              "price": 176,
+              "point": -1.5
             },
             {
               "name": "New York Mets",
-              "price": 168,
-              "point": -1.5
+              "price": -215,
+              "point": 1.5
             }
           ],
           "total": [
             {
               "name": "Over",
-              "price": -110,
-              "point": 8.0
+              "price": 102,
+              "point": 8.5
             },
             {
               "name": "Under",
-              "price": -110,
-              "point": 8.0
+              "price": -124,
+              "point": 8.5
+            }
+          ]
+        },
+        "draftkings": {
+          "moneyline": [
+            {
+              "name": "Chicago Cubs",
+              "price": 100,
+              "point": null
+            },
+            {
+              "name": "New York Mets",
+              "price": -120,
+              "point": null
+            }
+          ],
+          "run_line": [
+            {
+              "name": "Chicago Cubs",
+              "price": 161,
+              "point": -1.5
+            },
+            {
+              "name": "New York Mets",
+              "price": -197,
+              "point": 1.5
+            }
+          ],
+          "total": [
+            {
+              "name": "Over",
+              "price": -101,
+              "point": 8.5
+            },
+            {
+              "name": "Under",
+              "price": -119,
+              "point": 8.5
             }
           ]
         }
@@ -1467,12 +619,12 @@
           "run_line": [
             {
               "name": "Cincinnati Reds",
-              "price": -156,
+              "price": -160,
               "point": 1.5
             },
             {
               "name": "Milwaukee Brewers",
-              "price": 130,
+              "price": 132,
               "point": -1.5
             }
           ],
@@ -1493,37 +645,37 @@
           "moneyline": [
             {
               "name": "Cincinnati Reds",
-              "price": 100,
+              "price": 101,
               "point": null
             },
             {
               "name": "Milwaukee Brewers",
-              "price": -120,
+              "price": -122,
               "point": null
             }
           ],
           "run_line": [
             {
               "name": "Cincinnati Reds",
-              "price": -163,
+              "price": -155,
               "point": 1.5
             },
             {
               "name": "Milwaukee Brewers",
-              "price": 135,
+              "price": 128,
               "point": -1.5
             }
           ],
           "total": [
             {
               "name": "Over",
-              "price": -116,
-              "point": 9.5
+              "price": -102,
+              "point": 10.0
             },
             {
               "name": "Under",
-              "price": -104,
-              "point": 9.5
+              "price": -118,
+              "point": 10.0
             }
           ]
         }
@@ -1551,12 +703,12 @@
           "run_line": [
             {
               "name": "Chicago White Sox",
-              "price": -188,
+              "price": -194,
               "point": 1.5
             },
             {
               "name": "Cleveland Guardians",
-              "price": 155,
+              "price": 160,
               "point": -1.5
             }
           ],
@@ -1582,31 +734,31 @@
             },
             {
               "name": "Cleveland Guardians",
-              "price": -115,
+              "price": -114,
               "point": null
             }
           ],
           "run_line": [
             {
               "name": "Chicago White Sox",
-              "price": -193,
+              "price": -181,
               "point": 1.5
             },
             {
               "name": "Cleveland Guardians",
-              "price": 159,
+              "price": 149,
               "point": -1.5
             }
           ],
           "total": [
             {
               "name": "Over",
-              "price": -120,
+              "price": -115,
               "point": 7.0
             },
             {
               "name": "Under",
-              "price": 100,
+              "price": -105,
               "point": 7.0
             }
           ]
@@ -1623,37 +775,37 @@
           "moneyline": [
             {
               "name": "Los Angeles Dodgers",
-              "price": -136,
+              "price": -166,
               "point": null
             },
             {
               "name": "Minnesota Twins",
-              "price": 116,
+              "price": 140,
               "point": null
             }
           ],
           "run_line": [
             {
               "name": "Los Angeles Dodgers",
-              "price": 126,
+              "price": 102,
               "point": -1.5
             },
             {
               "name": "Minnesota Twins",
-              "price": -152,
+              "price": -122,
               "point": 1.5
             }
           ],
           "total": [
             {
               "name": "Over",
-              "price": -106,
-              "point": 8.5
+              "price": -102,
+              "point": 9.0
             },
             {
               "name": "Under",
-              "price": -114,
-              "point": 8.5
+              "price": -120,
+              "point": 9.0
             }
           ]
         },
@@ -1661,37 +813,37 @@
           "moneyline": [
             {
               "name": "Los Angeles Dodgers",
-              "price": -136,
+              "price": -175,
               "point": null
             },
             {
               "name": "Minnesota Twins",
-              "price": 113,
+              "price": 144,
               "point": null
             }
           ],
           "run_line": [
             {
               "name": "Los Angeles Dodgers",
-              "price": 119,
+              "price": 102,
               "point": -1.5
             },
             {
               "name": "Minnesota Twins",
-              "price": -143,
+              "price": -123,
               "point": 1.5
             }
           ],
           "total": [
             {
               "name": "Over",
-              "price": -105,
-              "point": 8.5
+              "price": -101,
+              "point": 9.0
             },
             {
               "name": "Under",
-              "price": -115,
-              "point": 8.5
+              "price": -119,
+              "point": 9.0
             }
           ]
         }
@@ -1719,24 +871,24 @@
           "run_line": [
             {
               "name": "Arizona Diamondbacks",
-              "price": 155,
+              "price": 162,
               "point": -1.5
             },
             {
               "name": "St. Louis Cardinals",
-              "price": -192,
+              "price": -196,
               "point": 1.5
             }
           ],
           "total": [
             {
               "name": "Over",
-              "price": -122,
+              "price": -110,
               "point": 8.5
             },
             {
               "name": "Under",
-              "price": 100,
+              "price": -110,
               "point": 8.5
             }
           ]
@@ -1745,36 +897,36 @@
           "moneyline": [
             {
               "name": "Arizona Diamondbacks",
-              "price": -105,
+              "price": -107,
               "point": null
             },
             {
               "name": "St. Louis Cardinals",
-              "price": -115,
+              "price": -112,
               "point": null
             }
           ],
           "run_line": [
             {
               "name": "Arizona Diamondbacks",
-              "price": 153,
+              "price": 155,
               "point": -1.5
             },
             {
               "name": "St. Louis Cardinals",
-              "price": -186,
+              "price": -189,
               "point": 1.5
             }
           ],
           "total": [
             {
               "name": "Over",
-              "price": -111,
+              "price": -107,
               "point": 8.5
             },
             {
               "name": "Under",
-              "price": -109,
+              "price": -112,
               "point": 8.5
             }
           ]
@@ -1803,12 +955,12 @@
           "run_line": [
             {
               "name": "Boston Red Sox",
-              "price": 100,
+              "price": -102,
               "point": -1.5
             },
             {
               "name": "Colorado Rockies",
-              "price": -120,
+              "price": -118,
               "point": 1.5
             }
           ],
@@ -1841,19 +993,19 @@
           "run_line": [
             {
               "name": "Boston Red Sox",
-              "price": -105,
+              "price": -106,
               "point": -1.5
             },
             {
               "name": "Colorado Rockies",
-              "price": -115,
+              "price": -114,
               "point": 1.5
             }
           ],
           "total": [
             {
               "name": "Over",
-              "price": -115,
+              "price": -114,
               "point": 10.5
             },
             {
@@ -1887,25 +1039,109 @@
           "run_line": [
             {
               "name": "Baltimore Orioles",
-              "price": 108,
+              "price": 100,
               "point": -1.5
             },
             {
               "name": "Los Angeles Angels",
-              "price": -130,
+              "price": -120,
               "point": 1.5
             }
           ],
           "total": [
             {
               "name": "Over",
-              "price": -122,
-              "point": 8.5
+              "price": 100,
+              "point": 9.0
             },
             {
               "name": "Under",
+              "price": -122,
+              "point": 9.0
+            }
+          ]
+        },
+        "draftkings": {
+          "moneyline": [
+            {
+              "name": "Baltimore Orioles",
+              "price": -156,
+              "point": null
+            },
+            {
+              "name": "Los Angeles Angels",
+              "price": 129,
+              "point": null
+            }
+          ],
+          "run_line": [
+            {
+              "name": "Baltimore Orioles",
+              "price": 104,
+              "point": -1.5
+            },
+            {
+              "name": "Los Angeles Angels",
+              "price": -126,
+              "point": 1.5
+            }
+          ],
+          "total": [
+            {
+              "name": "Over",
               "price": 100,
-              "point": 8.5
+              "point": 9.0
+            },
+            {
+              "name": "Under",
+              "price": -120,
+              "point": 9.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "event_id": "ecaca218ecf0785d923b1039900110d0",
+      "home_team": "San Diego Padres",
+      "away_team": "Atlanta Braves",
+      "event_start_time": "2026-06-24T01:40:00Z",
+      "sportsbooks": {
+        "draftkings": {
+          "moneyline": [
+            {
+              "name": "Atlanta Braves",
+              "price": -112,
+              "point": null
+            },
+            {
+              "name": "San Diego Padres",
+              "price": -108,
+              "point": null
+            }
+          ],
+          "run_line": [
+            {
+              "name": "Atlanta Braves",
+              "price": 153,
+              "point": -1.5
+            },
+            {
+              "name": "San Diego Padres",
+              "price": -186,
+              "point": 1.5
+            }
+          ],
+          "total": [
+            {
+              "name": "Over",
+              "price": -110,
+              "point": 8.0
+            },
+            {
+              "name": "Under",
+              "price": -110,
+              "point": 8.0
             }
           ]
         }
@@ -1933,12 +1169,12 @@
           "run_line": [
             {
               "name": "Athletics",
-              "price": 164,
+              "price": 168,
               "point": -1.5
             },
             {
               "name": "San Francisco Giants",
-              "price": -200,
+              "price": -205,
               "point": 1.5
             }
           ],
@@ -1964,20 +1200,20 @@
             },
             {
               "name": "San Francisco Giants",
-              "price": -126,
+              "price": -125,
               "point": null
             }
           ],
           "run_line": [
             {
               "name": "Athletics",
-              "price": 169,
-              "point": -1.5
+              "price": -198,
+              "point": 1.5
             },
             {
               "name": "San Francisco Giants",
-              "price": -206,
-              "point": 1.5
+              "price": 162,
+              "point": -1.5
             }
           ],
           "total": [
