@@ -1,61 +1,75 @@
 {
-  "date": "2026-06-23",
-  "game_date": "2026-06-22",
-  "date_display": "Monday, June 22, 2026",
-  "updated": "2026-06-23 10:19",
+  "date": "2026-06-24",
+  "game_date": "2026-06-23",
+  "date_display": "Tuesday, June 23, 2026",
+  "updated": "2026-06-24 10:17",
   "game": {
-    "away": "CLE",
-    "home": "CWS",
-    "away_runs": 5,
-    "home_runs": 6,
-    "innings": 9,
-    "raw_score": 93.0,
+    "away": "ATL",
+    "home": "SD",
+    "away_runs": 6,
+    "home_runs": 7,
+    "innings": 10,
+    "raw_score": 83.0,
     "flags": [
       "WALK-OFF WIN",
+      "EXTRA INNINGS (10)",
       "ONE-RUN GAME",
-      "PLAYOFF IMPLICATIONS",
-      "DIVISION MATCHUP",
-      "SB SPREE (5)"
+      "PLAYOFF IMPLICATIONS"
     ],
-    "winner": "CWS",
-    "loser": "CLE",
+    "winner": "SD",
+    "loser": "ATL",
     "margin": 1,
-    "total_runs": 11
+    "total_runs": 13
   },
   "editorial": {
-    "headline": "Antonacci's Walk-Off Single Lifts White Sox Over Guardians",
-    "subheadline": "Chicago White Sox 6, Cleveland Guardians 5.",
-    "lead_angle": "Sam Antonacci sent a hard single back through the box, plating two runs in the bottom of the ninth to give the Chicago White Sox a chaotic 6-5 walk-off win against the Cleveland Guardians. The liner off reliever Cade Smith capped a back-and-forth final inning that saw both teams trade go-ahead blows. Chicago looked finished just moments earlier, but Antonacci’s clean hit sent the Rate Field crowd into a frenzy and handed the Guardians a brutal divisional loss.\n\nThe final frame was a study in reversals. Cleveland entered the ninth trailing by a run but surged ahead when pinch-hitter Kahlil Watson delivered a two-run single to give the Guardians a late lead. The visitors were three outs from victory. But the White Sox answered immediately against Smith, putting two runners on with one out to set the stage. Antonacci, who had driven in a run earlier, worked the count before finding a hole in the Cleveland infield for the game-winner.\n\nAntonacci was the difference-maker all evening for Chicago, finishing 2-for-4 with three runs batted in. The victory went to Chris Murphy, who recorded the final out in the top of the ninth. More importantly, the win pulls the White Sox closer in the standings, thwarting Cleveland’s chance to create separation in the divisional race. For one night, the South Siders found an answer when they needed it most.",
-    "reason": "Walk-offs are baseball's signature drama. The season's best finish this day."
+    "headline": "Fernando Tatis Jr. Walks Off Atlanta in Ten Innings",
+    "subheadline": "Dramatic Finish in the 10th Innings Lifts San Diego Padres",
+    "lead_angle": "Fernando Tatis Jr. slapped a ground ball through the right side of a drawn-in infield, sending Petco Park into a frenzy and the San Diego Padres to a 7-6 walk-off victory over the Atlanta Braves. The 10th-inning single off Atlanta closer Raisel Iglesias scored the automatic runner from third, capping a tense, back-and-forth night. Iglesias was saddled with the loss after failing to record an out in the final frame. The win went to Mason Miller, who worked a scoreless top of the tenth to set up the finish.\n\nThe game was defined by a wild second inning that saw nine men cross the plate. Atlanta struck first, plating four runs highlighted by a solo shot from Mauricio Dubón and a two-run single by Rowdy Tellez. The lead was short-lived. San Diego answered immediately in the bottom half of the frame, storming back with five runs of its own. That counter-attack was punctuated by a towering two-run home run from Tatis that tied the game before the Padres scratched across one more to take the lead.\n\nTatis was the man of the hour for San Diego, finishing 2-for-5 with the decisive RBI and his earlier home run. He wasn't alone, as sparkplug Samad Taylor chipped in with a 3-for-4 night at the plate. For the Braves, Michael Harris II paced the offense with three hits in the losing effort. The victory keeps the Padres locked in a tight race for a postseason spot, providing a critical win against a fellow contender as the summer schedule heats up.",
+    "reason": "Extra-inning walk-off — the purest combination of tension and resolution the sport offers."
   },
   "all_games": [
     {
       "rank": 1,
-      "away": "CLE",
-      "home": "CWS",
-      "away_runs": 5,
-      "home_runs": 6,
-      "innings": 9,
-      "raw_score": 93.0,
+      "away": "ATL",
+      "home": "SD",
+      "away_runs": 6,
+      "home_runs": 7,
+      "innings": 10,
+      "raw_score": 83.0,
       "flags": [
         "WALK-OFF WIN",
+        "EXTRA INNINGS (10)",
         "ONE-RUN GAME",
-        "PLAYOFF IMPLICATIONS",
-        "DIVISION MATCHUP",
-        "SB SPREE (5)"
+        "PLAYOFF IMPLICATIONS"
       ],
       "selected": true
     },
     {
       "rank": 2,
-      "away": "MIL",
-      "home": "CIN",
-      "away_runs": 2,
-      "home_runs": 1,
-      "innings": 10,
-      "raw_score": 61.0,
+      "away": "PHI",
+      "home": "WSH",
+      "away_runs": 14,
+      "home_runs": 9,
+      "innings": 9,
+      "raw_score": 72.0,
       "flags": [
-        "EXTRA INNINGS (10)",
+        "COMEBACK (trailed 5)",
+        "DIVISION MATCHUP",
+        "BIG RBI GAME: Edmundo Sosa (5 RBI)",
+        "SB SPREE (4)",
+        "HIGH-SCORING (23 runs)"
+      ],
+      "selected": false
+    },
+    {
+      "rank": 3,
+      "away": "CLE",
+      "home": "CWS",
+      "away_runs": 1,
+      "home_runs": 2,
+      "innings": 9,
+      "raw_score": 55.0,
+      "flags": [
         "ONE-RUN GAME",
         "PLAYOFF IMPLICATIONS",
         "DIVISION MATCHUP"
@@ -63,37 +77,38 @@
       "selected": false
     },
     {
-      "rank": 3,
-      "away": "BOS",
-      "home": "COL",
-      "away_runs": 2,
-      "home_runs": 3,
+      "rank": 4,
+      "away": "SEA",
+      "home": "PIT",
+      "away_runs": 3,
+      "home_runs": 2,
       "innings": 9,
       "raw_score": 45.0,
       "flags": [
-        "WALK-OFF WIN",
-        "ONE-RUN GAME"
-      ],
-      "selected": false
-    },
-    {
-      "rank": 4,
-      "away": "KC",
-      "home": "TB",
-      "away_runs": 2,
-      "home_runs": 1,
-      "innings": 9,
-      "raw_score": 37.0,
-      "flags": [
         "ONE-RUN GAME",
-        "PLAYOFF IMPLICATIONS"
+        "PLAYOFF IMPLICATIONS",
+        "SB SPREE (3)"
       ],
       "selected": false
     },
     {
       "rank": 5,
-      "away": "TEX",
-      "home": "MIA",
+      "away": "MIL",
+      "home": "CIN",
+      "away_runs": 2,
+      "home_runs": 0,
+      "innings": 9,
+      "raw_score": 40.0,
+      "flags": [
+        "PLAYOFF IMPLICATIONS",
+        "DIVISION MATCHUP"
+      ],
+      "selected": false
+    },
+    {
+      "rank": 6,
+      "away": "NYY",
+      "home": "DET",
       "away_runs": 4,
       "home_runs": 3,
       "innings": 9,
@@ -105,53 +120,53 @@
       "selected": false
     },
     {
-      "rank": 6,
-      "away": "LAD",
-      "home": "MIN",
-      "away_runs": 2,
-      "home_runs": 1,
-      "innings": 9,
-      "raw_score": 37.0,
-      "flags": [
-        "ONE-RUN GAME",
-        "PLAYOFF IMPLICATIONS"
-      ],
-      "selected": false
-    },
-    {
       "rank": 7,
-      "away": "ATL",
-      "home": "SD",
-      "away_runs": 0,
-      "home_runs": 1,
+      "away": "KC",
+      "home": "TB",
+      "away_runs": 12,
+      "home_runs": 5,
       "innings": 9,
-      "raw_score": 37.0,
+      "raw_score": 30.0,
       "flags": [
-        "ONE-RUN GAME",
-        "PLAYOFF IMPLICATIONS"
+        "MULTI-HR: Jac Caglianone (2 HR)",
+        "HIGH-SCORING (17 runs)"
       ],
       "selected": false
     },
     {
       "rank": 8,
-      "away": "PHI",
-      "home": "WSH",
-      "away_runs": 1,
-      "home_runs": 4,
+      "away": "BOS",
+      "home": "COL",
+      "away_runs": 5,
+      "home_runs": 2,
       "innings": 9,
-      "raw_score": 36.0,
+      "raw_score": 26.0,
       "flags": [
-        "DIVISION MATCHUP",
-        "DOMINANT START: Foster Griffin (7.1 IP, 1 ER, 9 K)"
+        "DOMINANT START: Sonny Gray (7.0 IP, 1 ER, 11 K)",
+        "SB SPREE (4)"
       ],
       "selected": false
     },
     {
       "rank": 9,
-      "away": "NYY",
-      "home": "DET",
-      "away_runs": 3,
-      "home_runs": 5,
+      "away": "HOU",
+      "home": "TOR",
+      "away_runs": 9,
+      "home_runs": 7,
+      "innings": 11,
+      "raw_score": 22.0,
+      "flags": [
+        "EXTRA INNINGS (11)",
+        "HIGH-SCORING (16 runs)"
+      ],
+      "selected": false
+    },
+    {
+      "rank": 10,
+      "away": "LAD",
+      "home": "MIN",
+      "away_runs": 12,
+      "home_runs": 3,
       "innings": 9,
       "raw_score": 22.0,
       "flags": [
@@ -160,23 +175,10 @@
       "selected": false
     },
     {
-      "rank": 10,
-      "away": "BAL",
-      "home": "LAA",
-      "away_runs": 6,
-      "home_runs": 1,
-      "innings": 9,
-      "raw_score": 18.0,
-      "flags": [
-        "DOMINANT START: Kyle Bradish (8.0 IP, 0 ER, 9 K)"
-      ],
-      "selected": false
-    },
-    {
       "rank": 11,
       "away": "AZ",
       "home": "STL",
-      "away_runs": 2,
+      "away_runs": 4,
       "home_runs": 3,
       "innings": 9,
       "raw_score": 15.0,
@@ -187,15 +189,50 @@
     },
     {
       "rank": 12,
-      "away": "HOU",
-      "home": "TOR",
-      "away_runs": 2,
-      "home_runs": 4,
+      "away": "CHC",
+      "home": "NYM",
+      "away_runs": 9,
+      "home_runs": 6,
       "innings": 9,
-      "raw_score": 8.0,
+      "raw_score": 12.0,
       "flags": [
-        "SB SPREE (3)"
+        "NYM HOME GAME"
       ],
+      "selected": false
+    },
+    {
+      "rank": 13,
+      "away": "ATH",
+      "home": "SF",
+      "away_runs": 1,
+      "home_runs": 3,
+      "innings": 9,
+      "raw_score": 12.0,
+      "flags": [
+        "SF HOME GAME"
+      ],
+      "selected": false
+    },
+    {
+      "rank": 14,
+      "away": "TEX",
+      "home": "MIA",
+      "away_runs": 4,
+      "home_runs": 6,
+      "innings": 9,
+      "raw_score": 0.0,
+      "flags": [],
+      "selected": false
+    },
+    {
+      "rank": 15,
+      "away": "BAL",
+      "home": "LAA",
+      "away_runs": 1,
+      "home_runs": 5,
+      "innings": 9,
+      "raw_score": 0.0,
+      "flags": [],
       "selected": false
     }
   ]
