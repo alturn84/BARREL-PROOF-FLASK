@@ -291,7 +291,7 @@ def build_pitcher_edges(pitcher_block, opponent_team):
     if isinstance(signal, (int, float)) and signal >= 75 and isinstance(k9, (int, float)) and k9 >= 9:
         edges.append("Strikeout Upside")
     if isinstance(signal, (int, float)) and signal >= 75:
-        edges.append("Run Prevention Edge")
+        edges.append("Starting-Pitching Edge")
     if isinstance(signal, (int, float)) and signal < 40:
         edges.append("Pitcher Risk")
     if confidence == "LOW":
@@ -300,13 +300,13 @@ def build_pitcher_edges(pitcher_block, opponent_team):
     results = []
     for edge_type in edges:
         if edge_type == "Strikeout Upside":
-            note = f"{pitcher_block.get('full_name')} owns a strong foundation with a double-digit K/9 against {opponent_team}."
-        elif edge_type == "Run Prevention Edge":
-            note = f"{pitcher_block.get('full_name')} carries a strong run-prevention foundation into this matchup."
+            note = f"{pitcher_block.get('full_name')} has strikeout upside against {opponent_team}."
+        elif edge_type == "Starting-Pitching Edge":
+            note = f"{pitcher_block.get('full_name')} gives his team the stronger starting-pitching edge in this matchup."
         elif edge_type == "Pitcher Risk":
-            note = f"{pitcher_block.get('full_name')}'s foundation signal points to significant risk against {opponent_team}."
+            note = f"{pitcher_block.get('full_name')} is a risky spot against {opponent_team}."
         elif edge_type == "Small Sample":
-            note = f"{pitcher_block.get('full_name')}'s read carries a small-sample confidence flag."
+            note = f"{pitcher_block.get('full_name')} doesn't have enough innings yet for a confident read."
         else:
             note = f"{pitcher_block.get('full_name')} flagged for {edge_type}."
 
@@ -332,31 +332,31 @@ def build_fantasy_watch(away_bats, home_bats, away_pressure, home_pressure, pitc
     for bats, team in ((away_bats, away_team), (home_bats, home_team)):
         for bat in bats:
             if "Power Watch" in bat["tags"]:
-                notes.append(f"Power Watch: {bat['full_name']} brings elite power indicators into today's matchup.")
+                notes.append(f"Power Watch: {bat['full_name']} is a home run threat in today's matchup.")
                 break
 
     for edge in pitcher_edges:
         if edge["edge_type"] == "Strikeout Upside":
-            notes.append(f"Strikeout Upside: {edge['pitcher_name']} owns a strong foundation with a double-digit K/9.")
+            notes.append(f"Strikeout Upside: {edge['pitcher_name']} has strikeout upside today.")
         elif edge["edge_type"] == "Pitcher Risk":
-            notes.append(f"Risk Spot: {edge['pitcher_name']}'s foundation signal points to risk against {edge['opponent_team']}.")
+            notes.append(f"Risk Spot: {edge['pitcher_name']} is a risky spot against {edge['opponent_team']}.")
 
     for bats, team in ((away_bats, away_team), (home_bats, home_team)):
         for bat in bats:
             if "Buy-Low Bat" in bat["tags"]:
-                notes.append(f"Buy-Low Bat: {bat['full_name']}'s expected production is running ahead of current results.")
+                notes.append(f"Buy-Low Bat: {bat['full_name']} has been better than his results show.")
                 break
 
     if away_pressure.get("profile") == "Heavy lineup pressure" and away_pressure.get("notes"):
-        notes.append(f"Stack Watch: {away_pressure['notes'][0]}")
+        notes.append(f"DFS Stacks: {away_pressure['notes'][0]}")
     if home_pressure.get("profile") == "Heavy lineup pressure" and home_pressure.get("notes"):
-        notes.append(f"Stack Watch: {home_pressure['notes'][0]}")
+        notes.append(f"DFS Stacks: {home_pressure['notes'][0]}")
 
     for edge in pitcher_edges:
-        if edge["edge_type"] == "Run Prevention Edge":
+        if edge["edge_type"] == "Starting-Pitching Edge":
             opp_pressure = home_pressure if edge["team_abbr"] == away_team else away_pressure
             if opp_pressure.get("profile") in ("Heavy lineup pressure", "Power-heavy pressure"):
-                notes.append(f"Risk Spot: {opp_pressure.get('profile')} lineup faces a {edge['pitcher_profile_type'] or 'strong foundation'} arm in {edge['pitcher_name']}.")
+                notes.append(f"Risk Spot: {opp_pressure.get('profile')} lineup faces a tough matchup in {edge['pitcher_name']}.")
 
     deduped = []
     seen = set()

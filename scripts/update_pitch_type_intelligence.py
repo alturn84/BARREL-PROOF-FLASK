@@ -223,15 +223,15 @@ def pitcher_arsenal_summary(arsenal, family_mix, primary_shape, name):
     br_pct = family_mix.get("Breaking", 0)
 
     if primary_shape == "Breaking-Heavy":
-        lead = f"{name} leans heavily on breaking ball shape — {br_pct:.0f}% breaking-ball usage."
+        lead = f"{name} leans heavily on his breaking ball — {br_pct:.0f}% usage."
     elif primary_shape == "Fastball/Breaking":
-        lead = f"{name} works primarily from a fastball/breaking-ball mix."
+        lead = f"{name} works mainly off a fastball/breaking-ball mix."
     elif primary_shape == "Fastball/Offspeed":
-        lead = f"{name} pairs fastball velocity with offspeed timing."
+        lead = f"{name} mixes fastballs with offspeed pitches."
     elif primary_shape == "Balanced Arsenal":
-        lead = f"{name} commands a balanced arsenal across pitch families."
+        lead = f"{name} mixes his pitches well across the board."
     else:
-        lead = f"{name}'s primary shape is {primary_shape.lower()}."
+        lead = f"{name}'s primary pitch mix is {primary_shape.lower()}."
 
     parts = [lead]
     if top_label and top_usage:
@@ -369,30 +369,30 @@ def family_damage_label(pitches, swings, whiffs):
 
 def hitter_family_summary(name, family, damage, contact, pitches):
     if damage == "limited":
-        return f"Limited {family.lower()} data for {name} this season."
+        return f"Not enough {family.lower()} data for {name} this season."
     if damage == "strong" and contact == "strong":
-        return f"{name} makes consistent contact and finds damage lanes against {family.lower()} pitching."
+        return f"{name} makes consistent contact and can do damage against {family.lower()} pitching."
     if damage == "risk" and contact == "risk":
-        return f"{name} carries swing-and-miss risk against {family.lower()} pitching — chase vulnerability is elevated."
+        return f"{name} is a risky spot against {family.lower()} pitching — he tends to chase."
     if damage == "strong":
-        return f"{name} generates contact against {family.lower()} pitching with solid run-production upside."
+        return f"{name} makes contact against {family.lower()} pitching with good run-production upside."
     if contact == "risk":
-        return f"{name} has some whiff exposure against {family.lower()} shape — chase risk below the zone."
-    return f"{name} profiles as a neutral bat against {family.lower()} pitching."
+        return f"{name} is a bit risky against {family.lower()} pitching — he tends to chase below the zone."
+    return f"{name} is a neutral matchup against {family.lower()} pitching."
 
 
 def hitter_overall_summary(name, best_family, risk_family, family_profile):
     if best_family == "Limited Data":
-        return f"{name}'s pitch-type split data is limited for this sample."
+        return f"Not enough pitch-type data yet on {name}."
     parts = []
     p = family_profile.get(best_family, {})
     if p.get("damage") == "strong":
-        parts.append(f"{name} finds the damage lane against {best_family.lower()} pitching.")
+        parts.append(f"{name} can do damage against {best_family.lower()} pitching.")
     else:
-        parts.append(f"{name} fits best in {best_family.lower()}-heavy matchups.")
+        parts.append(f"{name} fits best against {best_family.lower()}-heavy pitchers.")
     if risk_family and risk_family != best_family:
-        parts.append(f"The risk spot is {risk_family.lower()} — chase vulnerability goes up when pitchers work that family.")
-    return " ".join(parts) if parts else f"{name} shows a balanced pitch-type profile."
+        parts.append(f"The risk spot is {risk_family.lower()} — he tends to chase more against that pitch type.")
+    return " ".join(parts) if parts else f"{name} has a balanced pitch-type profile."
 
 
 def build_hitter_profile(full_name, slug, team, bats, mlbam_id):

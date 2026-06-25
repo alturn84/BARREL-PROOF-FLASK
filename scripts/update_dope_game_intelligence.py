@@ -74,9 +74,9 @@ def bat_role_tags(bat):
     tags = bat.get("tags") or []
     out = []
     if "Power Watch" in tags:
-        out.append("Power Pressure")
+        out.append("Power Threat")
     if "Contact Edge" in tags:
-        out.append("Contact Table-Setter")
+        out.append("Gets On Base")
     if "Buy-Low Bat" in tags:
         out.append("Buy-Low Signal")
     if "DFS Watch" in tags and not out:
@@ -87,11 +87,11 @@ def bat_role_tags(bat):
 def lineup_side_read(team_label, bats, pressure, lineup_source):
     if not bats:
         return {
-            "summary": f"{team_label} lineup signal is limited today — no standout profiles cleared the bar yet.",
-            "power_pressure": "Limited current signal data.",
-            "contact_pressure": "Limited current signal data.",
-            "traffic_path": "Limited current signal data.",
-            "risk": "Limited current signal data.",
+            "summary": f"{team_label}'s lineup doesn't have a standout name today.",
+            "power_pressure": "No clear data yet.",
+            "contact_pressure": "No clear data yet.",
+            "traffic_path": "No clear data yet.",
+            "risk": "No clear data yet.",
             "key_bats": [],
         }
 
@@ -101,40 +101,40 @@ def lineup_side_read(team_label, bats, pressure, lineup_source):
 
     if power_bats:
         names = ", ".join(b["full_name"] for b in power_bats[:2])
-        power_pressure = f"{names} give {team_label} a power pocket that can turn one mistake into a separator."
+        power_pressure = f"{names} can change the game with one swing."
     else:
-        power_pressure = f"{team_label} doesn't carry a standout power-pocket bat in today's signal pool."
+        power_pressure = f"{team_label} doesn't have a standout power threat today."
 
     if contact_bats:
         names = ", ".join(b["full_name"] for b in contact_bats[:2])
-        contact_pressure = f"{names} create contact pressure and traffic if they get on ahead of the middle of the order."
+        contact_pressure = f"{names} get on base and can set up the middle of the order."
     else:
-        contact_pressure = f"{team_label} lacks a clear contact-pressure profile today."
+        contact_pressure = f"{team_label} doesn't have a clear on-base threat today."
 
     if contact_bats:
-        traffic_path = f"{team_label}'s path to scoring runs through traffic — putting the ball in play and forcing the defense to make plays with runners on."
+        traffic_path = f"{team_label} is more likely to score by putting runners on base than by hitting home runs."
     elif power_bats:
-        traffic_path = f"{team_label}'s path leans on the power pocket rather than traffic — fewer baserunners, but louder mistake punishment."
+        traffic_path = f"{team_label} leans on the long ball more than putting runners on base."
     else:
-        traffic_path = f"{team_label}'s scoring path is unclear from today's signal pool."
+        traffic_path = f"{team_label}'s best path to scoring isn't clear today."
 
     risk_bits = []
     for b in bats:
         if b.get("hitter_profile_type") == "Regression Risk":
-            risk_bits.append(f"{b['full_name']} carries a regression-risk profile")
-    risk = (", ".join(risk_bits) + "." if risk_bits else "No major volatility flags in today's lineup signal.")
+            risk_bits.append(f"{b['full_name']} is due for a cool-down")
+    risk = (", ".join(risk_bits) + "." if risk_bits else "No real red flags in this lineup right now.")
 
     if power_bats and contact_bats:
-        summary = f"{team_label} brings both a power pocket and contact pressure — a balanced lineup that can win this game more than one way."
+        summary = f"{team_label} has both power and on-base threats — a lineup that can win this game more than one way."
     elif power_bats:
-        summary = f"{team_label} leans on power pressure — one swing can change the separator."
+        summary = f"{team_label} leans on power — one swing can change this game."
     elif contact_bats:
-        summary = f"{team_label} leans on contact pressure and traffic rather than the power pocket."
+        summary = f"{team_label} leans on getting on base rather than the long ball."
     else:
-        summary = f"{team_label}'s lineup read is limited today; {pressure.get('profile', 'signal pressure').lower()}."
+        summary = f"{team_label}'s lineup is hard to read today."
 
     if buy_low:
-        summary += f" {buy_low[0]['full_name']} is a buy-low signal worth tracking — expected production is running ahead of results."
+        summary += f" {buy_low[0]['full_name']} is worth watching — he's been better than his results show."
 
     key_bats = []
     for b in bats[:3]:
@@ -153,15 +153,15 @@ def lineup_side_read(team_label, bats, pressure, lineup_source):
 def matchup_shape(away_pressure, home_pressure, away_starter, home_starter):
     profiles = {away_pressure.get("profile"), home_pressure.get("profile")}
     if "Heavy lineup pressure" in profiles or "Power-heavy pressure" in profiles:
-        return "Power Pressure"
+        return "Power Game"
     if "Contact-heavy pressure" in profiles:
-        return "Traffic Game"
+        return "Contact Game"
     starters_volatile = (
         (away_starter or {}).get("stability") == "Volatile Arm"
         and (home_starter or {}).get("stability") == "Volatile Arm"
     )
     if starters_volatile and not profiles & {"Heavy lineup pressure", "Power-heavy pressure", "Contact-heavy pressure"}:
-        return "Volatile Run Environment"
+        return "Unpredictable Game"
     if profiles <= {"Insufficient data", "Limited signal pressure"}:
         return "Pitching-Controlled"
     return "Balanced Lineup Game"
@@ -174,11 +174,11 @@ def matchup_shape(away_pressure, home_pressure, away_starter, home_starter):
 def starter_read(team_label, opp_label, starter_block, opp_pressure_on_this_starter):
     if not starter_block or not v(starter_block.get("name")):
         return {
-            "summary": "Pitching path still developing.",
-            "stability": "Probables TBD; lineup and bullpen angles carry more weight until starters are confirmed.",
-            "risk": "Probables TBD; lineup and bullpen angles carry more weight until starters are confirmed.",
-            "matchup_fit": "Probables TBD; lineup and bullpen angles carry more weight until starters are confirmed.",
-            "watch": "Probables TBD; lineup and bullpen angles carry more weight until starters are confirmed.",
+            "summary": "No confirmed starter yet.",
+            "stability": "Starter TBD — lineup and bullpen matter more until it's confirmed.",
+            "risk": "Starter TBD — lineup and bullpen matter more until it's confirmed.",
+            "matchup_fit": "Starter TBD — lineup and bullpen matter more until it's confirmed.",
+            "watch": "Starter TBD — lineup and bullpen matter more until it's confirmed.",
         }
 
     name = starter_block["name"]
@@ -186,49 +186,49 @@ def starter_read(team_label, opp_label, starter_block, opp_pressure_on_this_star
 
     if not slug:
         return {
-            "summary": f"{name} ({team_label}) is probable, but signal data is limited — pitching path still developing.",
-            "stability": "Limited sample; stability read still developing.",
-            "risk": "Limited current sample for a risk read.",
-            "matchup_fit": "Limited current sample for a matchup-fit read.",
-            "watch": "Limited current sample — watch for confirmed lineup before drawing conclusions.",
+            "summary": f"{name} ({team_label}) is probable, but there isn't much data on him yet.",
+            "stability": "Not enough innings yet to get a clean read.",
+            "risk": "Not enough data yet for a risk read.",
+            "matchup_fit": "Not enough data yet for a matchup read.",
+            "watch": "Worth waiting for the lineup to be confirmed before drawing conclusions.",
         }
 
     stability_map = {
-        "Stable Arm": "Stable arm — likely to give length and shape the middle innings.",
-        "Volatile Arm": "Volatile arm — this outing can swing early if traffic builds against them.",
-        "Limited Sample": "Limited sample; stability read still developing.",
+        "Stable Arm": "Reliable — likely to give innings and keep the game under control.",
+        "Volatile Arm": "Inconsistent — this start can get away from him early.",
+        "Limited Sample": "Not enough innings yet to get a clean read.",
     }
-    stability = stability_map.get(starter_block.get("stability"), "Limited sample; stability read still developing.")
+    stability = stability_map.get(starter_block.get("stability"), "Not enough innings yet to get a clean read.")
 
     risk_bits = []
     if starter_block.get("power_risk") == "Power Risk":
-        risk_bits.append("carries power risk if they leave pitches in the damage lane")
+        risk_bits.append("can give up home runs if he leaves a pitch up")
     elif starter_block.get("power_risk") == "Suppresses Power":
-        risk_bits.append("suppresses the power pocket")
+        risk_bits.append("keeps the ball in the park well")
     if starter_block.get("contact_risk") == "Contact Pressure Risk":
-        risk_bits.append("is vulnerable to contact pressure and traffic")
+        risk_bits.append("tends to let hitters put the ball in play and get on base")
     elif starter_block.get("contact_risk") == "Contact Suppression":
-        risk_bits.append("limits contact quality")
+        risk_bits.append("limits hard contact")
     if starter_block.get("strikeout_read") == "Strikeout Edge":
-        risk_bits.append("has a swing-and-miss path to work around traffic")
-    risk = (f"{name} " + ", and ".join(risk_bits) + ".") if risk_bits else f"{name} is a small-sample read today — risk profile still developing."
+        risk_bits.append("can rack up strikeouts to bail himself out of trouble")
+    risk = (f"{name} " + ", and ".join(risk_bits) + ".") if risk_bits else f"{name} doesn't have enough of a track record yet for a clear risk read."
 
     pressure_read = (opp_pressure_on_this_starter or {}).get("pressure_read")
     danger_bats = (opp_pressure_on_this_starter or {}).get("danger_bats") or []
     if pressure_read in ("Power Pressure", "Balanced Pressure", "Contact Pressure") and danger_bats:
         names = ", ".join(b["name"] for b in danger_bats[:2])
-        matchup_fit = f"{opp_label}'s lineup grades as {pressure_read.lower()} against {name} — {names} is the matchup fit to track."
+        matchup_fit = f"{opp_label} is a tough matchup for {name} — {names} is the hitter to watch."
     elif pressure_read == "Limited Read":
-        matchup_fit = f"{opp_label}'s lineup signal is limited, so the matchup fit against {name} is still developing."
+        matchup_fit = f"{opp_label}'s lineup is hard to read today, so the matchup against {name} is still developing."
     else:
-        matchup_fit = f"{opp_label}'s lineup doesn't carry a standout threat profile against {name} in today's signal."
+        matchup_fit = f"{opp_label} doesn't have a standout threat against {name} today."
 
     if danger_bats:
-        watch = f"Watch {danger_bats[0]['name']} early — if {name} falls behind in counts, that's the leverage point."
+        watch = f"Watch {danger_bats[0]['name']} early — if {name} falls behind in the count, that's the spot."
     elif starter_block.get("stability") == "Volatile Arm":
-        watch = f"Watch {name}'s pitch count — a volatile start can put pressure on the bullpen by the fifth."
+        watch = f"Watch {name}'s pitch count — a rough start could put pressure on the bullpen by the fifth."
     else:
-        watch = f"Watch whether {name} gets length; that's the swing factor for the middle innings."
+        watch = f"Watch whether {name} can go deep into the game; that's the key to the middle innings."
 
     return {
         "summary": starter_block.get("summary") or f"{name} is a small-sample read today.",
@@ -244,23 +244,23 @@ def pitching_shape_and_edge(away_team, home_team, away_block, home_block, away_p
     home_ok = home_block and v(home_block.get("name")) and home_block.get("slug")
 
     if not away_ok or not home_ok:
-        return "TBD Pitching Path", "Probable starter signals are limited for this game, so the pitching path is still developing."
+        return "TBD Pitching Matchup", "Starters aren't confirmed yet, so the pitching matchup is still developing."
 
     away_sig = (away_pm_pitcher or {}).get("pitcher_foundation_signal")
     home_sig = (home_pm_pitcher or {}).get("pitcher_foundation_signal")
 
     if away_block.get("stability") == "Volatile Arm" and home_block.get("stability") == "Volatile Arm":
-        return "Volatile Starters", "Both starters carry volatile-arm profiles — this game can tilt on whichever bullpen absorbs the middle innings better."
+        return "Volatile Starters", "Both starters have been inconsistent — this game can come down to whichever bullpen holds up better in the middle innings."
 
     if isinstance(away_sig, (int, float)) and isinstance(home_sig, (int, float)):
         if away_sig >= 65 and home_sig >= 65:
-            return "Run Prevention Game", "Both starters carry stable run-prevention profiles — mistake punishment is the most likely separator."
+            return "Strong Pitching Matchup", "Both starters have been steady — a mistake pitch is the most likely way this game gets decided."
         if abs(away_sig - home_sig) >= 12:
             leader = away_team if away_sig > home_sig else home_team
             leader_name = away_block["name"] if away_sig > home_sig else home_block["name"]
-            return "Starter Edge", f"{leader_name} gives {leader} the cleaner path with the stronger foundation read in this matchup."
+            return "Starter Edge", f"{leader_name} gives {leader} the stronger starting-pitching edge tonight."
 
-    return "Bullpen Game Risk", "Neither starter holds a clear foundation edge, so middle-innings bullpen usage carries extra weight."
+    return "Bullpen Game Risk", "Neither starter has a clear edge, so bullpen usage matters more in this one."
 
 
 # ---------------------------------------------------------------------------
@@ -393,14 +393,14 @@ def players_who_tilt_game(away_team_name, home_team_name, away_team_abbr, home_t
                 continue
             tags = bat_role_tags(b)
             tag = tags[0]
-            if tag == "Power Pressure":
-                reason = f"{b['full_name']} carries a power-pocket profile that can turn one swing into the separator."
-            elif tag == "Contact Table-Setter":
-                reason = f"{b['full_name']}'s contact profile creates traffic ahead of the middle of the order."
+            if tag == "Power Threat":
+                reason = f"{b['full_name']} has enough power to change the game with one swing."
+            elif tag == "Gets On Base":
+                reason = f"{b['full_name']} gets on base and can set up the middle of the order."
             elif tag == "Buy-Low Signal":
-                reason = f"{b['full_name']}'s expected production is running ahead of current results — a buy-low signal."
+                reason = f"{b['full_name']} has been better than his results show — worth watching."
             else:
-                reason = f"{b['full_name']} is a DFS-relevant profile in today's signal pool."
+                reason = f"{b['full_name']} is worth watching in today's lineup."
             add(b["full_name"], b.get("slug"), team_abbr, tag, reason)
             break  # one bat per team per pass; second pass below adds more
 
@@ -410,11 +410,11 @@ def players_who_tilt_game(away_team_name, home_team_name, away_team_abbr, home_t
             if b["full_name"] in il_names or b["full_name"] in seen:
                 continue
             tags = bat_role_tags(b)
-            tag = "Middle-Order Damage" if "Power Pressure" not in [t for t in tags] else tags[0]
-            if tag == "Power Pressure":
-                reason = f"{b['full_name']} adds a second power-pocket bat to {team_abbr}'s lineup pressure."
+            tag = "Middle-Order Power" if "Power Threat" not in [t for t in tags] else tags[0]
+            if tag == "Power Threat":
+                reason = f"{b['full_name']} adds a second power threat to {team_abbr}'s lineup."
             else:
-                reason = f"{b['full_name']} adds middle-order damage to {team_abbr}'s lineup."
+                reason = f"{b['full_name']} adds another bat who can drive in runs for {team_abbr}."
             add(b["full_name"], b.get("slug"), team_abbr, tag, reason)
             break
 
@@ -423,13 +423,13 @@ def players_who_tilt_game(away_team_name, home_team_name, away_team_abbr, home_t
             continue
         name = starter["name"]
         if starter.get("stability") == "Volatile Arm":
-            add(name, starter.get("slug"), team_abbr, "Volatile Starter", f"{name}'s volatile-arm profile means this start can swing early if traffic builds.")
+            add(name, starter.get("slug"), team_abbr, "Volatile Starter", f"{name} has been inconsistent — this start can get away from him early.")
         else:
             sig = (pm_pitcher or {}).get("pitcher_foundation_signal")
             if isinstance(sig, (int, float)) and sig >= 60:
-                add(name, starter.get("slug"), team_abbr, "Run Prevention Anchor", f"{name}'s foundation read gives {team_abbr} the cleaner run-prevention path tonight.")
+                add(name, starter.get("slug"), team_abbr, "Starting-Pitching Edge", f"{name} gives {team_abbr} the stronger starting-pitching edge tonight.")
             elif starter.get("strikeout_read") == "Strikeout Edge":
-                add(name, starter.get("slug"), team_abbr, "Traffic Starter", f"{name}'s strikeout edge gives {team_abbr} a swing-and-miss path through traffic.")
+                add(name, starter.get("slug"), team_abbr, "Strikeout Starter", f"{name} has strikeout upside and can work around trouble.")
 
     return out[:8]
 
@@ -441,31 +441,31 @@ def players_who_tilt_game(away_team_name, home_team_name, away_team_abbr, home_t
 def fantasy_dfs_watch(tilt_players, bullpen, environment, away_lineup_source, home_lineup_source):
     notes = []
     for p in tilt_players:
-        if p["tag"] in ("Power Pressure", "Middle-Order Damage"):
-            notes.append(f"Power Watch: {p['name']} ({p['team']}) is a power-pressure angle worth tracking for DFS builds.")
-        elif p["tag"] == "Contact Table-Setter":
-            notes.append(f"Contact/OBP Watch: {p['name']} ({p['team']})'s table-setter profile is worth tracking for stack consideration.")
+        if p["tag"] in ("Power Threat", "Middle-Order Power"):
+            notes.append(f"Power Watch: {p['name']} ({p['team']}) is a home run threat worth tracking for DFS.")
+        elif p["tag"] == "Gets On Base":
+            notes.append(f"OBP Watch: {p['name']} ({p['team']}) gets on base and is worth a look for DFS stacks.")
         elif p["tag"] == "Buy-Low Signal":
-            notes.append(f"Buy-Low Watch: {p['name']} ({p['team']}) is a one-off profile worth tracking — expected production is running ahead of results.")
-        elif p["tag"] == "Run Prevention Anchor":
-            notes.append(f"Pitcher Stability: {p['name']} ({p['team']}) is worth a profile check for pitching builds — run-prevention path looks clean.")
+            notes.append(f"Buy-Low Watch: {p['name']} ({p['team']}) has been better than his results show — worth watching.")
+        elif p["tag"] == "Starting-Pitching Edge":
+            notes.append(f"Pitcher Stability: {p['name']} ({p['team']}) is worth watching in DFS lineups — a clean starting-pitching edge tonight.")
         elif p["tag"] == "Volatile Starter":
-            notes.append(f"Pitcher Risk: {p['name']} ({p['team']})'s volatile profile is worth tracking before finalizing pitching builds.")
-        elif p["tag"] == "Traffic Starter":
-            notes.append(f"Strikeout Watch: {p['name']} ({p['team']})'s swing-and-miss path is a build consideration in this game.")
+            notes.append(f"Pitcher Risk: {p['name']} ({p['team']}) has been inconsistent — worth checking before finalizing pitching picks.")
+        elif p["tag"] == "Strikeout Starter":
+            notes.append(f"Strikeout Watch: {p['name']} ({p['team']}) has strikeout upside in this game.")
 
     if bullpen.get("data_quality") not in ("unavailable",) and "fresher bullpen path" in bullpen.get("leverage_note", ""):
         notes.append(f"Bullpen Exposure: {bullpen['leverage_note']}")
 
     if environment.get("run_environment") == "Hitter Lean":
-        notes.append("Run Environment: Posted total leans toward a hitter-friendly environment — worth tracking for stack consideration.")
+        notes.append("Run Environment: Posted total leans hitter-friendly — worth tracking for DFS stacks.")
     elif environment.get("run_environment") == "Pitcher Lean":
-        notes.append("Run Environment: Posted total leans toward a pitcher-friendly environment — worth tracking for pitching builds.")
+        notes.append("Run Environment: Posted total leans pitcher-friendly — worth tracking for pitching picks.")
     elif environment.get("run_environment") == "Dome/Controlled":
-        notes.append("Run Environment: Controlled environment removes weather variance from DFS planning.")
+        notes.append("Run Environment: Controlled environment removes weather as a factor for DFS planning.")
 
     if "roster_signals" in (away_lineup_source, home_lineup_source):
-        notes.append("Lineup-Confirmation Note: At least one lineup is still roster-signal based — confirm before locking builds.")
+        notes.append("Lineup Note: At least one lineup isn't confirmed yet — check before locking in DFS picks.")
 
     deduped = []
     seen = set()
@@ -482,17 +482,17 @@ def betting_props_watch(away_starter, home_starter, environment, away_team, home
         if not starter or not v(starter.get("name")) or not starter.get("slug"):
             continue
         if starter.get("strikeout_read") == "Strikeout Edge":
-            notes.append(f"Strikeout Watch: {starter['name']}'s swing-and-miss path is worth comparing against the posted K number once lineups are confirmed.")
+            notes.append(f"Strikeout Watch: {starter['name']} has strikeout upside — worth comparing to the posted strikeout prop once lineups are confirmed.")
         if starter.get("power_risk") == "Power Risk":
             opp = home_team if team == away_team else away_team
-            notes.append(f"Power Watch: {starter['name']}'s power-risk profile makes {opp} home-run markets worth monitoring.")
+            notes.append(f"Power Watch: {starter['name']} can give up home runs — {opp}'s home run props are worth watching.")
 
     if environment.get("run_environment") == "Hitter Lean":
-        notes.append("Run Environment: This game's posted total leans toward a hitter-friendly number — worth checking against the live line.")
+        notes.append("Run Environment: This game's posted total leans hitter-friendly — worth checking against the live line.")
     elif environment.get("run_environment") == "Pitcher Lean":
-        notes.append("Run Environment: This game's posted total leans toward a pitcher-friendly number — a market to monitor.")
-    elif environment.get("run_environment") == "Volatile Run Environment":
-        notes.append("Run Environment: Both starters carry volatile profiles — the total is a market to monitor if bullpens get exposed early.")
+        notes.append("Run Environment: This game's posted total leans pitcher-friendly — worth watching.")
+    elif environment.get("run_environment") == "Unpredictable Game":
+        notes.append("Run Environment: Both starters have been inconsistent — the total is worth watching if bullpens get exposed early.")
 
     deduped = []
     seen = set()
@@ -510,26 +510,25 @@ def betting_props_watch(away_starter, home_starter, environment, away_team, home
 def build_game_read(away_team_name, home_team_name, shape, pitching_shape, pitching_note, tilt_players, bullpen):
     parts = []
 
-    if shape == "Power Pressure":
-        parts.append(f"{away_team_name} at {home_team_name} reads as a power-pressure game — one mistake against either power pocket can become the separator.")
-    elif shape == "Traffic Game":
-        parts.append(f"{away_team_name} at {home_team_name} is a traffic game — the path to runs is contact and baserunners rather than the long ball.")
+    if shape == "Power Game":
+        parts.append(f"{away_team_name} at {home_team_name} is a good power matchup — one mistake pitch can leave the yard.")
+    elif shape == "Contact Game":
+        parts.append(f"{away_team_name} at {home_team_name} is more likely to be decided by rallies than solo home runs.")
     elif shape == "Pitching-Controlled":
-        parts.append(f"{away_team_name} at {home_team_name} reads as pitching-controlled — neither lineup carries a standout pressure profile today.")
-    elif shape == "Volatile Run Environment":
-        parts.append(f"{away_team_name} at {home_team_name} is a volatile-run-environment game — both starters carry volatile profiles, so this can tilt quickly.")
+        parts.append(f"{away_team_name} at {home_team_name} looks like a pitching-controlled game — neither lineup stands out today.")
+    elif shape == "Unpredictable Game":
+        parts.append(f"{away_team_name} at {home_team_name} is hard to predict — both starters have been inconsistent, so this can tilt quickly.")
     else:
-        parts.append(f"{away_team_name} at {home_team_name} is a balanced lineup game — both sides can win this more than one way.")
+        parts.append(f"{away_team_name} at {home_team_name} is a balanced matchup — both sides can win this more than one way.")
 
     parts.append(pitching_note)
 
-    power_tilt = next((p for p in tilt_players if p["tag"] in ("Power Pressure", "Middle-Order Damage")), None)
-    anchor = next((p for p in tilt_players if p["tag"] == "Run Prevention Anchor"), None)
+    power_tilt = next((p for p in tilt_players if p["tag"] in ("Power Threat", "Middle-Order Power")), None)
+    anchor = next((p for p in tilt_players if p["tag"] == "Starting-Pitching Edge"), None)
     if power_tilt:
-        team_full = away_team_name if power_tilt["team"] not in (None,) and power_tilt["team"] == away_team_name else None
-        parts.append(f"If {power_tilt['team']} gets into the middle innings with a lead, {power_tilt['name']} turns this into a bullpen-stress game for the other side.")
+        parts.append(f"If {power_tilt['team']} gets into the middle innings with a lead, {power_tilt['name']} can put the game away for the other side.")
     elif anchor:
-        parts.append(f"{anchor['name']} gives {anchor['team']} the cleaner run-prevention path — the other side's best route is pressure before the middle innings settle.")
+        parts.append(f"{anchor['name']} gives {anchor['team']} the stronger starting-pitching edge — the other side needs to apply pressure early.")
     elif bullpen.get("data_quality") == "fresh" and "fresher bullpen path" in bullpen.get("leverage_note", ""):
         parts.append(bullpen["leverage_note"])
 
@@ -564,19 +563,19 @@ def _ptm_edge_for_bat(hitter_profile, pitcher_profile, hitter_slug, hitter_cards
         barrel_pct = card.get("barrel_pct") or 0
         if damage == "strong" and barrel_pct >= 12:
             reason = (
-                f"{name} punishes fastball pitching — {barrel_pct:.1f}% barrel rate with strong contact in the fastball family. "
-                f"The {primary.lower()} shape fits this damage profile."
+                f"{name} can drive the ball against fastballs — {barrel_pct:.1f}% barrel rate, "
+                f"a good power matchup against {primary.lower()} pitching."
             )
             return "Fastball Damage", reason
         if damage == "strong" and barrel_pct >= 6:
             reason = (
-                f"{name} handles fastball pitching and finds the damage lane — workable contact profile against the {primary.lower()} shape."
+                f"{name} handles fastballs well — a solid contact matchup against {primary.lower()} pitching."
             )
             return "Handles Fastballs", reason
         if contact == "strong" and damage != "strong":
             reason = (
-                f"{name} makes consistent contact against fastball pitching — "
-                f"a contact-path profile against the {primary.lower()} shape, not a power advantage."
+                f"{name} makes consistent contact against fastballs — "
+                f"a good matchup for contact, not necessarily power."
             )
             return "Contact Path", reason
         return None, None
@@ -587,8 +586,8 @@ def _ptm_edge_for_bat(hitter_profile, pitcher_profile, hitter_slug, hitter_cards
             return None, None
         if damage == "strong" or contact == "strong":
             reason = (
-                f"{name} handles breaking-ball pitching — "
-                f"the {primary.lower()} shape is a workable lane for this bat."
+                f"{name} handles breaking balls well — "
+                f"a workable matchup against {primary.lower()} pitching."
             )
             return "Breaking-Ball Discipline", reason
         return None, None
@@ -599,7 +598,7 @@ def _ptm_edge_for_bat(hitter_profile, pitcher_profile, hitter_slug, hitter_cards
             return None, None
         if damage == "strong" or contact == "strong":
             reason = (
-                f"{name} recognizes offspeed pitching — finds the contact and damage lane when pitchers lean on that family."
+                f"{name} reads offspeed pitches well and can do damage when pitchers lean on them."
             )
             return "Offspeed Recognition", reason
         return None, None
@@ -624,14 +623,14 @@ def _ptm_risk_for_bat(hitter_profile, pitcher_profile):
     keywords = family_to_shape_keywords.get(risk, ())
     if any(k in primary for k in keywords):
         risk_map = {
-            "Fastball": "Fastball Velocity",
-            "Breaking": "Breaking Ball Chase",
-            "Offspeed": "Offspeed Timing",
+            "Fastball": "Fastball Risk",
+            "Breaking": "Breaking-Ball Risk",
+            "Offspeed": "Offspeed Risk",
         }
         risk_tag = risk_map.get(risk, "Limited Data Risk")
         reason = (
-            f"{hitter_profile['name']} carries chase risk against {risk.lower()} pitching — "
-            f"the {primary.lower()} shape puts pressure on this bat's expansion tendency."
+            f"{hitter_profile['name']} tends to chase {risk.lower()} pitches — "
+            f"a risky spot against {primary.lower()} pitching."
         )
         return risk_tag, reason
     return None, None
@@ -682,12 +681,12 @@ def build_pitch_type_matchup(
         if best_fits:
             names = ", ".join(best_fits[:3])
             return (
-                f"{batting_team_name}'s best-fit bats against this {primary.lower()} shape: "
-                f"{names}. The pitch-type matchup favors patience and working the primary offering."
+                f"{batting_team_name}'s best matchups against this {primary.lower()} pitcher: "
+                f"{names}."
             )
         return (
             f"{batting_team_name} faces a {primary.lower()} pitcher — "
-            f"the key path is discipline against the primary shape and damage in the fastball window."
+            f"staying patient and waiting for a fastball to drive is the best approach."
         )
 
     away_lineup_fit = lineup_fit_note(away_bats, home_p, home_team_name, away_team_name)
@@ -751,19 +750,19 @@ def build_pitch_type_matchup(
         if away_p and away_p.get("primary_shape") != "Limited Data":
             ap_shape = away_p["primary_shape"]
             parts.append(
-                f"{away_team_name}'s starter brings a {ap_shape.lower()} approach — "
-                f"the {home_team_name} lineup's path runs through pitch discipline and damage timing."
+                f"{away_team_name}'s starter leans on a {ap_shape.lower()} approach — "
+                f"{home_team_name} needs to stay patient and pick the right pitch to drive."
             )
         if home_p and home_p.get("primary_shape") != "Limited Data":
             hp_shape = home_p["primary_shape"]
             parts.append(
-                f"{home_team_name}'s starter works from {hp_shape.lower()} shape — "
-                f"the {away_team_name} offense needs to find the right window to do damage."
+                f"{home_team_name}'s starter leans on a {hp_shape.lower()} approach — "
+                f"{away_team_name} needs to find the right pitch to do damage."
             )
         if edge_players:
             lead_edge = edge_players[0]
             parts.append(
-                f"{lead_edge['name']} stands out as the best pitch-type fit among the likely lineup contributors."
+                f"{lead_edge['name']} is the best matchup among the likely lineup contributors."
             )
         return " ".join(parts[:3]) if parts else "Pitch-type matchup data is limited for this game."
 
@@ -821,7 +820,7 @@ def _format_pitcher_arsenal_prose(pitcher_profile):
 def _lineup_path_prose(team_name, bats, opp_pitcher_profile, hitters_intel, hitter_cards):
     """Prose describing a team's lineup approach and pitch-type fit against the opposing starter."""
     if not bats:
-        return f"{team_name}'s lineup signal is limited — no standout profiles cleared the bar."
+        return f"{team_name} doesn't have a standout name in today's lineup."
 
     power_bats = [b for b in bats if "Power Watch" in (b.get("tags") or [])]
     contact_bats = [b for b in bats if "Contact Edge" in (b.get("tags") or [])]
@@ -846,27 +845,27 @@ def _lineup_path_prose(team_name, bats, opp_pitcher_profile, hitters_intel, hitt
                 handle_names.append(b["full_name"])
         if damage_names:
             n = ", ".join(damage_names)
-            verb = "bring" if len(damage_names) > 1 else "brings"
+            verb = "have" if len(damage_names) > 1 else "has"
             parts.append(
-                f"{n} {verb} genuine power-damage upside — "
-                f"{'bats' if len(damage_names) > 1 else 'a bat'} that {'punish' if len(damage_names) > 1 else 'punishes'} mistakes in the fastball window."
+                f"{n} {verb} real home run threat — "
+                f"{'bats' if len(damage_names) > 1 else 'a bat'} that can punish a mistake fastball."
             )
         elif handle_names:
             n = ", ".join(handle_names[:2])
-            parts.append(f"{n} give {team_name} a power pocket — workable contact profile, though not elite barrel production.")
+            parts.append(f"{n} give {team_name} a good power matchup — solid contact, though not elite raw power.")
         else:
             n = ", ".join(b["full_name"] for b in power_bats[:2])
-            verb = "carry" if len(power_bats[:2]) > 1 else "carries"
-            parts.append(f"{n} {verb} the power-pressure profile for {team_name}.")
+            verb = "are" if len(power_bats[:2]) > 1 else "is"
+            parts.append(f"{n} {verb} the power threat for {team_name}.")
     else:
-        parts.append(f"{team_name} doesn't carry a clear power-pocket bat in today's signal pool.")
+        parts.append(f"{team_name} doesn't have a clear home run threat today.")
 
     # Exclude bats already mentioned as power from the contact/traffic line
     contact_only = [b for b in contact_bats if b["full_name"] not in power_names]
     if contact_only:
         names = ", ".join(b["full_name"] for b in contact_only[:2])
-        verb = "run" if len(contact_only[:2]) > 1 else "runs"
-        parts.append(f"{names} {verb} the traffic path — contact pressure and baserunners ahead of the middle of the order.")
+        verb = "give" if len(contact_only[:2]) > 1 else "gives"
+        parts.append(f"{names} {verb} {team_name} a good chance to put runners on base ahead of the middle of the order.")
 
     if opp_shape and opp_shape != "Limited Data":
         best_fits = []
@@ -881,11 +880,11 @@ def _lineup_path_prose(team_name, bats, opp_pitcher_profile, hitters_intel, hitt
                 if any(k in opp_shape for k in (best, best.split()[0])):
                     best_fits.append(b["full_name"])
         if best_fits:
-            parts.append(f"Pitch-type fit vs the {opp_shape.lower()} shape: {', '.join(best_fits[:2])}.")
+            parts.append(f"Good matchups against this {opp_shape.lower()} pitcher: {', '.join(best_fits[:2])}.")
 
     if buy_low:
         parts.append(
-            f"{buy_low[0]['full_name']} is a buy-low signal — expected production is running ahead of current results."
+            f"{buy_low[0]['full_name']} has been better than his results show — worth watching."
         )
 
     return " ".join(parts[:4])
@@ -908,40 +907,40 @@ def build_game_report(
 
     # ── game_shape ────────────────────────────────────────────────────────
     shape_openers = {
-        "Power Pressure": (
-            f"{away_team_name} at {home_team_name} is a power-pressure game — "
-            f"one mistake from either starter can become the separator."
+        "Power Game": (
+            f"{away_team_name} at {home_team_name} is a good power matchup — "
+            f"one mistake pitch from either starter can leave the yard."
         ),
-        "Traffic Game": (
+        "Contact Game": (
             f"{away_team_name} at {home_team_name} runs on contact and baserunners — "
-            f"the scoring path goes through traffic, not the big swing."
+            f"this game is more likely to be decided by rallies than solo home runs."
         ),
         "Pitching-Controlled": (
-            f"{away_team_name} at {home_team_name} reads as a pitching-controlled game — "
-            f"neither lineup carries a standout pressure profile today."
+            f"{away_team_name} at {home_team_name} looks like a pitching-controlled game — "
+            f"neither lineup stands out today."
         ),
-        "Volatile Run Environment": (
-            f"{away_team_name} at {home_team_name} is an unpredictable run environment — "
-            f"both starters carry volatile profiles and this can tilt quickly."
+        "Unpredictable Game": (
+            f"{away_team_name} at {home_team_name} is hard to predict — "
+            f"both starters have been inconsistent and this can tilt quickly."
         ),
     }
     opener = shape_openers.get(
         shape,
-        f"{away_team_name} at {home_team_name} is a balanced game — both sides have multiple paths to scoring.",
+        f"{away_team_name} at {home_team_name} is a balanced matchup — both sides have multiple ways to score.",
     )
 
-    power_tilt = next((p for p in tilt_players if p["tag"] in ("Power Pressure", "Middle-Order Damage")), None)
-    anchor = next((p for p in tilt_players if p["tag"] == "Run Prevention Anchor"), None)
+    power_tilt = next((p for p in tilt_players if p["tag"] in ("Power Threat", "Middle-Order Power")), None)
+    anchor = next((p for p in tilt_players if p["tag"] == "Starting-Pitching Edge"), None)
     driver = ""
     if power_tilt:
         driver = (
-            f"The swing factor: if {power_tilt['name']} sees a fastball in the damage zone, "
+            f"The swing factor: if {power_tilt['name']} gets a fastball to drive, "
             f"the inning changes."
         )
     elif anchor:
         driver = (
-            f"{anchor['name']} gives {anchor['team']} the cleaner run-prevention path — "
-            f"the other side needs to apply pressure before the starter settles."
+            f"{anchor['name']} gives {anchor['team']} the stronger starting-pitching edge — "
+            f"the other side needs to apply pressure early."
         )
     elif bp_read.get("data_quality") == "fresh" and "fresher bullpen path" in bp_read.get("leverage_note", ""):
         driver = bp_read["leverage_note"]
@@ -949,10 +948,10 @@ def build_game_report(
     env_note = ""
     run_env = env_read.get("run_environment", "")
     if run_env == "Hitter Lean":
-        env_note = "The posted total reflects a hitter-friendly lean."
+        env_note = "The posted total leans hitter-friendly."
     elif run_env == "Dome/Controlled":
         park = env_read.get("park_note", "").replace(" is tonight's park.", "")
-        env_note = f"Controlled environment{' at ' + park if park else ''} — no weather variable to plan around."
+        env_note = f"Controlled environment{' at ' + park if park else ''} — no weather to plan around."
 
     game_shape_parts = [opener, pitching_note]
     if driver:
@@ -1011,28 +1010,28 @@ def build_game_report(
         team = p["team"]
         card = hitter_cards.get(slug, {})
         barrel = card.get("barrel_pct")
-        if tag in ("Power Pressure", "Middle-Order Damage"):
+        if tag in ("Power Threat", "Middle-Order Power"):
             if barrel and barrel >= 12:
-                fdw.append(f"DFS Power: {name} ({team}) — {barrel:.1f}% barrel rate, genuine power-pocket threat.")
+                fdw.append(f"DFS Power: {name} ({team}) — {barrel:.1f}% barrel rate, genuine home run threat.")
             else:
-                fdw.append(f"DFS Power: {name} ({team}) — power-pressure profile worth tracking in stack builds.")
-        elif tag == "Contact Table-Setter":
-            fdw.append(f"OBP/Stack: {name} ({team}) — table-setter profile is a stack lead consideration.")
+                fdw.append(f"DFS Power: {name} ({team}) — power threat worth tracking for DFS stacks.")
+        elif tag == "Gets On Base":
+            fdw.append(f"OBP/Stack: {name} ({team}) — gets on base, worth a look for DFS stacks.")
         elif tag == "Buy-Low Signal":
-            fdw.append(f"Buy-Low: {name} ({team}) — expected production running ahead of current results.")
-        elif tag == "Run Prevention Anchor":
-            fdw.append(f"Pitcher Build: {name} ({team}) — clean run-prevention path, worth a profile check for pitching builds.")
+            fdw.append(f"Buy-Low: {name} ({team}) — has been better than his results show.")
+        elif tag == "Starting-Pitching Edge":
+            fdw.append(f"Pitcher Pick: {name} ({team}) — clean starting-pitching edge, worth watching in DFS lineups.")
         elif tag == "Volatile Starter":
-            fdw.append(f"Pitcher Risk: {name} ({team}) — volatile profile, check before finalizing pitching builds.")
-        elif tag == "Traffic Starter":
-            fdw.append(f"Strikeout Watch: {name} ({team}) — swing-and-miss path is a build consideration.")
+            fdw.append(f"Pitcher Risk: {name} ({team}) — inconsistent, check before finalizing pitching picks.")
+        elif tag == "Strikeout Starter":
+            fdw.append(f"Strikeout Watch: {name} ({team}) — strikeout upside worth a look.")
 
     if run_env == "Dome/Controlled":
-        fdw.append("Environment: Controlled venue removes weather variance from DFS planning.")
+        fdw.append("Environment: Controlled venue removes weather as a factor for DFS planning.")
     elif run_env == "Hitter Lean":
-        fdw.append("Environment: Hitter-friendly total — worth tracking for stack consideration.")
+        fdw.append("Environment: Hitter-friendly total — worth tracking for DFS stacks.")
     elif run_env == "Pitcher Lean":
-        fdw.append("Environment: Pitcher-friendly total — worth tracking for pitching builds.")
+        fdw.append("Environment: Pitcher-friendly total — worth tracking for pitching picks.")
 
     return {
         "game_shape": game_shape,
@@ -1085,27 +1084,27 @@ def _hitter_grade_from_card(hitter_card, pitcher_profile):
 
     if not pitcher_profile or pitcher_profile.get("primary_shape") == "Limited Data":
         if has_card:
-            return "gray", "Split limited", "Limited pitch-type split; arsenal data developing."
-        return "gray", "Split limited", "Limited pitch-type split; profile data developing."
+            return "gray", "Limited Data", "Not enough pitch-type data yet for this matchup."
+        return "gray", "Limited Data", "Not enough data yet for this matchup."
 
     # Have pitcher shape but no pitch-type split for this hitter
     if barrel >= 12 or hard_hit >= 50:
-        return "yellow", "Power Profile", (
-            "Limited pitch-type split; strong power profile — graded from exit velocity data."
+        return "yellow", "Power Threat", (
+            "Limited pitch-type data, but he's a home run threat based on exit velocity."
         )
     if barrel >= 6 or hard_hit >= 40:
         return "yellow", "Hard Contact", (
-            "Limited pitch-type split; solid hard contact rate — graded from Statcast data."
+            "Limited pitch-type data, but he hits the ball hard consistently."
         )
     if xslg >= 0.450:
-        return "yellow", "Above-Avg xSLG", (
-            "Limited pitch-type split; above-average expected production — graded from Statcast data."
+        return "yellow", "Above-Average Hitter", (
+            "Limited pitch-type data, but he's an above-average hitter overall."
         )
     if has_card:
-        return "gray", "Split limited", (
-            "Limited pitch-type split; contact profile is average or developing."
+        return "gray", "Limited Data", (
+            "Limited pitch-type data; contact profile is average or still developing."
         )
-    return "gray", "Split limited", "Pitch-type split unavailable; contact data limited."
+    return "gray", "Limited Data", "Not enough data yet for this matchup."
 
 
 def _hitter_grade(hitter_profile, pitcher_profile, hitter_card):
@@ -1120,11 +1119,11 @@ def _hitter_grade(hitter_profile, pitcher_profile, hitter_card):
     family_mix = (pitcher_profile or {}).get("family_mix", {})
 
     if not pitcher_profile:
-        return "gray", "Split limited", "Limited pitch-type split; arsenal data developing."
+        return "gray", "Limited Data", "Not enough pitch-type data yet for this matchup."
     if best == "Limited Data" and risk == "Limited Data":
         return _hitter_grade_from_card(hitter_card, pitcher_profile)
     if primary_shape == "Limited Data":
-        return "gray", "Split limited", "Limited pitch-type split; pitcher arsenal data developing."
+        return "gray", "Limited Data", "Not enough pitch-type data yet on this pitcher."
 
     best_pct = family_mix.get(best, 0) if best != "Limited Data" else 0
     risk_pct = family_mix.get(risk, 0) if risk != "Limited Data" else 0
@@ -1145,11 +1144,11 @@ def _hitter_grade(hitter_profile, pitcher_profile, hitter_card):
     # Green requires BOTH: strong pitch-type fit AND verifiable barrel/power output.
     if best_shape_match and best_pct >= 35:
         if best_damage == "strong" and (barrel_pct >= 10 or hard_hit >= 45):
-            label = f"{best} Damage"
+            label = f"{best} Power"
             if barrel_pct >= 10:
-                reason = f"{barrel_pct:.0f}% barrel rate — genuine damage threat in the {best.lower()} family against this arsenal."
+                reason = f"{barrel_pct:.0f}% barrel rate — a good power matchup against {best.lower()} pitching."
             else:
-                reason = f"{hard_hit:.0f}% hard-hit rate — power threat in the {best.lower()} family against this arsenal."
+                reason = f"{hard_hit:.0f}% hard-hit rate — a home run threat against {best.lower()} pitching."
             return "green", label, reason
 
     # ── Yellow: contact fit or partial power signal ──
@@ -1157,35 +1156,35 @@ def _hitter_grade(hitter_profile, pitcher_profile, hitter_card):
         if best_damage == "strong":
             label = f"Handles {best}"
             reason = (
-                f"Low whiff rate against {best.lower()} pitching — consistent contact profile "
-                f"against the {primary_shape.lower()} shape. Barrel rate does not reach damage threshold."
+                f"Low whiff rate against {best.lower()} pitching — a strong contact matchup "
+                f"against this pitcher, though not a power edge."
             )
             return "yellow", label, reason
         if best_contact == "strong":
             label = f"{best} Contact"
-            reason = f"Consistent contact against {best.lower()} pitching — contact-path fit, not a power advantage."
+            reason = f"Consistent contact against {best.lower()} pitching — a strong contact matchup, not a power one."
             return "yellow", label, reason
 
     # ── Red: risk family aligns with pitcher's primary ──
     if risk_shape_match and risk_pct >= 20:
         risk_type_labels = {
-            "Fastball": "Velocity Risk",
-            "Breaking": "Breaking Chase",
-            "Offspeed": "Offspeed Timing",
+            "Fastball": "Fastball Risk",
+            "Breaking": "Breaking-Ball Risk",
+            "Offspeed": "Offspeed Risk",
         }
-        label = risk_type_labels.get(risk, "Pitch Risk")
-        reason = f"Chase tendency against {risk.lower()} pitching — the {primary_shape.lower()} shape targets this bat."
+        label = risk_type_labels.get(risk, "Risky Spot")
+        reason = f"Tends to chase {risk.lower()} pitches — a risky spot against this pitcher."
         return "red", label, reason
 
     # ── Yellow: weaker signal ──
     if best != "Limited Data" and (best_damage == "strong" or best_contact == "strong"):
-        label = "Partial Fit"
-        reason = f"{best.lower().capitalize()} contact profile — some fit against this arsenal, pitcher usage below threshold."
+        label = "Some Matchup Fit"
+        reason = f"Decent {best.lower()} contact, but this pitcher doesn't throw it enough to call it a real edge."
         return "yellow", label, reason
 
     if risk != "Limited Data" or best != "Limited Data":
-        label = "Neutral"
-        reason = "No dominant edge or risk signal — neutral matchup read."
+        label = "Neutral Matchup"
+        reason = "No clear edge or risk either way — a neutral matchup."
         return "yellow", label, reason
 
     return _hitter_grade_from_card(hitter_card, pitcher_profile)
