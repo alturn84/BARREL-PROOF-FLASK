@@ -306,7 +306,7 @@ def build_pitcher_edges(pitcher_block, opponent_team):
         elif edge_type == "Pitcher Risk":
             note = f"{pitcher_block.get('full_name')} is a risky spot against {opponent_team}."
         elif edge_type == "Small Sample":
-            note = f"{pitcher_block.get('full_name')} doesn't have enough innings yet for a confident read."
+            note = f"{pitcher_block.get('full_name')} does not have enough innings yet for a confident read."
         else:
             note = f"{pitcher_block.get('full_name')} flagged for {edge_type}."
 

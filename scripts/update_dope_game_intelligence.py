@@ -35,6 +35,26 @@ TEAM_ABBR_ALIASES = {"AZ": "ARI"}
 
 TEAM_FULL_NAME_TO_ABBR_HINTS = {}
 
+# Short, readable prose names — used in generated sentences only. Internal
+# team codes and JSON keys are unaffected by this map.
+TEAM_SHORT_NAME = {
+    "ATH": "Athletics", "ATL": "Atlanta", "AZ": "Arizona", "BAL": "Baltimore",
+    "BOS": "Boston", "CHC": "Chicago", "CWS": "Chicago", "CIN": "Cincinnati",
+    "CLE": "Cleveland", "COL": "Colorado", "DET": "Detroit", "HOU": "Houston",
+    "KC": "Kansas City", "LAA": "Los Angeles", "LAD": "Los Angeles", "MIA": "Miami",
+    "MIL": "Milwaukee", "MIN": "Minnesota", "NYM": "New York", "NYY": "New York",
+    "PHI": "Philadelphia", "PIT": "Pittsburgh", "SD": "San Diego", "SEA": "Seattle",
+    "SF": "San Francisco", "STL": "St. Louis", "TB": "Tampa Bay", "TEX": "Texas",
+    "TOR": "Toronto", "WSH": "Washington",
+}
+
+# Nickname fallback — only used when a short city name would be ambiguous
+# against the specific opponent in the same game (e.g. Cubs vs. White Sox).
+TEAM_NICKNAME = {
+    "ATH": "Athletics", "CHC": "Cubs", "CWS": "White Sox", "LAA": "Angels",
+    "LAD": "Dodgers", "NYM": "Mets", "NYY": "Yankees",
+}
+
 
 def load_json(path, fallback):
     if not path.exists():
@@ -47,6 +67,33 @@ def load_json(path, fallback):
 
 def normalize_team_abbr(abbr):
     return TEAM_ABBR_ALIASES.get(abbr, abbr)
+
+
+def team_display_name(team_abbr, full_name=None, opponent_abbr=None):
+    """Short, readable team name for generated prose (not for JSON keys/matching).
+
+    Defaults to a plain city name (e.g. "Texas", "Miami"). Falls back to a
+    team nickname only when the opponent in this game shares the same city
+    short name (e.g. Cubs vs. White Sox, Yankees vs. Mets, Angels vs. Dodgers).
+    """
+    short = TEAM_SHORT_NAME.get(team_abbr or "")
+    if short is None:
+        return full_name or team_abbr or ""
+    if opponent_abbr and TEAM_SHORT_NAME.get(opponent_abbr) == short and team_abbr in TEAM_NICKNAME:
+        return TEAM_NICKNAME[team_abbr]
+    return short
+
+
+def format_player_list(names):
+    """Join player names into readable prose: 'A', 'A and B', or 'A, B, and C'."""
+    names = [n for n in names if n]
+    if not names:
+        return ""
+    if len(names) == 1:
+        return names[0]
+    if len(names) == 2:
+        return f"{names[0]} and {names[1]}"
+    return ", ".join(names[:-1]) + f", and {names[-1]}"
 
 
 def il_names_for_team(team_abbr, il_data):
@@ -87,7 +134,7 @@ def bat_role_tags(bat):
 def lineup_side_read(team_label, bats, pressure, lineup_source):
     if not bats:
         return {
-            "summary": f"{team_label}'s lineup doesn't have a standout name today.",
+            "summary": f"{team_label}'s lineup does not have a standout name today.",
             "power_pressure": "No clear data yet.",
             "contact_pressure": "No clear data yet.",
             "traffic_path": "No clear data yet.",
@@ -100,23 +147,23 @@ def lineup_side_read(team_label, bats, pressure, lineup_source):
     buy_low = [b for b in bats if "Buy-Low Bat" in (b.get("tags") or [])]
 
     if power_bats:
-        names = ", ".join(b["full_name"] for b in power_bats[:2])
+        names = format_player_list([b["full_name"] for b in power_bats[:2]])
         power_pressure = f"{names} can change the game with one swing."
     else:
-        power_pressure = f"{team_label} doesn't have a standout power threat today."
+        power_pressure = f"{team_label} does not have a standout power threat today."
 
     if contact_bats:
-        names = ", ".join(b["full_name"] for b in contact_bats[:2])
+        names = format_player_list([b["full_name"] for b in contact_bats[:2]])
         contact_pressure = f"{names} get on base and can set up the middle of the order."
     else:
-        contact_pressure = f"{team_label} doesn't have a clear on-base threat today."
+        contact_pressure = f"{team_label} does not have a clear on-base threat today."
 
     if contact_bats:
         traffic_path = f"{team_label} is more likely to score by putting runners on base than by hitting home runs."
     elif power_bats:
         traffic_path = f"{team_label} leans on the long ball more than putting runners on base."
     else:
-        traffic_path = f"{team_label}'s best path to scoring isn't clear today."
+        traffic_path = f"{team_label}'s best path to scoring is not clear today."
 
     risk_bits = []
     for b in bats:
@@ -186,7 +233,7 @@ def starter_read(team_label, opp_label, starter_block, opp_pressure_on_this_star
 
     if not slug:
         return {
-            "summary": f"{name} ({team_label}) is probable, but there isn't much data on him yet.",
+            "summary": f"{name} ({team_label}) is probable, but there is not much data on him yet.",
             "stability": "Not enough innings yet to get a clean read.",
             "risk": "Not enough data yet for a risk read.",
             "matchup_fit": "Not enough data yet for a matchup read.",
@@ -211,17 +258,18 @@ def starter_read(team_label, opp_label, starter_block, opp_pressure_on_this_star
         risk_bits.append("limits hard contact")
     if starter_block.get("strikeout_read") == "Strikeout Edge":
         risk_bits.append("can rack up strikeouts to bail himself out of trouble")
-    risk = (f"{name} " + ", and ".join(risk_bits) + ".") if risk_bits else f"{name} doesn't have enough of a track record yet for a clear risk read."
+    risk = (f"{name} " + ", and ".join(risk_bits) + ".") if risk_bits else f"{name} does not have enough of a track record yet for a clear risk read."
 
     pressure_read = (opp_pressure_on_this_starter or {}).get("pressure_read")
     danger_bats = (opp_pressure_on_this_starter or {}).get("danger_bats") or []
     if pressure_read in ("Power Pressure", "Balanced Pressure", "Contact Pressure") and danger_bats:
-        names = ", ".join(b["name"] for b in danger_bats[:2])
-        matchup_fit = f"{opp_label} is a tough matchup for {name} — {names} is the hitter to watch."
+        names = format_player_list([b["name"] for b in danger_bats[:2]])
+        verb = "are the hitters" if len(danger_bats[:2]) > 1 else "is the hitter"
+        matchup_fit = f"{opp_label} is a tough matchup for {name} — {names} {verb} to watch."
     elif pressure_read == "Limited Read":
         matchup_fit = f"{opp_label}'s lineup is hard to read today, so the matchup against {name} is still developing."
     else:
-        matchup_fit = f"{opp_label} doesn't have a standout threat against {name} today."
+        matchup_fit = f"{opp_label} does not have a standout threat against {name} today."
 
     if danger_bats:
         watch = f"Watch {danger_bats[0]['name']} early — if {name} falls behind in the count, that's the spot."
@@ -244,7 +292,7 @@ def pitching_shape_and_edge(away_team, home_team, away_block, home_block, away_p
     home_ok = home_block and v(home_block.get("name")) and home_block.get("slug")
 
     if not away_ok or not home_ok:
-        return "TBD Pitching Matchup", "Starters aren't confirmed yet, so the pitching matchup is still developing."
+        return "TBD Pitching Matchup", "Starters are not confirmed yet, so the pitching matchup is still developing."
 
     away_sig = (away_pm_pitcher or {}).get("pitcher_foundation_signal")
     home_sig = (home_pm_pitcher or {}).get("pitcher_foundation_signal")
@@ -298,10 +346,10 @@ def bullpen_read(away_team_name, home_team_name, away_arms, home_arms):
     home_status, home_used, home_light = bullpen_side_status(home_team_name, home_arms)
 
     if away_used > home_used:
-        leverage_note = f"{home_team_name} has the fresher bullpen path — {away_team_name} is more exposed in the middle innings if their starter doesn't go deep."
+        leverage_note = f"{home_team_name} has the fresher bullpen. {away_team_name} is more exposed in the middle innings if its starter does not go deep."
         risk = f"Bullpen stress risk leans toward {away_team_name} if the game gets into traffic early."
     elif home_used > away_used:
-        leverage_note = f"{away_team_name} has the fresher bullpen path — {home_team_name} is more exposed in the middle innings if their starter doesn't go deep."
+        leverage_note = f"{away_team_name} has the fresher bullpen. {home_team_name} is more exposed in the middle innings if its starter does not go deep."
         risk = f"Bullpen stress risk leans toward {home_team_name} if the game gets into traffic early."
     else:
         leverage_note = "Both bullpens carry a similar usage profile — no clear middle-innings edge from bullpen freshness alone."
@@ -378,6 +426,7 @@ def players_who_tilt_game(away_team_name, home_team_name, away_team_abbr, home_t
                            away_pm_pitcher, home_pm_pitcher, il_data):
     seen = set()
     out = []
+    display_for = {away_team_abbr: away_team_name, home_team_abbr: home_team_name}
 
     def add(name, slug, team, tag, reason):
         if not v(name) or name in seen:
@@ -411,10 +460,11 @@ def players_who_tilt_game(away_team_name, home_team_name, away_team_abbr, home_t
                 continue
             tags = bat_role_tags(b)
             tag = "Middle-Order Power" if "Power Threat" not in [t for t in tags] else tags[0]
+            team_display = display_for.get(team_abbr, team_abbr)
             if tag == "Power Threat":
-                reason = f"{b['full_name']} adds a second power threat to {team_abbr}'s lineup."
+                reason = f"{b['full_name']} adds a second power threat to {team_display}'s lineup."
             else:
-                reason = f"{b['full_name']} adds another bat who can drive in runs for {team_abbr}."
+                reason = f"{b['full_name']} adds another bat who can drive in runs for {team_display}."
             add(b["full_name"], b.get("slug"), team_abbr, tag, reason)
             break
 
@@ -422,12 +472,13 @@ def players_who_tilt_game(away_team_name, home_team_name, away_team_abbr, home_t
         if not starter or not v(starter.get("name")) or not starter.get("slug"):
             continue
         name = starter["name"]
+        team_display = display_for.get(team_abbr, team_abbr)
         if starter.get("stability") == "Volatile Arm":
             add(name, starter.get("slug"), team_abbr, "Volatile Starter", f"{name} has been inconsistent — this start can get away from him early.")
         else:
             sig = (pm_pitcher or {}).get("pitcher_foundation_signal")
             if isinstance(sig, (int, float)) and sig >= 60:
-                add(name, starter.get("slug"), team_abbr, "Starting-Pitching Edge", f"{name} gives {team_abbr} the stronger starting-pitching edge tonight.")
+                add(name, starter.get("slug"), team_abbr, "Starting-Pitching Edge", f"{name} gives {team_display} the stronger starting-pitching edge tonight.")
             elif starter.get("strikeout_read") == "Strikeout Edge":
                 add(name, starter.get("slug"), team_abbr, "Strikeout Starter", f"{name} has strikeout upside and can work around trouble.")
 
@@ -444,7 +495,7 @@ def fantasy_dfs_watch(tilt_players, bullpen, environment, away_lineup_source, ho
         if p["tag"] in ("Power Threat", "Middle-Order Power"):
             notes.append(f"Power Watch: {p['name']} ({p['team']}) is a home run threat worth tracking for DFS.")
         elif p["tag"] == "Gets On Base":
-            notes.append(f"OBP Watch: {p['name']} ({p['team']}) gets on base and is worth a look for DFS stacks.")
+            notes.append(f"DFS On-Base Value: {p['name']} ({p['team']}) gets on base enough to help a DFS stack.")
         elif p["tag"] == "Buy-Low Signal":
             notes.append(f"Buy-Low Watch: {p['name']} ({p['team']}) has been better than his results show — worth watching.")
         elif p["tag"] == "Starting-Pitching Edge":
@@ -454,7 +505,7 @@ def fantasy_dfs_watch(tilt_players, bullpen, environment, away_lineup_source, ho
         elif p["tag"] == "Strikeout Starter":
             notes.append(f"Strikeout Watch: {p['name']} ({p['team']}) has strikeout upside in this game.")
 
-    if bullpen.get("data_quality") not in ("unavailable",) and "fresher bullpen path" in bullpen.get("leverage_note", ""):
+    if bullpen.get("data_quality") not in ("unavailable",) and "fresher bullpen" in bullpen.get("leverage_note", ""):
         notes.append(f"Bullpen Exposure: {bullpen['leverage_note']}")
 
     if environment.get("run_environment") == "Hitter Lean":
@@ -465,7 +516,7 @@ def fantasy_dfs_watch(tilt_players, bullpen, environment, away_lineup_source, ho
         notes.append("Run Environment: Controlled environment removes weather as a factor for DFS planning.")
 
     if "roster_signals" in (away_lineup_source, home_lineup_source):
-        notes.append("Lineup Note: At least one lineup isn't confirmed yet — check before locking in DFS picks.")
+        notes.append("Lineup Note: At least one lineup is not confirmed yet — check before locking in DFS picks.")
 
     deduped = []
     seen = set()
@@ -507,8 +558,10 @@ def betting_props_watch(away_starter, home_starter, environment, away_team, home
 # Game read
 # ---------------------------------------------------------------------------
 
-def build_game_read(away_team_name, home_team_name, shape, pitching_shape, pitching_note, tilt_players, bullpen):
+def build_game_read(away_team_name, home_team_name, away_team_abbr, home_team_abbr,
+                     shape, pitching_shape, pitching_note, tilt_players, bullpen):
     parts = []
+    display_for = {away_team_abbr: away_team_name, home_team_abbr: home_team_name}
 
     if shape == "Power Game":
         parts.append(f"{away_team_name} at {home_team_name} is a good power matchup — one mistake pitch can leave the yard.")
@@ -526,10 +579,12 @@ def build_game_read(away_team_name, home_team_name, shape, pitching_shape, pitch
     power_tilt = next((p for p in tilt_players if p["tag"] in ("Power Threat", "Middle-Order Power")), None)
     anchor = next((p for p in tilt_players if p["tag"] == "Starting-Pitching Edge"), None)
     if power_tilt:
-        parts.append(f"If {power_tilt['team']} gets into the middle innings with a lead, {power_tilt['name']} can put the game away for the other side.")
+        team_display = display_for.get(power_tilt["team"], power_tilt["team"])
+        parts.append(f"If {team_display} gets into the middle innings with a lead, {power_tilt['name']} is one of the bats that can add on.")
     elif anchor:
-        parts.append(f"{anchor['name']} gives {anchor['team']} the stronger starting-pitching edge — the other side needs to apply pressure early.")
-    elif bullpen.get("data_quality") == "fresh" and "fresher bullpen path" in bullpen.get("leverage_note", ""):
+        anchor_display = display_for.get(anchor["team"], anchor["team"])
+        parts.append(f"{anchor['name']} gives {anchor_display} the stronger starting-pitching edge — the other side needs to apply pressure early.")
+    elif bullpen.get("data_quality") == "fresh" and "fresher bullpen" in bullpen.get("leverage_note", ""):
         parts.append(bullpen["leverage_note"])
 
     return " ".join(parts[:4])
@@ -679,7 +734,7 @@ def build_pitch_type_matchup(
                 if any(k in primary for k in (best, best.split()[0])):
                     best_fits.append(h["name"])
         if best_fits:
-            names = ", ".join(best_fits[:3])
+            names = format_player_list(best_fits[:3])
             return (
                 f"{batting_team_name}'s best matchups against this {primary.lower()} pitcher: "
                 f"{names}."
@@ -820,7 +875,7 @@ def _format_pitcher_arsenal_prose(pitcher_profile):
 def _lineup_path_prose(team_name, bats, opp_pitcher_profile, hitters_intel, hitter_cards):
     """Prose describing a team's lineup approach and pitch-type fit against the opposing starter."""
     if not bats:
-        return f"{team_name} doesn't have a standout name in today's lineup."
+        return f"{team_name} does not have a standout name in today's lineup."
 
     power_bats = [b for b in bats if "Power Watch" in (b.get("tags") or [])]
     contact_bats = [b for b in bats if "Contact Edge" in (b.get("tags") or [])]
@@ -844,26 +899,30 @@ def _lineup_path_prose(team_name, bats, opp_pitcher_profile, hitters_intel, hitt
             elif fb.get("damage") == "strong" or fb.get("contact") == "strong":
                 handle_names.append(b["full_name"])
         if damage_names:
-            n = ", ".join(damage_names)
+            n = format_player_list(damage_names)
             verb = "have" if len(damage_names) > 1 else "has"
             parts.append(
                 f"{n} {verb} real home run threat — "
                 f"{'bats' if len(damage_names) > 1 else 'a bat'} that can punish a mistake fastball."
             )
         elif handle_names:
-            n = ", ".join(handle_names[:2])
-            parts.append(f"{n} give {team_name} a good power matchup — solid contact, though not elite raw power.")
+            n = format_player_list(handle_names[:2])
+            verb = "give" if len(handle_names[:2]) > 1 else "gives"
+            parts.append(f"{n} {verb} {team_name} a good power matchup — solid contact, though not elite raw power.")
         else:
-            n = ", ".join(b["full_name"] for b in power_bats[:2])
-            verb = "are" if len(power_bats[:2]) > 1 else "is"
-            parts.append(f"{n} {verb} the power threat for {team_name}.")
+            names_list = [b["full_name"] for b in power_bats[:2]]
+            n = format_player_list(names_list)
+            if len(names_list) > 1:
+                parts.append(f"{n} are {team_name}'s main power threats.")
+            else:
+                parts.append(f"{n} is {team_name}'s main power threat.")
     else:
-        parts.append(f"{team_name} doesn't have a clear home run threat today.")
+        parts.append(f"{team_name} does not have a clear home run threat today.")
 
     # Exclude bats already mentioned as power from the contact/traffic line
     contact_only = [b for b in contact_bats if b["full_name"] not in power_names]
     if contact_only:
-        names = ", ".join(b["full_name"] for b in contact_only[:2])
+        names = format_player_list([b["full_name"] for b in contact_only[:2]])
         verb = "give" if len(contact_only[:2]) > 1 else "gives"
         parts.append(f"{names} {verb} {team_name} a good chance to put runners on base ahead of the middle of the order.")
 
@@ -880,7 +939,7 @@ def _lineup_path_prose(team_name, bats, opp_pitcher_profile, hitters_intel, hitt
                 if any(k in opp_shape for k in (best, best.split()[0])):
                     best_fits.append(b["full_name"])
         if best_fits:
-            parts.append(f"Good matchups against this {opp_shape.lower()} pitcher: {', '.join(best_fits[:2])}.")
+            parts.append(f"Good matchups against this {opp_shape.lower()} pitcher: {format_player_list(best_fits[:2])}.")
 
     if buy_low:
         parts.append(
@@ -892,6 +951,7 @@ def _lineup_path_prose(team_name, bats, opp_pitcher_profile, hitters_intel, hitt
 
 def build_game_report(
     away_team_name, home_team_name,
+    away_team_abbr, home_team_abbr,
     away_bats, home_bats,
     shape, pitching_note,
     pitch_intel, away_pitcher_slug, home_pitcher_slug,
@@ -904,6 +964,7 @@ def build_game_report(
 
     away_p = pitchers.get(away_pitcher_slug) if away_pitcher_slug else None
     home_p = pitchers.get(home_pitcher_slug) if home_pitcher_slug else None
+    display_for = {away_team_abbr: away_team_name, home_team_abbr: home_team_name}
 
     # ── game_shape ────────────────────────────────────────────────────────
     shape_openers = {
@@ -912,8 +973,8 @@ def build_game_report(
             f"one mistake pitch from either starter can leave the yard."
         ),
         "Contact Game": (
-            f"{away_team_name} at {home_team_name} runs on contact and baserunners — "
-            f"this game is more likely to be decided by rallies than solo home runs."
+            f"{away_team_name} and {home_team_name} are more likely to score by "
+            f"extending innings than by relying on solo home runs."
         ),
         "Pitching-Controlled": (
             f"{away_team_name} at {home_team_name} looks like a pitching-controlled game — "
@@ -938,11 +999,12 @@ def build_game_report(
             f"the inning changes."
         )
     elif anchor:
+        anchor_display = display_for.get(anchor["team"], anchor["team"])
         driver = (
-            f"{anchor['name']} gives {anchor['team']} the stronger starting-pitching edge — "
+            f"{anchor['name']} gives {anchor_display} the stronger starting-pitching edge — "
             f"the other side needs to apply pressure early."
         )
-    elif bp_read.get("data_quality") == "fresh" and "fresher bullpen path" in bp_read.get("leverage_note", ""):
+    elif bp_read.get("data_quality") == "fresh" and "fresher bullpen" in bp_read.get("leverage_note", ""):
         driver = bp_read["leverage_note"]
 
     env_note = ""
@@ -1008,6 +1070,7 @@ def build_game_report(
         tag = p["tag"]
         name = p["name"]
         team = p["team"]
+        team_display = display_for.get(team, team)
         card = hitter_cards.get(slug, {})
         barrel = card.get("barrel_pct")
         if tag in ("Power Threat", "Middle-Order Power"):
@@ -1016,7 +1079,7 @@ def build_game_report(
             else:
                 fdw.append(f"DFS Power: {name} ({team}) — power threat worth tracking for DFS stacks.")
         elif tag == "Gets On Base":
-            fdw.append(f"OBP/Stack: {name} ({team}) — gets on base, worth a look for DFS stacks.")
+            fdw.append(f"DFS On-Base Value: {name} ({team}) — gives {team_display} a good chance to put runners on base.")
         elif tag == "Buy-Low Signal":
             fdw.append(f"Buy-Low: {name} ({team}) — has been better than his results show.")
         elif tag == "Starting-Pitching Edge":
@@ -1179,7 +1242,7 @@ def _hitter_grade(hitter_profile, pitcher_profile, hitter_card):
     # ── Yellow: weaker signal ──
     if best != "Limited Data" and (best_damage == "strong" or best_contact == "strong"):
         label = "Some Matchup Fit"
-        reason = f"Decent {best.lower()} contact, but this pitcher doesn't throw it enough to call it a real edge."
+        reason = f"Decent {best.lower()} contact, but this pitcher does not throw it enough to call it a real edge."
         return "yellow", label, reason
 
     if risk != "Limited Data" or best != "Limited Data":
@@ -1346,8 +1409,12 @@ def main():
     for ds_idx, g in enumerate(games_raw):
         away_abbr = g.get("away")
         home_abbr = g.get("home")
-        away_team_name = g.get("awayFull") or away_abbr
-        home_team_name = g.get("homeFull") or home_abbr
+        away_team_full = g.get("awayFull") or away_abbr
+        home_team_full = g.get("homeFull") or home_abbr
+        # Short, readable names for generated prose; full names are kept for
+        # matching against odds data below.
+        away_team_name = team_display_name(away_abbr, away_team_full, home_abbr)
+        home_team_name = team_display_name(home_abbr, home_team_full, away_abbr)
         pair = (away_abbr, home_abbr)
 
         # Positional match (primary): same index in player-matchup list → same game
@@ -1366,7 +1433,7 @@ def main():
             _idx = ptm_consumed.get(pair, 0)
             ptm = _candidates[_idx] if _idx < len(_candidates) else {}
         ptm_consumed[pair] = ptm_consumed.get(pair, 0) + 1
-        odds_game = odds_by_teams.get((away_team_name, home_team_name), {})
+        odds_game = odds_by_teams.get((away_team_full, home_team_full), {})
 
         away_bats = pm.get("away_bats_to_watch") or []
         home_bats = pm.get("home_bats_to_watch") or []
@@ -1466,12 +1533,13 @@ def main():
         )
 
         # --- Game read ---
-        game_read = build_game_read(away_team_name, home_team_name, shape, pitching_shape, pitching_note, tilt_players, bp_read)
+        game_read = build_game_read(away_team_name, home_team_name, away_abbr, home_abbr, shape, pitching_shape, pitching_note, tilt_players, bp_read)
 
         # --- Game report (flowing scouting narrative) ---
         hitters_intel = pitch_intel.get("hitters", {})
         game_report = build_game_report(
             away_team_name, home_team_name,
+            away_abbr, home_abbr,
             away_bats, home_bats,
             shape, pitching_note,
             pitch_intel, away_pitcher_slug, home_pitcher_slug,
