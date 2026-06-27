@@ -1,31 +1,30 @@
 {
-  "date": "2026-06-26",
-  "game_date": "2026-06-25",
-  "date_display": "Thursday, June 25, 2026",
-  "updated": "2026-06-26 10:19",
+  "date": "2026-06-27",
+  "game_date": "2026-06-26",
+  "date_display": "Friday, June 26, 2026",
+  "updated": "2026-06-27 10:20",
   "game": {
     "away": "NYY",
     "home": "BOS",
-    "away_runs": 3,
+    "away_runs": 1,
     "home_runs": 6,
     "innings": 9,
-    "raw_score": 80.0,
+    "raw_score": 72.0,
     "flags": [
       "PLAYOFF IMPLICATIONS",
       "DIVISION MATCHUP",
-      "SB SPREE (3)",
       "BOS HOME GAME",
       "RIVALRY GAME"
     ],
     "winner": "BOS",
     "loser": "NYY",
-    "margin": 3,
-    "total_runs": 9
+    "margin": 5,
+    "total_runs": 7
   },
   "editorial": {
-    "headline": "Durbin Homer Over Monster Sinks New York Yankees",
+    "headline": "Contreras Homer Powers Boston Past New York Yankees",
     "subheadline": "Boston Red Sox beats New York Yankees.",
-    "lead_angle": "Caleb Durbin watched the pitch sail over the Green Monster and the New York Yankees’ lead disappeared with it. Durbin’s two-run shot in the fifth inning ignited a four-run rally that carried the Boston Red Sox to a 6-3 victory over their rivals at Fenway Park. The blast erased a patient, early effort from New York, turning a tight divisional game on its head in a matter of minutes. Connelly Early gets the win for Boston, while Cam Schlittler was saddled with the loss for the visitors.\n\nThe fifth frame undid everything the Yankees had built. Schlittler carried a 2-0 lead into the inning, the product of single runs driven in by Paul Goldschmidt and José Caballero. But the Boston bats came alive against him. After a leadoff single, Durbin sent a high drive over the wall in left to tie the game. The rally continued with a walk and another pair of hits, plating two more runs before New York could escape the inning, their advantage gone for good.\n\nDurbin was the engine for the Boston offense, finishing 2-for-3 with the pivotal home run and two runs batted in. While Caballero homered for New York, Durbin’s blow was the one that tilted the field. The victory gives the Red Sox a crucial edge in the heated American League East race, tightening the gap with their Bronx rivals. Aroldis Chapman slammed the door in the ninth, striking out two to secure the save and send the Fenway crowd home happy.",
+    "lead_angle": "Willson Contreras sent a Will Warren fastball deep into the Fenway night, a two-run shot that established a lead the Boston Red Sox would not surrender. The blast was part of a relentless early attack that buried the New York Yankees in a 6-1 defeat Friday. Boston starter Payton Tolle baffled the Yankee bats all evening, cruising to a victory against his counterpart Warren, who was knocked out of the game after just three innings of work. The Red Sox simply out-hit and out-pitched their rivals from the first frame forward.\n\nBoston broke the game open in the second inning. With runners in scoring position against a reeling Warren, catcher Connor Wong delivered a sharp single back through the box to plate two more. That pushed the lead to three and took the air out of the visiting dugout. The Yankees never mounted a serious threat from that point on, struggling to string together hits or solve Tolle’s mix of pitches. Wong's single was all the breathing room the Red Sox would need.\n\nContreras was the clear engine for the Boston offense. The veteran backstop finished the night 2-for-3 with the homer and two runs batted in, providing the power from the cleanup spot. For a Red Sox team clawing for position in a tight divisional race, beating the Yankees so soundly at home sends a clear message. This win tightens the standings and gives Boston a critical head-to-head victory as the season marches on.",
     "reason": "Best game on today's slate."
   },
   "all_games": [
@@ -33,14 +32,13 @@
       "rank": 1,
       "away": "NYY",
       "home": "BOS",
-      "away_runs": 3,
+      "away_runs": 1,
       "home_runs": 6,
       "innings": 9,
-      "raw_score": 80.0,
+      "raw_score": 72.0,
       "flags": [
         "PLAYOFF IMPLICATIONS",
         "DIVISION MATCHUP",
-        "SB SPREE (3)",
         "BOS HOME GAME",
         "RIVALRY GAME"
       ],
@@ -48,103 +46,194 @@
     },
     {
       "rank": 2,
-      "away": "KC",
-      "home": "TB",
-      "away_runs": 2,
-      "home_runs": 13,
-      "innings": 9,
-      "raw_score": 56.0,
+      "away": "COL",
+      "home": "MIN",
+      "away_runs": 8,
+      "home_runs": 9,
+      "innings": 10,
+      "raw_score": 71.0,
       "flags": [
-        "PLAYOFF IMPLICATIONS",
-        "MULTI-HR: Junior Caminero (3 HR)",
-        "BIG RBI GAME: Junior Caminero (6 RBI)"
+        "WALK-OFF WIN",
+        "EXTRA INNINGS (10)",
+        "ONE-RUN GAME",
+        "HIGH-SCORING (17 runs)"
       ],
       "selected": false
     },
     {
       "rank": 3,
-      "away": "PHI",
-      "home": "WSH",
-      "away_runs": 10,
-      "home_runs": 5,
+      "away": "KC",
+      "home": "CWS",
+      "away_runs": 1,
+      "home_runs": 22,
+      "innings": 9,
+      "raw_score": 64.0,
+      "flags": [
+        "PLAYOFF IMPLICATIONS",
+        "DIVISION MATCHUP",
+        "BIG RBI GAME: Jacob Gonzalez (5 RBI)",
+        "HIGH-SCORING (23 runs)"
+      ],
+      "selected": false
+    },
+    {
+      "rank": 4,
+      "away": "LAD",
+      "home": "SD",
+      "away_runs": 1,
+      "home_runs": 7,
+      "innings": 9,
+      "raw_score": 60.0,
+      "flags": [
+        "PLAYOFF IMPLICATIONS",
+        "DIVISION MATCHUP",
+        "RIVALRY GAME"
+      ],
+      "selected": false
+    },
+    {
+      "rank": 5,
+      "away": "TEX",
+      "home": "TOR",
+      "away_runs": 5,
+      "home_runs": 4,
+      "innings": 9,
+      "raw_score": 55.0,
+      "flags": [
+        "ONE-RUN GAME",
+        "PLAYOFF IMPLICATIONS",
+        "DOMINANT START: Nathan Eovaldi (7.0 IP, 0 ER, 9 K)"
+      ],
+      "selected": false
+    },
+    {
+      "rank": 6,
+      "away": "CHC",
+      "home": "MIL",
+      "away_runs": 2,
+      "home_runs": 6,
       "innings": 9,
       "raw_score": 48.0,
       "flags": [
-        "COMEBACK (trailed 5)",
+        "PLAYOFF IMPLICATIONS",
         "DIVISION MATCHUP",
         "SB SPREE (3)"
       ],
       "selected": false
     },
     {
-      "rank": 4,
-      "away": "ATH",
-      "home": "SF",
-      "away_runs": 9,
-      "home_runs": 6,
-      "innings": 9,
-      "raw_score": 46.0,
-      "flags": [
-        "COMEBACK (trailed 4)",
-        "PLAYOFF IMPLICATIONS",
-        "SF HOME GAME"
-      ],
-      "selected": false
-    },
-    {
-      "rank": 5,
-      "away": "HOU",
-      "home": "DET",
+      "rank": 7,
+      "away": "PHI",
+      "home": "NYM",
       "away_runs": 2,
       "home_runs": 1,
       "innings": 9,
-      "raw_score": 37.0,
+      "raw_score": 45.0,
       "flags": [
         "ONE-RUN GAME",
-        "PLAYOFF IMPLICATIONS"
-      ],
-      "selected": false
-    },
-    {
-      "rank": 6,
-      "away": "TEX",
-      "home": "TOR",
-      "away_runs": 6,
-      "home_runs": 5,
-      "innings": 9,
-      "raw_score": 37.0,
-      "flags": [
-        "ONE-RUN GAME",
-        "PLAYOFF IMPLICATIONS"
-      ],
-      "selected": false
-    },
-    {
-      "rank": 7,
-      "away": "CHC",
-      "home": "NYM",
-      "away_runs": 4,
-      "home_runs": 3,
-      "innings": 10,
-      "raw_score": 33.0,
-      "flags": [
-        "EXTRA INNINGS (10)",
-        "ONE-RUN GAME",
+        "DIVISION MATCHUP",
         "NYM HOME GAME"
       ],
       "selected": false
     },
     {
       "rank": 8,
+      "away": "ATH",
+      "home": "LAA",
+      "away_runs": 9,
+      "home_runs": 3,
+      "innings": 9,
+      "raw_score": 40.0,
+      "flags": [
+        "PLAYOFF IMPLICATIONS",
+        "DIVISION MATCHUP"
+      ],
+      "selected": false
+    },
+    {
+      "rank": 9,
+      "away": "ATL",
+      "home": "SF",
+      "away_runs": 3,
+      "home_runs": 1,
+      "innings": 9,
+      "raw_score": 34.0,
+      "flags": [
+        "PLAYOFF IMPLICATIONS",
+        "SF HOME GAME"
+      ],
+      "selected": false
+    },
+    {
+      "rank": 10,
       "away": "SEA",
-      "home": "PIT",
-      "away_runs": 1,
-      "home_runs": 5,
+      "home": "CLE",
+      "away_runs": 3,
+      "home_runs": 1,
       "innings": 9,
       "raw_score": 22.0,
       "flags": [
         "PLAYOFF IMPLICATIONS"
       ],
+      "selected": false
+    },
+    {
+      "rank": 11,
+      "away": "AZ",
+      "home": "TB",
+      "away_runs": 1,
+      "home_runs": 6,
+      "innings": 9,
+      "raw_score": 22.0,
+      "flags": [
+        "PLAYOFF IMPLICATIONS"
+      ],
+      "selected": false
+    },
+    {
+      "rank": 12,
+      "away": "CIN",
+      "home": "PIT",
+      "away_runs": 6,
+      "home_runs": 4,
+      "innings": 9,
+      "raw_score": 18.0,
+      "flags": [
+        "DIVISION MATCHUP"
+      ],
+      "selected": false
+    },
+    {
+      "rank": 13,
+      "away": "HOU",
+      "home": "DET",
+      "away_runs": 0,
+      "home_runs": 8,
+      "innings": 9,
+      "raw_score": 0.0,
+      "flags": [],
+      "selected": false
+    },
+    {
+      "rank": 14,
+      "away": "WSH",
+      "home": "BAL",
+      "away_runs": 1,
+      "home_runs": 3,
+      "innings": 9,
+      "raw_score": 0.0,
+      "flags": [],
+      "selected": false
+    },
+    {
+      "rank": 15,
+      "away": "MIA",
+      "home": "STL",
+      "away_runs": 4,
+      "home_runs": 0,
+      "innings": 9,
+      "raw_score": 0.0,
+      "flags": [],
       "selected": false
     }
   ]
