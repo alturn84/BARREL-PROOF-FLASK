@@ -1,39 +1,55 @@
 {
-  "date": "2026-06-27",
-  "game_date": "2026-06-26",
-  "date_display": "Friday, June 26, 2026",
-  "updated": "2026-06-27 10:20",
+  "date": "2026-06-28",
+  "game_date": "2026-06-27",
+  "date_display": "Saturday, June 27, 2026",
+  "updated": "2026-06-28 10:18",
   "game": {
-    "away": "NYY",
-    "home": "BOS",
+    "away": "KC",
+    "home": "CWS",
     "away_runs": 1,
-    "home_runs": 6,
+    "home_runs": 2,
     "innings": 9,
-    "raw_score": 72.0,
+    "raw_score": 85.0,
     "flags": [
+      "WALK-OFF WIN",
+      "ONE-RUN GAME",
       "PLAYOFF IMPLICATIONS",
-      "DIVISION MATCHUP",
-      "BOS HOME GAME",
-      "RIVALRY GAME"
+      "DIVISION MATCHUP"
     ],
-    "winner": "BOS",
-    "loser": "NYY",
-    "margin": 5,
-    "total_runs": 7
+    "winner": "CWS",
+    "loser": "KC",
+    "margin": 1,
+    "total_runs": 3
   },
   "editorial": {
-    "headline": "Contreras Homer Powers Boston Past New York Yankees",
-    "subheadline": "Boston Red Sox beats New York Yankees.",
-    "lead_angle": "Willson Contreras sent a Will Warren fastball deep into the Fenway night, a two-run shot that established a lead the Boston Red Sox would not surrender. The blast was part of a relentless early attack that buried the New York Yankees in a 6-1 defeat Friday. Boston starter Payton Tolle baffled the Yankee bats all evening, cruising to a victory against his counterpart Warren, who was knocked out of the game after just three innings of work. The Red Sox simply out-hit and out-pitched their rivals from the first frame forward.\n\nBoston broke the game open in the second inning. With runners in scoring position against a reeling Warren, catcher Connor Wong delivered a sharp single back through the box to plate two more. That pushed the lead to three and took the air out of the visiting dugout. The Yankees never mounted a serious threat from that point on, struggling to string together hits or solve Tolle’s mix of pitches. Wong's single was all the breathing room the Red Sox would need.\n\nContreras was the clear engine for the Boston offense. The veteran backstop finished the night 2-for-3 with the homer and two runs batted in, providing the power from the cleanup spot. For a Red Sox team clawing for position in a tight divisional race, beating the Yankees so soundly at home sends a clear message. This win tightens the standings and gives Boston a critical head-to-head victory as the season marches on.",
-    "reason": "Best game on today's slate."
+    "headline": "Montgomery's Walk-Off Hit Lifts White Sox Over Royals",
+    "subheadline": "Chicago White Sox 2, Kansas City Royals 1.",
+    "lead_angle": "Braden Montgomery slapped a clean single through the left side of the infield, sending the winning run home from third and giving the Chicago White Sox a 2-1 walk-off victory over the Kansas City Royals. The knock came in the bottom of the ninth off reliever Daniel Lynch IV, who couldn't strand the runner. Players spilled from the home dugout at Rate Field to mob Montgomery, capping a tense divisional duel that was deadlocked for most of the night.\n\nFor six frames, the game was a pitcher's showcase. The stalemate finally broke in the top of the seventh when Kansas City manufactured a run on a sacrifice fly. But the White Sox punched right back in their half. Chase Meidroth led off with a double and was driven in two batters later by a Colson Montgomery single to knot the score. That immediate answer reset the board and turned the final innings into a battle of bullpens.\n\nBraden Montgomery was the man of the hour, finishing 2-for-4 with the game's lone RBI for Chicago. His final swing settled a contest where runs were a precious commodity. The victory, credited to Grant Taylor after a scoreless top of the ninth, nudges the White Sox further ahead of their rivals in a tight American League Central race. For the Royals, it was a bitter defeat that wasted a perfect 2-for-2 day from Michael Massey.",
+    "reason": "Walk-offs are baseball's signature drama. The season's best finish this day."
   },
   "all_games": [
     {
       "rank": 1,
+      "away": "KC",
+      "home": "CWS",
+      "away_runs": 1,
+      "home_runs": 2,
+      "innings": 9,
+      "raw_score": 85.0,
+      "flags": [
+        "WALK-OFF WIN",
+        "ONE-RUN GAME",
+        "PLAYOFF IMPLICATIONS",
+        "DIVISION MATCHUP"
+      ],
+      "selected": true
+    },
+    {
+      "rank": 2,
       "away": "NYY",
       "home": "BOS",
       "away_runs": 1,
-      "home_runs": 6,
+      "home_runs": 4,
       "innings": 9,
       "raw_score": 72.0,
       "flags": [
@@ -42,106 +58,45 @@
         "BOS HOME GAME",
         "RIVALRY GAME"
       ],
-      "selected": true
-    },
-    {
-      "rank": 2,
-      "away": "COL",
-      "home": "MIN",
-      "away_runs": 8,
-      "home_runs": 9,
-      "innings": 10,
-      "raw_score": 71.0,
-      "flags": [
-        "WALK-OFF WIN",
-        "EXTRA INNINGS (10)",
-        "ONE-RUN GAME",
-        "HIGH-SCORING (17 runs)"
-      ],
       "selected": false
     },
     {
       "rank": 3,
-      "away": "KC",
-      "home": "CWS",
-      "away_runs": 1,
-      "home_runs": 22,
+      "away": "LAD",
+      "home": "SD",
+      "away_runs": 15,
+      "home_runs": 3,
       "innings": 9,
-      "raw_score": 64.0,
+      "raw_score": 70.0,
       "flags": [
         "PLAYOFF IMPLICATIONS",
         "DIVISION MATCHUP",
-        "BIG RBI GAME: Jacob Gonzalez (5 RBI)",
-        "HIGH-SCORING (23 runs)"
+        "RIVALRY GAME",
+        "HIGH-SCORING (18 runs)"
       ],
       "selected": false
     },
     {
       "rank": 4,
-      "away": "LAD",
-      "home": "SD",
-      "away_runs": 1,
-      "home_runs": 7,
+      "away": "ATL",
+      "home": "SF",
+      "away_runs": 0,
+      "home_runs": 5,
       "innings": 9,
-      "raw_score": 60.0,
+      "raw_score": 54.0,
       "flags": [
         "PLAYOFF IMPLICATIONS",
-        "DIVISION MATCHUP",
-        "RIVALRY GAME"
+        "MULTI-HR: Rafael Devers (2 HR)",
+        "SF HOME GAME"
       ],
       "selected": false
     },
     {
       "rank": 5,
-      "away": "TEX",
-      "home": "TOR",
-      "away_runs": 5,
-      "home_runs": 4,
-      "innings": 9,
-      "raw_score": 55.0,
-      "flags": [
-        "ONE-RUN GAME",
-        "PLAYOFF IMPLICATIONS",
-        "DOMINANT START: Nathan Eovaldi (7.0 IP, 0 ER, 9 K)"
-      ],
-      "selected": false
-    },
-    {
-      "rank": 6,
       "away": "CHC",
       "home": "MIL",
-      "away_runs": 2,
-      "home_runs": 6,
-      "innings": 9,
-      "raw_score": 48.0,
-      "flags": [
-        "PLAYOFF IMPLICATIONS",
-        "DIVISION MATCHUP",
-        "SB SPREE (3)"
-      ],
-      "selected": false
-    },
-    {
-      "rank": 7,
-      "away": "PHI",
-      "home": "NYM",
-      "away_runs": 2,
-      "home_runs": 1,
-      "innings": 9,
-      "raw_score": 45.0,
-      "flags": [
-        "ONE-RUN GAME",
-        "DIVISION MATCHUP",
-        "NYM HOME GAME"
-      ],
-      "selected": false
-    },
-    {
-      "rank": 8,
-      "away": "ATH",
-      "home": "LAA",
-      "away_runs": 9,
-      "home_runs": 3,
+      "away_runs": 8,
+      "home_runs": 2,
       "innings": 9,
       "raw_score": 40.0,
       "flags": [
@@ -151,37 +106,95 @@
       "selected": false
     },
     {
-      "rank": 9,
-      "away": "ATL",
-      "home": "SF",
-      "away_runs": 3,
-      "home_runs": 1,
+      "rank": 6,
+      "away": "ATH",
+      "home": "LAA",
+      "away_runs": 2,
+      "home_runs": 5,
       "innings": 9,
-      "raw_score": 34.0,
+      "raw_score": 40.0,
       "flags": [
         "PLAYOFF IMPLICATIONS",
-        "SF HOME GAME"
+        "DIVISION MATCHUP"
       ],
       "selected": false
     },
     {
-      "rank": 10,
+      "rank": 7,
+      "away": "WSH",
+      "home": "BAL",
+      "away_runs": 4,
+      "home_runs": 3,
+      "innings": 10,
+      "raw_score": 39.0,
+      "flags": [
+        "EXTRA INNINGS (10)",
+        "ONE-RUN GAME",
+        "DOMINANT START: Foster Griffin (7.0 IP, 0 ER, 9 K)"
+      ],
+      "selected": false
+    },
+    {
+      "rank": 8,
       "away": "SEA",
       "home": "CLE",
       "away_runs": 3,
-      "home_runs": 1,
+      "home_runs": 4,
       "innings": 9,
-      "raw_score": 22.0,
+      "raw_score": 37.0,
       "flags": [
+        "ONE-RUN GAME",
         "PLAYOFF IMPLICATIONS"
       ],
       "selected": false
     },
     {
+      "rank": 9,
+      "away": "COL",
+      "home": "MIN",
+      "away_runs": 8,
+      "home_runs": 5,
+      "innings": 9,
+      "raw_score": 34.0,
+      "flags": [
+        "MULTI-HR: Hunter Goodman (3 HR)",
+        "BIG RBI GAME: Hunter Goodman (5 RBI)"
+      ],
+      "selected": false
+    },
+    {
+      "rank": 10,
+      "away": "PHI",
+      "home": "NYM",
+      "away_runs": 2,
+      "home_runs": 6,
+      "innings": 9,
+      "raw_score": 30.0,
+      "flags": [
+        "DIVISION MATCHUP",
+        "NYM HOME GAME"
+      ],
+      "selected": false
+    },
+    {
       "rank": 11,
-      "away": "AZ",
-      "home": "TB",
-      "away_runs": 1,
+      "away": "CIN",
+      "home": "PIT",
+      "away_runs": 9,
+      "home_runs": 7,
+      "innings": 9,
+      "raw_score": 28.0,
+      "flags": [
+        "DIVISION MATCHUP",
+        "HIGH-SCORING (16 runs)"
+      ],
+      "selected": false
+    },
+    {
+      "rank": 12,
+      "away": "HOU",
+      "home": "DET",
+      "away_runs": 8,
       "home_runs": 6,
       "innings": 9,
       "raw_score": 22.0,
@@ -191,46 +204,37 @@
       "selected": false
     },
     {
-      "rank": 12,
-      "away": "CIN",
-      "home": "PIT",
-      "away_runs": 6,
+      "rank": 13,
+      "away": "TEX",
+      "home": "TOR",
+      "away_runs": 7,
       "home_runs": 4,
       "innings": 9,
-      "raw_score": 18.0,
+      "raw_score": 22.0,
       "flags": [
-        "DIVISION MATCHUP"
+        "PLAYOFF IMPLICATIONS"
       ],
       "selected": false
     },
     {
-      "rank": 13,
-      "away": "HOU",
-      "home": "DET",
-      "away_runs": 0,
-      "home_runs": 8,
-      "innings": 9,
-      "raw_score": 0.0,
-      "flags": [],
-      "selected": false
-    },
-    {
       "rank": 14,
-      "away": "WSH",
-      "home": "BAL",
-      "away_runs": 1,
-      "home_runs": 3,
+      "away": "AZ",
+      "home": "TB",
+      "away_runs": 2,
+      "home_runs": 4,
       "innings": 9,
-      "raw_score": 0.0,
-      "flags": [],
+      "raw_score": 22.0,
+      "flags": [
+        "PLAYOFF IMPLICATIONS"
+      ],
       "selected": false
     },
     {
       "rank": 15,
       "away": "MIA",
       "home": "STL",
-      "away_runs": 4,
-      "home_runs": 0,
+      "away_runs": 5,
+      "home_runs": 1,
       "innings": 9,
       "raw_score": 0.0,
       "flags": [],
