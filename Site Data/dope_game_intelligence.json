@@ -2,7 +2,7 @@
   "date": "2026-06-29",
   "meta": {
     "date": "2026-06-29",
-    "generated_at": "2026-06-29T15:31:23Z",
+    "generated_at": "2026-06-29T20:00:42Z",
     "source": "Barrel Proof unified game intelligence",
     "game_count": 13
   },
@@ -17,7 +17,7 @@
         "pitching_arsenal_read": "Sean Burke: Four-Seam Fastball (37%, 94.6mph), Knuckle-Curve (21%), Slider (18%, 31% whiff), Sinker (16%). Shane Baz: Four-Seam Fastball (34%, 96.1mph), Knuckle-Curve (33%, 28% whiff), Cutter (18%).",
         "away_lineup_path": "Miguel Vargas has real home run threat \u2014 a bat that can punish a mistake fastball. Sam Antonacci gives Chicago a good chance to put runners on base ahead of the middle of the order. Good matchups against this fastball/breaking pitcher: Miguel Vargas and Sam Antonacci.",
         "home_lineup_path": "Pete Alonso and Samuel Basallo are Baltimore's main power threats. Adley Rutschman gives Baltimore a good chance to put runners on base ahead of the middle of the order. Good matchups against this fastball/breaking pitcher: Adley Rutschman.",
-        "bullpen_environment_read": "Chicago has the fresher bullpen. Baltimore is more exposed in the middle innings if its starter does not go deep. Conditions: 81\u00b0F, Clear, 7 mph E. Posted run total is 9.5.",
+        "bullpen_environment_read": "Chicago has the fresher bullpen. Baltimore is more exposed in the middle innings if its starter does not go deep. Conditions: 88\u00b0F, Clear, 6 mph ESE. Posted run total is 10.5.",
         "fantasy_dfs_props_watch": [
           "DFS Power: Miguel Vargas (CWS) \u2014 14.1% barrel rate, genuine home run threat.",
           "DFS Power: Pete Alonso (BAL) \u2014 12.4% barrel rate, genuine home run threat.",
@@ -170,21 +170,11 @@
         },
         "away_lineup_vs_home_starter": [
           {
-            "name": "Edgar Quero",
-            "slug": "edgar-quero",
-            "pos": "C",
+            "name": "Sam Antonacci",
+            "slug": "sam-antonacci",
+            "pos": "LF",
             "batting_order": 1,
-            "bats": "S",
-            "grade": "red",
-            "label": "Breaking-Ball Risk",
-            "reason": "Tends to chase breaking pitches \u2014 a risky spot against this pitcher."
-          },
-          {
-            "name": "Chase Meidroth",
-            "slug": "chase-meidroth",
-            "pos": "2B",
-            "batting_order": 2,
-            "bats": "R",
+            "bats": "L",
             "grade": "yellow",
             "label": "Handles Fastball",
             "reason": "Low whiff rate against fastball pitching \u2014 a strong contact matchup against this pitcher, though not a power edge."
@@ -193,7 +183,7 @@
             "name": "Miguel Vargas",
             "slug": "miguel-vargas",
             "pos": "3B",
-            "batting_order": 3,
+            "batting_order": 2,
             "bats": "R",
             "grade": "green",
             "label": "Fastball Power",
@@ -203,109 +193,79 @@
             "name": "Colson Montgomery",
             "slug": "colson-montgomery",
             "pos": "SS",
-            "batting_order": 4,
+            "batting_order": 3,
             "bats": "L",
             "grade": "red",
             "label": "Breaking-Ball Risk",
             "reason": "Tends to chase breaking pitches \u2014 a risky spot against this pitcher."
           },
           {
-            "name": "Sam Antonacci",
-            "slug": "sam-antonacci",
-            "pos": "LF",
+            "name": "Kyle Teel",
+            "slug": "kyle-teel",
+            "pos": "C",
+            "batting_order": 4,
+            "bats": null,
+            "grade": "gray",
+            "label": "Limited Data",
+            "reason": "Not enough data yet for this matchup."
+          },
+          {
+            "name": "Randal Grichuk",
+            "slug": "randal-grichuk",
+            "pos": "DH",
             "batting_order": 5,
-            "bats": "L",
-            "grade": "yellow",
-            "label": "Handles Fastball",
-            "reason": "Low whiff rate against fastball pitching \u2014 a strong contact matchup against this pitcher, though not a power edge."
+            "bats": "R",
+            "grade": "gray",
+            "label": "Limited Data",
+            "reason": "Not enough data yet for this matchup."
+          },
+          {
+            "name": "Braden Montgomery",
+            "slug": "",
+            "pos": "RF",
+            "batting_order": 6,
+            "bats": "",
+            "grade": "gray",
+            "label": "Limited Data",
+            "reason": "Not enough data yet for this matchup."
           },
           {
             "name": "Tristan Peters",
             "slug": "tristan-peters",
             "pos": "CF",
-            "batting_order": 6,
-            "bats": "L",
-            "grade": "yellow",
-            "label": "Handles Fastball",
-            "reason": "Low whiff rate against fastball pitching \u2014 a strong contact matchup against this pitcher, though not a power edge."
-          },
-          {
-            "name": "Derek Hill",
-            "slug": "derek-hill",
-            "pos": "RF",
             "batting_order": 7,
-            "bats": "R",
-            "grade": "red",
-            "label": "Breaking-Ball Risk",
-            "reason": "Tends to chase breaking pitches \u2014 a risky spot against this pitcher."
-          },
-          {
-            "name": "Andrew Benintendi",
-            "slug": "andrew-benintendi",
-            "pos": "DH",
-            "batting_order": 8,
             "bats": "L",
-            "grade": "red",
-            "label": "Breaking-Ball Risk",
-            "reason": "Tends to chase breaking pitches \u2014 a risky spot against this pitcher."
-          },
-          {
-            "name": "Drew Romo",
-            "slug": "drew-romo",
-            "pos": "C",
-            "batting_order": 9,
-            "bats": "S",
             "grade": "yellow",
             "label": "Handles Fastball",
             "reason": "Low whiff rate against fastball pitching \u2014 a strong contact matchup against this pitcher, though not a power edge."
+          },
+          {
+            "name": "Chase Meidroth",
+            "slug": "chase-meidroth",
+            "pos": "2B",
+            "batting_order": 8,
+            "bats": "R",
+            "grade": "yellow",
+            "label": "Handles Fastball",
+            "reason": "Low whiff rate against fastball pitching \u2014 a strong contact matchup against this pitcher, though not a power edge."
+          },
+          {
+            "name": "Jacob Gonzalez",
+            "slug": "jacob-gonzalez",
+            "pos": "1B",
+            "batting_order": 9,
+            "bats": "L",
+            "grade": "gray",
+            "label": "Limited Data",
+            "reason": "Not enough data yet for this matchup."
           }
         ],
         "home_lineup_vs_away_starter": [
           {
-            "name": "Adley Rutschman",
-            "slug": "adley-rutschman",
-            "pos": "C",
-            "batting_order": 1,
-            "bats": "S",
-            "grade": "green",
-            "label": "Fastball Power",
-            "reason": "47% hard-hit rate \u2014 a home run threat against fastball pitching."
-          },
-          {
-            "name": "Pete Alonso",
-            "slug": "pete-alonso",
-            "pos": "1B",
-            "batting_order": 2,
-            "bats": "R",
-            "grade": "yellow",
-            "label": "Neutral Matchup",
-            "reason": "No clear edge or risk either way \u2014 a neutral matchup."
-          },
-          {
-            "name": "Jeremiah Jackson",
-            "slug": "jeremiah-jackson",
-            "pos": "2B",
-            "batting_order": 3,
-            "bats": "R",
-            "grade": "yellow",
-            "label": "Handles Fastball",
-            "reason": "Low whiff rate against fastball pitching \u2014 a strong contact matchup against this pitcher, though not a power edge."
-          },
-          {
-            "name": "Blaze Alexander",
-            "slug": "blaze-alexander",
-            "pos": "3B",
-            "batting_order": 4,
-            "bats": "R",
-            "grade": "red",
-            "label": "Breaking-Ball Risk",
-            "reason": "Tends to chase breaking pitches \u2014 a risky spot against this pitcher."
-          },
-          {
             "name": "Gunnar Henderson",
             "slug": "gunnar-henderson",
             "pos": "SS",
-            "batting_order": 5,
+            "batting_order": 1,
             "bats": "L",
             "grade": "yellow",
             "label": "Handles Fastball",
@@ -315,41 +275,81 @@
             "name": "Taylor Ward",
             "slug": "taylor-ward",
             "pos": "LF",
-            "batting_order": 6,
+            "batting_order": 2,
             "bats": "R",
             "grade": "yellow",
             "label": "Handles Fastball",
             "reason": "Low whiff rate against fastball pitching \u2014 a strong contact matchup against this pitcher, though not a power edge."
           },
           {
-            "name": "Leody Taveras",
-            "slug": "leody-taveras",
-            "pos": "CF",
-            "batting_order": 7,
+            "name": "Adley Rutschman",
+            "slug": "adley-rutschman",
+            "pos": "C",
+            "batting_order": 3,
             "bats": "S",
+            "grade": "green",
+            "label": "Fastball Power",
+            "reason": "47% hard-hit rate \u2014 a home run threat against fastball pitching."
+          },
+          {
+            "name": "Pete Alonso",
+            "slug": "pete-alonso",
+            "pos": "1B",
+            "batting_order": 4,
+            "bats": "R",
             "grade": "yellow",
             "label": "Neutral Matchup",
             "reason": "No clear edge or risk either way \u2014 a neutral matchup."
           },
           {
+            "name": "Samuel Basallo",
+            "slug": "samuel-basallo",
+            "pos": "DH",
+            "batting_order": 5,
+            "bats": "L",
+            "grade": "red",
+            "label": "Breaking-Ball Risk",
+            "reason": "Tends to chase breaking pitches \u2014 a risky spot against this pitcher."
+          },
+          {
+            "name": "Dylan Beavers",
+            "slug": "dylan-beavers",
+            "pos": "RF",
+            "batting_order": 6,
+            "bats": null,
+            "grade": "gray",
+            "label": "Limited Data",
+            "reason": "Not enough data yet for this matchup."
+          },
+          {
             "name": "Colton Cowser",
             "slug": "colton-cowser",
-            "pos": "RF",
-            "batting_order": 8,
+            "pos": "CF",
+            "batting_order": 7,
             "bats": "L",
             "grade": "green",
             "label": "Fastball Power",
             "reason": "13% barrel rate \u2014 a good power matchup against fastball pitching."
           },
           {
-            "name": "Samuel Basallo",
-            "slug": "samuel-basallo",
-            "pos": "C",
-            "batting_order": 9,
-            "bats": "L",
+            "name": "Blaze Alexander",
+            "slug": "blaze-alexander",
+            "pos": "3B",
+            "batting_order": 8,
+            "bats": "R",
             "grade": "red",
             "label": "Breaking-Ball Risk",
             "reason": "Tends to chase breaking pitches \u2014 a risky spot against this pitcher."
+          },
+          {
+            "name": "Jackson Holliday",
+            "slug": "jackson-holliday",
+            "pos": "2B",
+            "batting_order": 9,
+            "bats": "L",
+            "grade": "gray",
+            "label": "Limited Data",
+            "reason": "Not enough data yet for this matchup."
           }
         ],
         "board_summary": "Baltimore's lineup has more favorable pitch-type matchups (2 green grades vs 1)."
@@ -423,15 +423,15 @@
           "summary": "Sean Burke has been volatile.",
           "stability": "Inconsistent \u2014 this start can get away from him early.",
           "risk": "Sean Burke does not have enough of a track record yet for a clear risk read.",
-          "matchup_fit": "Baltimore is a tough matchup for Sean Burke \u2014 Adley Rutschman and Pete Alonso are the hitters to watch.",
-          "watch": "Watch Adley Rutschman early \u2014 if Sean Burke falls behind in the count, that's the spot."
+          "matchup_fit": "Baltimore's lineup is hard to read today, so the matchup against Sean Burke is still developing.",
+          "watch": "Watch Sean Burke's pitch count \u2014 a rough start could put pressure on the bullpen by the fifth."
         },
         "home_starter": {
           "summary": "Shane Baz carries power risk.",
           "stability": "Not enough innings yet to get a clean read.",
           "risk": "Shane Baz can give up home runs if he leaves a pitch up.",
-          "matchup_fit": "Chicago is a tough matchup for Shane Baz \u2014 Miguel Vargas and Colson Montgomery are the hitters to watch.",
-          "watch": "Watch Miguel Vargas early \u2014 if Shane Baz falls behind in the count, that's the spot."
+          "matchup_fit": "Chicago's lineup is hard to read today, so the matchup against Shane Baz is still developing.",
+          "watch": "Watch whether Shane Baz can go deep into the game; that's the key to the middle innings."
         },
         "starter_edge": "Sean Burke gives Chicago the stronger starting-pitching edge tonight.",
         "game_pitching_shape": "Starter Edge"
@@ -503,11 +503,11 @@
         "data_quality": "fresh"
       },
       "environment_read": {
-        "summary": "Oriole Park at Camden Yards is tonight's park. Conditions: 81\u00b0F, Clear, 7 mph E. Posted run total is 9.5.",
+        "summary": "Oriole Park at Camden Yards is tonight's park. Conditions: 88\u00b0F, Clear, 6 mph ESE. Posted run total is 10.5.",
         "run_environment": "Hitter Lean",
-        "weather_note": "Conditions: 81\u00b0F, Clear, 7 mph E.",
+        "weather_note": "Conditions: 88\u00b0F, Clear, 6 mph ESE.",
         "park_note": "Oriole Park at Camden Yards is tonight's park.",
-        "odds_note": "Posted run total is 9.5."
+        "odds_note": "Posted run total is 10.5."
       },
       "players_who_tilt_game": [
         {
@@ -560,8 +560,8 @@
         "Run Environment: This game's posted total leans hitter-friendly \u2014 worth checking against the live line."
       ],
       "data_basis": [
-        "Away: Projected lineup",
-        "Home: Projected lineup",
+        "Away: Confirmed lineup",
+        "Home: Confirmed lineup",
         "Confirmed probables",
         "Bullpen usage available",
         "Weather available",
@@ -578,7 +578,7 @@
         "pitching_arsenal_read": "Braxton Ashcraft: Four-Seam Fastball (31%, 97.1mph), Curveball (25%, 41% whiff), Slider (23%, 33% whiff), Sinker (15%). Aaron Nola: Knuckle-Curve (34%, 78.3mph), Four-Seam Fastball (24%), Sinker (21%), Changeup (12%).",
         "away_lineup_path": "Oneil Cruz is Pittsburgh's main power threat. Good matchups against this fastball/breaking pitcher: Bryan Reynolds and Marcell Ozuna.",
         "home_lineup_path": "Bryce Harper and Kyle Schwarber are Philadelphia's main power threats.",
-        "bullpen_environment_read": "Philadelphia has the fresher bullpen. Pittsburgh is more exposed in the middle innings if its starter does not go deep. Conditions: 82\u00b0F, Mostly Clear, 6 mph E. Posted run total is 8.5.",
+        "bullpen_environment_read": "Philadelphia has the fresher bullpen. Pittsburgh is more exposed in the middle innings if its starter does not go deep. Conditions: 88\u00b0F, Partly Cloudy, 3 mph S. Posted run total is 8.5.",
         "fantasy_dfs_props_watch": [
           "DFS Power: Bryce Harper (PHI) \u2014 13.4% barrel rate, genuine home run threat.",
           "DFS Power: Oneil Cruz (PIT) \u2014 16.4% barrel rate, genuine home run threat.",
@@ -821,80 +821,10 @@
         ],
         "home_lineup_vs_away_starter": [
           {
-            "name": "J.T. Realmuto",
-            "slug": "jt-realmuto",
-            "pos": "C",
-            "batting_order": 1,
-            "bats": "R",
-            "grade": "yellow",
-            "label": "Some Matchup Fit",
-            "reason": "Decent fastball contact, but this pitcher does not throw it enough to call it a real edge."
-          },
-          {
-            "name": "Bryce Harper",
-            "slug": "bryce-harper",
-            "pos": "1B",
-            "batting_order": 2,
-            "bats": "L",
-            "grade": "red",
-            "label": "Breaking-Ball Risk",
-            "reason": "Tends to chase breaking pitches \u2014 a risky spot against this pitcher."
-          },
-          {
-            "name": "Bryson Stott",
-            "slug": "bryson-stott",
-            "pos": "2B",
-            "batting_order": 3,
-            "bats": "L",
-            "grade": "yellow",
-            "label": "Some Matchup Fit",
-            "reason": "Decent fastball contact, but this pitcher does not throw it enough to call it a real edge."
-          },
-          {
-            "name": "Alec Bohm",
-            "slug": "alec-bohm",
-            "pos": "3B",
-            "batting_order": 4,
-            "bats": "R",
-            "grade": "red",
-            "label": "Breaking-Ball Risk",
-            "reason": "Tends to chase breaking pitches \u2014 a risky spot against this pitcher."
-          },
-          {
             "name": "Trea Turner",
             "slug": "trea-turner",
             "pos": "SS",
-            "batting_order": 5,
-            "bats": "R",
-            "grade": "red",
-            "label": "Breaking-Ball Risk",
-            "reason": "Tends to chase breaking pitches \u2014 a risky spot against this pitcher."
-          },
-          {
-            "name": "Brandon Marsh",
-            "slug": "brandon-marsh",
-            "pos": "LF",
-            "batting_order": 6,
-            "bats": "L",
-            "grade": "yellow",
-            "label": "Some Matchup Fit",
-            "reason": "Decent fastball contact, but this pitcher does not throw it enough to call it a real edge."
-          },
-          {
-            "name": "Justin Crawford",
-            "slug": "justin-crawford",
-            "pos": "CF",
-            "batting_order": 7,
-            "bats": "L",
-            "grade": "yellow",
-            "label": "Some Matchup Fit",
-            "reason": "Decent fastball contact, but this pitcher does not throw it enough to call it a real edge."
-          },
-          {
-            "name": "Adolis Garc\u00eda",
-            "slug": "adolis-garcia",
-            "pos": "RF",
-            "batting_order": 8,
+            "batting_order": 1,
             "bats": "R",
             "grade": "red",
             "label": "Breaking-Ball Risk",
@@ -904,11 +834,81 @@
             "name": "Kyle Schwarber",
             "slug": "kyle-schwarber",
             "pos": "DH",
-            "batting_order": 9,
+            "batting_order": 2,
             "bats": "L",
             "grade": "red",
             "label": "Breaking-Ball Risk",
             "reason": "Tends to chase breaking pitches \u2014 a risky spot against this pitcher."
+          },
+          {
+            "name": "Bryce Harper",
+            "slug": "bryce-harper",
+            "pos": "1B",
+            "batting_order": 3,
+            "bats": "L",
+            "grade": "red",
+            "label": "Breaking-Ball Risk",
+            "reason": "Tends to chase breaking pitches \u2014 a risky spot against this pitcher."
+          },
+          {
+            "name": "Brandon Marsh",
+            "slug": "brandon-marsh",
+            "pos": "LF",
+            "batting_order": 4,
+            "bats": "L",
+            "grade": "yellow",
+            "label": "Some Matchup Fit",
+            "reason": "Decent fastball contact, but this pitcher does not throw it enough to call it a real edge."
+          },
+          {
+            "name": "Alec Bohm",
+            "slug": "alec-bohm",
+            "pos": "3B",
+            "batting_order": 5,
+            "bats": "R",
+            "grade": "red",
+            "label": "Breaking-Ball Risk",
+            "reason": "Tends to chase breaking pitches \u2014 a risky spot against this pitcher."
+          },
+          {
+            "name": "Bryson Stott",
+            "slug": "bryson-stott",
+            "pos": "2B",
+            "batting_order": 6,
+            "bats": "L",
+            "grade": "yellow",
+            "label": "Some Matchup Fit",
+            "reason": "Decent fastball contact, but this pitcher does not throw it enough to call it a real edge."
+          },
+          {
+            "name": "J.T. Realmuto",
+            "slug": "jt-realmuto",
+            "pos": "C",
+            "batting_order": 7,
+            "bats": "R",
+            "grade": "yellow",
+            "label": "Some Matchup Fit",
+            "reason": "Decent fastball contact, but this pitcher does not throw it enough to call it a real edge."
+          },
+          {
+            "name": "Gabriel Rincones Jr.",
+            "slug": "",
+            "pos": "RF",
+            "batting_order": 8,
+            "bats": "",
+            "grade": "gray",
+            "label": "Limited Data",
+            "reason": "Not enough data yet for this matchup."
+          },
+          {
+            "name": "Justin Crawford",
+            "slug": "justin-crawford",
+            "pos": "CF",
+            "batting_order": 9,
+            "bats": "L",
+            "grade": "yellow",
+            "label": "Some Matchup Fit",
+            "reason": "Decent fastball contact, but this pitcher does not throw it enough to call it a real edge."
           }
         ],
         "board_summary": "Both lineups show similar pitch-type matchup grades against today's starters."
@@ -982,8 +982,8 @@
           "summary": "Braxton Ashcraft misses bats, suppresses power, limits contact quality.",
           "stability": "Reliable \u2014 likely to give innings and keep the game under control.",
           "risk": "Braxton Ashcraft keeps the ball in the park well, and limits hard contact, and can rack up strikeouts to bail himself out of trouble.",
-          "matchup_fit": "Philadelphia is a tough matchup for Braxton Ashcraft \u2014 Bryce Harper and Kyle Schwarber are the hitters to watch.",
-          "watch": "Watch Bryce Harper early \u2014 if Braxton Ashcraft falls behind in the count, that's the spot."
+          "matchup_fit": "Philadelphia's lineup is hard to read today, so the matchup against Braxton Ashcraft is still developing.",
+          "watch": "Watch whether Braxton Ashcraft can go deep into the game; that's the key to the middle innings."
         },
         "home_starter": {
           "summary": "Aaron Nola carries power risk.",
@@ -1062,9 +1062,9 @@
         "data_quality": "fresh"
       },
       "environment_read": {
-        "summary": "Citizens Bank Park is tonight's park. Conditions: 82\u00b0F, Mostly Clear, 6 mph E. Posted run total is 8.5.",
+        "summary": "Citizens Bank Park is tonight's park. Conditions: 88\u00b0F, Partly Cloudy, 3 mph S. Posted run total is 8.5.",
         "run_environment": "Neutral",
-        "weather_note": "Conditions: 82\u00b0F, Mostly Clear, 6 mph E.",
+        "weather_note": "Conditions: 88\u00b0F, Partly Cloudy, 3 mph S.",
         "park_note": "Citizens Bank Park is tonight's park.",
         "odds_note": "Posted run total is 8.5."
       },
@@ -1118,7 +1118,7 @@
       ],
       "data_basis": [
         "Away: Projected lineup",
-        "Home: Projected lineup",
+        "Home: Confirmed lineup",
         "Confirmed probables",
         "Bullpen usage available",
         "Weather available",
@@ -1129,17 +1129,17 @@
       "away_team": "DET",
       "home_team": "NYY",
       "game_id": "823529",
-      "game_read": "Detroit at New York is more likely to be decided by rallies than solo home runs. Both starters have been steady \u2014 a mistake pitch is the most likely way this game gets decided. If Detroit gets into the middle innings with a lead, Dillon Dingler is one of the bats that can add on.",
+      "game_read": "Detroit at New York is a balanced matchup \u2014 both sides can win this more than one way. Both starters have been steady \u2014 a mistake pitch is the most likely way this game gets decided. If Detroit gets into the middle innings with a lead, Dillon Dingler is one of the bats that can add on.",
       "game_report": {
-        "game_shape": "Detroit and New York are more likely to score by extending innings than by relying on solo home runs. Both starters have been steady \u2014 a mistake pitch is the most likely way this game gets decided. The swing factor: if Dillon Dingler gets a fastball to drive, the inning changes.",
+        "game_shape": "Detroit at New York is a balanced matchup \u2014 both sides have multiple ways to score. Both starters have been steady \u2014 a mistake pitch is the most likely way this game gets decided. The swing factor: if Dillon Dingler gets a fastball to drive, the inning changes.",
         "pitching_arsenal_read": "Casey Mize: Four-Seam Fastball (34%, 93.5mph), Split-Finger (25%, 33% whiff), Slider (25%, 30% whiff), Sinker (11%). Ryan Weathers: Four-Seam Fastball (28%, 95.8mph), Changeup (23%, 34% whiff), Sweeper (20%, 45% whiff), Sinker (19%).",
         "away_lineup_path": "Dillon Dingler has real home run threat \u2014 a bat that can punish a mistake fastball. Kevin McGonigle gives Detroit a good chance to put runners on base ahead of the middle of the order. Dillon Dingler has been better than his results show \u2014 worth watching.",
         "home_lineup_path": "Ben Rice has real home run threat \u2014 a bat that can punish a mistake fastball. Cody Bellinger and Paul Goldschmidt give New York a good chance to put runners on base ahead of the middle of the order.",
-        "bullpen_environment_read": "Both bullpens carry a similar usage profile \u2014 no clear middle-innings edge from bullpen freshness alone. Conditions: 82\u00b0F, Clear, 6 mph NE. Posted run total is 7.5.",
+        "bullpen_environment_read": "Both bullpens carry a similar usage profile \u2014 no clear middle-innings edge from bullpen freshness alone. Conditions: 88\u00b0F, Clear, 7 mph NE. Posted run total is 7.5.",
         "fantasy_dfs_props_watch": [
           "DFS Power: Dillon Dingler (DET) \u2014 13.6% barrel rate, genuine home run threat.",
           "DFS On-Base Value: Cody Bellinger (NYY) \u2014 gives New York a good chance to put runners on base.",
-          "DFS Power: Riley Greene (DET) \u2014 13.5% barrel rate, genuine home run threat.",
+          "DFS Power: Kevin McGonigle (DET) \u2014 power threat worth tracking for DFS stacks.",
           "DFS Power: Paul Goldschmidt (NYY) \u2014 power threat worth tracking for DFS stacks.",
           "Pitcher Pick: Casey Mize (DET) \u2014 clean starting-pitching edge, worth watching in DFS lineups.",
           "Pitcher Pick: Ryan Weathers (NYY) \u2014 clean starting-pitching edge, worth watching in DFS lineups."
@@ -1288,11 +1288,31 @@
         },
         "away_lineup_vs_home_starter": [
           {
+            "name": "Matt Vierling",
+            "slug": "matt-vierling",
+            "pos": "LF",
+            "batting_order": 1,
+            "bats": "R",
+            "grade": "yellow",
+            "label": "Some Matchup Fit",
+            "reason": "Decent fastball contact, but this pitcher does not throw it enough to call it a real edge."
+          },
+          {
             "name": "Dillon Dingler",
             "slug": "dillon-dingler",
             "pos": "C",
-            "batting_order": 1,
+            "batting_order": 2,
             "bats": "R",
+            "grade": "yellow",
+            "label": "Some Matchup Fit",
+            "reason": "Decent fastball contact, but this pitcher does not throw it enough to call it a real edge."
+          },
+          {
+            "name": "Kevin McGonigle",
+            "slug": "kevin-mcgonigle",
+            "pos": "3B",
+            "batting_order": 3,
+            "bats": "L",
             "grade": "yellow",
             "label": "Some Matchup Fit",
             "reason": "Decent fastball contact, but this pitcher does not throw it enough to call it a real edge."
@@ -1301,98 +1321,78 @@
             "name": "Spencer Torkelson",
             "slug": "spencer-torkelson",
             "pos": "1B",
-            "batting_order": 2,
-            "bats": "R",
-            "grade": "yellow",
-            "label": "Neutral Matchup",
-            "reason": "No clear edge or risk either way \u2014 a neutral matchup."
-          },
-          {
-            "name": "Gleyber Torres",
-            "slug": "gleyber-torres",
-            "pos": "2B",
-            "batting_order": 3,
-            "bats": "R",
-            "grade": "yellow",
-            "label": "Neutral Matchup",
-            "reason": "No clear edge or risk either way \u2014 a neutral matchup."
-          },
-          {
-            "name": "Colt Keith",
-            "slug": "colt-keith",
-            "pos": "3B",
             "batting_order": 4,
-            "bats": "L",
-            "grade": "yellow",
-            "label": "Some Matchup Fit",
-            "reason": "Decent fastball contact, but this pitcher does not throw it enough to call it a real edge."
-          },
-          {
-            "name": "Kevin McGonigle",
-            "slug": "kevin-mcgonigle",
-            "pos": "SS",
-            "batting_order": 5,
-            "bats": "L",
-            "grade": "yellow",
-            "label": "Some Matchup Fit",
-            "reason": "Decent fastball contact, but this pitcher does not throw it enough to call it a real edge."
-          },
-          {
-            "name": "Riley Greene",
-            "slug": "riley-greene",
-            "pos": "LF",
-            "batting_order": 6,
-            "bats": "L",
-            "grade": "yellow",
-            "label": "Neutral Matchup",
-            "reason": "No clear edge or risk either way \u2014 a neutral matchup."
-          },
-          {
-            "name": "Matt Vierling",
-            "slug": "matt-vierling",
-            "pos": "CF",
-            "batting_order": 7,
             "bats": "R",
             "grade": "yellow",
-            "label": "Some Matchup Fit",
-            "reason": "Decent fastball contact, but this pitcher does not throw it enough to call it a real edge."
-          },
-          {
-            "name": "Kerry Carpenter",
-            "slug": "kerry-carpenter",
-            "pos": "RF",
-            "batting_order": 8,
-            "bats": "L",
-            "grade": "yellow",
             "label": "Neutral Matchup",
             "reason": "No clear edge or risk either way \u2014 a neutral matchup."
+          },
+          {
+            "name": "Hao-Yu Lee",
+            "slug": "",
+            "pos": "2B",
+            "batting_order": 5,
+            "bats": "",
+            "grade": "gray",
+            "label": "Limited Data",
+            "reason": "Not enough data yet for this matchup."
           },
           {
             "name": "Jahmai Jones",
             "slug": "jahmai-jones",
             "pos": "DH",
-            "batting_order": 9,
-            "bats": "R",
-            "grade": "yellow",
-            "label": "Neutral Matchup",
-            "reason": "No clear edge or risk either way \u2014 a neutral matchup."
-          }
-        ],
-        "home_lineup_vs_away_starter": [
-          {
-            "name": "Ali S\u00e1nchez",
-            "slug": "ali-sanchez",
-            "pos": "C",
-            "batting_order": 1,
+            "batting_order": 6,
             "bats": "R",
             "grade": "yellow",
             "label": "Neutral Matchup",
             "reason": "No clear edge or risk either way \u2014 a neutral matchup."
           },
           {
+            "name": "Zach McKinstry",
+            "slug": "zach-mckinstry",
+            "pos": "SS",
+            "batting_order": 7,
+            "bats": "L",
+            "grade": "gray",
+            "label": "Limited Data",
+            "reason": "Limited pitch-type data; contact profile is average or still developing."
+          },
+          {
+            "name": "Ben Malgeri",
+            "slug": "",
+            "pos": "RF",
+            "batting_order": 8,
+            "bats": "",
+            "grade": "gray",
+            "label": "Limited Data",
+            "reason": "Not enough data yet for this matchup."
+          },
+          {
+            "name": "James Outman",
+            "slug": "",
+            "pos": "CF",
+            "batting_order": 9,
+            "bats": "",
+            "grade": "gray",
+            "label": "Limited Data",
+            "reason": "Not enough data yet for this matchup."
+          }
+        ],
+        "home_lineup_vs_away_starter": [
+          {
             "name": "Ben Rice",
             "slug": "ben-rice",
-            "pos": "1B",
+            "pos": "DH",
+            "batting_order": 1,
+            "bats": "L",
+            "grade": "yellow",
+            "label": "Some Matchup Fit",
+            "reason": "Decent fastball contact, but this pitcher does not throw it enough to call it a real edge."
+          },
+          {
+            "name": "Cody Bellinger",
+            "slug": "cody-bellinger",
+            "pos": "LF",
             "batting_order": 2,
             "bats": "L",
             "grade": "yellow",
@@ -1400,19 +1400,19 @@
             "reason": "Decent fastball contact, but this pitcher does not throw it enough to call it a real edge."
           },
           {
-            "name": "Jazz Chisholm Jr.",
-            "slug": "jazz-chisholm-jr",
-            "pos": "2B",
+            "name": "Paul Goldschmidt",
+            "slug": "paul-goldschmidt",
+            "pos": "1B",
             "batting_order": 3,
-            "bats": "L",
+            "bats": "R",
             "grade": "yellow",
             "label": "Neutral Matchup",
             "reason": "No clear edge or risk either way \u2014 a neutral matchup."
           },
           {
-            "name": "Ryan McMahon",
-            "slug": "ryan-mcmahon",
-            "pos": "3B",
+            "name": "Jazz Chisholm Jr.",
+            "slug": "jazz-chisholm-jr",
+            "pos": "2B",
             "batting_order": 4,
             "bats": "L",
             "grade": "yellow",
@@ -1420,49 +1420,49 @@
             "reason": "No clear edge or risk either way \u2014 a neutral matchup."
           },
           {
-            "name": "Jos\u00e9 Caballero",
-            "slug": "jose-caballero",
-            "pos": "SS",
+            "name": "Jasson Dom\u00ednguez",
+            "slug": "jasson-dominguez",
+            "pos": "RF",
             "batting_order": 5,
-            "bats": "R",
-            "grade": "yellow",
-            "label": "Neutral Matchup",
-            "reason": "No clear edge or risk either way \u2014 a neutral matchup."
+            "bats": null,
+            "grade": "gray",
+            "label": "Limited Data",
+            "reason": "Not enough data yet for this matchup."
           },
           {
-            "name": "Cody Bellinger",
-            "slug": "cody-bellinger",
-            "pos": "LF",
+            "name": "Anthony Volpe",
+            "slug": "anthony-volpe",
+            "pos": "SS",
             "batting_order": 6,
-            "bats": "L",
-            "grade": "yellow",
-            "label": "Some Matchup Fit",
-            "reason": "Decent fastball contact, but this pitcher does not throw it enough to call it a real edge."
-          },
-          {
-            "name": "Trent Grisham",
-            "slug": "trent-grisham",
-            "pos": "CF",
-            "batting_order": 7,
-            "bats": "L",
-            "grade": "yellow",
-            "label": "Some Matchup Fit",
-            "reason": "Decent fastball contact, but this pitcher does not throw it enough to call it a real edge."
+            "bats": "R",
+            "grade": "gray",
+            "label": "Limited Data",
+            "reason": "Not enough data yet for this matchup."
           },
           {
             "name": "Spencer Jones",
             "slug": "spencer-jones",
-            "pos": "RF",
-            "batting_order": 8,
+            "pos": "CF",
+            "batting_order": 7,
             "bats": "L",
             "grade": "yellow",
             "label": "Neutral Matchup",
             "reason": "No clear edge or risk either way \u2014 a neutral matchup."
           },
           {
-            "name": "Paul Goldschmidt",
-            "slug": "paul-goldschmidt",
-            "pos": "1B",
+            "name": "Austin Wells",
+            "slug": "austin-wells",
+            "pos": "C",
+            "batting_order": 8,
+            "bats": null,
+            "grade": "yellow",
+            "label": "Some Matchup Fit",
+            "reason": "Decent fastball contact, but this pitcher does not throw it enough to call it a real edge."
+          },
+          {
+            "name": "Jos\u00e9 Caballero",
+            "slug": "jose-caballero",
+            "pos": "3B",
             "batting_order": 9,
             "bats": "R",
             "grade": "yellow",
@@ -1475,7 +1475,7 @@
       "lineup_read": {
         "away": {
           "summary": "Detroit has both power and on-base threats \u2014 a lineup that can win this game more than one way. Dillon Dingler is worth watching \u2014 he's been better than his results show.",
-          "power_pressure": "Dillon Dingler and Riley Greene can change the game with one swing.",
+          "power_pressure": "Dillon Dingler can change the game with one swing.",
           "contact_pressure": "Kevin McGonigle get on base and can set up the middle of the order.",
           "traffic_path": "Detroit is more likely to score by putting runners on base than by hitting home runs.",
           "risk": "No real red flags in this lineup right now.",
@@ -1489,17 +1489,17 @@
               ]
             },
             {
-              "name": "Riley Greene",
-              "slug": "riley-greene",
-              "tags": [
-                "Power Threat"
-              ]
-            },
-            {
               "name": "Kevin McGonigle",
               "slug": "kevin-mcgonigle",
               "tags": [
                 "Gets On Base"
+              ]
+            },
+            {
+              "name": "Matt Vierling",
+              "slug": "matt-vierling",
+              "tags": [
+                "DFS Watch"
               ]
             }
           ]
@@ -1535,22 +1535,22 @@
             }
           ]
         },
-        "matchup_shape": "Contact Game"
+        "matchup_shape": "Balanced Lineup Game"
       },
       "pitching_read": {
         "away_starter": {
           "summary": "Casey Mize suppresses power, limits contact quality.",
           "stability": "Not enough innings yet to get a clean read.",
           "risk": "Casey Mize keeps the ball in the park well, and limits hard contact.",
-          "matchup_fit": "New York is a tough matchup for Casey Mize \u2014 Ben Rice and Cody Bellinger are the hitters to watch.",
-          "watch": "Watch Ben Rice early \u2014 if Casey Mize falls behind in the count, that's the spot."
+          "matchup_fit": "New York's lineup is hard to read today, so the matchup against Casey Mize is still developing.",
+          "watch": "Watch whether Casey Mize can go deep into the game; that's the key to the middle innings."
         },
         "home_starter": {
           "summary": "Ryan Weathers misses bats.",
           "stability": "Reliable \u2014 likely to give innings and keep the game under control.",
           "risk": "Ryan Weathers can rack up strikeouts to bail himself out of trouble.",
-          "matchup_fit": "Detroit is a tough matchup for Ryan Weathers \u2014 Dillon Dingler and Kevin McGonigle are the hitters to watch.",
-          "watch": "Watch Dillon Dingler early \u2014 if Ryan Weathers falls behind in the count, that's the spot."
+          "matchup_fit": "Detroit's lineup is hard to read today, so the matchup against Ryan Weathers is still developing.",
+          "watch": "Watch whether Ryan Weathers can go deep into the game; that's the key to the middle innings."
         },
         "starter_edge": "Both starters have been steady \u2014 a mistake pitch is the most likely way this game gets decided.",
         "game_pitching_shape": "Strong Pitching Matchup"
@@ -1570,17 +1570,17 @@
         "data_quality": "available"
       },
       "bullpen_read": {
-        "summary": "Detroit has 1 arm(s) already used and 5 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited. New York has 1 arm(s) already used and 4 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited.",
+        "summary": "Detroit has 1 arm(s) already used and 5 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited. New York has 1 arm(s) already used and 3 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited.",
         "away_status": "Detroit has 1 arm(s) already used and 5 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited.",
-        "home_status": "New York has 1 arm(s) already used and 4 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited.",
+        "home_status": "New York has 1 arm(s) already used and 3 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited.",
         "leverage_note": "Both bullpens carry a similar usage profile \u2014 no clear middle-innings edge from bullpen freshness alone.",
         "risk": "Bullpen risk is balanced; starter length is the bigger lever for both sides.",
         "data_quality": "fresh"
       },
       "environment_read": {
-        "summary": "Yankee Stadium is tonight's park. Conditions: 82\u00b0F, Clear, 6 mph NE. Posted run total is 7.5.",
+        "summary": "Yankee Stadium is tonight's park. Conditions: 88\u00b0F, Clear, 7 mph NE. Posted run total is 7.5.",
         "run_environment": "Pitcher Lean",
-        "weather_note": "Conditions: 82\u00b0F, Clear, 6 mph NE.",
+        "weather_note": "Conditions: 88\u00b0F, Clear, 7 mph NE.",
         "park_note": "Yankee Stadium is tonight's park.",
         "odds_note": "Posted run total is 7.5."
       },
@@ -1600,11 +1600,11 @@
           "reason": "Cody Bellinger gets on base and can set up the middle of the order."
         },
         {
-          "name": "Riley Greene",
-          "slug": "riley-greene",
+          "name": "Kevin McGonigle",
+          "slug": "kevin-mcgonigle",
           "team": "DET",
-          "tag": "Power Threat",
-          "reason": "Riley Greene adds a second power threat to Detroit's lineup."
+          "tag": "Middle-Order Power",
+          "reason": "Kevin McGonigle adds another bat who can drive in runs for Detroit."
         },
         {
           "name": "Paul Goldschmidt",
@@ -1631,7 +1631,7 @@
       "fantasy_dfs_watch": [
         "Power Watch: Dillon Dingler (DET) is a home run threat worth tracking for DFS.",
         "DFS On-Base Value: Cody Bellinger (NYY) gets on base enough to help a DFS stack.",
-        "Power Watch: Riley Greene (DET) is a home run threat worth tracking for DFS.",
+        "Power Watch: Kevin McGonigle (DET) is a home run threat worth tracking for DFS.",
         "Power Watch: Paul Goldschmidt (NYY) is a home run threat worth tracking for DFS.",
         "Pitcher Stability: Casey Mize (DET) is worth watching in DFS lineups \u2014 a clean starting-pitching edge tonight.",
         "Pitcher Stability: Ryan Weathers (NYY) is worth watching in DFS lineups \u2014 a clean starting-pitching edge tonight.",
@@ -1642,8 +1642,8 @@
         "Run Environment: This game's posted total leans pitcher-friendly \u2014 worth watching."
       ],
       "data_basis": [
-        "Away: Projected lineup",
-        "Home: Projected lineup",
+        "Away: Confirmed lineup",
+        "Home: Confirmed lineup",
         "Confirmed probables",
         "Bullpen usage available",
         "Weather available",
@@ -1659,13 +1659,13 @@
         "game_shape": "New York at Toronto is a balanced matchup \u2014 both sides have multiple ways to score. Trey Yesavage gives Toronto the stronger starting-pitching edge tonight. The swing factor: if Juan Soto gets a fastball to drive, the inning changes. Controlled environment at Rogers Centre \u2014 no weather to plan around.",
         "pitching_arsenal_read": "Sean Manaea: Four-Seam Fastball (36%, 90.5mph), Sweeper (32%, 32% whiff), Sinker (20%). Trey Yesavage: Four-Seam Fastball (45%, 94.3mph), Split-Finger (30%, 40% whiff), Slider (25%, 36% whiff).",
         "away_lineup_path": "Juan Soto has real home run threat \u2014 a bat that can punish a mistake fastball. Bo Bichette has been better than his results show \u2014 worth watching.",
-        "home_lineup_path": "Jes\u00fas S\u00e1nchez and Kazuma Okamoto are Toronto's main power threats. Vladimir Guerrero Jr. gives Toronto a good chance to put runners on base ahead of the middle of the order. Good matchups against this fastball/breaking pitcher: Vladimir Guerrero Jr..",
-        "bullpen_environment_read": "Toronto has the fresher bullpen. New York is more exposed in the middle innings if its starter does not go deep. Roof status: Dome \u2014 the run environment is controlled regardless of outside conditions. Posted run total is 8.5.",
+        "home_lineup_path": "Kazuma Okamoto is Toronto's main power threat. Vladimir Guerrero Jr. gives Toronto a good chance to put runners on base ahead of the middle of the order. Good matchups against this fastball/breaking pitcher: Vladimir Guerrero Jr..",
+        "bullpen_environment_read": "Toronto has the fresher bullpen. New York is more exposed in the middle innings if its starter does not go deep. Roof status: Dome \u2014 the run environment is controlled regardless of outside conditions. Posted run total is 7.5.",
         "fantasy_dfs_props_watch": [
           "DFS Power: Juan Soto (NYM) \u2014 16.4% barrel rate, genuine home run threat.",
           "DFS On-Base Value: Vladimir Guerrero Jr. (TOR) \u2014 gives Toronto a good chance to put runners on base.",
           "DFS Power: Bo Bichette (NYM) \u2014 power threat worth tracking for DFS stacks.",
-          "DFS Power: Jes\u00fas S\u00e1nchez (TOR) \u2014 power threat worth tracking for DFS stacks.",
+          "DFS Power: Kazuma Okamoto (TOR) \u2014 14.7% barrel rate, genuine home run threat.",
           "Pitcher Risk: Trey Yesavage (TOR) \u2014 inconsistent, check before finalizing pitching picks.",
           "Environment: Controlled venue removes weather as a factor for DFS planning."
         ]
@@ -1881,29 +1881,29 @@
         ],
         "home_lineup_vs_away_starter": [
           {
-            "name": "Brandon Valenzuela",
-            "slug": "brandon-valenzuela",
-            "pos": "C",
+            "name": "George Springer",
+            "slug": "george-springer",
+            "pos": "DH",
             "batting_order": 1,
-            "bats": "S",
-            "grade": "yellow",
-            "label": "Handles Fastball",
-            "reason": "Low whiff rate against fastball pitching \u2014 a strong contact matchup against this pitcher, though not a power edge."
-          },
-          {
-            "name": "Vladimir Guerrero Jr.",
-            "slug": "vladimir-guerrero-jr",
-            "pos": "1B",
-            "batting_order": 2,
             "bats": "R",
             "grade": "yellow",
             "label": "Handles Fastball",
             "reason": "Low whiff rate against fastball pitching \u2014 a strong contact matchup against this pitcher, though not a power edge."
           },
           {
-            "name": "Ernie Clement",
-            "slug": "ernie-clement",
-            "pos": "2B",
+            "name": "Nathan Lukes",
+            "slug": "nathan-lukes",
+            "pos": "RF",
+            "batting_order": 2,
+            "bats": "L",
+            "grade": "gray",
+            "label": "Limited Data",
+            "reason": "Not enough data yet for this matchup."
+          },
+          {
+            "name": "Vladimir Guerrero Jr.",
+            "slug": "vladimir-guerrero-jr",
+            "pos": "1B",
             "batting_order": 3,
             "bats": "R",
             "grade": "yellow",
@@ -1921,54 +1921,54 @@
             "reason": "Tends to chase breaking pitches \u2014 a risky spot against this pitcher."
           },
           {
-            "name": "Andr\u00e9s Gim\u00e9nez",
-            "slug": "andres-gimenez",
+            "name": "Ernie Clement",
+            "slug": "ernie-clement",
             "pos": "SS",
             "batting_order": 5,
-            "bats": "L",
+            "bats": "R",
             "grade": "yellow",
-            "label": "Neutral Matchup",
-            "reason": "No clear edge or risk either way \u2014 a neutral matchup."
+            "label": "Handles Fastball",
+            "reason": "Low whiff rate against fastball pitching \u2014 a strong contact matchup against this pitcher, though not a power edge."
+          },
+          {
+            "name": "Brandon Valenzuela",
+            "slug": "brandon-valenzuela",
+            "pos": "C",
+            "batting_order": 6,
+            "bats": "S",
+            "grade": "yellow",
+            "label": "Handles Fastball",
+            "reason": "Low whiff rate against fastball pitching \u2014 a strong contact matchup against this pitcher, though not a power edge."
+          },
+          {
+            "name": "Luis Ur\u00edas",
+            "slug": "",
+            "pos": "2B",
+            "batting_order": 7,
+            "bats": "",
+            "grade": "gray",
+            "label": "Limited Data",
+            "reason": "Not enough data yet for this matchup."
           },
           {
             "name": "Yohendrick Pi\u00f1ango",
             "slug": "yohendrick-pinango",
             "pos": "LF",
-            "batting_order": 6,
-            "bats": "L",
-            "grade": "yellow",
-            "label": "Handles Fastball",
-            "reason": "Low whiff rate against fastball pitching \u2014 a strong contact matchup against this pitcher, though not a power edge."
-          },
-          {
-            "name": "Daulton Varsho",
-            "slug": "daulton-varsho",
-            "pos": "CF",
-            "batting_order": 7,
-            "bats": "L",
-            "grade": "yellow",
-            "label": "Handles Fastball",
-            "reason": "Low whiff rate against fastball pitching \u2014 a strong contact matchup against this pitcher, though not a power edge."
-          },
-          {
-            "name": "Jes\u00fas S\u00e1nchez",
-            "slug": "jesus-sanchez",
-            "pos": "RF",
             "batting_order": 8,
             "bats": "L",
             "grade": "yellow",
-            "label": "Hard Contact",
-            "reason": "Limited pitch-type data, but he hits the ball hard consistently."
-          },
-          {
-            "name": "George Springer",
-            "slug": "george-springer",
-            "pos": "DH",
-            "batting_order": 9,
-            "bats": "R",
-            "grade": "yellow",
             "label": "Handles Fastball",
             "reason": "Low whiff rate against fastball pitching \u2014 a strong contact matchup against this pitcher, though not a power edge."
+          },
+          {
+            "name": "Myles Straw",
+            "slug": "myles-straw",
+            "pos": "CF",
+            "batting_order": 9,
+            "bats": "R",
+            "grade": "gray",
+            "label": "Limited Data",
+            "reason": "Not enough data yet for this matchup."
           }
         ],
         "board_summary": "Both lineups show similar pitch-type matchup grades against today's starters."
@@ -2007,7 +2007,7 @@
         },
         "home": {
           "summary": "Toronto has both power and on-base threats \u2014 a lineup that can win this game more than one way.",
-          "power_pressure": "Jes\u00fas S\u00e1nchez and Kazuma Okamoto can change the game with one swing.",
+          "power_pressure": "Kazuma Okamoto can change the game with one swing.",
           "contact_pressure": "Vladimir Guerrero Jr. get on base and can set up the middle of the order.",
           "traffic_path": "Toronto is more likely to score by putting runners on base than by hitting home runs.",
           "risk": "No real red flags in this lineup right now.",
@@ -2017,13 +2017,6 @@
               "slug": "vladimir-guerrero-jr",
               "tags": [
                 "Gets On Base"
-              ]
-            },
-            {
-              "name": "Jes\u00fas S\u00e1nchez",
-              "slug": "jesus-sanchez",
-              "tags": [
-                "Power Threat"
               ]
             },
             {
@@ -2042,8 +2035,8 @@
           "summary": "Sean Manaea carries power risk.",
           "stability": "Not enough innings yet to get a clean read.",
           "risk": "Sean Manaea can give up home runs if he leaves a pitch up.",
-          "matchup_fit": "Toronto is a tough matchup for Sean Manaea \u2014 Vladimir Guerrero Jr. and Kazuma Okamoto are the hitters to watch.",
-          "watch": "Watch Vladimir Guerrero Jr. early \u2014 if Sean Manaea falls behind in the count, that's the spot."
+          "matchup_fit": "Toronto's lineup is hard to read today, so the matchup against Sean Manaea is still developing.",
+          "watch": "Watch whether Sean Manaea can go deep into the game; that's the key to the middle innings."
         },
         "home_starter": {
           "summary": "Trey Yesavage has been volatile.",
@@ -2086,8 +2079,8 @@
         "data_quality": "available"
       },
       "bullpen_read": {
-        "summary": "New York has 5 arm(s) already used and 3 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited. Toronto has 2 arm(s) already used and 4 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited.",
-        "away_status": "New York has 5 arm(s) already used and 3 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited.",
+        "summary": "New York has 5 arm(s) already used and 2 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited. Toronto has 2 arm(s) already used and 4 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited.",
+        "away_status": "New York has 5 arm(s) already used and 2 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited.",
         "home_status": "Toronto has 2 arm(s) already used and 4 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited.",
         "leverage_note": "Toronto has the fresher bullpen. New York is more exposed in the middle innings if its starter does not go deep.",
         "risk": "Bullpen stress risk leans toward New York if the game gets into traffic early.",
@@ -2098,7 +2091,7 @@
         "run_environment": "Dome/Controlled",
         "weather_note": "Roof status: Dome \u2014 the run environment is controlled regardless of outside conditions.",
         "park_note": "Rogers Centre is tonight's park.",
-        "odds_note": "Posted run total is 8.5."
+        "odds_note": "Posted run total is 7.5."
       },
       "players_who_tilt_game": [
         {
@@ -2123,11 +2116,11 @@
           "reason": "Bo Bichette adds another bat who can drive in runs for New York."
         },
         {
-          "name": "Jes\u00fas S\u00e1nchez",
-          "slug": "jesus-sanchez",
+          "name": "Kazuma Okamoto",
+          "slug": "kazuma-okamoto",
           "team": "TOR",
           "tag": "Power Threat",
-          "reason": "Jes\u00fas S\u00e1nchez adds a second power threat to Toronto's lineup."
+          "reason": "Kazuma Okamoto adds a second power threat to Toronto's lineup."
         },
         {
           "name": "Trey Yesavage",
@@ -2141,7 +2134,7 @@
         "Power Watch: Juan Soto (NYM) is a home run threat worth tracking for DFS.",
         "DFS On-Base Value: Vladimir Guerrero Jr. (TOR) gets on base enough to help a DFS stack.",
         "Power Watch: Bo Bichette (NYM) is a home run threat worth tracking for DFS.",
-        "Power Watch: Jes\u00fas S\u00e1nchez (TOR) is a home run threat worth tracking for DFS.",
+        "Power Watch: Kazuma Okamoto (TOR) is a home run threat worth tracking for DFS.",
         "Pitcher Risk: Trey Yesavage (TOR) has been inconsistent \u2014 worth checking before finalizing pitching picks.",
         "Bullpen Exposure: Toronto has the fresher bullpen. New York is more exposed in the middle innings if its starter does not go deep.",
         "Run Environment: Controlled environment removes weather as a factor for DFS planning."
@@ -2151,7 +2144,7 @@
       ],
       "data_basis": [
         "Away: Projected lineup",
-        "Home: Projected lineup",
+        "Home: Confirmed lineup",
         "Confirmed probables",
         "Bullpen usage available",
         "Weather available",
@@ -2164,16 +2157,17 @@
       "game_id": "824741",
       "game_read": "Washington at Boston is a good power matchup \u2014 one mistake pitch can leave the yard. Ranger Suarez gives Boston the stronger starting-pitching edge tonight. If Washington gets into the middle innings with a lead, James Wood is one of the bats that can add on.",
       "game_report": {
-        "game_shape": "Washington at Boston is a good power matchup \u2014 one mistake pitch from either starter can leave the yard. Ranger Suarez gives Boston the stronger starting-pitching edge tonight. The swing factor: if James Wood gets a fastball to drive, the inning changes.",
+        "game_shape": "Washington at Boston is a good power matchup \u2014 one mistake pitch from either starter can leave the yard. Ranger Suarez gives Boston the stronger starting-pitching edge tonight. The swing factor: if James Wood gets a fastball to drive, the inning changes. The posted total leans hitter-friendly.",
         "pitching_arsenal_read": "Miles Mikolas: Sinker (26%, 92.9mph), Four-Seam Fastball (25%), Slider (20%), Curveball (14%). Ranger Suarez: Sinker (25%, 90.5mph), Four-Seam Fastball (22%), Cutter (20%), Curveball (16%, 43% whiff).",
         "away_lineup_path": "James Wood has real home run threat \u2014 a bat that can punish a mistake fastball. Curtis Mead gives Washington a good chance to put runners on base ahead of the middle of the order. Good matchups against this fastball/breaking pitcher: James Wood and Curtis Mead.",
         "home_lineup_path": "Willson Contreras is Boston's main power threat.",
-        "bullpen_environment_read": "Washington has the fresher bullpen. Boston is more exposed in the middle innings if its starter does not go deep. Conditions: 75\u00b0F, Clear, 10 mph E. Posted run total is 8.5.",
+        "bullpen_environment_read": "Washington has the fresher bullpen. Boston is more exposed in the middle innings if its starter does not go deep. Conditions: 73\u00b0F, Clear, 10 mph ENE. Posted run total is 9.5.",
         "fantasy_dfs_props_watch": [
           "DFS Power: James Wood (WSH) \u2014 25.3% barrel rate, genuine home run threat.",
           "DFS Power: Willson Contreras (BOS) \u2014 14.9% barrel rate, genuine home run threat.",
           "DFS Power: Curtis Mead (WSH) \u2014 power threat worth tracking for DFS stacks.",
-          "Pitcher Pick: Ranger Suarez (BOS) \u2014 clean starting-pitching edge, worth watching in DFS lineups."
+          "Pitcher Pick: Ranger Suarez (BOS) \u2014 clean starting-pitching edge, worth watching in DFS lineups.",
+          "Environment: Hitter-friendly total \u2014 worth tracking for DFS stacks."
         ]
       },
       "matchup_board": {
@@ -2319,162 +2313,112 @@
         },
         "away_lineup_vs_home_starter": [
           {
-            "name": "Drew Millas",
-            "slug": "drew-millas",
-            "pos": "C",
-            "batting_order": 1,
-            "bats": "S",
-            "grade": "yellow",
-            "label": "Handles Fastball",
-            "reason": "Low whiff rate against fastball pitching \u2014 a strong contact matchup against this pitcher, though not a power edge."
-          },
-          {
-            "name": "Curtis Mead",
-            "slug": "curtis-mead",
-            "pos": "1B",
-            "batting_order": 2,
-            "bats": "R",
-            "grade": "green",
-            "label": "Fastball Power",
-            "reason": "11% barrel rate \u2014 a good power matchup against fastball pitching."
-          },
-          {
-            "name": "Nasim Nu\u00f1ez",
-            "slug": "nasim-nunez",
-            "pos": "2B",
-            "batting_order": 3,
-            "bats": "S",
-            "grade": "yellow",
-            "label": "Handles Fastball",
-            "reason": "Low whiff rate against fastball pitching \u2014 a strong contact matchup against this pitcher, though not a power edge."
-          },
-          {
-            "name": "Jorbit Vivas",
-            "slug": "jorbit-vivas",
-            "pos": "3B",
-            "batting_order": 4,
-            "bats": "L",
-            "grade": "yellow",
-            "label": "Handles Fastball",
-            "reason": "Low whiff rate against fastball pitching \u2014 a strong contact matchup against this pitcher, though not a power edge."
-          },
-          {
-            "name": "CJ Abrams",
-            "slug": "cj-abrams",
-            "pos": "SS",
-            "batting_order": 5,
-            "bats": "L",
-            "grade": "yellow",
-            "label": "Neutral Matchup",
-            "reason": "No clear edge or risk either way \u2014 a neutral matchup."
-          },
-          {
-            "name": "Daylen Lile",
-            "slug": "daylen-lile",
-            "pos": "LF",
-            "batting_order": 6,
-            "bats": "L",
-            "grade": "yellow",
-            "label": "Neutral Matchup",
-            "reason": "No clear edge or risk either way \u2014 a neutral matchup."
-          },
-          {
-            "name": "Jacob Young",
-            "slug": "jacob-young",
-            "pos": "CF",
-            "batting_order": 7,
-            "bats": "R",
-            "grade": "yellow",
-            "label": "Handles Fastball",
-            "reason": "Low whiff rate against fastball pitching \u2014 a strong contact matchup against this pitcher, though not a power edge."
-          },
-          {
             "name": "James Wood",
             "slug": "james-wood",
-            "pos": "RF",
-            "batting_order": 8,
+            "pos": "LF",
+            "batting_order": 1,
             "bats": "L",
             "grade": "green",
             "label": "Fastball Power",
             "reason": "25% barrel rate \u2014 a good power matchup against fastball pitching."
           },
           {
-            "name": "Jos\u00e9 Tena",
-            "slug": "jose-tena",
+            "name": "Andr\u00e9s Chaparro",
+            "slug": "andres-chaparro",
             "pos": "DH",
-            "batting_order": 9,
+            "batting_order": 2,
+            "bats": "R",
+            "grade": "gray",
+            "label": "Limited Data",
+            "reason": "Not enough data yet for this matchup."
+          },
+          {
+            "name": "Curtis Mead",
+            "slug": "curtis-mead",
+            "pos": "3B",
+            "batting_order": 3,
+            "bats": "R",
+            "grade": "green",
+            "label": "Fastball Power",
+            "reason": "11% barrel rate \u2014 a good power matchup against fastball pitching."
+          },
+          {
+            "name": "CJ Abrams",
+            "slug": "cj-abrams",
+            "pos": "SS",
+            "batting_order": 4,
             "bats": "L",
             "grade": "yellow",
             "label": "Neutral Matchup",
             "reason": "No clear edge or risk either way \u2014 a neutral matchup."
+          },
+          {
+            "name": "Dylan Crews",
+            "slug": "dylan-crews",
+            "pos": "RF",
+            "batting_order": 5,
+            "bats": "R",
+            "grade": "gray",
+            "label": "Limited Data",
+            "reason": "Not enough data yet for this matchup."
+          },
+          {
+            "name": "Jacob Young",
+            "slug": "jacob-young",
+            "pos": "CF",
+            "batting_order": 6,
+            "bats": "R",
+            "grade": "yellow",
+            "label": "Handles Fastball",
+            "reason": "Low whiff rate against fastball pitching \u2014 a strong contact matchup against this pitcher, though not a power edge."
+          },
+          {
+            "name": "Luis Garc\u00eda Jr.",
+            "slug": "luis-garcia-jr",
+            "pos": "1B",
+            "batting_order": 7,
+            "bats": "L",
+            "grade": "yellow",
+            "label": "Hard Contact",
+            "reason": "Limited pitch-type data, but he hits the ball hard consistently."
+          },
+          {
+            "name": "Nasim Nu\u00f1ez",
+            "slug": "nasim-nunez",
+            "pos": "2B",
+            "batting_order": 8,
+            "bats": "S",
+            "grade": "yellow",
+            "label": "Handles Fastball",
+            "reason": "Low whiff rate against fastball pitching \u2014 a strong contact matchup against this pitcher, though not a power edge."
+          },
+          {
+            "name": "Keibert Ruiz",
+            "slug": "keibert-ruiz",
+            "pos": "C",
+            "batting_order": 9,
+            "bats": "S",
+            "grade": "gray",
+            "label": "Limited Data",
+            "reason": "Not enough data yet for this matchup."
           }
         ],
         "home_lineup_vs_away_starter": [
           {
-            "name": "Carlos Narv\u00e1ez",
-            "slug": "carlos-narvaez",
-            "pos": "C",
+            "name": "Masataka Yoshida",
+            "slug": "masataka-yoshida",
+            "pos": "DH",
             "batting_order": 1,
-            "bats": "R",
-            "grade": "red",
-            "label": "Breaking-Ball Risk",
-            "reason": "Tends to chase breaking pitches \u2014 a risky spot against this pitcher."
-          },
-          {
-            "name": "Willson Contreras",
-            "slug": "willson-contreras",
-            "pos": "1B",
-            "batting_order": 2,
-            "bats": "R",
-            "grade": "red",
-            "label": "Breaking-Ball Risk",
-            "reason": "Tends to chase breaking pitches \u2014 a risky spot against this pitcher."
-          },
-          {
-            "name": "Marcelo Mayer",
-            "slug": "marcelo-mayer",
-            "pos": "2B",
-            "batting_order": 3,
             "bats": "L",
             "grade": "yellow",
             "label": "Handles Fastball",
             "reason": "Low whiff rate against fastball pitching \u2014 a strong contact matchup against this pitcher, though not a power edge."
-          },
-          {
-            "name": "Caleb Durbin",
-            "slug": "caleb-durbin",
-            "pos": "3B",
-            "batting_order": 4,
-            "bats": "R",
-            "grade": "yellow",
-            "label": "Handles Fastball",
-            "reason": "Low whiff rate against fastball pitching \u2014 a strong contact matchup against this pitcher, though not a power edge."
-          },
-          {
-            "name": "Andruw Monasterio",
-            "slug": "andruw-monasterio",
-            "pos": "SS",
-            "batting_order": 5,
-            "bats": "R",
-            "grade": "yellow",
-            "label": "Handles Fastball",
-            "reason": "Low whiff rate against fastball pitching \u2014 a strong contact matchup against this pitcher, though not a power edge."
-          },
-          {
-            "name": "Jarren Duran",
-            "slug": "jarren-duran",
-            "pos": "LF",
-            "batting_order": 6,
-            "bats": "L",
-            "grade": "red",
-            "label": "Breaking-Ball Risk",
-            "reason": "Tends to chase breaking pitches \u2014 a risky spot against this pitcher."
           },
           {
             "name": "Ceddanne Rafaela",
             "slug": "ceddanne-rafaela",
             "pos": "CF",
-            "batting_order": 7,
+            "batting_order": 2,
             "bats": "R",
             "grade": "yellow",
             "label": "Neutral Matchup",
@@ -2484,21 +2428,71 @@
             "name": "Wilyer Abreu",
             "slug": "wilyer-abreu",
             "pos": "RF",
-            "batting_order": 8,
+            "batting_order": 3,
             "bats": "L",
             "grade": "green",
             "label": "Fastball Power",
             "reason": "12% barrel rate \u2014 a good power matchup against fastball pitching."
           },
           {
-            "name": "Masataka Yoshida",
-            "slug": "masataka-yoshida",
-            "pos": "DH",
-            "batting_order": 9,
+            "name": "Willson Contreras",
+            "slug": "willson-contreras",
+            "pos": "1B",
+            "batting_order": 4,
+            "bats": "R",
+            "grade": "red",
+            "label": "Breaking-Ball Risk",
+            "reason": "Tends to chase breaking pitches \u2014 a risky spot against this pitcher."
+          },
+          {
+            "name": "Jarren Duran",
+            "slug": "jarren-duran",
+            "pos": "LF",
+            "batting_order": 5,
             "bats": "L",
+            "grade": "red",
+            "label": "Breaking-Ball Risk",
+            "reason": "Tends to chase breaking pitches \u2014 a risky spot against this pitcher."
+          },
+          {
+            "name": "Caleb Durbin",
+            "slug": "caleb-durbin",
+            "pos": "3B",
+            "batting_order": 6,
+            "bats": "R",
             "grade": "yellow",
             "label": "Handles Fastball",
             "reason": "Low whiff rate against fastball pitching \u2014 a strong contact matchup against this pitcher, though not a power edge."
+          },
+          {
+            "name": "Anthony Seigler",
+            "slug": "anthony-seigler",
+            "pos": "2B",
+            "batting_order": 7,
+            "bats": "L",
+            "grade": "gray",
+            "label": "Limited Data",
+            "reason": "Not enough data yet for this matchup."
+          },
+          {
+            "name": "Carlos Narv\u00e1ez",
+            "slug": "carlos-narvaez",
+            "pos": "C",
+            "batting_order": 8,
+            "bats": "R",
+            "grade": "red",
+            "label": "Breaking-Ball Risk",
+            "reason": "Tends to chase breaking pitches \u2014 a risky spot against this pitcher."
+          },
+          {
+            "name": "Tsung-Che Cheng",
+            "slug": "",
+            "pos": "SS",
+            "batting_order": 9,
+            "bats": "",
+            "grade": "gray",
+            "label": "Limited Data",
+            "reason": "Not enough data yet for this matchup."
           }
         ],
         "board_summary": "Washington's lineup has more favorable pitch-type matchups (2 green grades vs 1)."
@@ -2551,15 +2545,15 @@
           "summary": "Miles Mikolas low strikeout ceiling, carries power risk.",
           "stability": "Not enough innings yet to get a clean read.",
           "risk": "Miles Mikolas can give up home runs if he leaves a pitch up.",
-          "matchup_fit": "Boston is a tough matchup for Miles Mikolas \u2014 Willson Contreras is the hitter to watch.",
-          "watch": "Watch Willson Contreras early \u2014 if Miles Mikolas falls behind in the count, that's the spot."
+          "matchup_fit": "Boston's lineup is hard to read today, so the matchup against Miles Mikolas is still developing.",
+          "watch": "Watch whether Miles Mikolas can go deep into the game; that's the key to the middle innings."
         },
         "home_starter": {
           "summary": "Ranger Suarez is a small-sample read today.",
           "stability": "Reliable \u2014 likely to give innings and keep the game under control.",
           "risk": "Ranger Suarez does not have enough of a track record yet for a clear risk read.",
-          "matchup_fit": "Washington is a tough matchup for Ranger Suarez \u2014 Curtis Mead and James Wood are the hitters to watch.",
-          "watch": "Watch Curtis Mead early \u2014 if Ranger Suarez falls behind in the count, that's the spot."
+          "matchup_fit": "Washington's lineup is hard to read today, so the matchup against Ranger Suarez is still developing.",
+          "watch": "Watch whether Ranger Suarez can go deep into the game; that's the key to the middle innings."
         },
         "starter_edge": "Ranger Suarez gives Boston the stronger starting-pitching edge tonight.",
         "game_pitching_shape": "Starter Edge"
@@ -2616,19 +2610,19 @@
         "data_quality": "available"
       },
       "bullpen_read": {
-        "summary": "Washington has 1 arm(s) already used and 3 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited. Boston has 2 arm(s) already used and 3 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited.",
-        "away_status": "Washington has 1 arm(s) already used and 3 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited.",
+        "summary": "Washington has 1 arm(s) already used and 2 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited. Boston has 2 arm(s) already used and 3 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited.",
+        "away_status": "Washington has 1 arm(s) already used and 2 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited.",
         "home_status": "Boston has 2 arm(s) already used and 3 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited.",
         "leverage_note": "Washington has the fresher bullpen. Boston is more exposed in the middle innings if its starter does not go deep.",
         "risk": "Bullpen stress risk leans toward Boston if the game gets into traffic early.",
         "data_quality": "fresh"
       },
       "environment_read": {
-        "summary": "Fenway Park is tonight's park. Conditions: 75\u00b0F, Clear, 10 mph E. Posted run total is 8.5.",
-        "run_environment": "Neutral",
-        "weather_note": "Conditions: 75\u00b0F, Clear, 10 mph E.",
+        "summary": "Fenway Park is tonight's park. Conditions: 73\u00b0F, Clear, 10 mph ENE. Posted run total is 9.5.",
+        "run_environment": "Hitter Lean",
+        "weather_note": "Conditions: 73\u00b0F, Clear, 10 mph ENE.",
         "park_note": "Fenway Park is tonight's park.",
-        "odds_note": "Posted run total is 8.5."
+        "odds_note": "Posted run total is 9.5."
       },
       "players_who_tilt_game": [
         {
@@ -2665,14 +2659,16 @@
         "Power Watch: Willson Contreras (BOS) is a home run threat worth tracking for DFS.",
         "Power Watch: Curtis Mead (WSH) is a home run threat worth tracking for DFS.",
         "Pitcher Stability: Ranger Suarez (BOS) is worth watching in DFS lineups \u2014 a clean starting-pitching edge tonight.",
-        "Bullpen Exposure: Washington has the fresher bullpen. Boston is more exposed in the middle innings if its starter does not go deep."
+        "Bullpen Exposure: Washington has the fresher bullpen. Boston is more exposed in the middle innings if its starter does not go deep.",
+        "Run Environment: Posted total leans hitter-friendly \u2014 worth tracking for DFS stacks."
       ],
       "betting_props_watch": [
-        "Power Watch: Miles Mikolas can give up home runs \u2014 Boston's home run props are worth watching."
+        "Power Watch: Miles Mikolas can give up home runs \u2014 Boston's home run props are worth watching.",
+        "Run Environment: This game's posted total leans hitter-friendly \u2014 worth checking against the live line."
       ],
       "data_basis": [
-        "Away: Projected lineup",
-        "Home: Projected lineup",
+        "Away: Confirmed lineup",
+        "Home: Confirmed lineup",
         "Confirmed probables",
         "Bullpen usage available",
         "Weather available",
@@ -2683,16 +2679,15 @@
       "away_team": "TEX",
       "home_team": "CLE",
       "game_id": "824420",
-      "game_read": "Texas at Cleveland is more likely to be decided by rallies than solo home runs. Parker Messick gives Cleveland the stronger starting-pitching edge tonight. If Texas gets into the middle innings with a lead, Corey Seager is one of the bats that can add on.",
+      "game_read": "Texas at Cleveland is a balanced matchup \u2014 both sides can win this more than one way. Parker Messick gives Cleveland the stronger starting-pitching edge tonight. If Texas gets into the middle innings with a lead, Corey Seager is one of the bats that can add on.",
       "game_report": {
-        "game_shape": "Texas and Cleveland are more likely to score by extending innings than by relying on solo home runs. Parker Messick gives Cleveland the stronger starting-pitching edge tonight. The swing factor: if Corey Seager gets a fastball to drive, the inning changes.",
+        "game_shape": "Texas at Cleveland is a balanced matchup \u2014 both sides have multiple ways to score. Parker Messick gives Cleveland the stronger starting-pitching edge tonight. The swing factor: if Corey Seager gets a fastball to drive, the inning changes.",
         "pitching_arsenal_read": "Tyler Alexander: Changeup (26%, 84.4mph), Cutter (24%), Sinker (22%), Sweeper (17%). Parker Messick: Four-Seam Fastball (31%, 93.9mph), Changeup (25%, 38% whiff), Sinker (18%), Curveball (11%).",
         "away_lineup_path": "Corey Seager is Texas's main power threat. Josh Jung gives Texas a good chance to put runners on base ahead of the middle of the order. Good matchups against this fastball/offspeed pitcher: Brandon Nimmo and Josh Jung. Brandon Nimmo has been better than his results show \u2014 worth watching.",
-        "home_lineup_path": "Cleveland does not have a clear home run threat today. Jos\u00e9 Ram\u00edrez gives Cleveland a good chance to put runners on base ahead of the middle of the order.",
-        "bullpen_environment_read": "Cleveland has the fresher bullpen. Texas is more exposed in the middle innings if its starter does not go deep. Conditions: 84\u00b0F, Mostly Cloudy, 7 mph SSW. Posted run total is 7.5.",
+        "home_lineup_path": "Cleveland does not have a standout name in today's lineup.",
+        "bullpen_environment_read": "Cleveland has the fresher bullpen. Texas is more exposed in the middle innings if its starter does not go deep. Conditions: 88\u00b0F, Mostly Cloudy, 10 mph N. Posted run total is 7.5.",
         "fantasy_dfs_props_watch": [
           "Buy-Low: Brandon Nimmo (TEX) \u2014 has been better than his results show.",
-          "DFS On-Base Value: Jos\u00e9 Ram\u00edrez (CLE) \u2014 gives Cleveland a good chance to put runners on base.",
           "DFS Power: Corey Seager (TEX) \u2014 15.2% barrel rate, genuine home run threat.",
           "Pitcher Risk: Tyler Alexander (TEX) \u2014 inconsistent, check before finalizing pitching picks.",
           "Pitcher Pick: Parker Messick (CLE) \u2014 clean starting-pitching edge, worth watching in DFS lineups.",
@@ -2934,29 +2929,29 @@
         ],
         "home_lineup_vs_away_starter": [
           {
-            "name": "Austin Hedges",
-            "slug": "austin-hedges",
-            "pos": "C",
-            "batting_order": 1,
-            "bats": "R",
-            "grade": "red",
-            "label": "Offspeed Risk",
-            "reason": "Tends to chase offspeed pitches \u2014 a risky spot against this pitcher."
-          },
-          {
-            "name": "Rhys Hoskins",
-            "slug": "rhys-hoskins",
-            "pos": "1B",
-            "batting_order": 2,
-            "bats": "R",
-            "grade": "red",
-            "label": "Offspeed Risk",
-            "reason": "Tends to chase offspeed pitches \u2014 a risky spot against this pitcher."
-          },
-          {
             "name": "Travis Bazzana",
             "slug": "travis-bazzana",
             "pos": "2B",
+            "batting_order": 1,
+            "bats": "L",
+            "grade": "yellow",
+            "label": "Handles Fastball",
+            "reason": "Low whiff rate against fastball pitching \u2014 a strong contact matchup against this pitcher, though not a power edge."
+          },
+          {
+            "name": "Brayan Rocchio",
+            "slug": "brayan-rocchio",
+            "pos": "SS",
+            "batting_order": 2,
+            "bats": "S",
+            "grade": "yellow",
+            "label": "Handles Fastball",
+            "reason": "Low whiff rate against fastball pitching \u2014 a strong contact matchup against this pitcher, though not a power edge."
+          },
+          {
+            "name": "Chase DeLauter",
+            "slug": "chase-delauter",
+            "pos": "DH",
             "batting_order": 3,
             "bats": "L",
             "grade": "yellow",
@@ -2964,34 +2959,34 @@
             "reason": "Low whiff rate against fastball pitching \u2014 a strong contact matchup against this pitcher, though not a power edge."
           },
           {
-            "name": "Jos\u00e9 Ram\u00edrez",
-            "slug": "jose-ramirez",
-            "pos": "3B",
+            "name": "Rhys Hoskins",
+            "slug": "rhys-hoskins",
+            "pos": "1B",
             "batting_order": 4,
-            "bats": "S",
-            "grade": "yellow",
-            "label": "Hard Contact",
-            "reason": "Limited pitch-type data, but he hits the ball hard consistently."
+            "bats": "R",
+            "grade": "red",
+            "label": "Offspeed Risk",
+            "reason": "Tends to chase offspeed pitches \u2014 a risky spot against this pitcher."
           },
           {
-            "name": "Brayan Rocchio",
-            "slug": "brayan-rocchio",
-            "pos": "SS",
+            "name": "Kahlil Watson",
+            "slug": "",
+            "pos": "RF",
             "batting_order": 5,
-            "bats": "S",
-            "grade": "yellow",
-            "label": "Handles Fastball",
-            "reason": "Low whiff rate against fastball pitching \u2014 a strong contact matchup against this pitcher, though not a power edge."
+            "bats": "",
+            "grade": "gray",
+            "label": "Limited Data",
+            "reason": "Not enough data yet for this matchup."
           },
           {
-            "name": "Angel Mart\u00ednez",
-            "slug": "angel-martinez",
+            "name": "David Fry",
+            "slug": "david-fry",
             "pos": "LF",
             "batting_order": 6,
-            "bats": "S",
-            "grade": "yellow",
-            "label": "Handles Fastball",
-            "reason": "Low whiff rate against fastball pitching \u2014 a strong contact matchup against this pitcher, though not a power edge."
+            "bats": "R",
+            "grade": "gray",
+            "label": "Limited Data",
+            "reason": "Not enough data yet for this matchup."
           },
           {
             "name": "Steven Kwan",
@@ -3004,24 +2999,24 @@
             "reason": "Low whiff rate against fastball pitching \u2014 a strong contact matchup against this pitcher, though not a power edge."
           },
           {
-            "name": "Chase DeLauter",
-            "slug": "chase-delauter",
-            "pos": "RF",
+            "name": "Gabriel Arias",
+            "slug": "gabriel-arias",
+            "pos": "3B",
             "batting_order": 8,
-            "bats": "L",
-            "grade": "yellow",
-            "label": "Handles Fastball",
-            "reason": "Low whiff rate against fastball pitching \u2014 a strong contact matchup against this pitcher, though not a power edge."
+            "bats": null,
+            "grade": "gray",
+            "label": "Limited Data",
+            "reason": "Not enough data yet for this matchup."
           },
           {
-            "name": "Kyle Manzardo",
-            "slug": "kyle-manzardo",
-            "pos": "1B",
+            "name": "Austin Hedges",
+            "slug": "austin-hedges",
+            "pos": "C",
             "batting_order": 9,
-            "bats": "L",
-            "grade": "yellow",
-            "label": "Neutral Matchup",
-            "reason": "No clear edge or risk either way \u2014 a neutral matchup."
+            "bats": "R",
+            "grade": "red",
+            "label": "Offspeed Risk",
+            "reason": "Tends to chase offspeed pitches \u2014 a risky spot against this pitcher."
           }
         ],
         "board_summary": "Texas's lineup has more favorable pitch-type matchups (1 green grades vs 0)."
@@ -3059,30 +3054,22 @@
           ]
         },
         "home": {
-          "summary": "Cleveland leans on getting on base rather than the long ball.",
-          "power_pressure": "Cleveland does not have a standout power threat today.",
-          "contact_pressure": "Jos\u00e9 Ram\u00edrez get on base and can set up the middle of the order.",
-          "traffic_path": "Cleveland is more likely to score by putting runners on base than by hitting home runs.",
-          "risk": "No real red flags in this lineup right now.",
-          "key_bats": [
-            {
-              "name": "Jos\u00e9 Ram\u00edrez",
-              "slug": "jose-ramirez",
-              "tags": [
-                "Gets On Base"
-              ]
-            }
-          ]
+          "summary": "Cleveland's lineup does not have a standout name today.",
+          "power_pressure": "No clear data yet.",
+          "contact_pressure": "No clear data yet.",
+          "traffic_path": "No clear data yet.",
+          "risk": "No clear data yet.",
+          "key_bats": []
         },
-        "matchup_shape": "Contact Game"
+        "matchup_shape": "Balanced Lineup Game"
       },
       "pitching_read": {
         "away_starter": {
           "summary": "Tyler Alexander has been volatile.",
           "stability": "Inconsistent \u2014 this start can get away from him early.",
           "risk": "Tyler Alexander does not have enough of a track record yet for a clear risk read.",
-          "matchup_fit": "Cleveland is a tough matchup for Tyler Alexander \u2014 Jos\u00e9 Ram\u00edrez is the hitter to watch.",
-          "watch": "Watch Jos\u00e9 Ram\u00edrez early \u2014 if Tyler Alexander falls behind in the count, that's the spot."
+          "matchup_fit": "Cleveland's lineup is hard to read today, so the matchup against Tyler Alexander is still developing.",
+          "watch": "Watch Tyler Alexander's pitch count \u2014 a rough start could put pressure on the bullpen by the fifth."
         },
         "home_starter": {
           "summary": "Parker Messick suppresses power, limits contact quality.",
@@ -3140,9 +3127,9 @@
         "data_quality": "fresh"
       },
       "environment_read": {
-        "summary": "Progressive Field is tonight's park. Conditions: 84\u00b0F, Mostly Cloudy, 7 mph SSW. Posted run total is 7.5.",
+        "summary": "Progressive Field is tonight's park. Conditions: 88\u00b0F, Mostly Cloudy, 10 mph N. Posted run total is 7.5.",
         "run_environment": "Pitcher Lean",
-        "weather_note": "Conditions: 84\u00b0F, Mostly Cloudy, 7 mph SSW.",
+        "weather_note": "Conditions: 88\u00b0F, Mostly Cloudy, 10 mph N.",
         "park_note": "Progressive Field is tonight's park.",
         "odds_note": "Posted run total is 7.5."
       },
@@ -3153,13 +3140,6 @@
           "team": "TEX",
           "tag": "Buy-Low Signal",
           "reason": "Brandon Nimmo has been better than his results show \u2014 worth watching."
-        },
-        {
-          "name": "Jos\u00e9 Ram\u00edrez",
-          "slug": "jose-ramirez",
-          "team": "CLE",
-          "tag": "Gets On Base",
-          "reason": "Jos\u00e9 Ram\u00edrez gets on base and can set up the middle of the order."
         },
         {
           "name": "Corey Seager",
@@ -3185,7 +3165,6 @@
       ],
       "fantasy_dfs_watch": [
         "Buy-Low Watch: Brandon Nimmo (TEX) has been better than his results show \u2014 worth watching.",
-        "DFS On-Base Value: Jos\u00e9 Ram\u00edrez (CLE) gets on base enough to help a DFS stack.",
         "Power Watch: Corey Seager (TEX) is a home run threat worth tracking for DFS.",
         "Pitcher Risk: Tyler Alexander (TEX) has been inconsistent \u2014 worth checking before finalizing pitching picks.",
         "Pitcher Stability: Parker Messick (CLE) is worth watching in DFS lineups \u2014 a clean starting-pitching edge tonight.",
@@ -3197,7 +3176,7 @@
       ],
       "data_basis": [
         "Away: Projected lineup",
-        "Home: Projected lineup",
+        "Home: Confirmed lineup",
         "Confirmed probables",
         "Bullpen usage available",
         "Weather available",
@@ -3208,13 +3187,13 @@
       "away_team": "CIN",
       "home_team": "MIL",
       "game_id": "823771",
-      "game_read": "Cincinnati at Milwaukee is a balanced matchup \u2014 both sides can win this more than one way. Neither starter has a clear edge, so bullpen usage matters more in this one. If Cincinnati gets into the middle innings with a lead, JJ Bleday is one of the bats that can add on.",
+      "game_read": "Cincinnati at Milwaukee is a good power matchup \u2014 one mistake pitch can leave the yard. Neither starter has a clear edge, so bullpen usage matters more in this one. If Cincinnati gets into the middle innings with a lead, JJ Bleday is one of the bats that can add on.",
       "game_report": {
-        "game_shape": "Cincinnati at Milwaukee is a balanced matchup \u2014 both sides have multiple ways to score. Neither starter has a clear edge, so bullpen usage matters more in this one. The swing factor: if JJ Bleday gets a fastball to drive, the inning changes.",
+        "game_shape": "Cincinnati at Milwaukee is a good power matchup \u2014 one mistake pitch from either starter can leave the yard. Neither starter has a clear edge, so bullpen usage matters more in this one. The swing factor: if JJ Bleday gets a fastball to drive, the inning changes.",
         "pitching_arsenal_read": "Nick Lodolo: Sinker (26%, 93.8mph), Curveball (26%, 36% whiff), Four-Seam Fastball (25%), Changeup (24%). Robert Gasser: Sinker (28%, 91.9mph), Sweeper (28%), Four-Seam Fastball (21%, 32% whiff), Cutter (16%).",
-        "away_lineup_path": "JJ Bleday has real home run threat \u2014 a bat that can punish a mistake fastball. Good matchups against this fastball/breaking pitcher: JJ Bleday and Nathaniel Lowe. Tyler Stephenson has been better than his results show \u2014 worth watching.",
+        "away_lineup_path": "JJ Bleday has real home run threat \u2014 a bat that can punish a mistake fastball. Good matchups against this fastball/breaking pitcher: JJ Bleday and Elly De La Cruz. Tyler Stephenson has been better than his results show \u2014 worth watching.",
         "home_lineup_path": "Jake Bauers has real home run threat \u2014 a bat that can punish a mistake fastball. Good matchups against this fastball/breaking pitcher: Jake Bauers and Luis Rengifo.",
-        "bullpen_environment_read": "Milwaukee has the fresher bullpen. Cincinnati is more exposed in the middle innings if its starter does not go deep. Conditions: 84\u00b0F, Partly Cloudy, 14 mph S. Posted run total is 9.0.",
+        "bullpen_environment_read": "Milwaukee has the fresher bullpen. Cincinnati is more exposed in the middle innings if its starter does not go deep. Conditions: 90\u00b0F, Mostly Clear. Posted run total is 8.5.",
         "fantasy_dfs_props_watch": [
           "DFS Power: JJ Bleday (CIN) \u2014 12.8% barrel rate, genuine home run threat.",
           "DFS Power: Jake Bauers (MIL) \u2014 13.6% barrel rate, genuine home run threat.",
@@ -3353,19 +3332,19 @@
         },
         "away_lineup_vs_home_starter": [
           {
-            "name": "Tyler Stephenson",
-            "slug": "tyler-stephenson",
-            "pos": "C",
+            "name": "Elly De La Cruz",
+            "slug": "elly-de-la-cruz",
+            "pos": "DH",
             "batting_order": 1,
-            "bats": "R",
-            "grade": "yellow",
-            "label": "Neutral Matchup",
-            "reason": "No clear edge or risk either way \u2014 a neutral matchup."
+            "bats": null,
+            "grade": "green",
+            "label": "Fastball Power",
+            "reason": "15% barrel rate \u2014 a good power matchup against fastball pitching."
           },
           {
             "name": "Sal Stewart",
             "slug": "sal-stewart",
-            "pos": "1B",
+            "pos": "3B",
             "batting_order": 2,
             "bats": "R",
             "grade": "yellow",
@@ -3373,9 +3352,9 @@
             "reason": "No clear edge or risk either way \u2014 a neutral matchup."
           },
           {
-            "name": "Matt McLain",
-            "slug": "matt-mclain",
-            "pos": "2B",
+            "name": "Spencer Steer",
+            "slug": "spencer-steer",
+            "pos": "1B",
             "batting_order": 3,
             "bats": "R",
             "grade": "yellow",
@@ -3383,20 +3362,10 @@
             "reason": "No clear edge or risk either way \u2014 a neutral matchup."
           },
           {
-            "name": "Edwin Arroyo",
-            "slug": "edwin-arroyo",
-            "pos": "SS",
-            "batting_order": 4,
-            "bats": "S",
-            "grade": "gray",
-            "label": "Limited Data",
-            "reason": "Not enough data yet for this matchup."
-          },
-          {
             "name": "JJ Bleday",
             "slug": "jj-bleday",
             "pos": "LF",
-            "batting_order": 5,
+            "batting_order": 4,
             "bats": "L",
             "grade": "green",
             "label": "Fastball Power",
@@ -3406,41 +3375,51 @@
             "name": "Dane Myers",
             "slug": "dane-myers",
             "pos": "CF",
+            "batting_order": 5,
+            "bats": "R",
+            "grade": "yellow",
+            "label": "Handles Fastball",
+            "reason": "Low whiff rate against fastball pitching \u2014 a strong contact matchup against this pitcher, though not a power edge."
+          },
+          {
+            "name": "Noelvi Marte",
+            "slug": "noelvi-marte",
+            "pos": "RF",
             "batting_order": 6,
             "bats": "R",
-            "grade": "yellow",
-            "label": "Handles Fastball",
-            "reason": "Low whiff rate against fastball pitching \u2014 a strong contact matchup against this pitcher, though not a power edge."
+            "grade": "gray",
+            "label": "Limited Data",
+            "reason": "Not enough data yet for this matchup."
           },
           {
-            "name": "Blake Dunn",
-            "slug": "blake-dunn",
-            "pos": "RF",
+            "name": "Tyler Stephenson",
+            "slug": "tyler-stephenson",
+            "pos": "C",
             "batting_order": 7,
-            "bats": "R",
-            "grade": "yellow",
-            "label": "Handles Fastball",
-            "reason": "Low whiff rate against fastball pitching \u2014 a strong contact matchup against this pitcher, though not a power edge."
-          },
-          {
-            "name": "Nathaniel Lowe",
-            "slug": "nathaniel-lowe",
-            "pos": "DH",
-            "batting_order": 8,
-            "bats": "L",
-            "grade": "green",
-            "label": "Fastball Power",
-            "reason": "13% barrel rate \u2014 a good power matchup against fastball pitching."
-          },
-          {
-            "name": "Spencer Steer",
-            "slug": "spencer-steer",
-            "pos": "LF",
-            "batting_order": 9,
             "bats": "R",
             "grade": "yellow",
             "label": "Neutral Matchup",
             "reason": "No clear edge or risk either way \u2014 a neutral matchup."
+          },
+          {
+            "name": "Matt McLain",
+            "slug": "matt-mclain",
+            "pos": "SS",
+            "batting_order": 8,
+            "bats": "R",
+            "grade": "yellow",
+            "label": "Neutral Matchup",
+            "reason": "No clear edge or risk either way \u2014 a neutral matchup."
+          },
+          {
+            "name": "Edwin Arroyo",
+            "slug": "edwin-arroyo",
+            "pos": "2B",
+            "batting_order": 9,
+            "bats": "S",
+            "grade": "gray",
+            "label": "Limited Data",
+            "reason": "Not enough data yet for this matchup."
           }
         ],
         "home_lineup_vs_away_starter": [
@@ -3561,10 +3540,10 @@
               ]
             },
             {
-              "name": "Nathaniel Lowe",
-              "slug": "nathaniel-lowe",
+              "name": "Elly De La Cruz",
+              "slug": "elly-de-la-cruz",
               "tags": [
-                "Lineup Watch"
+                "Power Threat"
               ]
             }
           ]
@@ -3599,7 +3578,7 @@
             }
           ]
         },
-        "matchup_shape": "Balanced Lineup Game"
+        "matchup_shape": "Power Game"
       },
       "pitching_read": {
         "away_starter": {
@@ -3613,8 +3592,8 @@
           "summary": "Robert Gasser is a small-sample read today.",
           "stability": "Not enough innings yet to get a clean read.",
           "risk": "Robert Gasser does not have enough of a track record yet for a clear risk read.",
-          "matchup_fit": "Cincinnati is a tough matchup for Robert Gasser \u2014 Sal Stewart and JJ Bleday are the hitters to watch.",
-          "watch": "Watch Sal Stewart early \u2014 if Robert Gasser falls behind in the count, that's the spot."
+          "matchup_fit": "Cincinnati's lineup is hard to read today, so the matchup against Robert Gasser is still developing.",
+          "watch": "Watch whether Robert Gasser can go deep into the game; that's the key to the middle innings."
         },
         "starter_edge": "Neither starter has a clear edge, so bullpen usage matters more in this one.",
         "game_pitching_shape": "Bullpen Game Risk"
@@ -3626,7 +3605,7 @@
           "home_starter": "Robert Gasser works mainly off a fastball/breaking-ball mix. The Sinker is the primary weapon at 28% usage, sitting 91.9 mph. The Sweeper (28%) is the key secondary."
         },
         "lineup_fit": {
-          "away_vs_home_starter": "Cincinnati's best matchups against this fastball/breaking pitcher: JJ Bleday, Sal Stewart, and Nathaniel Lowe.",
+          "away_vs_home_starter": "Cincinnati's best matchups against this fastball/breaking pitcher: JJ Bleday, Sal Stewart, and Elly De La Cruz.",
           "home_vs_away_starter": "Milwaukee's best matchups against this fastball/breaking pitcher: Jake Bauers, Brice Turang, and Garrett Mitchell."
         },
         "hitters_with_edge": [
@@ -3638,11 +3617,11 @@
             "reason": "JJ Bleday can drive the ball against fastballs \u2014 12.8% barrel rate, a good power matchup against fastball/breaking pitching."
           },
           {
-            "name": "Nathaniel Lowe",
-            "slug": "nathaniel-lowe",
+            "name": "Elly De La Cruz",
+            "slug": "elly-de-la-cruz",
             "team": "Cincinnati",
             "edge": "Fastball Damage",
-            "reason": "Nathaniel Lowe can drive the ball against fastballs \u2014 13.0% barrel rate, a good power matchup against fastball/breaking pitching."
+            "reason": "Elly De La Cruz can drive the ball against fastballs \u2014 14.6% barrel rate, a good power matchup against fastball/breaking pitching."
           },
           {
             "name": "Jake Bauers",
@@ -3666,6 +3645,13 @@
             "team": "Cincinnati",
             "risk": "Breaking-Ball Risk",
             "reason": "JJ Bleday tends to chase breaking pitches \u2014 a risky spot against fastball/breaking pitching."
+          },
+          {
+            "name": "Elly De La Cruz",
+            "slug": "elly-de-la-cruz",
+            "team": "Cincinnati",
+            "risk": "Breaking-Ball Risk",
+            "reason": "Elly De La Cruz tends to chase breaking pitches \u2014 a risky spot against fastball/breaking pitching."
           },
           {
             "name": "Jackson Chourio",
@@ -3693,11 +3679,11 @@
         "data_quality": "fresh"
       },
       "environment_read": {
-        "summary": "American Family Field is tonight's park. Conditions: 84\u00b0F, Partly Cloudy, 14 mph S. Posted run total is 9.0.",
+        "summary": "American Family Field is tonight's park. Conditions: 90\u00b0F, Mostly Clear. Posted run total is 8.5.",
         "run_environment": "Neutral",
-        "weather_note": "Conditions: 84\u00b0F, Partly Cloudy, 14 mph S.",
+        "weather_note": "Conditions: 90\u00b0F, Mostly Clear.",
         "park_note": "American Family Field is tonight's park.",
-        "odds_note": "Posted run total is 9.0."
+        "odds_note": "Posted run total is 8.5."
       },
       "players_who_tilt_game": [
         {
@@ -3740,7 +3726,7 @@
         "Power Watch: Nick Lodolo can give up home runs \u2014 Milwaukee's home run props are worth watching."
       ],
       "data_basis": [
-        "Away: Projected lineup",
+        "Away: Confirmed lineup",
         "Home: Projected lineup",
         "Confirmed probables",
         "Bullpen usage available",
@@ -3752,13 +3738,13 @@
       "away_team": "SD",
       "home_team": "CHC",
       "game_id": "824662",
-      "game_read": "San Diego at Chicago is a good power matchup \u2014 one mistake pitch can leave the yard. Starters are not confirmed yet, so the pitching matchup is still developing. If Chicago gets into the middle innings with a lead, Pete Crow-Armstrong is one of the bats that can add on.",
+      "game_read": "San Diego at Chicago is a good power matchup \u2014 one mistake pitch can leave the yard. Neither starter has a clear edge, so bullpen usage matters more in this one. If Chicago gets into the middle innings with a lead, Pete Crow-Armstrong is one of the bats that can add on.",
       "game_report": {
-        "game_shape": "San Diego at Chicago is a good power matchup \u2014 one mistake pitch from either starter can leave the yard. Starters are not confirmed yet, so the pitching matchup is still developing. The swing factor: if Pete Crow-Armstrong gets a fastball to drive, the inning changes. The posted total leans hitter-friendly.",
+        "game_shape": "San Diego at Chicago is a good power matchup \u2014 one mistake pitch from either starter can leave the yard. Neither starter has a clear edge, so bullpen usage matters more in this one. The swing factor: if Pete Crow-Armstrong gets a fastball to drive, the inning changes. The posted total leans hitter-friendly.",
         "pitching_arsenal_read": "San Diego starter arsenal data is limited. Shota Imanaga: Four-Seam Fastball (44%, 91.8mph), Split-Finger (33%, 41% whiff), Sweeper (14%, 36% whiff).",
         "away_lineup_path": "San Diego does not have a clear home run threat today. Fernando Tatis Jr. has been better than his results show \u2014 worth watching.",
         "home_lineup_path": "Pete Crow-Armstrong and Ian Happ are Chicago's main power threats.",
-        "bullpen_environment_read": "Chicago has the fresher bullpen. San Diego is more exposed in the middle innings if its starter does not go deep. Conditions: 84\u00b0F, Mostly Cloudy. Posted run total is 11.0.",
+        "bullpen_environment_read": "Chicago has the fresher bullpen. San Diego is more exposed in the middle innings if its starter does not go deep. Conditions: 91\u00b0F, Partly Cloudy. Posted run total is 11.5.",
         "fantasy_dfs_props_watch": [
           "Buy-Low: Fernando Tatis Jr. (SD) \u2014 has been better than his results show.",
           "DFS Power: Pete Crow-Armstrong (CHC) \u2014 power threat worth tracking for DFS stacks.",
@@ -3770,10 +3756,10 @@
       },
       "matchup_board": {
         "away_starter": {
-          "name": "TBD",
+          "name": "Griffin Canning",
           "hand": "",
           "pitches": [],
-          "summary": "TBD's pitch-type data is limited.",
+          "summary": "Griffin Canning's pitch-type data is limited.",
           "data_quality": "limited"
         },
         "home_starter": {
@@ -4090,11 +4076,11 @@
       },
       "pitching_read": {
         "away_starter": {
-          "summary": "TBD (San Diego) is probable, but there is not much data on him yet.",
+          "summary": "Griffin Canning carries power risk.",
           "stability": "Not enough innings yet to get a clean read.",
-          "risk": "Not enough data yet for a risk read.",
-          "matchup_fit": "Not enough data yet for a matchup read.",
-          "watch": "Worth waiting for the lineup to be confirmed before drawing conclusions."
+          "risk": "Griffin Canning can give up home runs if he leaves a pitch up.",
+          "matchup_fit": "Chicago is a tough matchup for Griffin Canning \u2014 Ian Happ and Pete Crow-Armstrong are the hitters to watch.",
+          "watch": "Watch Ian Happ early \u2014 if Griffin Canning falls behind in the count, that's the spot."
         },
         "home_starter": {
           "summary": "Shota Imanaga limits contact quality, has been volatile.",
@@ -4103,8 +4089,8 @@
           "matchup_fit": "San Diego does not have a standout threat against Shota Imanaga today.",
           "watch": "Watch Shota Imanaga's pitch count \u2014 a rough start could put pressure on the bullpen by the fifth."
         },
-        "starter_edge": "Starters are not confirmed yet, so the pitching matchup is still developing.",
-        "game_pitching_shape": "TBD Pitching Matchup"
+        "starter_edge": "Neither starter has a clear edge, so bullpen usage matters more in this one.",
+        "game_pitching_shape": "Bullpen Game Risk"
       },
       "pitch_type_matchup": {
         "summary": "Chicago's starter leans on a fastball/offspeed approach \u2014 San Diego needs to find the right pitch to do damage.",
@@ -4136,19 +4122,19 @@
         "data_quality": "partial"
       },
       "bullpen_read": {
-        "summary": "San Diego has 3 arm(s) already used and 3 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited. Chicago has 2 arm(s) already used and 6 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited.",
-        "away_status": "San Diego has 3 arm(s) already used and 3 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited.",
+        "summary": "San Diego has 3 arm(s) already used and 4 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited. Chicago has 2 arm(s) already used and 6 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited.",
+        "away_status": "San Diego has 3 arm(s) already used and 4 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited.",
         "home_status": "Chicago has 2 arm(s) already used and 6 arm(s) on lighter usage \u2014 some depth, but the freshest options are limited.",
         "leverage_note": "Chicago has the fresher bullpen. San Diego is more exposed in the middle innings if its starter does not go deep.",
         "risk": "Bullpen stress risk leans toward San Diego if the game gets into traffic early.",
         "data_quality": "fresh"
       },
       "environment_read": {
-        "summary": "Wrigley Field is tonight's park. Conditions: 84\u00b0F, Mostly Cloudy. Posted run total is 11.0.",
+        "summary": "Wrigley Field is tonight's park. Conditions: 91\u00b0F, Partly Cloudy. Posted run total is 11.5.",
         "run_environment": "Hitter Lean",
-        "weather_note": "Conditions: 84\u00b0F, Mostly Cloudy.",
+        "weather_note": "Conditions: 91\u00b0F, Partly Cloudy.",
         "park_note": "Wrigley Field is tonight's park.",
-        "odds_note": "Posted run total is 11.0."
+        "odds_note": "Posted run total is 11.5."
       },
       "players_who_tilt_game": [
         {
@@ -4197,12 +4183,13 @@
         "Run Environment: Posted total leans hitter-friendly \u2014 worth tracking for DFS stacks."
       ],
       "betting_props_watch": [
+        "Power Watch: Griffin Canning can give up home runs \u2014 Chicago's home run props are worth watching.",
         "Run Environment: This game's posted total leans hitter-friendly \u2014 worth checking against the live line."
       ],
       "data_basis": [
         "Away: Projected lineup",
         "Home: Projected lineup",
-        "TBD probables",
+        "Confirmed probables",
         "Bullpen usage available",
         "Weather available",
         "Odds available"
@@ -4218,7 +4205,7 @@
         "pitching_arsenal_read": "Zebby Matthews: Four-Seam Fastball (37%, 95.1mph), Slider (21%, 37% whiff), Curveball (14%, 33% whiff), Changeup (13%). Peter Lambert: Four-Seam Fastball (31%, 94.1mph), Changeup (22%, 37% whiff), Slider (17%), Sinker (10%).",
         "away_lineup_path": "Byron Buxton and Kody Clemens are Minnesota's main power threats. Good matchups against this fastball/breaking pitcher: Victor Caratini.",
         "home_lineup_path": "Yordan Alvarez has real home run threat \u2014 a bat that can punish a mistake fastball. Good matchups against this fastball/breaking pitcher: Yordan Alvarez and Cam Smith. Yordan Alvarez has been better than his results show \u2014 worth watching.",
-        "bullpen_environment_read": "Houston has the fresher bullpen. Minnesota is more exposed in the middle innings if its starter does not go deep. Posted run total is 9.0.",
+        "bullpen_environment_read": "Houston has the fresher bullpen. Minnesota is more exposed in the middle innings if its starter does not go deep. Posted run total is 8.5.",
         "fantasy_dfs_props_watch": [
           "DFS Power: Byron Buxton (MIN) \u2014 18.1% barrel rate, genuine home run threat.",
           "DFS Power: Yordan Alvarez (HOU) \u2014 18.4% barrel rate, genuine home run threat.",
@@ -4698,11 +4685,11 @@
         "data_quality": "fresh"
       },
       "environment_read": {
-        "summary": "Daikin Park is tonight's park. Weather data unavailable. Posted run total is 9.0.",
+        "summary": "Daikin Park is tonight's park. Weather data unavailable. Posted run total is 8.5.",
         "run_environment": "Neutral",
         "weather_note": "Weather data unavailable.",
         "park_note": "Daikin Park is tonight's park.",
-        "odds_note": "Posted run total is 9.0."
+        "odds_note": "Posted run total is 8.5."
       },
       "players_who_tilt_game": [
         {
@@ -4777,7 +4764,7 @@
         "pitching_arsenal_read": "Sandy Alcantara: Sinker (24%, 97.4mph), Changeup (23%, 28% whiff), Four-Seam Fastball (19%), Cutter (14%). Colorado starter arsenal data is limited.",
         "away_lineup_path": "Miami does not have a clear home run threat today. Xavier Edwards and Otto Lopez give Miami a good chance to put runners on base ahead of the middle of the order.",
         "home_lineup_path": "Hunter Goodman is Colorado's main power threat. Good matchups against this fastball/offspeed pitcher: Edouard Julien.",
-        "bullpen_environment_read": "Colorado has the fresher bullpen. Miami is more exposed in the middle innings if its starter does not go deep. Conditions: 70\u00b0F, Clear, 13 mph E. Posted run total is 11.5.",
+        "bullpen_environment_read": "Colorado has the fresher bullpen. Miami is more exposed in the middle innings if its starter does not go deep. Conditions: 82\u00b0F, Clear, 16 mph NNE. Posted run total is 11.5.",
         "fantasy_dfs_props_watch": [
           "DFS On-Base Value: Xavier Edwards (MIA) \u2014 gives Miami a good chance to put runners on base.",
           "DFS Power: Hunter Goodman (COL) \u2014 15.3% barrel rate, genuine home run threat.",
@@ -4859,10 +4846,10 @@
           "data_quality": "available"
         },
         "home_starter": {
-          "name": "TBD",
+          "name": "Sean Sullivan",
           "hand": "",
           "pitches": [],
-          "summary": "TBD's pitch-type data is limited.",
+          "summary": "Sean Sullivan's pitch-type data is limited.",
           "data_quality": "limited"
         },
         "away_lineup_vs_home_starter": [
@@ -4959,10 +4946,30 @@
         ],
         "home_lineup_vs_away_starter": [
           {
+            "name": "Jake McCarthy",
+            "slug": "jake-mccarthy",
+            "pos": "LF",
+            "batting_order": 1,
+            "bats": "L",
+            "grade": "yellow",
+            "label": "Handles Fastball",
+            "reason": "Low whiff rate against fastball pitching \u2014 a strong contact matchup against this pitcher, though not a power edge."
+          },
+          {
+            "name": "Mickey Moniak",
+            "slug": "mickey-moniak",
+            "pos": "DH",
+            "batting_order": 2,
+            "bats": null,
+            "grade": "yellow",
+            "label": "Power Threat",
+            "reason": "Limited pitch-type data, but he's a home run threat based on exit velocity."
+          },
+          {
             "name": "Hunter Goodman",
             "slug": "hunter-goodman",
             "pos": "C",
-            "batting_order": 1,
+            "batting_order": 3,
             "bats": "R",
             "grade": "yellow",
             "label": "Neutral Matchup",
@@ -4972,27 +4979,37 @@
             "name": "TJ Rumfield",
             "slug": "tj-rumfield",
             "pos": "1B",
-            "batting_order": 2,
+            "batting_order": 4,
             "bats": "L",
             "grade": "yellow",
             "label": "Handles Fastball",
             "reason": "Low whiff rate against fastball pitching \u2014 a strong contact matchup against this pitcher, though not a power edge."
           },
           {
-            "name": "Edouard Julien",
-            "slug": "edouard-julien",
-            "pos": "2B",
-            "batting_order": 3,
+            "name": "Cole Carrigg",
+            "slug": "",
+            "pos": "CF",
+            "batting_order": 5,
+            "bats": "",
+            "grade": "gray",
+            "label": "Limited Data",
+            "reason": "Not enough data yet for this matchup."
+          },
+          {
+            "name": "Troy Johnston",
+            "slug": "troy-johnston",
+            "pos": "RF",
+            "batting_order": 6,
             "bats": "L",
-            "grade": "green",
-            "label": "Fastball Power",
-            "reason": "52% hard-hit rate \u2014 a home run threat against fastball pitching."
+            "grade": "red",
+            "label": "Offspeed Risk",
+            "reason": "Tends to chase offspeed pitches \u2014 a risky spot against this pitcher."
           },
           {
             "name": "Kyle Karros",
             "slug": "kyle-karros",
             "pos": "3B",
-            "batting_order": 4,
+            "batting_order": 7,
             "bats": "R",
             "grade": "yellow",
             "label": "Handles Fastball",
@@ -5002,51 +5019,21 @@
             "name": "Ezequiel Tovar",
             "slug": "ezequiel-tovar",
             "pos": "SS",
-            "batting_order": 5,
+            "batting_order": 8,
             "bats": "R",
             "grade": "yellow",
             "label": "Neutral Matchup",
             "reason": "No clear edge or risk either way \u2014 a neutral matchup."
           },
           {
-            "name": "Jake McCarthy",
-            "slug": "jake-mccarthy",
-            "pos": "CF",
-            "batting_order": 6,
-            "bats": "L",
-            "grade": "yellow",
-            "label": "Handles Fastball",
-            "reason": "Low whiff rate against fastball pitching \u2014 a strong contact matchup against this pitcher, though not a power edge."
-          },
-          {
-            "name": "Troy Johnston",
-            "slug": "troy-johnston",
-            "pos": "RF",
-            "batting_order": 7,
-            "bats": "L",
-            "grade": "red",
-            "label": "Offspeed Risk",
-            "reason": "Tends to chase offspeed pitches \u2014 a risky spot against this pitcher."
-          },
-          {
-            "name": "Tyler Freeman",
-            "slug": "tyler-freeman",
-            "pos": "RF",
-            "batting_order": 8,
-            "bats": "R",
-            "grade": "yellow",
-            "label": "Handles Fastball",
-            "reason": "Low whiff rate against fastball pitching \u2014 a strong contact matchup against this pitcher, though not a power edge."
-          },
-          {
-            "name": "Willi Castro",
-            "slug": "willi-castro",
+            "name": "Edouard Julien",
+            "slug": "edouard-julien",
             "pos": "2B",
             "batting_order": 9,
-            "bats": "S",
-            "grade": "red",
-            "label": "Offspeed Risk",
-            "reason": "Tends to chase offspeed pitches \u2014 a risky spot against this pitcher."
+            "bats": "L",
+            "grade": "green",
+            "label": "Fastball Power",
+            "reason": "52% hard-hit rate \u2014 a home run threat against fastball pitching."
           }
         ],
         "board_summary": "Colorado's lineup has more favorable pitch-type matchups (1 green grades vs 0)."
@@ -5112,11 +5099,11 @@
           "summary": "Sandy Alcantara low strikeout ceiling, has been volatile.",
           "stability": "Inconsistent \u2014 this start can get away from him early.",
           "risk": "Sandy Alcantara does not have enough of a track record yet for a clear risk read.",
-          "matchup_fit": "Colorado is a tough matchup for Sandy Alcantara \u2014 Hunter Goodman is the hitter to watch.",
-          "watch": "Watch Hunter Goodman early \u2014 if Sandy Alcantara falls behind in the count, that's the spot."
+          "matchup_fit": "Colorado's lineup is hard to read today, so the matchup against Sandy Alcantara is still developing.",
+          "watch": "Watch Sandy Alcantara's pitch count \u2014 a rough start could put pressure on the bullpen by the fifth."
         },
         "home_starter": {
-          "summary": "TBD (Colorado) is probable, but there is not much data on him yet.",
+          "summary": "Sean Sullivan (Colorado) is probable, but there is not much data on him yet.",
           "stability": "Not enough innings yet to get a clean read.",
           "risk": "Not enough data yet for a risk read.",
           "matchup_fit": "Not enough data yet for a matchup read.",
@@ -5156,9 +5143,9 @@
         "data_quality": "fresh"
       },
       "environment_read": {
-        "summary": "Coors Field is tonight's park. Conditions: 70\u00b0F, Clear, 13 mph E. Posted run total is 11.5.",
+        "summary": "Coors Field is tonight's park. Conditions: 82\u00b0F, Clear, 16 mph NNE. Posted run total is 11.5.",
         "run_environment": "Hitter Lean",
-        "weather_note": "Conditions: 70\u00b0F, Clear, 13 mph E.",
+        "weather_note": "Conditions: 82\u00b0F, Clear, 16 mph NNE.",
         "park_note": "Coors Field is tonight's park.",
         "odds_note": "Posted run total is 11.5."
       },
@@ -5213,7 +5200,7 @@
       ],
       "data_basis": [
         "Away: Projected lineup",
-        "Home: Projected lineup",
+        "Home: Confirmed lineup",
         "TBD probables",
         "Bullpen usage available",
         "Weather available",
@@ -5230,7 +5217,7 @@
         "pitching_arsenal_read": "Eric Lauer: Four-Seam Fastball (46%, 90.8mph), Cutter (18%), Changeup (16%), Curveball (13%). Gage Jump: Four-Seam Fastball (48%, 96.4mph), Slider (26%), Curveball (12%), Changeup (8%, 40% whiff).",
         "away_lineup_path": "Shohei Ohtani and Will Smith are Los Angeles's main power threats. Will Smith has been better than his results show \u2014 worth watching.",
         "home_lineup_path": "Nick Kurtz and Shea Langeliers are Athletics's main power threats. Carlos Cortes gives Athletics a good chance to put runners on base ahead of the middle of the order. Good matchups against this fastball/breaking pitcher: Carlos Cortes and Tyler Soderstrom.",
-        "bullpen_environment_read": "Both bullpens carry a similar usage profile \u2014 no clear middle-innings edge from bullpen freshness alone. Conditions: 64\u00b0F, Clear, 3 mph W. Posted run total is 10.5.",
+        "bullpen_environment_read": "Both bullpens carry a similar usage profile \u2014 no clear middle-innings edge from bullpen freshness alone. Conditions: 82\u00b0F, Clear. Posted run total is 10.5.",
         "fantasy_dfs_props_watch": [
           "DFS Power: Shohei Ohtani (LAD) \u2014 16.2% barrel rate, genuine home run threat.",
           "DFS Power: Nick Kurtz (ATH) \u2014 18.5% barrel rate, genuine home run threat.",
@@ -5703,9 +5690,9 @@
         "data_quality": "fresh"
       },
       "environment_read": {
-        "summary": "Sutter Health Park is tonight's park. Conditions: 64\u00b0F, Clear, 3 mph W. Posted run total is 10.5.",
+        "summary": "Sutter Health Park is tonight's park. Conditions: 82\u00b0F, Clear. Posted run total is 10.5.",
         "run_environment": "Hitter Lean",
-        "weather_note": "Conditions: 64\u00b0F, Clear, 3 mph W.",
+        "weather_note": "Conditions: 82\u00b0F, Clear.",
         "park_note": "Sutter Health Park is tonight's park.",
         "odds_note": "Posted run total is 10.5."
       },
@@ -5777,7 +5764,7 @@
         "pitching_arsenal_read": "Los Angeles starter arsenal data is limited. George Kirby: Four-Seam Fastball (30%, 96.7mph), Sweeper (30%), Sinker (20%), Knuckle-Curve (10%).",
         "away_lineup_path": "Mike Trout has real home run threat \u2014 a bat that can punish a mistake fastball. Good matchups against this fastball/breaking pitcher: Mike Trout and Jo Adell. Mike Trout has been better than his results show \u2014 worth watching.",
         "home_lineup_path": "Dominic Canzone has real home run threat \u2014 a bat that can punish a mistake fastball.",
-        "bullpen_environment_read": "Seattle has the fresher bullpen. Los Angeles is more exposed in the middle innings if its starter does not go deep. Conditions: 54\u00b0F, Mostly Cloudy, 8 mph SSW. Posted run total is 7.5.",
+        "bullpen_environment_read": "Seattle has the fresher bullpen. Los Angeles is more exposed in the middle innings if its starter does not go deep. Conditions: 57\u00b0F, Cloudy, 9 mph S. Posted run total is 7.5.",
         "fantasy_dfs_props_watch": [
           "DFS Power: Mike Trout (LAA) \u2014 21.1% barrel rate, genuine home run threat.",
           "DFS Power: Dominic Canzone (SEA) \u2014 16.8% barrel rate, genuine home run threat.",
@@ -6172,9 +6159,9 @@
         "data_quality": "fresh"
       },
       "environment_read": {
-        "summary": "T-Mobile Park is tonight's park. Conditions: 54\u00b0F, Mostly Cloudy, 8 mph SSW. Posted run total is 7.5.",
+        "summary": "T-Mobile Park is tonight's park. Conditions: 57\u00b0F, Cloudy, 9 mph S. Posted run total is 7.5.",
         "run_environment": "Pitcher Lean",
-        "weather_note": "Conditions: 54\u00b0F, Mostly Cloudy, 8 mph SSW.",
+        "weather_note": "Conditions: 57\u00b0F, Cloudy, 9 mph S.",
         "park_note": "T-Mobile Park is tonight's park.",
         "odds_note": "Posted run total is 7.5."
       },
@@ -6246,7 +6233,7 @@
         "pitching_arsenal_read": "Tyler Mahle: Four-Seam Fastball (48%, 92.3mph), Split-Finger (25%), Cutter (14%), Slider (11%). Eduardo Rodriguez: Four-Seam Fastball (40%, 92.0mph), Changeup (27%), Cutter (13%), Curveball (12%).",
         "away_lineup_path": "San Francisco does not have a clear home run threat today. Jung Hoo Lee and Luis Arraez give San Francisco a good chance to put runners on base ahead of the middle of the order. Good matchups against this fastball/offspeed pitcher: Jung Hoo Lee and Luis Arraez.",
         "home_lineup_path": "Ketel Marte gives Arizona a good power matchup \u2014 solid contact, though not elite raw power. Good matchups against this fastball/offspeed pitcher: Ketel Marte and Gabriel Moreno. Ketel Marte has been better than his results show \u2014 worth watching.",
-        "bullpen_environment_read": "San Francisco has the fresher bullpen. Arizona is more exposed in the middle innings if its starter does not go deep. Conditions: 86\u00b0F, Clear, 11 mph SSE. Posted run total is 9.0.",
+        "bullpen_environment_read": "San Francisco has the fresher bullpen. Arizona is more exposed in the middle innings if its starter does not go deep. Conditions: 97\u00b0F, Clear. Posted run total is 9.0.",
         "fantasy_dfs_props_watch": [
           "DFS On-Base Value: Jung Hoo Lee (SF) \u2014 gives San Francisco a good chance to put runners on base.",
           "DFS Power: Ketel Marte (AZ) \u2014 power threat worth tracking for DFS stacks.",
@@ -6725,9 +6712,9 @@
         "data_quality": "fresh"
       },
       "environment_read": {
-        "summary": "Chase Field is tonight's park. Conditions: 86\u00b0F, Clear, 11 mph SSE. Posted run total is 9.0.",
+        "summary": "Chase Field is tonight's park. Conditions: 97\u00b0F, Clear. Posted run total is 9.0.",
         "run_environment": "Neutral",
-        "weather_note": "Conditions: 86\u00b0F, Clear, 11 mph SSE.",
+        "weather_note": "Conditions: 97\u00b0F, Clear.",
         "park_note": "Chase Field is tonight's park.",
         "odds_note": "Posted run total is 9.0."
       },
