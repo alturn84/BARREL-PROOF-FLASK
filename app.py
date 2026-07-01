@@ -2250,6 +2250,11 @@ def team_detail(team_slug):
     # Roster (grouped by role)
     full_name    = team.get("name", "")
     roster       = load_roster_md(full_name)
+    if not roster and team.get("nickname"):
+        # Rosters/*.md files are named after the short/nickname form
+        # (e.g. "Athletics.md", not "Oakland Athletics.md" — teams.json
+        # still carries the legacy "Oakland Athletics" full name for ATH).
+        roster = load_roster_md(team["nickname"])
     # All pitchers use Pos="P" in the markdown files — no SP/RP distinction exists.
     # classify_pitchers() uses schedule_lookahead probable names to identify starters,
     # then falls back to a first-5 heuristic.
@@ -2257,9 +2262,15 @@ def team_detail(team_slug):
     lineup       = [p for p in roster if p.get("pos", "").upper() != "P"]
     starters, bullpen = classify_pitchers(all_pitchers, abbr, all_lookahead)
 
-    # Injured list
-    all_il  = get_team_il()
-    team_il = all_il.get(abbr, [])
+    # Injured list — team_il.json is a point-in-time snapshot with no
+    # refresh script of its own, so it can go stale between updates
+    # (players get reinstated but stay listed). Rosters/*.md is refreshed
+    # daily and is the more current source of truth, so any IL entry whose
+    # name now also appears on the active roster is treated as returned
+    # and excluded here rather than shown as still injured.
+    all_il        = get_team_il()
+    active_names  = {p.get("name") for p in roster if p.get("name")}
+    team_il       = [p for p in all_il.get(abbr, []) if p.get("name") not in active_names]
 
     # Context note
     context_note = build_team_context_note(team, record, form)

@@ -181,6 +181,7 @@ nav.main-nav {
 .player-name{color:var(--parchment2);}
 
 /* ── IL table ── */
+.il-empty-note{font-family:var(--serif-body);font-style:italic;font-size:14px;color:var(--smoke-light);padding:10px 0 4px;}
 .il-status{font-family:var(--mono);font-size:13px;}
 .il-status.d60{color:var(--smoke-light);}
 .il-status.d15{color:var(--parchment2);}
@@ -428,12 +429,12 @@ footer{border-top:2px solid var(--bp-rule);background:var(--bp-charcoal);color:v
 </div>
 {% endif %}
 
-{# ── Injured List (hidden entirely when empty) ── #}
-{% if team_il %}
+{# ── Injured List (always shows the section; fallback note when empty) ── #}
 <div class="section-hdr">
   <div class="section-title">Injured List</div>
   <div class="section-rule"></div>
 </div>
+{% if team_il %}
 <div class="tbl-wrap">
 <table class="data-table">
   <thead>
@@ -458,6 +459,8 @@ footer{border-top:2px solid var(--bp-rule);background:var(--bp-charcoal);color:v
   </tbody>
 </table>
 </div>
+{% else %}
+<p class="il-empty-note">No injured-list data available.</p>
 {% endif %}
 
 <footer>
