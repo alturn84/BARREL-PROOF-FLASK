@@ -1,157 +1,166 @@
 {
-  "date": "2026-06-30",
-  "game_date": "2026-06-29",
-  "date_display": "Monday, June 29, 2026",
-  "updated": "2026-06-30 10:17",
+  "date": "2026-07-01",
+  "game_date": "2026-06-30",
+  "date_display": "Tuesday, June 30, 2026",
+  "updated": "2026-07-01 10:20",
   "game": {
     "away": "MIN",
     "home": "HOU",
-    "away_runs": 5,
-    "home_runs": 4,
+    "away_runs": 4,
+    "home_runs": 6,
     "innings": 9,
-    "raw_score": 69.0,
+    "raw_score": 46.0,
     "flags": [
-      "ONE-RUN GAME",
+      "COMEBACK (trailed 3)",
       "PLAYOFF IMPLICATIONS",
-      "MULTI-HR: Cam Smith (2 HR)",
       "HOU HOME GAME"
     ],
-    "winner": "MIN",
-    "loser": "HOU",
-    "margin": 1,
-    "total_runs": 9
+    "winner": "HOU",
+    "loser": "MIN",
+    "margin": 2,
+    "total_runs": 10
   },
   "editorial": {
-    "headline": "Royce Lewis Homer Lifts Minnesota Over Houston Astros",
-    "subheadline": "MIN 5, HOU 4. The long ball carries MIN.",
-    "lead_angle": "Royce Lewis parked a Peter Lambert fastball in the right field seats, a seventh-inning solo shot that stood up as the winner in a 5-4 Minnesota Twins victory over the Houston Astros. The Twins muscled their way to a road win entirely on the strength of the long ball, getting key home runs from Josh Bell and Victor Caratini earlier in the contest. Zebby Matthews earned the win for Minnesota, scattering six hits over six innings. Lambert was saddled with the loss for Houston.\n\nThe Twins built their lead with timely power. Bell cracked a two-run homer in the fourth inning to break a scoreless tie. After the Astros scratched one across against Matthews in the fifth, Victor Caratini answered with a solo blast in the sixth, stretching the lead back to three. The consistent barrage gave Minnesota just enough cushion to withstand a late Houston charge, a three-run ninth-inning rally that fell short when Yoendrys Gómez induced a final groundout.\n\nWhile Houston’s Cam Smith did his best to keep pace with two solo home runs of his own, it was Lewis who provided the pivotal swing. He finished just 1-for-4, but his one hit left the yard and ultimately decided the game. The victory is a crucial one for the Twins, keeping them in the thick of a tight divisional race as the season’s second half looms. It was a needed win on the road against a formidable opponent, a game where every swing mattered.",
-    "reason": "A multi-home-run game by a single player gives the day a clear protagonist."
+    "headline": "Alvarez Homer Powers Houston Comeback Past Minnesota",
+    "subheadline": "Houston Astros rallies past Minnesota Twins, MIN 4, HOU 6.",
+    "lead_angle": "Yordan Alvarez erased a three-run Minnesota lead with a single swing, launching a Joe Ryan offering into the right-field seats to power the Houston Astros to a 6-4 victory. The home run was the centerpiece of a chaotic six-run fourth inning that turned the game on its head at Daikin Park. The rally flipped a contest the Minnesota Twins had controlled from the outset. Mike Burrows gets the win for the Astros in relief, while Ryan takes the loss, undone by that one disastrous frame.\n\nMinnesota looked sharp early, pushing across three runs in the first inning on a two-run knock from Ryan Kreidler and an error. For three innings, Ryan silenced the Houston bats, navigating the lineup with ease and protecting the lead. But the game unraveled for him in the fourth. The Astros sent ten men to the plate, stringing together hits and walks to load the bases before Alvarez delivered the punishing blow that gave Houston a lead it would not surrender.\n\nThe night belonged to Alvarez. He finished 3-for-4 with four runs batted in, personally out-producing the entire Twins offense. The win is a crucial one for an Astros team jockeying for playoff position, especially against a fellow contender. After Burrows steered the game into the ninth, Josh Hader came on to close the books, striking out two to earn the save and cement the comeback.",
+    "reason": "A 3-run comeback is the day's best storyline — resilience over résumé."
   },
   "all_games": [
     {
       "rank": 1,
       "away": "MIN",
       "home": "HOU",
-      "away_runs": 5,
-      "home_runs": 4,
+      "away_runs": 4,
+      "home_runs": 6,
       "innings": 9,
-      "raw_score": 69.0,
+      "raw_score": 46.0,
       "flags": [
-        "ONE-RUN GAME",
+        "COMEBACK (trailed 3)",
         "PLAYOFF IMPLICATIONS",
-        "MULTI-HR: Cam Smith (2 HR)",
         "HOU HOME GAME"
       ],
       "selected": true
     },
     {
       "rank": 2,
-      "away": "PIT",
-      "home": "PHI",
-      "away_runs": 11,
-      "home_runs": 7,
+      "away": "TB",
+      "home": "KC",
+      "away_runs": 10,
+      "home_runs": 4,
       "innings": 9,
-      "raw_score": 64.0,
+      "raw_score": 42.0,
       "flags": [
-        "COMEBACK (trailed 5)",
-        "MULTI-HR: Brandon Marsh (2 HR)",
-        "PHI HOME GAME",
-        "HIGH-SCORING (18 runs)"
+        "PLAYOFF IMPLICATIONS",
+        "MULTI-HR: Bobby Witt Jr. (2 HR)"
       ],
       "selected": false
     },
     {
       "rank": 3,
-      "away": "LAA",
-      "home": "SEA",
-      "away_runs": 2,
-      "home_runs": 6,
+      "away": "SD",
+      "home": "CHC",
+      "away_runs": 7,
+      "home_runs": 9,
       "innings": 9,
-      "raw_score": 60.0,
+      "raw_score": 42.0,
       "flags": [
-        "PLAYOFF IMPLICATIONS",
-        "DIVISION MATCHUP",
-        "MULTI-HR: Cole Young (2 HR)"
+        "MULTI-HR: Fernando Tatis Jr. (2 HR)",
+        "CHC HOME GAME",
+        "HIGH-SCORING (16 runs)"
       ],
       "selected": false
     },
     {
       "rank": 4,
-      "away": "SD",
-      "home": "CHC",
+      "away": "CIN",
+      "home": "MIL",
       "away_runs": 2,
-      "home_runs": 3,
+      "home_runs": 7,
       "innings": 9,
-      "raw_score": 57.0,
+      "raw_score": 40.0,
       "flags": [
-        "WALK-OFF WIN",
-        "ONE-RUN GAME",
-        "CHC HOME GAME"
+        "PLAYOFF IMPLICATIONS",
+        "DIVISION MATCHUP"
       ],
       "selected": false
     },
     {
       "rank": 5,
-      "away": "DET",
-      "home": "NYY",
-      "away_runs": 7,
-      "home_runs": 3,
+      "away": "LAA",
+      "home": "SEA",
+      "away_runs": 3,
+      "home_runs": 8,
       "innings": 9,
-      "raw_score": 52.0,
+      "raw_score": 40.0,
       "flags": [
         "PLAYOFF IMPLICATIONS",
-        "DOMINANT START: Casey Mize (7.0 IP, 0 ER, 10 K)",
-        "NYY HOME GAME"
+        "DIVISION MATCHUP"
       ],
       "selected": false
     },
     {
       "rank": 6,
-      "away": "CIN",
-      "home": "MIL",
-      "away_runs": 3,
-      "home_runs": 5,
+      "away": "WSH",
+      "home": "BOS",
+      "away_runs": 8,
+      "home_runs": 1,
       "innings": 9,
-      "raw_score": 52.0,
+      "raw_score": 38.0,
       "flags": [
-        "COMEBACK (trailed 3)",
-        "PLAYOFF IMPLICATIONS",
-        "DIVISION MATCHUP"
+        "DOMINANT START: Cade Cavalli (7.0 IP, 0 ER, 13 K)",
+        "SB SPREE (3)",
+        "BOS HOME GAME"
       ],
       "selected": false
     },
     {
       "rank": 7,
-      "away": "SF",
-      "home": "AZ",
-      "away_runs": 4,
-      "home_runs": 5,
+      "away": "STL",
+      "home": "ATL",
+      "away_runs": 5,
+      "home_runs": 3,
       "innings": 9,
-      "raw_score": 33.0,
+      "raw_score": 34.0,
       "flags": [
-        "ONE-RUN GAME",
-        "DIVISION MATCHUP"
+        "PLAYOFF IMPLICATIONS",
+        "ATL HOME GAME"
       ],
       "selected": false
     },
     {
       "rank": 8,
-      "away": "CWS",
-      "home": "BAL",
-      "away_runs": 8,
-      "home_runs": 2,
+      "away": "DET",
+      "home": "NYY",
+      "away_runs": 9,
+      "home_runs": 3,
       "innings": 9,
-      "raw_score": 22.0,
+      "raw_score": 32.0,
       "flags": [
-        "PLAYOFF IMPLICATIONS"
+        "MULTI-HR: Riley Greene (2 HR)",
+        "NYY HOME GAME"
       ],
       "selected": false
     },
     {
       "rank": 9,
-      "away": "TEX",
-      "home": "CLE",
-      "away_runs": 6,
+      "away": "PIT",
+      "home": "PHI",
+      "away_runs": 0,
+      "home_runs": 8,
+      "innings": 9,
+      "raw_score": 30.0,
+      "flags": [
+        "DOMINANT START: Cristopher Sánchez (7.0 IP, 0 ER, 9 K)",
+        "PHI HOME GAME"
+      ],
+      "selected": false
+    },
+    {
+      "rank": 10,
+      "away": "CWS",
+      "home": "BAL",
+      "away_runs": 9,
       "home_runs": 3,
       "innings": 9,
       "raw_score": 22.0,
@@ -161,25 +170,11 @@
       "selected": false
     },
     {
-      "rank": 10,
-      "away": "MIA",
-      "home": "COL",
-      "away_runs": 10,
-      "home_runs": 7,
-      "innings": 9,
-      "raw_score": 22.0,
-      "flags": [
-        "COMEBACK (trailed 3)",
-        "HIGH-SCORING (17 runs)"
-      ],
-      "selected": false
-    },
-    {
       "rank": 11,
-      "away": "LAD",
-      "home": "ATH",
-      "away_runs": 9,
-      "home_runs": 4,
+      "away": "TEX",
+      "home": "CLE",
+      "away_runs": 4,
+      "home_runs": 2,
       "innings": 9,
       "raw_score": 22.0,
       "flags": [
@@ -189,28 +184,52 @@
     },
     {
       "rank": 12,
-      "away": "NYM",
-      "home": "TOR",
-      "away_runs": 1,
-      "home_runs": 2,
+      "away": "LAD",
+      "home": "ATH",
+      "away_runs": 9,
+      "home_runs": 3,
       "innings": 9,
-      "raw_score": 15.0,
+      "raw_score": 22.0,
       "flags": [
-        "ONE-RUN GAME"
+        "PLAYOFF IMPLICATIONS"
       ],
       "selected": false
     },
     {
       "rank": 13,
-      "away": "WSH",
-      "home": "BOS",
-      "away_runs": 3,
-      "home_runs": 6,
+      "away": "SF",
+      "home": "AZ",
+      "away_runs": 2,
+      "home_runs": 8,
       "innings": 9,
-      "raw_score": 12.0,
+      "raw_score": 18.0,
       "flags": [
-        "BOS HOME GAME"
+        "DIVISION MATCHUP"
       ],
+      "selected": false
+    },
+    {
+      "rank": 14,
+      "away": "MIA",
+      "home": "COL",
+      "away_runs": 14,
+      "home_runs": 3,
+      "innings": 9,
+      "raw_score": 10.0,
+      "flags": [
+        "HIGH-SCORING (17 runs)"
+      ],
+      "selected": false
+    },
+    {
+      "rank": 15,
+      "away": "NYM",
+      "home": "TOR",
+      "away_runs": 3,
+      "home_runs": 0,
+      "innings": 9,
+      "raw_score": 0.0,
+      "flags": [],
       "selected": false
     }
   ]
