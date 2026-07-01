@@ -908,6 +908,20 @@ function renderGameIntelligence(g){
     sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">Betting / Props Watch</div><ul class="matchup-list">${props.map(n=>`<li>${n}</li>`).join('')}</ul></div>`);
   }
 
+  // ── DFS Read (real DraftKings/FanDuel salaries via dfs_board.json) ──
+  const dn=gi.dfs_notes;
+  if(dn&&dn.status==='available'){
+    const entries=[...(dn.anchors||[]),...(dn.top_values||[])].slice(0,3);
+    if(entries.length){
+      const rows=entries.map(e=>{
+        const meta=[e.team,v(e.salary)?`$${Number(e.salary).toLocaleString()}`:null].filter(Boolean).join(' · ');
+        return `<li><strong>${e.player_name}</strong>${meta?` (${meta})`:''} — ${e.note}</li>`;
+      }).join('');
+      const summary=v(dn.summary)?`<div class="matchup-line">${dn.summary}</div>`:'';
+      sub.push(`<div class="matchup-subsection"><div class="matchup-subhead">DFS Read</div>${summary}<ul class="matchup-list">${rows}</ul></div>`);
+    }
+  }
+
   const basis=(gi.data_basis||[]).filter(v);
   if(basis.length){
     sub.push(`<div class="matchup-subsection"><div class="matchup-line matchup-disclaimer">${basis.join(' · ')}</div></div>`);

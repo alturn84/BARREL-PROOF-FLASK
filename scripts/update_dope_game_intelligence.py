@@ -23,6 +23,9 @@ PITCHER_MATCHUPS_PATH = DATA_DIR / "dope_pitcher_matchups.json"
 ODDS_PATH = DATA_DIR / "odds.json"
 TEAM_IL_PATH = DATA_DIR / "team_il.json"
 SCHEDULE_PATH = DATA_DIR / "schedule.json"
+DFS_BOARD_PATH = DATA_DIR / "dfs_board.json"
+
+DFS_PITCHER_POSITIONS = {"P", "SP", "RP"}
 
 OUTPUT_PATH = DATA_DIR / "dope_game_intelligence.json"
 PITCH_INTEL_PATH = DATA_DIR / "pitch_type_intelligence.json"
@@ -552,6 +555,162 @@ def betting_props_watch(away_starter, home_starter, environment, away_team, home
             seen.add(n)
             deduped.append(n)
     return deduped[:5]
+
+
+# ---------------------------------------------------------------------------
+# DFS notes (DFS-INTEGRATION-002) — plain-English DFS context sourced from
+# Site Data/dfs_board.json (real DraftKings/FanDuel salaries and
+# projections). This is separate from the heuristic-based fantasy_dfs_watch
+# above, which does not use real DFS salary data.
+# ---------------------------------------------------------------------------
+
+def build_dfs_team_index(dfs_board):
+    """team_abbr -> deduped list of matched dfs_board player rows.
+
+    Only match_status == "matched" rows are used. When a player appears on
+    both DraftKings and FanDuel, DraftKings is preferred unless FanDuel's
+    value_score is meaningfully better (avoids messy cross-platform
+    duplication in the public copy)."""
+    if not dfs_board:
+        return {}
+
+    by_team_name: dict = {}
+    for p in dfs_board.get("players") or []:
+        if p.get("match_status") != "matched":
+            continue
+        team = normalize_team_abbr(p.get("team"))
+        name = p.get("player_name")
+        if not team or not name:
+            continue
+        by_team_name.setdefault(team, {}).setdefault(name, []).append(p)
+
+    index: dict = {}
+    for team, by_name in by_team_name.items():
+        picked = []
+        for name, records in by_name.items():
+            dk = next((r for r in records if r.get("platform") == "DraftKings"), None)
+            fd = next((r for r in records if r.get("platform") == "FanDuel"), None)
+            if dk and fd:
+                dk_val = dk.get("value_score") or 0
+                fd_val = fd.get("value_score") or 0
+                picked.append(fd if fd_val > dk_val * 1.15 else dk)
+            else:
+                picked.append(dk or fd or records[0])
+        index[team] = picked
+    return index
+
+
+def classify_dfs_players(players):
+    """Split matched DFS rows for one game into (top_values, anchors).
+
+    Anchors: the highest-projection players in the game (usually the
+    pricier options). Top values: the best salary-adjusted value_score
+    among the rest. Capped small on purpose — this is context, not a
+    full DFS board."""
+    valid = [
+        p for p in players
+        if p.get("salary") is not None and p.get("projection") is not None and p.get("value_score") is not None
+    ]
+    if not valid:
+        return [], []
+
+    by_projection = sorted(valid, key=lambda p: p["projection"], reverse=True)
+    anchors = by_projection[:2]
+    anchor_names = {p["player_name"] for p in anchors}
+
+    remaining = [p for p in valid if p["player_name"] not in anchor_names]
+    by_value = sorted(remaining, key=lambda p: p["value_score"], reverse=True)
+    top_values = by_value[:3]
+
+    return top_values, anchors
+
+
+def _dfs_value_note(p, team_display_name_, confirmed):
+    name = p["player_name"]
+    position = (p.get("position") or "").upper()
+    if position in DFS_PITCHER_POSITIONS:
+        return f"{name} is a salary-friendly arm with a solid projection for the price."
+    tail = "" if confirmed else " if he is in the lineup"
+    return f"{name} gives {team_display_name_} a useful salary-adjusted bat{tail}."
+
+
+def _dfs_anchor_note(p, team_display_name_, confirmed):
+    name = p["player_name"]
+    position = (p.get("position") or "").upper()
+    if position in DFS_PITCHER_POSITIONS:
+        return f"{name} carries one of the stronger pitching projections in this game, but he is priced like a premium option."
+    tail = "" if confirmed else " if he is in the lineup"
+    return f"{name} is one of the more expensive bats in this game{tail}, priced for a big role in the {team_display_name_} lineup."
+
+
+def _dfs_summary(top_values, anchors, away_team_name, home_team_name, away_abbr, home_abbr):
+    def team_display(abbr):
+        return away_team_name if abbr == away_abbr else home_team_name
+
+    parts = []
+    away_val = sum(p["value_score"] for p in top_values if p["team"] == away_abbr)
+    home_val = sum(p["value_score"] for p in top_values if p["team"] == home_abbr)
+    if away_val > home_val and away_val > 0:
+        parts.append(f"This game has more DFS value on the {away_team_name} side than the {home_team_name} side.")
+    elif home_val > away_val and home_val > 0:
+        parts.append(f"This game has more DFS value on the {home_team_name} side than the {away_team_name} side.")
+    elif top_values:
+        parts.append(f"{top_values[0]['player_name']} stands out as a salary-adjusted value in this game.")
+
+    if anchors:
+        a = anchors[0]
+        team_disp = team_display(a["team"])
+        if (a.get("position") or "").upper() in DFS_PITCHER_POSITIONS:
+            parts.append(f"{a['player_name']} is priced as a premium pitching option for {team_disp}.")
+        else:
+            parts.append(f"{a['player_name']} is one of the more expensive bats on this slate.")
+
+    if not parts:
+        return "DFS data was not available for this matchup."
+    return " ".join(parts[:2])
+
+
+def build_dfs_notes(away_abbr, home_abbr, away_team_name, home_team_name, dfs_team_index,
+                     away_lineup_source, home_lineup_source):
+    # dfs_team_index is keyed by normalize_team_abbr() (see build_dfs_team_index) —
+    # normalize here too so e.g. "AZ" (dope-sheet-data) matches "ARI" (dfs_board).
+    away_abbr = normalize_team_abbr(away_abbr)
+    home_abbr = normalize_team_abbr(home_abbr)
+    away_players = dfs_team_index.get(away_abbr, [])
+    home_players = dfs_team_index.get(home_abbr, [])
+    all_players = away_players + home_players
+    if not all_players:
+        return {"status": "unavailable", "summary": "DFS data was not available for this matchup."}
+
+    top_values, anchors = classify_dfs_players(all_players)
+    if not top_values and not anchors:
+        return {"status": "unavailable", "summary": "DFS data was not available for this matchup."}
+
+    def team_display(abbr):
+        return away_team_name if abbr == away_abbr else home_team_name
+
+    def is_confirmed(abbr):
+        source = away_lineup_source if abbr == away_abbr else home_lineup_source
+        return source == "confirmed_lineup"
+
+    def build_entry(p, note_fn):
+        team_disp = team_display(p["team"])
+        return {
+            "player_name": p["player_name"],
+            "team": p["team"],
+            "platform": p.get("platform"),
+            "salary": p.get("salary"),
+            "projection": p.get("projection"),
+            "value_score": p.get("value_score"),
+            "note": note_fn(p, team_disp, is_confirmed(p["team"])),
+        }
+
+    return {
+        "status": "available",
+        "top_values": [build_entry(p, _dfs_value_note) for p in top_values],
+        "anchors": [build_entry(p, _dfs_anchor_note) for p in anchors],
+        "summary": _dfs_summary(top_values, anchors, away_team_name, home_team_name, away_abbr, home_abbr),
+    }
 
 
 # ---------------------------------------------------------------------------
@@ -1384,6 +1543,8 @@ def main():
     hitter_cards = (load_json(HITTER_CARDS_PATH, fallback={}) or {}).get("players", {})
     player_index_list = load_json(PLAYER_INDEX_PATH, fallback=[])
     player_index_by_slug = {p["slug"]: p for p in player_index_list if isinstance(p, dict) and p.get("slug")}
+    dfs_board = load_json(DFS_BOARD_PATH, fallback=None)
+    dfs_team_index = build_dfs_team_index(dfs_board)
 
     pm_games_list = player_matchups.get("games") or []
     ptm_games_list = pitcher_matchups.get("games") or []
@@ -1495,6 +1656,12 @@ def main():
         dfs_watch = fantasy_dfs_watch(tilt_players, bp_read, env_read, away_lineup_source, home_lineup_source)
         props_watch = betting_props_watch(away_starter, home_starter, env_read, away_team_name, home_team_name)
 
+        # --- DFS notes (real salaries/projections from dfs_board.json) ---
+        dfs_notes = build_dfs_notes(
+            away_abbr, home_abbr, away_team_name, home_team_name, dfs_team_index,
+            away_lineup_source, home_lineup_source,
+        )
+
         # --- Data basis ---
         data_basis = []
         lineup_labels = {"confirmed_lineup": "Confirmed lineup", "projected_lineup": "Projected lineup", "roster_projection": "Roster projection", "roster_signals": "Roster signal pool"}
@@ -1571,6 +1738,7 @@ def main():
             "players_who_tilt_game": tilt_players,
             "fantasy_dfs_watch": dfs_watch,
             "betting_props_watch": props_watch,
+            "dfs_notes": dfs_notes,
             "data_basis": data_basis,
         }
 
