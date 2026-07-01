@@ -25,7 +25,6 @@ CHECKED_FILES = [
     "game_cards.json",
     "odds.json",
     "dfs_board.json",
-    "player_props.json",
     "dope-sheet-data.json",
     "dope_game_intelligence.json",
     "dope_player_matchups.json",
@@ -34,6 +33,14 @@ CHECKED_FILES = [
     "game_to_watch.json",
     "around_the_league.json",
     "press_box.json",
+]
+
+# Files intentionally paused/optional — reported as "paused" regardless of
+# on-disk state. Absence is expected and not a readiness failure.
+# player_props.json: BettingPros source unreliable via Firecrawl as of
+# 2026-06-30 VPS validation; props paused until a better source is found.
+PAUSED_FILES = [
+    "player_props.json",
 ]
 
 
@@ -72,6 +79,7 @@ def main():
         return
 
     files = {f: classify(f, edition_date) for f in CHECKED_FILES}
+    paused = {f: "paused" for f in PAUSED_FILES}
 
     report = {
         "edition_source": "Site Data/edition.json",
@@ -79,6 +87,7 @@ def main():
         "checked_at": datetime.now(timezone.utc).isoformat(),
         "mode": "report-only",
         "files": files,
+        "paused": list(PAUSED_FILES),
     }
 
     REPORT_PATH.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
@@ -86,6 +95,8 @@ def main():
     print(f"edition_source: Site Data/edition.json")
     print(f"edition_date: {edition_date}")
     for f, status in files.items():
+        print(f"{f}: {status}")
+    for f, status in paused.items():
         print(f"{f}: {status}")
     print(f"wrote: {REPORT_PATH}")
 
