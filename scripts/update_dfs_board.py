@@ -41,6 +41,8 @@ from dfs_props_lib import (
     save_audit,
     parse_markdown_table_rows,
     to_number,
+    clean_dff_player_name,
+    parse_salary,
 )
 
 OUTPUT_PATH = DATA_DIR / "dfs_board.json"
@@ -101,12 +103,12 @@ def parse_dff_markdown(markdown, platform):
             continue
 
         records.append({
-            "player_name": cells[DFF_COL_PLAYER_NAME].strip(),
+            "player_name": clean_dff_player_name(cells[DFF_COL_PLAYER_NAME]),
             "team": cells[DFF_COL_TEAM].strip() or None,
             "opponent": cells[DFF_COL_OPPONENT].strip() or None,
             "platform": platform,
             "position": position,
-            "salary": to_number(cells[DFF_COL_SALARY]),
+            "salary": parse_salary(cells[DFF_COL_SALARY]),
             "projection": to_number(cells[DFF_COL_PROJECTION]),
             "value_score": to_number(cells[DFF_COL_VALUE_SCORE]),
             "slate": None,

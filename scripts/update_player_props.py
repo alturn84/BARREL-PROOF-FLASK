@@ -27,11 +27,17 @@ Failure behavior:
   - Some market pages fail         -> props.json still written with the
                                        successful markets' records; failures
                                        logged to the audit file.
+  - Page Not Found or markdown < 500 chars -> mark source failed, try next URL.
   - Never crashes unrelated systems. Game Intelligence treats a missing
     player_props.json as optional (wired up in a later phase, not this one).
 
+Debug mode:
+    python3 scripts/update_player_props.py --debug-sources
+    Prints each configured URL, markdown length, and row count. No JSON written.
+
 Usage:
     python3 scripts/update_player_props.py
+    python3 scripts/update_player_props.py --debug-sources
 """
 
 import re
@@ -59,18 +65,106 @@ from dfs_props_lib import (
 
 OUTPUT_PATH = DATA_DIR / "player_props.json"
 
-# Confirmed via Hermes/VPS live test: /prop-bets/ returned near-empty
-# pages; the working BettingPros picks-page path is /player-props/.
-# hits / total_bases / outs_recorded / home_runs / rbis / pitcher_strikeouts
-# were all confirmed live (60 props across 6 markets).
+# VPS validation 2026-06-30: the old /mlb/player-props/{market}/ paths all
+# returned Page Not Found. Each market now has an ordered list of candidate
+# URLs; the scraper tries them in order and uses the first that returns
+# parseable content (>= 500 chars and no 404 indicator text).
+# Responses are cached within a run so the all-markets pages are only
+# fetched once even when listed under multiple markets.
 PROP_MARKET_PAGES = [
-    {"market": "hits", "url": "https://www.bettingpros.com/mlb/player-props/hits/"},
-    {"market": "total_bases", "url": "https://www.bettingpros.com/mlb/player-props/total-bases/"},
-    {"market": "outs_recorded", "url": "https://www.bettingpros.com/mlb/player-props/outs-recorded/"},
-    {"market": "home_runs", "url": "https://www.bettingpros.com/mlb/player-props/home-runs/"},
-    {"market": "rbis", "url": "https://www.bettingpros.com/mlb/player-props/rbis/"},
-    {"market": "pitcher_strikeouts", "url": "https://www.bettingpros.com/mlb/player-props/strikeouts/"},
+    {
+        "market": "pitcher_strikeouts",
+        "urls": [
+            "https://www.bettingpros.com/mlb/odds/player-props/strikeouts/",
+            "https://www.bettingpros.com/mlb/picks/prop-bets/bet/strikeouts/",
+            "https://www.bettingpros.com/mlb/picks/prop-bets/",
+        ],
+    },
+    {
+        "market": "total_bases",
+        "urls": [
+            "https://www.bettingpros.com/mlb/odds/player-props/total-bases/",
+            "https://www.bettingpros.com/mlb/picks/prop-bets/",
+        ],
+    },
+    {
+        "market": "home_runs",
+        "urls": [
+            "https://www.bettingpros.com/mlb/odds/player-props/homeruns/",
+            "https://www.bettingpros.com/mlb/picks/prop-bets/",
+        ],
+    },
+    {
+        "market": "hits",
+        "urls": [
+            "https://www.bettingpros.com/mlb/picks/prop-bets/",
+            "https://www.bettingpros.com/mlb/odds/player-props/",
+        ],
+    },
+    {
+        "market": "rbis",
+        "urls": [
+            "https://www.bettingpros.com/mlb/picks/prop-bets/",
+            "https://www.bettingpros.com/mlb/odds/player-props/",
+        ],
+    },
+    {
+        "market": "outs_recorded",
+        "urls": [
+            "https://www.bettingpros.com/mlb/odds/player-props/",
+            "https://www.bettingpros.com/mlb/picks/prop-bets/",
+        ],
+    },
 ]
+
+_NOT_FOUND_PHRASES = (
+    "page not found", "404 not found", "404 error",
+    "this page doesn't exist", "we couldn't find that page",
+    "nothing to see here",
+)
+
+
+def _is_page_not_found(markdown):
+    """True if markdown looks like a 404 page or is too short to be real content."""
+    if not markdown or len(markdown) < 500:
+        return True
+    lower = markdown.lower()
+    return any(phrase in lower for phrase in _NOT_FOUND_PHRASES)
+
+
+def _fetch_cached(api_key, url, cache):
+    """Fetch url via Firecrawl, caching the result so identical URLs within
+    one run are not re-fetched."""
+    if url not in cache:
+        cache[url] = firecrawl_scrape(api_key, url)
+    return cache[url]
+
+
+def _debug_sources(api_key):
+    """Print URL, markdown length, and row count for every configured URL.
+    Does not write any JSON."""
+    print("=== --debug-sources ===")
+    seen = {}
+    for src in PROP_MARKET_PAGES:
+        market = src["market"]
+        for url in src["urls"]:
+            if url in seen:
+                print(f"  [{market}] {url} — cached, skipping re-fetch")
+                continue
+            markdown, error = firecrawl_scrape(api_key, url)
+            seen[url] = True
+            if error:
+                print(f"  [{market}] {url}")
+                print(f"    status: ERROR — {error[:100]}")
+                continue
+            if _is_page_not_found(markdown):
+                print(f"  [{market}] {url}")
+                print(f"    status: NOT FOUND / too short (len={len(markdown or '')})")
+                continue
+            rows = parse_bettingpros_markdown(markdown, market)
+            print(f"  [{market}] {url}")
+            print(f"    status: OK  len={len(markdown)}  rows={len(rows)}")
+    print("=== end debug-sources ===")
 
 # Position codes BettingPros sometimes glues directly onto the end of a
 # player's abbreviated name with no separating space, e.g.
@@ -205,28 +299,46 @@ def main():
         print(f"  ✗ {e}")
         sys.exit(1)
 
-    audit = start_run(edition_date, "player_props")
-
     api_key = load_firecrawl_api_key()
     if not api_key:
+        audit = start_run(edition_date, "player_props")
         msg = "FIRECRAWL_API_KEY not set — cannot scrape BettingPros"
         print(f"  ✗ {msg}")
         audit["errors"].append(f"[player_props] {msg}")
         save_audit(audit)
         sys.exit(1)
 
+    if "--debug-sources" in sys.argv:
+        _debug_sources(api_key)
+        return
+
+    audit = start_run(edition_date, "player_props")
+
     all_rows = []
     failures = []
+    url_cache = {}
     for src in PROP_MARKET_PAGES:
-        print(f"  Fetching {src['market']} props via Firecrawl...")
-        markdown, error = firecrawl_scrape(api_key, src["url"])
-        if error:
-            print(f"  ✗ {src['market']} scrape failed: {error}")
-            failures.append(f"[player_props] {src['market']}: {error}")
-            continue
-        rows = parse_bettingpros_markdown(markdown, src["market"])
-        print(f"  ✓ {src['market']}: {len(rows)} prop rows parsed")
-        all_rows.extend(rows)
+        market = src["market"]
+        fetched = False
+        for url in src["urls"]:
+            markdown, error = _fetch_cached(api_key, url, url_cache)
+            if error:
+                note = f"scrape error: {error[:80]}"
+                print(f"    ✗ {market} @ {url}: {note}")
+                failures.append(f"[player_props] {market} @ {url}: {note}")
+                continue
+            if _is_page_not_found(markdown):
+                note = f"Page Not Found / too short (len={len(markdown or '')})"
+                print(f"    ✗ {market} @ {url}: {note}")
+                failures.append(f"[player_props] {market} @ {url}: {note}")
+                continue
+            rows = parse_bettingpros_markdown(markdown, market)
+            print(f"  ✓ {market}: {len(rows)} prop rows from {url}")
+            all_rows.extend(rows)
+            fetched = True
+            break  # success — don't try remaining URLs for this market
+        if not fetched:
+            print(f"  ✗ {market}: all URLs failed")
 
     if failures:
         audit["errors"].extend(failures)

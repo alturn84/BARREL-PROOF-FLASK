@@ -323,6 +323,56 @@ def to_number(raw):
             return None
 
 
+# ---------------------------------------------------------------------------
+# DFF player name and salary cleaners
+# ---------------------------------------------------------------------------
+
+_DFF_IMAGE_RE = re.compile(r'!\[.*?\]\(.*?\)', re.DOTALL)
+_DFF_HAND_RE = re.compile(r'\s*[•·]\s*\([LRS]\)\s*$')
+
+
+def clean_dff_player_name(raw):
+    """Strip DFF markdown image prefix and hand-indicator suffix from a raw
+    player cell value.
+
+    Input:  "![](https://dff-images.s3.amazonaws.com/logos/mlb/DET.svg)Tarik Skubal  • (L)"
+    Output: "Tarik Skubal"
+
+    Preserves Jr., II, III, IV, hyphens, and accented characters.
+    Never mutates projection/value cells — only call this on the player-name
+    column."""
+    s = _DFF_IMAGE_RE.sub('', raw or '')
+    s = _DFF_HAND_RE.sub('', s)
+    return ' '.join(s.split()).strip()
+
+
+def parse_salary(raw):
+    """Parse a DFF salary string into an integer dollar amount.
+
+    "$10.0k" → 10000   "$9.7k" → 9700   "$4,200" → 4200   "4200" → 4200
+
+    Returns None if unparseable. Never returns a float — the old bug where
+    to_number("$10.0k") produced 10.0 (stripping 'k' but not multiplying)
+    is avoided by handling the 'k' suffix explicitly here.
+    Only use this for the salary column; to_number() remains correct for
+    projection and value_score columns."""
+    if raw is None:
+        return None
+    s = str(raw).strip().replace(',', '').replace('$', '').lower()
+    if s.endswith('k'):
+        try:
+            return int(round(float(s[:-1]) * 1000))
+        except (ValueError, TypeError):
+            return None
+    try:
+        val = float(s)
+        if val < 500:  # no valid DFS salary is below $500
+            return None
+        return int(val)
+    except (ValueError, TypeError):
+        return None
+
+
 def parse_markdown_tables(markdown):
     """Parse every markdown pipe-table found in a page into a list of dict
     rows keyed by lower-cased header text."""
