@@ -1,21 +1,23 @@
 {
   "edition_source": "Site Data/edition.json",
   "edition_date": "2026-06-30",
-  "checked_at": "2026-06-30T10:17:43.007615+00:00",
+  "checked_at": "2026-07-01T03:11:40.077893+00:00",
   "mode": "report-only",
   "files": {
     "schedule.json": "current",
     "game_cards.json": "current",
     "odds.json": "current",
-    "dfs_board.json": "missing",
-    "player_props.json": "missing",
+    "dfs_board.json": "current",
     "dope-sheet-data.json": "current",
-    "dope_game_intelligence.json": "stale",
-    "dope_player_matchups.json": "stale",
-    "dope_pitcher_matchups.json": "stale",
+    "dope_game_intelligence.json": "current",
+    "dope_player_matchups.json": "current",
+    "dope_pitcher_matchups.json": "current",
     "game_of_day.json": "current",
     "game_to_watch.json": "current",
     "around_the_league.json": "current",
     "press_box.json": "current"
-  }
+  },
+  "paused": [
+    "player_props.json"
+  ]
 }
